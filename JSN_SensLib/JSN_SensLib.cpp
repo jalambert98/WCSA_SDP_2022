@@ -32,26 +32,59 @@ static uint8_t echoSet[3];                                    // 0 or 1
 //-------------------------------- CONSTRUCTOR ---------------------------------
 //==============================================================================
 
-JSN_SensLib::JSN_SensLib() {  
-  // Configure TRIG pins as MCU outputs
-  pinMode(TRIG1, OUTPUT);   // pin5
-  pinMode(TRIG2, OUTPUT);   // pin6
-  pinMode(TRIG3, OUTPUT);   // pin8
+JSN_SensLib::JSN_SensLib(uint8_t SYSTEM_USING) {
+  switch(SYSTEM_USING) {
+    case EXTERNAL_INTERRUPTS:
+      // Configure TRIG pins as MCU outputs
+      pinMode(TRIG1_PIN, OUTPUT);   // pin5
+      pinMode(TRIG2_PIN, OUTPUT);   // pin6
+      pinMode(TRIG3_PIN, OUTPUT);   // pin8
+    
+      // Initialize TRIG pins LOW
+      digitalWrite(TRIG1_PIN, LOW);
+      digitalWrite(TRIG2_PIN, LOW);
+      digitalWrite(TRIG3_PIN, LOW);
+    
+      // Configure ECHO pins as MCU inputs
+      pinMode(ECHO1_PIN, INPUT);    // pin2
+      pinMode(ECHO2_PIN, INPUT);    // pin3
+      pinMode(ECHO3_PIN, INPUT);    // pin7
+    
+      // Configure ECHO pins to run ISR each input pin value CHANGE
+      attachInterrupt(digitalPinToInterrupt(ECHO1_PIN), ISR_ECHO1, CHANGE);
+      attachInterrupt(digitalPinToInterrupt(ECHO2_PIN), ISR_ECHO2, CHANGE);
+      attachInterrupt(digitalPinToInterrupt(ECHO3_PIN), ISR_ECHO3, CHANGE);
+      break;
+      
+    case INPUT_CAPTURE:
+      // Configure directions for TRIG & ECHO pins
+      SET_PIN7_OUT();     // pin7 --> trig1
+      SET_PIN8_OUT();     // pin8 --> trig2
+      SET_PIN9_OUT();     // pin9 --> trig3
+      SET_PIN4_IN();      // pin4 --> ECHO (shared)
 
-  // Initialize TRIG pins LOW
-  digitalWrite(TRIG1, LOW);
-  digitalWrite(TRIG2, LOW);
-  digitalWrite(TRIG3, LOW);
+      /* Save current INT flag states */
+      unsigned char sreg = SREG;
+      /* Temporarily disable interrupts */
+      SREG &= ~(1 << SREG_I);
 
-  // Configure ECHO pins as MCU inputs
-  pinMode(ECHO1, INPUT);    // pin2
-  pinMode(ECHO2, INPUT);    // pin3
-  pinMode(ECHO3, INPUT);    // pin7
+      // Configure Timer 1
+      TCCR1A = 0;
 
-  // Configure ECHO pins to run ISR each input pin value CHANGE
-  attachInterrupt(digitalPinToInterrupt(ECHO1), ISR_ECHO1, CHANGE);
-  attachInterrupt(digitalPinToInterrupt(ECHO2), ISR_ECHO2, CHANGE);
-  attachInterrupt(digitalPinToInterrupt(ECHO3), ISR_ECHO3, CHANGE);
+      // Configure Input Capture 1
+      ICR1 = 0;
+    
+
+      
+      /* Restore global interrupt flag */
+      SREG = sreg;
+      break;
+
+    default:
+      // ERROR
+      break;
+  }
+  
 
   // Initialize static vars
   uint8_t i = 0;
@@ -69,12 +102,6 @@ JSN_SensLib::JSN_SensLib() {
 //----------------------------- FUNCTION LIBRARY -------------------------------
 //==============================================================================
 
-void JSN_Init() {
-  // Possibly unnecessary
-}
-
-//------------------------------------------------------------------------------
-
 unsigned int JSN_GetDistance(uint8_t sens) {
   return distance[sens-1];
 }
@@ -86,13 +113,13 @@ void JSN_Trig(uint8_t sens) {
   uint8_t trig = 0;
   switch(sens) {
     case 1:
-      trig = TRIG1;
+      trig = TRIG1_PIN;
       break;
     case 2:
-      trig = TRIG2;
+      trig = TRIG2_PIN;
       break;
     case 3:
-      trig = TRIG3;
+      trig = TRIG3_PIN;
       break;
   }
 
@@ -107,6 +134,25 @@ unsigned int JSN_TOF_mm(unsigned long tofMicro) {
   return (tofMicro*US_WAVE_SPEED)/(MICROS_PER_MILLI<<1);
 }
 
+//------------------------------------------------------------------------------
+
+unsigned int JSN_ReadTMR1() {
+  unsigned char sreg;
+  unsigned int tmr1;
+
+  /* Save current INT flag states */
+  sreg = SREG;
+  /* Temporarily disable interrupts */
+  SREG &= ~(1 << SREG_I);
+
+  /* Store TCNT1 (TMR1 register) value in tmr1 */
+  tmr1 = TCNT1;
+  /* Restore global interrupt flag */
+  SREG = sreg;
+
+  return tmr1;
+}
+
 
 //==============================================================================
 //------------------------ INTERRUPT SERVICE ROUTINES --------------------------
@@ -114,7 +160,7 @@ unsigned int JSN_TOF_mm(unsigned long tofMicro) {
 
 static void ISR_ECHO1() {
   // If ECHO1 pin is currently HIGH, but was previously LOW...
-  if (digitalRead(ECHO1) == HIGH) {
+  if (digitalRead(ECHO1_PIN) == HIGH) {
     if (echoSet[0] == 0) {
       //...indicate that it was set high & store current micros()
       echoSet[0] = 1;
@@ -122,7 +168,7 @@ static void ISR_ECHO1() {
     }
   }
   // If ECHO1 pin is currently LOW, but was previously HIGH...
-  else if (digitalRead(ECHO1) == LOW) {
+  else if (digitalRead(ECHO1_PIN) == LOW) {
     if (echoSet[0] == 1) {
       //...indicate that it was set low & store current micros()
       echoSet[0] = 0;
@@ -139,7 +185,7 @@ static void ISR_ECHO1() {
 
 static void ISR_ECHO2() {
   // If ECHO2 pin is currently HIGH, but was previously LOW...
-  if (digitalRead(ECHO2) == HIGH) {
+  if (digitalRead(ECHO2_PIN) == HIGH) {
     if (echoSet[1] == 0) {
       //...indicate that it was set high & store current micros()
       echoSet[1] = 1;
@@ -147,7 +193,7 @@ static void ISR_ECHO2() {
     }
   }
   // If ECHO2 pin is currently LOW, but was previously HIGH...
-  else if (digitalRead(ECHO2) == LOW) {
+  else if (digitalRead(ECHO2_PIN) == LOW) {
     if (echoSet[1] == 1) {
       //...indicate that it was set low & store current micros()
       echoSet[1] = 0;
@@ -164,7 +210,7 @@ static void ISR_ECHO2() {
 
 static void ISR_ECHO3() {
   // If ECHO3 pin is currently HIGH, but was previously LOW...
-  if (digitalRead(ECHO3) == HIGH) {
+  if (digitalRead(ECHO3_PIN) == HIGH) {
     if (echoSet[2] == 0) {
       //...indicate that it was set high & store current micros()
       echoSet[2] = 1;
@@ -172,7 +218,7 @@ static void ISR_ECHO3() {
     }
   }
   // If ECHO3 pin is currently LOW, but was previously HIGH...
-  else if (digitalRead(ECHO3) == LOW) {
+  else if (digitalRead(ECHO3_PIN) == LOW) {
     if (echoSet[2] == 1) {
       //...indicate that it was set low & store current micros()
       echoSet[2] = 0;
