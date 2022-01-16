@@ -4,8 +4,8 @@
  * Project:         White Cane Sensor Attachment
  * Course:          UCSC ECE129 - SDP '21
  *
- * Created:         January 12, 2022, 1:35 PM
- * Last Modified:   January 15, 2022, 8:55 PM
+ * Created:         January 12, 2022, 01:35 PM
+ * Last Modified:   January 16, 2022, 12:40 AM
  */
 
  #include "Arduino.h"
@@ -16,6 +16,7 @@
 //==============================================================================
 
 #define US_WAVE_SPEED       340     // speed of ultrasonic wave = 340[m/s]
+#define TRIG_PULSE_WIDTH    11      // 11us > 10us minimum pulse width
 #define MICROS_PER_MILLI    1000
 
 
@@ -25,7 +26,6 @@
       
 static volatile unsigned long timeUp[3], timeDown[3], echoHighTime[3]; // in microseconds
 static volatile unsigned int distance[3];                              // in millimeters
-static volatile uint8_t echoSet[3];                                    // 0 or 1
 static uint8_t sel_sys;
 
 
@@ -108,7 +108,6 @@ JSN_SensLib::JSN_SensLib(uint8_t SYSTEM_USING) {
   // Initialize static vars
   uint8_t i = 0;
   for(i=0; i<3; i++) {
-    echoSet[i] = 0;
     echoHighTime[i] = 0;
     timeUp[i] = 0;
     timeDown[i] = 0;
@@ -140,17 +139,17 @@ void JSN_SensLib::Trig(uint8_t sens) {
       switch(sens) {
         case 1:
           WRITE_PIN5_HIGH();
-          delayMicroseconds(11);
+          delayMicroseconds(TRIG_PULSE_WIDTH);
           WRITE_PIN5_LOW();
           break;
         case 2:
           WRITE_PIN6_HIGH();
-          delayMicroseconds(11);
+          delayMicroseconds(TRIG_PULSE_WIDTH);
           WRITE_PIN6_LOW();
           break;
         case 3:
           WRITE_PIN8_HIGH();
-          delayMicroseconds(11);
+          delayMicroseconds(TRIG_PULSE_WIDTH);
           WRITE_PIN8_LOW();
           break;
       }
@@ -160,17 +159,17 @@ void JSN_SensLib::Trig(uint8_t sens) {
       switch(sens) {
         case 1:
           WRITE_PIN7_HIGH();
-          delayMicroseconds(11);
+          delayMicroseconds(TRIG_PULSE_WIDTH);
           WRITE_PIN7_LOW();
           break;
         case 2:
           WRITE_PIN8_HIGH();
-          delayMicroseconds(11);
+          delayMicroseconds(TRIG_PULSE_WIDTH);
           WRITE_PIN8_LOW();
           break;
         case 3:
           WRITE_PIN9_HIGH();
-          delayMicroseconds(11);
+          delayMicroseconds(TRIG_PULSE_WIDTH);
           WRITE_PIN9_LOW();
           break;
       }
@@ -246,22 +245,14 @@ ISR(INT1_vect) {
 /*ISR(INT0_vect) {
   // If ECHO2 pin is currently HIGH, but was previously LOW...
   if (READ_PIN3() == HIGH) {
-    if (echoSet[1] == 0) {
-      //...indicate that it was set high & store current micros()
-      echoSet[1] = 1;
       timeUp[1] = micros();
-    }
   }
   // If ECHO2 pin is currently LOW, but was previously HIGH...
   else if (READ_PIN3() == LOW) {
-    if (echoSet[1] == 1) {
-      //...indicate that it was set low & store current micros()
-      echoSet[1] = 0;
       timeDown[1] = micros();
 
       // Then calculate ToF & convert to mm distance
       echoHighTime[1] = timeDown[1] - timeUp[1];
-    }
   }
 }
 
@@ -270,22 +261,15 @@ ISR(INT1_vect) {
 ISR(INT6_vect) {
   // If ECHO3 pin is currently HIGH, but was previously LOW...
   if (READ_PIN7() == HIGH) {
-    if (echoSet[2] == 0) {
-      //...indicate that it was set high & store current micros()
-      echoSet[2] = 1;
       timeUp[2] = micros();
-    }
+    
   }
   // If ECHO3 pin is currently LOW, but was previously HIGH...
   else if (READ_PIN7() == LOW) {
-    if (echoSet[2] == 1) {
-      //...indicate that it was set low & store current micros()
-      echoSet[2] = 0;
       timeDown[2] = micros();
 
       // Then calculate ToF & convert to mm distance
       echoHighTime[2] = timeDown[2] - timeUp[2];
-    }
   }
 }*/
 
