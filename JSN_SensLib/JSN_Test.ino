@@ -16,19 +16,24 @@
 unsigned int distance[3];
 unsigned long currMicro;
 unsigned long prevMicro;
+uint8_t i;
   
 void setup() {
   SET_LED_OUT();
   LED_OFF();
-  JSN_SensLib(INPUT_CAPTURE);
+  JSN_SensLib(EXTERNAL_INTERRUPTS);
   Serial.begin(BAUDRATE);  
 }
 
 void loop() {
-  JSN_SensLib::Trig(1);
-  delay(250);
-  Serial.print("Distance = ");
-  Serial.print(JSN_SensLib::GetDistance(1));
-  Serial.print("\n");
-  delay(250);
+  for(i=1; i<=3; i++) {
+    JSN_SensLib::Trig(i);
+    delay(250);
+    Serial.print("Distance");
+    Serial.print(i);
+    Serial.print(" = ");
+    Serial.print(JSN_SensLib::GetDistance(i));
+    Serial.print("\n");
+    delay(250);
+  }
 }

@@ -5,7 +5,7 @@
  * Course:          UCSC ECE129 - SDP '21
  *
  * Created:         January 12, 2022, 01:35 PM
- * Last Modified:   January 16, 2022, 12:40 AM
+ * Last Modified:   January 16, 2022, 10:56 AM
  */
 
  #include "Arduino.h"
@@ -226,15 +226,13 @@ ISR(TIMER1_CAPT_vect) {
 //------------------------------------------------------------------------------
 
 ISR(INT1_vect) {
-  // If ECHO1 pin is currently HIGH, but was previously LOW...
   switch(READ_PIN2()) {
-    case 1:
+    case 1: // if ECHO1 is high this ISR, store timeUp
       timeUp[0] = micros();
       break;
-    case 0:
+    case 0: // if ECHO1 is low this ISR, store timeDown & calculate ToF
       timeDown[0] = micros();
       echoHighTime[0] = timeDown[0] - timeUp[0];
-      Serial.print(echoHighTime[0]);
       break;
   }
   EIFR |= (0x01 << INTF1); // clear interrupt flag
@@ -242,36 +240,33 @@ ISR(INT1_vect) {
 
 //------------------------------------------------------------------------------
 
-/*ISR(INT0_vect) {
-  // If ECHO2 pin is currently HIGH, but was previously LOW...
-  if (READ_PIN3() == HIGH) {
+ISR(INT0_vect) {
+  switch(READ_PIN3()) {
+    case 1: // if ECHO2 is high this ISR, store timeUp
       timeUp[1] = micros();
-  }
-  // If ECHO2 pin is currently LOW, but was previously HIGH...
-  else if (READ_PIN3() == LOW) {
+      break;
+    case 0: // if ECHO2 is low this ISR, store timeDown & calculate ToF
       timeDown[1] = micros();
-
-      // Then calculate ToF & convert to mm distance
       echoHighTime[1] = timeDown[1] - timeUp[1];
+      break;
   }
+  EIFR |= (0x01 << INTF0); // clear interrupt flag
 }
 
 //------------------------------------------------------------------------------
 
 ISR(INT6_vect) {
-  // If ECHO3 pin is currently HIGH, but was previously LOW...
-  if (READ_PIN7() == HIGH) {
+  switch(READ_PIN7()) {
+    case 1: // if ECHO3 is high this ISR, store timeUp
       timeUp[2] = micros();
-    
-  }
-  // If ECHO3 pin is currently LOW, but was previously HIGH...
-  else if (READ_PIN7() == LOW) {
+      break;
+    case 0: // if ECHO3 is low this ISR, store timeDown & calculate ToF
       timeDown[2] = micros();
-
-      // Then calculate ToF & convert to mm distance
       echoHighTime[2] = timeDown[2] - timeUp[2];
+      break;
   }
-}*/
+  EIFR |= (0x01 << INTF6); // clear interrupt flag
+}
 
 
 //==============================================================================
