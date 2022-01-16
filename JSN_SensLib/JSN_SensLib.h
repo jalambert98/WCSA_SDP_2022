@@ -16,31 +16,54 @@
 //==============================================================================
 //---------------------------------#DEFINES-------------------------------------
 //==============================================================================
+// Used for specifying to CONSTRUCTOR which hardware system to implement
+#define EXTERNAL_INTERRUPTS   0x00
+#define INPUT_CAPTURE         0x01
 
-// Used for specifying to constructor which system to implement
-#define EXTERNAL_INTERRUPTS   (uint8_t)0
-#define INPUT_CAPTURE         (uint8_t)1
+// Manual pin manipulation via bitwise operations on CPU registers
+//-------------- POTENTIAL TRIG PINS --------------//
+#define SET_PIN5_OUT()        (DDRC |= (0x01 << DDC6))
+#define WRITE_PIN5_HIGH()     (PORTC |= (0x01 << PORTC6))
+#define WRITE_PIN5_LOW()      (PORTC &= ~(0x01 << PORTC6))
 
-// Used for referencing pins according to their function (rather than #)
-#define TRIG1_PIN             (uint8_t)5
-#define TRIG2_PIN             (uint8_t)6
-#define TRIG3_PIN             (uint8_t)8
-#define ECHO1_PIN             (uint8_t)2
-#define ECHO2_PIN             (uint8_t)3
-#define ECHO3_PIN             (uint8_t)7
+#define SET_PIN6_OUT()        (DDRD |= (0x01 << DDD7))
+#define WRITE_PIN6_HIGH()     (PORTD |= (0x01 << PORTD7))
+#define WRITE_PIN6_LOW()      (PORTD &= ~(0x01 << PORTD7))
 
-// Used for INPUT_CAPTURE mode config setup
-#define SET_PIN7_OUT()        (DDRE |= (1 << 6))
-#define SET_PIN8_OUT()        (DDRB |= (1 << 4))
-#define SET_PIN9_OUT()        (DDRB |= (1 << 5))
-#define SET_PIN4_IN()         (DDRD &= ~(1 << 4))
+#define SET_PIN7_OUT()        (DDRE |= (0x01 << DDE6))
+#define WRITE_PIN7_HIGH()     (PORTE |= (0x01 << PORTE6))
+#define WRITE_PIN7_LOW()      (PORTE &= ~(0x01 << PORTE6))
+
+#define SET_PIN8_OUT()        (DDRB |= (0x01 << DDB4))
+#define WRITE_PIN8_HIGH()     (PORTB |= (0x01 << PORTB4))
+#define WRITE_PIN8_LOW()      (PORTB &= ~(0x01 << PORTB4))
+
+#define SET_PIN9_OUT()        (DDRB |= (0x01 << DDB5))
+#define WRITE_PIN9_HIGH()     (PORTB |= (0x01 << PORTB5))
+#define WRITE_PIN9_LOW()      (PORTB &= ~(0x01 << PORTB5))
+
+//-------------- POTENTIAL ECHO PINS --------------//
+#define SET_PIN2_IN()         (DDRD &= ~(0x01 << DDD1))
+#define READ_PIN2()           (PIND1)
+
+#define SET_PIN3_IN()         (DDRD &= ~(0x01 << DDD0))
+#define READ_PIN3()           (PIND0)
+
+#define SET_PIN4_IN()         (DDRD &= ~(0x01 << DDD4))
+#define READ_PIN4()           (PIND4)
+
+#define SET_PIN7_IN()         (DDRE &= ~(0x01 << DDE6))
+#define READ_PIN7()           (PINE6)
+
+//---------- GLOBAL INTERRUPT DISABLE/ENABLE ----------//
+#define INTERRUPT_DISABLE()   (SREG &= ~(0x01 << SREG_I))
+#define INTERRUPT_ENABLE()    (SREG |= (0x01 << SREG_I))
 
 class JSN_SensLib
 {
 //==============================================================================
 //------------------------------ PUBLIC LIBRARY --------------------------------
 //==============================================================================
-
   public:
     /**
      * @constr   JSN_SensLib()
@@ -79,14 +102,9 @@ class JSN_SensLib
      * 
      * @author   Jack Lambert, 2022.01.13
      **/
-     unsigned int JSN_GetDistance(uint8_t sens);
+    unsigned int JSN_GetDistance(uint8_t sens);
 
-
-//==============================================================================
-//------------------------------ PRIVATE LIBRARY -------------------------------
-//==============================================================================
-
-  private:
+    //------------------------------------------------------------------------------
     /**
      * @funct    JSN_Trig(uint8_t sens)
      * 
@@ -100,8 +118,12 @@ class JSN_SensLib
      * @author   Jack Lambert, 2022.01.13
      **/
     void JSN_Trig(uint8_t sens);
+     
 
-    //------------------------------------------------------------------------------
+  //==============================================================================
+  //------------------------------ PRIVATE LIBRARY -------------------------------
+  //==============================================================================
+  private:
     /**
      * @funct    JSN_TOF_mm(tofMicro)
      * 
@@ -115,7 +137,7 @@ class JSN_SensLib
      * 
      * @author   Jack Lambert, 2022.01.13
      **/
-    unsigned int JSN_TOF_mm(unsigned long tofMicro);
+    static unsigned int JSN_TOF_mm(unsigned long tofMicro);
 
     //------------------------------------------------------------------------------
     /**
@@ -131,11 +153,11 @@ class JSN_SensLib
      * 
      * @author   Jack Lambert, [DATE]
      **/
-    unsigned int JSN_ReadTMR1();
+    static unsigned int JSN_ReadTMR1();
 
     //------------------------------------------------------------------------------
     /**
-     * @funct    ISR_ECHO[1,2,3]()
+     * @funct    ISR(INTx_vect)
      * 
      * @param    None
      * 
@@ -144,13 +166,13 @@ class JSN_SensLib
      * @brief    These ISRs should auto-run anytime the corresponding ECHO[1,2,3] 
      *           pin changes state. During each ISR call, the current micros() 
      *           value is stored. When the ECHO1 pin falls LOW, the time duration 
-     *           is calculated and stored as the time-of-flight (in TMR ticks).
+     *           is calculated and stored as the time-of-flight (in microseconds).
      * 
      * @author   Jack Lambert, [DATE]
      **/
-    static void ISR_ECHO1();
-    static void ISR_ECHO2();
-    static void ISR_ECHO3();
+   /* ISR(INT1_vect);
+      ISR(INT0_vect);
+      ISR(INT6_vect); */
 };
 
 #endif
