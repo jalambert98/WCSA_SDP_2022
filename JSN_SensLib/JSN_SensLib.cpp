@@ -5,7 +5,7 @@
  * Course:          UCSC ECE129 - SDP '21
  *
  * Created:         January 12, 2022, 1:35 PM
- * Last Modified:   January 12, 2022, 7:30 PM
+ * Last Modified:   January 15, 2022, 8:55 PM
  */
 
  #include "Arduino.h"
@@ -23,9 +23,10 @@
 //---------------------------- STATICS VARIABLES -------------------------------
 //==============================================================================
       
-static unsigned long timeUp[3], timeDown[3], echoHighTime[3]; // in microseconds
-static unsigned int distance[3];                              // in millimeters
-static uint8_t echoSet[3];                                    // 0 or 1
+static volatile unsigned long timeUp[3], timeDown[3], echoHighTime[3]; // in microseconds
+static volatile unsigned int distance[3];                              // in millimeters
+static volatile uint8_t echoSet[3];                                    // 0 or 1
+static uint8_t sel_sys;
 
 
 //==============================================================================
@@ -33,12 +34,12 @@ static uint8_t echoSet[3];                                    // 0 or 1
 //==============================================================================
 
 JSN_SensLib::JSN_SensLib(uint8_t SYSTEM_USING) {
-  
+  sel_sys = SYSTEM_USING;
   /* Save current INT flag states */
   unsigned char sreg = SREG;
   /* Temporarily disable interrupts */
   INTERRUPT_DISABLE();
-  
+
   switch(SYSTEM_USING) {
     case EXTERNAL_INTERRUPTS:
       // Configure TRIG pins as MCU outputs
@@ -77,14 +78,24 @@ JSN_SensLib::JSN_SensLib(uint8_t SYSTEM_USING) {
       SET_PIN7_OUT();     // pin7 --> trig1
       SET_PIN8_OUT();     // pin8 --> trig2
       SET_PIN9_OUT();     // pin9 --> trig3
+
+      WRITE_PIN7_LOW();
+      WRITE_PIN8_LOW();
+      WRITE_PIN9_LOW();
+
       SET_PIN4_IN();      // pin4 --> ECHO (shared)
       
       // Configure TMR1 & Input Capture 1
-      ICR1 = 0;                         // clear IC1 reg
-      TIMSK1 = 0x00 | (1 << ICIE1);     // enable IC1 interrupts
       TCCR1A = 0x00;                    // clear TMR1 control reg A
-      TCCR1B = 0x00 | (1 << ICES1);     // initialize IC1 interrupts on rising edges
-    
+      TCCR1B = 0x00;                    // clear TMR1 control reg B
+      TIMSK1 = 0x00;                    // clear TMR1 interrupt mask reg
+      TIFR1 = 0x00;                     // clear existing TMR1 interrupt flags
+      ICR1 = 0x0000;                    // clear IC1 reg
+
+      TCCR1B |= (1 << CS01);            // Use 1:8 prescalar (TMR1 ticks @2MHz)
+      TCCR1B |= (1 << ICES1);           // initialize IC1 interrupts on rising edges
+      TIMSK1 |= (1 << ICIE1);           // enable IC1 interrupts
+
       break;
 
     default:
@@ -92,6 +103,8 @@ JSN_SensLib::JSN_SensLib(uint8_t SYSTEM_USING) {
       break;
   }
   
+  MCUCR |= (0x01 << PUD);   // disable pullup resistors
+
   // Initialize static vars
   uint8_t i = 0;
   for(i=0; i<3; i++) {
@@ -113,43 +126,67 @@ JSN_SensLib::JSN_SensLib(uint8_t SYSTEM_USING) {
 //----------------------------- FUNCTION LIBRARY -------------------------------
 //==============================================================================
 
-unsigned int JSN_GetDistance(uint8_t sens) {
+unsigned int JSN_SensLib::GetDistance(uint8_t sens) {
+  distance[sens-1] = JSN_SensLib::TOF_mm(echoHighTime[sens-1]);
   return distance[sens-1];
 }
 
 //------------------------------------------------------------------------------
 
-void JSN_Trig(uint8_t sens) {
+void JSN_SensLib::Trig(uint8_t sens) {
   // Raise specified TRIG pin HIGH for 10us, then reset LOW
-  uint8_t trig = 0;
-  switch(sens) {
-    case 1:
-      WRITE_PIN5_HIGH();
-      delayMicroseconds(10);
-      WRITE_PIN5_LOW();
-      return;
-    case 2:
-      WRITE_PIN6_HIGH();
-      delayMicroseconds(10);
-      WRITE_PIN6_LOW();
-      return;
-    case 3:
-      WRITE_PIN8_HIGH();
-      delayMicroseconds(10);
-      WRITE_PIN8_LOW();
-      return;
+  switch(sel_sys) {
+    case EXTERNAL_INTERRUPTS:
+      switch(sens) {
+        case 1:
+          WRITE_PIN5_HIGH();
+          delayMicroseconds(11);
+          WRITE_PIN5_LOW();
+          break;
+        case 2:
+          WRITE_PIN6_HIGH();
+          delayMicroseconds(11);
+          WRITE_PIN6_LOW();
+          break;
+        case 3:
+          WRITE_PIN8_HIGH();
+          delayMicroseconds(11);
+          WRITE_PIN8_LOW();
+          break;
+      }
+      break;
+
+    case INPUT_CAPTURE:
+      switch(sens) {
+        case 1:
+          WRITE_PIN7_HIGH();
+          delayMicroseconds(11);
+          WRITE_PIN7_LOW();
+          break;
+        case 2:
+          WRITE_PIN8_HIGH();
+          delayMicroseconds(11);
+          WRITE_PIN8_LOW();
+          break;
+        case 3:
+          WRITE_PIN9_HIGH();
+          delayMicroseconds(11);
+          WRITE_PIN9_LOW();
+          break;
+      }
+    break;
   }
 }
 
 //------------------------------------------------------------------------------
 
-static unsigned int JSN_TOF_mm(unsigned long tofMicro) {
+unsigned int JSN_SensLib::TOF_mm(unsigned long tofMicro) {
   return (tofMicro*US_WAVE_SPEED)/(MICROS_PER_MILLI<<1);
 }
 
 //------------------------------------------------------------------------------
 
-static unsigned int JSN_ReadTMR1() {
+unsigned int JSN_SensLib::ReadTMR1() {
   unsigned char sreg;
   unsigned int tmr1;
 
@@ -172,32 +209,41 @@ static unsigned int JSN_ReadTMR1() {
 //------------------------ INTERRUPT SERVICE ROUTINES --------------------------
 //==============================================================================
 
-ISR(INT1_vect) {
-  // If ECHO1 pin is currently HIGH, but was previously LOW...
-  if (READ_PIN2() == HIGH) {
-    if (echoSet[0] == 0) {
-      //...indicate that it was set high & store current micros()
-      echoSet[0] = 1;
-      timeUp[0] = micros();
-    }
-  }
-  // If ECHO1 pin is currently LOW, but was previously HIGH...
-  else if (READ_PIN2() == LOW) {
-    if (echoSet[0] == 1) {
-      //...indicate that it was set low & store current micros()
-      echoSet[0] = 0;
-      timeDown[0] = micros();
-
-      // Then calculate ToF & convert to mm distance
+ISR(TIMER1_CAPT_vect) {
+  switch(READ_PIN4()) {
+    case 1:
+      timeUp[0] = ICR1;
+      TCCR1B &= ~(1 << ICES1);  // next interrupt on falling edge
+      break;
+    case 0:
+      timeDown[0] = ICR1;
       echoHighTime[0] = timeDown[0] - timeUp[0];
-      distance[0] = JSN_TOF_mm(echoHighTime[0]);
+      TCCR1B |= (1 << ICES1);   // next interrupt on rising edge
+      break;
     }
-  }
+
 }
 
 //------------------------------------------------------------------------------
 
-ISR(INT0_vect) {
+ISR(INT1_vect) {
+  // If ECHO1 pin is currently HIGH, but was previously LOW...
+  switch(READ_PIN2()) {
+    case 1:
+      timeUp[0] = micros();
+      break;
+    case 0:
+      timeDown[0] = micros();
+      echoHighTime[0] = timeDown[0] - timeUp[0];
+      Serial.print(echoHighTime[0]);
+      break;
+  }
+  EIFR |= (0x01 << INTF1); // clear interrupt flag
+}
+
+//------------------------------------------------------------------------------
+
+/*ISR(INT0_vect) {
   // If ECHO2 pin is currently HIGH, but was previously LOW...
   if (READ_PIN3() == HIGH) {
     if (echoSet[1] == 0) {
@@ -215,7 +261,6 @@ ISR(INT0_vect) {
 
       // Then calculate ToF & convert to mm distance
       echoHighTime[1] = timeDown[1] - timeUp[1];
-      distance[1] = JSN_TOF_mm(echoHighTime[1]);
     }
   }
 }
@@ -240,10 +285,9 @@ ISR(INT6_vect) {
 
       // Then calculate ToF & convert to mm distance
       echoHighTime[2] = timeDown[2] - timeUp[2];
-      distance[2] = JSN_TOF_mm(echoHighTime[2]);
     }
   }
-}
+}*/
 
 
 //==============================================================================

@@ -20,6 +20,8 @@
 #define EXTERNAL_INTERRUPTS   0x00
 #define INPUT_CAPTURE         0x01
 
+#define CLOCK_FREQ            16000000
+
 // Manual pin manipulation via bitwise operations on CPU registers
 //-------------- POTENTIAL TRIG PINS --------------//
 #define SET_PIN5_OUT()        (DDRC |= (0x01 << DDC6))
@@ -44,16 +46,21 @@
 
 //-------------- POTENTIAL ECHO PINS --------------//
 #define SET_PIN2_IN()         (DDRD &= ~(0x01 << DDD1))
-#define READ_PIN2()           (PIND1)
+#define READ_PIN2()           (0x01 & (PIND >> PIND1))
 
 #define SET_PIN3_IN()         (DDRD &= ~(0x01 << DDD0))
-#define READ_PIN3()           (PIND0)
+#define READ_PIN3()           (0x01 & (PIND >> PIND0))
 
 #define SET_PIN4_IN()         (DDRD &= ~(0x01 << DDD4))
-#define READ_PIN4()           (PIND4)
+#define READ_PIN4()           (0x01 & (PIND >> PIND4))
 
 #define SET_PIN7_IN()         (DDRE &= ~(0x01 << DDE6))
-#define READ_PIN7()           (PINE6)
+#define READ_PIN7()           (0x01 & (PINE >> PINE6))
+
+// for debugging
+#define SET_LED_OUT()         (DDRC |= (0x01 << DDC7))
+#define LED_ON()              (PORTC |= (0x01 << PORTC7))
+#define LED_OFF()             (PORTC &= ~(0x01 << PORTC7))
 
 //---------- GLOBAL INTERRUPT DISABLE/ENABLE ----------//
 #define INTERRUPT_DISABLE()   (SREG &= ~(0x01 << SREG_I))
@@ -90,7 +97,7 @@ class JSN_SensLib
 
     //------------------------------------------------------------------------------
     /**
-     * @funct    JSN_GetDistance(uint8_t sens)
+     * @funct    GetDistance(uint8_t sens)
      * 
      * @param    uint8_t sens       :  value of [1,2,3] corresponding to each JSN
      * 
@@ -102,11 +109,11 @@ class JSN_SensLib
      * 
      * @author   Jack Lambert, 2022.01.13
      **/
-    unsigned int JSN_GetDistance(uint8_t sens);
+    static unsigned int GetDistance(uint8_t sens);
 
     //------------------------------------------------------------------------------
     /**
-     * @funct    JSN_Trig(uint8_t sens)
+     * @funct    Trig(uint8_t sens)
      * 
      * @param    uint8_t sens  :  value of [1,2,3] for corresponding sensor
      * 
@@ -117,15 +124,11 @@ class JSN_SensLib
      * 
      * @author   Jack Lambert, 2022.01.13
      **/
-    void JSN_Trig(uint8_t sens);
-     
+    static void Trig(uint8_t sens);
 
-  //==============================================================================
-  //------------------------------ PRIVATE LIBRARY -------------------------------
-  //==============================================================================
-  private:
+    //------------------------------------------------------------------------------
     /**
-     * @funct    JSN_TOF_mm(tofMicro)
+     * @funct    TOF_mm(tofMicro)
      * 
      * @param    unsigned long tofMicro : Time of flight of ultrasonic wave, 
      *                                    represented in microseconds
@@ -137,23 +140,21 @@ class JSN_SensLib
      * 
      * @author   Jack Lambert, 2022.01.13
      **/
-    static unsigned int JSN_TOF_mm(unsigned long tofMicro);
+    static unsigned int TOF_mm(unsigned long tofMicro);
 
     //------------------------------------------------------------------------------
     /**
-     * @funct    JSN_TOF_mm(tofMicro)
+     * @funct    ReadTMR1()
      * 
-     * @param    unsigned long tofMicro : Time of flight of ultrasonic wave, 
-     *                                    represented in microseconds
+     * @param    None
      * 
-     * @return   int mm   :  Distance [mm] between sensor & nearest object in FoV
+     * @return   unsigned int : TMR1 (ticks)
      * 
-     * @brief    Used as a helper function to convert the time of flight (in 
-     *           microseconds) to a physical distance measurement (in mm).
+     * @brief    
      * 
      * @author   Jack Lambert, [DATE]
      **/
-    static unsigned int JSN_ReadTMR1();
+    static unsigned int ReadTMR1();
 
     //------------------------------------------------------------------------------
     /**
@@ -170,9 +171,10 @@ class JSN_SensLib
      * 
      * @author   Jack Lambert, [DATE]
      **/
-   /* ISR(INT1_vect);
+    /*ISR(INT1_vect);
       ISR(INT0_vect);
-      ISR(INT6_vect); */
+      ISR(INT6_vect);*/    
+    //------------------------------------------------------------------------------
 };
 
 #endif
