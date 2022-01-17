@@ -292,6 +292,7 @@ ISR(INT1_vect) {
       // If pin[2] is HIGH...
       ticksUp = JSN_Sensor::ReadTMR1();   // store TMR1 ticks at rising edge
       break;
+
     case LOW: 
       // If pin[2] is LOW...
       ticksDown = JSN_Sensor::ReadTMR1(); // store TMR1 ticks at falling edge
@@ -314,6 +315,7 @@ ISR(INT0_vect) {
       // If pin[3] is HIGH...
       ticksUp = JSN_Sensor::ReadTMR1();   // store TMR1 ticks at rising edge
       break;
+
     case LOW: 
       // If pin[3] is LOW...
       ticksDown = JSN_Sensor::ReadTMR1(); // store TMR1 ticks at falling edge
@@ -336,6 +338,7 @@ ISR(INT6_vect) {
       // If pin[7] is HIGH...
       ticksUp = JSN_Sensor::ReadTMR1();   // store TMR1 ticks at rising edge
       break;
+      
     case LOW: 
       // If pin[7] is LOW...
       ticksDown = JSN_Sensor::ReadTMR1(); // store TMR1 ticks at falling edge
