@@ -5,7 +5,7 @@
  * Course:          UCSC ECE129 - SDP '21
  *
  * Created:         January 12, 2022, 01:35 PM
- * Last Modified:   January 16, 2022, 05:27 PM
+ * Last Modified:   January 16, 2022, 09:35 PM
  */
 
  #include "Arduino.h"
@@ -26,8 +26,8 @@
       
 static uint8_t sel_sys;       // either EXTERNAL_INTERRUPTS or INPUT_CAPTURE
 static uint8_t sreg;          // mem location for storing global interrupt flags
-static volatile JSN_Sensor *lastTrig;  // pointer to JSN_Sensor which last called Trig()
-static volatile unsigned long ticksUp, ticksDown;        // in TMR1 ticks
+static volatile JSN_Sensor *lastTrig; // pointer to obj which last called Trig()
+static volatile unsigned long ticksUp, ticksDown;   // in TMR1 ticks
 
 
 //==============================================================================
@@ -146,8 +146,9 @@ void JSN_Sensor::Init(uint8_t SYSTEM_USING) {
      */   
     case INPUT_CAPTURE:   
       // Configure Input Capture 1
-      TCCR1B |= (1 << ICES1);           // initialize IC1 interrupts on rising edges
-      TIMSK1 |= (1 << ICIE1);           // enable IC1 interrupts
+      TCCR1B |= (0x01 << ICES1);      // Initialize IC1 interrupts on rising edges
+      TCCR1B |= (0x01 << ICNC1);      // Enable IC1 noise canceler
+      TIMSK1 |= (0x01 << ICIE1);      // Enable IC1 interrupts
       break;
 
     default:
@@ -231,47 +232,74 @@ unsigned int JSN_Sensor::ReadTMR1() {
 //==============================================================================
 //------------------------ INTERRUPT SERVICE ROUTINES --------------------------
 //==============================================================================
+
 /* 
  * If INPUT_CAPTURE hardware system is selected...
  *    then, this ISR will automatically run whenever pin[4] changes state, 
  *    and the TMR1 ticks (at the time of pin state change) is stored into ICR1 
+ *  
+ * The ISR calculates the distance measurement from the sensor & assigns it to
+ * the distance var of the last JSN_Sensor object to call Trig()
  */
+
 ISR(TIMER1_CAPT_vect) {
+  // Must temporarily disable interrupts while reading 16-bit registers (ICR1)
+  sreg = SREG;
+  INTERRUPT_DISABLE();
+
   switch(READ_PIN4()) {
-    case 1:
+    case HIGH:
       // If pin[4] is HIGH...
       ticksUp = ICR1;        // store TMR1 ticks at rising edge of ECHO pin
 
       TCCR1B &= ~(0x01 << ICES1); // set next ISR call to occur on falling edge
       break;
 
-    case 0:
+    case LOW:
       // If pin[4] is LOW...
       ticksDown = ICR1;      // store TMR1 ticks at falling edge of ECHO pin
 
       // Calculate Time-of-Flight (and convert TMR1 ticks to microseconds)
       lastTrig->echoHighTime = ((ticksDown - ticksUp) >> 1);
 
+      // Convert microseconds (ToF) to millimeters (distance from sensor to object)
+      lastTrig->distance = (lastTrig->echoHighTime*US_WAVE_SPEED)/(MICROS_PER_MILLI<<1);
       TCCR1B |= (0x01 << ICES1);  // next interrupt on rising edge
       break;
   }
+  /* Restore global interrupt flag */
+  SREG = sreg;
+  INTERRUPT_ENABLE();
+
   TIFR1 |= (0x01 << ICF1);        // clear interrupt flag
 }
 
 //------------------------------------------------------------------------------
 
+/* 
+ * If EXTERNAL_INTERRUPTS hardware system is selected...
+ *    then, these 3 ISRs will automatically run whenever pins[2,3,7] change
+ *    state, and the TMR1 ticks (at the time of pin state change) is stored
+ *    into ticksUp or ticksDown
+ *  
+ * The ISR calculates the distance measurement from the sensor & assigns it to
+ * the distance var of the last JSN_Sensor object to call Trig()
+ */
+
 ISR(INT1_vect) {
   switch(READ_PIN2()) {
-    case 1:
+    case HIGH:
       // If pin[2] is HIGH...
       ticksUp = JSN_Sensor::ReadTMR1();   // store TMR1 ticks at rising edge
       break;
-    case 0: 
+    case LOW: 
       // If pin[2] is LOW...
       ticksDown = JSN_Sensor::ReadTMR1(); // store TMR1 ticks at falling edge
 
       // Calculate & update BOTH: echoHighTime & distance
       lastTrig->echoHighTime = ((ticksDown - ticksUp) >> 1);
+
+      // Convert microseconds (ToF) to millimeters (distance from sensor to object)
       lastTrig->distance = (lastTrig->echoHighTime*US_WAVE_SPEED)/(MICROS_PER_MILLI<<1);
       break;
   }
@@ -282,16 +310,18 @@ ISR(INT1_vect) {
 
 ISR(INT0_vect) {
   switch(READ_PIN3()) {
-    case 1:
+    case HIGH:
       // If pin[3] is HIGH...
       ticksUp = JSN_Sensor::ReadTMR1();   // store TMR1 ticks at rising edge
       break;
-    case 0: 
+    case LOW: 
       // If pin[3] is LOW...
       ticksDown = JSN_Sensor::ReadTMR1(); // store TMR1 ticks at falling edge
 
       // Calculate & update BOTH: echoHighTime & distance
       lastTrig->echoHighTime = ((ticksDown - ticksUp) >> 1);
+
+      // Convert microseconds (ToF) to millimeters (distance from sensor to object)
       lastTrig->distance = (lastTrig->echoHighTime*US_WAVE_SPEED)/(MICROS_PER_MILLI<<1);
       break;
   }
@@ -302,16 +332,18 @@ ISR(INT0_vect) {
 
 ISR(INT6_vect) {
   switch(READ_PIN7()) {
-    case 1:
+    case HIGH:
       // If pin[7] is HIGH...
       ticksUp = JSN_Sensor::ReadTMR1();   // store TMR1 ticks at rising edge
       break;
-    case 0: 
+    case LOW: 
       // If pin[7] is LOW...
       ticksDown = JSN_Sensor::ReadTMR1(); // store TMR1 ticks at falling edge
 
       // Calculate & update BOTH: echoHighTime & distance
       lastTrig->echoHighTime = ((ticksDown - ticksUp) >> 1);
+
+      // Convert microseconds (ToF) to millimeters (distance from sensor to object)
       lastTrig->distance = (lastTrig->echoHighTime*US_WAVE_SPEED)/(MICROS_PER_MILLI<<1);
       break;
   }
