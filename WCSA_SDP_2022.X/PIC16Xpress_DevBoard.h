@@ -81,12 +81,12 @@
 
 
 typedef enum {
-    RA5, RA4, RA3, 
-    RC5, RC4, RC3, 
-    RC6, RC7, RB7, 
-    RA0, RA1, RA2, 
-    RC0, RC1, RC2, 
-    RB4, RB5, RB6
+    A5, A4, A3, 
+    C5, C4, C3, 
+    C6, C7, B7, 
+    A0, A1, A2, 
+    C0, C1, C2, 
+    B4, B5, B6
 } PinName_t;
 
 

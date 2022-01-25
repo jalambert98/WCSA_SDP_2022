@@ -27,16 +27,16 @@ uint8_t JSN_Sensor_Init(JSN_t *Sensor, PinName_t trigPin, PinName_t echoPin) {
     
     // Set echoPin as INPUT if it is one of the following: [A2,A4,C3,C5]
     switch(echoPin) {
-        case RA2:
+        case A2:
             SET_A2() = INPUT;
             break;
-        case RA4:
+        case A4:
             SET_A4() = INPUT;
             break;
-        case RC3:
+        case C3:
             SET_C3() = INPUT;
             break;
-        case RC5:
+        case C5:
             SET_C5() = INPUT;
             break;
         default:
@@ -46,62 +46,62 @@ uint8_t JSN_Sensor_Init(JSN_t *Sensor, PinName_t trigPin, PinName_t echoPin) {
     
     // set trigPin as OUTPUT & initialize low
     switch(trigPin) {
-        case RA2:
-        case RA4:
-        case RC3:
-        case RC5:
-        case RA3:
+        case A2:
+        case A4:
+        case C3:
+        case C5:
+        case A3:
             printf("ERROR! trigPin may not be any of the following: [RA2, RA4, RC3, RC5, RA3]\n");
             return ERROR;
-        case RA5:
+        case A5:
             SET_A5() = OUTPUT;
             WRITE_A5() = LOW;
             break;
-        case RC4:
+        case C4:
             SET_C4() = OUTPUT;
             WRITE_C4() = LOW;
             break;
-        case RC6:
+        case C6:
             SET_C6() = OUTPUT;
             WRITE_C6() = LOW;
             break;
-        case RC7:
+        case C7:
             SET_C7() = OUTPUT;
             WRITE_C7() = LOW;
             break;
-        case RB7:
+        case B7:
             SET_B7() = OUTPUT;
             WRITE_B7() = LOW;
             break;
-        case RB6:
+        case B6:
             SET_B6() = OUTPUT;
             WRITE_B6() = LOW;
             break;
-        case RB5:
+        case B5:
             SET_B5() = OUTPUT;
             WRITE_B5() = LOW;
             break;
-        case RB4:
+        case B4:
             SET_B4() = OUTPUT;
             WRITE_B4() = LOW;
             break;
-        case RC2:
+        case C2:
             SET_C2() = OUTPUT;
             WRITE_C2() = LOW;
             break;
-        case RC1:
+        case C1:
             SET_C1() = OUTPUT;
             WRITE_C1() = LOW;
             break;
-        case RC0:
+        case C0:
             SET_C0() = OUTPUT;
             WRITE_C0() = LOW;
             break;
-        case RA1:
+        case A1:
             SET_A1() = OUTPUT;
             WRITE_A1() = LOW;
             break;
-        case RA0:
+        case A0:
             SET_A0() = OUTPUT;
             WRITE_A0() = LOW;
             break;

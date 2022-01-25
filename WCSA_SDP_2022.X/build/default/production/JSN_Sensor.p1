@@ -1,0 +1,1136 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"26 JSN_Sensor.c
+[; ;JSN_Sensor.c: 26: uint8_t JSN_Sensor_Init(JSN_t *Sensor, PinName_t trigPin, PinName_t echoPin) {
+[c E6654 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 .. ]
+[n E6654 . A5 A4 A3 C5 C4 C3 C6 C7 B7 A0 A1 A2 C0 C1 C2 B4 B5 B6  ]
+"26 ./JSN_Sensor.h
+[; ;./JSN_Sensor.h: 26: typedef struct {
+[s S963 `ui 1 `ui 1 `E6654 1 `E6654 1 ]
+[n S963 . echoHighTime distance trigPin echoPin ]
+"1557 C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\PIC16F18345.h
+[s S86 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S86 . TRISA0 TRISA1 TRISA2 . TRISA4 TRISA5 ]
+"1556
+[u S85 `S86 1 ]
+[n S85 . . ]
+"1566
+[v _TRISAbits `VS85 ~T0 @X0 0 e@140 ]
+"1641
+[s S90 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S90 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
+"1640
+[u S89 `S90 1 ]
+[n S89 . . ]
+"1652
+[v _TRISCbits `VS89 ~T0 @X0 0 e@142 ]
+"105 C:\Program Files\Microchip\xc8\v2.35\pic\include\c99\stdio.h
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\c99\stdio.h: 105: int printf(const char *restrict, ...);
+[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
+"2300 C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\PIC16F18345.h
+[s S119 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S119 . LATA0 LATA1 LATA2 . LATA4 LATA5 ]
+"2299
+[u S118 `S119 1 ]
+[n S118 . . ]
+"2309
+[v _LATAbits `VS118 ~T0 @X0 0 e@268 ]
+"2384
+[s S123 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S123 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
+"2383
+[u S122 `S123 1 ]
+[n S122 . . ]
+"2395
+[v _LATCbits `VS122 ~T0 @X0 0 e@270 ]
+"1602
+[s S88 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S88 . . TRISB4 TRISB5 TRISB6 TRISB7 ]
+"1601
+[u S87 `S88 1 ]
+[n S87 . . ]
+"1610
+[v _TRISBbits `VS87 ~T0 @X0 0 e@141 ]
+"2345
+[s S121 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S121 . . LATB4 LATB5 LATB6 LATB7 ]
+"2344
+[u S120 `S121 1 ]
+[n S120 . . ]
+"2353
+[v _LATBbits `VS120 ~T0 @X0 0 e@269 ]
+[p mainexit ]
+"55 C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\PIC16F18345.h
+[; <" INDF0 equ 00h ;# ">
+"75
+[; <" INDF1 equ 01h ;# ">
+"95
+[; <" PCL equ 02h ;# ">
+"115
+[; <" STATUS equ 03h ;# ">
+"178
+[; <" FSR0L equ 04h ;# ">
+"198
+[; <" FSR0H equ 05h ;# ">
+"222
+[; <" FSR1L equ 06h ;# ">
+"242
+[; <" FSR1H equ 07h ;# ">
+"262
+[; <" BSR equ 08h ;# ">
+"314
+[; <" WREG equ 09h ;# ">
+"334
+[; <" PCLATH equ 0Ah ;# ">
+"354
+[; <" INTCON equ 0Bh ;# ">
+"387
+[; <" PORTA equ 0Ch ;# ">
+"437
+[; <" PORTB equ 0Dh ;# ">
+"476
+[; <" PORTC equ 0Eh ;# ">
+"538
+[; <" PIR0 equ 010h ;# ">
+"571
+[; <" PIR1 equ 011h ;# ">
+"633
+[; <" PIR2 equ 012h ;# ">
+"695
+[; <" PIR3 equ 013h ;# ">
+"757
+[; <" PIR4 equ 014h ;# ">
+"819
+[; <" TMR0L equ 015h ;# ">
+"824
+[; <" TMR0 equ 015h ;# ">
+"957
+[; <" TMR0H equ 016h ;# ">
+"962
+[; <" PR0 equ 016h ;# ">
+"1111
+[; <" T0CON0 equ 017h ;# ">
+"1176
+[; <" T0CON1 equ 018h ;# ">
+"1253
+[; <" TMR1 equ 019h ;# ">
+"1260
+[; <" TMR1L equ 019h ;# ">
+"1280
+[; <" TMR1H equ 01Ah ;# ">
+"1300
+[; <" T1CON equ 01Bh ;# ">
+"1372
+[; <" T1GCON equ 01Ch ;# ">
+"1442
+[; <" TMR2 equ 01Dh ;# ">
+"1462
+[; <" PR2 equ 01Eh ;# ">
+"1482
+[; <" T2CON equ 01Fh ;# ">
+"1553
+[; <" TRISA equ 08Ch ;# ">
+"1598
+[; <" TRISB equ 08Dh ;# ">
+"1637
+[; <" TRISC equ 08Eh ;# ">
+"1699
+[; <" PIE0 equ 090h ;# ">
+"1732
+[; <" PIE1 equ 091h ;# ">
+"1794
+[; <" PIE2 equ 092h ;# ">
+"1856
+[; <" PIE3 equ 093h ;# ">
+"1918
+[; <" PIE4 equ 094h ;# ">
+"1980
+[; <" WDTCON equ 097h ;# ">
+"2039
+[; <" ADRES equ 09Bh ;# ">
+"2046
+[; <" ADRESL equ 09Bh ;# ">
+"2066
+[; <" ADRESH equ 09Ch ;# ">
+"2086
+[; <" ADCON0 equ 09Dh ;# ">
+"2172
+[; <" ADCON1 equ 09Eh ;# ">
+"2244
+[; <" ADACT equ 09Fh ;# ">
+"2296
+[; <" LATA equ 010Ch ;# ">
+"2341
+[; <" LATB equ 010Dh ;# ">
+"2380
+[; <" LATC equ 010Eh ;# ">
+"2442
+[; <" CM1CON0 equ 0111h ;# ">
+"2494
+[; <" CM1CON1 equ 0112h ;# ">
+"2570
+[; <" CM2CON0 equ 0113h ;# ">
+"2622
+[; <" CM2CON1 equ 0114h ;# ">
+"2698
+[; <" CMOUT equ 0115h ;# ">
+"2724
+[; <" BORCON equ 0116h ;# ">
+"2751
+[; <" FVRCON equ 0117h ;# ">
+"2827
+[; <" DACCON0 equ 0118h ;# ">
+"2883
+[; <" DACCON1 equ 0119h ;# ">
+"2935
+[; <" ANSELA equ 018Ch ;# ">
+"2980
+[; <" ANSELB equ 018Dh ;# ">
+"3019
+[; <" ANSELC equ 018Eh ;# ">
+"3081
+[; <" VREGCON equ 0197h ;# ">
+"3102
+[; <" RC1REG equ 0199h ;# ">
+"3107
+[; <" RCREG equ 0199h ;# ">
+"3111
+[; <" RCREG1 equ 0199h ;# ">
+"3156
+[; <" TX1REG equ 019Ah ;# ">
+"3161
+[; <" TXREG1 equ 019Ah ;# ">
+"3165
+[; <" TXREG equ 019Ah ;# ">
+"3210
+[; <" SP1BRG equ 019Bh ;# ">
+"3217
+[; <" SP1BRGL equ 019Bh ;# ">
+"3222
+[; <" SPBRG equ 019Bh ;# ">
+"3226
+[; <" SPBRG1 equ 019Bh ;# ">
+"3230
+[; <" SPBRGL equ 019Bh ;# ">
+"3287
+[; <" SP1BRGH equ 019Ch ;# ">
+"3292
+[; <" SPBRGH equ 019Ch ;# ">
+"3296
+[; <" SPBRGH1 equ 019Ch ;# ">
+"3341
+[; <" RC1STA equ 019Dh ;# ">
+"3346
+[; <" RCSTA1 equ 019Dh ;# ">
+"3350
+[; <" RCSTA equ 019Dh ;# ">
+"3521
+[; <" TX1STA equ 019Eh ;# ">
+"3526
+[; <" TXSTA1 equ 019Eh ;# ">
+"3530
+[; <" TXSTA equ 019Eh ;# ">
+"3701
+[; <" BAUD1CON equ 019Fh ;# ">
+"3706
+[; <" BAUDCON1 equ 019Fh ;# ">
+"3710
+[; <" BAUDCTL1 equ 019Fh ;# ">
+"3714
+[; <" BAUDCON equ 019Fh ;# ">
+"3718
+[; <" BAUDCTL equ 019Fh ;# ">
+"3947
+[; <" WPUA equ 020Ch ;# ">
+"3997
+[; <" WPUB equ 020Dh ;# ">
+"4036
+[; <" WPUC equ 020Eh ;# ">
+"4098
+[; <" SSP1BUF equ 0211h ;# ">
+"4103
+[; <" SSPBUF equ 0211h ;# ">
+"4352
+[; <" SSP1ADD equ 0212h ;# ">
+"4357
+[; <" SSPADD equ 0212h ;# ">
+"4606
+[; <" SSP1MSK equ 0213h ;# ">
+"4611
+[; <" SSPMSK equ 0213h ;# ">
+"4860
+[; <" SSP1STAT equ 0214h ;# ">
+"4865
+[; <" SSPSTAT equ 0214h ;# ">
+"4982
+[; <" SSP1CON1 equ 0215h ;# ">
+"4987
+[; <" SSPCON equ 0215h ;# ">
+"4991
+[; <" SSPCON1 equ 0215h ;# ">
+"4995
+[; <" SSP1CON equ 0215h ;# ">
+"5252
+[; <" SSP1CON2 equ 0216h ;# ">
+"5257
+[; <" SSPCON2 equ 0216h ;# ">
+"5374
+[; <" SSP1CON3 equ 0217h ;# ">
+"5379
+[; <" SSPCON3 equ 0217h ;# ">
+"5496
+[; <" SSP2BUF equ 0219h ;# ">
+"5624
+[; <" SSP2ADD equ 021Ah ;# ">
+"5752
+[; <" SSP2MSK equ 021Bh ;# ">
+"5880
+[; <" SSP2STAT equ 021Ch ;# ">
+"5942
+[; <" SSP2CON1 equ 021Dh ;# ">
+"5947
+[; <" SSP2CON equ 021Dh ;# ">
+"6080
+[; <" SSP2CON2 equ 021Eh ;# ">
+"6142
+[; <" SSP2CON3 equ 021Fh ;# ">
+"6204
+[; <" ODCONA equ 028Ch ;# ">
+"6249
+[; <" ODCONB equ 028Dh ;# ">
+"6288
+[; <" ODCONC equ 028Eh ;# ">
+"6350
+[; <" CCPR1 equ 0291h ;# ">
+"6357
+[; <" CCPR1L equ 0291h ;# ">
+"6377
+[; <" CCPR1H equ 0292h ;# ">
+"6397
+[; <" CCP1CON equ 0293h ;# ">
+"6462
+[; <" CCP1CAP equ 0294h ;# ">
+"6508
+[; <" CCPR2 equ 0295h ;# ">
+"6515
+[; <" CCPR2L equ 0295h ;# ">
+"6535
+[; <" CCPR2H equ 0296h ;# ">
+"6555
+[; <" CCP2CON equ 0297h ;# ">
+"6620
+[; <" CCP2CAP equ 0298h ;# ">
+"6666
+[; <" CCPTMRS equ 029Fh ;# ">
+"6754
+[; <" SLRCONA equ 030Ch ;# ">
+"6799
+[; <" SLRCONB equ 030Dh ;# ">
+"6838
+[; <" SLRCONC equ 030Eh ;# ">
+"6900
+[; <" CCPR3 equ 0311h ;# ">
+"6907
+[; <" CCPR3L equ 0311h ;# ">
+"6927
+[; <" CCPR3H equ 0312h ;# ">
+"6947
+[; <" CCP3CON equ 0313h ;# ">
+"7012
+[; <" CCP3CAP equ 0314h ;# ">
+"7058
+[; <" CCPR4 equ 0315h ;# ">
+"7065
+[; <" CCPR4L equ 0315h ;# ">
+"7085
+[; <" CCPR4H equ 0316h ;# ">
+"7105
+[; <" CCP4CON equ 0317h ;# ">
+"7170
+[; <" CCP4CAP equ 0318h ;# ">
+"7216
+[; <" INLVLA equ 038Ch ;# ">
+"7266
+[; <" INLVLB equ 038Dh ;# ">
+"7305
+[; <" INLVLC equ 038Eh ;# ">
+"7367
+[; <" IOCAP equ 0391h ;# ">
+"7417
+[; <" IOCAN equ 0392h ;# ">
+"7467
+[; <" IOCAF equ 0393h ;# ">
+"7517
+[; <" IOCBP equ 0394h ;# ">
+"7556
+[; <" IOCBN equ 0395h ;# ">
+"7595
+[; <" IOCBF equ 0396h ;# ">
+"7634
+[; <" IOCCP equ 0397h ;# ">
+"7696
+[; <" IOCCN equ 0398h ;# ">
+"7758
+[; <" IOCCF equ 0399h ;# ">
+"7820
+[; <" CLKRCON equ 039Ah ;# ">
+"7885
+[; <" MDCON equ 039Ch ;# ">
+"7925
+[; <" MDSRC equ 039Dh ;# ">
+"7971
+[; <" MDCARH equ 039Eh ;# ">
+"8030
+[; <" MDCARL equ 039Fh ;# ">
+"8089
+[; <" TMR3 equ 0411h ;# ">
+"8096
+[; <" TMR3L equ 0411h ;# ">
+"8116
+[; <" TMR3H equ 0412h ;# ">
+"8136
+[; <" T3CON equ 0413h ;# ">
+"8208
+[; <" T3GCON equ 0414h ;# ">
+"8278
+[; <" TMR4 equ 0415h ;# ">
+"8298
+[; <" PR4 equ 0416h ;# ">
+"8318
+[; <" T4CON equ 0417h ;# ">
+"8389
+[; <" TMR5 equ 0418h ;# ">
+"8396
+[; <" TMR5L equ 0418h ;# ">
+"8416
+[; <" TMR5H equ 0419h ;# ">
+"8436
+[; <" T5CON equ 041Ah ;# ">
+"8508
+[; <" T5GCON equ 041Bh ;# ">
+"8578
+[; <" TMR6 equ 041Ch ;# ">
+"8598
+[; <" PR6 equ 041Dh ;# ">
+"8618
+[; <" T6CON equ 041Eh ;# ">
+"8689
+[; <" CCDCON equ 041Fh ;# ">
+"8732
+[; <" NCO1ACC equ 0498h ;# ">
+"8739
+[; <" NCO1ACCL equ 0498h ;# ">
+"8759
+[; <" NCO1ACCH equ 0499h ;# ">
+"8779
+[; <" NCO1ACCU equ 049Ah ;# ">
+"8801
+[; <" NCO1INC equ 049Bh ;# ">
+"8808
+[; <" NCO1INCL equ 049Bh ;# ">
+"8828
+[; <" NCO1INCH equ 049Ch ;# ">
+"8848
+[; <" NCO1INCU equ 049Dh ;# ">
+"8868
+[; <" NCO1CON equ 049Eh ;# ">
+"8908
+[; <" NCO1CLK equ 049Fh ;# ">
+"8935
+[; <" PWM5DCL equ 0617h ;# ">
+"8971
+[; <" PWM5DCH equ 0618h ;# ">
+"9041
+[; <" PWM5CON equ 0619h ;# ">
+"9046
+[; <" PWM5CON0 equ 0619h ;# ">
+"9107
+[; <" PWM6DCL equ 061Ah ;# ">
+"9143
+[; <" PWM6DCH equ 061Bh ;# ">
+"9213
+[; <" PWM6CON equ 061Ch ;# ">
+"9218
+[; <" PWM6CON0 equ 061Ch ;# ">
+"9279
+[; <" PWMTMRS equ 061Fh ;# ">
+"9331
+[; <" CWG1CLKCON equ 0691h ;# ">
+"9359
+[; <" CWG1DAT equ 0692h ;# ">
+"9405
+[; <" CWG1DBR equ 0693h ;# ">
+"9509
+[; <" CWG1DBF equ 0694h ;# ">
+"9613
+[; <" CWG1CON0 equ 0695h ;# ">
+"9714
+[; <" CWG1CON1 equ 0696h ;# ">
+"9792
+[; <" CWG1AS0 equ 0697h ;# ">
+"9912
+[; <" CWG1AS1 equ 0698h ;# ">
+"9956
+[; <" CWG1STR equ 0699h ;# ">
+"10068
+[; <" CWG2CLKCON equ 0711h ;# ">
+"10096
+[; <" CWG2DAT equ 0712h ;# ">
+"10142
+[; <" CWG2DBR equ 0713h ;# ">
+"10246
+[; <" CWG2DBF equ 0714h ;# ">
+"10350
+[; <" CWG2CON0 equ 0715h ;# ">
+"10451
+[; <" CWG2CON1 equ 0716h ;# ">
+"10529
+[; <" CWG2AS0 equ 0717h ;# ">
+"10649
+[; <" CWG2AS1 equ 0718h ;# ">
+"10693
+[; <" CWG2STR equ 0719h ;# ">
+"10805
+[; <" NVMADR equ 0891h ;# ">
+"10810
+[; <" EEADR equ 0891h ;# ">
+"10814
+[; <" PMADR equ 0891h ;# ">
+"10821
+[; <" NVMADRL equ 0891h ;# ">
+"10826
+[; <" EEADRL equ 0891h ;# ">
+"10830
+[; <" PMADRL equ 0891h ;# ">
+"11073
+[; <" NVMADRH equ 0892h ;# ">
+"11078
+[; <" EEADRH equ 0892h ;# ">
+"11082
+[; <" PMADRH equ 0892h ;# ">
+"11307
+[; <" NVMDAT equ 0893h ;# ">
+"11312
+[; <" EEDAT equ 0893h ;# ">
+"11316
+[; <" PMDAT equ 0893h ;# ">
+"11323
+[; <" NVMDATL equ 0893h ;# ">
+"11328
+[; <" EEDATL equ 0893h ;# ">
+"11332
+[; <" PMDATL equ 0893h ;# ">
+"11575
+[; <" NVMDATH equ 0894h ;# ">
+"11580
+[; <" EEDATH equ 0894h ;# ">
+"11584
+[; <" PMDATH equ 0894h ;# ">
+"11791
+[; <" NVMCON1 equ 0895h ;# ">
+"11796
+[; <" EECON1 equ 0895h ;# ">
+"11800
+[; <" PMCON1 equ 0895h ;# ">
+"11980
+[; <" NVMCON2 equ 0896h ;# ">
+"11985
+[; <" EECON2 equ 0896h ;# ">
+"11989
+[; <" PMCON2 equ 0896h ;# ">
+"12082
+[; <" PCON0 equ 089Bh ;# ">
+"12139
+[; <" PMD0 equ 0911h ;# ">
+"12184
+[; <" PMD1 equ 0912h ;# ">
+"12246
+[; <" PMD2 equ 0913h ;# ">
+"12286
+[; <" PMD3 equ 0914h ;# ">
+"12348
+[; <" PMD4 equ 0915h ;# ">
+"12382
+[; <" PMD5 equ 0916h ;# ">
+"12426
+[; <" CPUDOZE equ 0918h ;# ">
+"12491
+[; <" OSCCON1 equ 0919h ;# ">
+"12561
+[; <" OSCCON2 equ 091Ah ;# ">
+"12631
+[; <" OSCCON3 equ 091Bh ;# ">
+"12676
+[; <" OSCSTAT1 equ 091Ch ;# ">
+"12728
+[; <" OSCEN equ 091Dh ;# ">
+"12774
+[; <" OSCTUNE equ 091Eh ;# ">
+"12832
+[; <" OSCFRQ equ 091Fh ;# ">
+"12878
+[; <" PPSLOCK equ 0E0Fh ;# ">
+"12898
+[; <" INTPPS equ 0E10h ;# ">
+"12950
+[; <" T0CKIPPS equ 0E11h ;# ">
+"13002
+[; <" T1CKIPPS equ 0E12h ;# ">
+"13054
+[; <" T1GPPS equ 0E13h ;# ">
+"13106
+[; <" CCP1PPS equ 0E14h ;# ">
+"13158
+[; <" CCP2PPS equ 0E15h ;# ">
+"13210
+[; <" CCP3PPS equ 0E16h ;# ">
+"13262
+[; <" CCP4PPS equ 0E17h ;# ">
+"13314
+[; <" CWG1PPS equ 0E18h ;# ">
+"13366
+[; <" CWG2PPS equ 0E19h ;# ">
+"13418
+[; <" MDCIN1PPS equ 0E1Ah ;# ">
+"13470
+[; <" MDCIN2PPS equ 0E1Bh ;# ">
+"13522
+[; <" MDMINPPS equ 0E1Ch ;# ">
+"13574
+[; <" SSP2CLKPPS equ 0E1Dh ;# ">
+"13626
+[; <" SSP2DATPPS equ 0E1Eh ;# ">
+"13678
+[; <" SSP2SSPPS equ 0E1Fh ;# ">
+"13730
+[; <" SSP1CLKPPS equ 0E20h ;# ">
+"13782
+[; <" SSP1DATPPS equ 0E21h ;# ">
+"13834
+[; <" SSP1SSPPS equ 0E22h ;# ">
+"13886
+[; <" RXPPS equ 0E24h ;# ">
+"13938
+[; <" TXPPS equ 0E25h ;# ">
+"13990
+[; <" CLCIN0PPS equ 0E28h ;# ">
+"14042
+[; <" CLCIN1PPS equ 0E29h ;# ">
+"14094
+[; <" CLCIN2PPS equ 0E2Ah ;# ">
+"14146
+[; <" CLCIN3PPS equ 0E2Bh ;# ">
+"14198
+[; <" T3CKIPPS equ 0E2Ch ;# ">
+"14218
+[; <" T3GPPS equ 0E2Dh ;# ">
+"14238
+[; <" T5CKIPPS equ 0E2Eh ;# ">
+"14258
+[; <" T5GPPS equ 0E2Fh ;# ">
+"14278
+[; <" RA0PPS equ 0E90h ;# ">
+"14330
+[; <" RA1PPS equ 0E91h ;# ">
+"14382
+[; <" RA2PPS equ 0E92h ;# ">
+"14434
+[; <" RA4PPS equ 0E94h ;# ">
+"14486
+[; <" RA5PPS equ 0E95h ;# ">
+"14538
+[; <" RB4PPS equ 0E9Ch ;# ">
+"14590
+[; <" RB5PPS equ 0E9Dh ;# ">
+"14642
+[; <" RB6PPS equ 0E9Eh ;# ">
+"14694
+[; <" RB7PPS equ 0E9Fh ;# ">
+"14746
+[; <" RC0PPS equ 0EA0h ;# ">
+"14798
+[; <" RC1PPS equ 0EA1h ;# ">
+"14850
+[; <" RC2PPS equ 0EA2h ;# ">
+"14902
+[; <" RC3PPS equ 0EA3h ;# ">
+"14954
+[; <" RC4PPS equ 0EA4h ;# ">
+"15006
+[; <" RC5PPS equ 0EA5h ;# ">
+"15058
+[; <" RC6PPS equ 0EA6h ;# ">
+"15110
+[; <" RC7PPS equ 0EA7h ;# ">
+"15162
+[; <" CLCDATA equ 0F0Fh ;# ">
+"15200
+[; <" CLC1CON equ 0F10h ;# ">
+"15318
+[; <" CLC1POL equ 0F11h ;# ">
+"15396
+[; <" CLC1SEL0 equ 0F12h ;# ">
+"15500
+[; <" CLC1SEL1 equ 0F13h ;# ">
+"15604
+[; <" CLC1SEL2 equ 0F14h ;# ">
+"15708
+[; <" CLC1SEL3 equ 0F15h ;# ">
+"15812
+[; <" CLC1GLS0 equ 0F16h ;# ">
+"15924
+[; <" CLC1GLS1 equ 0F17h ;# ">
+"16036
+[; <" CLC1GLS2 equ 0F18h ;# ">
+"16148
+[; <" CLC1GLS3 equ 0F19h ;# ">
+"16260
+[; <" CLC2CON equ 0F1Ah ;# ">
+"16378
+[; <" CLC2POL equ 0F1Bh ;# ">
+"16456
+[; <" CLC2SEL0 equ 0F1Ch ;# ">
+"16560
+[; <" CLC2SEL1 equ 0F1Dh ;# ">
+"16664
+[; <" CLC2SEL2 equ 0F1Eh ;# ">
+"16768
+[; <" CLC2SEL3 equ 0F1Fh ;# ">
+"16872
+[; <" CLC2GLS0 equ 0F20h ;# ">
+"16984
+[; <" CLC2GLS1 equ 0F21h ;# ">
+"17096
+[; <" CLC2GLS2 equ 0F22h ;# ">
+"17208
+[; <" CLC2GLS3 equ 0F23h ;# ">
+"17320
+[; <" CLC3CON equ 0F24h ;# ">
+"17438
+[; <" CLC3POL equ 0F25h ;# ">
+"17516
+[; <" CLC3SEL0 equ 0F26h ;# ">
+"17620
+[; <" CLC3SEL1 equ 0F27h ;# ">
+"17724
+[; <" CLC3SEL2 equ 0F28h ;# ">
+"17828
+[; <" CLC3SEL3 equ 0F29h ;# ">
+"17932
+[; <" CLC3GLS0 equ 0F2Ah ;# ">
+"18044
+[; <" CLC3GLS1 equ 0F2Bh ;# ">
+"18156
+[; <" CLC3GLS2 equ 0F2Ch ;# ">
+"18268
+[; <" CLC3GLS3 equ 0F2Dh ;# ">
+"18380
+[; <" CLC4CON equ 0F2Eh ;# ">
+"18498
+[; <" CLC4POL equ 0F2Fh ;# ">
+"18576
+[; <" CLC4SEL0 equ 0F30h ;# ">
+"18680
+[; <" CLC4SEL1 equ 0F31h ;# ">
+"18784
+[; <" CLC4SEL2 equ 0F32h ;# ">
+"18888
+[; <" CLC4SEL3 equ 0F33h ;# ">
+"18992
+[; <" CLC4GLS0 equ 0F34h ;# ">
+"19104
+[; <" CLC4GLS1 equ 0F35h ;# ">
+"19216
+[; <" CLC4GLS2 equ 0F36h ;# ">
+"19328
+[; <" CLC4GLS3 equ 0F37h ;# ">
+"19440
+[; <" STATUS_SHAD equ 0FE4h ;# ">
+"19472
+[; <" WREG_SHAD equ 0FE5h ;# ">
+"19492
+[; <" BSR_SHAD equ 0FE6h ;# ">
+"19512
+[; <" PCLATH_SHAD equ 0FE7h ;# ">
+"19532
+[; <" FSR0L_SHAD equ 0FE8h ;# ">
+"19552
+[; <" FSR0H_SHAD equ 0FE9h ;# ">
+"19572
+[; <" FSR1L_SHAD equ 0FEAh ;# ">
+"19592
+[; <" FSR1H_SHAD equ 0FEBh ;# ">
+"19612
+[; <" STKPTR equ 0FEDh ;# ">
+"19632
+[; <" TOSL equ 0FEEh ;# ">
+"19652
+[; <" TOSH equ 0FEFh ;# ">
+"22 JSN_Sensor.c
+[; ;JSN_Sensor.c: 22: uint8_t JSN_Library_Init(void) {
+[v _JSN_Library_Init `(uc ~T0 @X0 1 ef ]
+{
+[e :U _JSN_Library_Init ]
+[f ]
+"23
+[; ;JSN_Sensor.c: 23:     return 0x00;
+[e ) -> -> 0 `i `uc ]
+[e $UE 966  ]
+"24
+[; ;JSN_Sensor.c: 24: }
+[e :UE 966 ]
+}
+"26
+[; ;JSN_Sensor.c: 26: uint8_t JSN_Sensor_Init(JSN_t *Sensor, PinName_t trigPin, PinName_t echoPin) {
+[v _JSN_Sensor_Init `(uc ~T0 @X0 1 ef3`*S963`E6654`E6654 ]
+{
+[e :U _JSN_Sensor_Init ]
+[v _Sensor `*S963 ~T0 @X0 1 r1 ]
+[v _trigPin `E6654 ~T0 @X0 1 r2 ]
+[v _echoPin `E6654 ~T0 @X0 1 r3 ]
+[f ]
+"29
+[; ;JSN_Sensor.c: 29:     switch(echoPin) {
+[e $U 969  ]
+{
+"30
+[; ;JSN_Sensor.c: 30:         case A2:
+[e :U 970 ]
+"31
+[; ;JSN_Sensor.c: 31:             TRISAbits.TRISA2 = 0b1;
+[e = . . _TRISAbits 0 2 -> -> 1 `i `uc ]
+"32
+[; ;JSN_Sensor.c: 32:             break;
+[e $U 968  ]
+"33
+[; ;JSN_Sensor.c: 33:         case A4:
+[e :U 971 ]
+"34
+[; ;JSN_Sensor.c: 34:             TRISAbits.TRISA4 = 0b1;
+[e = . . _TRISAbits 0 4 -> -> 1 `i `uc ]
+"35
+[; ;JSN_Sensor.c: 35:             break;
+[e $U 968  ]
+"36
+[; ;JSN_Sensor.c: 36:         case C3:
+[e :U 972 ]
+"37
+[; ;JSN_Sensor.c: 37:             TRISCbits.TRISC3 = 0b1;
+[e = . . _TRISCbits 0 3 -> -> 1 `i `uc ]
+"38
+[; ;JSN_Sensor.c: 38:             break;
+[e $U 968  ]
+"39
+[; ;JSN_Sensor.c: 39:         case C5:
+[e :U 973 ]
+"40
+[; ;JSN_Sensor.c: 40:             TRISCbits.TRISC5 = 0b1;
+[e = . . _TRISCbits 0 5 -> -> 1 `i `uc ]
+"41
+[; ;JSN_Sensor.c: 41:             break;
+[e $U 968  ]
+"42
+[; ;JSN_Sensor.c: 42:         default:
+[e :U 974 ]
+"43
+[; ;JSN_Sensor.c: 43:             printf("ERROR! echoPin must be one of the following: [RA2, RA4, RC3, RC5]\n");
+[e ( _printf :s 1C ]
+"44
+[; ;JSN_Sensor.c: 44:             return 0xFF;
+[e ) -> -> 255 `i `uc ]
+[e $UE 967  ]
+"45
+[; ;JSN_Sensor.c: 45:     }
+}
+[e $U 968  ]
+[e :U 969 ]
+[e [\ -> _echoPin `ui , $ -> . `E6654 11 `ui 970
+ , $ -> . `E6654 1 `ui 971
+ , $ -> . `E6654 5 `ui 972
+ , $ -> . `E6654 3 `ui 973
+ 974 ]
+[e :U 968 ]
+"48
+[; ;JSN_Sensor.c: 48:     switch(trigPin) {
+[e $U 976  ]
+{
+"49
+[; ;JSN_Sensor.c: 49:         case A2:
+[e :U 977 ]
+"50
+[; ;JSN_Sensor.c: 50:         case A4:
+[e :U 978 ]
+"51
+[; ;JSN_Sensor.c: 51:         case C3:
+[e :U 979 ]
+"52
+[; ;JSN_Sensor.c: 52:         case C5:
+[e :U 980 ]
+"53
+[; ;JSN_Sensor.c: 53:         case A3:
+[e :U 981 ]
+"54
+[; ;JSN_Sensor.c: 54:             printf("ERROR! trigPin may not be any of the following: [RA2, RA4, RC3, RC5, RA3]\n");
+[e ( _printf :s 2C ]
+"55
+[; ;JSN_Sensor.c: 55:             return 0xFF;
+[e ) -> -> 255 `i `uc ]
+[e $UE 967  ]
+"56
+[; ;JSN_Sensor.c: 56:         case A5:
+[e :U 982 ]
+"57
+[; ;JSN_Sensor.c: 57:             TRISAbits.TRISA5 = 0b0;
+[e = . . _TRISAbits 0 5 -> -> 0 `i `uc ]
+"58
+[; ;JSN_Sensor.c: 58:             LATAbits.LATA5 = 0b0;
+[e = . . _LATAbits 0 5 -> -> 0 `i `uc ]
+"59
+[; ;JSN_Sensor.c: 59:             break;
+[e $U 975  ]
+"60
+[; ;JSN_Sensor.c: 60:         case C4:
+[e :U 983 ]
+"61
+[; ;JSN_Sensor.c: 61:             TRISCbits.TRISC4 = 0b0;
+[e = . . _TRISCbits 0 4 -> -> 0 `i `uc ]
+"62
+[; ;JSN_Sensor.c: 62:             LATCbits.LATC4 = 0b0;
+[e = . . _LATCbits 0 4 -> -> 0 `i `uc ]
+"63
+[; ;JSN_Sensor.c: 63:             break;
+[e $U 975  ]
+"64
+[; ;JSN_Sensor.c: 64:         case C6:
+[e :U 984 ]
+"65
+[; ;JSN_Sensor.c: 65:             TRISCbits.TRISC6 = 0b0;
+[e = . . _TRISCbits 0 6 -> -> 0 `i `uc ]
+"66
+[; ;JSN_Sensor.c: 66:             LATCbits.LATC6 = 0b0;
+[e = . . _LATCbits 0 6 -> -> 0 `i `uc ]
+"67
+[; ;JSN_Sensor.c: 67:             break;
+[e $U 975  ]
+"68
+[; ;JSN_Sensor.c: 68:         case C7:
+[e :U 985 ]
+"69
+[; ;JSN_Sensor.c: 69:             TRISCbits.TRISC7 = 0b0;
+[e = . . _TRISCbits 0 7 -> -> 0 `i `uc ]
+"70
+[; ;JSN_Sensor.c: 70:             LATCbits.LATC7 = 0b0;
+[e = . . _LATCbits 0 7 -> -> 0 `i `uc ]
+"71
+[; ;JSN_Sensor.c: 71:             break;
+[e $U 975  ]
+"72
+[; ;JSN_Sensor.c: 72:         case B7:
+[e :U 986 ]
+"73
+[; ;JSN_Sensor.c: 73:             TRISBbits.TRISB7 = 0b0;
+[e = . . _TRISBbits 0 4 -> -> 0 `i `uc ]
+"74
+[; ;JSN_Sensor.c: 74:             LATBbits.LATB7 = 0b0;
+[e = . . _LATBbits 0 4 -> -> 0 `i `uc ]
+"75
+[; ;JSN_Sensor.c: 75:             break;
+[e $U 975  ]
+"76
+[; ;JSN_Sensor.c: 76:         case B6:
+[e :U 987 ]
+"77
+[; ;JSN_Sensor.c: 77:             TRISBbits.TRISB6 = 0b0;
+[e = . . _TRISBbits 0 3 -> -> 0 `i `uc ]
+"78
+[; ;JSN_Sensor.c: 78:             LATBbits.LATB6 = 0b0;
+[e = . . _LATBbits 0 3 -> -> 0 `i `uc ]
+"79
+[; ;JSN_Sensor.c: 79:             break;
+[e $U 975  ]
+"80
+[; ;JSN_Sensor.c: 80:         case B5:
+[e :U 988 ]
+"81
+[; ;JSN_Sensor.c: 81:             TRISBbits.TRISB5 = 0b0;
+[e = . . _TRISBbits 0 2 -> -> 0 `i `uc ]
+"82
+[; ;JSN_Sensor.c: 82:             LATBbits.LATB5 = 0b0;
+[e = . . _LATBbits 0 2 -> -> 0 `i `uc ]
+"83
+[; ;JSN_Sensor.c: 83:             break;
+[e $U 975  ]
+"84
+[; ;JSN_Sensor.c: 84:         case B4:
+[e :U 989 ]
+"85
+[; ;JSN_Sensor.c: 85:             TRISBbits.TRISB4 = 0b0;
+[e = . . _TRISBbits 0 1 -> -> 0 `i `uc ]
+"86
+[; ;JSN_Sensor.c: 86:             LATBbits.LATB4 = 0b0;
+[e = . . _LATBbits 0 1 -> -> 0 `i `uc ]
+"87
+[; ;JSN_Sensor.c: 87:             break;
+[e $U 975  ]
+"88
+[; ;JSN_Sensor.c: 88:         case C2:
+[e :U 990 ]
+"89
+[; ;JSN_Sensor.c: 89:             TRISCbits.TRISC2 = 0b0;
+[e = . . _TRISCbits 0 2 -> -> 0 `i `uc ]
+"90
+[; ;JSN_Sensor.c: 90:             LATCbits.LATC2 = 0b0;
+[e = . . _LATCbits 0 2 -> -> 0 `i `uc ]
+"91
+[; ;JSN_Sensor.c: 91:             break;
+[e $U 975  ]
+"92
+[; ;JSN_Sensor.c: 92:         case C1:
+[e :U 991 ]
+"93
+[; ;JSN_Sensor.c: 93:             TRISCbits.TRISC1 = 0b0;
+[e = . . _TRISCbits 0 1 -> -> 0 `i `uc ]
+"94
+[; ;JSN_Sensor.c: 94:             LATCbits.LATC1 = 0b0;
+[e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
+"95
+[; ;JSN_Sensor.c: 95:             break;
+[e $U 975  ]
+"96
+[; ;JSN_Sensor.c: 96:         case C0:
+[e :U 992 ]
+"97
+[; ;JSN_Sensor.c: 97:             TRISCbits.TRISC0 = 0b0;
+[e = . . _TRISCbits 0 0 -> -> 0 `i `uc ]
+"98
+[; ;JSN_Sensor.c: 98:             LATCbits.LATC0 = 0b0;
+[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
+"99
+[; ;JSN_Sensor.c: 99:             break;
+[e $U 975  ]
+"100
+[; ;JSN_Sensor.c: 100:         case A1:
+[e :U 993 ]
+"101
+[; ;JSN_Sensor.c: 101:             TRISAbits.TRISA1 = 0b0;
+[e = . . _TRISAbits 0 1 -> -> 0 `i `uc ]
+"102
+[; ;JSN_Sensor.c: 102:             LATAbits.LATA1 = 0b0;
+[e = . . _LATAbits 0 1 -> -> 0 `i `uc ]
+"103
+[; ;JSN_Sensor.c: 103:             break;
+[e $U 975  ]
+"104
+[; ;JSN_Sensor.c: 104:         case A0:
+[e :U 994 ]
+"105
+[; ;JSN_Sensor.c: 105:             TRISAbits.TRISA0 = 0b0;
+[e = . . _TRISAbits 0 0 -> -> 0 `i `uc ]
+"106
+[; ;JSN_Sensor.c: 106:             LATAbits.LATA0 = 0b0;
+[e = . . _LATAbits 0 0 -> -> 0 `i `uc ]
+"107
+[; ;JSN_Sensor.c: 107:             break;
+[e $U 975  ]
+"108
+[; ;JSN_Sensor.c: 108:     }
+}
+[e $U 975  ]
+[e :U 976 ]
+[e [\ -> _trigPin `ui , $ -> . `E6654 11 `ui 977
+ , $ -> . `E6654 1 `ui 978
+ , $ -> . `E6654 5 `ui 979
+ , $ -> . `E6654 3 `ui 980
+ , $ -> . `E6654 2 `ui 981
+ , $ -> . `E6654 0 `ui 982
+ , $ -> . `E6654 4 `ui 983
+ , $ -> . `E6654 6 `ui 984
+ , $ -> . `E6654 7 `ui 985
+ , $ -> . `E6654 8 `ui 986
+ , $ -> . `E6654 17 `ui 987
+ , $ -> . `E6654 16 `ui 988
+ , $ -> . `E6654 15 `ui 989
+ , $ -> . `E6654 14 `ui 990
+ , $ -> . `E6654 13 `ui 991
+ , $ -> . `E6654 12 `ui 992
+ , $ -> . `E6654 10 `ui 993
+ , $ -> . `E6654 9 `ui 994
+ 975 ]
+[e :U 975 ]
+"111
+[; ;JSN_Sensor.c: 111:     Sensor->distance = 0;
+[e = . *U _Sensor 1 -> -> 0 `i `ui ]
+"112
+[; ;JSN_Sensor.c: 112:     Sensor->echoHighTime = 0;
+[e = . *U _Sensor 0 -> -> 0 `i `ui ]
+"113
+[; ;JSN_Sensor.c: 113:     Sensor->echoPin = echoPin;
+[e = . *U _Sensor 3 _echoPin ]
+"114
+[; ;JSN_Sensor.c: 114:     Sensor->trigPin = trigPin;
+[e = . *U _Sensor 2 _trigPin ]
+"116
+[; ;JSN_Sensor.c: 116:     return 0x00;
+[e ) -> -> 0 `i `uc ]
+[e $UE 967  ]
+"117
+[; ;JSN_Sensor.c: 117: }
+[e :UE 967 ]
+}
+"119
+[; ;JSN_Sensor.c: 119: void JSN_Sensor_Trig(JSN_t *Sensor) {
+[v _JSN_Sensor_Trig `(v ~T0 @X0 1 ef1`*S963 ]
+{
+[e :U _JSN_Sensor_Trig ]
+[v _Sensor `*S963 ~T0 @X0 1 r1 ]
+[f ]
+"120
+[; ;JSN_Sensor.c: 120:     return;
+[e $UE 995  ]
+"121
+[; ;JSN_Sensor.c: 121: }
+[e :UE 995 ]
+}
+"123
+[; ;JSN_Sensor.c: 123: unsigned int JSN_Sensor_GetDistance(JSN_t *Sensor) {
+[v _JSN_Sensor_GetDistance `(ui ~T0 @X0 1 ef1`*S963 ]
+{
+[e :U _JSN_Sensor_GetDistance ]
+[v _Sensor `*S963 ~T0 @X0 1 r1 ]
+[f ]
+"124
+[; ;JSN_Sensor.c: 124:     return 0;
+[e ) -> -> 0 `i `ui ]
+[e $UE 996  ]
+"125
+[; ;JSN_Sensor.c: 125: }
+[e :UE 996 ]
+}
+[v $root$_main `(v ~T0 @X0 0 e ]
+"133
+[; ;JSN_Sensor.c: 133: int main(void) {
+[v _main `(i ~T0 @X0 1 ef ]
+{
+[e :U _main ]
+[f ]
+"134
+[; ;JSN_Sensor.c: 134:     JSN_t Sens1, Sens2, Sens3;
+[v _Sens1 `S963 ~T0 @X0 1 a ]
+[v _Sens2 `S963 ~T0 @X0 1 a ]
+[v _Sens3 `S963 ~T0 @X0 1 a ]
+"135
+[; ;JSN_Sensor.c: 135:     while(1);
+[e :U 999 ]
+[e :U 998 ]
+[e $U 999  ]
+[e :U 1000 ]
+"136
+[; ;JSN_Sensor.c: 136:     return 0;
+[e ) -> 0 `i ]
+[e $UE 997  ]
+"137
+[; ;JSN_Sensor.c: 137: }
+[e :UE 997 ]
+}
+[p f _printf 8388608 ]
+[a 1C 69 82 82 79 82 33 32 101 99 104 111 80 105 110 32 109 117 115 116 32 98 101 32 111 110 101 32 111 102 32 116 104 101 32 102 111 108 108 111 119 105 110 103 58 32 91 82 65 50 44 32 82 65 52 44 32 82 67 51 44 32 82 67 53 93 10 0 ]
+[a 2C 69 82 82 79 82 33 32 116 114 105 103 80 105 110 32 109 97 121 32 110 111 116 32 98 101 32 97 110 121 32 111 102 32 116 104 101 32 102 111 108 108 111 119 105 110 103 58 32 91 82 65 50 44 32 82 65 52 44 32 82 67 51 44 32 82 67 53 44 32 82 65 51 93 10 0 ]
