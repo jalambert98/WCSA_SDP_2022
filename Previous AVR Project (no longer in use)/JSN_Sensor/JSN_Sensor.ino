@@ -1,5 +1,5 @@
 /* 
- * File:            JSN_Test.ino
+ * File:            JSN_Sensor.ino
  * Author:          Jack Lambert <joalambe@ucsc.edu>
  * Project:         White Cane Sensor Attachment
  * Course:          UCSC ECE129 - SDP '21
