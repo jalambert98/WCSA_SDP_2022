@@ -20,6 +20,16 @@
 //==============================================================================
 
 uint8_t JSN_Library_Init(void) {
+    // All peripherals enabled by default
+    // Disable unnecessary timers, etc to reduce power consumption
+    PMD0 = 0x00;        // enables CPUclk, FVR, NVM, & IOC
+    PMD1 = 0b01111000;  // disables TMR[6,5,4,3]
+    PMD2 = 0b00100000;  // disables ADC unit
+    PMD3 = 0b11001000;  // disables CWG[2,1] & CCP4
+    PMD4 = 0x00;        // enables UART & MSSP
+    PMD5 = 0b00011111;  // disables CLC[4,3,2,1] & DSM
+    
+    
     return SUCCESS;
 }
 
