@@ -54,7 +54,8 @@ uint8_t PIC16_Init(void) {
 //------------------------------------------------------------------------------
 
 void __interrupt() ISR(void) {
-    if(PIR0bits.TMR0IF) {
+    // FreeRunningTimer [TMR0]
+    if(PIR0bits.TMR0IF == HIGH) {
         FR_Timer_IncMillis();
         FR_Timer_IncMicros();
         PIR0bits.TMR0IF = LOW;
