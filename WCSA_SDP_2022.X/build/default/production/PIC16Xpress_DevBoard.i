@@ -11225,7 +11225,40 @@ typedef enum {
 } PinName_t;
 # 113 "./PIC16Xpress_DevBoard.h"
 uint8_t PIC16_Init(void);
+# 128 "./PIC16Xpress_DevBoard.h"
+void __attribute__((picinterrupt(("")))) ISR(void);
 # 9 "PIC16Xpress_DevBoard.c" 2
+
+# 1 "./FR_Timer.h" 1
+
+
+
+
+
+
+
+
+# 1 "./PIC16Xpress_DevBoard.h" 1
+# 9 "./FR_Timer.h" 2
+# 23 "./FR_Timer.h"
+uint8_t FR_Timer_Init(void);
+
+
+
+unsigned int FR_Timer_GetMillis(void);
+
+
+
+unsigned int FR_Timer_GetMicros(void);
+
+
+
+void FR_Timer_IncMillis(void);
+
+
+
+void FR_Timer_IncMicros(void);
+# 10 "PIC16Xpress_DevBoard.c" 2
 
 
 
@@ -11267,4 +11300,15 @@ uint8_t PIC16_Init(void) {
 
     INTCONbits.GIE = 0b1;
     return 0x00;
+}
+
+
+
+void __attribute__((picinterrupt(("")))) ISR(void) {
+    if(PIR0bits.TMR0IF) {
+        FR_Timer_IncMillis();
+        FR_Timer_IncMicros();
+        PIR0bits.TMR0IF = 0b0;
+    }
+    return;
 }

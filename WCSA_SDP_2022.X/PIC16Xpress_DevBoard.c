@@ -7,6 +7,8 @@
  */
 
 #include "PIC16Xpress_DevBoard.h"
+#include "FR_Timer.h"
+#include "JSN_Sensor.h"
 
 //==============================================================================
 //------------------------------ PUBLIC LIBRARY --------------------------------
@@ -41,12 +43,23 @@ uint8_t PIC16_Init(void) {
     // --- Configure system clock for [F_osc = 8MHz] --- //
     OSCCON1 = 0b01100000;       // Selects HFINTOSC (no PLL) with 1:1 scaling
     while(!OSCCON3bits.ORDY);   // Wait until oscillator is ready
-    OSCCON3bits.SOSCBE = 0b1;   // Disables secondary oscillator
+    OSCCON3bits.SOSCBE = HIGH;  // Disables secondary oscillator
     OSCEN = 0b01000000;         // Explicitly enables HFINTOSC
     OSCFRQ = 0b00000100;        // Configures HFINTOSC to [F_osc = 8MHz]
     
-    INTCONbits.GIE = 0b1;   // Enable global interrupts
+    INTCONbits.GIE = HIGH;      // Enable global interrupts
     return SUCCESS;
+}
+
+//------------------------------------------------------------------------------
+
+void __interrupt() ISR(void) {
+    if(PIR0bits.TMR0IF) {
+        FR_Timer_IncMillis();
+        FR_Timer_IncMicros();
+        PIR0bits.TMR0IF = LOW;
+    }
+    return;
 }
 
 

@@ -11234,6 +11234,8 @@ typedef enum {
 } PinName_t;
 # 113 "./PIC16Xpress_DevBoard.h"
 uint8_t PIC16_Init(void);
+# 128 "./PIC16Xpress_DevBoard.h"
+void __attribute__((picinterrupt(("")))) ISR(void);
 # 9 "./JSN_Sensor.h" 2
 # 27 "./JSN_Sensor.h"
 typedef struct {

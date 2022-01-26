@@ -751,96 +751,122 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSL equ 0FEEh ;# ">
 "19652
 [; <" TOSH equ 0FEFh ;# ">
-"22 FR_Timer.c
-[; ;FR_Timer.c: 22: static unsigned int millis4x;
+"24 FR_Timer.c
+[; ;FR_Timer.c: 24: static unsigned int millis4x;
 [v _millis4x `ui ~T0 @X0 1 s ]
-"23
-[; ;FR_Timer.c: 23: static unsigned int micros1x;
+"25
+[; ;FR_Timer.c: 25: static unsigned int micros1x;
 [v _micros1x `ui ~T0 @X0 1 s ]
-"30
-[; ;FR_Timer.c: 30: uint8_t FR_Timer_Init(void) {
+"32
+[; ;FR_Timer.c: 32: uint8_t FR_Timer_Init(void) {
 [v _FR_Timer_Init `(uc ~T0 @X0 1 ef ]
 {
 [e :U _FR_Timer_Init ]
 [f ]
-"31
-[; ;FR_Timer.c: 31:     INTCONbits.GIE = 0b0;
-[e = . . _INTCONbits 0 3 -> -> 0 `i `uc ]
-"32
-[; ;FR_Timer.c: 32:     millis4x = 0;
-[e = _millis4x -> -> 0 `i `ui ]
 "33
-[; ;FR_Timer.c: 33:     micros1x = 0;
+[; ;FR_Timer.c: 33:     INTCONbits.GIE = 0b0;
+[e = . . _INTCONbits 0 3 -> -> 0 `i `uc ]
+"34
+[; ;FR_Timer.c: 34:     millis4x = 0;
+[e = _millis4x -> -> 0 `i `ui ]
+"35
+[; ;FR_Timer.c: 35:     micros1x = 0;
 [e = _micros1x -> -> 0 `i `ui ]
-"36
-[; ;FR_Timer.c: 36:     T0CON0 = 0x00;
-[e = _T0CON0 -> -> 0 `i `uc ]
-"37
-[; ;FR_Timer.c: 37:     T0CON1 = 0x00;
-[e = _T0CON1 -> -> 0 `i `uc ]
 "38
-[; ;FR_Timer.c: 38:     TMR0L = 0x00;
-[e = _TMR0L -> -> 0 `i `uc ]
+[; ;FR_Timer.c: 38:     T0CON0 = 0x00;
+[e = _T0CON0 -> -> 0 `i `uc ]
+"39
+[; ;FR_Timer.c: 39:     T0CON1 = 0x00;
+[e = _T0CON1 -> -> 0 `i `uc ]
 "40
-[; ;FR_Timer.c: 40:     T0CON0bits.T016BIT = 0b0;
-[e = . . _T0CON0bits 0 1 -> -> 0 `i `uc ]
-"41
-[; ;FR_Timer.c: 41:     T0CON1bits.T0CS = 0b010;
-[e = . . _T0CON1bits 0 2 -> -> 2 `i `uc ]
+[; ;FR_Timer.c: 40:     TMR0L = 0x00;
+[e = _TMR0L -> -> 0 `i `uc ]
 "42
-[; ;FR_Timer.c: 42:     T0CON1bits.T0CKPS = 0x1;
-[e = . . _T0CON1bits 0 0 -> -> 1 `i `uc ]
+[; ;FR_Timer.c: 42:     T0CON0bits.T016BIT = 0b0;
+[e = . . _T0CON0bits 0 1 -> -> 0 `i `uc ]
 "43
-[; ;FR_Timer.c: 43:     T0CON1bits.T0ASYNC = 0b0;
-[e = . . _T0CON1bits 0 1 -> -> 0 `i `uc ]
+[; ;FR_Timer.c: 43:     T0CON1bits.T0CS = 0b010;
+[e = . . _T0CON1bits 0 2 -> -> 2 `i `uc ]
 "44
-[; ;FR_Timer.c: 44:     T0CON0bits.T0OUTPS = 0x0;
-[e = . . _T0CON0bits 0 0 -> -> 0 `i `uc ]
+[; ;FR_Timer.c: 44:     T0CON1bits.T0CKPS = 0x1;
+[e = . . _T0CON1bits 0 0 -> -> 1 `i `uc ]
 "45
-[; ;FR_Timer.c: 45:     TMR0H = 250;
-[e = _TMR0H -> -> 250 `i `uc ]
+[; ;FR_Timer.c: 45:     T0CON1bits.T0ASYNC = 0b0;
+[e = . . _T0CON1bits 0 1 -> -> 0 `i `uc ]
+"46
+[; ;FR_Timer.c: 46:     T0CON0bits.T0OUTPS = 0x0;
+[e = . . _T0CON0bits 0 0 -> -> 0 `i `uc ]
 "47
-[; ;FR_Timer.c: 47:     PIE0bits.TMR0IE = 0b1;
-[e = . . _PIE0bits 0 3 -> -> 1 `i `uc ]
-"48
-[; ;FR_Timer.c: 48:     INTCONbits.GIE = 0b1;
-[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
+[; ;FR_Timer.c: 47:     TMR0H = 250;
+[e = _TMR0H -> -> 250 `i `uc ]
 "49
-[; ;FR_Timer.c: 49:     T0CON0bits.T0EN = 0b1;
-[e = . . _T0CON0bits 0 4 -> -> 1 `i `uc ]
+[; ;FR_Timer.c: 49:     PIE0bits.TMR0IE = 0b1;
+[e = . . _PIE0bits 0 3 -> -> 1 `i `uc ]
+"50
+[; ;FR_Timer.c: 50:     INTCONbits.GIE = 0b1;
+[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
 "51
-[; ;FR_Timer.c: 51:     return 0x00;
+[; ;FR_Timer.c: 51:     T0CON0bits.T0EN = 0b1;
+[e = . . _T0CON0bits 0 4 -> -> 1 `i `uc ]
+"53
+[; ;FR_Timer.c: 53:     return 0x00;
 [e ) -> -> 0 `i `uc ]
 [e $UE 963  ]
-"52
-[; ;FR_Timer.c: 52: }
+"54
+[; ;FR_Timer.c: 54: }
 [e :UE 963 ]
 }
-"56
-[; ;FR_Timer.c: 56: unsigned int FR_Timer_GetMillis() {
+"58
+[; ;FR_Timer.c: 58: unsigned int FR_Timer_GetMillis() {
 [v _FR_Timer_GetMillis `(ui ~T0 @X0 1 ef ]
 {
 [e :U _FR_Timer_GetMillis ]
 [f ]
-"58
-[; ;FR_Timer.c: 58:     return (millis4x >> 2);
+"60
+[; ;FR_Timer.c: 60:     return (millis4x >> 2);
 [e ) >> _millis4x -> 2 `i ]
 [e $UE 964  ]
-"59
-[; ;FR_Timer.c: 59: }
+"61
+[; ;FR_Timer.c: 61: }
 [e :UE 964 ]
 }
-"63
-[; ;FR_Timer.c: 63: unsigned int FR_Timer_GetMicros() {
+"65
+[; ;FR_Timer.c: 65: unsigned int FR_Timer_GetMicros() {
 [v _FR_Timer_GetMicros `(ui ~T0 @X0 1 ef ]
 {
 [e :U _FR_Timer_GetMicros ]
 [f ]
-"65
-[; ;FR_Timer.c: 65:     return ((millis4x * 250) + micros1x);
+"67
+[; ;FR_Timer.c: 67:     return ((millis4x * 250) + micros1x);
 [e ) + * _millis4x -> -> 250 `i `ui _micros1x ]
 [e $UE 965  ]
-"66
-[; ;FR_Timer.c: 66: }
+"68
+[; ;FR_Timer.c: 68: }
 [e :UE 965 ]
+}
+"72
+[; ;FR_Timer.c: 72: void FR_Timer_IncMillis(void) {
+[v _FR_Timer_IncMillis `(v ~T0 @X0 1 ef ]
+{
+[e :U _FR_Timer_IncMillis ]
+[f ]
+"73
+[; ;FR_Timer.c: 73:     millis4x++;
+[e ++ _millis4x -> -> 1 `i `ui ]
+"74
+[; ;FR_Timer.c: 74: }
+[e :UE 966 ]
+}
+"78
+[; ;FR_Timer.c: 78: void FR_Timer_IncMicros(void) {
+[v _FR_Timer_IncMicros `(v ~T0 @X0 1 ef ]
+{
+[e :U _FR_Timer_IncMicros ]
+[f ]
+"79
+[; ;FR_Timer.c: 79:     micros1x += 250;
+[e =+ _micros1x -> -> 250 `i `ui ]
+"80
+[; ;FR_Timer.c: 80: }
+[e :UE 967 ]
 }

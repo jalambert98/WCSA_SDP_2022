@@ -112,6 +112,22 @@ typedef enum {
  **/
 uint8_t PIC16_Init(void);
 
+//------------------------------------------------------------------------------
+/**
+ * @funct    __interrupt() ISR()
+ * 
+ * @param    None
+ * 
+ * @return   None
+ * 
+ * @brief    Checks the existing interrupt flags, runs the associated ISR for
+ *           any PIRx bits set high, and then clears the flags.
+ * 
+ * @author   Jack Lambert, 2022.01.25
+ **/
+void __interrupt() ISR(void);
+
+
 #endif	/* PIC16XPRESS_DEVBOARD_H */
 
 //==============================================================================

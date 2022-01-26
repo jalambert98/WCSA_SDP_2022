@@ -12,6 +12,8 @@
 //-------------------------------- #DEFINES ------------------------------------
 //==============================================================================
 
+#define TMR0_PERIOD_US          250
+
 //#define FR_TIMER_TEST
 
 
@@ -28,7 +30,7 @@ static unsigned int micros1x;
 //==============================================================================
 
 uint8_t FR_Timer_Init(void) {
-    INTCONbits.GIE = 0b0;       // Temporarily disable global interrupts
+    INTCONbits.GIE = LOW;       // Temporarily disable global interrupts
     millis4x = 0;                 
     micros1x = 0;               // Reset module level variables
     
@@ -37,16 +39,16 @@ uint8_t FR_Timer_Init(void) {
     T0CON1 = 0x00;              // Clear TMR0 control registers
     TMR0L = 0x00;               // Clear TMR0 counter register
     
-    T0CON0bits.T016BIT = 0b0;   // TMR0 is set to 8-bit timer mode
+    T0CON0bits.T016BIT = LOW;   // TMR0 is set to 8-bit timer mode
     T0CON1bits.T0CS = 0b010;    // [F_osc/4] = [2MHz] clk source for TMR0
     T0CON1bits.T0CKPS = 0x1;    // Set 2:1 prescalar [TMR0 ticks @1MHz]
-    T0CON1bits.T0ASYNC = 0b0;   // Sync TMR0 counter with [F_osc/4]
+    T0CON1bits.T0ASYNC = LOW;   // Sync TMR0 counter with [F_osc/4]
     T0CON0bits.T0OUTPS = 0x0;   // Set 1:1 postscalar [input = output = 1MHz]
-    TMR0H = 250;                // Period match = 250 --> interrupt every 250us
+    TMR0H = TMR0_PERIOD_US;     // Period match = 250 --> interrupt every 250us
     
-    PIE0bits.TMR0IE = 0b1;      // Enable TMR0 interrupts
-    INTCONbits.GIE = 0b1;       // Enable global interrupts
-    T0CON0bits.T0EN = 0b1;      // Enable TMR0
+    PIE0bits.TMR0IE = HIGH;     // Enable TMR0 interrupts
+    INTCONbits.GIE = HIGH;      // Enable global interrupts
+    T0CON0bits.T0EN = HIGH;     // Enable TMR0
     
     return SUCCESS;
 }
@@ -62,14 +64,21 @@ unsigned int FR_Timer_GetMillis() {
 
 unsigned int FR_Timer_GetMicros() {
     // millis4x increments every 250us, so *250 = 1us
-    return ((millis4x * 250) + micros1x);
+    return ((millis4x * TMR0_PERIOD_US) + micros1x);
 }
 
-//==============================================================================
-//--------------------- TMR0 Interrupt Service Routine -------------------------
-//==============================================================================
+//------------------------------------------------------------------------------
 
-// STILL NEED TO IMPLEMENT
+void FR_Timer_IncMillis(void) {
+    millis4x++;
+}
+
+//------------------------------------------------------------------------------
+
+void FR_Timer_IncMicros(void) {
+    micros1x += TMR0_PERIOD_US;
+}
+
 
 //==============================================================================
 //------------------------- CONDITIONAL TEST HARNESS ---------------------------

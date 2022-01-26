@@ -53,6 +53,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _OSCEN `Vuc ~T0 @X0 0 e@2333 ]
 "12830
 [v _OSCFRQ `Vuc ~T0 @X0 0 e@2335 ]
+[t ~ __interrupt . k ]
+[t T2 __interrupt ]
+"542
+[s S39 :1 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S39 . INTF . IOCIF TMR0IF ]
+"541
+[u S38 `S39 1 ]
+[n S38 . . ]
+"549
+[v _PIR0bits `VS38 ~T0 @X0 0 e@16 ]
+"35 ./FR_Timer.h
+[; ;./FR_Timer.h: 35: void FR_Timer_IncMillis(void);
+[v _FR_Timer_IncMillis `(v ~T0 @X0 0 ef ]
+"39
+[; ;./FR_Timer.h: 39: void FR_Timer_IncMicros(void);
+[v _FR_Timer_IncMicros `(v ~T0 @X0 0 ef ]
 "55 C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\PIC16F18345.h
 [; <" INDF0 equ 00h ;# ">
 "75
@@ -759,90 +775,121 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSL equ 0FEEh ;# ">
 "19652
 [; <" TOSH equ 0FEFh ;# ">
-"15 PIC16Xpress_DevBoard.c
-[; ;PIC16Xpress_DevBoard.c: 15: uint8_t PIC16_Init(void) {
+"16 PIC16Xpress_DevBoard.c
+[; ;PIC16Xpress_DevBoard.c: 16: uint8_t PIC16_Init(void) {
 [v _PIC16_Init `(uc ~T0 @X0 1 ef ]
 {
 [e :U _PIC16_Init ]
 [f ]
-"16
-[; ;PIC16Xpress_DevBoard.c: 16:     INTCONbits.GIE = 0b0;
+"17
+[; ;PIC16Xpress_DevBoard.c: 17:     INTCONbits.GIE = 0b0;
 [e = . . _INTCONbits 0 3 -> -> 0 `i `uc ]
-"20
-[; ;PIC16Xpress_DevBoard.c: 20:     PMD0 = 0x00;
-[e = _PMD0 -> -> 0 `i `uc ]
 "21
-[; ;PIC16Xpress_DevBoard.c: 21:     PMD1 = 0b01010100;
-[e = _PMD1 -> -> 84 `i `uc ]
+[; ;PIC16Xpress_DevBoard.c: 21:     PMD0 = 0x00;
+[e = _PMD0 -> -> 0 `i `uc ]
 "22
-[; ;PIC16Xpress_DevBoard.c: 22:     PMD2 = 0b00100000;
-[e = _PMD2 -> -> 32 `i `uc ]
+[; ;PIC16Xpress_DevBoard.c: 22:     PMD1 = 0b01010100;
+[e = _PMD1 -> -> 84 `i `uc ]
 "23
-[; ;PIC16Xpress_DevBoard.c: 23:     PMD3 = 0b11001000;
-[e = _PMD3 -> -> 200 `i `uc ]
+[; ;PIC16Xpress_DevBoard.c: 23:     PMD2 = 0b00100000;
+[e = _PMD2 -> -> 32 `i `uc ]
 "24
-[; ;PIC16Xpress_DevBoard.c: 24:     PMD4 = 0x00;
-[e = _PMD4 -> -> 0 `i `uc ]
+[; ;PIC16Xpress_DevBoard.c: 24:     PMD3 = 0b11001000;
+[e = _PMD3 -> -> 200 `i `uc ]
 "25
-[; ;PIC16Xpress_DevBoard.c: 25:     PMD5 = 0b00011111;
+[; ;PIC16Xpress_DevBoard.c: 25:     PMD4 = 0x00;
+[e = _PMD4 -> -> 0 `i `uc ]
+"26
+[; ;PIC16Xpress_DevBoard.c: 26:     PMD5 = 0b00011111;
 [e = _PMD5 -> -> 31 `i `uc ]
-"28
-[; ;PIC16Xpress_DevBoard.c: 28:     PIE0 = 0x00;
-[e = _PIE0 -> -> 0 `i `uc ]
 "29
-[; ;PIC16Xpress_DevBoard.c: 29:     PIE1 = 0x00;
-[e = _PIE1 -> -> 0 `i `uc ]
+[; ;PIC16Xpress_DevBoard.c: 29:     PIE0 = 0x00;
+[e = _PIE0 -> -> 0 `i `uc ]
 "30
-[; ;PIC16Xpress_DevBoard.c: 30:     PIE2 = 0x00;
-[e = _PIE2 -> -> 0 `i `uc ]
+[; ;PIC16Xpress_DevBoard.c: 30:     PIE1 = 0x00;
+[e = _PIE1 -> -> 0 `i `uc ]
 "31
-[; ;PIC16Xpress_DevBoard.c: 31:     PIE3 = 0x00;
-[e = _PIE3 -> -> 0 `i `uc ]
+[; ;PIC16Xpress_DevBoard.c: 31:     PIE2 = 0x00;
+[e = _PIE2 -> -> 0 `i `uc ]
 "32
-[; ;PIC16Xpress_DevBoard.c: 32:     PIE4 = 0x00;
+[; ;PIC16Xpress_DevBoard.c: 32:     PIE3 = 0x00;
+[e = _PIE3 -> -> 0 `i `uc ]
+"33
+[; ;PIC16Xpress_DevBoard.c: 33:     PIE4 = 0x00;
 [e = _PIE4 -> -> 0 `i `uc ]
-"35
-[; ;PIC16Xpress_DevBoard.c: 35:     PIR0 = 0x00;
-[e = _PIR0 -> -> 0 `i `uc ]
 "36
-[; ;PIC16Xpress_DevBoard.c: 36:     PIR1 = 0x00;
-[e = _PIR1 -> -> 0 `i `uc ]
+[; ;PIC16Xpress_DevBoard.c: 36:     PIR0 = 0x00;
+[e = _PIR0 -> -> 0 `i `uc ]
 "37
-[; ;PIC16Xpress_DevBoard.c: 37:     PIR2 = 0x00;
-[e = _PIR2 -> -> 0 `i `uc ]
+[; ;PIC16Xpress_DevBoard.c: 37:     PIR1 = 0x00;
+[e = _PIR1 -> -> 0 `i `uc ]
 "38
-[; ;PIC16Xpress_DevBoard.c: 38:     PIR3 = 0x00;
-[e = _PIR3 -> -> 0 `i `uc ]
+[; ;PIC16Xpress_DevBoard.c: 38:     PIR2 = 0x00;
+[e = _PIR2 -> -> 0 `i `uc ]
 "39
-[; ;PIC16Xpress_DevBoard.c: 39:     PIR4 = 0x00;
+[; ;PIC16Xpress_DevBoard.c: 39:     PIR3 = 0x00;
+[e = _PIR3 -> -> 0 `i `uc ]
+"40
+[; ;PIC16Xpress_DevBoard.c: 40:     PIR4 = 0x00;
 [e = _PIR4 -> -> 0 `i `uc ]
-"42
-[; ;PIC16Xpress_DevBoard.c: 42:     OSCCON1 = 0b01100000;
-[e = _OSCCON1 -> -> 96 `i `uc ]
 "43
-[; ;PIC16Xpress_DevBoard.c: 43:     while(!OSCCON3bits.ORDY);
+[; ;PIC16Xpress_DevBoard.c: 43:     OSCCON1 = 0b01100000;
+[e = _OSCCON1 -> -> 96 `i `uc ]
+"44
+[; ;PIC16Xpress_DevBoard.c: 44:     while(!OSCCON3bits.ORDY);
 [e $U 964  ]
 [e :U 965 ]
 [e :U 964 ]
 [e $ ! != -> . . _OSCCON3bits 0 2 `i -> 0 `i 965  ]
 [e :U 966 ]
-"44
-[; ;PIC16Xpress_DevBoard.c: 44:     OSCCON3bits.SOSCBE = 0b1;
-[e = . . _OSCCON3bits 0 3 -> -> 1 `i `uc ]
 "45
-[; ;PIC16Xpress_DevBoard.c: 45:     OSCEN = 0b01000000;
-[e = _OSCEN -> -> 64 `i `uc ]
+[; ;PIC16Xpress_DevBoard.c: 45:     OSCCON3bits.SOSCBE = 0b1;
+[e = . . _OSCCON3bits 0 3 -> -> 1 `i `uc ]
 "46
-[; ;PIC16Xpress_DevBoard.c: 46:     OSCFRQ = 0b00000100;
+[; ;PIC16Xpress_DevBoard.c: 46:     OSCEN = 0b01000000;
+[e = _OSCEN -> -> 64 `i `uc ]
+"47
+[; ;PIC16Xpress_DevBoard.c: 47:     OSCFRQ = 0b00000100;
 [e = _OSCFRQ -> -> 4 `i `uc ]
-"48
-[; ;PIC16Xpress_DevBoard.c: 48:     INTCONbits.GIE = 0b1;
-[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
 "49
-[; ;PIC16Xpress_DevBoard.c: 49:     return 0x00;
+[; ;PIC16Xpress_DevBoard.c: 49:     INTCONbits.GIE = 0b1;
+[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
+"50
+[; ;PIC16Xpress_DevBoard.c: 50:     return 0x00;
 [e ) -> -> 0 `i `uc ]
 [e $UE 963  ]
-"50
-[; ;PIC16Xpress_DevBoard.c: 50: }
+"51
+[; ;PIC16Xpress_DevBoard.c: 51: }
 [e :UE 963 ]
+}
+[v $root$_ISR `(v ~T0 @X0 0 e ]
+"55
+[; ;PIC16Xpress_DevBoard.c: 55: void __attribute__((picinterrupt(("")))) ISR(void) {
+[v _ISR `(v ~T2 @X0 1 ef ]
+{
+[e :U _ISR ]
+[f ]
+"56
+[; ;PIC16Xpress_DevBoard.c: 56:     if(PIR0bits.TMR0IF) {
+[e $ ! != -> . . _PIR0bits 0 3 `i -> 0 `i 968  ]
+{
+"57
+[; ;PIC16Xpress_DevBoard.c: 57:         FR_Timer_IncMillis();
+[e ( _FR_Timer_IncMillis ..  ]
+"58
+[; ;PIC16Xpress_DevBoard.c: 58:         FR_Timer_IncMicros();
+[e ( _FR_Timer_IncMicros ..  ]
+"59
+[; ;PIC16Xpress_DevBoard.c: 59:         PIR0bits.TMR0IF = 0b0;
+[e = . . _PIR0bits 0 3 -> -> 0 `i `uc ]
+"60
+[; ;PIC16Xpress_DevBoard.c: 60:     }
+}
+[e :U 968 ]
+"61
+[; ;PIC16Xpress_DevBoard.c: 61:     return;
+[e $UE 967  ]
+"62
+[; ;PIC16Xpress_DevBoard.c: 62: }
+[e :UE 967 ]
 }

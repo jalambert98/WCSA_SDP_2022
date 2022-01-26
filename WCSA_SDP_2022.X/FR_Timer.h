@@ -30,6 +30,13 @@ unsigned int FR_Timer_GetMillis(void);
 
 unsigned int FR_Timer_GetMicros(void);
 
+//------------------------------------------------------------------------------
+
+void FR_Timer_IncMillis(void);
+
+//------------------------------------------------------------------------------
+
+void FR_Timer_IncMicros(void);
 
 #endif	/* FR_TIMER_H */
 
