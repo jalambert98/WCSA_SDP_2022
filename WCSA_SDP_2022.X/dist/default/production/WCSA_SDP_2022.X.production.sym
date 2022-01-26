@@ -1,13 +1,34 @@
 __S0 88E 0 ABS 0
-__S1 0 0 ABS 0
+__S1 74 0 ABS 0
 __S3 0 0 ABS 0
 __Hintentry 2 0 CODE 0
 __Lintentry 2 0 CODE 0
-_main 7FA 0 CODE 0
+_PIE0 90 0 ABS 0
+_PMD0 911 0 ABS 0
+_PIE1 91 0 ABS 0
+_PMD1 912 0 ABS 0
+_PIE2 92 0 ABS 0
+_PMD2 913 0 ABS 0
+_PIE3 93 0 ABS 0
+_PMD3 914 0 ABS 0
+_PIE4 94 0 ABS 0
+_PMD4 915 0 ABS 0
+_PMD5 916 0 ABS 0
+_PIR0 10 0 ABS 0
+_PIR1 11 0 ABS 0
+_PIR2 12 0 ABS 0
+_PIR3 13 0 ABS 0
+_PIR4 14 0 ABS 0
+_main 7F6 0 CODE 0
 ___sp 0 0 STACK 2
 btemp 7E 0 ABS 0
 start 2 0 CODE 0
+_micros1x 70 0 COMMON 1
+_millis4x 72 0 COMMON 1
+_TMR0H 16 0 ABS 0
+_TMR0L 15 0 ABS 0
 reset_vec 0 0 CODE 0
+_OSCEN 91D 0 ABS 0
 wtemp0 7E 0 ABS 0
 __Hstringtext1 0 0 ABS 0
 __Lstringtext1 0 0 ABS 0
@@ -18,8 +39,11 @@ __Hram 0 0 ABS 0
 __Lram 0 0 ABS 0
 __Hfunctab 0 0 ENTRY 0
 __Lfunctab 0 0 ENTRY 0
+_T0CON0 17 0 ABS 0
+_T0CON1 18 0 ABS 0
 __Hcommon 0 0 ABS 0
 __Lcommon 0 0 ABS 0
+_PIE0bits 90 0 ABS 0
 __Heeprom_data 0 0 EEDATA 3
 __Leeprom_data 0 0 EEDATA 3
 _LATAbits 10C 0 ABS 0
@@ -35,6 +59,7 @@ __Lsfr1 0 0 ABS 0
 __Hsfr2 0 0 ABS 0
 __Lsfr2 0 0 ABS 0
 __Hsfr3 0 0 ABS 0
+_OSCFRQ 91F 0 ABS 0
 __Lsfr3 0 0 ABS 0
 __Hsfr4 0 0 ABS 0
 __Lsfr4 0 0 ABS 0
@@ -59,12 +84,13 @@ __Lstringtext2 0 0 ABS 0
 __Hinit 2 0 CODE 0
 __Linit 2 0 CODE 0
 __pstringtext2 84B 0 STRCODE 0
-__end_of_main 7FD 0 CODE 0
+__end_of_main 7F9 0 CODE 0
 __Htext 0 0 ABS 0
 __Ltext 0 0 ABS 0
 ___heap_lo 0 0 ABS 0
 end_of_initialization 7FD 0 CODE 0
 ___stacklo 0 0 ABS 0
+_OSCCON1 919 0 ABS 0
 __Hsfr10 0 0 ABS 0
 __Lsfr10 0 0 ABS 0
 __Hsfr20 0 0 ABS 0
@@ -137,6 +163,7 @@ __Hbank8 0 0 ABS 0
 __Lbank8 0 0 ABS 0
 __Hbank9 0 0 ABS 0
 __Lbank9 0 0 ABS 0
+_OSCCON3bits 91B 0 ABS 0
 __Hclrtext 0 0 ABS 0
 __Lclrtext 0 0 ABS 0
 __Hstringtext3 0 0 ABS 0
@@ -147,12 +174,12 @@ __Hstack 0 0 STACK 2
 __Lstack 0 0 STACK 2
 __Hspace_0 88E 0 ABS 0
 __Lspace_0 0 0 ABS 0
-__Hspace_1 0 0 ABS 0
+__Hspace_1 74 0 ABS 0
 __Lspace_1 0 0 ABS 0
 __Hspace_2 0 0 ABS 0
 __Lspace_2 0 0 ABS 0
 __Hcinit 800 0 CODE 0
-__Lcinit 7FD 0 CODE 0
+__Lcinit 7F9 0 CODE 0
 __Hspace_3 0 0 ABS 0
 __Lspace_3 0 0 ABS 0
 __Hbank10 0 0 ABS 0
@@ -191,14 +218,20 @@ __Hbank17 0 0 BANK17 1
 __Lbank17 0 0 BANK17 1
 __Hbank27 0 0 BANK27 1
 __Lbank27 0 0 BANK27 1
+_T0CON0bits 17 0 ABS 0
 __Hbank18 0 0 BANK18 1
 __Lbank18 0 0 BANK18 1
+_T0CON1bits 18 0 ABS 0
 __Hbank28 0 0 BANK28 1
 __Lbank28 0 0 BANK28 1
 __Hbank19 0 0 BANK19 1
 __Lbank19 0 0 BANK19 1
 __Hbank29 0 0 BANK29 1
 __Lbank29 0 0 BANK29 1
+__HbssCOMMON 0 0 ABS 0
+__LbssCOMMON 0 0 ABS 0
+__pbssCOMMON 70 0 COMMON 1
+_INTCONbits B 0 ABS 0
 __Hend_init 4 0 CODE 0
 __Lend_init 2 0 CODE 0
 __Hreset_vec 2 0 CODE 0
@@ -212,24 +245,29 @@ intlevel5 0 0 ENTRY 0
 __HcstackCOMMON 0 0 ABS 0
 __LcstackCOMMON 0 0 ABS 0
 __pcstackCOMMON 0 0 COMMON 1
-start_initialization 7FD 0 CODE 0
+start_initialization 7F9 0 CODE 0
 __Hmaintext 0 0 ABS 0
 __Lmaintext 0 0 ABS 0
-__pmaintext 7FA 0 CODE 0
-__initialization 7FD 0 CODE 0
+__pmaintext 7F6 0 CODE 0
+__initialization 7F9 0 CODE 0
 %segments
 reset_vec 0 7 CODE 0 0
-cinit FFA FFF CODE FFA 0
+cinit FF2 FFF CODE FF2 0
+bssCOMMON 70 73 COMMON 70 1
 stringtext1 1000 111B STRCODE 1000 0
-maintext FF4 FF9 CODE FF4 0
+maintext FEC FF1 CODE FEC 0
 %locals
 dist/default/production\WCSA_SDP_2022.X.production.o
-C:\Users\Jack\AppData\Local\Temp\xcAscpc.s
-1685 7FD 0 CODE 0
-1688 7FD 0 CODE 0
-1694 7FD 0 CODE 0
-1696 7FD 0 CODE 0
-1697 7FE 0 CODE 0
+C:\Users\Jack\AppData\Local\Temp\xcAsj1c.s
+3155 7F9 0 CODE 0
+3158 7F9 0 CODE 0
+3173 7F9 0 CODE 0
+3174 7FA 0 CODE 0
+3175 7FB 0 CODE 0
+3176 7FC 0 CODE 0
+3182 7FD 0 CODE 0
+3184 7FD 0 CODE 0
+3185 7FE 0 CODE 0
 JSN_Sensor.c
-133 7FA 0 CODE 0
-135 7FA 0 CODE 0
+143 7F6 0 CODE 0
+145 7F6 0 CODE 0

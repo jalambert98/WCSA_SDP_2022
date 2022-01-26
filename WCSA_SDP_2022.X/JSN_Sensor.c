@@ -1,6 +1,7 @@
 /* 
- * File:   JSN_Sensor.h
- * Author: Jack Lambert
+ * File:    JSN_Sensor.h
+ * Author:  Jack Lambert     <joalambe@ucsc.edu>
+ * Project: WCSA_SDP_2022
  *
  * Created on January 24, 2022, 10:29 PM
  */
@@ -20,18 +21,13 @@
 //==============================================================================
 
 uint8_t JSN_Library_Init(void) {
-    // All peripherals enabled by default
-    // Disable unnecessary timers, etc to reduce power consumption
-    PMD0 = 0x00;        // enables CPUclk, FVR, NVM, & IOC
-    PMD1 = 0b01111000;  // disables TMR[6,5,4,3]
-    PMD2 = 0b00100000;  // disables ADC unit
-    PMD3 = 0b11001000;  // disables CWG[2,1] & CCP4
-    PMD4 = 0x00;        // enables UART & MSSP
-    PMD5 = 0b00011111;  // disables CLC[4,3,2,1] & DSM
+    // Configure Timers
     
     
     return SUCCESS;
 }
+
+//------------------------------------------------------------------------------
 
 uint8_t JSN_Sensor_Init(JSN_t *Sensor, PinName_t trigPin, PinName_t echoPin) {
     
@@ -126,9 +122,13 @@ uint8_t JSN_Sensor_Init(JSN_t *Sensor, PinName_t trigPin, PinName_t echoPin) {
     return SUCCESS;
 }
 
+//------------------------------------------------------------------------------
+
 void JSN_Sensor_Trig(JSN_t *Sensor) {
     return;
 }
+
+//------------------------------------------------------------------------------
 
 unsigned int JSN_Sensor_GetDistance(JSN_t *Sensor) {
     return 0;

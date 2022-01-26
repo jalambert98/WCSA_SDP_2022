@@ -1,4 +1,4 @@
-# 1 "JSN_Sensor.c"
+# 1 "PIC16Xpress_DevBoard.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,16 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "JSN_Sensor.c" 2
-
-
-
-
-
-
-
-
-# 1 "./JSN_Sensor.h" 1
+# 1 "PIC16Xpress_DevBoard.c" 2
 
 
 
@@ -11234,292 +11225,46 @@ typedef enum {
 } PinName_t;
 # 113 "./PIC16Xpress_DevBoard.h"
 uint8_t PIC16_Init(void);
-# 9 "./JSN_Sensor.h" 2
-# 27 "./JSN_Sensor.h"
-typedef struct {
-    unsigned int echoHighTime;
-    unsigned int distance;
-    PinName_t trigPin;
-    PinName_t echoPin;
-} JSN_t;
-# 50 "./JSN_Sensor.h"
-uint8_t JSN_Library_Init(void);
-# 71 "./JSN_Sensor.h"
-uint8_t JSN_Sensor_Init(JSN_t *Sensor, PinName_t trigPin, PinName_t echoPin);
-# 86 "./JSN_Sensor.h"
-void JSN_Sensor_Trig(JSN_t *Sensor);
-# 102 "./JSN_Sensor.h"
-unsigned int JSN_Sensor_GetDistance(JSN_t *Sensor);
-# 9 "JSN_Sensor.c" 2
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdio.h" 1 3
-# 24 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdio.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\bits/alltypes.h" 1 3
-
-
-
-
-
-typedef void * va_list[1];
-
-
-
-
-typedef void * __isoc_va_list[1];
-# 137 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long ssize_t;
-# 246 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long long off_t;
-# 399 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef struct _IO_FILE FILE;
-# 24 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdio.h" 2 3
-# 52 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdio.h" 3
-typedef union _G_fpos64_t {
- char __opaque[16];
- double __align;
-} fpos_t;
-
-extern FILE *const stdin;
-extern FILE *const stdout;
-extern FILE *const stderr;
-
-
-
-
-
-FILE *fopen(const char *restrict, const char *restrict);
-FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
-int fclose(FILE *);
-
-int remove(const char *);
-int rename(const char *, const char *);
-
-int feof(FILE *);
-int ferror(FILE *);
-int fflush(FILE *);
-void clearerr(FILE *);
-
-int fseek(FILE *, long, int);
-long ftell(FILE *);
-void rewind(FILE *);
-
-int fgetpos(FILE *restrict, fpos_t *restrict);
-int fsetpos(FILE *, const fpos_t *);
-
-size_t fread(void *restrict, size_t, size_t, FILE *restrict);
-size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
-
-int fgetc(FILE *);
-int getc(FILE *);
-int getchar(void);
-int ungetc(int, FILE *);
-
-int fputc(int, FILE *);
-int putc(int, FILE *);
-int putchar(int);
-
-char *fgets(char *restrict, int, FILE *restrict);
-
-char *gets(char *);
-
-
-int fputs(const char *restrict, FILE *restrict);
-int puts(const char *);
-
-__attribute__((__format__(__printf__, 1, 2)))
-int printf(const char *restrict, ...);
-__attribute__((__format__(__printf__, 2, 3)))
-int fprintf(FILE *restrict, const char *restrict, ...);
-__attribute__((__format__(__printf__, 2, 3)))
-int sprintf(char *restrict, const char *restrict, ...);
-__attribute__((__format__(__printf__, 3, 4)))
-int snprintf(char *restrict, size_t, const char *restrict, ...);
-
-__attribute__((__format__(__printf__, 1, 0)))
-int vprintf(const char *restrict, __isoc_va_list);
-int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__printf__, 2, 0)))
-int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__printf__, 3, 0)))
-int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
-
-__attribute__((__format__(__scanf__, 1, 2)))
-int scanf(const char *restrict, ...);
-__attribute__((__format__(__scanf__, 2, 3)))
-int fscanf(FILE *restrict, const char *restrict, ...);
-__attribute__((__format__(__scanf__, 2, 3)))
-int sscanf(const char *restrict, const char *restrict, ...);
-
-__attribute__((__format__(__scanf__, 1, 0)))
-int vscanf(const char *restrict, __isoc_va_list);
-int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__scanf__, 2, 0)))
-int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
-
-void perror(const char *);
-
-int setvbuf(FILE *restrict, char *restrict, int, size_t);
-void setbuf(FILE *restrict, char *restrict);
-
-char *tmpnam(char *);
-FILE *tmpfile(void);
-
-
-
-
-FILE *fmemopen(void *restrict, size_t, const char *restrict);
-FILE *open_memstream(char **, size_t *);
-FILE *fdopen(int, const char *);
-FILE *popen(const char *, const char *);
-int pclose(FILE *);
-int fileno(FILE *);
-int fseeko(FILE *, off_t, int);
-off_t ftello(FILE *);
-int dprintf(int, const char *restrict, ...);
-int vdprintf(int, const char *restrict, __isoc_va_list);
-void flockfile(FILE *);
-int ftrylockfile(FILE *);
-void funlockfile(FILE *);
-int getc_unlocked(FILE *);
-int getchar_unlocked(void);
-int putc_unlocked(int, FILE *);
-int putchar_unlocked(int);
-ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
-ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
-int renameat(int, const char *, int, const char *);
-char *ctermid(char *);
+# 9 "PIC16Xpress_DevBoard.c" 2
 
 
 
 
 
 
-
-char *tempnam(const char *, const char *);
-# 10 "JSN_Sensor.c" 2
-# 23 "JSN_Sensor.c"
-uint8_t JSN_Library_Init(void) {
+uint8_t PIC16_Init(void) {
+    INTCONbits.GIE = 0b0;
 
 
 
+    PMD0 = 0x00;
+    PMD1 = 0b01010100;
+    PMD2 = 0b00100000;
+    PMD3 = 0b11001000;
+    PMD4 = 0x00;
+    PMD5 = 0b00011111;
+
+
+    PIE0 = 0x00;
+    PIE1 = 0x00;
+    PIE2 = 0x00;
+    PIE3 = 0x00;
+    PIE4 = 0x00;
+
+
+    PIR0 = 0x00;
+    PIR1 = 0x00;
+    PIR2 = 0x00;
+    PIR3 = 0x00;
+    PIR4 = 0x00;
+
+
+    OSCCON1 = 0b01100000;
+    while(!OSCCON3bits.ORDY);
+    OSCCON3bits.SOSCBE = 0b1;
+    OSCEN = 0b01000000;
+    OSCFRQ = 0b00000100;
+
+    INTCONbits.GIE = 0b1;
     return 0x00;
-}
-
-
-
-uint8_t JSN_Sensor_Init(JSN_t *Sensor, PinName_t trigPin, PinName_t echoPin) {
-
-
-    switch(echoPin) {
-        case A2:
-            TRISAbits.TRISA2 = 0b1;
-            break;
-        case A4:
-            TRISAbits.TRISA4 = 0b1;
-            break;
-        case C3:
-            TRISCbits.TRISC3 = 0b1;
-            break;
-        case C5:
-            TRISCbits.TRISC5 = 0b1;
-            break;
-        default:
-            printf("ERROR! echoPin must be one of the following: [RA2, RA4, RC3, RC5]\n");
-            return 0xFF;
-    }
-
-
-    switch(trigPin) {
-        case A2:
-        case A4:
-        case C3:
-        case C5:
-        case A3:
-            printf("ERROR! trigPin may not be any of the following: [RA2, RA4, RC3, RC5, RA3]\n");
-            return 0xFF;
-        case A5:
-            TRISAbits.TRISA5 = 0b0;
-            LATAbits.LATA5 = 0b0;
-            break;
-        case C4:
-            TRISCbits.TRISC4 = 0b0;
-            LATCbits.LATC4 = 0b0;
-            break;
-        case C6:
-            TRISCbits.TRISC6 = 0b0;
-            LATCbits.LATC6 = 0b0;
-            break;
-        case C7:
-            TRISCbits.TRISC7 = 0b0;
-            LATCbits.LATC7 = 0b0;
-            break;
-        case B7:
-            TRISBbits.TRISB7 = 0b0;
-            LATBbits.LATB7 = 0b0;
-            break;
-        case B6:
-            TRISBbits.TRISB6 = 0b0;
-            LATBbits.LATB6 = 0b0;
-            break;
-        case B5:
-            TRISBbits.TRISB5 = 0b0;
-            LATBbits.LATB5 = 0b0;
-            break;
-        case B4:
-            TRISBbits.TRISB4 = 0b0;
-            LATBbits.LATB4 = 0b0;
-            break;
-        case C2:
-            TRISCbits.TRISC2 = 0b0;
-            LATCbits.LATC2 = 0b0;
-            break;
-        case C1:
-            TRISCbits.TRISC1 = 0b0;
-            LATCbits.LATC1 = 0b0;
-            break;
-        case C0:
-            TRISCbits.TRISC0 = 0b0;
-            LATCbits.LATC0 = 0b0;
-            break;
-        case A1:
-            TRISAbits.TRISA1 = 0b0;
-            LATAbits.LATA1 = 0b0;
-            break;
-        case A0:
-            TRISAbits.TRISA0 = 0b0;
-            LATAbits.LATA0 = 0b0;
-            break;
-    }
-
-
-    Sensor->distance = 0;
-    Sensor->echoHighTime = 0;
-    Sensor->echoPin = echoPin;
-    Sensor->trigPin = trigPin;
-
-    return 0x00;
-}
-
-
-
-void JSN_Sensor_Trig(JSN_t *Sensor) {
-    return;
-}
-
-
-
-unsigned int JSN_Sensor_GetDistance(JSN_t *Sensor) {
-    return 0;
-}
-
-
-
-
-
-
-
-int main(void) {
-    JSN_t Sens1, Sens2, Sens3;
-    while(1);
-    return 0;
 }

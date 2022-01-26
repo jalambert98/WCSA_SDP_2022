@@ -1,14 +1,15 @@
 /* 
- * File:   JSN_Sensor.h
- * Author: Jack Lambert
+ * File:    JSN_Sensor.h
+ * Author:  Jack Lambert     <joalambe@ucsc.edu>
+ * Project: WCSA_SDP_2022
  *
  * Created on January 24, 2022, 10:24 PM
  */
 
+#include "PIC16Xpress_DevBoard.h"
+
 #ifndef JSN_SENSOR_H
 #define	JSN_SENSOR_H
-
-#include "PIC16Xpress_DevBoard.h"
 
 //==============================================================================
 //-------------------------------- #DEFINES ------------------------------------

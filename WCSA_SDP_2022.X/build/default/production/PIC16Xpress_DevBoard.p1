@@ -1,64 +1,58 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"32 JSN_Sensor.c
-[; ;JSN_Sensor.c: 32: uint8_t JSN_Sensor_Init(JSN_t *Sensor, PinName_t trigPin, PinName_t echoPin) {
-[c E6654 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 .. ]
-[n E6654 . A5 A4 A3 C5 C4 C3 C6 C7 B7 A0 A1 A2 C0 C1 C2 B4 B5 B6  ]
-"27 ./JSN_Sensor.h
-[; ;./JSN_Sensor.h: 27: typedef struct {
-[s S963 `ui 1 `ui 1 `E6654 1 `E6654 1 ]
-[n S963 . echoHighTime distance trigPin echoPin ]
-"1557 C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\PIC16F18345.h
-[s S86 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S86 . TRISA0 TRISA1 TRISA2 . TRISA4 TRISA5 ]
-"1556
-[u S85 `S86 1 ]
-[n S85 . . ]
-"1566
-[v _TRISAbits `VS85 ~T0 @X0 0 e@140 ]
-"1641
-[s S90 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S90 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
-"1640
-[u S89 `S90 1 ]
-[n S89 . . ]
-"1652
-[v _TRISCbits `VS89 ~T0 @X0 0 e@142 ]
-"105 C:\Program Files\Microchip\xc8\v2.35\pic\include\c99\stdio.h
-[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\c99\stdio.h: 105: int printf(const char *restrict, ...);
-[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
-"2300 C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\PIC16F18345.h
-[s S119 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S119 . LATA0 LATA1 LATA2 . LATA4 LATA5 ]
-"2299
-[u S118 `S119 1 ]
-[n S118 . . ]
-"2309
-[v _LATAbits `VS118 ~T0 @X0 0 e@268 ]
-"2384
-[s S123 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S123 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
-"2383
-[u S122 `S123 1 ]
-[n S122 . . ]
-"2395
-[v _LATCbits `VS122 ~T0 @X0 0 e@270 ]
-"1602
-[s S88 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S88 . . TRISB4 TRISB5 TRISB6 TRISB7 ]
-"1601
-[u S87 `S88 1 ]
-[n S87 . . ]
-"1610
-[v _TRISBbits `VS87 ~T0 @X0 0 e@141 ]
-"2345
-[s S121 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S121 . . LATB4 LATB5 LATB6 LATB7 ]
-"2344
-[u S120 `S121 1 ]
-[n S120 . . ]
-"2353
-[v _LATBbits `VS120 ~T0 @X0 0 e@269 ]
-[p mainexit ]
+"358 C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\PIC16F18345.h
+[s S31 :1 `uc 1 :5 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S31 . INTEDG . PEIE GIE ]
+"357
+[u S30 `S31 1 ]
+[n S30 . . ]
+"365
+[v _INTCONbits `VS30 ~T0 @X0 0 e@11 ]
+"12137
+[v _PMD0 `Vuc ~T0 @X0 0 e@2321 ]
+"12182
+[v _PMD1 `Vuc ~T0 @X0 0 e@2322 ]
+"12244
+[v _PMD2 `Vuc ~T0 @X0 0 e@2323 ]
+"12284
+[v _PMD3 `Vuc ~T0 @X0 0 e@2324 ]
+"12346
+[v _PMD4 `Vuc ~T0 @X0 0 e@2325 ]
+"12380
+[v _PMD5 `Vuc ~T0 @X0 0 e@2326 ]
+"1697
+[v _PIE0 `Vuc ~T0 @X0 0 e@144 ]
+"1730
+[v _PIE1 `Vuc ~T0 @X0 0 e@145 ]
+"1792
+[v _PIE2 `Vuc ~T0 @X0 0 e@146 ]
+"1854
+[v _PIE3 `Vuc ~T0 @X0 0 e@147 ]
+"1916
+[v _PIE4 `Vuc ~T0 @X0 0 e@148 ]
+"536
+[v _PIR0 `Vuc ~T0 @X0 0 e@16 ]
+"569
+[v _PIR1 `Vuc ~T0 @X0 0 e@17 ]
+"631
+[v _PIR2 `Vuc ~T0 @X0 0 e@18 ]
+"693
+[v _PIR3 `Vuc ~T0 @X0 0 e@19 ]
+"755
+[v _PIR4 `Vuc ~T0 @X0 0 e@20 ]
+"12489
+[v _OSCCON1 `Vuc ~T0 @X0 0 e@2329 ]
+"12635
+[s S632 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S632 . . NOSCR ORDY SOSCBE SOSCPWR CSWHOLD ]
+"12634
+[u S631 `S632 1 ]
+[n S631 . . ]
+"12644
+[v _OSCCON3bits `VS631 ~T0 @X0 0 e@2331 ]
+"12726
+[v _OSCEN `Vuc ~T0 @X0 0 e@2333 ]
+"12830
+[v _OSCFRQ `Vuc ~T0 @X0 0 e@2335 ]
 "55 C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\PIC16F18345.h
 [; <" INDF0 equ 00h ;# ">
 "75
@@ -765,372 +759,90 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSL equ 0FEEh ;# ">
 "19652
 [; <" TOSH equ 0FEFh ;# ">
-"23 JSN_Sensor.c
-[; ;JSN_Sensor.c: 23: uint8_t JSN_Library_Init(void) {
-[v _JSN_Library_Init `(uc ~T0 @X0 1 ef ]
+"15 PIC16Xpress_DevBoard.c
+[; ;PIC16Xpress_DevBoard.c: 15: uint8_t PIC16_Init(void) {
+[v _PIC16_Init `(uc ~T0 @X0 1 ef ]
 {
-[e :U _JSN_Library_Init ]
+[e :U _PIC16_Init ]
 [f ]
-"27
-[; ;JSN_Sensor.c: 27:     return 0x00;
-[e ) -> -> 0 `i `uc ]
-[e $UE 966  ]
+"16
+[; ;PIC16Xpress_DevBoard.c: 16:     INTCONbits.GIE = 0b0;
+[e = . . _INTCONbits 0 3 -> -> 0 `i `uc ]
+"20
+[; ;PIC16Xpress_DevBoard.c: 20:     PMD0 = 0x00;
+[e = _PMD0 -> -> 0 `i `uc ]
+"21
+[; ;PIC16Xpress_DevBoard.c: 21:     PMD1 = 0b01010100;
+[e = _PMD1 -> -> 84 `i `uc ]
+"22
+[; ;PIC16Xpress_DevBoard.c: 22:     PMD2 = 0b00100000;
+[e = _PMD2 -> -> 32 `i `uc ]
+"23
+[; ;PIC16Xpress_DevBoard.c: 23:     PMD3 = 0b11001000;
+[e = _PMD3 -> -> 200 `i `uc ]
+"24
+[; ;PIC16Xpress_DevBoard.c: 24:     PMD4 = 0x00;
+[e = _PMD4 -> -> 0 `i `uc ]
+"25
+[; ;PIC16Xpress_DevBoard.c: 25:     PMD5 = 0b00011111;
+[e = _PMD5 -> -> 31 `i `uc ]
 "28
-[; ;JSN_Sensor.c: 28: }
-[e :UE 966 ]
-}
+[; ;PIC16Xpress_DevBoard.c: 28:     PIE0 = 0x00;
+[e = _PIE0 -> -> 0 `i `uc ]
+"29
+[; ;PIC16Xpress_DevBoard.c: 29:     PIE1 = 0x00;
+[e = _PIE1 -> -> 0 `i `uc ]
+"30
+[; ;PIC16Xpress_DevBoard.c: 30:     PIE2 = 0x00;
+[e = _PIE2 -> -> 0 `i `uc ]
+"31
+[; ;PIC16Xpress_DevBoard.c: 31:     PIE3 = 0x00;
+[e = _PIE3 -> -> 0 `i `uc ]
 "32
-[; ;JSN_Sensor.c: 32: uint8_t JSN_Sensor_Init(JSN_t *Sensor, PinName_t trigPin, PinName_t echoPin) {
-[v _JSN_Sensor_Init `(uc ~T0 @X0 1 ef3`*S963`E6654`E6654 ]
-{
-[e :U _JSN_Sensor_Init ]
-[v _Sensor `*S963 ~T0 @X0 1 r1 ]
-[v _trigPin `E6654 ~T0 @X0 1 r2 ]
-[v _echoPin `E6654 ~T0 @X0 1 r3 ]
-[f ]
+[; ;PIC16Xpress_DevBoard.c: 32:     PIE4 = 0x00;
+[e = _PIE4 -> -> 0 `i `uc ]
 "35
-[; ;JSN_Sensor.c: 35:     switch(echoPin) {
-[e $U 969  ]
-{
+[; ;PIC16Xpress_DevBoard.c: 35:     PIR0 = 0x00;
+[e = _PIR0 -> -> 0 `i `uc ]
 "36
-[; ;JSN_Sensor.c: 36:         case A2:
-[e :U 970 ]
+[; ;PIC16Xpress_DevBoard.c: 36:     PIR1 = 0x00;
+[e = _PIR1 -> -> 0 `i `uc ]
 "37
-[; ;JSN_Sensor.c: 37:             TRISAbits.TRISA2 = 0b1;
-[e = . . _TRISAbits 0 2 -> -> 1 `i `uc ]
+[; ;PIC16Xpress_DevBoard.c: 37:     PIR2 = 0x00;
+[e = _PIR2 -> -> 0 `i `uc ]
 "38
-[; ;JSN_Sensor.c: 38:             break;
-[e $U 968  ]
+[; ;PIC16Xpress_DevBoard.c: 38:     PIR3 = 0x00;
+[e = _PIR3 -> -> 0 `i `uc ]
 "39
-[; ;JSN_Sensor.c: 39:         case A4:
-[e :U 971 ]
-"40
-[; ;JSN_Sensor.c: 40:             TRISAbits.TRISA4 = 0b1;
-[e = . . _TRISAbits 0 4 -> -> 1 `i `uc ]
-"41
-[; ;JSN_Sensor.c: 41:             break;
-[e $U 968  ]
+[; ;PIC16Xpress_DevBoard.c: 39:     PIR4 = 0x00;
+[e = _PIR4 -> -> 0 `i `uc ]
 "42
-[; ;JSN_Sensor.c: 42:         case C3:
-[e :U 972 ]
+[; ;PIC16Xpress_DevBoard.c: 42:     OSCCON1 = 0b01100000;
+[e = _OSCCON1 -> -> 96 `i `uc ]
 "43
-[; ;JSN_Sensor.c: 43:             TRISCbits.TRISC3 = 0b1;
-[e = . . _TRISCbits 0 3 -> -> 1 `i `uc ]
+[; ;PIC16Xpress_DevBoard.c: 43:     while(!OSCCON3bits.ORDY);
+[e $U 964  ]
+[e :U 965 ]
+[e :U 964 ]
+[e $ ! != -> . . _OSCCON3bits 0 2 `i -> 0 `i 965  ]
+[e :U 966 ]
 "44
-[; ;JSN_Sensor.c: 44:             break;
-[e $U 968  ]
+[; ;PIC16Xpress_DevBoard.c: 44:     OSCCON3bits.SOSCBE = 0b1;
+[e = . . _OSCCON3bits 0 3 -> -> 1 `i `uc ]
 "45
-[; ;JSN_Sensor.c: 45:         case C5:
-[e :U 973 ]
+[; ;PIC16Xpress_DevBoard.c: 45:     OSCEN = 0b01000000;
+[e = _OSCEN -> -> 64 `i `uc ]
 "46
-[; ;JSN_Sensor.c: 46:             TRISCbits.TRISC5 = 0b1;
-[e = . . _TRISCbits 0 5 -> -> 1 `i `uc ]
-"47
-[; ;JSN_Sensor.c: 47:             break;
-[e $U 968  ]
+[; ;PIC16Xpress_DevBoard.c: 46:     OSCFRQ = 0b00000100;
+[e = _OSCFRQ -> -> 4 `i `uc ]
 "48
-[; ;JSN_Sensor.c: 48:         default:
-[e :U 974 ]
+[; ;PIC16Xpress_DevBoard.c: 48:     INTCONbits.GIE = 0b1;
+[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
 "49
-[; ;JSN_Sensor.c: 49:             printf("ERROR! echoPin must be one of the following: [RA2, RA4, RC3, RC5]\n");
-[e ( _printf :s 1C ]
-"50
-[; ;JSN_Sensor.c: 50:             return 0xFF;
-[e ) -> -> 255 `i `uc ]
-[e $UE 967  ]
-"51
-[; ;JSN_Sensor.c: 51:     }
-}
-[e $U 968  ]
-[e :U 969 ]
-[e [\ -> _echoPin `ui , $ -> . `E6654 11 `ui 970
- , $ -> . `E6654 1 `ui 971
- , $ -> . `E6654 5 `ui 972
- , $ -> . `E6654 3 `ui 973
- 974 ]
-[e :U 968 ]
-"54
-[; ;JSN_Sensor.c: 54:     switch(trigPin) {
-[e $U 976  ]
-{
-"55
-[; ;JSN_Sensor.c: 55:         case A2:
-[e :U 977 ]
-"56
-[; ;JSN_Sensor.c: 56:         case A4:
-[e :U 978 ]
-"57
-[; ;JSN_Sensor.c: 57:         case C3:
-[e :U 979 ]
-"58
-[; ;JSN_Sensor.c: 58:         case C5:
-[e :U 980 ]
-"59
-[; ;JSN_Sensor.c: 59:         case A3:
-[e :U 981 ]
-"60
-[; ;JSN_Sensor.c: 60:             printf("ERROR! trigPin may not be any of the following: [RA2, RA4, RC3, RC5, RA3]\n");
-[e ( _printf :s 2C ]
-"61
-[; ;JSN_Sensor.c: 61:             return 0xFF;
-[e ) -> -> 255 `i `uc ]
-[e $UE 967  ]
-"62
-[; ;JSN_Sensor.c: 62:         case A5:
-[e :U 982 ]
-"63
-[; ;JSN_Sensor.c: 63:             TRISAbits.TRISA5 = 0b0;
-[e = . . _TRISAbits 0 5 -> -> 0 `i `uc ]
-"64
-[; ;JSN_Sensor.c: 64:             LATAbits.LATA5 = 0b0;
-[e = . . _LATAbits 0 5 -> -> 0 `i `uc ]
-"65
-[; ;JSN_Sensor.c: 65:             break;
-[e $U 975  ]
-"66
-[; ;JSN_Sensor.c: 66:         case C4:
-[e :U 983 ]
-"67
-[; ;JSN_Sensor.c: 67:             TRISCbits.TRISC4 = 0b0;
-[e = . . _TRISCbits 0 4 -> -> 0 `i `uc ]
-"68
-[; ;JSN_Sensor.c: 68:             LATCbits.LATC4 = 0b0;
-[e = . . _LATCbits 0 4 -> -> 0 `i `uc ]
-"69
-[; ;JSN_Sensor.c: 69:             break;
-[e $U 975  ]
-"70
-[; ;JSN_Sensor.c: 70:         case C6:
-[e :U 984 ]
-"71
-[; ;JSN_Sensor.c: 71:             TRISCbits.TRISC6 = 0b0;
-[e = . . _TRISCbits 0 6 -> -> 0 `i `uc ]
-"72
-[; ;JSN_Sensor.c: 72:             LATCbits.LATC6 = 0b0;
-[e = . . _LATCbits 0 6 -> -> 0 `i `uc ]
-"73
-[; ;JSN_Sensor.c: 73:             break;
-[e $U 975  ]
-"74
-[; ;JSN_Sensor.c: 74:         case C7:
-[e :U 985 ]
-"75
-[; ;JSN_Sensor.c: 75:             TRISCbits.TRISC7 = 0b0;
-[e = . . _TRISCbits 0 7 -> -> 0 `i `uc ]
-"76
-[; ;JSN_Sensor.c: 76:             LATCbits.LATC7 = 0b0;
-[e = . . _LATCbits 0 7 -> -> 0 `i `uc ]
-"77
-[; ;JSN_Sensor.c: 77:             break;
-[e $U 975  ]
-"78
-[; ;JSN_Sensor.c: 78:         case B7:
-[e :U 986 ]
-"79
-[; ;JSN_Sensor.c: 79:             TRISBbits.TRISB7 = 0b0;
-[e = . . _TRISBbits 0 4 -> -> 0 `i `uc ]
-"80
-[; ;JSN_Sensor.c: 80:             LATBbits.LATB7 = 0b0;
-[e = . . _LATBbits 0 4 -> -> 0 `i `uc ]
-"81
-[; ;JSN_Sensor.c: 81:             break;
-[e $U 975  ]
-"82
-[; ;JSN_Sensor.c: 82:         case B6:
-[e :U 987 ]
-"83
-[; ;JSN_Sensor.c: 83:             TRISBbits.TRISB6 = 0b0;
-[e = . . _TRISBbits 0 3 -> -> 0 `i `uc ]
-"84
-[; ;JSN_Sensor.c: 84:             LATBbits.LATB6 = 0b0;
-[e = . . _LATBbits 0 3 -> -> 0 `i `uc ]
-"85
-[; ;JSN_Sensor.c: 85:             break;
-[e $U 975  ]
-"86
-[; ;JSN_Sensor.c: 86:         case B5:
-[e :U 988 ]
-"87
-[; ;JSN_Sensor.c: 87:             TRISBbits.TRISB5 = 0b0;
-[e = . . _TRISBbits 0 2 -> -> 0 `i `uc ]
-"88
-[; ;JSN_Sensor.c: 88:             LATBbits.LATB5 = 0b0;
-[e = . . _LATBbits 0 2 -> -> 0 `i `uc ]
-"89
-[; ;JSN_Sensor.c: 89:             break;
-[e $U 975  ]
-"90
-[; ;JSN_Sensor.c: 90:         case B4:
-[e :U 989 ]
-"91
-[; ;JSN_Sensor.c: 91:             TRISBbits.TRISB4 = 0b0;
-[e = . . _TRISBbits 0 1 -> -> 0 `i `uc ]
-"92
-[; ;JSN_Sensor.c: 92:             LATBbits.LATB4 = 0b0;
-[e = . . _LATBbits 0 1 -> -> 0 `i `uc ]
-"93
-[; ;JSN_Sensor.c: 93:             break;
-[e $U 975  ]
-"94
-[; ;JSN_Sensor.c: 94:         case C2:
-[e :U 990 ]
-"95
-[; ;JSN_Sensor.c: 95:             TRISCbits.TRISC2 = 0b0;
-[e = . . _TRISCbits 0 2 -> -> 0 `i `uc ]
-"96
-[; ;JSN_Sensor.c: 96:             LATCbits.LATC2 = 0b0;
-[e = . . _LATCbits 0 2 -> -> 0 `i `uc ]
-"97
-[; ;JSN_Sensor.c: 97:             break;
-[e $U 975  ]
-"98
-[; ;JSN_Sensor.c: 98:         case C1:
-[e :U 991 ]
-"99
-[; ;JSN_Sensor.c: 99:             TRISCbits.TRISC1 = 0b0;
-[e = . . _TRISCbits 0 1 -> -> 0 `i `uc ]
-"100
-[; ;JSN_Sensor.c: 100:             LATCbits.LATC1 = 0b0;
-[e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
-"101
-[; ;JSN_Sensor.c: 101:             break;
-[e $U 975  ]
-"102
-[; ;JSN_Sensor.c: 102:         case C0:
-[e :U 992 ]
-"103
-[; ;JSN_Sensor.c: 103:             TRISCbits.TRISC0 = 0b0;
-[e = . . _TRISCbits 0 0 -> -> 0 `i `uc ]
-"104
-[; ;JSN_Sensor.c: 104:             LATCbits.LATC0 = 0b0;
-[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
-"105
-[; ;JSN_Sensor.c: 105:             break;
-[e $U 975  ]
-"106
-[; ;JSN_Sensor.c: 106:         case A1:
-[e :U 993 ]
-"107
-[; ;JSN_Sensor.c: 107:             TRISAbits.TRISA1 = 0b0;
-[e = . . _TRISAbits 0 1 -> -> 0 `i `uc ]
-"108
-[; ;JSN_Sensor.c: 108:             LATAbits.LATA1 = 0b0;
-[e = . . _LATAbits 0 1 -> -> 0 `i `uc ]
-"109
-[; ;JSN_Sensor.c: 109:             break;
-[e $U 975  ]
-"110
-[; ;JSN_Sensor.c: 110:         case A0:
-[e :U 994 ]
-"111
-[; ;JSN_Sensor.c: 111:             TRISAbits.TRISA0 = 0b0;
-[e = . . _TRISAbits 0 0 -> -> 0 `i `uc ]
-"112
-[; ;JSN_Sensor.c: 112:             LATAbits.LATA0 = 0b0;
-[e = . . _LATAbits 0 0 -> -> 0 `i `uc ]
-"113
-[; ;JSN_Sensor.c: 113:             break;
-[e $U 975  ]
-"114
-[; ;JSN_Sensor.c: 114:     }
-}
-[e $U 975  ]
-[e :U 976 ]
-[e [\ -> _trigPin `ui , $ -> . `E6654 11 `ui 977
- , $ -> . `E6654 1 `ui 978
- , $ -> . `E6654 5 `ui 979
- , $ -> . `E6654 3 `ui 980
- , $ -> . `E6654 2 `ui 981
- , $ -> . `E6654 0 `ui 982
- , $ -> . `E6654 4 `ui 983
- , $ -> . `E6654 6 `ui 984
- , $ -> . `E6654 7 `ui 985
- , $ -> . `E6654 8 `ui 986
- , $ -> . `E6654 17 `ui 987
- , $ -> . `E6654 16 `ui 988
- , $ -> . `E6654 15 `ui 989
- , $ -> . `E6654 14 `ui 990
- , $ -> . `E6654 13 `ui 991
- , $ -> . `E6654 12 `ui 992
- , $ -> . `E6654 10 `ui 993
- , $ -> . `E6654 9 `ui 994
- 975 ]
-[e :U 975 ]
-"117
-[; ;JSN_Sensor.c: 117:     Sensor->distance = 0;
-[e = . *U _Sensor 1 -> -> 0 `i `ui ]
-"118
-[; ;JSN_Sensor.c: 118:     Sensor->echoHighTime = 0;
-[e = . *U _Sensor 0 -> -> 0 `i `ui ]
-"119
-[; ;JSN_Sensor.c: 119:     Sensor->echoPin = echoPin;
-[e = . *U _Sensor 3 _echoPin ]
-"120
-[; ;JSN_Sensor.c: 120:     Sensor->trigPin = trigPin;
-[e = . *U _Sensor 2 _trigPin ]
-"122
-[; ;JSN_Sensor.c: 122:     return 0x00;
+[; ;PIC16Xpress_DevBoard.c: 49:     return 0x00;
 [e ) -> -> 0 `i `uc ]
-[e $UE 967  ]
-"123
-[; ;JSN_Sensor.c: 123: }
-[e :UE 967 ]
+[e $UE 963  ]
+"50
+[; ;PIC16Xpress_DevBoard.c: 50: }
+[e :UE 963 ]
 }
-"127
-[; ;JSN_Sensor.c: 127: void JSN_Sensor_Trig(JSN_t *Sensor) {
-[v _JSN_Sensor_Trig `(v ~T0 @X0 1 ef1`*S963 ]
-{
-[e :U _JSN_Sensor_Trig ]
-[v _Sensor `*S963 ~T0 @X0 1 r1 ]
-[f ]
-"128
-[; ;JSN_Sensor.c: 128:     return;
-[e $UE 995  ]
-"129
-[; ;JSN_Sensor.c: 129: }
-[e :UE 995 ]
-}
-"133
-[; ;JSN_Sensor.c: 133: unsigned int JSN_Sensor_GetDistance(JSN_t *Sensor) {
-[v _JSN_Sensor_GetDistance `(ui ~T0 @X0 1 ef1`*S963 ]
-{
-[e :U _JSN_Sensor_GetDistance ]
-[v _Sensor `*S963 ~T0 @X0 1 r1 ]
-[f ]
-"134
-[; ;JSN_Sensor.c: 134:     return 0;
-[e ) -> -> 0 `i `ui ]
-[e $UE 996  ]
-"135
-[; ;JSN_Sensor.c: 135: }
-[e :UE 996 ]
-}
-[v $root$_main `(v ~T0 @X0 0 e ]
-"143
-[; ;JSN_Sensor.c: 143: int main(void) {
-[v _main `(i ~T0 @X0 1 ef ]
-{
-[e :U _main ]
-[f ]
-"144
-[; ;JSN_Sensor.c: 144:     JSN_t Sens1, Sens2, Sens3;
-[v _Sens1 `S963 ~T0 @X0 1 a ]
-[v _Sens2 `S963 ~T0 @X0 1 a ]
-[v _Sens3 `S963 ~T0 @X0 1 a ]
-"145
-[; ;JSN_Sensor.c: 145:     while(1);
-[e :U 999 ]
-[e :U 998 ]
-[e $U 999  ]
-[e :U 1000 ]
-"146
-[; ;JSN_Sensor.c: 146:     return 0;
-[e ) -> 0 `i ]
-[e $UE 997  ]
-"147
-[; ;JSN_Sensor.c: 147: }
-[e :UE 997 ]
-}
-[p f _printf 8388608 ]
-[a 1C 69 82 82 79 82 33 32 101 99 104 111 80 105 110 32 109 117 115 116 32 98 101 32 111 110 101 32 111 102 32 116 104 101 32 102 111 108 108 111 119 105 110 103 58 32 91 82 65 50 44 32 82 65 52 44 32 82 67 51 44 32 82 67 53 93 10 0 ]
-[a 2C 69 82 82 79 82 33 32 116 114 105 103 80 105 110 32 109 97 121 32 110 111 116 32 98 101 32 97 110 121 32 111 102 32 116 104 101 32 102 111 108 108 111 119 105 110 103 58 32 91 82 65 50 44 32 82 65 52 44 32 82 67 51 44 32 82 67 53 44 32 82 65 51 93 10 0 ]

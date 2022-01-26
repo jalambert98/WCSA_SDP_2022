@@ -1,15 +1,16 @@
-/* 
- * File:   PIC16Xpress_DevBoard.h
- * Author: Jack Lambert
+/*
+ * File:    PIC16Xpress_DevBoard.h
+ * Author:  Jack Lambert     <joalambe@ucsc.edu>
+ * Project: WCSA_SDP_2022
  *
  * Created on January 25, 2022, 12:42 PM
  */
 
-#ifndef PIC16XPRESS_DEVBOARD_H
-#define	PIC16XPRESS_DEVBOARD_H
-
 #include <xc.h>
 #include <PIC16F18345.h>
+
+#ifndef PIC16XPRESS_DEVBOARD_H
+#define	PIC16XPRESS_DEVBOARD_H
 
 //==============================================================================
 //-------------------------------- #DEFINES ------------------------------------
@@ -80,6 +81,10 @@
 #define WRITE_C7()          LATCbits.LATC7
 
 
+//==============================================================================
+//-------------------------------- TYPEDEFS ------------------------------------
+//==============================================================================
+
 typedef enum {
     A5, A4, A3, 
     C5, C4, C3, 
@@ -90,5 +95,25 @@ typedef enum {
 } PinName_t;
 
 
+//==============================================================================
+//------------------------------ PUBLIC LIBRARY --------------------------------
+//==============================================================================
+/**
+ * @funct    PIC16_Init()
+ * 
+ * @param    None
+ * 
+ * @return   uint8_t [SUCCESS or ERROR]
+ * 
+ * @brief    Configures the HFINTOSC to 8MHz, disables unnecessary peripherals,
+ *           disables interrupts & clears any existing flags
+ * 
+ * @author   Jack Lambert, 2022.01.25
+ **/
+uint8_t PIC16_Init(void);
+
 #endif	/* PIC16XPRESS_DEVBOARD_H */
 
+//==============================================================================
+//--------------------------------END OF FILE-----------------------------------
+//==============================================================================

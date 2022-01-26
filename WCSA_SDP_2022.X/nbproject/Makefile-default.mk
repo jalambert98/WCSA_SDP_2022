@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=JSN_Sensor.c
+SOURCEFILES_QUOTED_IF_SPACED=JSN_Sensor.c FR_Timer.c PIC16Xpress_DevBoard.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/JSN_Sensor.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/JSN_Sensor.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/JSN_Sensor.p1 ${OBJECTDIR}/FR_Timer.p1 ${OBJECTDIR}/PIC16Xpress_DevBoard.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/JSN_Sensor.p1.d ${OBJECTDIR}/FR_Timer.p1.d ${OBJECTDIR}/PIC16Xpress_DevBoard.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/JSN_Sensor.p1
+OBJECTFILES=${OBJECTDIR}/JSN_Sensor.p1 ${OBJECTDIR}/FR_Timer.p1 ${OBJECTDIR}/PIC16Xpress_DevBoard.p1
 
 # Source Files
-SOURCEFILES=JSN_Sensor.c
+SOURCEFILES=JSN_Sensor.c FR_Timer.c PIC16Xpress_DevBoard.c
 
 
 CFLAGS=
@@ -101,6 +101,22 @@ ${OBJECTDIR}/JSN_Sensor.p1: JSN_Sensor.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/JSN_Sensor.d ${OBJECTDIR}/JSN_Sensor.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/JSN_Sensor.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/FR_Timer.p1: FR_Timer.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/FR_Timer.p1.d 
+	@${RM} ${OBJECTDIR}/FR_Timer.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/FR_Timer.p1 FR_Timer.c 
+	@-${MV} ${OBJECTDIR}/FR_Timer.d ${OBJECTDIR}/FR_Timer.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/FR_Timer.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/PIC16Xpress_DevBoard.p1: PIC16Xpress_DevBoard.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/PIC16Xpress_DevBoard.p1.d 
+	@${RM} ${OBJECTDIR}/PIC16Xpress_DevBoard.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/PIC16Xpress_DevBoard.p1 PIC16Xpress_DevBoard.c 
+	@-${MV} ${OBJECTDIR}/PIC16Xpress_DevBoard.d ${OBJECTDIR}/PIC16Xpress_DevBoard.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/PIC16Xpress_DevBoard.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 else
 ${OBJECTDIR}/JSN_Sensor.p1: JSN_Sensor.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -109,6 +125,22 @@ ${OBJECTDIR}/JSN_Sensor.p1: JSN_Sensor.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/JSN_Sensor.p1 JSN_Sensor.c 
 	@-${MV} ${OBJECTDIR}/JSN_Sensor.d ${OBJECTDIR}/JSN_Sensor.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/JSN_Sensor.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/FR_Timer.p1: FR_Timer.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/FR_Timer.p1.d 
+	@${RM} ${OBJECTDIR}/FR_Timer.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/FR_Timer.p1 FR_Timer.c 
+	@-${MV} ${OBJECTDIR}/FR_Timer.d ${OBJECTDIR}/FR_Timer.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/FR_Timer.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/PIC16Xpress_DevBoard.p1: PIC16Xpress_DevBoard.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/PIC16Xpress_DevBoard.p1.d 
+	@${RM} ${OBJECTDIR}/PIC16Xpress_DevBoard.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/PIC16Xpress_DevBoard.p1 PIC16Xpress_DevBoard.c 
+	@-${MV} ${OBJECTDIR}/PIC16Xpress_DevBoard.d ${OBJECTDIR}/PIC16Xpress_DevBoard.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/PIC16Xpress_DevBoard.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

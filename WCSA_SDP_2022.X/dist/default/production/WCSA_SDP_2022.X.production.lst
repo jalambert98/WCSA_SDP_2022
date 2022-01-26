@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.35 build 20211206165544 
-                                                                                               Tue Jan 25 14:07:27 2022
+                                                                                               Tue Jan 25 21:35:22 2022
 
 Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1 
      1                           	processor	16F18345
@@ -11,1005 +11,1753 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
      5                           	psect	stringtext2,global,class=STRCODE,delta=2,noexec
      6                           	psect	stringtext3,global,class=STRCODE,delta=2,noexec
      7                           	psect	cinit,global,class=CODE,merge=1,delta=2
-     8                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1,noexec
-     9                           	psect	maintext,global,class=CODE,merge=1,split=1,delta=2
-    10                           	dabs	1,0x7E,2
-    11  0000                     
-    12                           ; Version 2.35
-    13                           ; Generated 06/12/2021 GMT
-    14                           ; 
-    15                           ; Copyright © 2021, Microchip Technology Inc. and its subsidiaries ("Microchip")
-    16                           ; All rights reserved.
-    17                           ; 
-    18                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+     8                           	psect	bssCOMMON,global,class=COMMON,space=1,delta=1,noexec
+     9                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1,noexec
+    10                           	psect	maintext,global,class=CODE,merge=1,split=1,delta=2
+    11                           	dabs	1,0x7E,2
+    12  0000                     
+    13                           ; Version 2.35
+    14                           ; Generated 06/12/2021 GMT
+    15                           ; 
+    16                           ; Copyright © 2021, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    17                           ; All rights reserved.
+    18                           ; 
+    19                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
       +                          ip").
-    19                           ; 
-    20                           ; Redistribution and use in source and binary forms, with or without modification, are
-    21                           ; permitted provided that the following conditions are met:
-    22                           ; 
-    23                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+    20                           ; 
+    21                           ; Redistribution and use in source and binary forms, with or without modification, are
+    22                           ; permitted provided that the following conditions are met:
+    23                           ; 
+    24                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
       +                          t of
-    24                           ;        conditions and the following disclaimer.
-    25                           ; 
-    26                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+    25                           ;        conditions and the following disclaimer.
+    26                           ; 
+    27                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
       +                          list
-    27                           ;        of conditions and the following disclaimer in the documentation and/or other
-    28                           ;        materials provided with the distribution. Publication is not required when
-    29                           ;        this file is used in an embedded application.
-    30                           ; 
-    31                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+    28                           ;        of conditions and the following disclaimer in the documentation and/or other
+    29                           ;        materials provided with the distribution. Publication is not required when
+    30                           ;        this file is used in an embedded application.
+    31                           ; 
+    32                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
       +                          is
-    32                           ;        software without specific prior written permission.
-    33                           ; 
-    34                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-    35                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+    33                           ;        software without specific prior written permission.
+    34                           ; 
+    35                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    36                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
       +                          OR
-    36                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+    37                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
       +                          T,
-    37                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
-    38                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
-    39                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+    38                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    39                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    40                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
       +                          RICT
-    40                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+    41                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
       +                          SE OF
-    41                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-    42                           ; 
+    42                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     43                           ; 
-    44                           ; Code-generator required, PIC16F18345 Definitions
-    45                           ; 
-    46                           ; SFR Addresses
-    47  0000                     	;# 
-    48  0001                     	;# 
-    49  0002                     	;# 
-    50  0003                     	;# 
-    51  0004                     	;# 
-    52  0005                     	;# 
-    53  0006                     	;# 
-    54  0007                     	;# 
-    55  0008                     	;# 
-    56  0009                     	;# 
-    57  000A                     	;# 
-    58  000B                     	;# 
-    59  000C                     	;# 
-    60  000D                     	;# 
-    61  000E                     	;# 
-    62  0010                     	;# 
-    63  0011                     	;# 
-    64  0012                     	;# 
-    65  0013                     	;# 
-    66  0014                     	;# 
-    67  0015                     	;# 
+    44                           ; 
+    45                           ; Code-generator required, PIC16F18345 Definitions
+    46                           ; 
+    47                           ; SFR Addresses
+    48  0000                     	;# 
+    49  0001                     	;# 
+    50  0002                     	;# 
+    51  0003                     	;# 
+    52  0004                     	;# 
+    53  0005                     	;# 
+    54  0006                     	;# 
+    55  0007                     	;# 
+    56  0008                     	;# 
+    57  0009                     	;# 
+    58  000A                     	;# 
+    59  000B                     	;# 
+    60  000C                     	;# 
+    61  000D                     	;# 
+    62  000E                     	;# 
+    63  0010                     	;# 
+    64  0011                     	;# 
+    65  0012                     	;# 
+    66  0013                     	;# 
+    67  0014                     	;# 
     68  0015                     	;# 
-    69  0016                     	;# 
+    69  0015                     	;# 
     70  0016                     	;# 
-    71  0017                     	;# 
-    72  0018                     	;# 
-    73  0019                     	;# 
+    71  0016                     	;# 
+    72  0017                     	;# 
+    73  0018                     	;# 
     74  0019                     	;# 
-    75  001A                     	;# 
-    76  001B                     	;# 
-    77  001C                     	;# 
-    78  001D                     	;# 
-    79  001E                     	;# 
-    80  001F                     	;# 
-    81  008C                     	;# 
-    82  008D                     	;# 
-    83  008E                     	;# 
-    84  0090                     	;# 
-    85  0091                     	;# 
-    86  0092                     	;# 
-    87  0093                     	;# 
-    88  0094                     	;# 
-    89  0097                     	;# 
-    90  009B                     	;# 
+    75  0019                     	;# 
+    76  001A                     	;# 
+    77  001B                     	;# 
+    78  001C                     	;# 
+    79  001D                     	;# 
+    80  001E                     	;# 
+    81  001F                     	;# 
+    82  008C                     	;# 
+    83  008D                     	;# 
+    84  008E                     	;# 
+    85  0090                     	;# 
+    86  0091                     	;# 
+    87  0092                     	;# 
+    88  0093                     	;# 
+    89  0094                     	;# 
+    90  0097                     	;# 
     91  009B                     	;# 
-    92  009C                     	;# 
-    93  009D                     	;# 
-    94  009E                     	;# 
-    95  009F                     	;# 
-    96  010C                     	;# 
-    97  010D                     	;# 
-    98  010E                     	;# 
-    99  0111                     	;# 
-   100  0112                     	;# 
-   101  0113                     	;# 
-   102  0114                     	;# 
-   103  0115                     	;# 
-   104  0116                     	;# 
-   105  0117                     	;# 
-   106  0118                     	;# 
-   107  0119                     	;# 
-   108  018C                     	;# 
-   109  018D                     	;# 
-   110  018E                     	;# 
-   111  0197                     	;# 
-   112  0199                     	;# 
+    92  009B                     	;# 
+    93  009C                     	;# 
+    94  009D                     	;# 
+    95  009E                     	;# 
+    96  009F                     	;# 
+    97  010C                     	;# 
+    98  010D                     	;# 
+    99  010E                     	;# 
+   100  0111                     	;# 
+   101  0112                     	;# 
+   102  0113                     	;# 
+   103  0114                     	;# 
+   104  0115                     	;# 
+   105  0116                     	;# 
+   106  0117                     	;# 
+   107  0118                     	;# 
+   108  0119                     	;# 
+   109  018C                     	;# 
+   110  018D                     	;# 
+   111  018E                     	;# 
+   112  0197                     	;# 
    113  0199                     	;# 
    114  0199                     	;# 
-   115  019A                     	;# 
+   115  0199                     	;# 
    116  019A                     	;# 
    117  019A                     	;# 
-   118  019B                     	;# 
+   118  019A                     	;# 
    119  019B                     	;# 
    120  019B                     	;# 
    121  019B                     	;# 
    122  019B                     	;# 
-   123  019C                     	;# 
+   123  019B                     	;# 
    124  019C                     	;# 
    125  019C                     	;# 
-   126  019D                     	;# 
+   126  019C                     	;# 
    127  019D                     	;# 
    128  019D                     	;# 
-   129  019E                     	;# 
+   129  019D                     	;# 
    130  019E                     	;# 
    131  019E                     	;# 
-   132  019F                     	;# 
+   132  019E                     	;# 
    133  019F                     	;# 
    134  019F                     	;# 
    135  019F                     	;# 
    136  019F                     	;# 
-   137  020C                     	;# 
-   138  020D                     	;# 
-   139  020E                     	;# 
-   140  0211                     	;# 
+   137  019F                     	;# 
+   138  020C                     	;# 
+   139  020D                     	;# 
+   140  020E                     	;# 
    141  0211                     	;# 
-   142  0212                     	;# 
+   142  0211                     	;# 
    143  0212                     	;# 
-   144  0213                     	;# 
+   144  0212                     	;# 
    145  0213                     	;# 
-   146  0214                     	;# 
+   146  0213                     	;# 
    147  0214                     	;# 
-   148  0215                     	;# 
+   148  0214                     	;# 
    149  0215                     	;# 
    150  0215                     	;# 
    151  0215                     	;# 
-   152  0216                     	;# 
+   152  0215                     	;# 
    153  0216                     	;# 
-   154  0217                     	;# 
+   154  0216                     	;# 
    155  0217                     	;# 
-   156  0219                     	;# 
-   157  021A                     	;# 
-   158  021B                     	;# 
-   159  021C                     	;# 
-   160  021D                     	;# 
+   156  0217                     	;# 
+   157  0219                     	;# 
+   158  021A                     	;# 
+   159  021B                     	;# 
+   160  021C                     	;# 
    161  021D                     	;# 
-   162  021E                     	;# 
-   163  021F                     	;# 
-   164  028C                     	;# 
-   165  028D                     	;# 
-   166  028E                     	;# 
-   167  0291                     	;# 
+   162  021D                     	;# 
+   163  021E                     	;# 
+   164  021F                     	;# 
+   165  028C                     	;# 
+   166  028D                     	;# 
+   167  028E                     	;# 
    168  0291                     	;# 
-   169  0292                     	;# 
-   170  0293                     	;# 
-   171  0294                     	;# 
-   172  0295                     	;# 
+   169  0291                     	;# 
+   170  0292                     	;# 
+   171  0293                     	;# 
+   172  0294                     	;# 
    173  0295                     	;# 
-   174  0296                     	;# 
-   175  0297                     	;# 
-   176  0298                     	;# 
-   177  029F                     	;# 
-   178  030C                     	;# 
-   179  030D                     	;# 
-   180  030E                     	;# 
-   181  0311                     	;# 
+   174  0295                     	;# 
+   175  0296                     	;# 
+   176  0297                     	;# 
+   177  0298                     	;# 
+   178  029F                     	;# 
+   179  030C                     	;# 
+   180  030D                     	;# 
+   181  030E                     	;# 
    182  0311                     	;# 
-   183  0312                     	;# 
-   184  0313                     	;# 
-   185  0314                     	;# 
-   186  0315                     	;# 
+   183  0311                     	;# 
+   184  0312                     	;# 
+   185  0313                     	;# 
+   186  0314                     	;# 
    187  0315                     	;# 
-   188  0316                     	;# 
-   189  0317                     	;# 
-   190  0318                     	;# 
-   191  038C                     	;# 
-   192  038D                     	;# 
-   193  038E                     	;# 
-   194  0391                     	;# 
-   195  0392                     	;# 
-   196  0393                     	;# 
-   197  0394                     	;# 
-   198  0395                     	;# 
-   199  0396                     	;# 
-   200  0397                     	;# 
-   201  0398                     	;# 
-   202  0399                     	;# 
-   203  039A                     	;# 
-   204  039C                     	;# 
-   205  039D                     	;# 
-   206  039E                     	;# 
-   207  039F                     	;# 
-   208  0411                     	;# 
+   188  0315                     	;# 
+   189  0316                     	;# 
+   190  0317                     	;# 
+   191  0318                     	;# 
+   192  038C                     	;# 
+   193  038D                     	;# 
+   194  038E                     	;# 
+   195  0391                     	;# 
+   196  0392                     	;# 
+   197  0393                     	;# 
+   198  0394                     	;# 
+   199  0395                     	;# 
+   200  0396                     	;# 
+   201  0397                     	;# 
+   202  0398                     	;# 
+   203  0399                     	;# 
+   204  039A                     	;# 
+   205  039C                     	;# 
+   206  039D                     	;# 
+   207  039E                     	;# 
+   208  039F                     	;# 
    209  0411                     	;# 
-   210  0412                     	;# 
-   211  0413                     	;# 
-   212  0414                     	;# 
-   213  0415                     	;# 
-   214  0416                     	;# 
-   215  0417                     	;# 
-   216  0418                     	;# 
+   210  0411                     	;# 
+   211  0412                     	;# 
+   212  0413                     	;# 
+   213  0414                     	;# 
+   214  0415                     	;# 
+   215  0416                     	;# 
+   216  0417                     	;# 
    217  0418                     	;# 
-   218  0419                     	;# 
-   219  041A                     	;# 
-   220  041B                     	;# 
-   221  041C                     	;# 
-   222  041D                     	;# 
-   223  041E                     	;# 
-   224  041F                     	;# 
-   225  0498                     	;# 
+   218  0418                     	;# 
+   219  0419                     	;# 
+   220  041A                     	;# 
+   221  041B                     	;# 
+   222  041C                     	;# 
+   223  041D                     	;# 
+   224  041E                     	;# 
+   225  041F                     	;# 
    226  0498                     	;# 
-   227  0499                     	;# 
-   228  049A                     	;# 
-   229  049B                     	;# 
+   227  0498                     	;# 
+   228  0499                     	;# 
+   229  049A                     	;# 
    230  049B                     	;# 
-   231  049C                     	;# 
-   232  049D                     	;# 
-   233  049E                     	;# 
-   234  049F                     	;# 
-   235  0617                     	;# 
-   236  0618                     	;# 
-   237  0619                     	;# 
+   231  049B                     	;# 
+   232  049C                     	;# 
+   233  049D                     	;# 
+   234  049E                     	;# 
+   235  049F                     	;# 
+   236  0617                     	;# 
+   237  0618                     	;# 
    238  0619                     	;# 
-   239  061A                     	;# 
-   240  061B                     	;# 
-   241  061C                     	;# 
+   239  0619                     	;# 
+   240  061A                     	;# 
+   241  061B                     	;# 
    242  061C                     	;# 
-   243  061F                     	;# 
-   244  0691                     	;# 
-   245  0692                     	;# 
-   246  0693                     	;# 
-   247  0694                     	;# 
-   248  0695                     	;# 
-   249  0696                     	;# 
-   250  0697                     	;# 
-   251  0698                     	;# 
-   252  0699                     	;# 
-   253  0711                     	;# 
-   254  0712                     	;# 
-   255  0713                     	;# 
-   256  0714                     	;# 
-   257  0715                     	;# 
-   258  0716                     	;# 
-   259  0717                     	;# 
-   260  0718                     	;# 
-   261  0719                     	;# 
-   262  0891                     	;# 
+   243  061C                     	;# 
+   244  061F                     	;# 
+   245  0691                     	;# 
+   246  0692                     	;# 
+   247  0693                     	;# 
+   248  0694                     	;# 
+   249  0695                     	;# 
+   250  0696                     	;# 
+   251  0697                     	;# 
+   252  0698                     	;# 
+   253  0699                     	;# 
+   254  0711                     	;# 
+   255  0712                     	;# 
+   256  0713                     	;# 
+   257  0714                     	;# 
+   258  0715                     	;# 
+   259  0716                     	;# 
+   260  0717                     	;# 
+   261  0718                     	;# 
+   262  0719                     	;# 
    263  0891                     	;# 
    264  0891                     	;# 
    265  0891                     	;# 
    266  0891                     	;# 
    267  0891                     	;# 
-   268  0892                     	;# 
+   268  0891                     	;# 
    269  0892                     	;# 
    270  0892                     	;# 
-   271  0893                     	;# 
+   271  0892                     	;# 
    272  0893                     	;# 
    273  0893                     	;# 
    274  0893                     	;# 
    275  0893                     	;# 
    276  0893                     	;# 
-   277  0894                     	;# 
+   277  0893                     	;# 
    278  0894                     	;# 
    279  0894                     	;# 
-   280  0895                     	;# 
+   280  0894                     	;# 
    281  0895                     	;# 
    282  0895                     	;# 
-   283  0896                     	;# 
+   283  0895                     	;# 
    284  0896                     	;# 
    285  0896                     	;# 
-   286  089B                     	;# 
-   287  0911                     	;# 
-   288  0912                     	;# 
-   289  0913                     	;# 
-   290  0914                     	;# 
-   291  0915                     	;# 
-   292  0916                     	;# 
-   293  0918                     	;# 
-   294  0919                     	;# 
-   295  091A                     	;# 
-   296  091B                     	;# 
-   297  091C                     	;# 
-   298  091D                     	;# 
-   299  091E                     	;# 
-   300  091F                     	;# 
-   301  0E0F                     	;# 
-   302  0E10                     	;# 
-   303  0E11                     	;# 
-   304  0E12                     	;# 
-   305  0E13                     	;# 
-   306  0E14                     	;# 
-   307  0E15                     	;# 
-   308  0E16                     	;# 
-   309  0E17                     	;# 
-   310  0E18                     	;# 
-   311  0E19                     	;# 
-   312  0E1A                     	;# 
-   313  0E1B                     	;# 
-   314  0E1C                     	;# 
-   315  0E1D                     	;# 
-   316  0E1E                     	;# 
-   317  0E1F                     	;# 
-   318  0E20                     	;# 
-   319  0E21                     	;# 
-   320  0E22                     	;# 
-   321  0E24                     	;# 
-   322  0E25                     	;# 
-   323  0E28                     	;# 
-   324  0E29                     	;# 
-   325  0E2A                     	;# 
-   326  0E2B                     	;# 
-   327  0E2C                     	;# 
-   328  0E2D                     	;# 
-   329  0E2E                     	;# 
-   330  0E2F                     	;# 
-   331  0E90                     	;# 
-   332  0E91                     	;# 
-   333  0E92                     	;# 
-   334  0E94                     	;# 
-   335  0E95                     	;# 
-   336  0E9C                     	;# 
-   337  0E9D                     	;# 
-   338  0E9E                     	;# 
-   339  0E9F                     	;# 
-   340  0EA0                     	;# 
-   341  0EA1                     	;# 
-   342  0EA2                     	;# 
-   343  0EA3                     	;# 
-   344  0EA4                     	;# 
-   345  0EA5                     	;# 
-   346  0EA6                     	;# 
-   347  0EA7                     	;# 
-   348  0F0F                     	;# 
-   349  0F10                     	;# 
-   350  0F11                     	;# 
-   351  0F12                     	;# 
-   352  0F13                     	;# 
-   353  0F14                     	;# 
-   354  0F15                     	;# 
-   355  0F16                     	;# 
-   356  0F17                     	;# 
-   357  0F18                     	;# 
-   358  0F19                     	;# 
-   359  0F1A                     	;# 
-   360  0F1B                     	;# 
-   361  0F1C                     	;# 
-   362  0F1D                     	;# 
-   363  0F1E                     	;# 
-   364  0F1F                     	;# 
-   365  0F20                     	;# 
-   366  0F21                     	;# 
-   367  0F22                     	;# 
-   368  0F23                     	;# 
-   369  0F24                     	;# 
-   370  0F25                     	;# 
-   371  0F26                     	;# 
-   372  0F27                     	;# 
-   373  0F28                     	;# 
-   374  0F29                     	;# 
-   375  0F2A                     	;# 
-   376  0F2B                     	;# 
-   377  0F2C                     	;# 
-   378  0F2D                     	;# 
-   379  0F2E                     	;# 
-   380  0F2F                     	;# 
-   381  0F30                     	;# 
-   382  0F31                     	;# 
-   383  0F32                     	;# 
-   384  0F33                     	;# 
-   385  0F34                     	;# 
-   386  0F35                     	;# 
-   387  0F36                     	;# 
-   388  0F37                     	;# 
-   389  0FE4                     	;# 
-   390  0FE5                     	;# 
-   391  0FE6                     	;# 
-   392  0FE7                     	;# 
-   393  0FE8                     	;# 
-   394  0FE9                     	;# 
-   395  0FEA                     	;# 
-   396  0FEB                     	;# 
-   397  0FED                     	;# 
-   398  0FEE                     	;# 
-   399  0FEF                     	;# 
-   400  0000                     	;# 
-   401  0001                     	;# 
-   402  0002                     	;# 
-   403  0003                     	;# 
-   404  0004                     	;# 
-   405  0005                     	;# 
-   406  0006                     	;# 
-   407  0007                     	;# 
-   408  0008                     	;# 
-   409  0009                     	;# 
-   410  000A                     	;# 
-   411  000B                     	;# 
-   412  000C                     	;# 
-   413  000D                     	;# 
-   414  000E                     	;# 
-   415  0010                     	;# 
-   416  0011                     	;# 
-   417  0012                     	;# 
-   418  0013                     	;# 
-   419  0014                     	;# 
-   420  0015                     	;# 
+   286  0896                     	;# 
+   287  089B                     	;# 
+   288  0911                     	;# 
+   289  0912                     	;# 
+   290  0913                     	;# 
+   291  0914                     	;# 
+   292  0915                     	;# 
+   293  0916                     	;# 
+   294  0918                     	;# 
+   295  0919                     	;# 
+   296  091A                     	;# 
+   297  091B                     	;# 
+   298  091C                     	;# 
+   299  091D                     	;# 
+   300  091E                     	;# 
+   301  091F                     	;# 
+   302  0E0F                     	;# 
+   303  0E10                     	;# 
+   304  0E11                     	;# 
+   305  0E12                     	;# 
+   306  0E13                     	;# 
+   307  0E14                     	;# 
+   308  0E15                     	;# 
+   309  0E16                     	;# 
+   310  0E17                     	;# 
+   311  0E18                     	;# 
+   312  0E19                     	;# 
+   313  0E1A                     	;# 
+   314  0E1B                     	;# 
+   315  0E1C                     	;# 
+   316  0E1D                     	;# 
+   317  0E1E                     	;# 
+   318  0E1F                     	;# 
+   319  0E20                     	;# 
+   320  0E21                     	;# 
+   321  0E22                     	;# 
+   322  0E24                     	;# 
+   323  0E25                     	;# 
+   324  0E28                     	;# 
+   325  0E29                     	;# 
+   326  0E2A                     	;# 
+   327  0E2B                     	;# 
+   328  0E2C                     	;# 
+   329  0E2D                     	;# 
+   330  0E2E                     	;# 
+   331  0E2F                     	;# 
+   332  0E90                     	;# 
+   333  0E91                     	;# 
+   334  0E92                     	;# 
+   335  0E94                     	;# 
+   336  0E95                     	;# 
+   337  0E9C                     	;# 
+   338  0E9D                     	;# 
+   339  0E9E                     	;# 
+   340  0E9F                     	;# 
+   341  0EA0                     	;# 
+   342  0EA1                     	;# 
+   343  0EA2                     	;# 
+   344  0EA3                     	;# 
+   345  0EA4                     	;# 
+   346  0EA5                     	;# 
+   347  0EA6                     	;# 
+   348  0EA7                     	;# 
+   349  0F0F                     	;# 
+   350  0F10                     	;# 
+   351  0F11                     	;# 
+   352  0F12                     	;# 
+   353  0F13                     	;# 
+   354  0F14                     	;# 
+   355  0F15                     	;# 
+   356  0F16                     	;# 
+   357  0F17                     	;# 
+   358  0F18                     	;# 
+   359  0F19                     	;# 
+   360  0F1A                     	;# 
+   361  0F1B                     	;# 
+   362  0F1C                     	;# 
+   363  0F1D                     	;# 
+   364  0F1E                     	;# 
+   365  0F1F                     	;# 
+   366  0F20                     	;# 
+   367  0F21                     	;# 
+   368  0F22                     	;# 
+   369  0F23                     	;# 
+   370  0F24                     	;# 
+   371  0F25                     	;# 
+   372  0F26                     	;# 
+   373  0F27                     	;# 
+   374  0F28                     	;# 
+   375  0F29                     	;# 
+   376  0F2A                     	;# 
+   377  0F2B                     	;# 
+   378  0F2C                     	;# 
+   379  0F2D                     	;# 
+   380  0F2E                     	;# 
+   381  0F2F                     	;# 
+   382  0F30                     	;# 
+   383  0F31                     	;# 
+   384  0F32                     	;# 
+   385  0F33                     	;# 
+   386  0F34                     	;# 
+   387  0F35                     	;# 
+   388  0F36                     	;# 
+   389  0F37                     	;# 
+   390  0FE4                     	;# 
+   391  0FE5                     	;# 
+   392  0FE6                     	;# 
+   393  0FE7                     	;# 
+   394  0FE8                     	;# 
+   395  0FE9                     	;# 
+   396  0FEA                     	;# 
+   397  0FEB                     	;# 
+   398  0FED                     	;# 
+   399  0FEE                     	;# 
+   400  0FEF                     	;# 
+   401  0000                     	;# 
+   402  0001                     	;# 
+   403  0002                     	;# 
+   404  0003                     	;# 
+   405  0004                     	;# 
+   406  0005                     	;# 
+   407  0006                     	;# 
+   408  0007                     	;# 
+   409  0008                     	;# 
+   410  0009                     	;# 
+   411  000A                     	;# 
+   412  000B                     	;# 
+   413  000C                     	;# 
+   414  000D                     	;# 
+   415  000E                     	;# 
+   416  0010                     	;# 
+   417  0011                     	;# 
+   418  0012                     	;# 
+   419  0013                     	;# 
+   420  0014                     	;# 
    421  0015                     	;# 
-   422  0016                     	;# 
+   422  0015                     	;# 
    423  0016                     	;# 
-   424  0017                     	;# 
-   425  0018                     	;# 
-   426  0019                     	;# 
+   424  0016                     	;# 
+   425  0017                     	;# 
+   426  0018                     	;# 
    427  0019                     	;# 
-   428  001A                     	;# 
-   429  001B                     	;# 
-   430  001C                     	;# 
-   431  001D                     	;# 
-   432  001E                     	;# 
-   433  001F                     	;# 
-   434  008C                     	;# 
-   435  008D                     	;# 
-   436  008E                     	;# 
-   437  0090                     	;# 
-   438  0091                     	;# 
-   439  0092                     	;# 
-   440  0093                     	;# 
-   441  0094                     	;# 
-   442  0097                     	;# 
-   443  009B                     	;# 
+   428  0019                     	;# 
+   429  001A                     	;# 
+   430  001B                     	;# 
+   431  001C                     	;# 
+   432  001D                     	;# 
+   433  001E                     	;# 
+   434  001F                     	;# 
+   435  008C                     	;# 
+   436  008D                     	;# 
+   437  008E                     	;# 
+   438  0090                     	;# 
+   439  0091                     	;# 
+   440  0092                     	;# 
+   441  0093                     	;# 
+   442  0094                     	;# 
+   443  0097                     	;# 
    444  009B                     	;# 
-   445  009C                     	;# 
-   446  009D                     	;# 
-   447  009E                     	;# 
-   448  009F                     	;# 
-   449  010C                     	;# 
-   450  010D                     	;# 
-   451  010E                     	;# 
-   452  0111                     	;# 
-   453  0112                     	;# 
-   454  0113                     	;# 
-   455  0114                     	;# 
-   456  0115                     	;# 
-   457  0116                     	;# 
-   458  0117                     	;# 
-   459  0118                     	;# 
-   460  0119                     	;# 
-   461  018C                     	;# 
-   462  018D                     	;# 
-   463  018E                     	;# 
-   464  0197                     	;# 
-   465  0199                     	;# 
+   445  009B                     	;# 
+   446  009C                     	;# 
+   447  009D                     	;# 
+   448  009E                     	;# 
+   449  009F                     	;# 
+   450  010C                     	;# 
+   451  010D                     	;# 
+   452  010E                     	;# 
+   453  0111                     	;# 
+   454  0112                     	;# 
+   455  0113                     	;# 
+   456  0114                     	;# 
+   457  0115                     	;# 
+   458  0116                     	;# 
+   459  0117                     	;# 
+   460  0118                     	;# 
+   461  0119                     	;# 
+   462  018C                     	;# 
+   463  018D                     	;# 
+   464  018E                     	;# 
+   465  0197                     	;# 
    466  0199                     	;# 
    467  0199                     	;# 
-   468  019A                     	;# 
+   468  0199                     	;# 
    469  019A                     	;# 
    470  019A                     	;# 
-   471  019B                     	;# 
+   471  019A                     	;# 
    472  019B                     	;# 
    473  019B                     	;# 
    474  019B                     	;# 
    475  019B                     	;# 
-   476  019C                     	;# 
+   476  019B                     	;# 
    477  019C                     	;# 
    478  019C                     	;# 
-   479  019D                     	;# 
+   479  019C                     	;# 
    480  019D                     	;# 
    481  019D                     	;# 
-   482  019E                     	;# 
+   482  019D                     	;# 
    483  019E                     	;# 
    484  019E                     	;# 
-   485  019F                     	;# 
+   485  019E                     	;# 
    486  019F                     	;# 
    487  019F                     	;# 
    488  019F                     	;# 
    489  019F                     	;# 
-   490  020C                     	;# 
-   491  020D                     	;# 
-   492  020E                     	;# 
-   493  0211                     	;# 
+   490  019F                     	;# 
+   491  020C                     	;# 
+   492  020D                     	;# 
+   493  020E                     	;# 
    494  0211                     	;# 
-   495  0212                     	;# 
+   495  0211                     	;# 
    496  0212                     	;# 
-   497  0213                     	;# 
+   497  0212                     	;# 
    498  0213                     	;# 
-   499  0214                     	;# 
+   499  0213                     	;# 
    500  0214                     	;# 
-   501  0215                     	;# 
+   501  0214                     	;# 
    502  0215                     	;# 
    503  0215                     	;# 
    504  0215                     	;# 
-   505  0216                     	;# 
+   505  0215                     	;# 
    506  0216                     	;# 
-   507  0217                     	;# 
+   507  0216                     	;# 
    508  0217                     	;# 
-   509  0219                     	;# 
-   510  021A                     	;# 
-   511  021B                     	;# 
-   512  021C                     	;# 
-   513  021D                     	;# 
+   509  0217                     	;# 
+   510  0219                     	;# 
+   511  021A                     	;# 
+   512  021B                     	;# 
+   513  021C                     	;# 
    514  021D                     	;# 
-   515  021E                     	;# 
-   516  021F                     	;# 
-   517  028C                     	;# 
-   518  028D                     	;# 
-   519  028E                     	;# 
-   520  0291                     	;# 
+   515  021D                     	;# 
+   516  021E                     	;# 
+   517  021F                     	;# 
+   518  028C                     	;# 
+   519  028D                     	;# 
+   520  028E                     	;# 
    521  0291                     	;# 
-   522  0292                     	;# 
-   523  0293                     	;# 
-   524  0294                     	;# 
-   525  0295                     	;# 
+   522  0291                     	;# 
+   523  0292                     	;# 
+   524  0293                     	;# 
+   525  0294                     	;# 
    526  0295                     	;# 
-   527  0296                     	;# 
-   528  0297                     	;# 
-   529  0298                     	;# 
-   530  029F                     	;# 
-   531  030C                     	;# 
-   532  030D                     	;# 
-   533  030E                     	;# 
-   534  0311                     	;# 
+   527  0295                     	;# 
+   528  0296                     	;# 
+   529  0297                     	;# 
+   530  0298                     	;# 
+   531  029F                     	;# 
+   532  030C                     	;# 
+   533  030D                     	;# 
+   534  030E                     	;# 
    535  0311                     	;# 
-   536  0312                     	;# 
-   537  0313                     	;# 
-   538  0314                     	;# 
-   539  0315                     	;# 
+   536  0311                     	;# 
+   537  0312                     	;# 
+   538  0313                     	;# 
+   539  0314                     	;# 
    540  0315                     	;# 
-   541  0316                     	;# 
-   542  0317                     	;# 
-   543  0318                     	;# 
-   544  038C                     	;# 
-   545  038D                     	;# 
-   546  038E                     	;# 
-   547  0391                     	;# 
-   548  0392                     	;# 
-   549  0393                     	;# 
-   550  0394                     	;# 
-   551  0395                     	;# 
-   552  0396                     	;# 
-   553  0397                     	;# 
-   554  0398                     	;# 
-   555  0399                     	;# 
-   556  039A                     	;# 
-   557  039C                     	;# 
-   558  039D                     	;# 
-   559  039E                     	;# 
-   560  039F                     	;# 
-   561  0411                     	;# 
+   541  0315                     	;# 
+   542  0316                     	;# 
+   543  0317                     	;# 
+   544  0318                     	;# 
+   545  038C                     	;# 
+   546  038D                     	;# 
+   547  038E                     	;# 
+   548  0391                     	;# 
+   549  0392                     	;# 
+   550  0393                     	;# 
+   551  0394                     	;# 
+   552  0395                     	;# 
+   553  0396                     	;# 
+   554  0397                     	;# 
+   555  0398                     	;# 
+   556  0399                     	;# 
+   557  039A                     	;# 
+   558  039C                     	;# 
+   559  039D                     	;# 
+   560  039E                     	;# 
+   561  039F                     	;# 
    562  0411                     	;# 
-   563  0412                     	;# 
-   564  0413                     	;# 
-   565  0414                     	;# 
-   566  0415                     	;# 
-   567  0416                     	;# 
-   568  0417                     	;# 
-   569  0418                     	;# 
+   563  0411                     	;# 
+   564  0412                     	;# 
+   565  0413                     	;# 
+   566  0414                     	;# 
+   567  0415                     	;# 
+   568  0416                     	;# 
+   569  0417                     	;# 
    570  0418                     	;# 
-   571  0419                     	;# 
-   572  041A                     	;# 
-   573  041B                     	;# 
-   574  041C                     	;# 
-   575  041D                     	;# 
-   576  041E                     	;# 
-   577  041F                     	;# 
-   578  0498                     	;# 
+   571  0418                     	;# 
+   572  0419                     	;# 
+   573  041A                     	;# 
+   574  041B                     	;# 
+   575  041C                     	;# 
+   576  041D                     	;# 
+   577  041E                     	;# 
+   578  041F                     	;# 
    579  0498                     	;# 
-   580  0499                     	;# 
-   581  049A                     	;# 
-   582  049B                     	;# 
+   580  0498                     	;# 
+   581  0499                     	;# 
+   582  049A                     	;# 
    583  049B                     	;# 
-   584  049C                     	;# 
-   585  049D                     	;# 
-   586  049E                     	;# 
-   587  049F                     	;# 
-   588  0617                     	;# 
-   589  0618                     	;# 
-   590  0619                     	;# 
+   584  049B                     	;# 
+   585  049C                     	;# 
+   586  049D                     	;# 
+   587  049E                     	;# 
+   588  049F                     	;# 
+   589  0617                     	;# 
+   590  0618                     	;# 
    591  0619                     	;# 
-   592  061A                     	;# 
-   593  061B                     	;# 
-   594  061C                     	;# 
+   592  0619                     	;# 
+   593  061A                     	;# 
+   594  061B                     	;# 
    595  061C                     	;# 
-   596  061F                     	;# 
-   597  0691                     	;# 
-   598  0692                     	;# 
-   599  0693                     	;# 
-   600  0694                     	;# 
-   601  0695                     	;# 
-   602  0696                     	;# 
-   603  0697                     	;# 
-   604  0698                     	;# 
-   605  0699                     	;# 
-   606  0711                     	;# 
-   607  0712                     	;# 
-   608  0713                     	;# 
-   609  0714                     	;# 
-   610  0715                     	;# 
-   611  0716                     	;# 
-   612  0717                     	;# 
-   613  0718                     	;# 
-   614  0719                     	;# 
-   615  0891                     	;# 
+   596  061C                     	;# 
+   597  061F                     	;# 
+   598  0691                     	;# 
+   599  0692                     	;# 
+   600  0693                     	;# 
+   601  0694                     	;# 
+   602  0695                     	;# 
+   603  0696                     	;# 
+   604  0697                     	;# 
+   605  0698                     	;# 
+   606  0699                     	;# 
+   607  0711                     	;# 
+   608  0712                     	;# 
+   609  0713                     	;# 
+   610  0714                     	;# 
+   611  0715                     	;# 
+   612  0716                     	;# 
+   613  0717                     	;# 
+   614  0718                     	;# 
+   615  0719                     	;# 
    616  0891                     	;# 
    617  0891                     	;# 
    618  0891                     	;# 
    619  0891                     	;# 
    620  0891                     	;# 
-   621  0892                     	;# 
+   621  0891                     	;# 
    622  0892                     	;# 
    623  0892                     	;# 
-   624  0893                     	;# 
+   624  0892                     	;# 
    625  0893                     	;# 
    626  0893                     	;# 
    627  0893                     	;# 
    628  0893                     	;# 
    629  0893                     	;# 
-   630  0894                     	;# 
+   630  0893                     	;# 
    631  0894                     	;# 
    632  0894                     	;# 
-   633  0895                     	;# 
+   633  0894                     	;# 
    634  0895                     	;# 
    635  0895                     	;# 
-   636  0896                     	;# 
+   636  0895                     	;# 
    637  0896                     	;# 
    638  0896                     	;# 
-   639  089B                     	;# 
-   640  0911                     	;# 
-   641  0912                     	;# 
-   642  0913                     	;# 
-   643  0914                     	;# 
-   644  0915                     	;# 
-   645  0916                     	;# 
-   646  0918                     	;# 
-   647  0919                     	;# 
-   648  091A                     	;# 
-   649  091B                     	;# 
-   650  091C                     	;# 
-   651  091D                     	;# 
-   652  091E                     	;# 
-   653  091F                     	;# 
-   654  0E0F                     	;# 
-   655  0E10                     	;# 
-   656  0E11                     	;# 
-   657  0E12                     	;# 
-   658  0E13                     	;# 
-   659  0E14                     	;# 
-   660  0E15                     	;# 
-   661  0E16                     	;# 
-   662  0E17                     	;# 
-   663  0E18                     	;# 
-   664  0E19                     	;# 
-   665  0E1A                     	;# 
-   666  0E1B                     	;# 
-   667  0E1C                     	;# 
-   668  0E1D                     	;# 
-   669  0E1E                     	;# 
-   670  0E1F                     	;# 
-   671  0E20                     	;# 
-   672  0E21                     	;# 
-   673  0E22                     	;# 
-   674  0E24                     	;# 
-   675  0E25                     	;# 
-   676  0E28                     	;# 
-   677  0E29                     	;# 
-   678  0E2A                     	;# 
-   679  0E2B                     	;# 
-   680  0E2C                     	;# 
-   681  0E2D                     	;# 
-   682  0E2E                     	;# 
-   683  0E2F                     	;# 
-   684  0E90                     	;# 
-   685  0E91                     	;# 
-   686  0E92                     	;# 
-   687  0E94                     	;# 
-   688  0E95                     	;# 
-   689  0E9C                     	;# 
-   690  0E9D                     	;# 
-   691  0E9E                     	;# 
-   692  0E9F                     	;# 
-   693  0EA0                     	;# 
-   694  0EA1                     	;# 
-   695  0EA2                     	;# 
-   696  0EA3                     	;# 
-   697  0EA4                     	;# 
-   698  0EA5                     	;# 
-   699  0EA6                     	;# 
-   700  0EA7                     	;# 
-   701  0F0F                     	;# 
-   702  0F10                     	;# 
-   703  0F11                     	;# 
-   704  0F12                     	;# 
-   705  0F13                     	;# 
-   706  0F14                     	;# 
-   707  0F15                     	;# 
-   708  0F16                     	;# 
-   709  0F17                     	;# 
-   710  0F18                     	;# 
-   711  0F19                     	;# 
-   712  0F1A                     	;# 
-   713  0F1B                     	;# 
-   714  0F1C                     	;# 
-   715  0F1D                     	;# 
-   716  0F1E                     	;# 
-   717  0F1F                     	;# 
-   718  0F20                     	;# 
-   719  0F21                     	;# 
-   720  0F22                     	;# 
-   721  0F23                     	;# 
-   722  0F24                     	;# 
-   723  0F25                     	;# 
-   724  0F26                     	;# 
-   725  0F27                     	;# 
-   726  0F28                     	;# 
-   727  0F29                     	;# 
-   728  0F2A                     	;# 
-   729  0F2B                     	;# 
-   730  0F2C                     	;# 
-   731  0F2D                     	;# 
-   732  0F2E                     	;# 
-   733  0F2F                     	;# 
-   734  0F30                     	;# 
-   735  0F31                     	;# 
-   736  0F32                     	;# 
-   737  0F33                     	;# 
-   738  0F34                     	;# 
-   739  0F35                     	;# 
-   740  0F36                     	;# 
-   741  0F37                     	;# 
-   742  0FE4                     	;# 
-   743  0FE5                     	;# 
-   744  0FE6                     	;# 
-   745  0FE7                     	;# 
-   746  0FE8                     	;# 
-   747  0FE9                     	;# 
-   748  0FEA                     	;# 
-   749  0FEB                     	;# 
-   750  0FED                     	;# 
-   751  0FEE                     	;# 
-   752  0FEF                     	;# 
-   753  008D                     _TRISBbits	set	141
-   754  008E                     _TRISCbits	set	142
-   755  008C                     _TRISAbits	set	140
-   756  010D                     _LATBbits	set	269
-   757  010E                     _LATCbits	set	270
-   758  010C                     _LATAbits	set	268
-   759                           
-   760                           	psect	stringtext1
-   761  0800                     __pstringtext1:
-   762  0800                     STR_2:
-   763  0800  3445               	retlw	69	;'E'
-   764  0801  3452               	retlw	82	;'R'
-   765  0802  3452               	retlw	82	;'R'
-   766  0803  344F               	retlw	79	;'O'
-   767  0804  3452               	retlw	82	;'R'
-   768  0805  3421               	retlw	33	;'!'
-   769  0806  3420               	retlw	32	;' '
-   770  0807  3474               	retlw	116	;'t'
-   771  0808  3472               	retlw	114	;'r'
-   772  0809  3469               	retlw	105	;'i'
-   773  080A  3467               	retlw	103	;'g'
-   774  080B  3450               	retlw	80	;'P'
-   775  080C  3469               	retlw	105	;'i'
-   776  080D  346E               	retlw	110	;'n'
-   777  080E  3420               	retlw	32	;' '
-   778  080F  346D               	retlw	109	;'m'
-   779  0810  3461               	retlw	97	;'a'
-   780  0811  3479               	retlw	121	;'y'
-   781  0812  3420               	retlw	32	;' '
-   782  0813  346E               	retlw	110	;'n'
-   783  0814  346F               	retlw	111	;'o'
-   784  0815  3474               	retlw	116	;'t'
-   785  0816  3420               	retlw	32	;' '
-   786  0817  3462               	retlw	98	;'b'
-   787  0818  3465               	retlw	101	;'e'
-   788  0819  3420               	retlw	32	;' '
-   789  081A  3461               	retlw	97	;'a'
-   790  081B  346E               	retlw	110	;'n'
-   791  081C  3479               	retlw	121	;'y'
-   792  081D  3420               	retlw	32	;' '
-   793  081E  346F               	retlw	111	;'o'
-   794  081F  3466               	retlw	102	;'f'
-   795  0820  3420               	retlw	32	;' '
-   796  0821  3474               	retlw	116	;'t'
-   797  0822  3468               	retlw	104	;'h'
-   798  0823  3465               	retlw	101	;'e'
-   799  0824  3420               	retlw	32	;' '
-   800  0825  3466               	retlw	102	;'f'
-   801  0826  346F               	retlw	111	;'o'
-   802  0827  346C               	retlw	108	;'l'
-   803  0828  346C               	retlw	108	;'l'
-   804  0829  346F               	retlw	111	;'o'
-   805  082A  3477               	retlw	119	;'w'
-   806  082B  3469               	retlw	105	;'i'
-   807  082C  346E               	retlw	110	;'n'
-   808  082D  3467               	retlw	103	;'g'
-   809  082E  343A               	retlw	58	;':'
-   810  082F  3420               	retlw	32	;' '
-   811  0830  345B               	retlw	91	;'['
-   812  0831  3452               	retlw	82	;'R'
-   813  0832  3441               	retlw	65	;'A'
-   814  0833  3432               	retlw	50	;'2'
-   815  0834  342C               	retlw	44	;','
-   816  0835  3420               	retlw	32	;' '
-   817  0836  3452               	retlw	82	;'R'
-   818  0837  3441               	retlw	65	;'A'
-   819  0838  3434               	retlw	52	;'4'
-   820  0839  342C               	retlw	44	;','
-   821  083A  3420               	retlw	32	;' '
-   822  083B  3452               	retlw	82	;'R'
-   823  083C  3443               	retlw	67	;'C'
-   824  083D  3433               	retlw	51	;'3'
-   825  083E  342C               	retlw	44	;','
-   826  083F  3420               	retlw	32	;' '
-   827  0840  3452               	retlw	82	;'R'
-   828  0841  3443               	retlw	67	;'C'
-   829  0842  3435               	retlw	53	;'5'
-   830  0843  342C               	retlw	44	;','
-   831  0844  3420               	retlw	32	;' '
-   832  0845  3452               	retlw	82	;'R'
-   833  0846  3441               	retlw	65	;'A'
-   834  0847  3433               	retlw	51	;'3'
-   835  0848  345D               	retlw	93	;']'
-   836  0849  340A               	retlw	10
-   837  084A  3400               	retlw	0
-   838                           
-   839                           	psect	stringtext2
-   840  084B                     __pstringtext2:
-   841  084B                     STR_1:
-   842  084B  3445               	retlw	69	;'E'
-   843  084C  3452               	retlw	82	;'R'
-   844  084D  3452               	retlw	82	;'R'
-   845  084E  344F               	retlw	79	;'O'
-   846  084F  3452               	retlw	82	;'R'
-   847  0850  3421               	retlw	33	;'!'
-   848  0851  3420               	retlw	32	;' '
-   849  0852  3465               	retlw	101	;'e'
-   850  0853  3463               	retlw	99	;'c'
-   851  0854  3468               	retlw	104	;'h'
-   852  0855  346F               	retlw	111	;'o'
-   853  0856  3450               	retlw	80	;'P'
-   854  0857  3469               	retlw	105	;'i'
-   855  0858  346E               	retlw	110	;'n'
-   856  0859  3420               	retlw	32	;' '
-   857  085A  346D               	retlw	109	;'m'
-   858  085B  3475               	retlw	117	;'u'
-   859  085C  3473               	retlw	115	;'s'
-   860  085D  3474               	retlw	116	;'t'
-   861  085E  3420               	retlw	32	;' '
-   862  085F  3462               	retlw	98	;'b'
-   863  0860  3465               	retlw	101	;'e'
-   864  0861  3420               	retlw	32	;' '
-   865  0862  346F               	retlw	111	;'o'
-   866  0863  346E               	retlw	110	;'n'
-   867  0864  3465               	retlw	101	;'e'
-   868  0865  3420               	retlw	32	;' '
-   869  0866  346F               	retlw	111	;'o'
-   870  0867  3466               	retlw	102	;'f'
-   871  0868  3420               	retlw	32	;' '
-   872  0869  3474               	retlw	116	;'t'
-   873  086A  3468               	retlw	104	;'h'
-   874  086B  3465               	retlw	101	;'e'
-   875  086C  3420               	retlw	32	;' '
-   876  086D  3466               	retlw	102	;'f'
-   877  086E  346F               	retlw	111	;'o'
-   878  086F  346C               	retlw	108	;'l'
-   879  0870  346C               	retlw	108	;'l'
-   880  0871  346F               	retlw	111	;'o'
-   881  0872  3477               	retlw	119	;'w'
-   882  0873  3469               	retlw	105	;'i'
-   883  0874  346E               	retlw	110	;'n'
-   884  0875  3467               	retlw	103	;'g'
-   885  0876  343A               	retlw	58	;':'
-   886  0877  3420               	retlw	32	;' '
-   887  0878  345B               	retlw	91	;'['
-   888  0879  3452               	retlw	82	;'R'
-   889  087A  3441               	retlw	65	;'A'
-   890  087B  3432               	retlw	50	;'2'
-   891  087C  342C               	retlw	44	;','
-   892  087D  3420               	retlw	32	;' '
-   893  087E  3452               	retlw	82	;'R'
-   894  087F  3441               	retlw	65	;'A'
-   895  0880  3434               	retlw	52	;'4'
-   896  0881  342C               	retlw	44	;','
-   897  0882  3420               	retlw	32	;' '
-   898  0883  3452               	retlw	82	;'R'
-   899  0884  3443               	retlw	67	;'C'
-   900  0885  3433               	retlw	51	;'3'
-   901  0886  342C               	retlw	44	;','
-   902  0887  3420               	retlw	32	;' '
-   903  0888  3452               	retlw	82	;'R'
-   904  0889  3443               	retlw	67	;'C'
-   905  088A  3435               	retlw	53	;'5'
-   906  088B  345D               	retlw	93	;']'
-   907  088C  340A               	retlw	10
-   908  088D  3400               	retlw	0
-   909                           
-   910                           	psect	stringtext3
-   911  0000                     __pstringtext3:
-   912                           
-   913                           	psect	cinit
-   914  07FD                     start_initialization:	
-   915                           ; #config settings
-   916                           
-   917  07FD                     __initialization:
-   918  07FD                     end_of_initialization:	
-   919                           ;End of C runtime variable initialization code
-   920                           
-   921  07FD                     __end_of__initialization:
-   922  07FD  0020               	movlb	0
-   923  07FE  3187  2FFA         	ljmp	_main	;jump to C main() function
-   924                           
-   925                           	psect	cstackCOMMON
-   926  0000                     __pcstackCOMMON:
-   927  0000                     ??_main:
-   928  0000                     ?_main:	
-   929                           ; 1 bytes @ 0x0
-   930                           
-   931                           
-   932                           	psect	maintext
-   933  07FA                     __pmaintext:	
-   934                           ; 2 bytes @ 0x0
-   935 ;;
-   936 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
-   937 ;;
-   938 ;; *************** function _main *****************
-   939 ;; Defined at:
-   940 ;;		line 133 in file "JSN_Sensor.c"
-   941 ;; Parameters:    Size  Location     Type
-   942 ;;		None
-   943 ;; Auto vars:     Size  Location     Type
-   944 ;;  Sens3           6    0        struct .
-   945 ;;  Sens2           6    0        struct .
-   946 ;;  Sens1           6    0        struct .
-   947 ;; Return value:  Size  Location     Type
-   948 ;;                  2   57[None  ] int 
-   949 ;; Registers used:
-   950 ;;		None
-   951 ;; Tracked objects:
-   952 ;;		On entry : B1F/0
-   953 ;;		On exit  : 0/0
-   954 ;;		Unchanged: 0/0
-   955 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+   639  0896                     	;# 
+   640  089B                     	;# 
+   641  0911                     	;# 
+   642  0912                     	;# 
+   643  0913                     	;# 
+   644  0914                     	;# 
+   645  0915                     	;# 
+   646  0916                     	;# 
+   647  0918                     	;# 
+   648  0919                     	;# 
+   649  091A                     	;# 
+   650  091B                     	;# 
+   651  091C                     	;# 
+   652  091D                     	;# 
+   653  091E                     	;# 
+   654  091F                     	;# 
+   655  0E0F                     	;# 
+   656  0E10                     	;# 
+   657  0E11                     	;# 
+   658  0E12                     	;# 
+   659  0E13                     	;# 
+   660  0E14                     	;# 
+   661  0E15                     	;# 
+   662  0E16                     	;# 
+   663  0E17                     	;# 
+   664  0E18                     	;# 
+   665  0E19                     	;# 
+   666  0E1A                     	;# 
+   667  0E1B                     	;# 
+   668  0E1C                     	;# 
+   669  0E1D                     	;# 
+   670  0E1E                     	;# 
+   671  0E1F                     	;# 
+   672  0E20                     	;# 
+   673  0E21                     	;# 
+   674  0E22                     	;# 
+   675  0E24                     	;# 
+   676  0E25                     	;# 
+   677  0E28                     	;# 
+   678  0E29                     	;# 
+   679  0E2A                     	;# 
+   680  0E2B                     	;# 
+   681  0E2C                     	;# 
+   682  0E2D                     	;# 
+   683  0E2E                     	;# 
+   684  0E2F                     	;# 
+   685  0E90                     	;# 
+   686  0E91                     	;# 
+   687  0E92                     	;# 
+   688  0E94                     	;# 
+   689  0E95                     	;# 
+   690  0E9C                     	;# 
+   691  0E9D                     	;# 
+   692  0E9E                     	;# 
+   693  0E9F                     	;# 
+   694  0EA0                     	;# 
+   695  0EA1                     	;# 
+   696  0EA2                     	;# 
+   697  0EA3                     	;# 
+   698  0EA4                     	;# 
+   699  0EA5                     	;# 
+   700  0EA6                     	;# 
+   701  0EA7                     	;# 
+   702  0F0F                     	;# 
+   703  0F10                     	;# 
+   704  0F11                     	;# 
+   705  0F12                     	;# 
+   706  0F13                     	;# 
+   707  0F14                     	;# 
+   708  0F15                     	;# 
+   709  0F16                     	;# 
+   710  0F17                     	;# 
+   711  0F18                     	;# 
+   712  0F19                     	;# 
+   713  0F1A                     	;# 
+   714  0F1B                     	;# 
+   715  0F1C                     	;# 
+   716  0F1D                     	;# 
+   717  0F1E                     	;# 
+   718  0F1F                     	;# 
+   719  0F20                     	;# 
+   720  0F21                     	;# 
+   721  0F22                     	;# 
+   722  0F23                     	;# 
+   723  0F24                     	;# 
+   724  0F25                     	;# 
+   725  0F26                     	;# 
+   726  0F27                     	;# 
+   727  0F28                     	;# 
+   728  0F29                     	;# 
+   729  0F2A                     	;# 
+   730  0F2B                     	;# 
+   731  0F2C                     	;# 
+   732  0F2D                     	;# 
+   733  0F2E                     	;# 
+   734  0F2F                     	;# 
+   735  0F30                     	;# 
+   736  0F31                     	;# 
+   737  0F32                     	;# 
+   738  0F33                     	;# 
+   739  0F34                     	;# 
+   740  0F35                     	;# 
+   741  0F36                     	;# 
+   742  0F37                     	;# 
+   743  0FE4                     	;# 
+   744  0FE5                     	;# 
+   745  0FE6                     	;# 
+   746  0FE7                     	;# 
+   747  0FE8                     	;# 
+   748  0FE9                     	;# 
+   749  0FEA                     	;# 
+   750  0FEB                     	;# 
+   751  0FED                     	;# 
+   752  0FEE                     	;# 
+   753  0FEF                     	;# 
+   754  0000                     	;# 
+   755  0001                     	;# 
+   756  0002                     	;# 
+   757  0003                     	;# 
+   758  0004                     	;# 
+   759  0005                     	;# 
+   760  0006                     	;# 
+   761  0007                     	;# 
+   762  0008                     	;# 
+   763  0009                     	;# 
+   764  000A                     	;# 
+   765  000B                     	;# 
+   766  000C                     	;# 
+   767  000D                     	;# 
+   768  000E                     	;# 
+   769  0010                     	;# 
+   770  0011                     	;# 
+   771  0012                     	;# 
+   772  0013                     	;# 
+   773  0014                     	;# 
+   774  0015                     	;# 
+   775  0015                     	;# 
+   776  0016                     	;# 
+   777  0016                     	;# 
+   778  0017                     	;# 
+   779  0018                     	;# 
+   780  0019                     	;# 
+   781  0019                     	;# 
+   782  001A                     	;# 
+   783  001B                     	;# 
+   784  001C                     	;# 
+   785  001D                     	;# 
+   786  001E                     	;# 
+   787  001F                     	;# 
+   788  008C                     	;# 
+   789  008D                     	;# 
+   790  008E                     	;# 
+   791  0090                     	;# 
+   792  0091                     	;# 
+   793  0092                     	;# 
+   794  0093                     	;# 
+   795  0094                     	;# 
+   796  0097                     	;# 
+   797  009B                     	;# 
+   798  009B                     	;# 
+   799  009C                     	;# 
+   800  009D                     	;# 
+   801  009E                     	;# 
+   802  009F                     	;# 
+   803  010C                     	;# 
+   804  010D                     	;# 
+   805  010E                     	;# 
+   806  0111                     	;# 
+   807  0112                     	;# 
+   808  0113                     	;# 
+   809  0114                     	;# 
+   810  0115                     	;# 
+   811  0116                     	;# 
+   812  0117                     	;# 
+   813  0118                     	;# 
+   814  0119                     	;# 
+   815  018C                     	;# 
+   816  018D                     	;# 
+   817  018E                     	;# 
+   818  0197                     	;# 
+   819  0199                     	;# 
+   820  0199                     	;# 
+   821  0199                     	;# 
+   822  019A                     	;# 
+   823  019A                     	;# 
+   824  019A                     	;# 
+   825  019B                     	;# 
+   826  019B                     	;# 
+   827  019B                     	;# 
+   828  019B                     	;# 
+   829  019B                     	;# 
+   830  019C                     	;# 
+   831  019C                     	;# 
+   832  019C                     	;# 
+   833  019D                     	;# 
+   834  019D                     	;# 
+   835  019D                     	;# 
+   836  019E                     	;# 
+   837  019E                     	;# 
+   838  019E                     	;# 
+   839  019F                     	;# 
+   840  019F                     	;# 
+   841  019F                     	;# 
+   842  019F                     	;# 
+   843  019F                     	;# 
+   844  020C                     	;# 
+   845  020D                     	;# 
+   846  020E                     	;# 
+   847  0211                     	;# 
+   848  0211                     	;# 
+   849  0212                     	;# 
+   850  0212                     	;# 
+   851  0213                     	;# 
+   852  0213                     	;# 
+   853  0214                     	;# 
+   854  0214                     	;# 
+   855  0215                     	;# 
+   856  0215                     	;# 
+   857  0215                     	;# 
+   858  0215                     	;# 
+   859  0216                     	;# 
+   860  0216                     	;# 
+   861  0217                     	;# 
+   862  0217                     	;# 
+   863  0219                     	;# 
+   864  021A                     	;# 
+   865  021B                     	;# 
+   866  021C                     	;# 
+   867  021D                     	;# 
+   868  021D                     	;# 
+   869  021E                     	;# 
+   870  021F                     	;# 
+   871  028C                     	;# 
+   872  028D                     	;# 
+   873  028E                     	;# 
+   874  0291                     	;# 
+   875  0291                     	;# 
+   876  0292                     	;# 
+   877  0293                     	;# 
+   878  0294                     	;# 
+   879  0295                     	;# 
+   880  0295                     	;# 
+   881  0296                     	;# 
+   882  0297                     	;# 
+   883  0298                     	;# 
+   884  029F                     	;# 
+   885  030C                     	;# 
+   886  030D                     	;# 
+   887  030E                     	;# 
+   888  0311                     	;# 
+   889  0311                     	;# 
+   890  0312                     	;# 
+   891  0313                     	;# 
+   892  0314                     	;# 
+   893  0315                     	;# 
+   894  0315                     	;# 
+   895  0316                     	;# 
+   896  0317                     	;# 
+   897  0318                     	;# 
+   898  038C                     	;# 
+   899  038D                     	;# 
+   900  038E                     	;# 
+   901  0391                     	;# 
+   902  0392                     	;# 
+   903  0393                     	;# 
+   904  0394                     	;# 
+   905  0395                     	;# 
+   906  0396                     	;# 
+   907  0397                     	;# 
+   908  0398                     	;# 
+   909  0399                     	;# 
+   910  039A                     	;# 
+   911  039C                     	;# 
+   912  039D                     	;# 
+   913  039E                     	;# 
+   914  039F                     	;# 
+   915  0411                     	;# 
+   916  0411                     	;# 
+   917  0412                     	;# 
+   918  0413                     	;# 
+   919  0414                     	;# 
+   920  0415                     	;# 
+   921  0416                     	;# 
+   922  0417                     	;# 
+   923  0418                     	;# 
+   924  0418                     	;# 
+   925  0419                     	;# 
+   926  041A                     	;# 
+   927  041B                     	;# 
+   928  041C                     	;# 
+   929  041D                     	;# 
+   930  041E                     	;# 
+   931  041F                     	;# 
+   932  0498                     	;# 
+   933  0498                     	;# 
+   934  0499                     	;# 
+   935  049A                     	;# 
+   936  049B                     	;# 
+   937  049B                     	;# 
+   938  049C                     	;# 
+   939  049D                     	;# 
+   940  049E                     	;# 
+   941  049F                     	;# 
+   942  0617                     	;# 
+   943  0618                     	;# 
+   944  0619                     	;# 
+   945  0619                     	;# 
+   946  061A                     	;# 
+   947  061B                     	;# 
+   948  061C                     	;# 
+   949  061C                     	;# 
+   950  061F                     	;# 
+   951  0691                     	;# 
+   952  0692                     	;# 
+   953  0693                     	;# 
+   954  0694                     	;# 
+   955  0695                     	;# 
+   956  0696                     	;# 
+   957  0697                     	;# 
+   958  0698                     	;# 
+   959  0699                     	;# 
+   960  0711                     	;# 
+   961  0712                     	;# 
+   962  0713                     	;# 
+   963  0714                     	;# 
+   964  0715                     	;# 
+   965  0716                     	;# 
+   966  0717                     	;# 
+   967  0718                     	;# 
+   968  0719                     	;# 
+   969  0891                     	;# 
+   970  0891                     	;# 
+   971  0891                     	;# 
+   972  0891                     	;# 
+   973  0891                     	;# 
+   974  0891                     	;# 
+   975  0892                     	;# 
+   976  0892                     	;# 
+   977  0892                     	;# 
+   978  0893                     	;# 
+   979  0893                     	;# 
+   980  0893                     	;# 
+   981  0893                     	;# 
+   982  0893                     	;# 
+   983  0893                     	;# 
+   984  0894                     	;# 
+   985  0894                     	;# 
+   986  0894                     	;# 
+   987  0895                     	;# 
+   988  0895                     	;# 
+   989  0895                     	;# 
+   990  0896                     	;# 
+   991  0896                     	;# 
+   992  0896                     	;# 
+   993  089B                     	;# 
+   994  0911                     	;# 
+   995  0912                     	;# 
+   996  0913                     	;# 
+   997  0914                     	;# 
+   998  0915                     	;# 
+   999  0916                     	;# 
+  1000  0918                     	;# 
+  1001  0919                     	;# 
+  1002  091A                     	;# 
+  1003  091B                     	;# 
+  1004  091C                     	;# 
+  1005  091D                     	;# 
+  1006  091E                     	;# 
+  1007  091F                     	;# 
+  1008  0E0F                     	;# 
+  1009  0E10                     	;# 
+  1010  0E11                     	;# 
+  1011  0E12                     	;# 
+  1012  0E13                     	;# 
+  1013  0E14                     	;# 
+  1014  0E15                     	;# 
+  1015  0E16                     	;# 
+  1016  0E17                     	;# 
+  1017  0E18                     	;# 
+  1018  0E19                     	;# 
+  1019  0E1A                     	;# 
+  1020  0E1B                     	;# 
+  1021  0E1C                     	;# 
+  1022  0E1D                     	;# 
+  1023  0E1E                     	;# 
+  1024  0E1F                     	;# 
+  1025  0E20                     	;# 
+  1026  0E21                     	;# 
+  1027  0E22                     	;# 
+  1028  0E24                     	;# 
+  1029  0E25                     	;# 
+  1030  0E28                     	;# 
+  1031  0E29                     	;# 
+  1032  0E2A                     	;# 
+  1033  0E2B                     	;# 
+  1034  0E2C                     	;# 
+  1035  0E2D                     	;# 
+  1036  0E2E                     	;# 
+  1037  0E2F                     	;# 
+  1038  0E90                     	;# 
+  1039  0E91                     	;# 
+  1040  0E92                     	;# 
+  1041  0E94                     	;# 
+  1042  0E95                     	;# 
+  1043  0E9C                     	;# 
+  1044  0E9D                     	;# 
+  1045  0E9E                     	;# 
+  1046  0E9F                     	;# 
+  1047  0EA0                     	;# 
+  1048  0EA1                     	;# 
+  1049  0EA2                     	;# 
+  1050  0EA3                     	;# 
+  1051  0EA4                     	;# 
+  1052  0EA5                     	;# 
+  1053  0EA6                     	;# 
+  1054  0EA7                     	;# 
+  1055  0F0F                     	;# 
+  1056  0F10                     	;# 
+  1057  0F11                     	;# 
+  1058  0F12                     	;# 
+  1059  0F13                     	;# 
+  1060  0F14                     	;# 
+  1061  0F15                     	;# 
+  1062  0F16                     	;# 
+  1063  0F17                     	;# 
+  1064  0F18                     	;# 
+  1065  0F19                     	;# 
+  1066  0F1A                     	;# 
+  1067  0F1B                     	;# 
+  1068  0F1C                     	;# 
+  1069  0F1D                     	;# 
+  1070  0F1E                     	;# 
+  1071  0F1F                     	;# 
+  1072  0F20                     	;# 
+  1073  0F21                     	;# 
+  1074  0F22                     	;# 
+  1075  0F23                     	;# 
+  1076  0F24                     	;# 
+  1077  0F25                     	;# 
+  1078  0F26                     	;# 
+  1079  0F27                     	;# 
+  1080  0F28                     	;# 
+  1081  0F29                     	;# 
+  1082  0F2A                     	;# 
+  1083  0F2B                     	;# 
+  1084  0F2C                     	;# 
+  1085  0F2D                     	;# 
+  1086  0F2E                     	;# 
+  1087  0F2F                     	;# 
+  1088  0F30                     	;# 
+  1089  0F31                     	;# 
+  1090  0F32                     	;# 
+  1091  0F33                     	;# 
+  1092  0F34                     	;# 
+  1093  0F35                     	;# 
+  1094  0F36                     	;# 
+  1095  0F37                     	;# 
+  1096  0FE4                     	;# 
+  1097  0FE5                     	;# 
+  1098  0FE6                     	;# 
+  1099  0FE7                     	;# 
+  1100  0FE8                     	;# 
+  1101  0FE9                     	;# 
+  1102  0FEA                     	;# 
+  1103  0FEB                     	;# 
+  1104  0FED                     	;# 
+  1105  0FEE                     	;# 
+  1106  0FEF                     	;# 
+  1107  0000                     	;# 
+  1108  0001                     	;# 
+  1109  0002                     	;# 
+  1110  0003                     	;# 
+  1111  0004                     	;# 
+  1112  0005                     	;# 
+  1113  0006                     	;# 
+  1114  0007                     	;# 
+  1115  0008                     	;# 
+  1116  0009                     	;# 
+  1117  000A                     	;# 
+  1118  000B                     	;# 
+  1119  000C                     	;# 
+  1120  000D                     	;# 
+  1121  000E                     	;# 
+  1122  0010                     	;# 
+  1123  0011                     	;# 
+  1124  0012                     	;# 
+  1125  0013                     	;# 
+  1126  0014                     	;# 
+  1127  0015                     	;# 
+  1128  0015                     	;# 
+  1129  0016                     	;# 
+  1130  0016                     	;# 
+  1131  0017                     	;# 
+  1132  0018                     	;# 
+  1133  0019                     	;# 
+  1134  0019                     	;# 
+  1135  001A                     	;# 
+  1136  001B                     	;# 
+  1137  001C                     	;# 
+  1138  001D                     	;# 
+  1139  001E                     	;# 
+  1140  001F                     	;# 
+  1141  008C                     	;# 
+  1142  008D                     	;# 
+  1143  008E                     	;# 
+  1144  0090                     	;# 
+  1145  0091                     	;# 
+  1146  0092                     	;# 
+  1147  0093                     	;# 
+  1148  0094                     	;# 
+  1149  0097                     	;# 
+  1150  009B                     	;# 
+  1151  009B                     	;# 
+  1152  009C                     	;# 
+  1153  009D                     	;# 
+  1154  009E                     	;# 
+  1155  009F                     	;# 
+  1156  010C                     	;# 
+  1157  010D                     	;# 
+  1158  010E                     	;# 
+  1159  0111                     	;# 
+  1160  0112                     	;# 
+  1161  0113                     	;# 
+  1162  0114                     	;# 
+  1163  0115                     	;# 
+  1164  0116                     	;# 
+  1165  0117                     	;# 
+  1166  0118                     	;# 
+  1167  0119                     	;# 
+  1168  018C                     	;# 
+  1169  018D                     	;# 
+  1170  018E                     	;# 
+  1171  0197                     	;# 
+  1172  0199                     	;# 
+  1173  0199                     	;# 
+  1174  0199                     	;# 
+  1175  019A                     	;# 
+  1176  019A                     	;# 
+  1177  019A                     	;# 
+  1178  019B                     	;# 
+  1179  019B                     	;# 
+  1180  019B                     	;# 
+  1181  019B                     	;# 
+  1182  019B                     	;# 
+  1183  019C                     	;# 
+  1184  019C                     	;# 
+  1185  019C                     	;# 
+  1186  019D                     	;# 
+  1187  019D                     	;# 
+  1188  019D                     	;# 
+  1189  019E                     	;# 
+  1190  019E                     	;# 
+  1191  019E                     	;# 
+  1192  019F                     	;# 
+  1193  019F                     	;# 
+  1194  019F                     	;# 
+  1195  019F                     	;# 
+  1196  019F                     	;# 
+  1197  020C                     	;# 
+  1198  020D                     	;# 
+  1199  020E                     	;# 
+  1200  0211                     	;# 
+  1201  0211                     	;# 
+  1202  0212                     	;# 
+  1203  0212                     	;# 
+  1204  0213                     	;# 
+  1205  0213                     	;# 
+  1206  0214                     	;# 
+  1207  0214                     	;# 
+  1208  0215                     	;# 
+  1209  0215                     	;# 
+  1210  0215                     	;# 
+  1211  0215                     	;# 
+  1212  0216                     	;# 
+  1213  0216                     	;# 
+  1214  0217                     	;# 
+  1215  0217                     	;# 
+  1216  0219                     	;# 
+  1217  021A                     	;# 
+  1218  021B                     	;# 
+  1219  021C                     	;# 
+  1220  021D                     	;# 
+  1221  021D                     	;# 
+  1222  021E                     	;# 
+  1223  021F                     	;# 
+  1224  028C                     	;# 
+  1225  028D                     	;# 
+  1226  028E                     	;# 
+  1227  0291                     	;# 
+  1228  0291                     	;# 
+  1229  0292                     	;# 
+  1230  0293                     	;# 
+  1231  0294                     	;# 
+  1232  0295                     	;# 
+  1233  0295                     	;# 
+  1234  0296                     	;# 
+  1235  0297                     	;# 
+  1236  0298                     	;# 
+  1237  029F                     	;# 
+  1238  030C                     	;# 
+  1239  030D                     	;# 
+  1240  030E                     	;# 
+  1241  0311                     	;# 
+  1242  0311                     	;# 
+  1243  0312                     	;# 
+  1244  0313                     	;# 
+  1245  0314                     	;# 
+  1246  0315                     	;# 
+  1247  0315                     	;# 
+  1248  0316                     	;# 
+  1249  0317                     	;# 
+  1250  0318                     	;# 
+  1251  038C                     	;# 
+  1252  038D                     	;# 
+  1253  038E                     	;# 
+  1254  0391                     	;# 
+  1255  0392                     	;# 
+  1256  0393                     	;# 
+  1257  0394                     	;# 
+  1258  0395                     	;# 
+  1259  0396                     	;# 
+  1260  0397                     	;# 
+  1261  0398                     	;# 
+  1262  0399                     	;# 
+  1263  039A                     	;# 
+  1264  039C                     	;# 
+  1265  039D                     	;# 
+  1266  039E                     	;# 
+  1267  039F                     	;# 
+  1268  0411                     	;# 
+  1269  0411                     	;# 
+  1270  0412                     	;# 
+  1271  0413                     	;# 
+  1272  0414                     	;# 
+  1273  0415                     	;# 
+  1274  0416                     	;# 
+  1275  0417                     	;# 
+  1276  0418                     	;# 
+  1277  0418                     	;# 
+  1278  0419                     	;# 
+  1279  041A                     	;# 
+  1280  041B                     	;# 
+  1281  041C                     	;# 
+  1282  041D                     	;# 
+  1283  041E                     	;# 
+  1284  041F                     	;# 
+  1285  0498                     	;# 
+  1286  0498                     	;# 
+  1287  0499                     	;# 
+  1288  049A                     	;# 
+  1289  049B                     	;# 
+  1290  049B                     	;# 
+  1291  049C                     	;# 
+  1292  049D                     	;# 
+  1293  049E                     	;# 
+  1294  049F                     	;# 
+  1295  0617                     	;# 
+  1296  0618                     	;# 
+  1297  0619                     	;# 
+  1298  0619                     	;# 
+  1299  061A                     	;# 
+  1300  061B                     	;# 
+  1301  061C                     	;# 
+  1302  061C                     	;# 
+  1303  061F                     	;# 
+  1304  0691                     	;# 
+  1305  0692                     	;# 
+  1306  0693                     	;# 
+  1307  0694                     	;# 
+  1308  0695                     	;# 
+  1309  0696                     	;# 
+  1310  0697                     	;# 
+  1311  0698                     	;# 
+  1312  0699                     	;# 
+  1313  0711                     	;# 
+  1314  0712                     	;# 
+  1315  0713                     	;# 
+  1316  0714                     	;# 
+  1317  0715                     	;# 
+  1318  0716                     	;# 
+  1319  0717                     	;# 
+  1320  0718                     	;# 
+  1321  0719                     	;# 
+  1322  0891                     	;# 
+  1323  0891                     	;# 
+  1324  0891                     	;# 
+  1325  0891                     	;# 
+  1326  0891                     	;# 
+  1327  0891                     	;# 
+  1328  0892                     	;# 
+  1329  0892                     	;# 
+  1330  0892                     	;# 
+  1331  0893                     	;# 
+  1332  0893                     	;# 
+  1333  0893                     	;# 
+  1334  0893                     	;# 
+  1335  0893                     	;# 
+  1336  0893                     	;# 
+  1337  0894                     	;# 
+  1338  0894                     	;# 
+  1339  0894                     	;# 
+  1340  0895                     	;# 
+  1341  0895                     	;# 
+  1342  0895                     	;# 
+  1343  0896                     	;# 
+  1344  0896                     	;# 
+  1345  0896                     	;# 
+  1346  089B                     	;# 
+  1347  0911                     	;# 
+  1348  0912                     	;# 
+  1349  0913                     	;# 
+  1350  0914                     	;# 
+  1351  0915                     	;# 
+  1352  0916                     	;# 
+  1353  0918                     	;# 
+  1354  0919                     	;# 
+  1355  091A                     	;# 
+  1356  091B                     	;# 
+  1357  091C                     	;# 
+  1358  091D                     	;# 
+  1359  091E                     	;# 
+  1360  091F                     	;# 
+  1361  0E0F                     	;# 
+  1362  0E10                     	;# 
+  1363  0E11                     	;# 
+  1364  0E12                     	;# 
+  1365  0E13                     	;# 
+  1366  0E14                     	;# 
+  1367  0E15                     	;# 
+  1368  0E16                     	;# 
+  1369  0E17                     	;# 
+  1370  0E18                     	;# 
+  1371  0E19                     	;# 
+  1372  0E1A                     	;# 
+  1373  0E1B                     	;# 
+  1374  0E1C                     	;# 
+  1375  0E1D                     	;# 
+  1376  0E1E                     	;# 
+  1377  0E1F                     	;# 
+  1378  0E20                     	;# 
+  1379  0E21                     	;# 
+  1380  0E22                     	;# 
+  1381  0E24                     	;# 
+  1382  0E25                     	;# 
+  1383  0E28                     	;# 
+  1384  0E29                     	;# 
+  1385  0E2A                     	;# 
+  1386  0E2B                     	;# 
+  1387  0E2C                     	;# 
+  1388  0E2D                     	;# 
+  1389  0E2E                     	;# 
+  1390  0E2F                     	;# 
+  1391  0E90                     	;# 
+  1392  0E91                     	;# 
+  1393  0E92                     	;# 
+  1394  0E94                     	;# 
+  1395  0E95                     	;# 
+  1396  0E9C                     	;# 
+  1397  0E9D                     	;# 
+  1398  0E9E                     	;# 
+  1399  0E9F                     	;# 
+  1400  0EA0                     	;# 
+  1401  0EA1                     	;# 
+  1402  0EA2                     	;# 
+  1403  0EA3                     	;# 
+  1404  0EA4                     	;# 
+  1405  0EA5                     	;# 
+  1406  0EA6                     	;# 
+  1407  0EA7                     	;# 
+  1408  0F0F                     	;# 
+  1409  0F10                     	;# 
+  1410  0F11                     	;# 
+  1411  0F12                     	;# 
+  1412  0F13                     	;# 
+  1413  0F14                     	;# 
+  1414  0F15                     	;# 
+  1415  0F16                     	;# 
+  1416  0F17                     	;# 
+  1417  0F18                     	;# 
+  1418  0F19                     	;# 
+  1419  0F1A                     	;# 
+  1420  0F1B                     	;# 
+  1421  0F1C                     	;# 
+  1422  0F1D                     	;# 
+  1423  0F1E                     	;# 
+  1424  0F1F                     	;# 
+  1425  0F20                     	;# 
+  1426  0F21                     	;# 
+  1427  0F22                     	;# 
+  1428  0F23                     	;# 
+  1429  0F24                     	;# 
+  1430  0F25                     	;# 
+  1431  0F26                     	;# 
+  1432  0F27                     	;# 
+  1433  0F28                     	;# 
+  1434  0F29                     	;# 
+  1435  0F2A                     	;# 
+  1436  0F2B                     	;# 
+  1437  0F2C                     	;# 
+  1438  0F2D                     	;# 
+  1439  0F2E                     	;# 
+  1440  0F2F                     	;# 
+  1441  0F30                     	;# 
+  1442  0F31                     	;# 
+  1443  0F32                     	;# 
+  1444  0F33                     	;# 
+  1445  0F34                     	;# 
+  1446  0F35                     	;# 
+  1447  0F36                     	;# 
+  1448  0F37                     	;# 
+  1449  0FE4                     	;# 
+  1450  0FE5                     	;# 
+  1451  0FE6                     	;# 
+  1452  0FE7                     	;# 
+  1453  0FE8                     	;# 
+  1454  0FE9                     	;# 
+  1455  0FEA                     	;# 
+  1456  0FEB                     	;# 
+  1457  0FED                     	;# 
+  1458  0FEE                     	;# 
+  1459  0FEF                     	;# 
+  1460  0014                     _PIR4	set	20
+  1461  0013                     _PIR3	set	19
+  1462  0012                     _PIR2	set	18
+  1463  0011                     _PIR1	set	17
+  1464  0010                     _PIR0	set	16
+  1465  0016                     _TMR0H	set	22
+  1466  0018                     _T0CON1bits	set	24
+  1467  0017                     _T0CON0bits	set	23
+  1468  0015                     _TMR0L	set	21
+  1469  0018                     _T0CON1	set	24
+  1470  0017                     _T0CON0	set	23
+  1471  000B                     _INTCONbits	set	11
+  1472  0094                     _PIE4	set	148
+  1473  0093                     _PIE3	set	147
+  1474  0092                     _PIE2	set	146
+  1475  0091                     _PIE1	set	145
+  1476  0090                     _PIE0	set	144
+  1477  0090                     _PIE0bits	set	144
+  1478  008D                     _TRISBbits	set	141
+  1479  008E                     _TRISCbits	set	142
+  1480  008C                     _TRISAbits	set	140
+  1481  010D                     _LATBbits	set	269
+  1482  010E                     _LATCbits	set	270
+  1483  010C                     _LATAbits	set	268
+  1484  091F                     _OSCFRQ	set	2335
+  1485  091D                     _OSCEN	set	2333
+  1486  091B                     _OSCCON3bits	set	2331
+  1487  0919                     _OSCCON1	set	2329
+  1488  0916                     _PMD5	set	2326
+  1489  0915                     _PMD4	set	2325
+  1490  0914                     _PMD3	set	2324
+  1491  0913                     _PMD2	set	2323
+  1492  0912                     _PMD1	set	2322
+  1493  0911                     _PMD0	set	2321
+  1494                           
+  1495                           	psect	stringtext1
+  1496  0800                     __pstringtext1:
+  1497  0800                     STR_2:
+  1498  0800  3445               	retlw	69	;'E'
+  1499  0801  3452               	retlw	82	;'R'
+  1500  0802  3452               	retlw	82	;'R'
+  1501  0803  344F               	retlw	79	;'O'
+  1502  0804  3452               	retlw	82	;'R'
+  1503  0805  3421               	retlw	33	;'!'
+  1504  0806  3420               	retlw	32	;' '
+  1505  0807  3474               	retlw	116	;'t'
+  1506  0808  3472               	retlw	114	;'r'
+  1507  0809  3469               	retlw	105	;'i'
+  1508  080A  3467               	retlw	103	;'g'
+  1509  080B  3450               	retlw	80	;'P'
+  1510  080C  3469               	retlw	105	;'i'
+  1511  080D  346E               	retlw	110	;'n'
+  1512  080E  3420               	retlw	32	;' '
+  1513  080F  346D               	retlw	109	;'m'
+  1514  0810  3461               	retlw	97	;'a'
+  1515  0811  3479               	retlw	121	;'y'
+  1516  0812  3420               	retlw	32	;' '
+  1517  0813  346E               	retlw	110	;'n'
+  1518  0814  346F               	retlw	111	;'o'
+  1519  0815  3474               	retlw	116	;'t'
+  1520  0816  3420               	retlw	32	;' '
+  1521  0817  3462               	retlw	98	;'b'
+  1522  0818  3465               	retlw	101	;'e'
+  1523  0819  3420               	retlw	32	;' '
+  1524  081A  3461               	retlw	97	;'a'
+  1525  081B  346E               	retlw	110	;'n'
+  1526  081C  3479               	retlw	121	;'y'
+  1527  081D  3420               	retlw	32	;' '
+  1528  081E  346F               	retlw	111	;'o'
+  1529  081F  3466               	retlw	102	;'f'
+  1530  0820  3420               	retlw	32	;' '
+  1531  0821  3474               	retlw	116	;'t'
+  1532  0822  3468               	retlw	104	;'h'
+  1533  0823  3465               	retlw	101	;'e'
+  1534  0824  3420               	retlw	32	;' '
+  1535  0825  3466               	retlw	102	;'f'
+  1536  0826  346F               	retlw	111	;'o'
+  1537  0827  346C               	retlw	108	;'l'
+  1538  0828  346C               	retlw	108	;'l'
+  1539  0829  346F               	retlw	111	;'o'
+  1540  082A  3477               	retlw	119	;'w'
+  1541  082B  3469               	retlw	105	;'i'
+  1542  082C  346E               	retlw	110	;'n'
+  1543  082D  3467               	retlw	103	;'g'
+  1544  082E  343A               	retlw	58	;':'
+  1545  082F  3420               	retlw	32	;' '
+  1546  0830  345B               	retlw	91	;'['
+  1547  0831  3452               	retlw	82	;'R'
+  1548  0832  3441               	retlw	65	;'A'
+  1549  0833  3432               	retlw	50	;'2'
+  1550  0834  342C               	retlw	44	;','
+  1551  0835  3420               	retlw	32	;' '
+  1552  0836  3452               	retlw	82	;'R'
+  1553  0837  3441               	retlw	65	;'A'
+  1554  0838  3434               	retlw	52	;'4'
+  1555  0839  342C               	retlw	44	;','
+  1556  083A  3420               	retlw	32	;' '
+  1557  083B  3452               	retlw	82	;'R'
+  1558  083C  3443               	retlw	67	;'C'
+  1559  083D  3433               	retlw	51	;'3'
+  1560  083E  342C               	retlw	44	;','
+  1561  083F  3420               	retlw	32	;' '
+  1562  0840  3452               	retlw	82	;'R'
+  1563  0841  3443               	retlw	67	;'C'
+  1564  0842  3435               	retlw	53	;'5'
+  1565  0843  342C               	retlw	44	;','
+  1566  0844  3420               	retlw	32	;' '
+  1567  0845  3452               	retlw	82	;'R'
+  1568  0846  3441               	retlw	65	;'A'
+  1569  0847  3433               	retlw	51	;'3'
+  1570  0848  345D               	retlw	93	;']'
+  1571  0849  340A               	retlw	10
+  1572  084A  3400               	retlw	0
+  1573                           
+  1574                           	psect	stringtext2
+  1575  084B                     __pstringtext2:
+  1576  084B                     STR_1:
+  1577  084B  3445               	retlw	69	;'E'
+  1578  084C  3452               	retlw	82	;'R'
+  1579  084D  3452               	retlw	82	;'R'
+  1580  084E  344F               	retlw	79	;'O'
+  1581  084F  3452               	retlw	82	;'R'
+  1582  0850  3421               	retlw	33	;'!'
+  1583  0851  3420               	retlw	32	;' '
+  1584  0852  3465               	retlw	101	;'e'
+  1585  0853  3463               	retlw	99	;'c'
+  1586  0854  3468               	retlw	104	;'h'
+  1587  0855  346F               	retlw	111	;'o'
+  1588  0856  3450               	retlw	80	;'P'
+  1589  0857  3469               	retlw	105	;'i'
+  1590  0858  346E               	retlw	110	;'n'
+  1591  0859  3420               	retlw	32	;' '
+  1592  085A  346D               	retlw	109	;'m'
+  1593  085B  3475               	retlw	117	;'u'
+  1594  085C  3473               	retlw	115	;'s'
+  1595  085D  3474               	retlw	116	;'t'
+  1596  085E  3420               	retlw	32	;' '
+  1597  085F  3462               	retlw	98	;'b'
+  1598  0860  3465               	retlw	101	;'e'
+  1599  0861  3420               	retlw	32	;' '
+  1600  0862  346F               	retlw	111	;'o'
+  1601  0863  346E               	retlw	110	;'n'
+  1602  0864  3465               	retlw	101	;'e'
+  1603  0865  3420               	retlw	32	;' '
+  1604  0866  346F               	retlw	111	;'o'
+  1605  0867  3466               	retlw	102	;'f'
+  1606  0868  3420               	retlw	32	;' '
+  1607  0869  3474               	retlw	116	;'t'
+  1608  086A  3468               	retlw	104	;'h'
+  1609  086B  3465               	retlw	101	;'e'
+  1610  086C  3420               	retlw	32	;' '
+  1611  086D  3466               	retlw	102	;'f'
+  1612  086E  346F               	retlw	111	;'o'
+  1613  086F  346C               	retlw	108	;'l'
+  1614  0870  346C               	retlw	108	;'l'
+  1615  0871  346F               	retlw	111	;'o'
+  1616  0872  3477               	retlw	119	;'w'
+  1617  0873  3469               	retlw	105	;'i'
+  1618  0874  346E               	retlw	110	;'n'
+  1619  0875  3467               	retlw	103	;'g'
+  1620  0876  343A               	retlw	58	;':'
+  1621  0877  3420               	retlw	32	;' '
+  1622  0878  345B               	retlw	91	;'['
+  1623  0879  3452               	retlw	82	;'R'
+  1624  087A  3441               	retlw	65	;'A'
+  1625  087B  3432               	retlw	50	;'2'
+  1626  087C  342C               	retlw	44	;','
+  1627  087D  3420               	retlw	32	;' '
+  1628  087E  3452               	retlw	82	;'R'
+  1629  087F  3441               	retlw	65	;'A'
+  1630  0880  3434               	retlw	52	;'4'
+  1631  0881  342C               	retlw	44	;','
+  1632  0882  3420               	retlw	32	;' '
+  1633  0883  3452               	retlw	82	;'R'
+  1634  0884  3443               	retlw	67	;'C'
+  1635  0885  3433               	retlw	51	;'3'
+  1636  0886  342C               	retlw	44	;','
+  1637  0887  3420               	retlw	32	;' '
+  1638  0888  3452               	retlw	82	;'R'
+  1639  0889  3443               	retlw	67	;'C'
+  1640  088A  3435               	retlw	53	;'5'
+  1641  088B  345D               	retlw	93	;']'
+  1642  088C  340A               	retlw	10
+  1643  088D  3400               	retlw	0
+  1644                           
+  1645                           	psect	stringtext3
+  1646  0000                     __pstringtext3:
+  1647                           
+  1648                           	psect	cinit
+  1649  07F9                     start_initialization:	
+  1650                           ; #config settings
+  1651                           
+  1652  07F9                     __initialization:
+  1653                           
+  1654                           ; Clear objects allocated to COMMON
+  1655  07F9  01F0               	clrf	__pbssCOMMON& (0+127)
+  1656  07FA  01F1               	clrf	(__pbssCOMMON+1)& (0+127)
+  1657  07FB  01F2               	clrf	(__pbssCOMMON+2)& (0+127)
+  1658  07FC  01F3               	clrf	(__pbssCOMMON+3)& (0+127)
+  1659  07FD                     end_of_initialization:	
+  1660                           ;End of C runtime variable initialization code
+  1661                           
+  1662  07FD                     __end_of__initialization:
+  1663  07FD  0020               	movlb	0
+  1664  07FE  3187  2FF6         	ljmp	_main	;jump to C main() function
+  1665                           
+  1666                           	psect	bssCOMMON
+  1667  0070                     __pbssCOMMON:
+  1668  0070                     _micros1x:
+  1669  0070                     	ds	2
+  1670  0072                     _millis4x:
+  1671  0072                     	ds	2
+  1672                           
+  1673                           	psect	cstackCOMMON
+  1674  0000                     __pcstackCOMMON:
+  1675  0000                     ??_main:
+  1676  0000                     ?_main:	
+  1677                           ; 1 bytes @ 0x0
+  1678                           
+  1679                           
+  1680                           	psect	maintext
+  1681  07F6                     __pmaintext:	
+  1682                           ; 2 bytes @ 0x0
+  1683 ;;
+  1684 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+  1685 ;;
+  1686 ;; *************** function _main *****************
+  1687 ;; Defined at:
+  1688 ;;		line 143 in file "JSN_Sensor.c"
+  1689 ;; Parameters:    Size  Location     Type
+  1690 ;;		None
+  1691 ;; Auto vars:     Size  Location     Type
+  1692 ;;  Sens3           6    0        struct .
+  1693 ;;  Sens2           6    0        struct .
+  1694 ;;  Sens1           6    0        struct .
+  1695 ;; Return value:  Size  Location     Type
+  1696 ;;                  2   57[None  ] int 
+  1697 ;; Registers used:
+  1698 ;;		None
+  1699 ;; Tracked objects:
+  1700 ;;		On entry : B1F/0
+  1701 ;;		On exit  : 0/0
+  1702 ;;		Unchanged: 0/0
+  1703 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12
-   956 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+  1704 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0
-   957 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+  1705 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0
-   958 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+  1706 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0
-   959 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+  1707 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0
-   960 ;;Total ram usage:        0 bytes
-   961 ;; This function calls:
-   962 ;;		Nothing
-   963 ;; This function is called by:
-   964 ;;		Startup code after reset
-   965 ;; This function uses a non-reentrant model
-   966 ;;
-   967                           
-   968  07FA                     _main:	
-   969                           ;psect for function _main
-   970                           
-   971  07FA                     l58:	
-   972                           ;incstack = 0
-   973                           ; Regs used in _main: []
-   974                           ;JSN_Sensor.c: 134:     JSN_t Sens1, Sens2, Sens3;;JSN_Sensor.c: 135:     while(1);
-   975                           
-   976  07FA                     l59:
-   977  07FA  2FFA               	goto	l58
-   978  07FB  3180  2802         	ljmp	start
-   979  07FD                     __end_of_main:
-   980  007E                     btemp	set	126	;btemp
-   981  007E                     wtemp0	set	126
+  1708 ;;Total ram usage:        0 bytes
+  1709 ;; This function calls:
+  1710 ;;		Nothing
+  1711 ;; This function is called by:
+  1712 ;;		Startup code after reset
+  1713 ;; This function uses a non-reentrant model
+  1714 ;;
+  1715                           
+  1716  07F6                     _main:	
+  1717                           ;psect for function _main
+  1718                           
+  1719  07F6                     l58:	
+  1720                           ;incstack = 0
+  1721                           ; Regs used in _main: []
+  1722                           ;JSN_Sensor.c: 144:     JSN_t Sens1, Sens2, Sens3;;JSN_Sensor.c: 145:     while(1);
+  1723                           
+  1724  07F6                     l59:
+  1725  07F6  2FF6               	goto	l58
+  1726  07F7  3180  2802         	ljmp	start
+  1727  07F9                     __end_of_main:
+  1728  007E                     btemp	set	126	;btemp
+  1729  007E                     wtemp0	set	126
 
 Data Sizes:
     Strings     142
     Constant    0
     Data        0
-    BSS         0
+    BSS         4
     Persistent  32
     Stack       0
 
 Auto Spaces:
     Space          Size  Autos    Used
-    COMMON           14      0       0
+    COMMON           14      0       4
     BANK0            80      0       0
     BANK1            80      0       0
     BANK2            80      0       0
@@ -1115,7 +1863,7 @@ CODE                 0      0       0       0        0.0%
 BITCOMMON            E      0       0       1        0.0%
 BITSFR0              0      0       0       1        0.0%
 SFR0                 0      0       0       1        0.0%
-COMMON               E      0       0       2        0.0%
+COMMON               E      0       4       2       28.6%
 BITSFR1              0      0       0       2        0.0%
 SFR1                 0      0       0       2        0.0%
 BITSFR2              0      0       0       3        0.0%
@@ -1171,7 +1919,7 @@ BITSFR18             0      0       0      19        0.0%
 SFR18                0      0       0      19        0.0%
 BITSFR19             0      0       0      20        0.0%
 SFR19                0      0       0      20        0.0%
-ABS                  0      0       0      20        0.0%
+ABS                  0      0       4      20        0.0%
 BITBANK8            50      0       0      21        0.0%
 BITSFR20             0      0       0      21        0.0%
 SFR20                0      0       0      21        0.0%
@@ -1204,20 +1952,31 @@ BITSFR29             0      0       0      30        0.0%
 SFR29                0      0       0      30        0.0%
 BITSFR30             0      0       0      31        0.0%
 SFR30                0      0       0      31        0.0%
-DATA                 0      0       0      31        0.0%
+DATA                 0      0       4      31        0.0%
 BITSFR31             0      0       0      32        0.0%
 SFR31                0      0       0      32        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.35 build 20211206165544 
-Symbol Table                                                                                   Tue Jan 25 14:07:27 2022
+Symbol Table                                                                                   Tue Jan 25 21:35:22 2022
 
-                     l58 07FA                       l59 07FA                     STR_1 084B  
-                   STR_2 0800                     _main 07FA                     btemp 007E  
-                   start 0002                    ?_main 0000                    wtemp0 007E  
-        __initialization 07FD             __end_of_main 07FD                   ??_main 0000  
-__end_of__initialization 07FD           __pcstackCOMMON 0000               __pmaintext 07FA  
-   end_of_initialization 07FD                _TRISAbits 008C                _TRISBbits 008D  
-              _TRISCbits 008E      start_initialization 07FD                ___latbits 0002  
+                     l58 07F6                       l59 07F6                     STR_1 084B  
+                   STR_2 0800                     _PIE0 0090                     _PIE1 0091  
+                   _PIE2 0092                     _PIE3 0093                     _PIE4 0094  
+                   _PMD0 0911                     _PMD1 0912                     _PMD2 0913  
+                   _PMD3 0914                     _PMD4 0915                     _PMD5 0916  
+                   _PIR0 0010                     _PIR1 0011                     _PIR2 0012  
+                   _PIR3 0013                     _PIR4 0014                     _main 07F6  
+                   btemp 007E                     start 0002                    ?_main 0000  
+                  _OSCEN 091D                    _TMR0H 0016                    _TMR0L 0015  
+                  wtemp0 007E          __initialization 07F9             __end_of_main 07F9  
+                 ??_main 0000                   _T0CON0 0017                   _T0CON1 0018  
+                 _OSCFRQ 091F  __end_of__initialization 07FD           __pcstackCOMMON 0000  
+             __pmaintext 07F6                  _OSCCON1 0919     end_of_initialization 07FD  
+              _TRISAbits 008C                _TRISBbits 008D                _TRISCbits 008E  
+    start_initialization 07F9              __pbssCOMMON 0070                ___latbits 0002  
                _LATAbits 010C                 _LATBbits 010D                 _LATCbits 010E  
-          __pstringtext1 0800            __pstringtext2 084B            __pstringtext3 0000  
+               _PIE0bits 0090               _T0CON0bits 0017               _T0CON1bits 0018  
+            _OSCCON3bits 091B                 _micros1x 0070                 _millis4x 0072  
+             _INTCONbits 000B            __pstringtext1 0800            __pstringtext2 084B  
+          __pstringtext3 0000  

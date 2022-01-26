@@ -5,10 +5,10 @@ Linker command line:
 -W-3 --edf=C:\Program Files\Microchip\xc8\v2.35\pic\dat\en_msgs.txt -cn \
   -h+dist/default/production\WCSA_SDP_2022.X.production.sym \
   --cmf=dist/default/production\WCSA_SDP_2022.X.production.cmf -z \
-  -Q16F18345 -oC:\Users\Jack\AppData\Local\Temp\xcAscpc.4 \
+  -Q16F18345 -oC:\Users\Jack\AppData\Local\Temp\xcAsj1c.4 \
   --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/WCSA_SDP_2022.X.production.map \
-  --md=C:\Users\Jack\AppData\Local\Temp\xcAscpc.dat -E1 -ver=XC8 Compiler \
+  --md=C:\Users\Jack\AppData\Local\Temp\xcAsj1c.dat -E1 -ver=XC8 Compiler \
   --acfsm=1493 -ACODE=00h-07FFhx4 -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 \
   -ACONST=00h-0FFhx32 -AENTRY=00h-0FFhx32 -ACOMMON=070h-07Fh \
   -ABANK0=020h-06Fh -ABANK1=0A0h-0EFh -ABANK2=0120h-016Fh \
@@ -33,7 +33,7 @@ Linker command line:
   -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 \
   -DENTRY=2 -preset_vec=00h,intentry,init,end_init -ppowerup=CODE \
   -pcinit=CODE -pfunctab=ENTRY -k \
-  C:\Users\Jack\AppData\Local\Temp\xcAscpc.o \
+  C:\Users\Jack\AppData\Local\Temp\xcAsj1c.o \
   dist/default/production\WCSA_SDP_2022.X.production.o 
 
 Object code version is 3.11
@@ -43,21 +43,22 @@ Machine type is 16F18345
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\Jack\AppData\Local\Temp\xcAscpc.o
+C:\Users\Jack\AppData\Local\Temp\xcAsj1c.o
                 end_init                              2        2        2        0       0
                 reset_vec                             0        0        2        0       0
 dist/default/production\WCSA_SDP_2022.X.production.o
-                cinit                               7FD      7FD        3      FFA       0
-                maintext                            7FA      7FA        3      FF4       0
+                cinit                               7F9      7F9        7      FF2       0
+                maintext                            7F6      7F6        3      FEC       0
+                bssCOMMON                            70       70        4       70       1
                 stringtext2                         84B      84B       43     1000       0
                 stringtext1                         800      800       4B     1000       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   CODE           
                 end_init                              2        2        2         0
-                cinit                               7FD      7FD        3         0
+                cinit                               7F9      7F9        7         0
                 reset_vec                             0        0        2         0
-                maintext                            7FA      7FA        3         0
+                maintext                            7F6      7F6        3         0
 
         CLASS   STRCODE        
                 stringtext2                         84B      84B       43         0
@@ -70,6 +71,7 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   ENTRY          
 
         CLASS   COMMON         
+                bssCOMMON                            70       70        4         1
 
         CLASS   BANK0          
 
@@ -221,8 +223,9 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
                 reset_vec                      000000  000004  000004         0       0  CODE        2
-                maintext                       0007FA  000003  0007FD       FF4       0  CODE        2
-                cinit                          0007FD  000003  000800       FFA       0  CODE        2
+                bssCOMMON                      000070  000004  000074        70       1  COMMON      1
+                maintext                       0007F6  000003  0007F9       FEC       0  CODE        2
+                cinit                          0007F9  000007  000800       FF2       0  CODE        2
                 stringtext1                    000800  00008E  00088E      1000       0  STRCODE     2
 
 
@@ -243,14 +246,14 @@ UNUSED ADDRESS RANGES
         BANK8            0420-046F             50           1
         BANK9            04A0-04EF             50           1
         BIGRAM           2000-23EF            3F0           1
-        CODE             0004-07F9            7F6           2
+        CODE             0004-07F5            7F2           2
                          088E-1FFF            800
-        COMMON           0070-007D              E           1
+        COMMON           0074-007D              A           1
         CONFIG           8007-800A              4           2
-        CONST            0004-07F9            100           2
+        CONST            0004-07F5            100           2
                          088E-1FFF            100
         EEDATA           F000-F0FF            100           2
-        ENTRY            0004-07F9            100           2
+        ENTRY            0004-07F5            100           2
                          088E-1FFF            100
         IDLOC            8000-8003              4           2
         RAM              0020-006F             50           1
@@ -298,16 +301,44 @@ UNUSED ADDRESS RANGES
         SFR7             0380-039F             20           1
         SFR8             0400-041F             20           1
         SFR9             0480-049F             20           1
-        STRCODE          0004-07F9            7F6           2
+        STRCODE          0004-07F5            7F2           2
                          088E-1FFF           1772
-        STRING           0004-07F9            100           2
+        STRING           0004-07F5            100           2
                          088E-1FFF            100
 
                                   Symbol Table
 
+_INTCONbits              (abs)        000B
 _LATAbits                (abs)        010C
 _LATBbits                (abs)        010D
 _LATCbits                (abs)        010E
+_OSCCON1                 (abs)        0919
+_OSCCON3bits             (abs)        091B
+_OSCEN                   (abs)        091D
+_OSCFRQ                  (abs)        091F
+_PIE0                    (abs)        0090
+_PIE0bits                (abs)        0090
+_PIE1                    (abs)        0091
+_PIE2                    (abs)        0092
+_PIE3                    (abs)        0093
+_PIE4                    (abs)        0094
+_PIR0                    (abs)        0010
+_PIR1                    (abs)        0011
+_PIR2                    (abs)        0012
+_PIR3                    (abs)        0013
+_PIR4                    (abs)        0014
+_PMD0                    (abs)        0911
+_PMD1                    (abs)        0912
+_PMD2                    (abs)        0913
+_PMD3                    (abs)        0914
+_PMD4                    (abs)        0915
+_PMD5                    (abs)        0916
+_T0CON0                  (abs)        0017
+_T0CON0bits              (abs)        0017
+_T0CON1                  (abs)        0018
+_T0CON1bits              (abs)        0018
+_TMR0H                   (abs)        0016
+_TMR0L                   (abs)        0015
 _TRISAbits               (abs)        008C
 _TRISBbits               (abs)        008D
 _TRISCbits               (abs)        008E
@@ -345,6 +376,7 @@ __Hbank7                 bank7        0000
 __Hbank8                 bank8        0000
 __Hbank9                 bank9        0000
 __Hbigram                bigram       0000
+__HbssCOMMON             bssCOMMON    0000
 __Hcinit                 cinit        0800
 __Hclrtext               clrtext      0000
 __Hcode                  code         0000
@@ -393,7 +425,7 @@ __Hsfr7                  sfr7         0000
 __Hsfr8                  sfr8         0000
 __Hsfr9                  sfr9         0000
 __Hspace_0               (abs)        088E
-__Hspace_1               (abs)        0000
+__Hspace_1               (abs)        0074
 __Hspace_2               (abs)        0000
 __Hspace_3               (abs)        0000
 __Hstack                 stack        0000
@@ -436,7 +468,8 @@ __Lbank7                 bank7        0000
 __Lbank8                 bank8        0000
 __Lbank9                 bank9        0000
 __Lbigram                bigram       0000
-__Lcinit                 cinit        07FD
+__LbssCOMMON             bssCOMMON    0000
+__Lcinit                 cinit        07F9
 __Lclrtext               clrtext      0000
 __Lcode                  code         0000
 __Lcommon                common       0000
@@ -494,7 +527,7 @@ __Lstringtext2           stringtext2  0000
 __Lstringtext3           stringtext3  0000
 __Ltext                  text         0000
 __S0                     (abs)        088E
-__S1                     (abs)        0000
+__S1                     (abs)        0074
 __S3                     (abs)        0000
 ___heap_hi               (abs)        0000
 ___heap_lo               (abs)        0000
@@ -504,14 +537,17 @@ ___sp                    stack        0000
 ___stackhi               (abs)        0000
 ___stacklo               (abs)        0000
 __end_of__initialization cinit        07FD
-__end_of_main            maintext     07FD
-__initialization         cinit        07FD
+__end_of_main            maintext     07F9
+__initialization         cinit        07F9
+__pbssCOMMON             bssCOMMON    0070
 __pcstackCOMMON          cstackCOMMON 0000
-__pmaintext              maintext     07FA
+__pmaintext              maintext     07F6
 __pstringtext1           stringtext1  0800
 __pstringtext2           stringtext2  084B
 __pstringtext3           stringtext3  0000
-_main                    maintext     07FA
+_main                    maintext     07F6
+_micros1x                bssCOMMON    0070
+_millis4x                bssCOMMON    0072
 btemp                    (abs)        007E
 end_of_initialization    cinit        07FD
 intlevel0                functab      0000
@@ -522,7 +558,7 @@ intlevel4                functab      0000
 intlevel5                functab      0000
 reset_vec                reset_vec    0000
 start                    init         0002
-start_initialization     cinit        07FD
+start_initialization     cinit        07F9
 wtemp0                   (abs)        007E
 
 
@@ -530,12 +566,12 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 JSN_Sensor.c
-		_main          		CODE           	07FA	0000	3
+		_main          		CODE           	07F6	0000	3
 
 JSN_Sensor.c estimated size: 3
 
 shared
-		__initialization		CODE           	07FD	0000	1
+		__initialization		CODE           	07F9	0000	4
 
-shared estimated size: 1
+shared estimated size: 4
 
