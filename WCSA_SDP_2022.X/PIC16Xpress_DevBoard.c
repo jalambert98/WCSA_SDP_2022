@@ -7,7 +7,7 @@
  */
 
 #include "PIC16Xpress_DevBoard.h"
-#include "FR_Timer.h"
+#include "tmr0.h"
 
 //==============================================================================
 //------------------------------ PUBLIC LIBRARY --------------------------------
@@ -69,10 +69,8 @@ void PIC16_Init(void) {
 
 void __interrupt() InterruptManager (void)
 {
-    if(PIE0bits.TMR0IE && PIR0bits.TMR0IF) {
-        FR_Timer_IncMillis();
-        FR_Timer_IncMicros();
-        PIR0bits.TMR0IF = LOW;
+    if(PIR0bits.TMR0IF) {
+        TMR0_ISR();
     }
 }
 

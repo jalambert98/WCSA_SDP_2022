@@ -28,23 +28,23 @@ B6 17
 [v _printf printf `(i  1 e 2 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
-"15 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\Umul16.c
-[v ___wmul __wmul `(ui  1 e 2 0 ]
+"15 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\Umul8_16.c
 [v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
 "6 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\pic\__eeprom.c
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"33 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\FR_Timer.c
+"35 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\FR_Timer.c
 [v _FR_Timer_Init FR_Timer_Init `(v  1 e 1 0 ]
-"59
-[v _FR_Timer_GetMillis FR_Timer_GetMillis `(ui  1 e 2 0 ]
-"73
+"42
+[v _FR_Timer_GetMillis FR_Timer_GetMillis `(ul  1 e 4 0 ]
+"55
 [v _FR_Timer_IncMillis FR_Timer_IncMillis `(v  1 e 1 0 ]
-"79
+"61
 [v _FR_Timer_IncMicros FR_Timer_IncMicros `(v  1 e 1 0 ]
-"90
+"72
 [v _main main `(i  1 e 2 0 ]
 "50 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
@@ -58,24 +58,36 @@ B6 17
 [v _PIC16_Init PIC16_Init `(v  1 e 1 0 ]
 "70
 [v _InterruptManager InterruptManager `II(v  1 e 1 0 ]
-[s S210 . 1 `uc 1 INTEDG 1 0 :1:0 
+"9 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
+[v _TMR0_Initialize TMR0_Initialize `(v  1 e 1 0 ]
+"53
+[v _TMR0_ReadTimer TMR0_ReadTimer `(uc  1 e 1 0 ]
+"81
+[v _TMR0_ISR TMR0_ISR `(v  1 e 1 0 ]
+"102
+[v _TMR0_CallBack TMR0_CallBack `(v  1 e 1 0 ]
+"115
+[v _TMR0_SetInterruptHandler TMR0_SetInterruptHandler `(v  1 e 1 0 ]
+"121
+[v _TMR0_DefaultInterruptHandler TMR0_DefaultInterruptHandler `(v  1 e 1 0 ]
+[s S297 . 1 `uc 1 INTEDG 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
 "365 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
-[u S215 . 1 `S210 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES215  1 e 1 @11 ]
+[u S302 . 1 `S297 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES302  1 e 1 @11 ]
 "536
 [v _PIR0 PIR0 `VEuc  1 e 1 @16 ]
-[s S407 . 1 `uc 1 INTF 1 0 :1:0 
+[s S310 . 1 `uc 1 INTF 1 0 :1:0 
 `uc 1 . 1 0 :3:1 
 `uc 1 IOCIF 1 0 :1:4 
 `uc 1 TMR0IF 1 0 :1:5 
 ]
 "549
-[u S412 . 1 `S407 1 . 1 0 ]
-[v _PIR0bits PIR0bits `VES412  1 e 1 @16 ]
+[u S315 . 1 `S310 1 . 1 0 ]
+[v _PIR0bits PIR0bits `VES315  1 e 1 @16 ]
 "569
 [v _PIR1 PIR1 `VEuc  1 e 1 @17 ]
 "631
@@ -90,38 +102,22 @@ B6 17
 [v _TMR0H TMR0H `VEuc  1 e 1 @22 ]
 "1109
 [v _T0CON0 T0CON0 `VEuc  1 e 1 @23 ]
-[s S226 . 1 `uc 1 T0OUTPS 1 0 :4:0 
+[s S406 . 1 `uc 1 T0OUTPS 1 0 :4:0 
 `uc 1 T016BIT 1 0 :1:4 
 `uc 1 T0OUT 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 `uc 1 T0EN 1 0 :1:7 
 ]
 "1129
-[s S232 . 1 `uc 1 T0OUTPS0 1 0 :1:0 
+[s S412 . 1 `uc 1 T0OUTPS0 1 0 :1:0 
 `uc 1 T0OUTPS1 1 0 :1:1 
 `uc 1 T0OUTPS2 1 0 :1:2 
 `uc 1 T0OUTPS3 1 0 :1:3 
 ]
-[u S237 . 1 `S226 1 . 1 0 `S232 1 . 1 0 ]
-[v _T0CON0bits T0CON0bits `VES237  1 e 1 @23 ]
+[u S417 . 1 `S406 1 . 1 0 `S412 1 . 1 0 ]
+[v _T0CON0bits T0CON0bits `VES417  1 e 1 @23 ]
 "1174
 [v _T0CON1 T0CON1 `VEuc  1 e 1 @24 ]
-[s S252 . 1 `uc 1 T0CKPS 1 0 :4:0 
-`uc 1 T0ASYNC 1 0 :1:4 
-`uc 1 T0CS 1 0 :3:5 
-]
-"1196
-[s S256 . 1 `uc 1 T0CKPS0 1 0 :1:0 
-`uc 1 T0CKPS1 1 0 :1:1 
-`uc 1 T0CKPS2 1 0 :1:2 
-`uc 1 T0CKPS3 1 0 :1:3 
-`uc 1 . 1 0 :1:4 
-`uc 1 T0CS0 1 0 :1:5 
-`uc 1 T0CS1 1 0 :1:6 
-`uc 1 T0CS2 1 0 :1:7 
-]
-[u S265 . 1 `S252 1 . 1 0 `S256 1 . 1 0 ]
-[v _T0CON1bits T0CON1bits `VES265  1 e 1 @24 ]
 "1551
 [v _TRISA TRISA `VEuc  1 e 1 @140 ]
 [s S46 . 1 `uc 1 TRISA0 1 0 :1:0 
@@ -161,14 +157,14 @@ B6 17
 [v _TRISCbits TRISCbits `VES72  1 e 1 @142 ]
 "1697
 [v _PIE0 PIE0 `VEuc  1 e 1 @144 ]
-[s S283 . 1 `uc 1 INTE 1 0 :1:0 
+[s S382 . 1 `uc 1 INTE 1 0 :1:0 
 `uc 1 . 1 0 :3:1 
 `uc 1 IOCIE 1 0 :1:4 
 `uc 1 TMR0IE 1 0 :1:5 
 ]
 "1710
-[u S288 . 1 `S283 1 . 1 0 ]
-[v _PIE0bits PIE0bits `VES288  1 e 1 @144 ]
+[u S387 . 1 `S382 1 . 1 0 ]
+[v _PIE0bits PIE0bits `VES387  1 e 1 @144 ]
 "1730
 [v _PIE1 PIE1 `VEuc  1 e 1 @145 ]
 "1792
@@ -270,18 +266,20 @@ B6 17
 [v _OSCFRQ OSCFRQ `VEuc  1 e 1 @2335 ]
 "22290
 [v _PLLR PLLR `VEb  1 e 0 @18656 ]
-"25 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\FR_Timer.c
-[v _millis4x millis4x `ui  1 s 2 millis4x ]
-"26
-[v _micros1x micros1x `ui  1 s 2 micros1x ]
-"90
+"27 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\FR_Timer.c
+[v _millis millis `ul  1 s 4 millis ]
+"28
+[v _micros micros `ul  1 s 4 micros ]
+"5 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
+[v _TMR0_InterruptHandler TMR0_InterruptHandler `*.37(v  1 e 2 0 ]
+"72 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\FR_Timer.c
 [v _main main `(i  1 e 2 0 ]
 {
-"91
-[v main@currMilli currMilli `ui  1 a 2 8 ]
-"92
-[v main@prevMilli prevMilli `ui  1 a 2 6 ]
-"111
+"73
+[v main@currMilli currMilli `ul  1 a 4 4 ]
+"74
+[v main@prevMilli prevMilli `ul  1 a 4 0 ]
+"93
 } 0
 "16 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
 [v _PIC16_Init PIC16_Init `(v  1 e 1 0 ]
@@ -308,28 +306,56 @@ B6 17
 {
 "71
 } 0
-"33 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\FR_Timer.c
+"35 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\FR_Timer.c
 [v _FR_Timer_Init FR_Timer_Init `(v  1 e 1 0 ]
 {
-"55
+"38
 } 0
-"59
-[v _FR_Timer_GetMillis FR_Timer_GetMillis `(ui  1 e 2 0 ]
+"9 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
+[v _TMR0_Initialize TMR0_Initialize `(v  1 e 1 0 ]
 {
-"62
+"33
+} 0
+"115
+[v _TMR0_SetInterruptHandler TMR0_SetInterruptHandler `(v  1 e 1 0 ]
+{
+[v TMR0_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 0 ]
+"117
+} 0
+"42 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\FR_Timer.c
+[v _FR_Timer_GetMillis FR_Timer_GetMillis `(ul  1 e 4 0 ]
+{
+"45
 } 0
 "70 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
 [v _InterruptManager InterruptManager `II(v  1 e 1 0 ]
 {
-"77
-} 0
-"73 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\FR_Timer.c
-[v _FR_Timer_IncMillis FR_Timer_IncMillis `(v  1 e 1 0 ]
-{
 "75
 } 0
-"79
+"81 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
+[v _TMR0_ISR TMR0_ISR `(v  1 e 1 0 ]
+{
+"83
+[v TMR0_ISR@CountCallBack CountCallBack `VEus  1 s 2 CountCallBack ]
+"98
+} 0
+"102
+[v _TMR0_CallBack TMR0_CallBack `(v  1 e 1 0 ]
+{
+"111
+} 0
+"121
+[v _TMR0_DefaultInterruptHandler TMR0_DefaultInterruptHandler `(v  1 e 1 0 ]
+{
+"124
+} 0
+"55 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\FR_Timer.c
+[v _FR_Timer_IncMillis FR_Timer_IncMillis `(v  1 e 1 0 ]
+{
+"57
+} 0
+"61
 [v _FR_Timer_IncMicros FR_Timer_IncMicros `(v  1 e 1 0 ]
 {
-"81
+"63
 } 0

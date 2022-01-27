@@ -7,6 +7,8 @@
  */
 
 #include "FR_Timer.h"
+#include "tmr0.h"
+#include "PIC16Xpress_DevBoard.h"
 #include <stdio.h>
 
 //==============================================================================
@@ -22,8 +24,8 @@
 //---------------------------- STATIC VARIABLES --------------------------------
 //==============================================================================
 
-static unsigned int millis4x;
-static unsigned int micros1x;
+static unsigned long millis;
+static unsigned long micros;
 
 
 //==============================================================================
@@ -31,53 +33,33 @@ static unsigned int micros1x;
 //==============================================================================
 
 void FR_Timer_Init(void) {
-    INTCONbits.GIE = LOW;       // Temporarily disable global interrupts
-    millis4x = 0;                 
-    micros1x = 0;               // Reset module level variables
-    
-    // --- Configure TMR0 for ticks @1MHz & rollover every 250us --- //
-    T0CON0 = 0x00;              
-    T0CON1 = 0x00;              // Clear TMR0 control registers
-    TMR0L = 0x00;               // Clear TMR0 counter register
-    
-    T0CON0bits.T016BIT = LOW;   // TMR0 is set to 8-bit timer mode
-    T0CON1bits.T0CS = 0b010;    // [16MHz/4 = 4MHz] clk for TMR0
-    T0CON1bits.T0CKPS = 0x2;    // Set 4:1 prescalar [TMR0 ticks @1MHz]
-    T0CON1bits.T0ASYNC = LOW;   // Syncd with [F_osc/4]
-    T0CON0bits.T0OUTPS = 0x0;   // Set 1:1 postscalar [input = output = 1MHz]
-    TMR0H = TMR0_PERIOD_US;     // Period match = 250 --> interrupt every 250us
-    
-    PIE0bits.TMR0IE = HIGH;     // Enable TMR0 interrupts
-    INTCONbits.GIE = HIGH;      // Enable global interrupts
-    T0CON0bits.T0EN = HIGH;     // Enable TMR0
-    
+    TMR0_Initialize();
     return;
 }
 
 //------------------------------------------------------------------------------
 
-unsigned int FR_Timer_GetMillis() {
+unsigned long FR_Timer_GetMillis() {
     // millis4x increments every 250us, so /4 = 1ms
-    return (millis4x >> 2);
+    return millis;
 }
 
 //------------------------------------------------------------------------------
 
-unsigned int FR_Timer_GetMicros() {
-    // millis4x increments every 250us, so *250 = 1us
-    return ((millis4x * TMR0_PERIOD_US) + TMR0L);
+unsigned long FR_Timer_GetMicros() {
+    return (unsigned long)((millis * 1000) + TMR0_ReadTimer());
 }
 
 //------------------------------------------------------------------------------
 
 void FR_Timer_IncMillis(void) {
-    millis4x++;
+    millis += 1;
 }
 
 //------------------------------------------------------------------------------
 
 void FR_Timer_IncMicros(void) {
-    micros1x += TMR0_PERIOD_US;
+    micros += 1000;
 }
 
 
@@ -88,8 +70,8 @@ void FR_Timer_IncMicros(void) {
 #ifdef FR_TIMER_TEST
 
 int main(void) {
-    unsigned int currMilli = 0;
-    unsigned int prevMilli = 0;
+    unsigned long currMilli = 0;
+    unsigned long prevMilli = 0;
     
     // Initialize required libraries
     PIC16_Init();
@@ -101,8 +83,8 @@ int main(void) {
     while(1) {
         currMilli = FR_Timer_GetMillis();
         
-        if((currMilli - prevMilli) > 500) {
-            WRITE_C0() = ~WRITE_C0();
+        if((unsigned long)(currMilli - prevMilli) >= 500) {
+            WRITE_C0() ^= 1;
             prevMilli = currMilli;
         }
     }

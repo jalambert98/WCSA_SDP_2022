@@ -1,4 +1,4 @@
-# 1 "PIC16Xpress_DevBoard.c"
+# 1 "tmr0.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,26 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "PIC16Xpress_DevBoard.c" 2
-
-
-
-
-
-
-
-
-# 1 "./PIC16Xpress_DevBoard.h" 1
-
-
-
-
-
-
-
-
-# 1 "./mcc.h" 1
-# 49 "./mcc.h"
+# 1 "tmr0.c" 2
 # 1 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -11210,14 +11191,63 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 2 3
-# 49 "./mcc.h" 2
+# 1 "tmr0.c" 2
 
+# 1 "./tmr0.h" 1
+
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdbool.h" 1 3
+# 5 "./tmr0.h" 2
+# 34 "./tmr0.h"
+void TMR0_Initialize(void);
+# 54 "./tmr0.h"
+void TMR0_StartTimer(void);
+# 74 "./tmr0.h"
+void TMR0_StopTimer(void);
+# 93 "./tmr0.h"
+uint8_t TMR0_ReadTimer(void);
+# 113 "./tmr0.h"
+void TMR0_WriteTimer(uint8_t timerVal);
+# 133 "./tmr0.h"
+void TMR0_Reload(uint8_t periodVal);
+# 152 "./tmr0.h"
+void TMR0_ISR(void);
+# 171 "./tmr0.h"
+void TMR0_CallBack(void);
+# 190 "./tmr0.h"
+ void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
+# 209 "./tmr0.h"
+extern void (*TMR0_InterruptHandler)(void);
+# 228 "./tmr0.h"
+void TMR0_DefaultInterruptHandler(void);
+# 2 "tmr0.c" 2
+
+# 1 "./FR_Timer.h" 1
+
+
+
+
+
+
+
+
+# 1 "./PIC16Xpress_DevBoard.h" 1
+
+
+
+
+
+
+
+
+# 1 "./mcc.h" 1
+# 50 "./mcc.h"
 # 1 "./device_config.h" 1
 # 50 "./mcc.h" 2
 
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdbool.h" 1 3
-# 52 "./mcc.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\conio.h" 1 3
 
@@ -11394,95 +11424,137 @@ typedef enum {
 void PIC16_Init(void);
 # 129 "./PIC16Xpress_DevBoard.h"
 void __attribute__((picinterrupt(("")))) InterruptManager (void);
-# 9 "PIC16Xpress_DevBoard.c" 2
+# 9 "./FR_Timer.h" 2
+# 35 "./FR_Timer.h"
+void FR_Timer_Init(void);
+# 50 "./FR_Timer.h"
+unsigned long FR_Timer_GetMillis(void);
+# 65 "./FR_Timer.h"
+unsigned long FR_Timer_GetMicros(void);
+# 83 "./FR_Timer.h"
+void FR_Timer_IncMillis(void);
+# 102 "./FR_Timer.h"
+void FR_Timer_IncMicros(void);
+# 3 "tmr0.c" 2
 
-# 1 "./tmr0.h" 1
-# 34 "./tmr0.h"
-void TMR0_Initialize(void);
-# 54 "./tmr0.h"
-void TMR0_StartTimer(void);
-# 74 "./tmr0.h"
-void TMR0_StopTimer(void);
-# 93 "./tmr0.h"
-uint8_t TMR0_ReadTimer(void);
-# 113 "./tmr0.h"
-void TMR0_WriteTimer(uint8_t timerVal);
-# 133 "./tmr0.h"
-void TMR0_Reload(uint8_t periodVal);
-# 152 "./tmr0.h"
-void TMR0_ISR(void);
-# 171 "./tmr0.h"
-void TMR0_CallBack(void);
-# 190 "./tmr0.h"
- void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
-# 209 "./tmr0.h"
-extern void (*TMR0_InterruptHandler)(void);
-# 228 "./tmr0.h"
-void TMR0_DefaultInterruptHandler(void);
-# 10 "PIC16Xpress_DevBoard.c" 2
+
+void (*TMR0_InterruptHandler)(void);
 
 
 
+void TMR0_Initialize(void)
+{
 
 
 
-void PIC16_Init(void) {
-
-    SYSTEM_Initialize();
+    T0CON1 = 0x42;
 
 
-    PIE0 = 0x00;
-    PIE1 = 0x00;
-    PIE2 = 0x00;
-    PIE3 = 0x00;
-    PIE4 = 0x00;
+    TMR0H = 0xF9;
 
 
-    LATA = 0x00;
-    LATB = 0x00;
-    LATC = 0x00;
-
-    TRISA = 0x37;
-    TRISB = 0xF0;
-    TRISC = 0xFF;
-
-    ANSELC = 0xFF;
-    ANSELB = 0xF0;
-    ANSELA = 0x37;
-
-    WPUB = 0x00;
-    WPUA = 0x00;
-    WPUC = 0x00;
-
-    ODCONA = 0x00;
-    ODCONB = 0x00;
-    ODCONC = 0x00;
-
-    SLRCONA = 0x37;
-    SLRCONB = 0xF0;
-    SLRCONC = 0xFF;
-
-    INLVLA = 0x3F;
-    INLVLB = 0xF0;
-    INLVLC = 0xFF;
+    TMR0L = 0x00;
 
 
-    PIR0 = 0x00;
-    PIR1 = 0x00;
-    PIR2 = 0x00;
-    PIR3 = 0x00;
-    PIR4 = 0x00;
+    PIR0bits.TMR0IF = 0;
 
-    INTCONbits.GIE = 1;
+
+    PIE0bits.TMR0IE = 1;
+
+
+    TMR0_SetInterruptHandler(TMR0_DefaultInterruptHandler);
+
+
+    T0CON0 = 0x80;
 }
 
 
 
-
-
-void __attribute__((picinterrupt(("")))) InterruptManager (void)
+void TMR0_StartTimer(void)
 {
-    if(PIR0bits.TMR0IF) {
-        TMR0_ISR();
+
+    T0CON0bits.T0EN = 1;
+}
+
+
+
+void TMR0_StopTimer(void)
+{
+
+    T0CON0bits.T0EN = 0;
+}
+
+
+
+uint8_t TMR0_ReadTimer(void)
+{
+    uint8_t readVal;
+
+
+    readVal = TMR0L;
+
+    return readVal;
+}
+
+
+
+void TMR0_WriteTimer(uint8_t timerVal)
+{
+
+    TMR0L = timerVal;
+}
+
+
+
+void TMR0_Reload(uint8_t periodVal)
+{
+
+   TMR0H = periodVal;
+}
+
+
+
+void TMR0_ISR(void)
+{
+    static volatile uint16_t CountCallBack = 0;
+
+
+    PIR0bits.TMR0IF = 0;
+
+    if (++CountCallBack >= 4)
+    {
+
+        TMR0_CallBack();
+
+
+        CountCallBack = 0;
     }
+
+
+}
+
+
+
+void TMR0_CallBack(void)
+{
+    FR_Timer_IncMillis();
+    FR_Timer_IncMicros();
+
+    if(TMR0_InterruptHandler)
+    {
+        TMR0_InterruptHandler();
+    }
+}
+
+
+
+void TMR0_SetInterruptHandler(void (* InterruptHandler)(void)){
+    TMR0_InterruptHandler = InterruptHandler;
+}
+
+
+
+void TMR0_DefaultInterruptHandler(void){
+
+
 }

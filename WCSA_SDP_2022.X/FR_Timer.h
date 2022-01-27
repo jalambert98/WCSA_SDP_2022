@@ -40,14 +40,14 @@ void FR_Timer_Init(void);
  * 
  * @param    None
  * 
- * @return   unsigned int millis - current FR timer value (in milliseconds)
+ * @return   unsigned long millis - current FR timer value (in milliseconds)
  * 
  * @brief    Returns the number of MILLISECONDS that have elapsed since
  *           FR_Timer_Init() was last called
  * 
  * @author   Jack Lambert, 2022.01.25
  **/
-unsigned int FR_Timer_GetMillis(void);
+unsigned long FR_Timer_GetMillis(void);
 
 //------------------------------------------------------------------------------
 /**
@@ -55,14 +55,14 @@ unsigned int FR_Timer_GetMillis(void);
  * 
  * @param    None
  * 
- * @return   unsigned int micros - current FR timer value (in microseconds)
+ * @return   unsigned long micros - current FR timer value (in microseconds)
  * 
  * @brief    Returns the number of MICROSECONDS that have elapsed since
  *           FR_Timer_Init() was last called
  * 
  * @author   Jack Lambert, 2022.01.25
  **/
-unsigned int FR_Timer_GetMicros(void);
+unsigned long FR_Timer_GetMicros(void);
 
 //------------------------------------------------------------------------------
 /**

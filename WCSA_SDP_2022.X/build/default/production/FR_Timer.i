@@ -11407,17 +11407,45 @@ void __attribute__((picinterrupt(("")))) InterruptManager (void);
 # 35 "./FR_Timer.h"
 void FR_Timer_Init(void);
 # 50 "./FR_Timer.h"
-unsigned int FR_Timer_GetMillis(void);
+unsigned long FR_Timer_GetMillis(void);
 # 65 "./FR_Timer.h"
-unsigned int FR_Timer_GetMicros(void);
+unsigned long FR_Timer_GetMicros(void);
 # 83 "./FR_Timer.h"
 void FR_Timer_IncMillis(void);
 # 102 "./FR_Timer.h"
 void FR_Timer_IncMicros(void);
 # 9 "FR_Timer.c" 2
-# 25 "FR_Timer.c"
-static unsigned int millis4x;
-static unsigned int micros1x;
+
+# 1 "./tmr0.h" 1
+# 34 "./tmr0.h"
+void TMR0_Initialize(void);
+# 54 "./tmr0.h"
+void TMR0_StartTimer(void);
+# 74 "./tmr0.h"
+void TMR0_StopTimer(void);
+# 93 "./tmr0.h"
+uint8_t TMR0_ReadTimer(void);
+# 113 "./tmr0.h"
+void TMR0_WriteTimer(uint8_t timerVal);
+# 133 "./tmr0.h"
+void TMR0_Reload(uint8_t periodVal);
+# 152 "./tmr0.h"
+void TMR0_ISR(void);
+# 171 "./tmr0.h"
+void TMR0_CallBack(void);
+# 190 "./tmr0.h"
+ void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
+# 209 "./tmr0.h"
+extern void (*TMR0_InterruptHandler)(void);
+# 228 "./tmr0.h"
+void TMR0_DefaultInterruptHandler(void);
+# 10 "FR_Timer.c" 2
+
+# 1 "./PIC16Xpress_DevBoard.h" 1
+# 11 "FR_Timer.c" 2
+# 27 "FR_Timer.c"
+static unsigned long millis;
+static unsigned long micros;
 
 
 
@@ -11425,58 +11453,38 @@ static unsigned int micros1x;
 
 
 void FR_Timer_Init(void) {
-    INTCONbits.GIE = 0;
-    millis4x = 0;
-    micros1x = 0;
-
-
-    T0CON0 = 0x00;
-    T0CON1 = 0x00;
-    TMR0L = 0x00;
-
-    T0CON0bits.T016BIT = 0;
-    T0CON1bits.T0CS = 0b010;
-    T0CON1bits.T0CKPS = 0x2;
-    T0CON1bits.T0ASYNC = 0;
-    T0CON0bits.T0OUTPS = 0x0;
-    TMR0H = 250;
-
-    PIE0bits.TMR0IE = 1;
-    INTCONbits.GIE = 1;
-    T0CON0bits.T0EN = 1;
-
+    TMR0_Initialize();
     return;
 }
 
 
 
-unsigned int FR_Timer_GetMillis() {
+unsigned long FR_Timer_GetMillis() {
 
-    return (millis4x >> 2);
+    return millis;
 }
 
 
 
-unsigned int FR_Timer_GetMicros() {
-
-    return ((millis4x * 250) + TMR0L);
+unsigned long FR_Timer_GetMicros() {
+    return (unsigned long)((millis * 1000) + TMR0_ReadTimer());
 }
 
 
 
 void FR_Timer_IncMillis(void) {
-    millis4x++;
+    millis += 1;
 }
 
 
 
 void FR_Timer_IncMicros(void) {
-    micros1x += 250;
+    micros += 1000;
 }
-# 90 "FR_Timer.c"
+# 72 "FR_Timer.c"
 int main(void) {
-    unsigned int currMilli = 0;
-    unsigned int prevMilli = 0;
+    unsigned long currMilli = 0;
+    unsigned long prevMilli = 0;
 
 
     PIC16_Init();
@@ -11488,8 +11496,8 @@ int main(void) {
     while(1) {
         currMilli = FR_Timer_GetMillis();
 
-        if((currMilli - prevMilli) > 500) {
-            LATCbits.LATC0 = ~LATCbits.LATC0;
+        if((unsigned long)(currMilli - prevMilli) >= 500) {
+            LATCbits.LATC0 ^= 1;
             prevMilli = currMilli;
         }
     }
