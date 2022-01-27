@@ -10,6 +10,10 @@
       <itemPath>device_config.h</itemPath>
       <itemPath>mcc.h</itemPath>
       <itemPath>tmr0.h</itemPath>
+      <itemPath>ccp1.h</itemPath>
+      <itemPath>ccp2.h</itemPath>
+      <itemPath>ccp3.h</itemPath>
+      <itemPath>tmr1.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -24,6 +28,10 @@
       <itemPath>device_config.c</itemPath>
       <itemPath>mcc.c</itemPath>
       <itemPath>tmr0.c</itemPath>
+      <itemPath>ccp1.c</itemPath>
+      <itemPath>ccp2.c</itemPath>
+      <itemPath>ccp3.c</itemPath>
+      <itemPath>tmr1.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

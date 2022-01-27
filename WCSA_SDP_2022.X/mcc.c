@@ -50,8 +50,8 @@ void PMD_Initialize(void)
 {
     // CLKRMD CLKR enabled; SYSCMD SYSCLK enabled; FVRMD FVR enabled; IOCMD IOC enabled; NVMMD NVM enabled; 
     PMD0 = 0x00;
-    // TMR0MD TMR0 enabled; TMR1MD TMR1 enabled; TMR4MD TMR4 disabled; TMR5MD TMR5 enabled; TMR2MD TMR2 disabled; TMR3MD TMR3 enabled; NCOMD DDS(NCO) enabled; TMR6MD TMR6 disabled; 
-    PMD1 = 0x54;
+    // TMR0MD TMR0 enabled; TMR1MD TMR1 enabled; TMR4MD TMR4 disabled; TMR5MD TMR5 disabled; TMR2MD TMR2 disabled; TMR3MD TMR3 disabled; NCOMD DDS(NCO) enabled; TMR6MD TMR6 disabled; 
+    PMD1 = 0x7C;
     // DACMD DAC disabled; CMP1MD CMP1 disabled; ADCMD ADC disabled; CMP2MD CMP2 disabled; 
     PMD2 = 0x66;
     // CCP2MD CCP2 enabled; CCP1MD CCP1 enabled; CCP4MD CCP4 disabled; CCP3MD CCP3 enabled; PWM6MD PWM6 enabled; PWM5MD PWM5 enabled; CWG2MD CWG2 disabled; CWG1MD CWG1 disabled; 

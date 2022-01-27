@@ -17,7 +17,7 @@
 
 #define TMR0_PERIOD_US          250
 
-#define FR_TIMER_TEST
+//#define FR_TIMER_TEST
 
 
 //==============================================================================
