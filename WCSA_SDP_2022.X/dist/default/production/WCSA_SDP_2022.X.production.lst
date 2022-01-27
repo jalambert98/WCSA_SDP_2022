@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.35 build 20211206165544 
-                                                                                               Wed Jan 26 23:42:57 2022
+                                                                                               Wed Jan 26 23:50:22 2022
 
 Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1 
      1                           	processor	16F18345
@@ -2575,7 +2575,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   2561 ;;
   2562 ;; *************** function _main *****************
   2563 ;; Defined at:
-  2564 ;;		line 72 in file "FR_Timer.c"
+  2564 ;;		line 71 in file "FR_Timer.c"
   2565 ;; Parameters:    Size  Location     Type
   2566 ;;		None
   2567 ;; Auto vars:     Size  Location     Type
@@ -2618,7 +2618,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   2599                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
   2600                           
   2601                           
-  2602                           ;FR_Timer.c: 74:     unsigned long prevMilli = 0;
+  2602                           ;FR_Timer.c: 76:     unsigned long prevMilli = 0;
   2603  0023  3000               	movlw	0
   2604  0024  0020               	movlb	0	; select bank0
   2605  0025  00AB               	movwf	main@prevMilli+3
@@ -2630,25 +2630,25 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   2611  002B  00A8               	movwf	main@prevMilli
   2612  002C                     l1235:
   2613                           
-  2614                           ;FR_Timer.c: 77:     PIC16_Init();
+  2614                           ;FR_Timer.c: 79:     PIC16_Init();
   2615  002C  3181  2101  3180   	fcall	_PIC16_Init
   2616  002F                     l1237:
   2617                           
-  2618                           ;FR_Timer.c: 78:     FR_Timer_Init();
+  2618                           ;FR_Timer.c: 80:     FR_Timer_Init();
   2619  002F  3181  21BE  3180   	fcall	_FR_Timer_Init
   2620  0032                     l1239:
   2621                           
-  2622                           ;FR_Timer.c: 80:     TRISCbits.TRISC0 = 0;
+  2622                           ;FR_Timer.c: 82:     TRISCbits.TRISC0 = 0;
   2623  0032  0021               	movlb	1	; select bank1
   2624  0033  100E               	bcf	14,0	;volatile
   2625  0034                     l1241:
   2626                           
-  2627                           ;FR_Timer.c: 81:     LATCbits.LATC0 = 0;
+  2627                           ;FR_Timer.c: 83:     LATCbits.LATC0 = 0;
   2628  0034  0022               	movlb	2	; select bank2
   2629  0035  100E               	bcf	14,0	;volatile
   2630  0036                     l1243:
   2631                           
-  2632                           ;FR_Timer.c: 84:         currMilli = FR_Timer_GetMillis();
+  2632                           ;FR_Timer.c: 86:         currMilli = FR_Timer_GetMillis();
   2633  0036  3181  2197  3180   	fcall	_FR_Timer_GetMillis
   2634  0039  0873               	movf	?_FR_Timer_GetMillis+3,w
   2635  003A  0020               	movlb	0	; select bank0
@@ -2661,7 +2661,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   2642  0041  00AC               	movwf	main@currMilli
   2643  0042                     l1245:
   2644                           
-  2645                           ;FR_Timer.c: 86:         if((unsigned long)(currMilli - prevMilli) >= 500) {
+  2645                           ;FR_Timer.c: 89:         if((unsigned long)(currMilli - prevMilli) >= 500) {
   2646  0042  0828               	movf	main@prevMilli,w
   2647  0043  022C               	subwf	main@currMilli,w
   2648  0044  00F4               	movwf	??_main
@@ -2692,7 +2692,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   2673  005C                     u90:
   2674  005C                     l1247:
   2675                           
-  2676                           ;FR_Timer.c: 87:             LATCbits.LATC0 ^= 1;
+  2676                           ;FR_Timer.c: 90:             LATCbits.LATC0 ^= 1;
   2677  005C  0022               	movlb	2	; select bank2
   2678  005D  080E               	movf	14,w	;volatile
   2679  005E  3901               	andlw	1
@@ -2706,7 +2706,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   2687  0066  008E               	movwf	14	;volatile
   2688  0067                     l1249:
   2689                           
-  2690                           ;FR_Timer.c: 88:             prevMilli = currMilli;
+  2690                           ;FR_Timer.c: 91:             prevMilli = currMilli;
   2691  0067  0020               	movlb	0	; select bank0
   2692  0068  082F               	movf	main@currMilli+3,w
   2693  0069  00AB               	movwf	main@prevMilli+3
@@ -2924,7 +2924,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   2900  018D                     __ptext2:	
   2901 ;; *************** function _SYSTEM_Initialize *****************
   2902 ;; Defined at:
-  2903 ;;		line 50 in file "mcc.c"
+  2903 ;;		line 11 in file "mcc.c"
   2904 ;; Parameters:    Size  Location     Type
   2905 ;;		None
   2906 ;; Auto vars:     Size  Location     Type
@@ -2967,13 +2967,13 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   2938                           ; Regs used in _SYSTEM_Initialize: [wreg+status,2+status,0+pclath+cstack]
   2939                           
   2940                           
-  2941                           ;mcc.c: 52:     PMD_Initialize();
+  2941                           ;mcc.c: 13:     PMD_Initialize();
   2942  018D  3181  2175  3181   	fcall	_PMD_Initialize
   2943                           
-  2944                           ;mcc.c: 53:     OSCILLATOR_Initialize();
+  2944                           ;mcc.c: 14:     OSCILLATOR_Initialize();
   2945  0190  3181  2181  3181   	fcall	_OSCILLATOR_Initialize
   2946                           
-  2947                           ;mcc.c: 54:     WDT_Initialize();
+  2947                           ;mcc.c: 15:     WDT_Initialize();
   2948  0193  3181  21BA  3181   	fcall	_WDT_Initialize
   2949  0196                     l208:
   2950  0196  0008               	return
@@ -2983,7 +2983,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   2954  01BA                     __ptext3:	
   2955 ;; *************** function _WDT_Initialize *****************
   2956 ;; Defined at:
-  2957 ;;		line 73 in file "mcc.c"
+  2957 ;;		line 34 in file "mcc.c"
   2958 ;; Parameters:    Size  Location     Type
   2959 ;;		None
   2960 ;; Auto vars:     Size  Location     Type
@@ -3024,7 +3024,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   2990                           ; Regs used in _WDT_Initialize: [wreg]
   2991                           
   2992                           
-  2993                           ;mcc.c: 76:     WDTCON = 0x16;
+  2993                           ;mcc.c: 37:     WDTCON = 0x16;
   2994  01BA  3016               	movlw	22
   2995  01BB  0021               	movlb	1	; select bank1
   2996  01BC  0097               	movwf	23	;volatile
@@ -3036,7 +3036,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   3002  0175                     __ptext4:	
   3003 ;; *************** function _PMD_Initialize *****************
   3004 ;; Defined at:
-  3005 ;;		line 79 in file "mcc.c"
+  3005 ;;		line 40 in file "mcc.c"
   3006 ;; Parameters:    Size  Location     Type
   3007 ;;		None
   3008 ;; Auto vars:     Size  Location     Type
@@ -3077,30 +3077,30 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   3038                           ; Regs used in _PMD_Initialize: [wreg+status,2]
   3039                           
   3040                           
-  3041                           ;mcc.c: 82:     PMD0 = 0x00;
+  3041                           ;mcc.c: 43:     PMD0 = 0x00;
   3042  0175  0032               	movlb	18	; select bank18
   3043  0176  0191               	clrf	17	;volatile
   3044  0177                     l1103:
   3045                           
-  3046                           ;mcc.c: 84:     PMD1 = 0x54;
+  3046                           ;mcc.c: 45:     PMD1 = 0x54;
   3047  0177  3054               	movlw	84
   3048  0178  0092               	movwf	18	;volatile
   3049  0179                     l1105:
   3050                           
-  3051                           ;mcc.c: 86:     PMD2 = 0x66;
+  3051                           ;mcc.c: 47:     PMD2 = 0x66;
   3052  0179  3066               	movlw	102
   3053  017A  0093               	movwf	19	;volatile
   3054  017B                     l1107:
   3055                           
-  3056                           ;mcc.c: 88:     PMD3 = 0xC8;
+  3056                           ;mcc.c: 49:     PMD3 = 0xC8;
   3057  017B  30C8               	movlw	200
   3058  017C  0094               	movwf	20	;volatile
   3059  017D                     l1109:
   3060                           
-  3061                           ;mcc.c: 90:     PMD4 = 0x00;
+  3061                           ;mcc.c: 51:     PMD4 = 0x00;
   3062  017D  0195               	clrf	21	;volatile
   3063                           
-  3064                           ;mcc.c: 92:     PMD5 = 0x1F;
+  3064                           ;mcc.c: 53:     PMD5 = 0x1F;
   3065  017E  301F               	movlw	31
   3066  017F  0096               	movwf	22	;volatile
   3067  0180                     l220:
@@ -3111,7 +3111,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   3072  0181                     __ptext5:	
   3073 ;; *************** function _OSCILLATOR_Initialize *****************
   3074 ;; Defined at:
-  3075 ;;		line 57 in file "mcc.c"
+  3075 ;;		line 18 in file "mcc.c"
   3076 ;; Parameters:    Size  Location     Type
   3077 ;;		None
   3078 ;; Auto vars:     Size  Location     Type
@@ -3152,26 +3152,26 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   3108                           ; Regs used in _OSCILLATOR_Initialize: [wreg+status,2]
   3109                           
   3110                           
-  3111                           ;mcc.c: 60:     OSCCON1 = 0x00;
+  3111                           ;mcc.c: 21:     OSCCON1 = 0x00;
   3112  0181  0032               	movlb	18	; select bank18
   3113  0182  0199               	clrf	25	;volatile
   3114                           
-  3115                           ;mcc.c: 62:     OSCCON3 = 0x00;
+  3115                           ;mcc.c: 23:     OSCCON3 = 0x00;
   3116  0183  019B               	clrf	27	;volatile
   3117                           
-  3118                           ;mcc.c: 64:     OSCEN = 0x00;
+  3118                           ;mcc.c: 25:     OSCEN = 0x00;
   3119  0184  019D               	clrf	29	;volatile
   3120  0185                     l1113:
   3121                           
-  3122                           ;mcc.c: 66:     OSCFRQ = 0x04;
+  3122                           ;mcc.c: 27:     OSCFRQ = 0x04;
   3123  0185  3004               	movlw	4
   3124  0186  009F               	movwf	31	;volatile
   3125  0187                     l1115:
   3126                           
-  3127                           ;mcc.c: 68:     OSCTUNE = 0x00;
+  3127                           ;mcc.c: 29:     OSCTUNE = 0x00;
   3128  0187  019E               	clrf	30	;volatile
   3129  0188                     l211:	
-  3130                           ;mcc.c: 70:     while(PLLR == 0);
+  3130                           ;mcc.c: 31:     while(PLLR == 0);
   3131                           
   3132  0188  1C1C               	btfss	28,0	;volatile
   3133  0189  298B               	goto	u61
@@ -3238,7 +3238,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   3189  014F                     __ptext7:	
   3190 ;; *************** function _TMR0_Initialize *****************
   3191 ;; Defined at:
-  3192 ;;		line 9 in file "tmr0.c"
+  3192 ;;		line 17 in file "tmr0.c"
   3193 ;; Parameters:    Size  Location     Type
   3194 ;;		None
   3195 ;; Auto vars:     Size  Location     Type
@@ -3279,30 +3279,30 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   3225                           ; Regs used in _TMR0_Initialize: [wreg+status,2+status,0+pclath+cstack]
   3226                           
   3227                           
-  3228                           ;tmr0.c: 14:     T0CON1 = 0x42;
+  3228                           ;tmr0.c: 22:     T0CON1 = 0x42;
   3229  014F  3042               	movlw	66
   3230  0150  0020               	movlb	0	; select bank0
   3231  0151  0098               	movwf	24	;volatile
   3232                           
-  3233                           ;tmr0.c: 17:     TMR0H = 0xF9;
+  3233                           ;tmr0.c: 25:     TMR0H = 0xF9;
   3234  0152  30F9               	movlw	249
   3235  0153  0096               	movwf	22	;volatile
   3236  0154                     l1123:
   3237                           
-  3238                           ;tmr0.c: 20:     TMR0L = 0x00;
+  3238                           ;tmr0.c: 28:     TMR0L = 0x00;
   3239  0154  0195               	clrf	21	;volatile
   3240  0155                     l1125:
   3241                           
-  3242                           ;tmr0.c: 23:     PIR0bits.TMR0IF = 0;
+  3242                           ;tmr0.c: 31:     PIR0bits.TMR0IF = 0;
   3243  0155  1290               	bcf	16,5	;volatile
   3244  0156                     l1127:
   3245                           
-  3246                           ;tmr0.c: 26:     PIE0bits.TMR0IE = 1;
+  3246                           ;tmr0.c: 34:     PIE0bits.TMR0IE = 1;
   3247  0156  0021               	movlb	1	; select bank1
   3248  0157  1690               	bsf	16,5	;volatile
   3249  0158                     l1129:
   3250                           
-  3251                           ;tmr0.c: 29:     TMR0_SetInterruptHandler(TMR0_DefaultInterruptHandler);
+  3251                           ;tmr0.c: 37:     TMR0_SetInterruptHandler(TMR0_DefaultInterruptHandler);
   3252  0158  30C2               	movlw	low _TMR0_DefaultInterruptHandler
   3253  0159  00F0               	movwf	TMR0_SetInterruptHandler@InterruptHandler
   3254  015A  3001               	movlw	high _TMR0_DefaultInterruptHandler
@@ -3310,7 +3310,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   3256  015C  3181  21B5  3181   	fcall	_TMR0_SetInterruptHandler
   3257  015F                     l1131:
   3258                           
-  3259                           ;tmr0.c: 32:     T0CON0 = 0x80;
+  3259                           ;tmr0.c: 40:     T0CON0 = 0x80;
   3260  015F  3080               	movlw	128
   3261  0160  0020               	movlb	0	; select bank0
   3262  0161  0097               	movwf	23	;volatile
@@ -3322,7 +3322,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   3268  01B5                     __ptext8:	
   3269 ;; *************** function _TMR0_SetInterruptHandler *****************
   3270 ;; Defined at:
-  3271 ;;		line 115 in file "tmr0.c"
+  3271 ;;		line 123 in file "tmr0.c"
   3272 ;; Parameters:    Size  Location     Type
   3273 ;;  InterruptHan    2    0[COMMON] PTR FTN()void 
   3274 ;;		 -> TMR0_DefaultInterruptHandler(1), 
@@ -3364,7 +3364,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   3305                           ; Regs used in _TMR0_SetInterruptHandler: [wreg]
   3306                           
   3307                           
-  3308                           ;tmr0.c: 116:     TMR0_InterruptHandler = InterruptHandler;
+  3308                           ;tmr0.c: 124:     TMR0_InterruptHandler = InterruptHandler;
   3309  01B5  0871               	movf	TMR0_SetInterruptHandler@InterruptHandler+1,w
   3310  01B6  00FB               	movwf	_TMR0_InterruptHandler+1
   3311  01B7  0870               	movf	TMR0_SetInterruptHandler@InterruptHandler,w
@@ -3418,7 +3418,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   3354                           ; Regs used in _FR_Timer_GetMillis: [wreg]
   3355                           
   3356                           
-  3357                           ;FR_Timer.c: 44:     return millis;
+  3357                           ;FR_Timer.c: 43:     return millis;
   3358  0197  0020               	movlb	0	; select bank0
   3359  0198  0827               	movf	_millis+3,w
   3360  0199  00F3               	movwf	?_FR_Timer_GetMillis+3
@@ -3499,7 +3499,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   3430  013A                     __ptext11:	
   3431 ;; *************** function _TMR0_ISR *****************
   3432 ;; Defined at:
-  3433 ;;		line 81 in file "tmr0.c"
+  3433 ;;		line 89 in file "tmr0.c"
   3434 ;; Parameters:    Size  Location     Type
   3435 ;;		None
   3436 ;; Auto vars:     Size  Location     Type
@@ -3540,13 +3540,13 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   3466                           ; Regs used in _TMR0_ISR: [wreg+status,2+status,0+pclath+cstack]
   3467                           
   3468                           
-  3469                           ;tmr0.c: 83:     static volatile uint16_t CountCallBack = 0;;tmr0.c: 86:     PIR0bits.TM
+  3469                           ;tmr0.c: 91:     static volatile uint16_t CountCallBack = 0;;tmr0.c: 94:     PIR0bits.TM
       +                          R0IF = 0;
   3470  013A  0020               	movlb	0	; select bank0
   3471  013B  1290               	bcf	16,5	;volatile
   3472  013C                     i1l1217:
   3473                           
-  3474                           ;tmr0.c: 88:     if (++CountCallBack >= 4)
+  3474                           ;tmr0.c: 96:     if (++CountCallBack >= 4)
   3475  013C  3001               	movlw	1
   3476  013D  07F8               	addwf	TMR0_ISR@CountCallBack,f	;volatile
   3477  013E  3000               	movlw	0
@@ -3564,11 +3564,11 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   3489  0149                     u8_20:
   3490  0149                     i1l1219:
   3491                           
-  3492                           ;tmr0.c: 89:     {;tmr0.c: 91:         TMR0_CallBack();
+  3492                           ;tmr0.c: 97:     {;tmr0.c: 99:         TMR0_CallBack();
   3493  0149  3181  2163  3181   	fcall	_TMR0_CallBack
   3494  014C                     i1l1221:
   3495                           
-  3496                           ;tmr0.c: 94:         CountCallBack = 0;
+  3496                           ;tmr0.c: 102:         CountCallBack = 0;
   3497  014C  01F8               	clrf	TMR0_ISR@CountCallBack	;volatile
   3498  014D  01F9               	clrf	TMR0_ISR@CountCallBack+1	;volatile
   3499  014E                     i1l270:
@@ -3579,7 +3579,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   3504  0163                     __ptext12:	
   3505 ;; *************** function _TMR0_CallBack *****************
   3506 ;; Defined at:
-  3507 ;;		line 102 in file "tmr0.c"
+  3507 ;;		line 110 in file "tmr0.c"
   3508 ;; Parameters:    Size  Location     Type
   3509 ;;		None
   3510 ;; Auto vars:     Size  Location     Type
@@ -3623,14 +3623,14 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   3543                           ; Regs used in _TMR0_CallBack: [wreg+status,2+status,0+pclath+cstack]
   3544                           
   3545                           
-  3546                           ;tmr0.c: 104:     FR_Timer_IncMillis();
+  3546                           ;tmr0.c: 112:     FR_Timer_IncMillis();
   3547  0163  3181  21A1  3181   	fcall	_FR_Timer_IncMillis
   3548                           
-  3549                           ;tmr0.c: 105:     FR_Timer_IncMicros();
+  3549                           ;tmr0.c: 113:     FR_Timer_IncMicros();
   3550  0166  3181  21AB  3181   	fcall	_FR_Timer_IncMicros
   3551  0169                     i1l1137:
   3552                           
-  3553                           ;tmr0.c: 107:     if(TMR0_InterruptHandler)
+  3553                           ;tmr0.c: 115:     if(TMR0_InterruptHandler)
   3554  0169  087A               	movf	_TMR0_InterruptHandler,w
   3555  016A  047B               	iorwf	_TMR0_InterruptHandler+1,w
   3556  016B  1903               	btfsc	3,2
@@ -3641,7 +3641,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   3561  016F                     u7_20:
   3562  016F                     i1l1139:
   3563                           
-  3564                           ;tmr0.c: 108:     {;tmr0.c: 109:         TMR0_InterruptHandler();
+  3564                           ;tmr0.c: 116:     {;tmr0.c: 117:         TMR0_InterruptHandler();
   3565  016F  087B               	movf	_TMR0_InterruptHandler+1,w
   3566  0170  008A               	movwf	10
   3567  0171  087A               	movf	_TMR0_InterruptHandler,w
@@ -3655,7 +3655,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   3575  01C2                     __ptext13:	
   3576 ;; *************** function _TMR0_DefaultInterruptHandler *****************
   3577 ;; Defined at:
-  3578 ;;		line 121 in file "tmr0.c"
+  3578 ;;		line 129 in file "tmr0.c"
   3579 ;; Parameters:    Size  Location     Type
   3580 ;;		None
   3581 ;; Auto vars:     Size  Location     Type
@@ -3702,7 +3702,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   3617  01A1                     __ptext14:	
   3618 ;; *************** function _FR_Timer_IncMillis *****************
   3619 ;; Defined at:
-  3620 ;;		line 55 in file "FR_Timer.c"
+  3620 ;;		line 54 in file "FR_Timer.c"
   3621 ;; Parameters:    Size  Location     Type
   3622 ;;		None
   3623 ;; Auto vars:     Size  Location     Type
@@ -3742,7 +3742,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   3652                           ; Regs used in _FR_Timer_IncMillis: [wreg]
   3653                           
   3654                           
-  3655                           ;FR_Timer.c: 56:     millis += 1;
+  3655                           ;FR_Timer.c: 55:     millis += 1;
   3656  01A1  3001               	movlw	1
   3657  01A2  0020               	movlb	0	; select bank0
   3658  01A3  07A4               	addwf	_millis,f
@@ -3760,7 +3760,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   3670  01AB                     __ptext15:	
   3671 ;; *************** function _FR_Timer_IncMicros *****************
   3672 ;; Defined at:
-  3673 ;;		line 61 in file "FR_Timer.c"
+  3673 ;;		line 60 in file "FR_Timer.c"
   3674 ;; Parameters:    Size  Location     Type
   3675 ;;		None
   3676 ;; Auto vars:     Size  Location     Type
@@ -3800,7 +3800,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   3705                           ; Regs used in _FR_Timer_IncMicros: [wreg]
   3706                           
   3707                           
-  3708                           ;FR_Timer.c: 62:     micros += 1000;
+  3708                           ;FR_Timer.c: 61:     micros += 1000;
   3709  01AB  30E8               	movlw	232
   3710  01AC  0020               	movlb	0	; select bank0
   3711  01AD  07A0               	addwf	_micros,f
@@ -4241,7 +4241,7 @@ SFR31                0      0       0      32        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.35 build 20211206165544 
-Symbol Table                                                                                   Wed Jan 26 23:42:57 2022
+Symbol Table                                                                                   Wed Jan 26 23:50:22 2022
 
                       ??_InterruptManager 0070                                        l70 01C1  
                                       l73 01A0                                        u60 018C  

@@ -12,11 +12,6 @@
 #define	FR_TIMER_H
 
 //==============================================================================
-//-------------------------------- #DEFINES ------------------------------------
-//==============================================================================
-
-
-//==============================================================================
 //------------------------------ PUBLIC LIBRARY --------------------------------
 //==============================================================================
 /**
@@ -26,9 +21,10 @@
  * 
  * @return   None
  * 
- * @brief    ASSUMES PIC16_Init() has already been called to set [F_osc = 8MHz]!
- *           This function initializes TMR0 to tick @1MHz [1us period] & roll
- *           over (& set the TMR0 interrupt flag) every 250us
+ * @brief    ASSUMES PIC16_Init() has already been called!!
+ *           This function initializes TMR0 to tick @1MHz [1us period]. Rollover
+ *           occurs every 250us, and every 4 rollovers (1ms) triggers an ISR
+ *           callback function which increments micros & millis static vars.
  * 
  * @author   Jack Lambert, 2022.01.25
  **/

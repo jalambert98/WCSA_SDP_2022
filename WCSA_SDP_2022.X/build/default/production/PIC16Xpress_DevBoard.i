@@ -25,7 +25,7 @@
 
 
 # 1 "./mcc.h" 1
-# 49 "./mcc.h"
+# 11 "./mcc.h"
 # 1 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -11210,14 +11210,14 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 2 3
-# 49 "./mcc.h" 2
+# 11 "./mcc.h" 2
 
 # 1 "./device_config.h" 1
-# 50 "./mcc.h" 2
+# 12 "./mcc.h" 2
 
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdbool.h" 1 3
-# 52 "./mcc.h" 2
+# 14 "./mcc.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\conio.h" 1 3
 
@@ -11371,14 +11371,14 @@ char *ctermid(char *);
 
 char *tempnam(const char *, const char *);
 # 7 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\conio.h" 2 3
-# 53 "./mcc.h" 2
-# 68 "./mcc.h"
+# 15 "./mcc.h" 2
+# 30 "./mcc.h"
 void SYSTEM_Initialize(void);
-# 81 "./mcc.h"
+# 43 "./mcc.h"
 void OSCILLATOR_Initialize(void);
-# 93 "./mcc.h"
+# 55 "./mcc.h"
 void WDT_Initialize(void);
-# 105 "./mcc.h"
+# 67 "./mcc.h"
 void PMD_Initialize(void);
 # 9 "./PIC16Xpress_DevBoard.h" 2
 # 90 "./PIC16Xpress_DevBoard.h"
@@ -11397,27 +11397,27 @@ void __attribute__((picinterrupt(("")))) InterruptManager (void);
 # 9 "PIC16Xpress_DevBoard.c" 2
 
 # 1 "./tmr0.h" 1
-# 34 "./tmr0.h"
+# 42 "./tmr0.h"
 void TMR0_Initialize(void);
-# 54 "./tmr0.h"
+# 62 "./tmr0.h"
 void TMR0_StartTimer(void);
-# 74 "./tmr0.h"
+# 82 "./tmr0.h"
 void TMR0_StopTimer(void);
-# 93 "./tmr0.h"
+# 101 "./tmr0.h"
 uint8_t TMR0_ReadTimer(void);
-# 113 "./tmr0.h"
+# 121 "./tmr0.h"
 void TMR0_WriteTimer(uint8_t timerVal);
-# 133 "./tmr0.h"
+# 141 "./tmr0.h"
 void TMR0_Reload(uint8_t periodVal);
-# 152 "./tmr0.h"
+# 160 "./tmr0.h"
 void TMR0_ISR(void);
-# 171 "./tmr0.h"
+# 179 "./tmr0.h"
 void TMR0_CallBack(void);
-# 190 "./tmr0.h"
+# 198 "./tmr0.h"
  void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
-# 209 "./tmr0.h"
+# 217 "./tmr0.h"
 extern void (*TMR0_InterruptHandler)(void);
-# 228 "./tmr0.h"
+# 236 "./tmr0.h"
 void TMR0_DefaultInterruptHandler(void);
 # 10 "PIC16Xpress_DevBoard.c" 2
 

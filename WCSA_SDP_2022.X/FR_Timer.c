@@ -40,7 +40,6 @@ void FR_Timer_Init(void) {
 //------------------------------------------------------------------------------
 
 unsigned long FR_Timer_GetMillis() {
-    // millis4x increments every 250us, so /4 = 1ms
     return millis;
 }
 
@@ -70,6 +69,9 @@ void FR_Timer_IncMicros(void) {
 #ifdef FR_TIMER_TEST
 
 int main(void) {
+    /*
+     * THIS TEST HARNESS FLICKERS pin RC0 @1Hz (flicker LED against stopwatch)
+     */
     unsigned long currMilli = 0;
     unsigned long prevMilli = 0;
     
@@ -83,6 +85,7 @@ int main(void) {
     while(1) {
         currMilli = FR_Timer_GetMillis();
         
+        // Toggle output pin every 500ms (full cycle every 1s)
         if((unsigned long)(currMilli - prevMilli) >= 500) {
             WRITE_C0() ^= 1;
             prevMilli = currMilli;

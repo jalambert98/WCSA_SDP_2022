@@ -1,9 +1,9 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"34 ./tmr0.h
-[; ;./tmr0.h: 34: void TMR0_Initialize(void);
+"42 ./tmr0.h
+[; ;./tmr0.h: 42: void TMR0_Initialize(void);
 [v _TMR0_Initialize `(v ~T0 @X0 0 ef ]
-"93
-[; ;./tmr0.h: 93: uint8_t TMR0_ReadTimer(void);
+"101
+[; ;./tmr0.h: 101: uint8_t TMR0_ReadTimer(void);
 [v _TMR0_ReadTimer `(uc ~T0 @X0 0 ef ]
 [p mainexit ]
 "114 ./PIC16Xpress_DevBoard.h
@@ -759,119 +759,119 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _FR_Timer_GetMillis ]
 [f ]
-"44
-[; ;FR_Timer.c: 44:     return millis;
+"43
+[; ;FR_Timer.c: 43:     return millis;
 [e ) _millis ]
 [e $UE 966  ]
-"45
-[; ;FR_Timer.c: 45: }
+"44
+[; ;FR_Timer.c: 44: }
 [e :UE 966 ]
 }
-"49
-[; ;FR_Timer.c: 49: unsigned long FR_Timer_GetMicros() {
+"48
+[; ;FR_Timer.c: 48: unsigned long FR_Timer_GetMicros() {
 [v _FR_Timer_GetMicros `(ul ~T0 @X0 1 ef ]
 {
 [e :U _FR_Timer_GetMicros ]
 [f ]
-"50
-[; ;FR_Timer.c: 50:     return (unsigned long)((millis * 1000) + TMR0_ReadTimer());
+"49
+[; ;FR_Timer.c: 49:     return (unsigned long)((millis * 1000) + TMR0_ReadTimer());
 [e ) + * _millis -> -> -> 1000 `i `l `ul -> ( _TMR0_ReadTimer ..  `ul ]
 [e $UE 967  ]
-"51
-[; ;FR_Timer.c: 51: }
+"50
+[; ;FR_Timer.c: 50: }
 [e :UE 967 ]
 }
-"55
-[; ;FR_Timer.c: 55: void FR_Timer_IncMillis(void) {
+"54
+[; ;FR_Timer.c: 54: void FR_Timer_IncMillis(void) {
 [v _FR_Timer_IncMillis `(v ~T0 @X0 1 ef ]
 {
 [e :U _FR_Timer_IncMillis ]
 [f ]
-"56
-[; ;FR_Timer.c: 56:     millis += 1;
+"55
+[; ;FR_Timer.c: 55:     millis += 1;
 [e =+ _millis -> -> -> 1 `i `l `ul ]
-"57
-[; ;FR_Timer.c: 57: }
+"56
+[; ;FR_Timer.c: 56: }
 [e :UE 968 ]
 }
-"61
-[; ;FR_Timer.c: 61: void FR_Timer_IncMicros(void) {
+"60
+[; ;FR_Timer.c: 60: void FR_Timer_IncMicros(void) {
 [v _FR_Timer_IncMicros `(v ~T0 @X0 1 ef ]
 {
 [e :U _FR_Timer_IncMicros ]
 [f ]
-"62
-[; ;FR_Timer.c: 62:     micros += 1000;
+"61
+[; ;FR_Timer.c: 61:     micros += 1000;
 [e =+ _micros -> -> -> 1000 `i `l `ul ]
-"63
-[; ;FR_Timer.c: 63: }
+"62
+[; ;FR_Timer.c: 62: }
 [e :UE 969 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"72
-[; ;FR_Timer.c: 72: int main(void) {
+"71
+[; ;FR_Timer.c: 71: int main(void) {
 [v _main `(i ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"73
-[; ;FR_Timer.c: 73:     unsigned long currMilli = 0;
+"75
+[; ;FR_Timer.c: 75:     unsigned long currMilli = 0;
 [v _currMilli `ul ~T0 @X0 1 a ]
 [e = _currMilli -> -> -> 0 `i `l `ul ]
-"74
-[; ;FR_Timer.c: 74:     unsigned long prevMilli = 0;
+"76
+[; ;FR_Timer.c: 76:     unsigned long prevMilli = 0;
 [v _prevMilli `ul ~T0 @X0 1 a ]
 [e = _prevMilli -> -> -> 0 `i `l `ul ]
-"77
-[; ;FR_Timer.c: 77:     PIC16_Init();
+"79
+[; ;FR_Timer.c: 79:     PIC16_Init();
 [e ( _PIC16_Init ..  ]
-"78
-[; ;FR_Timer.c: 78:     FR_Timer_Init();
-[e ( _FR_Timer_Init ..  ]
 "80
-[; ;FR_Timer.c: 80:     TRISCbits.TRISC0 = 0;
+[; ;FR_Timer.c: 80:     FR_Timer_Init();
+[e ( _FR_Timer_Init ..  ]
+"82
+[; ;FR_Timer.c: 82:     TRISCbits.TRISC0 = 0;
 [e = . . _TRISCbits 0 0 -> -> 0 `i `uc ]
-"81
-[; ;FR_Timer.c: 81:     LATCbits.LATC0 = 0;
-[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
 "83
-[; ;FR_Timer.c: 83:     while(1) {
+[; ;FR_Timer.c: 83:     LATCbits.LATC0 = 0;
+[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
+"85
+[; ;FR_Timer.c: 85:     while(1) {
 [e :U 972 ]
 {
-"84
-[; ;FR_Timer.c: 84:         currMilli = FR_Timer_GetMillis();
-[e = _currMilli ( _FR_Timer_GetMillis ..  ]
 "86
-[; ;FR_Timer.c: 86:         if((unsigned long)(currMilli - prevMilli) >= 500) {
+[; ;FR_Timer.c: 86:         currMilli = FR_Timer_GetMillis();
+[e = _currMilli ( _FR_Timer_GetMillis ..  ]
+"89
+[; ;FR_Timer.c: 89:         if((unsigned long)(currMilli - prevMilli) >= 500) {
 [e $ ! >= - _currMilli _prevMilli -> -> -> 500 `i `l `ul 974  ]
 {
-"87
-[; ;FR_Timer.c: 87:             LATCbits.LATC0 ^= 1;
+"90
+[; ;FR_Timer.c: 90:             LATCbits.LATC0 ^= 1;
 [e =^ . . _LATCbits 0 0 -> -> 1 `i `Vuc ]
-"88
-[; ;FR_Timer.c: 88:             prevMilli = currMilli;
+"91
+[; ;FR_Timer.c: 91:             prevMilli = currMilli;
 [e = _prevMilli _currMilli ]
-"89
-[; ;FR_Timer.c: 89:         }
+"92
+[; ;FR_Timer.c: 92:         }
 }
 [e :U 974 ]
-"90
-[; ;FR_Timer.c: 90:     }
+"93
+[; ;FR_Timer.c: 93:     }
 }
 [e :U 971 ]
 [e $U 972  ]
 [e :U 973 ]
-"91
-[; ;FR_Timer.c: 91:     while(1);
+"94
+[; ;FR_Timer.c: 94:     while(1);
 [e :U 976 ]
 [e :U 975 ]
 [e $U 976  ]
 [e :U 977 ]
-"92
-[; ;FR_Timer.c: 92:     return 0;
+"95
+[; ;FR_Timer.c: 95:     return 0;
 [e ) -> 0 `i ]
 [e $UE 970  ]
-"93
-[; ;FR_Timer.c: 93: }
+"96
+[; ;FR_Timer.c: 96: }
 [e :UE 970 ]
 }

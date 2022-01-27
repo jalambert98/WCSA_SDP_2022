@@ -1,6 +1,6 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"68 ./mcc.h
-[; ;./mcc.h: 68: void SYSTEM_Initialize(void);
+"30 ./mcc.h
+[; ;./mcc.h: 30: void SYSTEM_Initialize(void);
 [v _SYSTEM_Initialize `(v ~T0 @X0 0 ef ]
 "1697 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
 [v _PIE0 `Vuc ~T0 @X0 0 e@144 ]
@@ -82,8 +82,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S38 . . ]
 "549
 [v _PIR0bits `VS38 ~T0 @X0 0 e@16 ]
-"152 ./tmr0.h
-[; ;./tmr0.h: 152: void TMR0_ISR(void);
+"160 ./tmr0.h
+[; ;./tmr0.h: 160: void TMR0_ISR(void);
 [v _TMR0_ISR `(v ~T0 @X0 0 ef ]
 "55 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
 [; <" INDF0 equ 00h ;# ">

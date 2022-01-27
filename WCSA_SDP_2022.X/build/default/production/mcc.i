@@ -7,9 +7,16 @@
 # 1 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "mcc.c" 2
-# 47 "mcc.c"
+
+
+
+
+
+
+
+
 # 1 "./mcc.h" 1
-# 49 "./mcc.h"
+# 11 "./mcc.h"
 # 1 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -11194,14 +11201,14 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 2 3
-# 49 "./mcc.h" 2
+# 11 "./mcc.h" 2
 
 # 1 "./device_config.h" 1
-# 50 "./mcc.h" 2
+# 12 "./mcc.h" 2
 
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdbool.h" 1 3
-# 52 "./mcc.h" 2
+# 14 "./mcc.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\conio.h" 1 3
 
@@ -11355,17 +11362,16 @@ char *ctermid(char *);
 
 char *tempnam(const char *, const char *);
 # 7 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\conio.h" 2 3
-# 53 "./mcc.h" 2
-# 68 "./mcc.h"
+# 15 "./mcc.h" 2
+# 30 "./mcc.h"
 void SYSTEM_Initialize(void);
-# 81 "./mcc.h"
+# 43 "./mcc.h"
 void OSCILLATOR_Initialize(void);
-# 93 "./mcc.h"
+# 55 "./mcc.h"
 void WDT_Initialize(void);
-# 105 "./mcc.h"
+# 67 "./mcc.h"
 void PMD_Initialize(void);
-# 47 "mcc.c" 2
-
+# 9 "mcc.c" 2
 
 
 void SYSTEM_Initialize(void)

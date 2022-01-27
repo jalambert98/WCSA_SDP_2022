@@ -1,3 +1,11 @@
+/* 
+ * File:    tmr0.h
+ * Author:  Jack Lambert     <joalambe@ucsc.edu>
+ * Project: WCSA_SDP_2022
+ *
+ * Created on January 26, 2022, 10:52 PM
+ */
+
 #ifndef TMR0_H
 #define TMR0_H
 

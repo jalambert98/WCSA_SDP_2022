@@ -1,3 +1,11 @@
+/* 
+ * File:    tmr0.c
+ * Author:  Jack Lambert     <joalambe@ucsc.edu>
+ * Project: WCSA_SDP_2022
+ *
+ * Created on January 26, 2022, 10:52 PM
+ */
+
 #include <xc.h>
 #include "tmr0.h"
 #include "FR_Timer.h"
