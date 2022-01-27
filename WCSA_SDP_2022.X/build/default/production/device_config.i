@@ -7,7 +7,7 @@
 # 1 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "device_config.c" 2
-# 10 "device_config.c"
+# 11 "device_config.c"
 #pragma config FEXTOSC = OFF
 #pragma config RSTOSC = HFINT32
 #pragma config CLKOUTEN = OFF
@@ -32,5 +32,5 @@
 
 #pragma config CP = OFF
 #pragma config CPD = OFF
-# 33 "device_config.c"
+# 34 "device_config.c"
 

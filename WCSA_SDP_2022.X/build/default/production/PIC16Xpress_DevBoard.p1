@@ -82,8 +82,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S38 . . ]
 "549
 [v _PIR0bits `VS38 ~T0 @X0 0 e@16 ]
-"160 ./tmr0.h
-[; ;./tmr0.h: 160: void TMR0_ISR(void);
+"161 ./tmr0.h
+[; ;./tmr0.h: 161: void TMR0_ISR(void);
 [v _TMR0_ISR `(v ~T0 @X0 0 ef ]
 "55 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
 [; <" INDF0 equ 00h ;# ">
@@ -791,136 +791,136 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSL equ 0FEEh ;# ">
 "19652
 [; <" TOSH equ 0FEFh ;# ">
-"16 PIC16Xpress_DevBoard.c
-[; ;PIC16Xpress_DevBoard.c: 16: void PIC16_Init(void) {
+"17 PIC16Xpress_DevBoard.c
+[; ;PIC16Xpress_DevBoard.c: 17: void PIC16_Init(void) {
 [v _PIC16_Init `(v ~T0 @X0 1 ef ]
 {
 [e :U _PIC16_Init ]
 [f ]
-"18
-[; ;PIC16Xpress_DevBoard.c: 18:     SYSTEM_Initialize();
+"19
+[; ;PIC16Xpress_DevBoard.c: 19:     SYSTEM_Initialize();
 [e ( _SYSTEM_Initialize ..  ]
-"21
-[; ;PIC16Xpress_DevBoard.c: 21:     PIE0 = 0x00;
-[e = _PIE0 -> -> 0 `i `uc ]
 "22
-[; ;PIC16Xpress_DevBoard.c: 22:     PIE1 = 0x00;
-[e = _PIE1 -> -> 0 `i `uc ]
+[; ;PIC16Xpress_DevBoard.c: 22:     PIE0 = 0x00;
+[e = _PIE0 -> -> 0 `i `uc ]
 "23
-[; ;PIC16Xpress_DevBoard.c: 23:     PIE2 = 0x00;
-[e = _PIE2 -> -> 0 `i `uc ]
+[; ;PIC16Xpress_DevBoard.c: 23:     PIE1 = 0x00;
+[e = _PIE1 -> -> 0 `i `uc ]
 "24
-[; ;PIC16Xpress_DevBoard.c: 24:     PIE3 = 0x00;
-[e = _PIE3 -> -> 0 `i `uc ]
+[; ;PIC16Xpress_DevBoard.c: 24:     PIE2 = 0x00;
+[e = _PIE2 -> -> 0 `i `uc ]
 "25
-[; ;PIC16Xpress_DevBoard.c: 25:     PIE4 = 0x00;
+[; ;PIC16Xpress_DevBoard.c: 25:     PIE3 = 0x00;
+[e = _PIE3 -> -> 0 `i `uc ]
+"26
+[; ;PIC16Xpress_DevBoard.c: 26:     PIE4 = 0x00;
 [e = _PIE4 -> -> 0 `i `uc ]
-"28
-[; ;PIC16Xpress_DevBoard.c: 28:     LATA = 0x00;
-[e = _LATA -> -> 0 `i `uc ]
 "29
-[; ;PIC16Xpress_DevBoard.c: 29:     LATB = 0x00;
-[e = _LATB -> -> 0 `i `uc ]
+[; ;PIC16Xpress_DevBoard.c: 29:     LATA = 0x00;
+[e = _LATA -> -> 0 `i `uc ]
 "30
-[; ;PIC16Xpress_DevBoard.c: 30:     LATC = 0x00;
+[; ;PIC16Xpress_DevBoard.c: 30:     LATB = 0x00;
+[e = _LATB -> -> 0 `i `uc ]
+"31
+[; ;PIC16Xpress_DevBoard.c: 31:     LATC = 0x00;
 [e = _LATC -> -> 0 `i `uc ]
-"32
-[; ;PIC16Xpress_DevBoard.c: 32:     TRISA = 0x37;
-[e = _TRISA -> -> 55 `i `uc ]
 "33
-[; ;PIC16Xpress_DevBoard.c: 33:     TRISB = 0xF0;
-[e = _TRISB -> -> 240 `i `uc ]
+[; ;PIC16Xpress_DevBoard.c: 33:     TRISA = 0x37;
+[e = _TRISA -> -> 55 `i `uc ]
 "34
-[; ;PIC16Xpress_DevBoard.c: 34:     TRISC = 0xFF;
+[; ;PIC16Xpress_DevBoard.c: 34:     TRISB = 0xF0;
+[e = _TRISB -> -> 240 `i `uc ]
+"35
+[; ;PIC16Xpress_DevBoard.c: 35:     TRISC = 0xFF;
 [e = _TRISC -> -> 255 `i `uc ]
-"36
-[; ;PIC16Xpress_DevBoard.c: 36:     ANSELC = 0xFF;
-[e = _ANSELC -> -> 255 `i `uc ]
 "37
-[; ;PIC16Xpress_DevBoard.c: 37:     ANSELB = 0xF0;
-[e = _ANSELB -> -> 240 `i `uc ]
+[; ;PIC16Xpress_DevBoard.c: 37:     ANSELC = 0xFF;
+[e = _ANSELC -> -> 255 `i `uc ]
 "38
-[; ;PIC16Xpress_DevBoard.c: 38:     ANSELA = 0x37;
+[; ;PIC16Xpress_DevBoard.c: 38:     ANSELB = 0xF0;
+[e = _ANSELB -> -> 240 `i `uc ]
+"39
+[; ;PIC16Xpress_DevBoard.c: 39:     ANSELA = 0x37;
 [e = _ANSELA -> -> 55 `i `uc ]
-"40
-[; ;PIC16Xpress_DevBoard.c: 40:     WPUB = 0x00;
-[e = _WPUB -> -> 0 `i `uc ]
 "41
-[; ;PIC16Xpress_DevBoard.c: 41:     WPUA = 0x00;
-[e = _WPUA -> -> 0 `i `uc ]
+[; ;PIC16Xpress_DevBoard.c: 41:     WPUB = 0x00;
+[e = _WPUB -> -> 0 `i `uc ]
 "42
-[; ;PIC16Xpress_DevBoard.c: 42:     WPUC = 0x00;
+[; ;PIC16Xpress_DevBoard.c: 42:     WPUA = 0x00;
+[e = _WPUA -> -> 0 `i `uc ]
+"43
+[; ;PIC16Xpress_DevBoard.c: 43:     WPUC = 0x00;
 [e = _WPUC -> -> 0 `i `uc ]
-"44
-[; ;PIC16Xpress_DevBoard.c: 44:     ODCONA = 0x00;
-[e = _ODCONA -> -> 0 `i `uc ]
 "45
-[; ;PIC16Xpress_DevBoard.c: 45:     ODCONB = 0x00;
-[e = _ODCONB -> -> 0 `i `uc ]
+[; ;PIC16Xpress_DevBoard.c: 45:     ODCONA = 0x00;
+[e = _ODCONA -> -> 0 `i `uc ]
 "46
-[; ;PIC16Xpress_DevBoard.c: 46:     ODCONC = 0x00;
+[; ;PIC16Xpress_DevBoard.c: 46:     ODCONB = 0x00;
+[e = _ODCONB -> -> 0 `i `uc ]
+"47
+[; ;PIC16Xpress_DevBoard.c: 47:     ODCONC = 0x00;
 [e = _ODCONC -> -> 0 `i `uc ]
-"48
-[; ;PIC16Xpress_DevBoard.c: 48:     SLRCONA = 0x37;
-[e = _SLRCONA -> -> 55 `i `uc ]
 "49
-[; ;PIC16Xpress_DevBoard.c: 49:     SLRCONB = 0xF0;
-[e = _SLRCONB -> -> 240 `i `uc ]
+[; ;PIC16Xpress_DevBoard.c: 49:     SLRCONA = 0x37;
+[e = _SLRCONA -> -> 55 `i `uc ]
 "50
-[; ;PIC16Xpress_DevBoard.c: 50:     SLRCONC = 0xFF;
+[; ;PIC16Xpress_DevBoard.c: 50:     SLRCONB = 0xF0;
+[e = _SLRCONB -> -> 240 `i `uc ]
+"51
+[; ;PIC16Xpress_DevBoard.c: 51:     SLRCONC = 0xFF;
 [e = _SLRCONC -> -> 255 `i `uc ]
-"52
-[; ;PIC16Xpress_DevBoard.c: 52:     INLVLA = 0x3F;
-[e = _INLVLA -> -> 63 `i `uc ]
 "53
-[; ;PIC16Xpress_DevBoard.c: 53:     INLVLB = 0xF0;
-[e = _INLVLB -> -> 240 `i `uc ]
+[; ;PIC16Xpress_DevBoard.c: 53:     INLVLA = 0x3F;
+[e = _INLVLA -> -> 63 `i `uc ]
 "54
-[; ;PIC16Xpress_DevBoard.c: 54:     INLVLC = 0xFF;
+[; ;PIC16Xpress_DevBoard.c: 54:     INLVLB = 0xF0;
+[e = _INLVLB -> -> 240 `i `uc ]
+"55
+[; ;PIC16Xpress_DevBoard.c: 55:     INLVLC = 0xFF;
 [e = _INLVLC -> -> 255 `i `uc ]
-"57
-[; ;PIC16Xpress_DevBoard.c: 57:     PIR0 = 0x00;
-[e = _PIR0 -> -> 0 `i `uc ]
 "58
-[; ;PIC16Xpress_DevBoard.c: 58:     PIR1 = 0x00;
-[e = _PIR1 -> -> 0 `i `uc ]
+[; ;PIC16Xpress_DevBoard.c: 58:     PIR0 = 0x00;
+[e = _PIR0 -> -> 0 `i `uc ]
 "59
-[; ;PIC16Xpress_DevBoard.c: 59:     PIR2 = 0x00;
-[e = _PIR2 -> -> 0 `i `uc ]
+[; ;PIC16Xpress_DevBoard.c: 59:     PIR1 = 0x00;
+[e = _PIR1 -> -> 0 `i `uc ]
 "60
-[; ;PIC16Xpress_DevBoard.c: 60:     PIR3 = 0x00;
-[e = _PIR3 -> -> 0 `i `uc ]
+[; ;PIC16Xpress_DevBoard.c: 60:     PIR2 = 0x00;
+[e = _PIR2 -> -> 0 `i `uc ]
 "61
-[; ;PIC16Xpress_DevBoard.c: 61:     PIR4 = 0x00;
+[; ;PIC16Xpress_DevBoard.c: 61:     PIR3 = 0x00;
+[e = _PIR3 -> -> 0 `i `uc ]
+"62
+[; ;PIC16Xpress_DevBoard.c: 62:     PIR4 = 0x00;
 [e = _PIR4 -> -> 0 `i `uc ]
-"63
-[; ;PIC16Xpress_DevBoard.c: 63:     INTCONbits.GIE = 1;
-[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
 "64
-[; ;PIC16Xpress_DevBoard.c: 64: }
+[; ;PIC16Xpress_DevBoard.c: 64:     INTCONbits.GIE = 1;
+[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
+"65
+[; ;PIC16Xpress_DevBoard.c: 65: }
 [e :UE 965 ]
 }
 [v $root$_InterruptManager `(v ~T0 @X0 0 e ]
-"70
-[; ;PIC16Xpress_DevBoard.c: 70: void __attribute__((picinterrupt(("")))) InterruptManager (void)
-[v _InterruptManager `(v ~T2 @X0 1 ef ]
 "71
-[; ;PIC16Xpress_DevBoard.c: 71: {
+[; ;PIC16Xpress_DevBoard.c: 71: void __attribute__((picinterrupt(("")))) InterruptManager (void)
+[v _InterruptManager `(v ~T2 @X0 1 ef ]
+"72
+[; ;PIC16Xpress_DevBoard.c: 72: {
 {
 [e :U _InterruptManager ]
 [f ]
-"72
-[; ;PIC16Xpress_DevBoard.c: 72:     if(PIR0bits.TMR0IF) {
+"73
+[; ;PIC16Xpress_DevBoard.c: 73:     if(PIR0bits.TMR0IF) {
 [e $ ! != -> . . _PIR0bits 0 3 `i -> 0 `i 967  ]
 {
-"73
-[; ;PIC16Xpress_DevBoard.c: 73:         TMR0_ISR();
-[e ( _TMR0_ISR ..  ]
 "74
-[; ;PIC16Xpress_DevBoard.c: 74:     }
+[; ;PIC16Xpress_DevBoard.c: 74:         TMR0_ISR();
+[e ( _TMR0_ISR ..  ]
+"75
+[; ;PIC16Xpress_DevBoard.c: 75:     }
 }
 [e :U 967 ]
-"75
-[; ;PIC16Xpress_DevBoard.c: 75: }
+"76
+[; ;PIC16Xpress_DevBoard.c: 76: }
 [e :UE 966 ]
 }

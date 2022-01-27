@@ -7,34 +7,13 @@
 # 1 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "JSN_Sensor.c" 2
-
-
-
-
-
-
-
-
+# 10 "JSN_Sensor.c"
 # 1 "./JSN_Sensor.h" 1
-
-
-
-
-
-
-
-
+# 10 "./JSN_Sensor.h"
 # 1 "./PIC16Xpress_DevBoard.h" 1
-
-
-
-
-
-
-
-
+# 10 "./PIC16Xpress_DevBoard.h"
 # 1 "./mcc.h" 1
-# 11 "./mcc.h"
+# 12 "./mcc.h"
 # 1 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -11219,14 +11198,14 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 2 3
-# 11 "./mcc.h" 2
+# 12 "./mcc.h" 2
 
 # 1 "./device_config.h" 1
-# 12 "./mcc.h" 2
+# 13 "./mcc.h" 2
 
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdbool.h" 1 3
-# 14 "./mcc.h" 2
+# 15 "./mcc.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\conio.h" 1 3
 
@@ -11380,17 +11359,17 @@ char *ctermid(char *);
 
 char *tempnam(const char *, const char *);
 # 7 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\conio.h" 2 3
-# 15 "./mcc.h" 2
+# 16 "./mcc.h" 2
 # 30 "./mcc.h"
 void SYSTEM_Initialize(void);
-# 43 "./mcc.h"
+# 44 "./mcc.h"
 void OSCILLATOR_Initialize(void);
-# 55 "./mcc.h"
+# 58 "./mcc.h"
 void WDT_Initialize(void);
-# 67 "./mcc.h"
+# 72 "./mcc.h"
 void PMD_Initialize(void);
-# 9 "./PIC16Xpress_DevBoard.h" 2
-# 90 "./PIC16Xpress_DevBoard.h"
+# 10 "./PIC16Xpress_DevBoard.h" 2
+# 91 "./PIC16Xpress_DevBoard.h"
 typedef enum {
     A5, A4, A3,
     C5, C4, C3,
@@ -11399,27 +11378,27 @@ typedef enum {
     C0, C1, C2,
     B4, B5, B6
 } PinName_t;
-# 114 "./PIC16Xpress_DevBoard.h"
+# 115 "./PIC16Xpress_DevBoard.h"
 void PIC16_Init(void);
-# 129 "./PIC16Xpress_DevBoard.h"
+# 130 "./PIC16Xpress_DevBoard.h"
 void __attribute__((picinterrupt(("")))) InterruptManager (void);
-# 9 "./JSN_Sensor.h" 2
-# 27 "./JSN_Sensor.h"
+# 10 "./JSN_Sensor.h" 2
+# 28 "./JSN_Sensor.h"
 typedef struct {
     unsigned int echoHighTime;
     unsigned int distance;
     PinName_t trigPin;
     PinName_t echoPin;
 } JSN_t;
-# 50 "./JSN_Sensor.h"
+# 51 "./JSN_Sensor.h"
 uint8_t JSN_Library_Init(void);
-# 71 "./JSN_Sensor.h"
+# 72 "./JSN_Sensor.h"
 uint8_t JSN_Sensor_Init(JSN_t *Sensor, PinName_t trigPin, PinName_t echoPin);
-# 86 "./JSN_Sensor.h"
+# 87 "./JSN_Sensor.h"
 void JSN_Sensor_Trig(JSN_t *Sensor);
-# 102 "./JSN_Sensor.h"
+# 103 "./JSN_Sensor.h"
 unsigned int JSN_Sensor_GetDistance(JSN_t *Sensor);
-# 9 "JSN_Sensor.c" 2
+# 10 "JSN_Sensor.c" 2
 # 23 "JSN_Sensor.c"
 uint8_t JSN_Library_Init(void) {
 
@@ -11447,7 +11426,6 @@ uint8_t JSN_Sensor_Init(JSN_t *Sensor, PinName_t trigPin, PinName_t echoPin) {
             TRISCbits.TRISC5 = 1;
             break;
         default:
-            printf("ERROR! echoPin must be one of the following: [RA2, RA4, RC3, RC5]\n");
             return 0xFF;
     }
 
@@ -11458,7 +11436,6 @@ uint8_t JSN_Sensor_Init(JSN_t *Sensor, PinName_t trigPin, PinName_t echoPin) {
         case C3:
         case C5:
         case A3:
-            printf("ERROR! trigPin may not be any of the following: [RA2, RA4, RC3, RC5, RA3]\n");
             return 0xFF;
         case A5:
             TRISAbits.TRISA5 = 0;

@@ -5,6 +5,7 @@
  *
  * Created on January 26, 2022, 8:45 PM
  */
+//------------------------------------------------------------------------------
 
 #ifndef MCC_H
 #define	MCC_H
@@ -14,8 +15,7 @@
 #include <stdbool.h>
 #include <conio.h>
 
-
-
+//------------------------------------------------------------------------------
 /**
  * @Param
     none
@@ -29,6 +29,7 @@
  */
 void SYSTEM_Initialize(void);
 
+//------------------------------------------------------------------------------
 /**
  * @Param
     none
@@ -41,6 +42,8 @@ void SYSTEM_Initialize(void);
     OSCILLATOR_Initialize(void);
  */
 void OSCILLATOR_Initialize(void);
+
+//------------------------------------------------------------------------------
 /**
  * @Param
     none
@@ -53,6 +56,8 @@ void OSCILLATOR_Initialize(void);
     WDT_Initialize(void);
  */
 void WDT_Initialize(void);
+
+//------------------------------------------------------------------------------
 /**
  * @Param
     none
@@ -66,7 +71,10 @@ void WDT_Initialize(void);
  */
 void PMD_Initialize(void);
 
+//------------------------------------------------------------------------------
+
 #endif	/* MCC_H */
+
 /**
  End of File
 */

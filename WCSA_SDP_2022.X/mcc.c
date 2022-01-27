@@ -5,8 +5,11 @@
  *
  * Created on January 26, 2022, 8:45 PM
  */
+//------------------------------------------------------------------------------
 
 #include "mcc.h"
+
+//------------------------------------------------------------------------------
 
 void SYSTEM_Initialize(void)
 {
@@ -14,6 +17,8 @@ void SYSTEM_Initialize(void)
     OSCILLATOR_Initialize();
     WDT_Initialize();
 }
+
+//------------------------------------------------------------------------------
 
 void OSCILLATOR_Initialize(void)
 {
@@ -31,11 +36,15 @@ void OSCILLATOR_Initialize(void)
     while(PLLR == 0);
 }
 
+//------------------------------------------------------------------------------
+
 void WDT_Initialize(void)
 {
     // WDTPS 1:65536; SWDTEN OFF; 
     WDTCON = 0x16;
 }
+
+//------------------------------------------------------------------------------
 
 void PMD_Initialize(void)
 {
@@ -52,6 +61,9 @@ void PMD_Initialize(void)
     // DSMMD DSM disabled; CLC3MD CLC3 disabled; CLC4MD CLC4 disabled; CLC1MD CLC1 disabled; CLC2MD CLC2 disabled; 
     PMD5 = 0x1F;
 }
+
+//------------------------------------------------------------------------------
+
 /**
  End of File
 */

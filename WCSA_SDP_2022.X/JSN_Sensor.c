@@ -5,9 +5,9 @@
  *
  * Created on January 24, 2022, 10:29 PM
  */
+//------------------------------------------------------------------------------
 
 #include "JSN_Sensor.h"
-#include <stdio.h>
 
 //#define JSN_SENSOR_TEST
 
@@ -46,7 +46,6 @@ uint8_t JSN_Sensor_Init(JSN_t *Sensor, PinName_t trigPin, PinName_t echoPin) {
             SET_C5() = INPUT;
             break;
         default:
-            printf("ERROR! echoPin must be one of the following: [RA2, RA4, RC3, RC5]\n");
             return ERROR;
     }
     
@@ -57,7 +56,6 @@ uint8_t JSN_Sensor_Init(JSN_t *Sensor, PinName_t trigPin, PinName_t echoPin) {
         case C3:
         case C5:
         case A3:
-            printf("ERROR! trigPin may not be any of the following: [RA2, RA4, RC3, RC5, RA3]\n");
             return ERROR;
         case A5:
             SET_A5() = OUTPUT;

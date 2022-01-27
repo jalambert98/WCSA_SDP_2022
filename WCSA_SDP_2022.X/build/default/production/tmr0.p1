@@ -23,11 +23,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1710
 [v _PIE0bits `VS91 ~T0 @X0 0 e@144 ]
 [v F6665 `(v ~T0 @X0 0 tf ]
-"198 ./tmr0.h
-[; ;./tmr0.h: 198:  void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
+"199 ./tmr0.h
+[; ;./tmr0.h: 199:  void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
 [v _TMR0_SetInterruptHandler `(v ~T0 @X0 0 ef1`*F6665 ]
-"236
-[; ;./tmr0.h: 236: void TMR0_DefaultInterruptHandler(void);
+"237
+[; ;./tmr0.h: 237: void TMR0_DefaultInterruptHandler(void);
 [v _TMR0_DefaultInterruptHandler `(v ~T0 @X0 0 ef ]
 "1109 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
 [v _T0CON0 `Vuc ~T0 @X0 0 e@23 ]
@@ -42,14 +42,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S62 . . . ]
 "1129
 [v _T0CON0bits `VS62 ~T0 @X0 0 e@23 ]
-"179 ./tmr0.h
-[; ;./tmr0.h: 179: void TMR0_CallBack(void);
+"180 ./tmr0.h
+[; ;./tmr0.h: 180: void TMR0_CallBack(void);
 [v _TMR0_CallBack `(v ~T0 @X0 0 ef ]
-"79 ./FR_Timer.h
-[; ;./FR_Timer.h: 79: void FR_Timer_IncMillis(void);
+"80 ./FR_Timer.h
+[; ;./FR_Timer.h: 80: void FR_Timer_IncMillis(void);
 [v _FR_Timer_IncMillis `(v ~T0 @X0 0 ef ]
-"98
-[; ;./FR_Timer.h: 98: void FR_Timer_IncMicros(void);
+"99
+[; ;./FR_Timer.h: 99: void FR_Timer_IncMicros(void);
 [v _FR_Timer_IncMicros `(v ~T0 @X0 0 ef ]
 [v F7035 `(v ~T0 @X0 0 tf ]
 [v F7037 `(v ~T0 @X0 0 tf ]
@@ -760,223 +760,223 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSL equ 0FEEh ;# ">
 "19652
 [; <" TOSH equ 0FEFh ;# ">
-"13 tmr0.c
-[; ;tmr0.c: 13: void (*TMR0_InterruptHandler)(void);
+"14 tmr0.c
+[; ;tmr0.c: 14: void (*TMR0_InterruptHandler)(void);
 [v _TMR0_InterruptHandler `*F7021 ~T0 @X0 1 e ]
-"17
-[; ;tmr0.c: 17: void TMR0_Initialize(void)
-[v _TMR0_Initialize `(v ~T0 @X0 1 ef ]
 "18
-[; ;tmr0.c: 18: {
+[; ;tmr0.c: 18: void TMR0_Initialize(void)
+[v _TMR0_Initialize `(v ~T0 @X0 1 ef ]
+"19
+[; ;tmr0.c: 19: {
 {
 [e :U _TMR0_Initialize ]
 [f ]
-"22
-[; ;tmr0.c: 22:     T0CON1 = 0x42;
+"23
+[; ;tmr0.c: 23:     T0CON1 = 0x42;
 [e = _T0CON1 -> -> 66 `i `uc ]
-"25
-[; ;tmr0.c: 25:     TMR0H = 0xF9;
+"26
+[; ;tmr0.c: 26:     TMR0H = 0xF9;
 [e = _TMR0H -> -> 249 `i `uc ]
-"28
-[; ;tmr0.c: 28:     TMR0L = 0x00;
+"29
+[; ;tmr0.c: 29:     TMR0L = 0x00;
 [e = _TMR0L -> -> 0 `i `uc ]
-"31
-[; ;tmr0.c: 31:     PIR0bits.TMR0IF = 0;
+"32
+[; ;tmr0.c: 32:     PIR0bits.TMR0IF = 0;
 [e = . . _PIR0bits 0 3 -> -> 0 `i `uc ]
-"34
-[; ;tmr0.c: 34:     PIE0bits.TMR0IE = 1;
+"35
+[; ;tmr0.c: 35:     PIE0bits.TMR0IE = 1;
 [e = . . _PIE0bits 0 3 -> -> 1 `i `uc ]
-"37
-[; ;tmr0.c: 37:     TMR0_SetInterruptHandler(TMR0_DefaultInterruptHandler);
+"38
+[; ;tmr0.c: 38:     TMR0_SetInterruptHandler(TMR0_DefaultInterruptHandler);
 [e ( _TMR0_SetInterruptHandler (1 &U _TMR0_DefaultInterruptHandler ]
-"40
-[; ;tmr0.c: 40:     T0CON0 = 0x80;
-[e = _T0CON0 -> -> 128 `i `uc ]
 "41
-[; ;tmr0.c: 41: }
+[; ;tmr0.c: 41:     T0CON0 = 0x80;
+[e = _T0CON0 -> -> 128 `i `uc ]
+"42
+[; ;tmr0.c: 42: }
 [e :UE 965 ]
 }
-"45
-[; ;tmr0.c: 45: void TMR0_StartTimer(void)
-[v _TMR0_StartTimer `(v ~T0 @X0 1 ef ]
 "46
-[; ;tmr0.c: 46: {
+[; ;tmr0.c: 46: void TMR0_StartTimer(void)
+[v _TMR0_StartTimer `(v ~T0 @X0 1 ef ]
+"47
+[; ;tmr0.c: 47: {
 {
 [e :U _TMR0_StartTimer ]
 [f ]
-"48
-[; ;tmr0.c: 48:     T0CON0bits.T0EN = 1;
-[e = . . _T0CON0bits 0 4 -> -> 1 `i `uc ]
 "49
-[; ;tmr0.c: 49: }
+[; ;tmr0.c: 49:     T0CON0bits.T0EN = 1;
+[e = . . _T0CON0bits 0 4 -> -> 1 `i `uc ]
+"50
+[; ;tmr0.c: 50: }
 [e :UE 966 ]
 }
-"53
-[; ;tmr0.c: 53: void TMR0_StopTimer(void)
-[v _TMR0_StopTimer `(v ~T0 @X0 1 ef ]
 "54
-[; ;tmr0.c: 54: {
+[; ;tmr0.c: 54: void TMR0_StopTimer(void)
+[v _TMR0_StopTimer `(v ~T0 @X0 1 ef ]
+"55
+[; ;tmr0.c: 55: {
 {
 [e :U _TMR0_StopTimer ]
 [f ]
-"56
-[; ;tmr0.c: 56:     T0CON0bits.T0EN = 0;
-[e = . . _T0CON0bits 0 4 -> -> 0 `i `uc ]
 "57
-[; ;tmr0.c: 57: }
+[; ;tmr0.c: 57:     T0CON0bits.T0EN = 0;
+[e = . . _T0CON0bits 0 4 -> -> 0 `i `uc ]
+"58
+[; ;tmr0.c: 58: }
 [e :UE 967 ]
 }
-"61
-[; ;tmr0.c: 61: uint8_t TMR0_ReadTimer(void)
-[v _TMR0_ReadTimer `(uc ~T0 @X0 1 ef ]
 "62
-[; ;tmr0.c: 62: {
+[; ;tmr0.c: 62: uint8_t TMR0_ReadTimer(void)
+[v _TMR0_ReadTimer `(uc ~T0 @X0 1 ef ]
+"63
+[; ;tmr0.c: 63: {
 {
 [e :U _TMR0_ReadTimer ]
 [f ]
-"63
-[; ;tmr0.c: 63:     uint8_t readVal;
+"64
+[; ;tmr0.c: 64:     uint8_t readVal;
 [v _readVal `uc ~T0 @X0 1 a ]
-"66
-[; ;tmr0.c: 66:     readVal = TMR0L;
+"67
+[; ;tmr0.c: 67:     readVal = TMR0L;
 [e = _readVal _TMR0L ]
-"68
-[; ;tmr0.c: 68:     return readVal;
+"69
+[; ;tmr0.c: 69:     return readVal;
 [e ) _readVal ]
 [e $UE 968  ]
-"69
-[; ;tmr0.c: 69: }
+"70
+[; ;tmr0.c: 70: }
 [e :UE 968 ]
 }
-"73
-[; ;tmr0.c: 73: void TMR0_WriteTimer(uint8_t timerVal)
-[v _TMR0_WriteTimer `(v ~T0 @X0 1 ef1`uc ]
 "74
-[; ;tmr0.c: 74: {
+[; ;tmr0.c: 74: void TMR0_WriteTimer(uint8_t timerVal)
+[v _TMR0_WriteTimer `(v ~T0 @X0 1 ef1`uc ]
+"75
+[; ;tmr0.c: 75: {
 {
 [e :U _TMR0_WriteTimer ]
-"73
-[; ;tmr0.c: 73: void TMR0_WriteTimer(uint8_t timerVal)
-[v _timerVal `uc ~T0 @X0 1 r1 ]
 "74
-[; ;tmr0.c: 74: {
+[; ;tmr0.c: 74: void TMR0_WriteTimer(uint8_t timerVal)
+[v _timerVal `uc ~T0 @X0 1 r1 ]
+"75
+[; ;tmr0.c: 75: {
 [f ]
-"76
-[; ;tmr0.c: 76:     TMR0L = timerVal;
-[e = _TMR0L _timerVal ]
 "77
-[; ;tmr0.c: 77: }
+[; ;tmr0.c: 77:     TMR0L = timerVal;
+[e = _TMR0L _timerVal ]
+"78
+[; ;tmr0.c: 78: }
 [e :UE 969 ]
 }
-"81
-[; ;tmr0.c: 81: void TMR0_Reload(uint8_t periodVal)
-[v _TMR0_Reload `(v ~T0 @X0 1 ef1`uc ]
 "82
-[; ;tmr0.c: 82: {
+[; ;tmr0.c: 82: void TMR0_Reload(uint8_t periodVal)
+[v _TMR0_Reload `(v ~T0 @X0 1 ef1`uc ]
+"83
+[; ;tmr0.c: 83: {
 {
 [e :U _TMR0_Reload ]
-"81
-[; ;tmr0.c: 81: void TMR0_Reload(uint8_t periodVal)
-[v _periodVal `uc ~T0 @X0 1 r1 ]
 "82
-[; ;tmr0.c: 82: {
+[; ;tmr0.c: 82: void TMR0_Reload(uint8_t periodVal)
+[v _periodVal `uc ~T0 @X0 1 r1 ]
+"83
+[; ;tmr0.c: 83: {
 [f ]
-"84
-[; ;tmr0.c: 84:    TMR0H = periodVal;
-[e = _TMR0H _periodVal ]
 "85
-[; ;tmr0.c: 85: }
+[; ;tmr0.c: 85:    TMR0H = periodVal;
+[e = _TMR0H _periodVal ]
+"86
+[; ;tmr0.c: 86: }
 [e :UE 970 ]
 }
-"89
-[; ;tmr0.c: 89: void TMR0_ISR(void)
-[v _TMR0_ISR `(v ~T0 @X0 1 ef ]
 "90
-[; ;tmr0.c: 90: {
+[; ;tmr0.c: 90: void TMR0_ISR(void)
+[v _TMR0_ISR `(v ~T0 @X0 1 ef ]
+"91
+[; ;tmr0.c: 91: {
 {
 [e :U _TMR0_ISR ]
 [f ]
-"91
-[; ;tmr0.c: 91:     static volatile uint16_t CountCallBack = 0;
+"92
+[; ;tmr0.c: 92:     static volatile uint16_t CountCallBack = 0;
 [v F7033 `Vus ~T0 @X0 1 s CountCallBack ]
 [i F7033
 -> -> 0 `i `us
 ]
-"94
-[; ;tmr0.c: 94:     PIR0bits.TMR0IF = 0;
+"95
+[; ;tmr0.c: 95:     PIR0bits.TMR0IF = 0;
 [e = . . _PIR0bits 0 3 -> -> 0 `i `uc ]
-"96
-[; ;tmr0.c: 96:     if (++CountCallBack >= 4)
-[e $ ! >= -> =+ F7033 -> -> 1 `i `Vus `ui -> -> 4 `i `ui 972  ]
 "97
-[; ;tmr0.c: 97:     {
+[; ;tmr0.c: 97:     if (++CountCallBack >= 4)
+[e $ ! >= -> =+ F7033 -> -> 1 `i `Vus `ui -> -> 4 `i `ui 972  ]
+"98
+[; ;tmr0.c: 98:     {
 {
-"99
-[; ;tmr0.c: 99:         TMR0_CallBack();
+"100
+[; ;tmr0.c: 100:         TMR0_CallBack();
 [e ( _TMR0_CallBack ..  ]
-"102
-[; ;tmr0.c: 102:         CountCallBack = 0;
-[e = F7033 -> -> 0 `i `us ]
 "103
-[; ;tmr0.c: 103:     }
+[; ;tmr0.c: 103:         CountCallBack = 0;
+[e = F7033 -> -> 0 `i `us ]
+"104
+[; ;tmr0.c: 104:     }
 }
 [e :U 972 ]
-"106
-[; ;tmr0.c: 106: }
+"107
+[; ;tmr0.c: 107: }
 [e :UE 971 ]
 }
-"110
-[; ;tmr0.c: 110: void TMR0_CallBack(void)
-[v _TMR0_CallBack `(v ~T0 @X0 1 ef ]
 "111
-[; ;tmr0.c: 111: {
+[; ;tmr0.c: 111: void TMR0_CallBack(void)
+[v _TMR0_CallBack `(v ~T0 @X0 1 ef ]
+"112
+[; ;tmr0.c: 112: {
 {
 [e :U _TMR0_CallBack ]
 [f ]
-"112
-[; ;tmr0.c: 112:     FR_Timer_IncMillis();
-[e ( _FR_Timer_IncMillis ..  ]
 "113
-[; ;tmr0.c: 113:     FR_Timer_IncMicros();
+[; ;tmr0.c: 113:     FR_Timer_IncMillis();
+[e ( _FR_Timer_IncMillis ..  ]
+"114
+[; ;tmr0.c: 114:     FR_Timer_IncMicros();
 [e ( _FR_Timer_IncMicros ..  ]
-"115
-[; ;tmr0.c: 115:     if(TMR0_InterruptHandler)
-[e $ ! != _TMR0_InterruptHandler -> -> 0 `i `*F7035 974  ]
 "116
-[; ;tmr0.c: 116:     {
-{
+[; ;tmr0.c: 116:     if(TMR0_InterruptHandler)
+[e $ ! != _TMR0_InterruptHandler -> -> 0 `i `*F7035 974  ]
 "117
-[; ;tmr0.c: 117:         TMR0_InterruptHandler();
-[e ( *U _TMR0_InterruptHandler ..  ]
+[; ;tmr0.c: 117:     {
+{
 "118
-[; ;tmr0.c: 118:     }
+[; ;tmr0.c: 118:         TMR0_InterruptHandler();
+[e ( *U _TMR0_InterruptHandler ..  ]
+"119
+[; ;tmr0.c: 119:     }
 }
 [e :U 974 ]
-"119
-[; ;tmr0.c: 119: }
+"120
+[; ;tmr0.c: 120: }
 [e :UE 973 ]
 }
-"123
-[; ;tmr0.c: 123: void TMR0_SetInterruptHandler(void (* InterruptHandler)(void)){
+"124
+[; ;tmr0.c: 124: void TMR0_SetInterruptHandler(void (* InterruptHandler)(void)){
 [v _TMR0_SetInterruptHandler `(v ~T0 @X0 1 ef1`*F7037 ]
 {
 [e :U _TMR0_SetInterruptHandler ]
 [v _InterruptHandler `*F7039 ~T0 @X0 1 r1 ]
 [f ]
-"124
-[; ;tmr0.c: 124:     TMR0_InterruptHandler = InterruptHandler;
-[e = _TMR0_InterruptHandler _InterruptHandler ]
 "125
-[; ;tmr0.c: 125: }
+[; ;tmr0.c: 125:     TMR0_InterruptHandler = InterruptHandler;
+[e = _TMR0_InterruptHandler _InterruptHandler ]
+"126
+[; ;tmr0.c: 126: }
 [e :UE 975 ]
 }
-"129
-[; ;tmr0.c: 129: void TMR0_DefaultInterruptHandler(void){
+"130
+[; ;tmr0.c: 130: void TMR0_DefaultInterruptHandler(void){
 [v _TMR0_DefaultInterruptHandler `(v ~T0 @X0 1 ef ]
 {
 [e :U _TMR0_DefaultInterruptHandler ]
 [f ]
-"132
-[; ;tmr0.c: 132: }
+"133
+[; ;tmr0.c: 133: }
 [e :UE 976 ]
 }

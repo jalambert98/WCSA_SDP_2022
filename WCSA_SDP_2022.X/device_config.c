@@ -5,6 +5,7 @@
  *
  * Created on January 26, 2022, 8:45 PM
  */
+//------------------------------------------------------------------------------
 
 // CONFIG1
 #pragma config FEXTOSC = OFF    // FEXTOSC External Oscillator mode Selection bits->Oscillator not enabled

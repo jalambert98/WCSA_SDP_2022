@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\Jack\AppData\Local\Temp\xcAs9vc.o
+$C:\Users\Jack\AppData\Local\Temp\xcAsdac.o
 idloc IDLOC 5 8000 8000 4 2 1
 reset_vec CODE 0 0 0 2 2 1
 end_init CODE 0 10 10 2 2 1
@@ -19,25 +19,23 @@ config CONFIG 4 8007 8007 4 2 1
 $dist/default/production\WCSA_SDP_2022.X.production.o
 cinit CODE 0 12 12 11 2 1
 idloc IDLOC 5 8000 8000 4 2 1
-text1 CODE 0 101 101 39 2 1
-text2 CODE 0 18D 18D A 2 1
-text3 CODE 0 1BA 1BA 4 2 1
-text4 CODE 0 175 175 C 2 1
-text5 CODE 0 181 181 C 2 1
-text6 CODE 0 1BE 1BE 4 2 1
-text7 CODE 0 14F 14F 14 2 1
-text8 CODE 0 1B5 1B5 5 2 1
-text9 CODE 0 197 197 A 2 1
-text11 CODE 0 13A 13A 15 2 1
-text12 CODE 0 163 163 12 2 1
-text13 CODE 0 1C2 1C2 1 2 1
-text14 CODE 0 1A1 1A1 A 2 1
-text15 CODE 0 1AB 1AB A 2 1
+text1 CODE 0 73 73 39 2 1
+text2 CODE 0 FF FF A 2 1
+text3 CODE 0 12C 12C 4 2 1
+text4 CODE 0 E7 E7 C 2 1
+text5 CODE 0 F3 F3 C 2 1
+text6 CODE 0 130 130 4 2 1
+text7 CODE 0 C1 C1 14 2 1
+text8 CODE 0 127 127 5 2 1
+text9 CODE 0 109 109 A 2 1
+text11 CODE 0 AC AC 15 2 1
+text12 CODE 0 D5 D5 12 2 1
+text13 CODE 0 134 134 1 2 1
+text14 CODE 0 113 113 A 2 1
+text15 CODE 0 11D 11D A 2 1
 maintext CODE 0 23 23 50 2 1
 cstackCOMMON COMMON 1 70 70 8 1 1
 cstackBANK0 BANK0 1 28 28 8 1 1
-stringtext1 STRCODE 0 73 73 4B 2 1
-stringtext2 STRCODE 0 BE BE 43 2 1
 intentry CODE 0 4 4 C 2 1
 bssBANK0 BANK0 1 20 20 8 1 1
 bssCOMMON COMMON 1 78 78 4 1 1
@@ -72,9 +70,9 @@ BANK7 3A0-3EF 1
 BANK8 420-46F 1
 BANK9 4A0-4EF 1
 CONST 2-3 2
-CONST 1C3-1FFF 2
+CONST 135-1FFF 2
 ENTRY 2-3 2
-ENTRY 1C3-1FFF 2
+ENTRY 135-1FFF 2
 SFR10 500-51F 1
 SFR11 580-59F 1
 SFR12 600-61F 1
@@ -98,7 +96,7 @@ SFR29 E80-EEF 1
 SFR30 F00-F6F 1
 SFR31 F80-FEF 1
 CODE 2-3 2
-CODE 1C3-1FFF 2
+CODE 135-1FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-11F 1
@@ -116,9 +114,9 @@ BIGRAM 2000-23EF 1
 COMMON 7C-7D 1
 EEDATA F000-F0FF 2
 STRCODE 2-3 2
-STRCODE 1C3-1FFF 2
+STRCODE 135-1FFF 2
 STRING 2-3 2
-STRING 1C3-1FFF 2
+STRING 135-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -133,128 +131,128 @@ STRING 1C3-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\WCSA_SDP_2022.X.production.o
-12 cinit CODE >4652:C:\Users\Jack\AppData\Local\Temp\xcAs9vc.s
-12 cinit CODE >4655:C:\Users\Jack\AppData\Local\Temp\xcAs9vc.s
-12 cinit CODE >4679:C:\Users\Jack\AppData\Local\Temp\xcAs9vc.s
-13 cinit CODE >4680:C:\Users\Jack\AppData\Local\Temp\xcAs9vc.s
-14 cinit CODE >4681:C:\Users\Jack\AppData\Local\Temp\xcAs9vc.s
-15 cinit CODE >4682:C:\Users\Jack\AppData\Local\Temp\xcAs9vc.s
-16 cinit CODE >4686:C:\Users\Jack\AppData\Local\Temp\xcAs9vc.s
-17 cinit CODE >4687:C:\Users\Jack\AppData\Local\Temp\xcAs9vc.s
-18 cinit CODE >4688:C:\Users\Jack\AppData\Local\Temp\xcAs9vc.s
-19 cinit CODE >4689:C:\Users\Jack\AppData\Local\Temp\xcAs9vc.s
-1A cinit CODE >4690:C:\Users\Jack\AppData\Local\Temp\xcAs9vc.s
-1B cinit CODE >4691:C:\Users\Jack\AppData\Local\Temp\xcAs9vc.s
-1C cinit CODE >4692:C:\Users\Jack\AppData\Local\Temp\xcAs9vc.s
-1D cinit CODE >4693:C:\Users\Jack\AppData\Local\Temp\xcAs9vc.s
-1E cinit CODE >4694:C:\Users\Jack\AppData\Local\Temp\xcAs9vc.s
-1F cinit CODE >4700:C:\Users\Jack\AppData\Local\Temp\xcAs9vc.s
-1F cinit CODE >4702:C:\Users\Jack\AppData\Local\Temp\xcAs9vc.s
-20 cinit CODE >4703:C:\Users\Jack\AppData\Local\Temp\xcAs9vc.s
-21 cinit CODE >4704:C:\Users\Jack\AppData\Local\Temp\xcAs9vc.s
-4 intentry CODE >70:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
-6 intentry CODE >72:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
-B intentry CODE >73:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
-E intentry CODE >75:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
-1AB text15 CODE >60:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\FR_Timer.c
-1AB text15 CODE >61:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\FR_Timer.c
-1B4 text15 CODE >62:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\FR_Timer.c
-1A1 text14 CODE >54:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\FR_Timer.c
-1A1 text14 CODE >55:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\FR_Timer.c
-1AA text14 CODE >56:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\FR_Timer.c
-1C2 text13 CODE >129:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
-1C2 text13 CODE >132:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
-163 text12 CODE >110:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
-163 text12 CODE >112:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
-166 text12 CODE >113:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
-169 text12 CODE >115:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
-16F text12 CODE >117:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
-174 text12 CODE >119:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
-13A text11 CODE >89:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
-13A text11 CODE >94:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
-13C text11 CODE >96:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
-143 text11 CODE >96:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
-145 text11 CODE >96:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
-149 text11 CODE >99:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
-14C text11 CODE >102:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
-14E text11 CODE >106:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
-197 text9 CODE >42:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\FR_Timer.c
-197 text9 CODE >43:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\FR_Timer.c
-1A0 text9 CODE >44:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\FR_Timer.c
-1B5 text8 CODE >123:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
-1B5 text8 CODE >124:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
-1B9 text8 CODE >125:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
-14F text7 CODE >17:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
-14F text7 CODE >22:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
-152 text7 CODE >25:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
-154 text7 CODE >28:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
-155 text7 CODE >31:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
-156 text7 CODE >34:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
-158 text7 CODE >37:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
-15F text7 CODE >40:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
-162 text7 CODE >41:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
-1BE text6 CODE >35:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\FR_Timer.c
-1BE text6 CODE >36:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\FR_Timer.c
-1C1 text6 CODE >38:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\FR_Timer.c
-181 text5 CODE >18:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
-181 text5 CODE >21:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
-183 text5 CODE >23:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
-184 text5 CODE >25:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
-185 text5 CODE >27:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
-187 text5 CODE >29:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
-188 text5 CODE >31:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
-18C text5 CODE >32:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
-175 text4 CODE >40:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
-175 text4 CODE >43:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
-177 text4 CODE >45:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
-179 text4 CODE >47:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
-17B text4 CODE >49:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
-17D text4 CODE >51:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
-17E text4 CODE >53:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
-180 text4 CODE >54:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
-1BA text3 CODE >34:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
-1BA text3 CODE >37:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
-1BD text3 CODE >38:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
-18D text2 CODE >11:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
-18D text2 CODE >13:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
-190 text2 CODE >14:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
-193 text2 CODE >15:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
-196 text2 CODE >16:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
-101 text1 CODE >16:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
-101 text1 CODE >18:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
-104 text1 CODE >21:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
-106 text1 CODE >22:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
-107 text1 CODE >23:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
-108 text1 CODE >24:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
-109 text1 CODE >25:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
-10A text1 CODE >28:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
-10C text1 CODE >29:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
-10D text1 CODE >30:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
-10E text1 CODE >32:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
-111 text1 CODE >33:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
-113 text1 CODE >34:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
-115 text1 CODE >36:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
-118 text1 CODE >37:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
-11A text1 CODE >38:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
-11C text1 CODE >40:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
-11E text1 CODE >41:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
-11F text1 CODE >42:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
-120 text1 CODE >44:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
-122 text1 CODE >45:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
-123 text1 CODE >46:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
-124 text1 CODE >48:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
-127 text1 CODE >49:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
-129 text1 CODE >50:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
-12B text1 CODE >52:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
-12E text1 CODE >53:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
-130 text1 CODE >54:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
-132 text1 CODE >57:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
-134 text1 CODE >58:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
-135 text1 CODE >59:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
-136 text1 CODE >60:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
-137 text1 CODE >61:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
-138 text1 CODE >63:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
-139 text1 CODE >64:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
+12 cinit CODE >4497:C:\Users\Jack\AppData\Local\Temp\xcAsdac.s
+12 cinit CODE >4500:C:\Users\Jack\AppData\Local\Temp\xcAsdac.s
+12 cinit CODE >4524:C:\Users\Jack\AppData\Local\Temp\xcAsdac.s
+13 cinit CODE >4525:C:\Users\Jack\AppData\Local\Temp\xcAsdac.s
+14 cinit CODE >4526:C:\Users\Jack\AppData\Local\Temp\xcAsdac.s
+15 cinit CODE >4527:C:\Users\Jack\AppData\Local\Temp\xcAsdac.s
+16 cinit CODE >4531:C:\Users\Jack\AppData\Local\Temp\xcAsdac.s
+17 cinit CODE >4532:C:\Users\Jack\AppData\Local\Temp\xcAsdac.s
+18 cinit CODE >4533:C:\Users\Jack\AppData\Local\Temp\xcAsdac.s
+19 cinit CODE >4534:C:\Users\Jack\AppData\Local\Temp\xcAsdac.s
+1A cinit CODE >4535:C:\Users\Jack\AppData\Local\Temp\xcAsdac.s
+1B cinit CODE >4536:C:\Users\Jack\AppData\Local\Temp\xcAsdac.s
+1C cinit CODE >4537:C:\Users\Jack\AppData\Local\Temp\xcAsdac.s
+1D cinit CODE >4538:C:\Users\Jack\AppData\Local\Temp\xcAsdac.s
+1E cinit CODE >4539:C:\Users\Jack\AppData\Local\Temp\xcAsdac.s
+1F cinit CODE >4545:C:\Users\Jack\AppData\Local\Temp\xcAsdac.s
+1F cinit CODE >4547:C:\Users\Jack\AppData\Local\Temp\xcAsdac.s
+20 cinit CODE >4548:C:\Users\Jack\AppData\Local\Temp\xcAsdac.s
+21 cinit CODE >4549:C:\Users\Jack\AppData\Local\Temp\xcAsdac.s
+4 intentry CODE >71:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
+6 intentry CODE >73:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
+B intentry CODE >74:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
+E intentry CODE >76:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
+11D text15 CODE >60:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\FR_Timer.c
+11D text15 CODE >61:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\FR_Timer.c
+126 text15 CODE >62:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\FR_Timer.c
+113 text14 CODE >54:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\FR_Timer.c
+113 text14 CODE >55:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\FR_Timer.c
+11C text14 CODE >56:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\FR_Timer.c
+134 text13 CODE >130:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
+134 text13 CODE >133:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
+D5 text12 CODE >111:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
+D5 text12 CODE >113:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
+D8 text12 CODE >114:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
+DB text12 CODE >116:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
+E1 text12 CODE >118:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
+E6 text12 CODE >120:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
+AC text11 CODE >90:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
+AC text11 CODE >95:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
+AE text11 CODE >97:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
+B5 text11 CODE >97:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
+B7 text11 CODE >97:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
+BB text11 CODE >100:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
+BE text11 CODE >103:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
+C0 text11 CODE >107:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
+109 text9 CODE >42:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\FR_Timer.c
+109 text9 CODE >43:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\FR_Timer.c
+112 text9 CODE >44:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\FR_Timer.c
+127 text8 CODE >124:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
+127 text8 CODE >125:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
+12B text8 CODE >126:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
+C1 text7 CODE >18:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
+C1 text7 CODE >23:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
+C4 text7 CODE >26:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
+C6 text7 CODE >29:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
+C7 text7 CODE >32:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
+C8 text7 CODE >35:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
+CA text7 CODE >38:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
+D1 text7 CODE >41:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
+D4 text7 CODE >42:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr0.c
+130 text6 CODE >35:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\FR_Timer.c
+130 text6 CODE >36:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\FR_Timer.c
+133 text6 CODE >38:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\FR_Timer.c
+F3 text5 CODE >23:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
+F3 text5 CODE >26:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
+F5 text5 CODE >28:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
+F6 text5 CODE >30:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
+F7 text5 CODE >32:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
+F9 text5 CODE >34:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
+FA text5 CODE >36:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
+FE text5 CODE >37:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
+E7 text4 CODE >49:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
+E7 text4 CODE >52:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
+E9 text4 CODE >54:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
+EB text4 CODE >56:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
+ED text4 CODE >58:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
+EF text4 CODE >60:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
+F0 text4 CODE >62:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
+F2 text4 CODE >63:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
+12C text3 CODE >41:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
+12C text3 CODE >44:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
+12F text3 CODE >45:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
+FF text2 CODE >14:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
+FF text2 CODE >16:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
+102 text2 CODE >17:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
+105 text2 CODE >18:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
+108 text2 CODE >19:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
+73 text1 CODE >17:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
+73 text1 CODE >19:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
+76 text1 CODE >22:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
+78 text1 CODE >23:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
+79 text1 CODE >24:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
+7A text1 CODE >25:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
+7B text1 CODE >26:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
+7C text1 CODE >29:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
+7E text1 CODE >30:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
+7F text1 CODE >31:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
+80 text1 CODE >33:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
+83 text1 CODE >34:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
+85 text1 CODE >35:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
+87 text1 CODE >37:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
+8A text1 CODE >38:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
+8C text1 CODE >39:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
+8E text1 CODE >41:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
+90 text1 CODE >42:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
+91 text1 CODE >43:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
+92 text1 CODE >45:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
+94 text1 CODE >46:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
+95 text1 CODE >47:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
+96 text1 CODE >49:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
+99 text1 CODE >50:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
+9B text1 CODE >51:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
+9D text1 CODE >53:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
+A0 text1 CODE >54:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
+A2 text1 CODE >55:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
+A4 text1 CODE >58:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
+A6 text1 CODE >59:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
+A7 text1 CODE >60:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
+A8 text1 CODE >61:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
+A9 text1 CODE >62:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
+AA text1 CODE >64:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
+AB text1 CODE >65:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
 23 maintext CODE >71:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\FR_Timer.c
 23 maintext CODE >75:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\FR_Timer.c
 23 maintext CODE >76:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\FR_Timer.c
@@ -279,15 +277,15 @@ E intentry CODE >75:C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\P
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
 ___latbits 2 0 ABS 0 - dist/default/production\WCSA_SDP_2022.X.production.o
-__Hspace_0 1C3 0 ABS 0 - -
+__Hspace_0 135 0 ABS 0 - -
 __Hspace_1 7C 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 10012 0 ABS 0 - -
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
-_FR_Timer_Init 37C 0 CODE 0 text6 dist/default/production\WCSA_SDP_2022.X.production.o
-_PMD_Initialize 2EA 0 CODE 0 text4 dist/default/production\WCSA_SDP_2022.X.production.o
-__end_of_WDT_Initialize 37C 0 CODE 0 text3 dist/default/production\WCSA_SDP_2022.X.production.o
+_FR_Timer_Init 260 0 CODE 0 text6 dist/default/production\WCSA_SDP_2022.X.production.o
+_PMD_Initialize 1CE 0 CODE 0 text4 dist/default/production\WCSA_SDP_2022.X.production.o
+__end_of_WDT_Initialize 260 0 CODE 0 text3 dist/default/production\WCSA_SDP_2022.X.production.o
 __Hstrings 0 0 ABS 0 strings -
 _LATA 10C 0 ABS 0 - dist/default/production\WCSA_SDP_2022.X.production.o
 _LATB 10D 0 ABS 0 - dist/default/production\WCSA_SDP_2022.X.production.o
@@ -312,42 +310,42 @@ _PMD5 916 0 ABS 0 - dist/default/production\WCSA_SDP_2022.X.production.o
 _WPUA 20C 0 ABS 0 - dist/default/production\WCSA_SDP_2022.X.production.o
 _WPUB 20D 0 ABS 0 - dist/default/production\WCSA_SDP_2022.X.production.o
 _WPUC 20E 0 ABS 0 - dist/default/production\WCSA_SDP_2022.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\Jack\AppData\Local\Temp\xcAs9vc.o
+___sp 0 0 STACK 2 stack C:\Users\Jack\AppData\Local\Temp\xcAsdac.o
 __end_of_InterruptManager 20 0 CODE 0 intentry dist/default/production\WCSA_SDP_2022.X.production.o
 _main 46 0 CODE 0 maintext dist/default/production\WCSA_SDP_2022.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\WCSA_SDP_2022.X.production.o
-start 20 0 CODE 0 init C:\Users\Jack\AppData\Local\Temp\xcAs9vc.o
+start 20 0 CODE 0 init C:\Users\Jack\AppData\Local\Temp\xcAsdac.o
 _TMR0_InterruptHandler 7A 0 COMMON 1 bssCOMMON dist/default/production\WCSA_SDP_2022.X.production.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
-__end_of_TMR0_SetInterruptHandler 374 0 CODE 0 text8 dist/default/production\WCSA_SDP_2022.X.production.o
+__end_of_TMR0_SetInterruptHandler 258 0 CODE 0 text8 dist/default/production\WCSA_SDP_2022.X.production.o
 main@currMilli 2C 0 BANK0 1 cstackBANK0 dist/default/production\WCSA_SDP_2022.X.production.o
 __Hpowerup 0 0 CODE 0 powerup -
-__end_of_PIC16_Init 274 0 CODE 0 text1 dist/default/production\WCSA_SDP_2022.X.production.o
+__end_of_PIC16_Init 158 0 CODE 0 text1 dist/default/production\WCSA_SDP_2022.X.production.o
 TMR0_SetInterruptHandler@InterruptHandler 70 0 COMMON 1 cstackCOMMON dist/default/production\WCSA_SDP_2022.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\Jack\AppData\Local\Temp\xcAs9vc.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\Jack\AppData\Local\Temp\xcAs9vc.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\Jack\AppData\Local\Temp\xcAs9vc.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\Jack\AppData\Local\Temp\xcAs9vc.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\Jack\AppData\Local\Temp\xcAs9vc.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\Jack\AppData\Local\Temp\xcAs9vc.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\Jack\AppData\Local\Temp\xcAsdac.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\Jack\AppData\Local\Temp\xcAsdac.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\Jack\AppData\Local\Temp\xcAsdac.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\Jack\AppData\Local\Temp\xcAsdac.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\Jack\AppData\Local\Temp\xcAsdac.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\Jack\AppData\Local\Temp\xcAsdac.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 wtemp0 7E 0 ABS 0 - dist/default/production\WCSA_SDP_2022.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
-__end_of_PMD_Initialize 302 0 CODE 0 text4 dist/default/production\WCSA_SDP_2022.X.production.o
+__end_of_PMD_Initialize 1E6 0 CODE 0 text4 dist/default/production\WCSA_SDP_2022.X.production.o
 __Hclrtext 0 0 ABS 0 clrtext -
 ?_FR_Timer_GetMillis 70 0 COMMON 1 cstackCOMMON dist/default/production\WCSA_SDP_2022.X.production.o
 _ANSELA 18C 0 ABS 0 - dist/default/production\WCSA_SDP_2022.X.production.o
 _ANSELB 18D 0 ABS 0 - dist/default/production\WCSA_SDP_2022.X.production.o
 _ANSELC 18E 0 ABS 0 - dist/default/production\WCSA_SDP_2022.X.production.o
-_TMR0_DefaultInterruptHandler 384 0 CODE 0 text13 dist/default/production\WCSA_SDP_2022.X.production.o
+_TMR0_DefaultInterruptHandler 268 0 CODE 0 text13 dist/default/production\WCSA_SDP_2022.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
 _INLVLA 38C 0 ABS 0 - dist/default/production\WCSA_SDP_2022.X.production.o
 _INLVLB 38D 0 ABS 0 - dist/default/production\WCSA_SDP_2022.X.production.o
 _INLVLC 38E 0 ABS 0 - dist/default/production\WCSA_SDP_2022.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\Jack\AppData\Local\Temp\xcAs9vc.o
-___stacklo 0 0 ABS 0 - C:\Users\Jack\AppData\Local\Temp\xcAs9vc.o
+___stackhi 0 0 ABS 0 - C:\Users\Jack\AppData\Local\Temp\xcAsdac.o
+___stacklo 0 0 ABS 0 - C:\Users\Jack\AppData\Local\Temp\xcAsdac.o
 start_initialization 24 0 CODE 0 cinit dist/default/production\WCSA_SDP_2022.X.production.o
-__end_of_FR_Timer_Init 384 0 CODE 0 text6 dist/default/production\WCSA_SDP_2022.X.production.o
+__end_of_FR_Timer_Init 268 0 CODE 0 text6 dist/default/production\WCSA_SDP_2022.X.production.o
 _ODCONA 28C 0 ABS 0 - dist/default/production\WCSA_SDP_2022.X.production.o
 _ODCONB 28D 0 ABS 0 - dist/default/production\WCSA_SDP_2022.X.production.o
 _ODCONC 28E 0 ABS 0 - dist/default/production\WCSA_SDP_2022.X.production.o
@@ -355,13 +353,13 @@ _OSCFRQ 91F 0 ABS 0 - dist/default/production\WCSA_SDP_2022.X.production.o
 _TRISAbits 8C 0 ABS 0 - dist/default/production\WCSA_SDP_2022.X.production.o
 _TRISBbits 8D 0 ABS 0 - dist/default/production\WCSA_SDP_2022.X.production.o
 _TRISCbits 8E 0 ABS 0 - dist/default/production\WCSA_SDP_2022.X.production.o
-__end_of_SYSTEM_Initialize 32E 0 CODE 0 text2 dist/default/production\WCSA_SDP_2022.X.production.o
+__end_of_SYSTEM_Initialize 212 0 CODE 0 text2 dist/default/production\WCSA_SDP_2022.X.production.o
 __pcstackBANK0 28 0 BANK0 1 cstackBANK0 dist/default/production\WCSA_SDP_2022.X.production.o
 _T0CON0 17 0 ABS 0 - dist/default/production\WCSA_SDP_2022.X.production.o
 _T0CON1 18 0 ABS 0 - dist/default/production\WCSA_SDP_2022.X.production.o
 main@prevMilli 28 0 BANK0 1 cstackBANK0 dist/default/production\WCSA_SDP_2022.X.production.o
 _WDTCON 97 0 ABS 0 - dist/default/production\WCSA_SDP_2022.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\Jack\AppData\Local\Temp\xcAs9vc.o
+___int_sp 0 0 STACK 2 stack C:\Users\Jack\AppData\Local\Temp\xcAsdac.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -419,7 +417,7 @@ __Hbank28 0 0 BANK28 1 bank28 -
 __Hbank29 0 0 BANK29 1 bank29 -
 __Hbank30 0 0 BANK30 1 bank30 -
 __Hbank31 0 0 BANK31 1 bank31 -
-__end_of_FR_Timer_GetMillis 342 0 CODE 0 text9 dist/default/production\WCSA_SDP_2022.X.production.o
+__end_of_FR_Timer_GetMillis 226 0 CODE 0 text9 dist/default/production\WCSA_SDP_2022.X.production.o
 __Hbigram 0 0 ABS 0 bigram -
 __Hmaintext 0 0 ABS 0 maintext -
 __Hcommon 0 0 ABS 0 common -
@@ -490,39 +488,33 @@ __Lsfr7 0 0 ABS 0 sfr7 -
 __Lsfr8 0 0 ABS 0 sfr8 -
 __Lsfr9 0 0 ABS 0 sfr9 -
 __Ltext 0 0 ABS 0 text -
-__pstringtext1 E6 0 STRCODE 0 stringtext1 dist/default/production\WCSA_SDP_2022.X.production.o
-__pstringtext2 17C 0 STRCODE 0 stringtext2 dist/default/production\WCSA_SDP_2022.X.production.o
-__pstringtext3 0 0 STRCODE 0 stringtext3 dist/default/production\WCSA_SDP_2022.X.production.o
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 -
 int$flags 7E 0 ABS 0 - dist/default/production\WCSA_SDP_2022.X.production.o
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
-__S0 1C3 0 ABS 0 - -
+__S0 135 0 ABS 0 - -
 __S1 7C 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
-_FR_Timer_GetMillis 32E 0 CODE 0 text9 dist/default/production\WCSA_SDP_2022.X.production.o
-__end_of_TMR0_DefaultInterruptHandler 386 0 CODE 0 text13 dist/default/production\WCSA_SDP_2022.X.production.o
-_TMR0_CallBack 2C6 0 CODE 0 text12 dist/default/production\WCSA_SDP_2022.X.production.o
-__end_of_FR_Timer_IncMicros 36A 0 CODE 0 text15 dist/default/production\WCSA_SDP_2022.X.production.o
-__end_of_FR_Timer_IncMillis 356 0 CODE 0 text14 dist/default/production\WCSA_SDP_2022.X.production.o
-_SYSTEM_Initialize 31A 0 CODE 0 text2 dist/default/production\WCSA_SDP_2022.X.production.o
+_FR_Timer_GetMillis 212 0 CODE 0 text9 dist/default/production\WCSA_SDP_2022.X.production.o
+__end_of_TMR0_DefaultInterruptHandler 26A 0 CODE 0 text13 dist/default/production\WCSA_SDP_2022.X.production.o
+_TMR0_CallBack 1AA 0 CODE 0 text12 dist/default/production\WCSA_SDP_2022.X.production.o
+__end_of_FR_Timer_IncMicros 24E 0 CODE 0 text15 dist/default/production\WCSA_SDP_2022.X.production.o
+__end_of_FR_Timer_IncMillis 23A 0 CODE 0 text14 dist/default/production\WCSA_SDP_2022.X.production.o
+_SYSTEM_Initialize 1FE 0 CODE 0 text2 dist/default/production\WCSA_SDP_2022.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\Jack\AppData\Local\Temp\xcAs9vc.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\Jack\AppData\Local\Temp\xcAsdac.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
-__Lstringtext1 0 0 ABS 0 stringtext1 -
-__Lstringtext2 0 0 ABS 0 stringtext2 -
-__Lstringtext3 0 0 ABS 0 stringtext3 -
 _PIE0bits 90 0 ABS 0 - dist/default/production\WCSA_SDP_2022.X.production.o
 _micros 20 0 BANK0 1 bssBANK0 dist/default/production\WCSA_SDP_2022.X.production.o
 _millis 24 0 BANK0 1 bssBANK0 dist/default/production\WCSA_SDP_2022.X.production.o
-_FR_Timer_IncMicros 356 0 CODE 0 text15 dist/default/production\WCSA_SDP_2022.X.production.o
-_FR_Timer_IncMillis 342 0 CODE 0 text14 dist/default/production\WCSA_SDP_2022.X.production.o
-_TMR0_ISR 274 0 CODE 0 text11 dist/default/production\WCSA_SDP_2022.X.production.o
-__ptext11 274 0 CODE 0 text11 dist/default/production\WCSA_SDP_2022.X.production.o
-__ptext12 2C6 0 CODE 0 text12 dist/default/production\WCSA_SDP_2022.X.production.o
-__ptext13 384 0 CODE 0 text13 dist/default/production\WCSA_SDP_2022.X.production.o
-__ptext14 342 0 CODE 0 text14 dist/default/production\WCSA_SDP_2022.X.production.o
-__ptext15 356 0 CODE 0 text15 dist/default/production\WCSA_SDP_2022.X.production.o
-__end_of_TMR0_Initialize 2C6 0 CODE 0 text7 dist/default/production\WCSA_SDP_2022.X.production.o
+_FR_Timer_IncMicros 23A 0 CODE 0 text15 dist/default/production\WCSA_SDP_2022.X.production.o
+_FR_Timer_IncMillis 226 0 CODE 0 text14 dist/default/production\WCSA_SDP_2022.X.production.o
+_TMR0_ISR 158 0 CODE 0 text11 dist/default/production\WCSA_SDP_2022.X.production.o
+__ptext11 158 0 CODE 0 text11 dist/default/production\WCSA_SDP_2022.X.production.o
+__ptext12 1AA 0 CODE 0 text12 dist/default/production\WCSA_SDP_2022.X.production.o
+__ptext13 268 0 CODE 0 text13 dist/default/production\WCSA_SDP_2022.X.production.o
+__ptext14 226 0 CODE 0 text14 dist/default/production\WCSA_SDP_2022.X.production.o
+__ptext15 23A 0 CODE 0 text15 dist/default/production\WCSA_SDP_2022.X.production.o
+__end_of_TMR0_Initialize 1AA 0 CODE 0 text7 dist/default/production\WCSA_SDP_2022.X.production.o
 __Lbank10 0 0 ABS 0 bank10 -
 __Lbank11 0 0 ABS 0 bank11 -
 __Lbank12 0 0 ABS 0 bank12 -
@@ -549,12 +541,12 @@ __pmaintext 46 0 CODE 0 maintext dist/default/production\WCSA_SDP_2022.X.product
 __Lbigram 0 0 ABS 0 bigram -
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
-__end_of_TMR0_ISR 29E 0 CODE 0 text11 dist/default/production\WCSA_SDP_2022.X.production.o
+__end_of_TMR0_ISR 182 0 CODE 0 text11 dist/default/production\WCSA_SDP_2022.X.production.o
 _LATAbits 10C 0 ABS 0 - dist/default/production\WCSA_SDP_2022.X.production.o
 _LATBbits 10D 0 ABS 0 - dist/default/production\WCSA_SDP_2022.X.production.o
 _LATCbits 10E 0 ABS 0 - dist/default/production\WCSA_SDP_2022.X.production.o
 TMR0_ISR@CountCallBack 78 0 COMMON 1 bssCOMMON dist/default/production\WCSA_SDP_2022.X.production.o
-_TMR0_SetInterruptHandler 36A 0 CODE 0 text8 dist/default/production\WCSA_SDP_2022.X.production.o
+_TMR0_SetInterruptHandler 24E 0 CODE 0 text8 dist/default/production\WCSA_SDP_2022.X.production.o
 _OSCCON1 919 0 ABS 0 - dist/default/production\WCSA_SDP_2022.X.production.o
 _OSCCON3 91B 0 ABS 0 - dist/default/production\WCSA_SDP_2022.X.production.o
 _OSCTUNE 91E 0 ABS 0 - dist/default/production\WCSA_SDP_2022.X.production.o
@@ -569,32 +561,29 @@ _PIR0bits 10 0 ABS 0 - dist/default/production\WCSA_SDP_2022.X.production.o
 __Lend_init 20 0 CODE 0 end_init -
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 end_of_initialization 3E 0 CODE 0 cinit dist/default/production\WCSA_SDP_2022.X.production.o
-_TMR0_Initialize 29E 0 CODE 0 text7 dist/default/production\WCSA_SDP_2022.X.production.o
+_TMR0_Initialize 182 0 CODE 0 text7 dist/default/production\WCSA_SDP_2022.X.production.o
 __Hintentry 20 0 CODE 0 intentry -
 __Lstrings 0 0 ABS 0 strings -
 __Hreset_vec 4 0 CODE 0 reset_vec -
 __HbssBANK0 0 0 ABS 0 bssBANK0 -
-__ptext1 202 0 CODE 0 text1 dist/default/production\WCSA_SDP_2022.X.production.o
-__ptext2 31A 0 CODE 0 text2 dist/default/production\WCSA_SDP_2022.X.production.o
-__ptext3 374 0 CODE 0 text3 dist/default/production\WCSA_SDP_2022.X.production.o
-__ptext4 2EA 0 CODE 0 text4 dist/default/production\WCSA_SDP_2022.X.production.o
-__ptext5 302 0 CODE 0 text5 dist/default/production\WCSA_SDP_2022.X.production.o
-__ptext6 37C 0 CODE 0 text6 dist/default/production\WCSA_SDP_2022.X.production.o
-__ptext7 29E 0 CODE 0 text7 dist/default/production\WCSA_SDP_2022.X.production.o
-__ptext8 36A 0 CODE 0 text8 dist/default/production\WCSA_SDP_2022.X.production.o
-__ptext9 32E 0 CODE 0 text9 dist/default/production\WCSA_SDP_2022.X.production.o
-__end_of_TMR0_CallBack 2EA 0 CODE 0 text12 dist/default/production\WCSA_SDP_2022.X.production.o
+__ptext1 E6 0 CODE 0 text1 dist/default/production\WCSA_SDP_2022.X.production.o
+__ptext2 1FE 0 CODE 0 text2 dist/default/production\WCSA_SDP_2022.X.production.o
+__ptext3 258 0 CODE 0 text3 dist/default/production\WCSA_SDP_2022.X.production.o
+__ptext4 1CE 0 CODE 0 text4 dist/default/production\WCSA_SDP_2022.X.production.o
+__ptext5 1E6 0 CODE 0 text5 dist/default/production\WCSA_SDP_2022.X.production.o
+__ptext6 260 0 CODE 0 text6 dist/default/production\WCSA_SDP_2022.X.production.o
+__ptext7 182 0 CODE 0 text7 dist/default/production\WCSA_SDP_2022.X.production.o
+__ptext8 24E 0 CODE 0 text8 dist/default/production\WCSA_SDP_2022.X.production.o
+__ptext9 212 0 CODE 0 text9 dist/default/production\WCSA_SDP_2022.X.production.o
+__end_of_TMR0_CallBack 1CE 0 CODE 0 text12 dist/default/production\WCSA_SDP_2022.X.production.o
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 __Lreset_vec 0 0 CODE 0 reset_vec -
-__Hstringtext1 0 0 ABS 0 stringtext1 -
-__Hstringtext2 0 0 ABS 0 stringtext2 -
-__Hstringtext3 0 0 ABS 0 stringtext3 -
 _SLRCONA 30C 0 ABS 0 - dist/default/production\WCSA_SDP_2022.X.production.o
 _SLRCONB 30D 0 ABS 0 - dist/default/production\WCSA_SDP_2022.X.production.o
 _SLRCONC 30E 0 ABS 0 - dist/default/production\WCSA_SDP_2022.X.production.o
-___heap_hi 0 0 ABS 0 - C:\Users\Jack\AppData\Local\Temp\xcAs9vc.o
-___heap_lo 0 0 ABS 0 - C:\Users\Jack\AppData\Local\Temp\xcAs9vc.o
+___heap_hi 0 0 ABS 0 - C:\Users\Jack\AppData\Local\Temp\xcAsdac.o
+___heap_lo 0 0 ABS 0 - C:\Users\Jack\AppData\Local\Temp\xcAsdac.o
 __end_of__initialization 3E 0 CODE 0 cinit dist/default/production\WCSA_SDP_2022.X.production.o
 __Lfunctab 0 0 ENTRY 0 functab -
 __Lclrtext 0 0 ABS 0 clrtext -
@@ -611,13 +600,13 @@ _TRISB 8D 0 ABS 0 - dist/default/production\WCSA_SDP_2022.X.production.o
 _TRISC 8E 0 ABS 0 - dist/default/production\WCSA_SDP_2022.X.production.o
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
-_WDT_Initialize 374 0 CODE 0 text3 dist/default/production\WCSA_SDP_2022.X.production.o
+_WDT_Initialize 258 0 CODE 0 text3 dist/default/production\WCSA_SDP_2022.X.production.o
 __pintentry 8 0 CODE 0 intentry dist/default/production\WCSA_SDP_2022.X.production.o
-__end_of_OSCILLATOR_Initialize 31A 0 CODE 0 text5 dist/default/production\WCSA_SDP_2022.X.production.o
+__end_of_OSCILLATOR_Initialize 1FE 0 CODE 0 text5 dist/default/production\WCSA_SDP_2022.X.production.o
 __initialization 24 0 CODE 0 cinit dist/default/production\WCSA_SDP_2022.X.production.o
 __pbssBANK0 20 0 BANK0 1 bssBANK0 dist/default/production\WCSA_SDP_2022.X.production.o
-_PIC16_Init 202 0 CODE 0 text1 dist/default/production\WCSA_SDP_2022.X.production.o
-_OSCILLATOR_Initialize 302 0 CODE 0 text5 dist/default/production\WCSA_SDP_2022.X.production.o
+_PIC16_Init E6 0 CODE 0 text1 dist/default/production\WCSA_SDP_2022.X.production.o
+_OSCILLATOR_Initialize 1E6 0 CODE 0 text5 dist/default/production\WCSA_SDP_2022.X.production.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -643,10 +632,8 @@ _OSCILLATOR_Initialize 302 0 CODE 0 text5 dist/default/production\WCSA_SDP_2022.
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-text1 0 101 202 C2 2
 cstackCOMMON 1 70 70 C 1
-stringtext1 0 73 E6 8E 2
-intentry 0 4 8 6F 2
+intentry 0 4 8 131 2
 reset_vec 0 0 0 2 2
 bssBANK0 1 20 20 10 1
 # %NOTES Section
