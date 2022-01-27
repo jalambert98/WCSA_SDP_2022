@@ -8,23 +8,14 @@
 
 #include "PIC16Xpress_DevBoard.h"
 #include "FR_Timer.h"
-#include "JSN_Sensor.h"
 
 //==============================================================================
 //------------------------------ PUBLIC LIBRARY --------------------------------
 //==============================================================================
 
-uint8_t PIC16_Init(void) {
-    INTCONbits.GIE = 0b0;   // Temporarily disable global interrupts
-    
-    // All peripherals enabled by default - (setting to 1 disables)
-    // Disable unnecessary timers, etc to reduce power consumption
-    PMD0 = 0x00;            // enables CPUclk, FVR, NVM, & IOC
-    PMD1 = 0b01010100;      // disables TMR[6,4,2]
-    PMD2 = 0b00100000;      // disables ADC unit
-    PMD3 = 0b11001000;      // disables CWG[2,1] & CCP4
-    PMD4 = 0x00;            // enables UART & MSSP
-    PMD5 = 0b00011111;      // disables CLC[4,3,2,1] & DSM
+void PIC16_Init(void) {
+    // Initialize hardware libraries
+    SYSTEM_Initialize();
     
     // Manually disable all peripheral interrupts
     PIE0 = 0x00;
@@ -33,6 +24,35 @@ uint8_t PIC16_Init(void) {
     PIE3 = 0x00;
     PIE4 = 0x00;
     
+    // Initialize GPIO pins
+    LATA = 0x00;
+    LATB = 0x00;
+    LATC = 0x00;
+    
+    TRISA = 0x37;
+    TRISB = 0xF0;
+    TRISC = 0xFF;
+    
+    ANSELC = 0xFF;
+    ANSELB = 0xF0;
+    ANSELA = 0x37;
+    
+    WPUB = 0x00;
+    WPUA = 0x00;
+    WPUC = 0x00;
+    
+    ODCONA = 0x00;
+    ODCONB = 0x00;
+    ODCONC = 0x00;
+    
+    SLRCONA = 0x37;
+    SLRCONB = 0xF0;
+    SLRCONC = 0xFF;
+    
+    INLVLA = 0x3F;
+    INLVLB = 0xF0;
+    INLVLC = 0xFF;
+    
     // Manually clear any existing interrupt flags
     PIR0 = 0x00;
     PIR1 = 0x00;
@@ -40,27 +60,20 @@ uint8_t PIC16_Init(void) {
     PIR3 = 0x00;
     PIR4 = 0x00;
     
-    // --- Configure system clock for [F_osc = 8MHz] --- //
-    OSCCON1 = 0b01100000;       // Selects HFINTOSC (no PLL) with 1:1 scaling
-    while(!OSCCON3bits.ORDY);   // Wait until oscillator is ready
-    OSCCON3bits.SOSCBE = HIGH;  // Disables secondary oscillator
-    OSCEN = 0b01000000;         // Explicitly enables HFINTOSC
-    OSCFRQ = 0b00000100;        // Configures HFINTOSC to [F_osc = 8MHz]
-    
     INTCONbits.GIE = HIGH;      // Enable global interrupts
-    return SUCCESS;
 }
 
-//------------------------------------------------------------------------------
+//==============================================================================
+//----------------------- General Purpose ISR Manager --------------------------
+//==============================================================================
 
-void __interrupt() ISR(void) {
-    // FreeRunningTimer [TMR0]
-    if(PIR0bits.TMR0IF == HIGH) {
+void __interrupt() InterruptManager (void)
+{
+    if(PIE0bits.TMR0IE && PIR0bits.TMR0IF) {
         FR_Timer_IncMillis();
         FR_Timer_IncMicros();
         PIR0bits.TMR0IF = LOW;
     }
-    return;
 }
 
 

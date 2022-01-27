@@ -1,13 +1,13 @@
 Version 4.0 HI-TECH Software Intermediate Code
 "32 JSN_Sensor.c
 [; ;JSN_Sensor.c: 32: uint8_t JSN_Sensor_Init(JSN_t *Sensor, PinName_t trigPin, PinName_t echoPin) {
-[c E6654 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 .. ]
-[n E6654 . A5 A4 A3 C5 C4 C3 C6 C7 B7 A0 A1 A2 C0 C1 C2 B4 B5 B6  ]
+[c E6976 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 .. ]
+[n E6976 . A5 A4 A3 C5 C4 C3 C6 C7 B7 A0 A1 A2 C0 C1 C2 B4 B5 B6  ]
 "27 ./JSN_Sensor.h
 [; ;./JSN_Sensor.h: 27: typedef struct {
-[s S963 `ui 1 `ui 1 `E6654 1 `E6654 1 ]
-[n S963 . echoHighTime distance trigPin echoPin ]
-"1557 C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\PIC16F18345.h
+[s S965 `ui 1 `ui 1 `E6976 1 `E6976 1 ]
+[n S965 . echoHighTime distance trigPin echoPin ]
+"1557 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
 [s S86 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S86 . TRISA0 TRISA1 TRISA2 . TRISA4 TRISA5 ]
 "1556
@@ -26,7 +26,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "105 C:\Program Files\Microchip\xc8\v2.35\pic\include\c99\stdio.h
 [; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\c99\stdio.h: 105: int printf(const char *restrict, ...);
 [v _printf `(i ~T0 @X0 0 ev`*Cuc ]
-"2300 C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\PIC16F18345.h
+"2300 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
 [s S119 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S119 . LATA0 LATA1 LATA2 . LATA4 LATA5 ]
 "2299
@@ -58,8 +58,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S120 . . ]
 "2353
 [v _LATBbits `VS120 ~T0 @X0 0 e@269 ]
-[p mainexit ]
-"55 C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\PIC16F18345.h
+"55 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
 [; <" INDF0 equ 00h ;# ">
 "75
 [; <" INDF1 equ 01h ;# ">
@@ -781,12 +780,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "32
 [; ;JSN_Sensor.c: 32: uint8_t JSN_Sensor_Init(JSN_t *Sensor, PinName_t trigPin, PinName_t echoPin) {
-[v _JSN_Sensor_Init `(uc ~T0 @X0 1 ef3`*S963`E6654`E6654 ]
+[v _JSN_Sensor_Init `(uc ~T0 @X0 1 ef3`*S965`E6976`E6976 ]
 {
 [e :U _JSN_Sensor_Init ]
-[v _Sensor `*S963 ~T0 @X0 1 r1 ]
-[v _trigPin `E6654 ~T0 @X0 1 r2 ]
-[v _echoPin `E6654 ~T0 @X0 1 r3 ]
+[v _Sensor `*S965 ~T0 @X0 1 r1 ]
+[v _trigPin `E6976 ~T0 @X0 1 r2 ]
+[v _echoPin `E6976 ~T0 @X0 1 r3 ]
 [f ]
 "35
 [; ;JSN_Sensor.c: 35:     switch(echoPin) {
@@ -796,7 +795,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;JSN_Sensor.c: 36:         case A2:
 [e :U 970 ]
 "37
-[; ;JSN_Sensor.c: 37:             TRISAbits.TRISA2 = 0b1;
+[; ;JSN_Sensor.c: 37:             TRISAbits.TRISA2 = 1;
 [e = . . _TRISAbits 0 2 -> -> 1 `i `uc ]
 "38
 [; ;JSN_Sensor.c: 38:             break;
@@ -805,7 +804,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;JSN_Sensor.c: 39:         case A4:
 [e :U 971 ]
 "40
-[; ;JSN_Sensor.c: 40:             TRISAbits.TRISA4 = 0b1;
+[; ;JSN_Sensor.c: 40:             TRISAbits.TRISA4 = 1;
 [e = . . _TRISAbits 0 4 -> -> 1 `i `uc ]
 "41
 [; ;JSN_Sensor.c: 41:             break;
@@ -814,7 +813,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;JSN_Sensor.c: 42:         case C3:
 [e :U 972 ]
 "43
-[; ;JSN_Sensor.c: 43:             TRISCbits.TRISC3 = 0b1;
+[; ;JSN_Sensor.c: 43:             TRISCbits.TRISC3 = 1;
 [e = . . _TRISCbits 0 3 -> -> 1 `i `uc ]
 "44
 [; ;JSN_Sensor.c: 44:             break;
@@ -823,7 +822,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;JSN_Sensor.c: 45:         case C5:
 [e :U 973 ]
 "46
-[; ;JSN_Sensor.c: 46:             TRISCbits.TRISC5 = 0b1;
+[; ;JSN_Sensor.c: 46:             TRISCbits.TRISC5 = 1;
 [e = . . _TRISCbits 0 5 -> -> 1 `i `uc ]
 "47
 [; ;JSN_Sensor.c: 47:             break;
@@ -843,10 +842,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 968  ]
 [e :U 969 ]
-[e [\ -> _echoPin `ui , $ -> . `E6654 11 `ui 970
- , $ -> . `E6654 1 `ui 971
- , $ -> . `E6654 5 `ui 972
- , $ -> . `E6654 3 `ui 973
+[e [\ -> _echoPin `ui , $ -> . `E6976 11 `ui 970
+ , $ -> . `E6976 1 `ui 971
+ , $ -> . `E6976 5 `ui 972
+ , $ -> . `E6976 3 `ui 973
  974 ]
 [e :U 968 ]
 "54
@@ -879,10 +878,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;JSN_Sensor.c: 62:         case A5:
 [e :U 982 ]
 "63
-[; ;JSN_Sensor.c: 63:             TRISAbits.TRISA5 = 0b0;
+[; ;JSN_Sensor.c: 63:             TRISAbits.TRISA5 = 0;
 [e = . . _TRISAbits 0 5 -> -> 0 `i `uc ]
 "64
-[; ;JSN_Sensor.c: 64:             LATAbits.LATA5 = 0b0;
+[; ;JSN_Sensor.c: 64:             LATAbits.LATA5 = 0;
 [e = . . _LATAbits 0 5 -> -> 0 `i `uc ]
 "65
 [; ;JSN_Sensor.c: 65:             break;
@@ -891,10 +890,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;JSN_Sensor.c: 66:         case C4:
 [e :U 983 ]
 "67
-[; ;JSN_Sensor.c: 67:             TRISCbits.TRISC4 = 0b0;
+[; ;JSN_Sensor.c: 67:             TRISCbits.TRISC4 = 0;
 [e = . . _TRISCbits 0 4 -> -> 0 `i `uc ]
 "68
-[; ;JSN_Sensor.c: 68:             LATCbits.LATC4 = 0b0;
+[; ;JSN_Sensor.c: 68:             LATCbits.LATC4 = 0;
 [e = . . _LATCbits 0 4 -> -> 0 `i `uc ]
 "69
 [; ;JSN_Sensor.c: 69:             break;
@@ -903,10 +902,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;JSN_Sensor.c: 70:         case C6:
 [e :U 984 ]
 "71
-[; ;JSN_Sensor.c: 71:             TRISCbits.TRISC6 = 0b0;
+[; ;JSN_Sensor.c: 71:             TRISCbits.TRISC6 = 0;
 [e = . . _TRISCbits 0 6 -> -> 0 `i `uc ]
 "72
-[; ;JSN_Sensor.c: 72:             LATCbits.LATC6 = 0b0;
+[; ;JSN_Sensor.c: 72:             LATCbits.LATC6 = 0;
 [e = . . _LATCbits 0 6 -> -> 0 `i `uc ]
 "73
 [; ;JSN_Sensor.c: 73:             break;
@@ -915,10 +914,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;JSN_Sensor.c: 74:         case C7:
 [e :U 985 ]
 "75
-[; ;JSN_Sensor.c: 75:             TRISCbits.TRISC7 = 0b0;
+[; ;JSN_Sensor.c: 75:             TRISCbits.TRISC7 = 0;
 [e = . . _TRISCbits 0 7 -> -> 0 `i `uc ]
 "76
-[; ;JSN_Sensor.c: 76:             LATCbits.LATC7 = 0b0;
+[; ;JSN_Sensor.c: 76:             LATCbits.LATC7 = 0;
 [e = . . _LATCbits 0 7 -> -> 0 `i `uc ]
 "77
 [; ;JSN_Sensor.c: 77:             break;
@@ -927,10 +926,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;JSN_Sensor.c: 78:         case B7:
 [e :U 986 ]
 "79
-[; ;JSN_Sensor.c: 79:             TRISBbits.TRISB7 = 0b0;
+[; ;JSN_Sensor.c: 79:             TRISBbits.TRISB7 = 0;
 [e = . . _TRISBbits 0 4 -> -> 0 `i `uc ]
 "80
-[; ;JSN_Sensor.c: 80:             LATBbits.LATB7 = 0b0;
+[; ;JSN_Sensor.c: 80:             LATBbits.LATB7 = 0;
 [e = . . _LATBbits 0 4 -> -> 0 `i `uc ]
 "81
 [; ;JSN_Sensor.c: 81:             break;
@@ -939,10 +938,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;JSN_Sensor.c: 82:         case B6:
 [e :U 987 ]
 "83
-[; ;JSN_Sensor.c: 83:             TRISBbits.TRISB6 = 0b0;
+[; ;JSN_Sensor.c: 83:             TRISBbits.TRISB6 = 0;
 [e = . . _TRISBbits 0 3 -> -> 0 `i `uc ]
 "84
-[; ;JSN_Sensor.c: 84:             LATBbits.LATB6 = 0b0;
+[; ;JSN_Sensor.c: 84:             LATBbits.LATB6 = 0;
 [e = . . _LATBbits 0 3 -> -> 0 `i `uc ]
 "85
 [; ;JSN_Sensor.c: 85:             break;
@@ -951,10 +950,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;JSN_Sensor.c: 86:         case B5:
 [e :U 988 ]
 "87
-[; ;JSN_Sensor.c: 87:             TRISBbits.TRISB5 = 0b0;
+[; ;JSN_Sensor.c: 87:             TRISBbits.TRISB5 = 0;
 [e = . . _TRISBbits 0 2 -> -> 0 `i `uc ]
 "88
-[; ;JSN_Sensor.c: 88:             LATBbits.LATB5 = 0b0;
+[; ;JSN_Sensor.c: 88:             LATBbits.LATB5 = 0;
 [e = . . _LATBbits 0 2 -> -> 0 `i `uc ]
 "89
 [; ;JSN_Sensor.c: 89:             break;
@@ -963,10 +962,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;JSN_Sensor.c: 90:         case B4:
 [e :U 989 ]
 "91
-[; ;JSN_Sensor.c: 91:             TRISBbits.TRISB4 = 0b0;
+[; ;JSN_Sensor.c: 91:             TRISBbits.TRISB4 = 0;
 [e = . . _TRISBbits 0 1 -> -> 0 `i `uc ]
 "92
-[; ;JSN_Sensor.c: 92:             LATBbits.LATB4 = 0b0;
+[; ;JSN_Sensor.c: 92:             LATBbits.LATB4 = 0;
 [e = . . _LATBbits 0 1 -> -> 0 `i `uc ]
 "93
 [; ;JSN_Sensor.c: 93:             break;
@@ -975,10 +974,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;JSN_Sensor.c: 94:         case C2:
 [e :U 990 ]
 "95
-[; ;JSN_Sensor.c: 95:             TRISCbits.TRISC2 = 0b0;
+[; ;JSN_Sensor.c: 95:             TRISCbits.TRISC2 = 0;
 [e = . . _TRISCbits 0 2 -> -> 0 `i `uc ]
 "96
-[; ;JSN_Sensor.c: 96:             LATCbits.LATC2 = 0b0;
+[; ;JSN_Sensor.c: 96:             LATCbits.LATC2 = 0;
 [e = . . _LATCbits 0 2 -> -> 0 `i `uc ]
 "97
 [; ;JSN_Sensor.c: 97:             break;
@@ -987,10 +986,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;JSN_Sensor.c: 98:         case C1:
 [e :U 991 ]
 "99
-[; ;JSN_Sensor.c: 99:             TRISCbits.TRISC1 = 0b0;
+[; ;JSN_Sensor.c: 99:             TRISCbits.TRISC1 = 0;
 [e = . . _TRISCbits 0 1 -> -> 0 `i `uc ]
 "100
-[; ;JSN_Sensor.c: 100:             LATCbits.LATC1 = 0b0;
+[; ;JSN_Sensor.c: 100:             LATCbits.LATC1 = 0;
 [e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
 "101
 [; ;JSN_Sensor.c: 101:             break;
@@ -999,10 +998,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;JSN_Sensor.c: 102:         case C0:
 [e :U 992 ]
 "103
-[; ;JSN_Sensor.c: 103:             TRISCbits.TRISC0 = 0b0;
+[; ;JSN_Sensor.c: 103:             TRISCbits.TRISC0 = 0;
 [e = . . _TRISCbits 0 0 -> -> 0 `i `uc ]
 "104
-[; ;JSN_Sensor.c: 104:             LATCbits.LATC0 = 0b0;
+[; ;JSN_Sensor.c: 104:             LATCbits.LATC0 = 0;
 [e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
 "105
 [; ;JSN_Sensor.c: 105:             break;
@@ -1011,10 +1010,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;JSN_Sensor.c: 106:         case A1:
 [e :U 993 ]
 "107
-[; ;JSN_Sensor.c: 107:             TRISAbits.TRISA1 = 0b0;
+[; ;JSN_Sensor.c: 107:             TRISAbits.TRISA1 = 0;
 [e = . . _TRISAbits 0 1 -> -> 0 `i `uc ]
 "108
-[; ;JSN_Sensor.c: 108:             LATAbits.LATA1 = 0b0;
+[; ;JSN_Sensor.c: 108:             LATAbits.LATA1 = 0;
 [e = . . _LATAbits 0 1 -> -> 0 `i `uc ]
 "109
 [; ;JSN_Sensor.c: 109:             break;
@@ -1023,10 +1022,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;JSN_Sensor.c: 110:         case A0:
 [e :U 994 ]
 "111
-[; ;JSN_Sensor.c: 111:             TRISAbits.TRISA0 = 0b0;
+[; ;JSN_Sensor.c: 111:             TRISAbits.TRISA0 = 0;
 [e = . . _TRISAbits 0 0 -> -> 0 `i `uc ]
 "112
-[; ;JSN_Sensor.c: 112:             LATAbits.LATA0 = 0b0;
+[; ;JSN_Sensor.c: 112:             LATAbits.LATA0 = 0;
 [e = . . _LATAbits 0 0 -> -> 0 `i `uc ]
 "113
 [; ;JSN_Sensor.c: 113:             break;
@@ -1036,24 +1035,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 975  ]
 [e :U 976 ]
-[e [\ -> _trigPin `ui , $ -> . `E6654 11 `ui 977
- , $ -> . `E6654 1 `ui 978
- , $ -> . `E6654 5 `ui 979
- , $ -> . `E6654 3 `ui 980
- , $ -> . `E6654 2 `ui 981
- , $ -> . `E6654 0 `ui 982
- , $ -> . `E6654 4 `ui 983
- , $ -> . `E6654 6 `ui 984
- , $ -> . `E6654 7 `ui 985
- , $ -> . `E6654 8 `ui 986
- , $ -> . `E6654 17 `ui 987
- , $ -> . `E6654 16 `ui 988
- , $ -> . `E6654 15 `ui 989
- , $ -> . `E6654 14 `ui 990
- , $ -> . `E6654 13 `ui 991
- , $ -> . `E6654 12 `ui 992
- , $ -> . `E6654 10 `ui 993
- , $ -> . `E6654 9 `ui 994
+[e [\ -> _trigPin `ui , $ -> . `E6976 11 `ui 977
+ , $ -> . `E6976 1 `ui 978
+ , $ -> . `E6976 5 `ui 979
+ , $ -> . `E6976 3 `ui 980
+ , $ -> . `E6976 2 `ui 981
+ , $ -> . `E6976 0 `ui 982
+ , $ -> . `E6976 4 `ui 983
+ , $ -> . `E6976 6 `ui 984
+ , $ -> . `E6976 7 `ui 985
+ , $ -> . `E6976 8 `ui 986
+ , $ -> . `E6976 17 `ui 987
+ , $ -> . `E6976 16 `ui 988
+ , $ -> . `E6976 15 `ui 989
+ , $ -> . `E6976 14 `ui 990
+ , $ -> . `E6976 13 `ui 991
+ , $ -> . `E6976 12 `ui 992
+ , $ -> . `E6976 10 `ui 993
+ , $ -> . `E6976 9 `ui 994
  975 ]
 [e :U 975 ]
 "117
@@ -1078,10 +1077,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "127
 [; ;JSN_Sensor.c: 127: void JSN_Sensor_Trig(JSN_t *Sensor) {
-[v _JSN_Sensor_Trig `(v ~T0 @X0 1 ef1`*S963 ]
+[v _JSN_Sensor_Trig `(v ~T0 @X0 1 ef1`*S965 ]
 {
 [e :U _JSN_Sensor_Trig ]
-[v _Sensor `*S963 ~T0 @X0 1 r1 ]
+[v _Sensor `*S965 ~T0 @X0 1 r1 ]
 [f ]
 "128
 [; ;JSN_Sensor.c: 128:     return;
@@ -1092,10 +1091,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "133
 [; ;JSN_Sensor.c: 133: unsigned int JSN_Sensor_GetDistance(JSN_t *Sensor) {
-[v _JSN_Sensor_GetDistance `(ui ~T0 @X0 1 ef1`*S963 ]
+[v _JSN_Sensor_GetDistance `(ui ~T0 @X0 1 ef1`*S965 ]
 {
 [e :U _JSN_Sensor_GetDistance ]
-[v _Sensor `*S963 ~T0 @X0 1 r1 ]
+[v _Sensor `*S965 ~T0 @X0 1 r1 ]
 [f ]
 "134
 [; ;JSN_Sensor.c: 134:     return 0;
@@ -1104,32 +1103,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "135
 [; ;JSN_Sensor.c: 135: }
 [e :UE 996 ]
-}
-[v $root$_main `(v ~T0 @X0 0 e ]
-"143
-[; ;JSN_Sensor.c: 143: int main(void) {
-[v _main `(i ~T0 @X0 1 ef ]
-{
-[e :U _main ]
-[f ]
-"144
-[; ;JSN_Sensor.c: 144:     JSN_t Sens1, Sens2, Sens3;
-[v _Sens1 `S963 ~T0 @X0 1 a ]
-[v _Sens2 `S963 ~T0 @X0 1 a ]
-[v _Sens3 `S963 ~T0 @X0 1 a ]
-"145
-[; ;JSN_Sensor.c: 145:     while(1);
-[e :U 999 ]
-[e :U 998 ]
-[e $U 999  ]
-[e :U 1000 ]
-"146
-[; ;JSN_Sensor.c: 146:     return 0;
-[e ) -> 0 `i ]
-[e $UE 997  ]
-"147
-[; ;JSN_Sensor.c: 147: }
-[e :UE 997 ]
 }
 [p f _printf 8388608 ]
 [a 1C 69 82 82 79 82 33 32 101 99 104 111 80 105 110 32 109 117 115 116 32 98 101 32 111 110 101 32 111 102 32 116 104 101 32 102 111 108 108 111 119 105 110 103 58 32 91 82 65 50 44 32 82 65 52 44 32 82 67 51 44 32 82 67 53 93 10 0 ]

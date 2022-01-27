@@ -9,7 +9,7 @@
 #include "JSN_Sensor.h"
 #include <stdio.h>
 
-#define JSN_SENSOR_TEST
+//#define JSN_SENSOR_TEST
 
 //==============================================================================
 //---------------------------- STATICS VARIABLES -------------------------------

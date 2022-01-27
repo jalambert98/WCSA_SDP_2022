@@ -24,7 +24,7 @@
  * 
  * @param    None
  * 
- * @return   uint8_t [SUCCESS or ERROR]
+ * @return   None
  * 
  * @brief    ASSUMES PIC16_Init() has already been called to set [F_osc = 8MHz]!
  *           This function initializes TMR0 to tick @1MHz [1us period] & roll
@@ -32,7 +32,7 @@
  * 
  * @author   Jack Lambert, 2022.01.25
  **/
-uint8_t FR_Timer_Init(void);
+void FR_Timer_Init(void);
 
 //------------------------------------------------------------------------------
 /**

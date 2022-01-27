@@ -30,7 +30,7 @@ static unsigned int micros1x;
 //------------------------------ PUBLIC LIBRARY --------------------------------
 //==============================================================================
 
-uint8_t FR_Timer_Init(void) {
+void FR_Timer_Init(void) {
     INTCONbits.GIE = LOW;       // Temporarily disable global interrupts
     millis4x = 0;                 
     micros1x = 0;               // Reset module level variables
@@ -41,9 +41,9 @@ uint8_t FR_Timer_Init(void) {
     TMR0L = 0x00;               // Clear TMR0 counter register
     
     T0CON0bits.T016BIT = LOW;   // TMR0 is set to 8-bit timer mode
-    T0CON1bits.T0CS = 0b010;    // [F_osc/4] = [2MHz] clk source for TMR0
-    T0CON1bits.T0CKPS = 0x1;    // Set 2:1 prescalar [TMR0 ticks @1MHz]
-    T0CON1bits.T0ASYNC = LOW;   // Sync TMR0 counter with [F_osc/4]
+    T0CON1bits.T0CS = 0b010;    // [16MHz/4 = 4MHz] clk for TMR0
+    T0CON1bits.T0CKPS = 0x2;    // Set 4:1 prescalar [TMR0 ticks @1MHz]
+    T0CON1bits.T0ASYNC = LOW;   // Syncd with [F_osc/4]
     T0CON0bits.T0OUTPS = 0x0;   // Set 1:1 postscalar [input = output = 1MHz]
     TMR0H = TMR0_PERIOD_US;     // Period match = 250 --> interrupt every 250us
     
@@ -51,7 +51,7 @@ uint8_t FR_Timer_Init(void) {
     INTCONbits.GIE = HIGH;      // Enable global interrupts
     T0CON0bits.T0EN = HIGH;     // Enable TMR0
     
-    return SUCCESS;
+    return;
 }
 
 //------------------------------------------------------------------------------
@@ -65,7 +65,7 @@ unsigned int FR_Timer_GetMillis() {
 
 unsigned int FR_Timer_GetMicros() {
     // millis4x increments every 250us, so *250 = 1us
-    return ((millis4x * TMR0_PERIOD_US) + micros1x);
+    return ((millis4x * TMR0_PERIOD_US) + TMR0L);
 }
 
 //------------------------------------------------------------------------------
@@ -88,11 +88,26 @@ void FR_Timer_IncMicros(void) {
 #ifdef FR_TIMER_TEST
 
 int main(void) {
+    unsigned int currMilli = 0;
+    unsigned int prevMilli = 0;
+    
     // Initialize required libraries
     PIC16_Init();
     FR_Timer_Init();
     
+    SET_C0() = OUTPUT;
+    WRITE_C0() = LOW;
     
+    while(1) {
+        currMilli = FR_Timer_GetMillis();
+        
+        if((currMilli - prevMilli) > 500) {
+            WRITE_C0() = ~WRITE_C0();
+            prevMilli = currMilli;
+        }
+    }
+    while(1);
+    return 0;
 }
 
 #endif

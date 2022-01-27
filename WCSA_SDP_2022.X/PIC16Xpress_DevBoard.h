@@ -6,8 +6,10 @@
  * Created on January 25, 2022, 12:42 PM
  */
 
+#include "mcc.h"
 #include <xc.h>
 #include <PIC16F18345.h>
+
 
 #ifndef PIC16XPRESS_DEVBOARD_H
 #define	PIC16XPRESS_DEVBOARD_H
@@ -16,11 +18,11 @@
 //-------------------------------- #DEFINES ------------------------------------
 //==============================================================================
 
-#define HIGH                0b1
-#define LOW                 0b0
+#define HIGH                1
+#define LOW                 0
 
-#define INPUT               0b1
-#define OUTPUT              0b0
+#define INPUT               1
+#define OUTPUT              0
 
 #define SUCCESS             0x00
 #define ERROR               0xFF
@@ -103,14 +105,13 @@ typedef enum {
  * 
  * @param    None
  * 
- * @return   uint8_t [SUCCESS or ERROR]
- * 
+ * @return   None
  * @brief    Configures the HFINTOSC to 8MHz, disables unnecessary peripherals,
  *           disables interrupts & clears any existing flags
  * 
  * @author   Jack Lambert, 2022.01.25
  **/
-uint8_t PIC16_Init(void);
+void PIC16_Init(void);
 
 //------------------------------------------------------------------------------
 /**
@@ -125,7 +126,7 @@ uint8_t PIC16_Init(void);
  * 
  * @author   Jack Lambert, 2022.01.25
  **/
-void __interrupt() ISR(void);
+void __interrupt() InterruptManager (void);
 
 
 #endif	/* PIC16XPRESS_DEVBOARD_H */
