@@ -1,52 +1,72 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"72 ./mcc.h
-[; ;./mcc.h: 72: void PMD_Initialize(void);
-[v _PMD_Initialize `(v ~T0 @X0 0 ef ]
-"44
-[; ;./mcc.h: 44: void OSCILLATOR_Initialize(void);
-[v _OSCILLATOR_Initialize `(v ~T0 @X0 0 ef ]
-"58
-[; ;./mcc.h: 58: void WDT_Initialize(void);
-[v _WDT_Initialize `(v ~T0 @X0 0 ef ]
-"12489 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h
-[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 12489: extern volatile unsigned char OSCCON1 __attribute__((address(0x919)));
-[v _OSCCON1 `Vuc ~T0 @X0 0 e@2329 ]
-"12629
-[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 12629: extern volatile unsigned char OSCCON3 __attribute__((address(0x91B)));
-[v _OSCCON3 `Vuc ~T0 @X0 0 e@2331 ]
-"12726
-[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 12726: extern volatile unsigned char OSCEN __attribute__((address(0x91D)));
-[v _OSCEN `Vuc ~T0 @X0 0 e@2333 ]
-"12830
-[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 12830: extern volatile unsigned char OSCFRQ __attribute__((address(0x91F)));
-[v _OSCFRQ `Vuc ~T0 @X0 0 e@2335 ]
-"12772
-[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 12772: extern volatile unsigned char OSCTUNE __attribute__((address(0x91E)));
-[v _OSCTUNE `Vuc ~T0 @X0 0 e@2334 ]
-"22290
-[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 22290: extern volatile __bit PLLR __attribute__((address(0x48E0)));
-[v _PLLR `Vb ~T0 @X0 0 e@18656 ]
-"1978
-[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 1978: extern volatile unsigned char WDTCON __attribute__((address(0x097)));
-[v _WDTCON `Vuc ~T0 @X0 0 e@151 ]
-"12137
-[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 12137: extern volatile unsigned char PMD0 __attribute__((address(0x911)));
-[v _PMD0 `Vuc ~T0 @X0 0 e@2321 ]
-"12182
-[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 12182: extern volatile unsigned char PMD1 __attribute__((address(0x912)));
-[v _PMD1 `Vuc ~T0 @X0 0 e@2322 ]
-"12244
-[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 12244: extern volatile unsigned char PMD2 __attribute__((address(0x913)));
-[v _PMD2 `Vuc ~T0 @X0 0 e@2323 ]
-"12284
-[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 12284: extern volatile unsigned char PMD3 __attribute__((address(0x914)));
-[v _PMD3 `Vuc ~T0 @X0 0 e@2324 ]
-"12346
-[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 12346: extern volatile unsigned char PMD4 __attribute__((address(0x915)));
-[v _PMD4 `Vuc ~T0 @X0 0 e@2325 ]
-"12380
-[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 12380: extern volatile unsigned char PMD5 __attribute__((address(0x916)));
-[v _PMD5 `Vuc ~T0 @X0 0 e@2326 ]
+[v F6672 `(v ~T0 @X0 0 tf1`us ]
+"6553 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 6553: extern volatile unsigned char CCP2CON __attribute__((address(0x297)));
+[v _CCP2CON `Vuc ~T0 @X0 0 e@663 ]
+"6618
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 6618: extern volatile unsigned char CCP2CAP __attribute__((address(0x298)));
+[v _CCP2CAP `Vuc ~T0 @X0 0 e@664 ]
+"6533
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 6533: extern volatile unsigned char CCPR2H __attribute__((address(0x296)));
+[v _CCPR2H `Vuc ~T0 @X0 0 e@662 ]
+"6513
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 6513: extern volatile unsigned char CCPR2L __attribute__((address(0x295)));
+[v _CCPR2L `Vuc ~T0 @X0 0 e@661 ]
+[v F6666 `(v ~T0 @X0 0 tf1`us ]
+"102 ./ccp2.h
+[; ;./ccp2.h: 102:  void CCP2_SetCallBack(void (*customCallBack)(uint16_t));
+[v _CCP2_SetCallBack `(v ~T0 @X0 0 ef1`*F6666 ]
+"6670 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 6670:     struct {
+[s S317 :2 `uc 1 :2 `uc 1 :2 `uc 1 :2 `uc 1 ]
+[n S317 . C1TSEL C2TSEL C3TSEL C4TSEL ]
+"6676
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 6676:     struct {
+[s S318 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S318 . C1TSEL0 C1TSEL1 C2TSEL0 C2TSEL1 C3TSEL0 C3TSEL1 C4TSEL0 C4TSEL1 ]
+"6669
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 6669: typedef union {
+[u S316 `S317 1 `S318 1 ]
+[n S316 . . . ]
+"6687
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 6687: extern volatile CCPTMRSbits_t CCPTMRSbits __attribute__((address(0x29F)));
+[v _CCPTMRSbits `VS316 ~T0 @X0 0 e@671 ]
+"761
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 761:     struct {
+[s S47 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S47 . CCP1IF CCP2IF CCP3IF CCP4IF TMR5IF TMR5GIF CWG1IF CWG2IF ]
+"760
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 760: typedef union {
+[u S46 `S47 1 ]
+[n S46 . . ]
+"772
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 772: extern volatile PIR4bits_t PIR4bits __attribute__((address(0x014)));
+[v _PIR4bits `VS46 ~T0 @X0 0 e@20 ]
+"1922
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 1922:     struct {
+[s S100 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S100 . CCP1IE CCP2IE CCP3IE CCP4IE TMR5IE TMR5GIE CWG1IE CWG2IE ]
+"1921
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 1921: typedef union {
+[u S99 `S100 1 ]
+[n S99 . . ]
+"1933
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 1933: extern volatile PIE4bits_t PIE4bits __attribute__((address(0x094)));
+[v _PIE4bits `VS99 ~T0 @X0 0 e@148 ]
+"35 ./ccp2.h
+[; ;./ccp2.h: 35:    {
+[s S964 `uc 1 `uc 1 ]
+[n S964 . ccpr2l ccpr2h ]
+"40
+[; ;./ccp2.h: 40:    {
+[s S965 `us 1 ]
+[n S965 . ccpr2_16Bit ]
+"33
+[; ;./ccp2.h: 33: {
+[u S963 `S964 1 `S965 1 ]
+[n S963 CCPR2Reg_tag . . ]
+[v F6682 `(v ~T0 @X0 0 tf1`us ]
+[v F6685 `(v ~T0 @X0 0 tf1`us ]
 "55 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h
 [; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 55: __asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
@@ -1106,103 +1126,100 @@ Version 4.0 HI-TECH Software Intermediate Code
 "19652
 [; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 19652: __asm("TOSH equ 0FEFh");
 [; <" TOSH equ 0FEFh ;# ">
-"14 mcc.c
-[; ;mcc.c: 14: void SYSTEM_Initialize(void)
-[v _SYSTEM_Initialize `(v ~T0 @X0 1 ef ]
-"15
-[; ;mcc.c: 15: {
-{
-[e :U _SYSTEM_Initialize ]
-[f ]
-"16
-[; ;mcc.c: 16:     PMD_Initialize();
-[e ( _PMD_Initialize ..  ]
+"13 ccp2.c
+[; ;ccp2.c: 13: static void (*CCP2_CallBack)(uint16_t);
+[v _CCP2_CallBack `*F6672 ~T0 @X0 1 s ]
 "17
-[; ;mcc.c: 17:     OSCILLATOR_Initialize();
-[e ( _OSCILLATOR_Initialize ..  ]
+[; ;ccp2.c: 17: static void CCP2_DefaultCallBack(uint16_t capturedValue)
+[v _CCP2_DefaultCallBack `(v ~T0 @X0 1 sf1`us ]
 "18
-[; ;mcc.c: 18:     WDT_Initialize();
-[e ( _WDT_Initialize ..  ]
-"19
-[; ;mcc.c: 19: }
-[e :UE 965 ]
-}
-"23
-[; ;mcc.c: 23: void OSCILLATOR_Initialize(void)
-[v _OSCILLATOR_Initialize `(v ~T0 @X0 1 ef ]
-"24
-[; ;mcc.c: 24: {
+[; ;ccp2.c: 18: {
 {
-[e :U _OSCILLATOR_Initialize ]
+[e :U _CCP2_DefaultCallBack ]
+"17
+[; ;ccp2.c: 17: static void CCP2_DefaultCallBack(uint16_t capturedValue)
+[v _capturedValue `us ~T0 @X0 1 r1 ]
+"18
+[; ;ccp2.c: 18: {
 [f ]
-"26
-[; ;mcc.c: 26:     OSCCON1 = 0x00;
-[e = _OSCCON1 -> -> 0 `i `uc ]
-"28
-[; ;mcc.c: 28:     OSCCON3 = 0x00;
-[e = _OSCCON3 -> -> 0 `i `uc ]
-"30
-[; ;mcc.c: 30:     OSCEN = 0x00;
-[e = _OSCEN -> -> 0 `i `uc ]
-"32
-[; ;mcc.c: 32:     OSCFRQ = 0x04;
-[e = _OSCFRQ -> -> 4 `i `uc ]
-"34
-[; ;mcc.c: 34:     OSCTUNE = 0x00;
-[e = _OSCTUNE -> -> 0 `i `uc ]
-"36
-[; ;mcc.c: 36:     while(PLLR == 0);
-[e $U 967  ]
-[e :U 968 ]
-[e :U 967 ]
-[e $ == -> _PLLR `i -> 0 `i 968  ]
-[e :U 969 ]
-"37
-[; ;mcc.c: 37: }
+"20
+[; ;ccp2.c: 20: }
 [e :UE 966 ]
 }
+"24
+[; ;ccp2.c: 24: void CCP2_Initialize(void)
+[v _CCP2_Initialize `(v ~T0 @X0 1 ef ]
+"25
+[; ;ccp2.c: 25: {
+{
+[e :U _CCP2_Initialize ]
+[f ]
+"29
+[; ;ccp2.c: 29:  CCP2CON = 0x83;
+[e = _CCP2CON -> -> 131 `i `uc ]
+"32
+[; ;ccp2.c: 32:  CCP2CAP = 0x00;
+[e = _CCP2CAP -> -> 0 `i `uc ]
+"35
+[; ;ccp2.c: 35:  CCPR2H = 0x00;
+[e = _CCPR2H -> -> 0 `i `uc ]
+"38
+[; ;ccp2.c: 38:  CCPR2L = 0x00;
+[e = _CCPR2L -> -> 0 `i `uc ]
 "41
-[; ;mcc.c: 41: void WDT_Initialize(void)
-[v _WDT_Initialize `(v ~T0 @X0 1 ef ]
-"42
-[; ;mcc.c: 42: {
-{
-[e :U _WDT_Initialize ]
-[f ]
+[; ;ccp2.c: 41:     CCP2_SetCallBack(CCP2_DefaultCallBack);
+[e ( _CCP2_SetCallBack (1 &U _CCP2_DefaultCallBack ]
 "44
-[; ;mcc.c: 44:     WDTCON = 0x16;
-[e = _WDTCON -> -> 22 `i `uc ]
-"45
-[; ;mcc.c: 45: }
-[e :UE 970 ]
-}
-"49
-[; ;mcc.c: 49: void PMD_Initialize(void)
-[v _PMD_Initialize `(v ~T0 @X0 1 ef ]
+[; ;ccp2.c: 44:  CCPTMRSbits.C2TSEL = 0x1;
+[e = . . _CCPTMRSbits 0 1 -> -> 1 `i `uc ]
+"47
+[; ;ccp2.c: 47:     PIR4bits.CCP2IF = 0;
+[e = . . _PIR4bits 0 1 -> -> 0 `i `uc ]
 "50
-[; ;mcc.c: 50: {
-{
-[e :U _PMD_Initialize ]
-[f ]
-"52
-[; ;mcc.c: 52:     PMD0 = 0x00;
-[e = _PMD0 -> -> 0 `i `uc ]
-"54
-[; ;mcc.c: 54:     PMD1 = 0x7C;
-[e = _PMD1 -> -> 124 `i `uc ]
+[; ;ccp2.c: 50:     PIE4bits.CCP2IE = 1;
+[e = . . _PIE4bits 0 1 -> -> 1 `i `uc ]
+"51
+[; ;ccp2.c: 51: }
+[e :UE 967 ]
+}
+"55
+[; ;ccp2.c: 55: void CCP2_CaptureISR(void)
+[v _CCP2_CaptureISR `(v ~T0 @X0 1 ef ]
 "56
-[; ;mcc.c: 56:     PMD2 = 0x66;
-[e = _PMD2 -> -> 102 `i `uc ]
-"58
-[; ;mcc.c: 58:     PMD3 = 0xC8;
-[e = _PMD3 -> -> 200 `i `uc ]
+[; ;ccp2.c: 56: {
+{
+[e :U _CCP2_CaptureISR ]
+[f ]
+"57
+[; ;ccp2.c: 57:     CCP2_PERIOD_REG_T module;
+[v _module `S963 ~T0 @X0 1 a ]
 "60
-[; ;mcc.c: 60:     PMD4 = 0x00;
-[e = _PMD4 -> -> 0 `i `uc ]
-"62
-[; ;mcc.c: 62:     PMD5 = 0x1F;
-[e = _PMD5 -> -> 31 `i `uc ]
+[; ;ccp2.c: 60:     PIR4bits.CCP2IF = 0;
+[e = . . _PIR4bits 0 1 -> -> 0 `i `uc ]
 "63
-[; ;mcc.c: 63: }
-[e :UE 971 ]
+[; ;ccp2.c: 63:     module.ccpr2l = CCPR2L;
+[e = . . _module 0 0 _CCPR2L ]
+"64
+[; ;ccp2.c: 64:     module.ccpr2h = CCPR2H;
+[e = . . _module 0 1 _CCPR2H ]
+"67
+[; ;ccp2.c: 67:     CCP2_CallBack(module.ccpr2_16Bit);
+[e ( *U _CCP2_CallBack (1 . . _module 1 0 ]
+"68
+[; ;ccp2.c: 68: }
+[e :UE 968 ]
+}
+"72
+[; ;ccp2.c: 72: void CCP2_SetCallBack(void (*customCallBack)(uint16_t)){
+[v _CCP2_SetCallBack `(v ~T0 @X0 1 ef1`*F6682 ]
+{
+[e :U _CCP2_SetCallBack ]
+[v _customCallBack `*F6685 ~T0 @X0 1 r1 ]
+[f ]
+"73
+[; ;ccp2.c: 73:     CCP2_CallBack = customCallBack;
+[e = _CCP2_CallBack _customCallBack ]
+"74
+[; ;ccp2.c: 74: }
+[e :UE 969 ]
 }

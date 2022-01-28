@@ -1,4 +1,4 @@
-# 1 "tmr0.c"
+# 1 "ccp1.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "tmr0.c" 2
-# 10 "tmr0.c"
+# 1 "ccp1.c" 2
+# 12 "ccp1.c"
 # 1 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -11192,38 +11192,33 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 2 3
-# 10 "tmr0.c" 2
+# 12 "ccp1.c" 2
 
-# 1 "./tmr0.h" 1
-# 14 "./tmr0.h"
+# 1 "./ccp1.h" 1
+# 15 "./ccp1.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdbool.h" 1 3
-# 14 "./tmr0.h" 2
-# 43 "./tmr0.h"
-void TMR0_Initialize(void);
-# 63 "./tmr0.h"
-void TMR0_StartTimer(void);
-# 83 "./tmr0.h"
-void TMR0_StopTimer(void);
-# 102 "./tmr0.h"
-uint8_t TMR0_ReadTimer(void);
-# 122 "./tmr0.h"
-void TMR0_WriteTimer(uint8_t timerVal);
-# 142 "./tmr0.h"
-void TMR0_Reload(uint8_t periodVal);
-# 161 "./tmr0.h"
-void TMR0_ISR(void);
-# 180 "./tmr0.h"
-void TMR0_CallBack(void);
-# 199 "./tmr0.h"
- void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
-# 218 "./tmr0.h"
-extern void (*TMR0_InterruptHandler)(void);
-# 237 "./tmr0.h"
-void TMR0_DefaultInterruptHandler(void);
-# 11 "tmr0.c" 2
+# 15 "./ccp1.h" 2
+# 32 "./ccp1.h"
+typedef union CCPR1Reg_tag
+{
+   struct
+   {
+      uint8_t ccpr1l;
+      uint8_t ccpr1h;
+   };
+   struct
+   {
+      uint16_t ccpr1_16Bit;
+   };
+} CCP1_PERIOD_REG_T ;
+# 65 "./ccp1.h"
+void CCP1_Initialize(void);
+# 82 "./ccp1.h"
+void CCP1_CaptureISR(void);
+# 102 "./ccp1.h"
+ void CCP1_SetCallBack(void (*customCallBack)(uint16_t));
+# 13 "ccp1.c" 2
 
-# 1 "./FR_Timer.h" 1
-# 10 "./FR_Timer.h"
 # 1 "./PIC16Xpress_DevBoard.h" 1
 # 10 "./PIC16Xpress_DevBoard.h"
 # 1 "./mcc.h" 1
@@ -11398,6 +11393,30 @@ void PMD_Initialize(void);
 
 
 
+# 1 "./tmr0.h" 1
+# 43 "./tmr0.h"
+void TMR0_Initialize(void);
+# 63 "./tmr0.h"
+void TMR0_StartTimer(void);
+# 83 "./tmr0.h"
+void TMR0_StopTimer(void);
+# 102 "./tmr0.h"
+uint8_t TMR0_ReadTimer(void);
+# 122 "./tmr0.h"
+void TMR0_WriteTimer(uint8_t timerVal);
+# 142 "./tmr0.h"
+void TMR0_Reload(uint8_t periodVal);
+# 161 "./tmr0.h"
+void TMR0_ISR(void);
+# 180 "./tmr0.h"
+void TMR0_CallBack(void);
+# 199 "./tmr0.h"
+ void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
+# 218 "./tmr0.h"
+extern void (*TMR0_InterruptHandler)(void);
+# 237 "./tmr0.h"
+void TMR0_DefaultInterruptHandler(void);
+# 13 "./PIC16Xpress_DevBoard.h" 2
 
 # 1 "./tmr1.h" 1
 # 41 "./tmr1.h"
@@ -11428,27 +11447,6 @@ extern void (*TMR1_InterruptHandler)(void);
 void TMR1_DefaultInterruptHandler(void);
 # 14 "./PIC16Xpress_DevBoard.h" 2
 
-# 1 "./ccp1.h" 1
-# 32 "./ccp1.h"
-typedef union CCPR1Reg_tag
-{
-   struct
-   {
-      uint8_t ccpr1l;
-      uint8_t ccpr1h;
-   };
-   struct
-   {
-      uint16_t ccpr1_16Bit;
-   };
-} CCP1_PERIOD_REG_T ;
-# 65 "./ccp1.h"
-void CCP1_Initialize(void);
-# 82 "./ccp1.h"
-void CCP1_CaptureISR(void);
-# 102 "./ccp1.h"
- void CCP1_SetCallBack(void (*customCallBack)(uint16_t));
-# 15 "./PIC16Xpress_DevBoard.h" 2
 
 # 1 "./ccp2.h" 1
 # 32 "./ccp2.h"
@@ -11518,137 +11516,105 @@ uint8_t ReadPin(PinName_t pin);
 uint8_t WritePin(PinName_t pin, uint8_t val);
 # 146 "./PIC16Xpress_DevBoard.h"
 void __attribute__((picinterrupt(("")))) InterruptManager (void);
-# 10 "./FR_Timer.h" 2
-# 32 "./FR_Timer.h"
-void FR_Timer_Init(void);
-# 47 "./FR_Timer.h"
-unsigned long FR_Timer_GetMillis(void);
-# 62 "./FR_Timer.h"
-unsigned long FR_Timer_GetMicros(void);
-# 80 "./FR_Timer.h"
-void FR_Timer_IncMillis(void);
-# 99 "./FR_Timer.h"
-void FR_Timer_IncMicros(void);
-# 12 "tmr0.c" 2
+# 14 "ccp1.c" 2
+
+# 1 "./JSN_Sensor.h" 1
+# 10 "./JSN_Sensor.h"
+# 1 "./PIC16Xpress_DevBoard.h" 1
+# 10 "./JSN_Sensor.h" 2
+# 28 "./JSN_Sensor.h"
+typedef struct {
+    unsigned int echoHighTime;
+    unsigned int distance;
+    PinName_t trigPin;
+    PinName_t echoPin;
+} JSN_t;
+# 51 "./JSN_Sensor.h"
+void JSN_Library_Init(void);
+# 72 "./JSN_Sensor.h"
+uint8_t JSN_Sensor_Init(JSN_t *Sensor, PinName_t trigPin, PinName_t echoPin);
+# 87 "./JSN_Sensor.h"
+void JSN_Sensor_Trig(JSN_t *Sensor);
+# 103 "./JSN_Sensor.h"
+unsigned int JSN_Sensor_GetDistance(JSN_t *Sensor);
 
 
-void (*TMR0_InterruptHandler)(void);
+
+JSN_t* JSN_GetLastTrig(void);
+# 15 "ccp1.c" 2
+
+
+static void (*CCP1_CallBack)(uint16_t);
+static uint16_t ticksUp, ticksDown;
 
 
 
-void TMR0_Initialize(void)
+
+static void CCP1_DefaultCallBack(uint16_t capturedValue)
 {
+    switch(PORTCbits.RC5) {
 
+        case 1:
+            ticksUp = capturedValue;
+            break;
 
-
-    T0CON1 = 0x42;
-
-
-    TMR0H = 0xF9;
-
-
-    TMR0L = 0x00;
-
-
-    PIR0bits.TMR0IF = 0;
-
-
-    PIE0bits.TMR0IE = 1;
-
-
-    TMR0_SetInterruptHandler(TMR0_DefaultInterruptHandler);
-
-
-    T0CON0 = 0x80;
-}
-
-
-
-void TMR0_StartTimer(void)
-{
-
-    T0CON0bits.T0EN = 1;
-}
-
-
-
-void TMR0_StopTimer(void)
-{
-
-    T0CON0bits.T0EN = 0;
-}
-
-
-
-uint8_t TMR0_ReadTimer(void)
-{
-    uint8_t readVal;
-
-
-    readVal = TMR0L;
-
-    return readVal;
-}
-
-
-
-void TMR0_WriteTimer(uint8_t timerVal)
-{
-
-    TMR0L = timerVal;
-}
-
-
-
-void TMR0_Reload(uint8_t periodVal)
-{
-
-   TMR0H = periodVal;
-}
-
-
-
-void TMR0_ISR(void)
-{
-    static volatile uint16_t CountCallBack = 0;
-
-
-    PIR0bits.TMR0IF = 0;
-
-    if (++CountCallBack >= 4)
-    {
-
-        TMR0_CallBack();
-
-
-        CountCallBack = 0;
-    }
-
-
-}
-
-
-
-void TMR0_CallBack(void)
-{
-    FR_Timer_IncMillis();
-    FR_Timer_IncMicros();
-
-    if(TMR0_InterruptHandler)
-    {
-        TMR0_InterruptHandler();
+        case 0:
+            ticksDown = capturedValue;
+            JSN_GetLastTrig()->echoHighTime = ((ticksDown - ticksUp) >> 1);
+            break;
     }
 }
 
 
 
-void TMR0_SetInterruptHandler(void (* InterruptHandler)(void)){
-    TMR0_InterruptHandler = InterruptHandler;
+void CCP1_Initialize(void)
+{
+
+
+
+ CCP1CON = 0x83;
+
+
+ CCP1CAP = 0x00;
+
+
+ CCPR1H = 0x00;
+
+
+ CCPR1L = 0x00;
+
+
+    CCP1_SetCallBack(CCP1_DefaultCallBack);
+
+
+ CCPTMRSbits.C1TSEL = 0x1;
+
+
+    PIR4bits.CCP1IF = 0;
+
+
+    PIE4bits.CCP1IE = 1;
 }
 
 
 
-void TMR0_DefaultInterruptHandler(void){
+void CCP1_CaptureISR(void)
+{
+    CCP1_PERIOD_REG_T module;
 
 
+    PIR4bits.CCP1IF = 0;
+
+
+    module.ccpr1l = CCPR1L;
+    module.ccpr1h = CCPR1H;
+
+
+    CCP1_CallBack(module.ccpr1_16Bit);
+}
+
+
+
+void CCP1_SetCallBack(void (*customCallBack)(uint16_t)){
+    CCP1_CallBack = customCallBack;
 }

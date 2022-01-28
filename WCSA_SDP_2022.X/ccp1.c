@@ -7,16 +7,32 @@
  */
 //------------------------------------------------------------------------------
 
+// [CCP1 = pinRC5], [TMR1 ticks @4MHz, rolls over every 12ms]
+
 #include <xc.h>
 #include "ccp1.h"
+#include "PIC16Xpress_DevBoard.h"
+#include "JSN_Sensor.h"
 
 static void (*CCP1_CallBack)(uint16_t);
+static uint16_t ticksUp, ticksDown;
+
 
 //------------------------------------------------------------------------------
 
 static void CCP1_DefaultCallBack(uint16_t capturedValue)
 {
-    // Add your code here
+    switch(READ_C5()) {
+        // If pin RC5 is high on this ISR, store ticks
+        case HIGH:
+            ticksUp = capturedValue;
+            break;
+        // If pin RC5 is low on this ISR, store ticks & calculate highTime
+        case LOW:
+            ticksDown = capturedValue;
+            JSN_GetLastTrig()->echoHighTime = ((ticksDown - ticksUp) >> 1);
+            break;
+    }
 }
 
 //------------------------------------------------------------------------------

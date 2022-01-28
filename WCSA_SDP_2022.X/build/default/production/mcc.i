@@ -11409,7 +11409,7 @@ void PMD_Initialize(void)
 
     PMD0 = 0x00;
 
-    PMD1 = 0x54;
+    PMD1 = 0x7C;
 
     PMD2 = 0x66;
 

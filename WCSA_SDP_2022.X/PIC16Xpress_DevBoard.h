@@ -10,7 +10,11 @@
 #include "mcc.h"
 #include <xc.h>
 #include <PIC16F18345.h>
-
+#include "tmr0.h"
+#include "tmr1.h"
+#include "ccp1.h"
+#include "ccp2.h"
+#include "ccp3.h"
 
 #ifndef PIC16XPRESS_DEVBOARD_H
 #define	PIC16XPRESS_DEVBOARD_H
@@ -113,6 +117,18 @@ typedef enum {
  * @author   Jack Lambert, 2022.01.25
  **/
 void PIC16_Init(void);
+
+//------------------------------------------------------------------------------
+
+uint8_t SetPin(PinName_t pin, uint8_t io);
+
+//------------------------------------------------------------------------------
+
+uint8_t ReadPin(PinName_t pin);
+
+//------------------------------------------------------------------------------
+
+uint8_t WritePin(PinName_t pin, uint8_t val);
 
 //------------------------------------------------------------------------------
 /**

@@ -41,14 +41,14 @@ typedef struct {
  * 
  * @param    None
  * 
- * @return   uint8_t [SUCCESS or ERROR]
+ * @return   None
  * 
  * @brief    Initializes the hardware peripherals required to operate the JSN
  *           ultrasonic sensors. This includes: [TMRx], [ICx]
  * 
  * @author   Jack Lambert, 2022.01.25
  **/
-uint8_t JSN_Library_Init(void);
+void JSN_Library_Init(void);
 
 //------------------------------------------------------------------------------
 /**
@@ -104,6 +104,9 @@ unsigned int JSN_Sensor_GetDistance(JSN_t *Sensor);
 
 //------------------------------------------------------------------------------
 
+JSN_t* JSN_GetLastTrig(void);
+
+//------------------------------------------------------------------------------
 
 #endif	/* JSN_SENSOR_H */
 

@@ -5,26 +5,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "102
 [; ;./tmr0.h: 102: uint8_t TMR0_ReadTimer(void);
 [v _TMR0_ReadTimer `(uc ~T0 @X0 0 ef ]
-[p mainexit ]
-"115 ./PIC16Xpress_DevBoard.h
-[; ;./PIC16Xpress_DevBoard.h: 115: void PIC16_Init(void);
-[v _PIC16_Init `(v ~T0 @X0 0 ef ]
-"1641 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
-[s S90 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S90 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
-"1640
-[u S89 `S90 1 ]
-[n S89 . . ]
-"1652
-[v _TRISCbits `VS89 ~T0 @X0 0 e@142 ]
-"2384
-[s S123 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S123 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
-"2383
-[u S122 `S123 1 ]
-[n S122 . . ]
-"2395
-[v _LATCbits `VS122 ~T0 @X0 0 e@270 ]
 "55 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
 [; <" INDF0 equ 00h ;# ">
 "75
@@ -731,147 +711,85 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSL equ 0FEEh ;# ">
 "19652
 [; <" TOSH equ 0FEFh ;# ">
-"27 FR_Timer.c
-[; ;FR_Timer.c: 27: static unsigned long millis;
+"25 FR_Timer.c
+[; ;FR_Timer.c: 25: static unsigned long millis;
 [v _millis `ul ~T0 @X0 1 s ]
-"28
-[; ;FR_Timer.c: 28: static unsigned long micros;
+"26
+[; ;FR_Timer.c: 26: static unsigned long micros;
 [v _micros `ul ~T0 @X0 1 s ]
-"35
-[; ;FR_Timer.c: 35: void FR_Timer_Init(void) {
+"33
+[; ;FR_Timer.c: 33: void FR_Timer_Init(void) {
 [v _FR_Timer_Init `(v ~T0 @X0 1 ef ]
 {
 [e :U _FR_Timer_Init ]
 [f ]
-"36
-[; ;FR_Timer.c: 36:     TMR0_Initialize();
+"34
+[; ;FR_Timer.c: 34:     TMR0_Initialize();
 [e ( _TMR0_Initialize ..  ]
-"37
-[; ;FR_Timer.c: 37:     return;
-[e $UE 965  ]
-"38
-[; ;FR_Timer.c: 38: }
-[e :UE 965 ]
+"35
+[; ;FR_Timer.c: 35:     return;
+[e $UE 974  ]
+"36
+[; ;FR_Timer.c: 36: }
+[e :UE 974 ]
 }
-"42
-[; ;FR_Timer.c: 42: unsigned long FR_Timer_GetMillis() {
+"40
+[; ;FR_Timer.c: 40: unsigned long FR_Timer_GetMillis() {
 [v _FR_Timer_GetMillis `(ul ~T0 @X0 1 ef ]
 {
 [e :U _FR_Timer_GetMillis ]
 [f ]
-"43
-[; ;FR_Timer.c: 43:     return millis;
+"41
+[; ;FR_Timer.c: 41:     return millis;
 [e ) _millis ]
-[e $UE 966  ]
-"44
-[; ;FR_Timer.c: 44: }
-[e :UE 966 ]
+[e $UE 975  ]
+"42
+[; ;FR_Timer.c: 42: }
+[e :UE 975 ]
 }
-"48
-[; ;FR_Timer.c: 48: unsigned long FR_Timer_GetMicros() {
+"46
+[; ;FR_Timer.c: 46: unsigned long FR_Timer_GetMicros() {
 [v _FR_Timer_GetMicros `(ul ~T0 @X0 1 ef ]
 {
 [e :U _FR_Timer_GetMicros ]
 [f ]
-"49
-[; ;FR_Timer.c: 49:     return (unsigned long)((millis * 1000) + TMR0_ReadTimer());
-[e ) + * _millis -> -> -> 1000 `i `l `ul -> ( _TMR0_ReadTimer ..  `ul ]
-[e $UE 967  ]
-"50
-[; ;FR_Timer.c: 50: }
-[e :UE 967 ]
+"47
+[; ;FR_Timer.c: 47:     return (micros + TMR0_ReadTimer());
+[e ) + _micros -> ( _TMR0_ReadTimer ..  `ul ]
+[e $UE 976  ]
+"48
+[; ;FR_Timer.c: 48: }
+[e :UE 976 ]
 }
-"54
-[; ;FR_Timer.c: 54: void FR_Timer_IncMillis(void) {
+"52
+[; ;FR_Timer.c: 52: void FR_Timer_IncMillis(void) {
 [v _FR_Timer_IncMillis `(v ~T0 @X0 1 ef ]
 {
 [e :U _FR_Timer_IncMillis ]
 [f ]
+"53
+[; ;FR_Timer.c: 53:     millis ++;
+[e ++ _millis -> -> -> 1 `i `l `ul ]
+"54
+[; ;FR_Timer.c: 54:     return;
+[e $UE 977  ]
 "55
-[; ;FR_Timer.c: 55:     millis += 1;
-[e =+ _millis -> -> -> 1 `i `l `ul ]
-"56
-[; ;FR_Timer.c: 56: }
-[e :UE 968 ]
+[; ;FR_Timer.c: 55: }
+[e :UE 977 ]
 }
-"60
-[; ;FR_Timer.c: 60: void FR_Timer_IncMicros(void) {
+"59
+[; ;FR_Timer.c: 59: void FR_Timer_IncMicros(void) {
 [v _FR_Timer_IncMicros `(v ~T0 @X0 1 ef ]
 {
 [e :U _FR_Timer_IncMicros ]
 [f ]
-"61
-[; ;FR_Timer.c: 61:     micros += 1000;
+"60
+[; ;FR_Timer.c: 60:     micros += 1000;
 [e =+ _micros -> -> -> 1000 `i `l `ul ]
+"61
+[; ;FR_Timer.c: 61:     return;
+[e $UE 978  ]
 "62
 [; ;FR_Timer.c: 62: }
-[e :UE 969 ]
-}
-[v $root$_main `(v ~T0 @X0 0 e ]
-"71
-[; ;FR_Timer.c: 71: int main(void) {
-[v _main `(i ~T0 @X0 1 ef ]
-{
-[e :U _main ]
-[f ]
-"75
-[; ;FR_Timer.c: 75:     unsigned long currMilli = 0;
-[v _currMilli `ul ~T0 @X0 1 a ]
-[e = _currMilli -> -> -> 0 `i `l `ul ]
-"76
-[; ;FR_Timer.c: 76:     unsigned long prevMilli = 0;
-[v _prevMilli `ul ~T0 @X0 1 a ]
-[e = _prevMilli -> -> -> 0 `i `l `ul ]
-"79
-[; ;FR_Timer.c: 79:     PIC16_Init();
-[e ( _PIC16_Init ..  ]
-"80
-[; ;FR_Timer.c: 80:     FR_Timer_Init();
-[e ( _FR_Timer_Init ..  ]
-"82
-[; ;FR_Timer.c: 82:     TRISCbits.TRISC0 = 0;
-[e = . . _TRISCbits 0 0 -> -> 0 `i `uc ]
-"83
-[; ;FR_Timer.c: 83:     LATCbits.LATC0 = 0;
-[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
-"85
-[; ;FR_Timer.c: 85:     while(1) {
-[e :U 972 ]
-{
-"86
-[; ;FR_Timer.c: 86:         currMilli = FR_Timer_GetMillis();
-[e = _currMilli ( _FR_Timer_GetMillis ..  ]
-"89
-[; ;FR_Timer.c: 89:         if((unsigned long)(currMilli - prevMilli) >= 500) {
-[e $ ! >= - _currMilli _prevMilli -> -> -> 500 `i `l `ul 974  ]
-{
-"90
-[; ;FR_Timer.c: 90:             LATCbits.LATC0 ^= 1;
-[e =^ . . _LATCbits 0 0 -> -> 1 `i `Vuc ]
-"91
-[; ;FR_Timer.c: 91:             prevMilli = currMilli;
-[e = _prevMilli _currMilli ]
-"92
-[; ;FR_Timer.c: 92:         }
-}
-[e :U 974 ]
-"93
-[; ;FR_Timer.c: 93:     }
-}
-[e :U 971 ]
-[e $U 972  ]
-[e :U 973 ]
-"94
-[; ;FR_Timer.c: 94:     while(1);
-[e :U 976 ]
-[e :U 975 ]
-[e $U 976  ]
-[e :U 977 ]
-"95
-[; ;FR_Timer.c: 95:     return 0;
-[e ) -> 0 `i ]
-[e $UE 970  ]
-"96
-[; ;FR_Timer.c: 96: }
-[e :UE 970 ]
+[e :UE 978 ]
 }

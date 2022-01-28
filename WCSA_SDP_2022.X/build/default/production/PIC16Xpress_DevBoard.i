@@ -11367,20 +11367,8 @@ void WDT_Initialize(void);
 # 72 "./mcc.h"
 void PMD_Initialize(void);
 # 10 "./PIC16Xpress_DevBoard.h" 2
-# 91 "./PIC16Xpress_DevBoard.h"
-typedef enum {
-    A5, A4, A3,
-    C5, C4, C3,
-    C6, C7, B7,
-    A0, A1, A2,
-    C0, C1, C2,
-    B4, B5, B6
-} PinName_t;
-# 115 "./PIC16Xpress_DevBoard.h"
-void PIC16_Init(void);
-# 130 "./PIC16Xpress_DevBoard.h"
-void __attribute__((picinterrupt(("")))) InterruptManager (void);
-# 10 "PIC16Xpress_DevBoard.c" 2
+
+
 
 # 1 "./tmr0.h" 1
 # 43 "./tmr0.h"
@@ -11405,7 +11393,128 @@ void TMR0_CallBack(void);
 extern void (*TMR0_InterruptHandler)(void);
 # 237 "./tmr0.h"
 void TMR0_DefaultInterruptHandler(void);
-# 11 "PIC16Xpress_DevBoard.c" 2
+# 13 "./PIC16Xpress_DevBoard.h" 2
+
+# 1 "./tmr1.h" 1
+# 41 "./tmr1.h"
+void TMR1_Initialize(void);
+# 61 "./tmr1.h"
+void TMR1_StartTimer(void);
+# 81 "./tmr1.h"
+void TMR1_StopTimer(void);
+# 100 "./tmr1.h"
+uint16_t TMR1_ReadTimer(void);
+# 120 "./tmr1.h"
+void TMR1_WriteTimer(uint16_t timerVal);
+# 140 "./tmr1.h"
+void TMR1_Reload(void);
+# 160 "./tmr1.h"
+void TMR1_StartSinglePulseAcquisition(void);
+# 180 "./tmr1.h"
+uint8_t TMR1_CheckGateValueStatus(void);
+# 199 "./tmr1.h"
+void TMR1_ISR(void);
+# 218 "./tmr1.h"
+void TMR1_CallBack(void);
+# 237 "./tmr1.h"
+ void TMR1_SetInterruptHandler(void (* InterruptHandler)(void));
+# 256 "./tmr1.h"
+extern void (*TMR1_InterruptHandler)(void);
+# 275 "./tmr1.h"
+void TMR1_DefaultInterruptHandler(void);
+# 14 "./PIC16Xpress_DevBoard.h" 2
+
+# 1 "./ccp1.h" 1
+# 32 "./ccp1.h"
+typedef union CCPR1Reg_tag
+{
+   struct
+   {
+      uint8_t ccpr1l;
+      uint8_t ccpr1h;
+   };
+   struct
+   {
+      uint16_t ccpr1_16Bit;
+   };
+} CCP1_PERIOD_REG_T ;
+# 65 "./ccp1.h"
+void CCP1_Initialize(void);
+# 82 "./ccp1.h"
+void CCP1_CaptureISR(void);
+# 102 "./ccp1.h"
+ void CCP1_SetCallBack(void (*customCallBack)(uint16_t));
+# 15 "./PIC16Xpress_DevBoard.h" 2
+
+# 1 "./ccp2.h" 1
+# 32 "./ccp2.h"
+typedef union CCPR2Reg_tag
+{
+   struct
+   {
+      uint8_t ccpr2l;
+      uint8_t ccpr2h;
+   };
+   struct
+   {
+      uint16_t ccpr2_16Bit;
+   };
+} CCP2_PERIOD_REG_T ;
+# 65 "./ccp2.h"
+void CCP2_Initialize(void);
+# 82 "./ccp2.h"
+void CCP2_CaptureISR(void);
+# 102 "./ccp2.h"
+ void CCP2_SetCallBack(void (*customCallBack)(uint16_t));
+# 16 "./PIC16Xpress_DevBoard.h" 2
+
+# 1 "./ccp3.h" 1
+# 32 "./ccp3.h"
+typedef union CCPR3Reg_tag
+{
+   struct
+   {
+      uint8_t ccpr3l;
+      uint8_t ccpr3h;
+   };
+   struct
+   {
+      uint16_t ccpr3_16Bit;
+   };
+} CCP3_PERIOD_REG_T ;
+# 65 "./ccp3.h"
+void CCP3_Initialize(void);
+# 82 "./ccp3.h"
+void CCP3_CaptureISR(void);
+# 102 "./ccp3.h"
+ void CCP3_SetCallBack(void (*customCallBack)(uint16_t));
+# 17 "./PIC16Xpress_DevBoard.h" 2
+# 95 "./PIC16Xpress_DevBoard.h"
+typedef enum {
+    A5, A4, A3,
+    C5, C4, C3,
+    C6, C7, B7,
+    A0, A1, A2,
+    C0, C1, C2,
+    B4, B5, B6
+} PinName_t;
+# 119 "./PIC16Xpress_DevBoard.h"
+void PIC16_Init(void);
+
+
+
+uint8_t SetPin(PinName_t pin, uint8_t io);
+
+
+
+uint8_t ReadPin(PinName_t pin);
+
+
+
+uint8_t WritePin(PinName_t pin, uint8_t val);
+# 146 "./PIC16Xpress_DevBoard.h"
+void __attribute__((picinterrupt(("")))) InterruptManager (void);
+# 10 "PIC16Xpress_DevBoard.c" 2
 
 
 
@@ -11464,11 +11573,206 @@ void PIC16_Init(void) {
 
 
 
+uint8_t SetPin(PinName_t pin, uint8_t io) {
+    switch(pin) {
+        case A5:
+            TRISAbits.TRISA5 = io;
+            return 0x00;
+        case A4:
+            TRISAbits.TRISA4 = io;
+            return 0x00;
+        case A3:
+            return 0xFF;
+        case C5:
+            TRISCbits.TRISC5 = io;
+            return 0x00;
+        case C4:
+            TRISCbits.TRISC4 = io;
+            return 0x00;
+        case C3:
+            TRISCbits.TRISC3 = io;
+            return 0x00;
+        case C6:
+            TRISCbits.TRISC6 = io;
+            return 0x00;
+        case C7:
+            TRISCbits.TRISC7 = io;
+            return 0x00;
+        case B7:
+            TRISBbits.TRISB7 = io;
+            return 0x00;
+        case A0:
+            TRISAbits.TRISA0 = io;
+            return 0x00;
+        case A1:
+            TRISAbits.TRISA1 = io;
+            return 0x00;
+        case A2:
+            TRISAbits.TRISA2 = io;
+            return 0x00;
+        case C0:
+            TRISCbits.TRISC0 = io;
+            return 0x00;
+        case C1:
+            TRISCbits.TRISC1 = io;
+            return 0x00;
+        case C2:
+            TRISCbits.TRISC2 = io;
+            return 0x00;
+        case B4:
+            TRISBbits.TRISB4 = io;
+            return 0x00;
+        case B5:
+            TRISBbits.TRISB5 = io;
+            return 0x00;
+        case B6:
+            TRISBbits.TRISB6 = io;
+            return 0x00;
+        default:
+            return 0xFF;
+    }
+}
+
+
+
+uint8_t ReadPin(PinName_t pin) {
+    switch(pin) {
+        case A5:
+            return PORTAbits.RA5;
+        case A4:
+            return PORTAbits.RA4;
+        case A3:
+            return 0xFF;
+        case C5:
+            return PORTCbits.RC5;
+        case C4:
+            return PORTCbits.RC4;
+        case C3:
+            return PORTCbits.RC3;
+        case C6:
+            return PORTCbits.RC6;
+        case C7:
+            return PORTCbits.RC7;
+        case B7:
+            return PORTBbits.RB7;
+        case A0:
+            return PORTAbits.RA0;
+        case A1:
+            return PORTAbits.RA1;
+        case A2:
+            return PORTAbits.RA2;
+        case C0:
+            return PORTCbits.RC0;
+        case C1:
+            return PORTCbits.RC1;
+        case C2:
+            return PORTCbits.RC2;
+        case B4:
+            return PORTBbits.RB4;
+        case B5:
+            return PORTBbits.RB5;
+        case B6:
+            return PORTBbits.RB6;
+        default:
+            return 0xFF;
+    }
+}
+
+
+
+uint8_t WritePin(PinName_t pin, uint8_t val) {
+    switch(pin) {
+        case A5:
+            LATAbits.LATA5 = val;
+            return 0x00;
+        case A4:
+            LATAbits.LATA4 = val;
+            return 0x00;
+        case A3:
+            return 0xFF;
+        case C5:
+            LATCbits.LATC5 = val;
+            return 0x00;
+        case C4:
+            LATCbits.LATC4 = val;
+            return 0x00;
+        case C3:
+            LATCbits.LATC3 = val;
+            return 0x00;
+        case C6:
+            LATCbits.LATC6 = val;
+            return 0x00;
+        case C7:
+            LATCbits.LATC7 = val;
+            return 0x00;
+        case B7:
+            LATBbits.LATB7 = val;
+            return 0x00;
+        case A0:
+            LATAbits.LATA0 = val;
+            return 0x00;
+        case A1:
+            LATAbits.LATA1 = val;
+            return 0x00;
+        case A2:
+            LATAbits.LATA2 = val;
+            return 0x00;
+        case C0:
+            LATCbits.LATC0 = val;
+            return 0x00;
+        case C1:
+            LATCbits.LATC1 = val;
+            return 0x00;
+        case C2:
+            LATCbits.LATC2 = val;
+            return 0x00;
+        case B4:
+            LATBbits.LATB4 = val;
+            return 0x00;
+        case B5:
+            LATBbits.LATB5 = val;
+            return 0x00;
+        case B6:
+            LATBbits.LATB6 = val;
+            return 0x00;
+        default:
+            return 0xFF;
+    }
+}
+
+
+
+
 
 
 void __attribute__((picinterrupt(("")))) InterruptManager (void)
 {
-    if(PIR0bits.TMR0IF) {
+
+    if(PIE0bits.TMR0IE == 1 && PIR0bits.TMR0IF == 1)
+    {
         TMR0_ISR();
+    }
+    else if(PIE0bits.IOCIE == 1 && PIR0bits.IOCIF == 1)
+    {
+        PIR0bits.IOCIF = 0;
+    }
+    else if(INTCONbits.PEIE == 1)
+    {
+        if(PIE4bits.CCP3IE == 1 && PIR4bits.CCP3IF == 1)
+        {
+            CCP3_CaptureISR();
+        }
+        else if(PIE4bits.CCP2IE == 1 && PIR4bits.CCP2IF == 1)
+        {
+            CCP2_CaptureISR();
+        }
+        else if(PIE4bits.CCP1IE == 1 && PIR4bits.CCP1IF == 1)
+        {
+            CCP1_CaptureISR();
+        }
+        else if(PIE1bits.TMR1IE == 1 && PIR1bits.TMR1IF == 1)
+        {
+            TMR1_ISR();
+        }
     }
 }

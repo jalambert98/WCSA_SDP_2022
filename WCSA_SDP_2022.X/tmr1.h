@@ -182,23 +182,97 @@ uint8_t TMR1_CheckGateValueStatus(void);
 //------------------------------------------------------------------------------
 /**
   @Summary
-    Boolean routine to poll or to check for the overflow flag on the fly.
+    Timer Interrupt Service Routine
 
   @Description
-    This function is called to check for the timer overflow flag.
-    This function is usd in timer polling method.
+    Timer Interrupt Service Routine is called by the Interrupt Manager.
 
   @Preconditions
-    Initialize  the TMR1 module before calling this routine.
+    Initialize  the TMR1 module with interrupt before calling this ISR.
 
   @Param
     None
 
   @Returns
-    true - timer overflow has occured.
-    false - timer overflow has not occured.
+    None
 */
-bool TMR1_HasOverflowOccured(void);
+void TMR1_ISR(void);
+
+//------------------------------------------------------------------------------
+/**
+  @Summary
+    CallBack function.
+
+  @Description
+    This routine is called by the Interrupt Manager.
+
+  @Preconditions
+    Initialize  the TMR1 module with interrupt before calling this function.
+
+  @Param
+    None
+
+  @Returns
+    None
+*/
+void TMR1_CallBack(void);
+
+//------------------------------------------------------------------------------
+/**
+  @Summary
+    Set Timer Interrupt Handler
+
+  @Description
+    This sets the function to be called during the ISR
+
+  @Preconditions
+    Initialize  the TMR1 module with interrupt before calling this.
+
+  @Param
+    Address of function to be set
+
+  @Returns
+    None
+*/
+ void TMR1_SetInterruptHandler(void (* InterruptHandler)(void));
+
+//------------------------------------------------------------------------------
+/**
+  @Summary
+    Timer Interrupt Handler
+
+  @Description
+    This is a function pointer to the function that will be called during the ISR
+
+  @Preconditions
+    Initialize  the TMR1 module with interrupt before calling this isr.
+
+  @Param
+    None
+
+  @Returns
+    None
+*/
+extern void (*TMR1_InterruptHandler)(void);
+
+//------------------------------------------------------------------------------
+/**
+  @Summary
+    Default Timer Interrupt Handler
+
+  @Description
+    This is the default Interrupt Handler function
+
+  @Preconditions
+    Initialize  the TMR1 module with interrupt before calling this isr.
+
+  @Param
+    None
+
+  @Returns
+    None
+*/
+void TMR1_DefaultInterruptHandler(void);
 
 //------------------------------------------------------------------------------
 
@@ -210,6 +284,7 @@ bool TMR1_HasOverflowOccured(void);
 
 #endif // TMR1_H
     
+//------------------------------------------------------------------------------
 /**
  End of File
 */

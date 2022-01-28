@@ -15,8 +15,6 @@
 //-------------------------------- #DEFINES ------------------------------------
 //==============================================================================
 
-#define TMR0_PERIOD_US          250
-
 //#define FR_TIMER_TEST
 
 
@@ -46,19 +44,21 @@ unsigned long FR_Timer_GetMillis() {
 //------------------------------------------------------------------------------
 
 unsigned long FR_Timer_GetMicros() {
-    return (unsigned long)((millis * 1000) + TMR0_ReadTimer());
+    return (micros + TMR0_ReadTimer());
 }
 
 //------------------------------------------------------------------------------
 
 void FR_Timer_IncMillis(void) {
-    millis += 1;
+    millis ++;
+    return;
 }
 
 //------------------------------------------------------------------------------
 
 void FR_Timer_IncMicros(void) {
     micros += 1000;
+    return;
 }
 
 

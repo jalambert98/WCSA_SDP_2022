@@ -8,23 +8,33 @@
 //------------------------------------------------------------------------------
 
 #include "JSN_Sensor.h"
+#include "PIC16Xpress_DevBoard.h"
+#include "FR_Timer.h"
+#include "tmr1.h"
+#include "ccp1.h"
 
-//#define JSN_SENSOR_TEST
+
+#define JSN_SENSOR_TEST
 
 //==============================================================================
 //---------------------------- STATICS VARIABLES -------------------------------
 //==============================================================================
+
+static JSN_t *lastTrig;     // pointer to sensor which last sent TRIG signal
+static unsigned long micros;
+static JSN_t Sens1, Sens2, Sens3;
 
 
 //==============================================================================
 //------------------------------ PUBLIC LIBRARY --------------------------------
 //==============================================================================
 
-uint8_t JSN_Library_Init(void) {
-    // Configure Timers
-    
-    
-    return SUCCESS;
+void JSN_Library_Init(void) {
+    // Initialize TMR1 & CCP1 peripherals
+    TMR1_Initialize();
+    CCP1_Initialize();
+    JSN_Sensor_Init(&Sens1, C4, C5);
+    return;
 }
 
 //------------------------------------------------------------------------------
@@ -34,16 +44,10 @@ uint8_t JSN_Sensor_Init(JSN_t *Sensor, PinName_t trigPin, PinName_t echoPin) {
     // Set echoPin as INPUT if it is one of the following: [A2,A4,C3,C5]
     switch(echoPin) {
         case A2:
-            SET_A2() = INPUT;
-            break;
         case A4:
-            SET_A4() = INPUT;
-            break;
         case C3:
-            SET_C3() = INPUT;
-            break;
         case C5:
-            SET_C5() = INPUT;
+            SetPin(echoPin, INPUT);
             break;
         default:
             return ERROR;
@@ -51,64 +55,24 @@ uint8_t JSN_Sensor_Init(JSN_t *Sensor, PinName_t trigPin, PinName_t echoPin) {
     
     // set trigPin as OUTPUT & initialize low
     switch(trigPin) {
-        case A2:
-        case A4:
-        case C3:
-        case C5:
-        case A3:
-            return ERROR;
         case A5:
-            SET_A5() = OUTPUT;
-            WRITE_A5() = LOW;
-            break;
         case C4:
-            SET_C4() = OUTPUT;
-            WRITE_C4() = LOW;
-            break;
         case C6:
-            SET_C6() = OUTPUT;
-            WRITE_C6() = LOW;
-            break;
         case C7:
-            SET_C7() = OUTPUT;
-            WRITE_C7() = LOW;
-            break;
         case B7:
-            SET_B7() = OUTPUT;
-            WRITE_B7() = LOW;
-            break;
         case B6:
-            SET_B6() = OUTPUT;
-            WRITE_B6() = LOW;
-            break;
         case B5:
-            SET_B5() = OUTPUT;
-            WRITE_B5() = LOW;
-            break;
         case B4:
-            SET_B4() = OUTPUT;
-            WRITE_B4() = LOW;
-            break;
         case C2:
-            SET_C2() = OUTPUT;
-            WRITE_C2() = LOW;
-            break;
         case C1:
-            SET_C1() = OUTPUT;
-            WRITE_C1() = LOW;
-            break;
         case C0:
-            SET_C0() = OUTPUT;
-            WRITE_C0() = LOW;
-            break;
         case A1:
-            SET_A1() = OUTPUT;
-            WRITE_A1() = LOW;
-            break;
         case A0:
-            SET_A0() = OUTPUT;
-            WRITE_A0() = LOW;
+            SetPin(trigPin, OUTPUT);
+            WritePin(trigPin, LOW);
             break;
+        default:
+            return ERROR;
     }
     
     // Initialize JSN_t instance variables
@@ -117,20 +81,45 @@ uint8_t JSN_Sensor_Init(JSN_t *Sensor, PinName_t trigPin, PinName_t echoPin) {
     Sensor->echoPin = echoPin;
     Sensor->trigPin = trigPin;
     
+    lastTrig = Sensor;      // default lastTrig to last initialized
+    
     return SUCCESS;
 }
 
 //------------------------------------------------------------------------------
-
+/*
+ *  EXPECTS that FR_Timer_Init() has already been called!!
+ */
 void JSN_Sensor_Trig(JSN_t *Sensor) {
+    micros = FR_Timer_GetMicros();
+    
+    // Raise TRIG pin HIGH
+    WritePin(Sensor->trigPin, HIGH);
+    
+    // Block further instruction for defined TRIG pulse width duration
+    while((FR_Timer_GetMicros() - micros) < TRIG_PULSE_WIDTH);
+    
+    // Lower TRIG pin after pulse duration elapsed
+    WritePin(Sensor->trigPin, LOW);
+    
+    // Indicate that this Sensor was last to send TRIG pulse
+    lastTrig = Sensor;
     return;
 }
 
 //------------------------------------------------------------------------------
 
 unsigned int JSN_Sensor_GetDistance(JSN_t *Sensor) {
-    return 0;
+    Sensor->distance = (Sensor->echoHighTime*US_WAVE_SPEED)/(MICROS_PER_MILLI<<1);
+    return Sensor->distance;
 }
+
+//------------------------------------------------------------------------------
+
+JSN_t* JSN_GetLastTrig(void) {
+    return lastTrig;
+}
+
 
 //==============================================================================
 //------------------------- CONDITIONAL TEST HARNESS ---------------------------
@@ -139,8 +128,35 @@ unsigned int JSN_Sensor_GetDistance(JSN_t *Sensor) {
 #ifdef JSN_SENSOR_TEST
 
 int main(void) {
-    JSN_t Sens1, Sens2, Sens3;
-    while(1);
+    // Initialize required libraries
+    PIC16_Init();
+    FR_Timer_Init();
+    JSN_Library_Init();
+    
+    // Initialize function variables
+    unsigned long currMilli = 0;
+    unsigned long prevMilli = 0;
+    SetPin(C0, OUTPUT);
+    WritePin(C0, LOW);
+    
+    JSN_Sensor_Trig(&Sens1);
+    while(1) {
+        currMilli = FR_Timer_GetMillis();
+        
+        // This block runs every 250ms
+        if((currMilli - prevMilli) >= 500) {
+            // turn on LED output if sensor measures > 300mm distance
+            if(Sens1.echoHighTime == 0)
+                LATCbits.LATC0 ^= 1;
+            //else
+                //WritePin(C0, LOW);
+            
+            // send new TRIG signal
+            JSN_Sensor_Trig(&Sens1);
+            prevMilli = currMilli;
+        }        
+    }
+    
     return 0;
 }
 

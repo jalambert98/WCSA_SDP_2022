@@ -1,4 +1,4 @@
-# 1 "tmr0.c"
+# 1 "tmr1.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "tmr0.c" 2
-# 10 "tmr0.c"
+# 1 "tmr1.c" 2
+# 12 "tmr1.c"
 # 1 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -11192,214 +11192,12 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 2 3
-# 10 "tmr0.c" 2
-
-# 1 "./tmr0.h" 1
-# 14 "./tmr0.h"
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdbool.h" 1 3
-# 14 "./tmr0.h" 2
-# 43 "./tmr0.h"
-void TMR0_Initialize(void);
-# 63 "./tmr0.h"
-void TMR0_StartTimer(void);
-# 83 "./tmr0.h"
-void TMR0_StopTimer(void);
-# 102 "./tmr0.h"
-uint8_t TMR0_ReadTimer(void);
-# 122 "./tmr0.h"
-void TMR0_WriteTimer(uint8_t timerVal);
-# 142 "./tmr0.h"
-void TMR0_Reload(uint8_t periodVal);
-# 161 "./tmr0.h"
-void TMR0_ISR(void);
-# 180 "./tmr0.h"
-void TMR0_CallBack(void);
-# 199 "./tmr0.h"
- void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
-# 218 "./tmr0.h"
-extern void (*TMR0_InterruptHandler)(void);
-# 237 "./tmr0.h"
-void TMR0_DefaultInterruptHandler(void);
-# 11 "tmr0.c" 2
-
-# 1 "./FR_Timer.h" 1
-# 10 "./FR_Timer.h"
-# 1 "./PIC16Xpress_DevBoard.h" 1
-# 10 "./PIC16Xpress_DevBoard.h"
-# 1 "./mcc.h" 1
-# 13 "./mcc.h"
-# 1 "./device_config.h" 1
-# 13 "./mcc.h" 2
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\conio.h" 1 3
-
-
-
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdio.h" 1 3
-# 24 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdio.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\bits/alltypes.h" 1 3
-
-
-
-
-
-typedef void * va_list[1];
-
-
-
-
-typedef void * __isoc_va_list[1];
-# 137 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long ssize_t;
-# 246 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long long off_t;
-# 399 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef struct _IO_FILE FILE;
-# 24 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdio.h" 2 3
-# 52 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdio.h" 3
-typedef union _G_fpos64_t {
- char __opaque[16];
- double __align;
-} fpos_t;
-
-extern FILE *const stdin;
-extern FILE *const stdout;
-extern FILE *const stderr;
-
-
-
-
-
-FILE *fopen(const char *restrict, const char *restrict);
-FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
-int fclose(FILE *);
-
-int remove(const char *);
-int rename(const char *, const char *);
-
-int feof(FILE *);
-int ferror(FILE *);
-int fflush(FILE *);
-void clearerr(FILE *);
-
-int fseek(FILE *, long, int);
-long ftell(FILE *);
-void rewind(FILE *);
-
-int fgetpos(FILE *restrict, fpos_t *restrict);
-int fsetpos(FILE *, const fpos_t *);
-
-size_t fread(void *restrict, size_t, size_t, FILE *restrict);
-size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
-
-int fgetc(FILE *);
-int getc(FILE *);
-int getchar(void);
-int ungetc(int, FILE *);
-
-int fputc(int, FILE *);
-int putc(int, FILE *);
-int putchar(int);
-
-char *fgets(char *restrict, int, FILE *restrict);
-
-char *gets(char *);
-
-
-int fputs(const char *restrict, FILE *restrict);
-int puts(const char *);
-
-__attribute__((__format__(__printf__, 1, 2)))
-int printf(const char *restrict, ...);
-__attribute__((__format__(__printf__, 2, 3)))
-int fprintf(FILE *restrict, const char *restrict, ...);
-__attribute__((__format__(__printf__, 2, 3)))
-int sprintf(char *restrict, const char *restrict, ...);
-__attribute__((__format__(__printf__, 3, 4)))
-int snprintf(char *restrict, size_t, const char *restrict, ...);
-
-__attribute__((__format__(__printf__, 1, 0)))
-int vprintf(const char *restrict, __isoc_va_list);
-int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__printf__, 2, 0)))
-int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__printf__, 3, 0)))
-int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
-
-__attribute__((__format__(__scanf__, 1, 2)))
-int scanf(const char *restrict, ...);
-__attribute__((__format__(__scanf__, 2, 3)))
-int fscanf(FILE *restrict, const char *restrict, ...);
-__attribute__((__format__(__scanf__, 2, 3)))
-int sscanf(const char *restrict, const char *restrict, ...);
-
-__attribute__((__format__(__scanf__, 1, 0)))
-int vscanf(const char *restrict, __isoc_va_list);
-int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__scanf__, 2, 0)))
-int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
-
-void perror(const char *);
-
-int setvbuf(FILE *restrict, char *restrict, int, size_t);
-void setbuf(FILE *restrict, char *restrict);
-
-char *tmpnam(char *);
-FILE *tmpfile(void);
-
-
-
-
-FILE *fmemopen(void *restrict, size_t, const char *restrict);
-FILE *open_memstream(char **, size_t *);
-FILE *fdopen(int, const char *);
-FILE *popen(const char *, const char *);
-int pclose(FILE *);
-int fileno(FILE *);
-int fseeko(FILE *, off_t, int);
-off_t ftello(FILE *);
-int dprintf(int, const char *restrict, ...);
-int vdprintf(int, const char *restrict, __isoc_va_list);
-void flockfile(FILE *);
-int ftrylockfile(FILE *);
-void funlockfile(FILE *);
-int getc_unlocked(FILE *);
-int getchar_unlocked(void);
-int putc_unlocked(int, FILE *);
-int putchar_unlocked(int);
-ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
-ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
-int renameat(int, const char *, int, const char *);
-char *ctermid(char *);
-
-
-
-
-
-
-
-char *tempnam(const char *, const char *);
-# 7 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\conio.h" 2 3
-# 16 "./mcc.h" 2
-# 30 "./mcc.h"
-void SYSTEM_Initialize(void);
-# 44 "./mcc.h"
-void OSCILLATOR_Initialize(void);
-# 58 "./mcc.h"
-void WDT_Initialize(void);
-# 72 "./mcc.h"
-void PMD_Initialize(void);
-# 10 "./PIC16Xpress_DevBoard.h" 2
-
-
-
+# 12 "tmr1.c" 2
 
 # 1 "./tmr1.h" 1
+# 13 "./tmr1.h"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdbool.h" 1 3
+# 13 "./tmr1.h" 2
 # 41 "./tmr1.h"
 void TMR1_Initialize(void);
 # 61 "./tmr1.h"
@@ -11426,229 +11224,155 @@ void TMR1_CallBack(void);
 extern void (*TMR1_InterruptHandler)(void);
 # 275 "./tmr1.h"
 void TMR1_DefaultInterruptHandler(void);
-# 14 "./PIC16Xpress_DevBoard.h" 2
+# 13 "tmr1.c" 2
 
-# 1 "./ccp1.h" 1
-# 32 "./ccp1.h"
-typedef union CCPR1Reg_tag
-{
-   struct
-   {
-      uint8_t ccpr1l;
-      uint8_t ccpr1h;
-   };
-   struct
-   {
-      uint16_t ccpr1_16Bit;
-   };
-} CCP1_PERIOD_REG_T ;
-# 65 "./ccp1.h"
-void CCP1_Initialize(void);
-# 82 "./ccp1.h"
-void CCP1_CaptureISR(void);
-# 102 "./ccp1.h"
- void CCP1_SetCallBack(void (*customCallBack)(uint16_t));
-# 15 "./PIC16Xpress_DevBoard.h" 2
 
-# 1 "./ccp2.h" 1
-# 32 "./ccp2.h"
-typedef union CCPR2Reg_tag
-{
-   struct
-   {
-      uint8_t ccpr2l;
-      uint8_t ccpr2h;
-   };
-   struct
-   {
-      uint16_t ccpr2_16Bit;
-   };
-} CCP2_PERIOD_REG_T ;
-# 65 "./ccp2.h"
-void CCP2_Initialize(void);
-# 82 "./ccp2.h"
-void CCP2_CaptureISR(void);
-# 102 "./ccp2.h"
- void CCP2_SetCallBack(void (*customCallBack)(uint16_t));
-# 16 "./PIC16Xpress_DevBoard.h" 2
-
-# 1 "./ccp3.h" 1
-# 32 "./ccp3.h"
-typedef union CCPR3Reg_tag
-{
-   struct
-   {
-      uint8_t ccpr3l;
-      uint8_t ccpr3h;
-   };
-   struct
-   {
-      uint16_t ccpr3_16Bit;
-   };
-} CCP3_PERIOD_REG_T ;
-# 65 "./ccp3.h"
-void CCP3_Initialize(void);
-# 82 "./ccp3.h"
-void CCP3_CaptureISR(void);
-# 102 "./ccp3.h"
- void CCP3_SetCallBack(void (*customCallBack)(uint16_t));
-# 17 "./PIC16Xpress_DevBoard.h" 2
-# 95 "./PIC16Xpress_DevBoard.h"
-typedef enum {
-    A5, A4, A3,
-    C5, C4, C3,
-    C6, C7, B7,
-    A0, A1, A2,
-    C0, C1, C2,
-    B4, B5, B6
-} PinName_t;
-# 119 "./PIC16Xpress_DevBoard.h"
-void PIC16_Init(void);
+volatile uint16_t timer1ReloadVal;
+void (*TMR1_InterruptHandler)(void);
 
 
 
-uint8_t SetPin(PinName_t pin, uint8_t io);
-
-
-
-uint8_t ReadPin(PinName_t pin);
-
-
-
-uint8_t WritePin(PinName_t pin, uint8_t val);
-# 146 "./PIC16Xpress_DevBoard.h"
-void __attribute__((picinterrupt(("")))) InterruptManager (void);
-# 10 "./FR_Timer.h" 2
-# 32 "./FR_Timer.h"
-void FR_Timer_Init(void);
-# 47 "./FR_Timer.h"
-unsigned long FR_Timer_GetMillis(void);
-# 62 "./FR_Timer.h"
-unsigned long FR_Timer_GetMicros(void);
-# 80 "./FR_Timer.h"
-void FR_Timer_IncMillis(void);
-# 99 "./FR_Timer.h"
-void FR_Timer_IncMicros(void);
-# 12 "tmr0.c" 2
-
-
-void (*TMR0_InterruptHandler)(void);
-
-
-
-void TMR0_Initialize(void)
+void TMR1_Initialize(void)
 {
 
 
 
-    T0CON1 = 0x42;
+    T1GCON = 0x00;
 
 
-    TMR0H = 0xF9;
+    TMR1H = 0x80;
 
 
-    TMR0L = 0x00;
+    TMR1L = 0x00;
 
 
-    PIR0bits.TMR0IF = 0;
+    PIR1bits.TMR1IF = 0;
 
 
-    PIE0bits.TMR0IE = 1;
+    timer1ReloadVal=(uint16_t)((TMR1H << 8) | TMR1L);
 
 
-    TMR0_SetInterruptHandler(TMR0_DefaultInterruptHandler);
+    PIE1bits.TMR1IE = 1;
 
 
-    T0CON0 = 0x80;
+    TMR1_SetInterruptHandler(TMR1_DefaultInterruptHandler);
+
+
+    T1CON = 0x11;
 }
 
 
 
-void TMR0_StartTimer(void)
+void TMR1_StartTimer(void)
 {
 
-    T0CON0bits.T0EN = 1;
+    T1CONbits.TMR1ON = 1;
 }
 
 
 
-void TMR0_StopTimer(void)
+void TMR1_StopTimer(void)
 {
 
-    T0CON0bits.T0EN = 0;
+    T1CONbits.TMR1ON = 0;
 }
 
 
 
-uint8_t TMR0_ReadTimer(void)
+uint16_t TMR1_ReadTimer(void)
 {
-    uint8_t readVal;
+    uint16_t readVal;
+    uint8_t readValHigh;
+    uint8_t readValLow;
 
 
-    readVal = TMR0L;
+    readValLow = TMR1L;
+    readValHigh = TMR1H;
+
+    readVal = ((uint16_t)readValHigh << 8) | readValLow;
 
     return readVal;
 }
 
 
 
-void TMR0_WriteTimer(uint8_t timerVal)
+void TMR1_WriteTimer(uint16_t timerVal)
 {
-
-    TMR0L = timerVal;
-}
-
-
-
-void TMR0_Reload(uint8_t periodVal)
-{
-
-   TMR0H = periodVal;
-}
-
-
-
-void TMR0_ISR(void)
-{
-    static volatile uint16_t CountCallBack = 0;
-
-
-    PIR0bits.TMR0IF = 0;
-
-    if (++CountCallBack >= 4)
+    if (T1CONbits.T1SYNC == 1)
     {
 
-        TMR0_CallBack();
+        T1CONbits.TMR1ON = 0;
 
 
-        CountCallBack = 0;
+        TMR1H = (uint8_t)(timerVal >> 8);
+        TMR1L = (uint8_t)timerVal;
+
+
+        T1CONbits.TMR1ON =1;
     }
-
-
-}
-
-
-
-void TMR0_CallBack(void)
-{
-    FR_Timer_IncMillis();
-    FR_Timer_IncMicros();
-
-    if(TMR0_InterruptHandler)
+    else
     {
-        TMR0_InterruptHandler();
+
+        TMR1H = (uint8_t)(timerVal >> 8);
+        TMR1L = (uint8_t)timerVal;
     }
 }
 
 
 
-void TMR0_SetInterruptHandler(void (* InterruptHandler)(void)){
-    TMR0_InterruptHandler = InterruptHandler;
+void TMR1_Reload(void)
+{
+    TMR1_WriteTimer(timer1ReloadVal);
 }
 
 
 
-void TMR0_DefaultInterruptHandler(void){
+void TMR1_StartSinglePulseAcquisition(void)
+{
+    T1GCONbits.T1GGO_nDONE = 1;
+}
+
+
+
+uint8_t TMR1_CheckGateValueStatus(void)
+{
+    return (T1GCONbits.T1GVAL);
+}
+
+
+
+void TMR1_ISR(void)
+{
+
+
+    PIR1bits.TMR1IF = 0;
+    TMR1_WriteTimer(timer1ReloadVal);
+
+
+
+    TMR1_CallBack();
+}
+
+
+
+void TMR1_CallBack(void)
+{
+
+    if(TMR1_InterruptHandler)
+    {
+        TMR1_InterruptHandler();
+    }
+}
+
+
+
+void TMR1_SetInterruptHandler(void (* InterruptHandler)(void)){
+    TMR1_InterruptHandler = InterruptHandler;
+}
+
+
+
+void TMR1_DefaultInterruptHandler(void){
 
 
 }

@@ -7,10 +7,13 @@
  */
 //------------------------------------------------------------------------------
 
+// TMR1 ticks @2MHz & rolls over every 12ms
+
 #include <xc.h>
 #include "tmr1.h"
 
 volatile uint16_t timer1ReloadVal;
+void (*TMR1_InterruptHandler)(void);
 
 //------------------------------------------------------------------------------
 
@@ -21,20 +24,26 @@ void TMR1_Initialize(void)
     //T1GSS T1G_pin; TMR1GE disabled; T1GTM disabled; T1GPOL low; T1GGO_nDONE done; T1GSPM disabled; 
     T1GCON = 0x00;
 
-    //TMR1H 68; 
-    TMR1H = 0x44;
+    //TMR1H 128; 
+    TMR1H = 0x80;
 
-    //TMR1L 128; 
-    TMR1L = 0x80;
+    //TMR1L 0; 
+    TMR1L = 0x00;
 
-    // Clearing IF flag.
+    // Clearing IF flag before enabling the interrupt.
     PIR1bits.TMR1IF = 0;
-	
+
     // Load the TMR value to reload variable
     timer1ReloadVal=(uint16_t)((TMR1H << 8) | TMR1L);
 
-    // T1CKPS 1:1; T1SOSC T1CKI_enabled; T1SYNC synchronize; TMR1CS FOSC/4; TMR1ON enabled; 
-    T1CON = 0x01;
+    // Enabling TMR1 interrupt.
+    PIE1bits.TMR1IE = 1;
+
+    // Set Default Interrupt Handler
+    TMR1_SetInterruptHandler(TMR1_DefaultInterruptHandler);
+
+    // T1CKPS 1:2; T1SOSC T1CKI_enabled; T1SYNC synchronize; TMR1CS FOSC/4; TMR1ON enabled; 
+    T1CON = 0x11;
 }
 
 //------------------------------------------------------------------------------
@@ -117,11 +126,42 @@ uint8_t TMR1_CheckGateValueStatus(void)
 
 //------------------------------------------------------------------------------
 
-bool TMR1_HasOverflowOccured(void)
+void TMR1_ISR(void)
 {
-    // check if  overflow has occurred by checking the TMRIF bit
-    return(PIR1bits.TMR1IF);
+
+    // Clear the TMR1 interrupt flag
+    PIR1bits.TMR1IF = 0;
+    TMR1_WriteTimer(timer1ReloadVal);
+
+    // ticker function call;
+    // ticker is 1 -> Callback function gets called everytime this ISR executes
+    TMR1_CallBack();
 }
+
+//------------------------------------------------------------------------------
+
+void TMR1_CallBack(void)
+{
+    // Add your custom callback code here
+    if(TMR1_InterruptHandler)
+    {
+        TMR1_InterruptHandler();
+    }
+}
+
+//------------------------------------------------------------------------------
+
+void TMR1_SetInterruptHandler(void (* InterruptHandler)(void)){
+    TMR1_InterruptHandler = InterruptHandler;
+}
+
+//------------------------------------------------------------------------------
+
+void TMR1_DefaultInterruptHandler(void){
+    // add your TMR1 interrupt custom code
+    // or set custom function using TMR1_SetInterruptHandler()
+}
+
 
 //------------------------------------------------------------------------------
 

@@ -1,5 +1,5 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[v F7021 `(v ~T0 @X0 0 tf ]
+[v F7098 `(v ~T0 @X0 0 tf ]
 "1174 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
 [v _T0CON1 `Vuc ~T0 @X0 0 e@24 ]
 "955
@@ -51,9 +51,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "99
 [; ;./FR_Timer.h: 99: void FR_Timer_IncMicros(void);
 [v _FR_Timer_IncMicros `(v ~T0 @X0 0 ef ]
-[v F7035 `(v ~T0 @X0 0 tf ]
-[v F7037 `(v ~T0 @X0 0 tf ]
-[v F7039 `(v ~T0 @X0 0 tf ]
+[v F7112 `(v ~T0 @X0 0 tf ]
+[v F7114 `(v ~T0 @X0 0 tf ]
+[v F7116 `(v ~T0 @X0 0 tf ]
 "55 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
 [; <" INDF0 equ 00h ;# ">
 "75
@@ -762,7 +762,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSH equ 0FEFh ;# ">
 "14 tmr0.c
 [; ;tmr0.c: 14: void (*TMR0_InterruptHandler)(void);
-[v _TMR0_InterruptHandler `*F7021 ~T0 @X0 1 e ]
+[v _TMR0_InterruptHandler `*F7098 ~T0 @X0 1 e ]
 "18
 [; ;tmr0.c: 18: void TMR0_Initialize(void)
 [v _TMR0_Initialize `(v ~T0 @X0 1 ef ]
@@ -794,7 +794,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _T0CON0 -> -> 128 `i `uc ]
 "42
 [; ;tmr0.c: 42: }
-[e :UE 965 ]
+[e :UE 974 ]
 }
 "46
 [; ;tmr0.c: 46: void TMR0_StartTimer(void)
@@ -809,7 +809,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _T0CON0bits 0 4 -> -> 1 `i `uc ]
 "50
 [; ;tmr0.c: 50: }
-[e :UE 966 ]
+[e :UE 975 ]
 }
 "54
 [; ;tmr0.c: 54: void TMR0_StopTimer(void)
@@ -824,7 +824,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _T0CON0bits 0 4 -> -> 0 `i `uc ]
 "58
 [; ;tmr0.c: 58: }
-[e :UE 967 ]
+[e :UE 976 ]
 }
 "62
 [; ;tmr0.c: 62: uint8_t TMR0_ReadTimer(void)
@@ -843,10 +843,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "69
 [; ;tmr0.c: 69:     return readVal;
 [e ) _readVal ]
-[e $UE 968  ]
+[e $UE 977  ]
 "70
 [; ;tmr0.c: 70: }
-[e :UE 968 ]
+[e :UE 977 ]
 }
 "74
 [; ;tmr0.c: 74: void TMR0_WriteTimer(uint8_t timerVal)
@@ -866,7 +866,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _TMR0L _timerVal ]
 "78
 [; ;tmr0.c: 78: }
-[e :UE 969 ]
+[e :UE 978 ]
 }
 "82
 [; ;tmr0.c: 82: void TMR0_Reload(uint8_t periodVal)
@@ -886,7 +886,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _TMR0H _periodVal ]
 "86
 [; ;tmr0.c: 86: }
-[e :UE 970 ]
+[e :UE 979 ]
 }
 "90
 [; ;tmr0.c: 90: void TMR0_ISR(void)
@@ -898,8 +898,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "92
 [; ;tmr0.c: 92:     static volatile uint16_t CountCallBack = 0;
-[v F7033 `Vus ~T0 @X0 1 s CountCallBack ]
-[i F7033
+[v F7110 `Vus ~T0 @X0 1 s CountCallBack ]
+[i F7110
 -> -> 0 `i `us
 ]
 "95
@@ -907,7 +907,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _PIR0bits 0 3 -> -> 0 `i `uc ]
 "97
 [; ;tmr0.c: 97:     if (++CountCallBack >= 4)
-[e $ ! >= -> =+ F7033 -> -> 1 `i `Vus `ui -> -> 4 `i `ui 972  ]
+[e $ ! >= -> =+ F7110 -> -> 1 `i `Vus `ui -> -> 4 `i `ui 981  ]
 "98
 [; ;tmr0.c: 98:     {
 {
@@ -916,14 +916,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _TMR0_CallBack ..  ]
 "103
 [; ;tmr0.c: 103:         CountCallBack = 0;
-[e = F7033 -> -> 0 `i `us ]
+[e = F7110 -> -> 0 `i `us ]
 "104
 [; ;tmr0.c: 104:     }
 }
-[e :U 972 ]
+[e :U 981 ]
 "107
 [; ;tmr0.c: 107: }
-[e :UE 971 ]
+[e :UE 980 ]
 }
 "111
 [; ;tmr0.c: 111: void TMR0_CallBack(void)
@@ -941,7 +941,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _FR_Timer_IncMicros ..  ]
 "116
 [; ;tmr0.c: 116:     if(TMR0_InterruptHandler)
-[e $ ! != _TMR0_InterruptHandler -> -> 0 `i `*F7035 974  ]
+[e $ ! != _TMR0_InterruptHandler -> -> 0 `i `*F7112 983  ]
 "117
 [; ;tmr0.c: 117:     {
 {
@@ -951,24 +951,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 "119
 [; ;tmr0.c: 119:     }
 }
-[e :U 974 ]
+[e :U 983 ]
 "120
 [; ;tmr0.c: 120: }
-[e :UE 973 ]
+[e :UE 982 ]
 }
 "124
 [; ;tmr0.c: 124: void TMR0_SetInterruptHandler(void (* InterruptHandler)(void)){
-[v _TMR0_SetInterruptHandler `(v ~T0 @X0 1 ef1`*F7037 ]
+[v _TMR0_SetInterruptHandler `(v ~T0 @X0 1 ef1`*F7114 ]
 {
 [e :U _TMR0_SetInterruptHandler ]
-[v _InterruptHandler `*F7039 ~T0 @X0 1 r1 ]
+[v _InterruptHandler `*F7116 ~T0 @X0 1 r1 ]
 [f ]
 "125
 [; ;tmr0.c: 125:     TMR0_InterruptHandler = InterruptHandler;
 [e = _TMR0_InterruptHandler _InterruptHandler ]
 "126
 [; ;tmr0.c: 126: }
-[e :UE 975 ]
+[e :UE 984 ]
 }
 "130
 [; ;tmr0.c: 130: void TMR0_DefaultInterruptHandler(void){
@@ -978,5 +978,5 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "133
 [; ;tmr0.c: 133: }
-[e :UE 976 ]
+[e :UE 985 ]
 }
