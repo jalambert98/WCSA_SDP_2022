@@ -1,4 +1,4 @@
-# 1 "mcc.c"
+# 1 "interrupt_manager.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,11 @@
 # 1 "<built-in>" 2
 # 1 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "mcc.c" 2
-# 10 "mcc.c"
+# 1 "interrupt_manager.c" 2
+
+# 1 "./interrupt_manager.h" 1
+# 2 "interrupt_manager.c" 2
+
 # 1 "./mcc.h" 1
 # 49 "./mcc.h"
 # 1 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 1 3
@@ -11364,8 +11367,6 @@ char *tempnam(const char *, const char *);
 # 7 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\conio.h" 2 3
 # 54 "./mcc.h" 2
 
-# 1 "./interrupt_manager.h" 1
-# 55 "./mcc.h" 2
 
 # 1 "./ccp2.h" 1
 # 80 "./ccp2.h"
@@ -11494,66 +11495,41 @@ void OSCILLATOR_Initialize(void);
 void WDT_Initialize(void);
 # 112 "./mcc.h"
 void PMD_Initialize(void);
-# 10 "mcc.c" 2
+# 3 "interrupt_manager.c" 2
 
 
-
-
-void SYSTEM_Initialize(void)
-{
-    PMD_Initialize();
-    PIN_MANAGER_Initialize();
-    OSCILLATOR_Initialize();
-    WDT_Initialize();
-    CCP2_Initialize();
-    CCP3_Initialize();
-    CCP1_Initialize();
-    TMR1_Initialize();
-    TMR0_Initialize();
-}
-
-
-
-void OSCILLATOR_Initialize(void)
+void __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager (void)
 {
 
-    OSCCON1 = 0x00;
-
-    OSCCON3 = 0x00;
-
-    OSCEN = 0x00;
-
-    OSCFRQ = 0x04;
-
-    OSCTUNE = 0x00;
-
-    while(PLLR == 0)
+    if(PIE0bits.TMR0IE == 1 && PIR0bits.TMR0IF == 1)
     {
+        TMR0_ISR();
     }
-}
+    else if(INTCONbits.PEIE == 1)
+    {
+        if(PIE4bits.CCP1IE == 1 && PIR4bits.CCP1IF == 1)
+        {
+            CCP1_CaptureISR();
+        }
+        else if(PIE4bits.CCP2IE == 1 && PIR4bits.CCP2IF == 1)
+        {
+            CCP2_CaptureISR();
+        }
+        else if(PIE4bits.CCP3IE == 1 && PIR4bits.CCP3IF == 1)
+        {
+            CCP3_CaptureISR();
+        }
+        else if(PIE1bits.TMR1IE == 1 && PIR1bits.TMR1IF == 1)
+        {
+            TMR1_ISR();
+        }
+        else
+        {
 
+        }
+    }
+    else
+    {
 
-
-void WDT_Initialize(void)
-{
-
-    WDTCON = 0x16;
-}
-
-
-
-void PMD_Initialize(void)
-{
-
-    PMD0 = 0x00;
-
-    PMD1 = 0x7C;
-
-    PMD2 = 0x66;
-
-    PMD3 = 0xC8;
-
-    PMD4 = 0x00;
-
-    PMD5 = 0x1F;
+    }
 }

@@ -1,5 +1,5 @@
 /* 
- * File:    JSN_Sensor.h
+ * File:    JSN_Sensor.c
  * Author:  Jack Lambert     <joalambe@ucsc.edu>
  * Project: WCSA_SDP_2022
  *
@@ -145,11 +145,10 @@ int main(void) {
         
         // This block runs every 250ms
         if((currMilli - prevMilli) >= 500) {
-            // turn on LED output if sensor measures > 300mm distance
-            if(Sens1.echoHighTime == 0)
-                LATCbits.LATC0 ^= 1;
-            //else
-                //WritePin(C0, LOW);
+            // flicker LED output if sensor measures < 300mm distance
+            if(JSN_Sensor_GetDistance(&Sens1) > 300) {
+                WritePin(C0, HIGH);
+            }
             
             // send new TRIG signal
             JSN_Sensor_Trig(&Sens1);

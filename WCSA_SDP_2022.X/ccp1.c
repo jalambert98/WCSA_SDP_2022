@@ -17,7 +17,6 @@
 static void (*CCP1_CallBack)(uint16_t);
 static uint16_t ticksUp, ticksDown;
 
-
 //------------------------------------------------------------------------------
 
 static void CCP1_DefaultCallBack(uint16_t capturedValue)
@@ -90,7 +89,6 @@ void CCP1_SetCallBack(void (*customCallBack)(uint16_t)){
 }
 
 //------------------------------------------------------------------------------
-
 /**
  End of File
 */

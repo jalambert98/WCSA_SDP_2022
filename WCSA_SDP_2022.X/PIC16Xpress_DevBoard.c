@@ -14,9 +14,6 @@
 //==============================================================================
 
 void PIC16_Init(void) {
-    // Initialize hardware libraries
-    SYSTEM_Initialize();
-    
     // Manually disable all peripheral interrupts
     PIE0 = 0x00;
     PIE1 = 0x00;
@@ -59,6 +56,8 @@ void PIC16_Init(void) {
     PIR2 = 0x00;
     PIR3 = 0x00;
     PIR4 = 0x00;
+    
+    SYSTEM_Initialize();
     
     INTCONbits.GIE = HIGH;      // Enable global interrupts
 }
@@ -230,43 +229,6 @@ uint8_t WritePin(PinName_t pin, uint8_t val) {
         default:
             return ERROR;
     }
-}
-
-
-//==============================================================================
-//----------------------- General Purpose ISR Manager --------------------------
-//==============================================================================
-
-void __interrupt() InterruptManager (void)
-{
-    // interrupt handler
-    if(PIE0bits.TMR0IE == 1 && PIR0bits.TMR0IF == 1)
-    {
-        TMR0_ISR();
-    }
-    else if(PIE0bits.IOCIE == 1 && PIR0bits.IOCIF == 1)
-    {
-        PIR0bits.IOCIF = 0;
-    }
-    else if(INTCONbits.PEIE == 1)
-    {
-        if(PIE4bits.CCP3IE == 1 && PIR4bits.CCP3IF == 1)
-        {
-            CCP3_CaptureISR();
-        } 
-        else if(PIE4bits.CCP2IE == 1 && PIR4bits.CCP2IF == 1)
-        {
-            CCP2_CaptureISR();
-        } 
-        else if(PIE4bits.CCP1IE == 1 && PIR4bits.CCP1IF == 1)
-        {
-            CCP1_CaptureISR();
-        } 
-        else if(PIE1bits.TMR1IE == 1 && PIR1bits.TMR1IF == 1)
-        {
-            TMR1_ISR();
-        } 
-    }      
 }
 
 

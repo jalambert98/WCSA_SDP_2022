@@ -75,7 +75,7 @@ void TMR0_WriteTimer(uint8_t timerVal)
 {
     // Write to Timer0 registers, low register only
     TMR0L = timerVal;
-}
+ }
 
 //------------------------------------------------------------------------------
 
@@ -112,11 +112,6 @@ void TMR0_CallBack(void)
 {
     FR_Timer_IncMillis();
     FR_Timer_IncMicros();
-
-    if(TMR0_InterruptHandler)
-    {
-        TMR0_InterruptHandler();
-    }
 }
 
 //------------------------------------------------------------------------------
@@ -133,3 +128,6 @@ void TMR0_DefaultInterruptHandler(void){
 }
 
 //------------------------------------------------------------------------------
+/**
+  End of File
+*/

@@ -7,7 +7,7 @@
 # 1 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "ccp3.c" 2
-# 10 "ccp3.c"
+# 51 "ccp3.c"
 # 1 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -11192,13 +11192,13 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 2 3
-# 10 "ccp3.c" 2
+# 51 "ccp3.c" 2
 
 # 1 "./ccp3.h" 1
-# 15 "./ccp3.h"
+# 56 "./ccp3.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdbool.h" 1 3
-# 15 "./ccp3.h" 2
-# 32 "./ccp3.h"
+# 56 "./ccp3.h" 2
+# 80 "./ccp3.h"
 typedef union CCPR3Reg_tag
 {
    struct
@@ -11211,16 +11211,18 @@ typedef union CCPR3Reg_tag
       uint16_t ccpr3_16Bit;
    };
 } CCP3_PERIOD_REG_T ;
-# 65 "./ccp3.h"
+# 123 "./ccp3.h"
 void CCP3_Initialize(void);
-# 82 "./ccp3.h"
+# 139 "./ccp3.h"
 void CCP3_CaptureISR(void);
-# 102 "./ccp3.h"
+# 180 "./ccp3.h"
  void CCP3_SetCallBack(void (*customCallBack)(uint16_t));
-# 11 "ccp3.c" 2
+# 52 "ccp3.c" 2
 
 
 static void (*CCP3_CallBack)(uint16_t);
+
+
 
 
 
@@ -11228,8 +11230,6 @@ static void CCP3_DefaultCallBack(uint16_t capturedValue)
 {
 
 }
-
-
 
 void CCP3_Initialize(void)
 {
@@ -11260,8 +11260,6 @@ void CCP3_Initialize(void)
     PIE4bits.CCP3IE = 1;
 }
 
-
-
 void CCP3_CaptureISR(void)
 {
     CCP3_PERIOD_REG_T module;
@@ -11276,8 +11274,6 @@ void CCP3_CaptureISR(void)
 
     CCP3_CallBack(module.ccpr3_16Bit);
 }
-
-
 
 void CCP3_SetCallBack(void (*customCallBack)(uint16_t)){
     CCP3_CallBack = customCallBack;

@@ -1,70 +1,76 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"112 ./mcc.h
-[; ;./mcc.h: 112: void PMD_Initialize(void);
-[v _PMD_Initialize `(v ~T0 @X0 0 ef ]
-"58 ./pin_manager.h
-[; ;./pin_manager.h: 58: void PIN_MANAGER_Initialize (void);
-[v _PIN_MANAGER_Initialize `(v ~T0 @X0 0 ef ]
-"88 ./mcc.h
-[; ;./mcc.h: 88: void OSCILLATOR_Initialize(void);
-[v _OSCILLATOR_Initialize `(v ~T0 @X0 0 ef ]
-"100
-[; ;./mcc.h: 100: void WDT_Initialize(void);
-[v _WDT_Initialize `(v ~T0 @X0 0 ef ]
-"123 ./ccp2.h
-[; ;./ccp2.h: 123: void CCP2_Initialize(void);
-[v _CCP2_Initialize `(v ~T0 @X0 0 ef ]
-"123 ./ccp3.h
-[; ;./ccp3.h: 123: void CCP3_Initialize(void);
-[v _CCP3_Initialize `(v ~T0 @X0 0 ef ]
-"123 ./ccp1.h
-[; ;./ccp1.h: 123: void CCP1_Initialize(void);
-[v _CCP1_Initialize `(v ~T0 @X0 0 ef ]
-"101 ./tmr1.h
-[; ;./tmr1.h: 101: void TMR1_Initialize(void);
-[v _TMR1_Initialize `(v ~T0 @X0 0 ef ]
-"106 ./tmr0.h
-[; ;./tmr0.h: 106: void TMR0_Initialize(void);
-[v _TMR0_Initialize `(v ~T0 @X0 0 ef ]
-"12489 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h
-[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 12489: extern volatile unsigned char OSCCON1 __attribute__((address(0x919)));
-[v _OSCCON1 `Vuc ~T0 @X0 0 e@2329 ]
-"12629
-[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 12629: extern volatile unsigned char OSCCON3 __attribute__((address(0x91B)));
-[v _OSCCON3 `Vuc ~T0 @X0 0 e@2331 ]
-"12726
-[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 12726: extern volatile unsigned char OSCEN __attribute__((address(0x91D)));
-[v _OSCEN `Vuc ~T0 @X0 0 e@2333 ]
-"12830
-[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 12830: extern volatile unsigned char OSCFRQ __attribute__((address(0x91F)));
-[v _OSCFRQ `Vuc ~T0 @X0 0 e@2335 ]
-"12772
-[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 12772: extern volatile unsigned char OSCTUNE __attribute__((address(0x91E)));
-[v _OSCTUNE `Vuc ~T0 @X0 0 e@2334 ]
-"22290
-[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 22290: extern volatile __bit PLLR __attribute__((address(0x48E0)));
-[v _PLLR `Vb ~T0 @X0 0 e@18656 ]
-"1978
-[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 1978: extern volatile unsigned char WDTCON __attribute__((address(0x097)));
-[v _WDTCON `Vuc ~T0 @X0 0 e@151 ]
-"12137
-[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 12137: extern volatile unsigned char PMD0 __attribute__((address(0x911)));
-[v _PMD0 `Vuc ~T0 @X0 0 e@2321 ]
-"12182
-[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 12182: extern volatile unsigned char PMD1 __attribute__((address(0x912)));
-[v _PMD1 `Vuc ~T0 @X0 0 e@2322 ]
-"12244
-[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 12244: extern volatile unsigned char PMD2 __attribute__((address(0x913)));
-[v _PMD2 `Vuc ~T0 @X0 0 e@2323 ]
-"12284
-[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 12284: extern volatile unsigned char PMD3 __attribute__((address(0x914)));
-[v _PMD3 `Vuc ~T0 @X0 0 e@2324 ]
-"12346
-[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 12346: extern volatile unsigned char PMD4 __attribute__((address(0x915)));
-[v _PMD4 `Vuc ~T0 @X0 0 e@2325 ]
-"12380
-[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 12380: extern volatile unsigned char PMD5 __attribute__((address(0x916)));
-[v _PMD5 `Vuc ~T0 @X0 0 e@2326 ]
+"2294 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 2294: extern volatile unsigned char LATA __attribute__((address(0x10C)));
+[v _LATA `Vuc ~T0 @X0 0 e@268 ]
+"2339
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 2339: extern volatile unsigned char LATB __attribute__((address(0x10D)));
+[v _LATB `Vuc ~T0 @X0 0 e@269 ]
+"2378
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 2378: extern volatile unsigned char LATC __attribute__((address(0x10E)));
+[v _LATC `Vuc ~T0 @X0 0 e@270 ]
+"1551
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 1551: extern volatile unsigned char TRISA __attribute__((address(0x08C)));
+[v _TRISA `Vuc ~T0 @X0 0 e@140 ]
+"1596
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 1596: extern volatile unsigned char TRISB __attribute__((address(0x08D)));
+[v _TRISB `Vuc ~T0 @X0 0 e@141 ]
+"1635
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 1635: extern volatile unsigned char TRISC __attribute__((address(0x08E)));
+[v _TRISC `Vuc ~T0 @X0 0 e@142 ]
+"3017
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 3017: extern volatile unsigned char ANSELC __attribute__((address(0x18E)));
+[v _ANSELC `Vuc ~T0 @X0 0 e@398 ]
+"2978
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 2978: extern volatile unsigned char ANSELB __attribute__((address(0x18D)));
+[v _ANSELB `Vuc ~T0 @X0 0 e@397 ]
+"2933
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 2933: extern volatile unsigned char ANSELA __attribute__((address(0x18C)));
+[v _ANSELA `Vuc ~T0 @X0 0 e@396 ]
+"3995
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 3995: extern volatile unsigned char WPUB __attribute__((address(0x20D)));
+[v _WPUB `Vuc ~T0 @X0 0 e@525 ]
+"3945
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 3945: extern volatile unsigned char WPUA __attribute__((address(0x20C)));
+[v _WPUA `Vuc ~T0 @X0 0 e@524 ]
+"4034
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 4034: extern volatile unsigned char WPUC __attribute__((address(0x20E)));
+[v _WPUC `Vuc ~T0 @X0 0 e@526 ]
+"6202
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 6202: extern volatile unsigned char ODCONA __attribute__((address(0x28C)));
+[v _ODCONA `Vuc ~T0 @X0 0 e@652 ]
+"6247
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 6247: extern volatile unsigned char ODCONB __attribute__((address(0x28D)));
+[v _ODCONB `Vuc ~T0 @X0 0 e@653 ]
+"6286
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 6286: extern volatile unsigned char ODCONC __attribute__((address(0x28E)));
+[v _ODCONC `Vuc ~T0 @X0 0 e@654 ]
+"6752
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 6752: extern volatile unsigned char SLRCONA __attribute__((address(0x30C)));
+[v _SLRCONA `Vuc ~T0 @X0 0 e@780 ]
+"6797
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 6797: extern volatile unsigned char SLRCONB __attribute__((address(0x30D)));
+[v _SLRCONB `Vuc ~T0 @X0 0 e@781 ]
+"6836
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 6836: extern volatile unsigned char SLRCONC __attribute__((address(0x30E)));
+[v _SLRCONC `Vuc ~T0 @X0 0 e@782 ]
+"7214
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 7214: extern volatile unsigned char INLVLA __attribute__((address(0x38C)));
+[v _INLVLA `Vuc ~T0 @X0 0 e@908 ]
+"7264
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 7264: extern volatile unsigned char INLVLB __attribute__((address(0x38D)));
+[v _INLVLB `Vuc ~T0 @X0 0 e@909 ]
+"7303
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 7303: extern volatile unsigned char INLVLC __attribute__((address(0x38E)));
+[v _INLVLC `Vuc ~T0 @X0 0 e@910 ]
+"13156
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 13156: extern volatile unsigned char CCP2PPS __attribute__((address(0xE15)));
+[v _CCP2PPS `Vuc ~T0 @X0 0 e@3605 ]
+"13208
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 13208: extern volatile unsigned char CCP3PPS __attribute__((address(0xE16)));
+[v _CCP3PPS `Vuc ~T0 @X0 0 e@3606 ]
+"13104
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 13104: extern volatile unsigned char CCP1PPS __attribute__((address(0xE14)));
+[v _CCP1PPS `Vuc ~T0 @X0 0 e@3604 ]
 "55 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h
 [; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 55: __asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
@@ -1124,129 +1130,99 @@ Version 4.0 HI-TECH Software Intermediate Code
 "19652
 [; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 19652: __asm("TOSH equ 0FEFh");
 [; <" TOSH equ 0FEFh ;# ">
-"14 mcc.c
-[; ;mcc.c: 14: void SYSTEM_Initialize(void)
-[v _SYSTEM_Initialize `(v ~T0 @X0 1 ef ]
-"15
-[; ;mcc.c: 15: {
+"4 pin_manager.c
+[; ;pin_manager.c: 4: void PIN_MANAGER_Initialize(void)
+[v _PIN_MANAGER_Initialize `(v ~T0 @X0 1 ef ]
+"5
+[; ;pin_manager.c: 5: {
 {
-[e :U _SYSTEM_Initialize ]
+[e :U _PIN_MANAGER_Initialize ]
 [f ]
+"9
+[; ;pin_manager.c: 9:     LATA = 0x00;
+[e = _LATA -> -> 0 `i `uc ]
+"10
+[; ;pin_manager.c: 10:     LATB = 0x00;
+[e = _LATB -> -> 0 `i `uc ]
+"11
+[; ;pin_manager.c: 11:     LATC = 0x00;
+[e = _LATC -> -> 0 `i `uc ]
 "16
-[; ;mcc.c: 16:     PMD_Initialize();
-[e ( _PMD_Initialize ..  ]
+[; ;pin_manager.c: 16:     TRISA = 0x37;
+[e = _TRISA -> -> 55 `i `uc ]
 "17
-[; ;mcc.c: 17:     PIN_MANAGER_Initialize();
-[e ( _PIN_MANAGER_Initialize ..  ]
+[; ;pin_manager.c: 17:     TRISB = 0xF0;
+[e = _TRISB -> -> 240 `i `uc ]
 "18
-[; ;mcc.c: 18:     OSCILLATOR_Initialize();
-[e ( _OSCILLATOR_Initialize ..  ]
-"19
-[; ;mcc.c: 19:     WDT_Initialize();
-[e ( _WDT_Initialize ..  ]
-"20
-[; ;mcc.c: 20:     CCP2_Initialize();
-[e ( _CCP2_Initialize ..  ]
-"21
-[; ;mcc.c: 21:     CCP3_Initialize();
-[e ( _CCP3_Initialize ..  ]
-"22
-[; ;mcc.c: 22:     CCP1_Initialize();
-[e ( _CCP1_Initialize ..  ]
+[; ;pin_manager.c: 18:     TRISC = 0xFF;
+[e = _TRISC -> -> 255 `i `uc ]
 "23
-[; ;mcc.c: 23:     TMR1_Initialize();
-[e ( _TMR1_Initialize ..  ]
+[; ;pin_manager.c: 23:     ANSELC = 0xD7;
+[e = _ANSELC -> -> 215 `i `uc ]
 "24
-[; ;mcc.c: 24:     TMR0_Initialize();
-[e ( _TMR0_Initialize ..  ]
+[; ;pin_manager.c: 24:     ANSELB = 0xF0;
+[e = _ANSELB -> -> 240 `i `uc ]
 "25
-[; ;mcc.c: 25: }
-[e :UE 974 ]
-}
-"29
-[; ;mcc.c: 29: void OSCILLATOR_Initialize(void)
-[v _OSCILLATOR_Initialize `(v ~T0 @X0 1 ef ]
+[; ;pin_manager.c: 25:     ANSELA = 0x33;
+[e = _ANSELA -> -> 51 `i `uc ]
 "30
-[; ;mcc.c: 30: {
-{
-[e :U _OSCILLATOR_Initialize ]
-[f ]
+[; ;pin_manager.c: 30:     WPUB = 0x00;
+[e = _WPUB -> -> 0 `i `uc ]
+"31
+[; ;pin_manager.c: 31:     WPUA = 0x00;
+[e = _WPUA -> -> 0 `i `uc ]
 "32
-[; ;mcc.c: 32:     OSCCON1 = 0x00;
-[e = _OSCCON1 -> -> 0 `i `uc ]
-"34
-[; ;mcc.c: 34:     OSCCON3 = 0x00;
-[e = _OSCCON3 -> -> 0 `i `uc ]
-"36
-[; ;mcc.c: 36:     OSCEN = 0x00;
-[e = _OSCEN -> -> 0 `i `uc ]
+[; ;pin_manager.c: 32:     WPUC = 0x00;
+[e = _WPUC -> -> 0 `i `uc ]
+"37
+[; ;pin_manager.c: 37:     ODCONA = 0x00;
+[e = _ODCONA -> -> 0 `i `uc ]
 "38
-[; ;mcc.c: 38:     OSCFRQ = 0x04;
-[e = _OSCFRQ -> -> 4 `i `uc ]
-"40
-[; ;mcc.c: 40:     OSCTUNE = 0x00;
-[e = _OSCTUNE -> -> 0 `i `uc ]
-"42
-[; ;mcc.c: 42:     while(PLLR == 0)
-[e $U 976  ]
-[e :U 977 ]
-"43
-[; ;mcc.c: 43:     {
-{
+[; ;pin_manager.c: 38:     ODCONB = 0x00;
+[e = _ODCONB -> -> 0 `i `uc ]
+"39
+[; ;pin_manager.c: 39:     ODCONC = 0x00;
+[e = _ODCONC -> -> 0 `i `uc ]
 "44
-[; ;mcc.c: 44:     }
-}
-[e :U 976 ]
-"42
-[; ;mcc.c: 42:     while(PLLR == 0)
-[e $ == -> _PLLR `i -> 0 `i 977  ]
-[e :U 978 ]
+[; ;pin_manager.c: 44:     SLRCONA = 0x37;
+[e = _SLRCONA -> -> 55 `i `uc ]
 "45
-[; ;mcc.c: 45: }
-[e :UE 975 ]
-}
-"49
-[; ;mcc.c: 49: void WDT_Initialize(void)
-[v _WDT_Initialize `(v ~T0 @X0 1 ef ]
-"50
-[; ;mcc.c: 50: {
-{
-[e :U _WDT_Initialize ]
-[f ]
+[; ;pin_manager.c: 45:     SLRCONB = 0xF0;
+[e = _SLRCONB -> -> 240 `i `uc ]
+"46
+[; ;pin_manager.c: 46:     SLRCONC = 0xFF;
+[e = _SLRCONC -> -> 255 `i `uc ]
+"51
+[; ;pin_manager.c: 51:     INLVLA = 0x3F;
+[e = _INLVLA -> -> 63 `i `uc ]
 "52
-[; ;mcc.c: 52:     WDTCON = 0x16;
-[e = _WDTCON -> -> 22 `i `uc ]
+[; ;pin_manager.c: 52:     INLVLB = 0xF0;
+[e = _INLVLB -> -> 240 `i `uc ]
 "53
-[; ;mcc.c: 53: }
-[e :UE 979 ]
-}
+[; ;pin_manager.c: 53:     INLVLC = 0xFF;
+[e = _INLVLC -> -> 255 `i `uc ]
+"55
+[; ;pin_manager.c: 55:     CCP2PPS = 0x13;
+[e = _CCP2PPS -> -> 19 `i `uc ]
+"56
+[; ;pin_manager.c: 56:     CCP3PPS = 0x02;
+[e = _CCP3PPS -> -> 2 `i `uc ]
 "57
-[; ;mcc.c: 57: void PMD_Initialize(void)
-[v _PMD_Initialize `(v ~T0 @X0 1 ef ]
+[; ;pin_manager.c: 57:     CCP1PPS = 0x15;
+[e = _CCP1PPS -> -> 21 `i `uc ]
 "58
-[; ;mcc.c: 58: {
-{
-[e :U _PMD_Initialize ]
-[f ]
+[; ;pin_manager.c: 58: }
+[e :UE 963 ]
+}
 "60
-[; ;mcc.c: 60:     PMD0 = 0x00;
-[e = _PMD0 -> -> 0 `i `uc ]
+[; ;pin_manager.c: 60: void PIN_MANAGER_IOC(void)
+[v _PIN_MANAGER_IOC `(v ~T0 @X0 1 ef ]
+"61
+[; ;pin_manager.c: 61: {
+{
+[e :U _PIN_MANAGER_IOC ]
+[f ]
 "62
-[; ;mcc.c: 62:     PMD1 = 0x7C;
-[e = _PMD1 -> -> 124 `i `uc ]
-"64
-[; ;mcc.c: 64:     PMD2 = 0x66;
-[e = _PMD2 -> -> 102 `i `uc ]
-"66
-[; ;mcc.c: 66:     PMD3 = 0xC8;
-[e = _PMD3 -> -> 200 `i `uc ]
-"68
-[; ;mcc.c: 68:     PMD4 = 0x00;
-[e = _PMD4 -> -> 0 `i `uc ]
-"70
-[; ;mcc.c: 70:     PMD5 = 0x1F;
-[e = _PMD5 -> -> 31 `i `uc ]
-"71
-[; ;mcc.c: 71: }
-[e :UE 980 ]
+[; ;pin_manager.c: 62: }
+[e :UE 964 ]
 }

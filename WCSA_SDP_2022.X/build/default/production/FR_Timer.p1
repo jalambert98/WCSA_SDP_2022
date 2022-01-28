@@ -1,9 +1,9 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"43 ./tmr0.h
-[; ;./tmr0.h: 43: void TMR0_Initialize(void);
+"106 ./tmr0.h
+[; ;./tmr0.h: 106: void TMR0_Initialize(void);
 [v _TMR0_Initialize `(v ~T0 @X0 0 ef ]
-"102
-[; ;./tmr0.h: 102: uint8_t TMR0_ReadTimer(void);
+"202
+[; ;./tmr0.h: 202: uint8_t TMR0_ReadTimer(void);
 [v _TMR0_ReadTimer `(uc ~T0 @X0 0 ef ]
 "55 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
 [; <" INDF0 equ 00h ;# ">
@@ -728,10 +728,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _TMR0_Initialize ..  ]
 "35
 [; ;FR_Timer.c: 35:     return;
-[e $UE 974  ]
+[e $UE 976  ]
 "36
 [; ;FR_Timer.c: 36: }
-[e :UE 974 ]
+[e :UE 976 ]
 }
 "40
 [; ;FR_Timer.c: 40: unsigned long FR_Timer_GetMillis() {
@@ -742,10 +742,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "41
 [; ;FR_Timer.c: 41:     return millis;
 [e ) _millis ]
-[e $UE 975  ]
+[e $UE 977  ]
 "42
 [; ;FR_Timer.c: 42: }
-[e :UE 975 ]
+[e :UE 977 ]
 }
 "46
 [; ;FR_Timer.c: 46: unsigned long FR_Timer_GetMicros() {
@@ -756,10 +756,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "47
 [; ;FR_Timer.c: 47:     return (micros + TMR0_ReadTimer());
 [e ) + _micros -> ( _TMR0_ReadTimer ..  `ul ]
-[e $UE 976  ]
+[e $UE 978  ]
 "48
 [; ;FR_Timer.c: 48: }
-[e :UE 976 ]
+[e :UE 978 ]
 }
 "52
 [; ;FR_Timer.c: 52: void FR_Timer_IncMillis(void) {
@@ -772,10 +772,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ++ _millis -> -> -> 1 `i `l `ul ]
 "54
 [; ;FR_Timer.c: 54:     return;
-[e $UE 977  ]
+[e $UE 979  ]
 "55
 [; ;FR_Timer.c: 55: }
-[e :UE 977 ]
+[e :UE 979 ]
 }
 "59
 [; ;FR_Timer.c: 59: void FR_Timer_IncMicros(void) {
@@ -788,8 +788,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e =+ _micros -> -> -> 1000 `i `l `ul ]
 "61
 [; ;FR_Timer.c: 61:     return;
-[e $UE 978  ]
+[e $UE 980  ]
 "62
 [; ;FR_Timer.c: 62: }
-[e :UE 978 ]
+[e :UE 980 ]
 }

@@ -7,7 +7,7 @@
 # 1 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "ccp2.c" 2
-# 10 "ccp2.c"
+# 51 "ccp2.c"
 # 1 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -11192,13 +11192,13 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 2 3
-# 10 "ccp2.c" 2
+# 51 "ccp2.c" 2
 
 # 1 "./ccp2.h" 1
-# 15 "./ccp2.h"
+# 56 "./ccp2.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdbool.h" 1 3
-# 15 "./ccp2.h" 2
-# 32 "./ccp2.h"
+# 56 "./ccp2.h" 2
+# 80 "./ccp2.h"
 typedef union CCPR2Reg_tag
 {
    struct
@@ -11211,16 +11211,18 @@ typedef union CCPR2Reg_tag
       uint16_t ccpr2_16Bit;
    };
 } CCP2_PERIOD_REG_T ;
-# 65 "./ccp2.h"
+# 123 "./ccp2.h"
 void CCP2_Initialize(void);
-# 82 "./ccp2.h"
+# 139 "./ccp2.h"
 void CCP2_CaptureISR(void);
-# 102 "./ccp2.h"
+# 180 "./ccp2.h"
  void CCP2_SetCallBack(void (*customCallBack)(uint16_t));
-# 11 "ccp2.c" 2
+# 52 "ccp2.c" 2
 
 
 static void (*CCP2_CallBack)(uint16_t);
+
+
 
 
 
@@ -11228,8 +11230,6 @@ static void CCP2_DefaultCallBack(uint16_t capturedValue)
 {
 
 }
-
-
 
 void CCP2_Initialize(void)
 {
@@ -11260,8 +11260,6 @@ void CCP2_Initialize(void)
     PIE4bits.CCP2IE = 1;
 }
 
-
-
 void CCP2_CaptureISR(void)
 {
     CCP2_PERIOD_REG_T module;
@@ -11276,8 +11274,6 @@ void CCP2_CaptureISR(void)
 
     CCP2_CallBack(module.ccpr2_16Bit);
 }
-
-
 
 void CCP2_SetCallBack(void (*customCallBack)(uint16_t)){
     CCP2_CallBack = customCallBack;

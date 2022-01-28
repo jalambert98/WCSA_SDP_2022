@@ -11195,10 +11195,10 @@ extern __bank0 __bit __timeout;
 # 12 "ccp1.c" 2
 
 # 1 "./ccp1.h" 1
-# 15 "./ccp1.h"
+# 56 "./ccp1.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdbool.h" 1 3
-# 15 "./ccp1.h" 2
-# 32 "./ccp1.h"
+# 56 "./ccp1.h" 2
+# 80 "./ccp1.h"
 typedef union CCPR1Reg_tag
 {
    struct
@@ -11211,20 +11211,27 @@ typedef union CCPR1Reg_tag
       uint16_t ccpr1_16Bit;
    };
 } CCP1_PERIOD_REG_T ;
-# 65 "./ccp1.h"
+# 123 "./ccp1.h"
 void CCP1_Initialize(void);
-# 82 "./ccp1.h"
+# 139 "./ccp1.h"
 void CCP1_CaptureISR(void);
-# 102 "./ccp1.h"
+# 180 "./ccp1.h"
  void CCP1_SetCallBack(void (*customCallBack)(uint16_t));
 # 13 "ccp1.c" 2
 
 # 1 "./PIC16Xpress_DevBoard.h" 1
 # 10 "./PIC16Xpress_DevBoard.h"
 # 1 "./mcc.h" 1
-# 13 "./mcc.h"
+# 50 "./mcc.h"
 # 1 "./device_config.h" 1
-# 13 "./mcc.h" 2
+# 50 "./mcc.h" 2
+
+# 1 "./pin_manager.h" 1
+# 58 "./pin_manager.h"
+void PIN_MANAGER_Initialize (void);
+# 70 "./pin_manager.h"
+void PIN_MANAGER_IOC(void);
+# 51 "./mcc.h" 2
 
 
 
@@ -11380,76 +11387,13 @@ char *ctermid(char *);
 
 char *tempnam(const char *, const char *);
 # 7 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\conio.h" 2 3
-# 16 "./mcc.h" 2
-# 30 "./mcc.h"
-void SYSTEM_Initialize(void);
-# 44 "./mcc.h"
-void OSCILLATOR_Initialize(void);
-# 58 "./mcc.h"
-void WDT_Initialize(void);
-# 72 "./mcc.h"
-void PMD_Initialize(void);
-# 10 "./PIC16Xpress_DevBoard.h" 2
+# 54 "./mcc.h" 2
 
-
-
-# 1 "./tmr0.h" 1
-# 43 "./tmr0.h"
-void TMR0_Initialize(void);
-# 63 "./tmr0.h"
-void TMR0_StartTimer(void);
-# 83 "./tmr0.h"
-void TMR0_StopTimer(void);
-# 102 "./tmr0.h"
-uint8_t TMR0_ReadTimer(void);
-# 122 "./tmr0.h"
-void TMR0_WriteTimer(uint8_t timerVal);
-# 142 "./tmr0.h"
-void TMR0_Reload(uint8_t periodVal);
-# 161 "./tmr0.h"
-void TMR0_ISR(void);
-# 180 "./tmr0.h"
-void TMR0_CallBack(void);
-# 199 "./tmr0.h"
- void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
-# 218 "./tmr0.h"
-extern void (*TMR0_InterruptHandler)(void);
-# 237 "./tmr0.h"
-void TMR0_DefaultInterruptHandler(void);
-# 13 "./PIC16Xpress_DevBoard.h" 2
-
-# 1 "./tmr1.h" 1
-# 41 "./tmr1.h"
-void TMR1_Initialize(void);
-# 61 "./tmr1.h"
-void TMR1_StartTimer(void);
-# 81 "./tmr1.h"
-void TMR1_StopTimer(void);
-# 100 "./tmr1.h"
-uint16_t TMR1_ReadTimer(void);
-# 120 "./tmr1.h"
-void TMR1_WriteTimer(uint16_t timerVal);
-# 140 "./tmr1.h"
-void TMR1_Reload(void);
-# 160 "./tmr1.h"
-void TMR1_StartSinglePulseAcquisition(void);
-# 180 "./tmr1.h"
-uint8_t TMR1_CheckGateValueStatus(void);
-# 199 "./tmr1.h"
-void TMR1_ISR(void);
-# 218 "./tmr1.h"
-void TMR1_CallBack(void);
-# 237 "./tmr1.h"
- void TMR1_SetInterruptHandler(void (* InterruptHandler)(void));
-# 256 "./tmr1.h"
-extern void (*TMR1_InterruptHandler)(void);
-# 275 "./tmr1.h"
-void TMR1_DefaultInterruptHandler(void);
-# 14 "./PIC16Xpress_DevBoard.h" 2
-
+# 1 "./interrupt_manager.h" 1
+# 55 "./mcc.h" 2
 
 # 1 "./ccp2.h" 1
-# 32 "./ccp2.h"
+# 80 "./ccp2.h"
 typedef union CCPR2Reg_tag
 {
    struct
@@ -11462,16 +11406,16 @@ typedef union CCPR2Reg_tag
       uint16_t ccpr2_16Bit;
    };
 } CCP2_PERIOD_REG_T ;
-# 65 "./ccp2.h"
+# 123 "./ccp2.h"
 void CCP2_Initialize(void);
-# 82 "./ccp2.h"
+# 139 "./ccp2.h"
 void CCP2_CaptureISR(void);
-# 102 "./ccp2.h"
+# 180 "./ccp2.h"
  void CCP2_SetCallBack(void (*customCallBack)(uint16_t));
-# 16 "./PIC16Xpress_DevBoard.h" 2
+# 56 "./mcc.h" 2
 
 # 1 "./ccp3.h" 1
-# 32 "./ccp3.h"
+# 80 "./ccp3.h"
 typedef union CCPR3Reg_tag
 {
    struct
@@ -11484,14 +11428,139 @@ typedef union CCPR3Reg_tag
       uint16_t ccpr3_16Bit;
    };
 } CCP3_PERIOD_REG_T ;
-# 65 "./ccp3.h"
+# 123 "./ccp3.h"
 void CCP3_Initialize(void);
-# 82 "./ccp3.h"
+# 139 "./ccp3.h"
 void CCP3_CaptureISR(void);
-# 102 "./ccp3.h"
+# 180 "./ccp3.h"
  void CCP3_SetCallBack(void (*customCallBack)(uint16_t));
-# 17 "./PIC16Xpress_DevBoard.h" 2
-# 95 "./PIC16Xpress_DevBoard.h"
+# 57 "./mcc.h" 2
+
+# 1 "./tmr1.h" 1
+# 101 "./tmr1.h"
+void TMR1_Initialize(void);
+# 130 "./tmr1.h"
+void TMR1_StartTimer(void);
+# 162 "./tmr1.h"
+void TMR1_StopTimer(void);
+# 197 "./tmr1.h"
+uint16_t TMR1_ReadTimer(void);
+# 236 "./tmr1.h"
+void TMR1_WriteTimer(uint16_t timerVal);
+# 272 "./tmr1.h"
+void TMR1_Reload(void);
+# 311 "./tmr1.h"
+void TMR1_StartSinglePulseAcquisition(void);
+# 350 "./tmr1.h"
+uint8_t TMR1_CheckGateValueStatus(void);
+# 368 "./tmr1.h"
+void TMR1_ISR(void);
+# 385 "./tmr1.h"
+void TMR1_CallBack(void);
+# 403 "./tmr1.h"
+ void TMR1_SetInterruptHandler(void (* InterruptHandler)(void));
+# 421 "./tmr1.h"
+extern void (*TMR1_InterruptHandler)(void);
+# 439 "./tmr1.h"
+void TMR1_DefaultInterruptHandler(void);
+# 58 "./mcc.h" 2
+
+
+# 1 "./tmr0.h" 1
+# 106 "./tmr0.h"
+void TMR0_Initialize(void);
+# 135 "./tmr0.h"
+void TMR0_StartTimer(void);
+# 167 "./tmr0.h"
+void TMR0_StopTimer(void);
+# 202 "./tmr0.h"
+uint8_t TMR0_ReadTimer(void);
+# 241 "./tmr0.h"
+void TMR0_WriteTimer(uint8_t timerVal);
+# 278 "./tmr0.h"
+void TMR0_Reload(uint8_t periodVal);
+# 297 "./tmr0.h"
+void TMR0_ISR(void);
+# 315 "./tmr0.h"
+void TMR0_CallBack(void);
+# 333 "./tmr0.h"
+ void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
+# 351 "./tmr0.h"
+extern void (*TMR0_InterruptHandler)(void);
+# 369 "./tmr0.h"
+void TMR0_DefaultInterruptHandler(void);
+# 60 "./mcc.h" 2
+# 75 "./mcc.h"
+void SYSTEM_Initialize(void);
+# 88 "./mcc.h"
+void OSCILLATOR_Initialize(void);
+# 100 "./mcc.h"
+void WDT_Initialize(void);
+# 112 "./mcc.h"
+void PMD_Initialize(void);
+# 10 "./PIC16Xpress_DevBoard.h" 2
+
+
+
+
+
+
+
+
+# 1 "./eusart.h" 1
+# 22 "./eusart.h"
+typedef union {
+    struct {
+        unsigned perr : 1;
+        unsigned ferr : 1;
+        unsigned oerr : 1;
+        unsigned reserved : 5;
+    };
+    uint8_t status;
+}eusart_status_t;
+
+
+
+
+extern volatile uint8_t eusartTxBufferRemaining;
+extern volatile uint8_t eusartRxCount;
+
+
+
+extern void (*EUSART_TxDefaultInterruptHandler)(void);
+extern void (*EUSART_RxDefaultInterruptHandler)(void);
+# 61 "./eusart.h"
+void EUSART_Initialize(void);
+# 86 "./eusart.h"
+_Bool EUSART_is_tx_ready(void);
+# 111 "./eusart.h"
+_Bool EUSART_is_rx_ready(void);
+# 135 "./eusart.h"
+_Bool EUSART_is_tx_done(void);
+# 156 "./eusart.h"
+eusart_status_t EUSART_get_last_status(void);
+# 177 "./eusart.h"
+uint8_t EUSART_Read(void);
+# 198 "./eusart.h"
+void EUSART_Write(uint8_t txData);
+# 220 "./eusart.h"
+void EUSART_Transmit_ISR(void);
+# 242 "./eusart.h"
+void EUSART_Receive_ISR(void);
+# 264 "./eusart.h"
+void EUSART_RxDataHandler(void);
+# 283 "./eusart.h"
+void EUSART_SetFramingErrorHandler(void (* interruptHandler)(void));
+# 302 "./eusart.h"
+void EUSART_SetOverrunErrorHandler(void (* interruptHandler)(void));
+# 321 "./eusart.h"
+void EUSART_SetErrorHandler(void (* interruptHandler)(void));
+# 342 "./eusart.h"
+void EUSART_SetTxInterruptHandler(void (* interruptHandler)(void));
+# 363 "./eusart.h"
+void EUSART_SetRxInterruptHandler(void (* interruptHandler)(void));
+# 18 "./PIC16Xpress_DevBoard.h" 2
+# 96 "./PIC16Xpress_DevBoard.h"
 typedef enum {
     A5, A4, A3,
     C5, C4, C3,
@@ -11500,7 +11569,7 @@ typedef enum {
     C0, C1, C2,
     B4, B5, B6
 } PinName_t;
-# 119 "./PIC16Xpress_DevBoard.h"
+# 120 "./PIC16Xpress_DevBoard.h"
 void PIC16_Init(void);
 
 
@@ -11514,7 +11583,7 @@ uint8_t ReadPin(PinName_t pin);
 
 
 uint8_t WritePin(PinName_t pin, uint8_t val);
-# 146 "./PIC16Xpress_DevBoard.h"
+# 147 "./PIC16Xpress_DevBoard.h"
 void __attribute__((picinterrupt(("")))) InterruptManager (void);
 # 14 "ccp1.c" 2
 
@@ -11546,7 +11615,6 @@ JSN_t* JSN_GetLastTrig(void);
 
 static void (*CCP1_CallBack)(uint16_t);
 static uint16_t ticksUp, ticksDown;
-
 
 
 

@@ -13,8 +13,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 6513: extern volatile unsigned char CCPR2L __attribute__((address(0x295)));
 [v _CCPR2L `Vuc ~T0 @X0 0 e@661 ]
 [v F6666 `(v ~T0 @X0 0 tf1`us ]
-"102 ./ccp2.h
-[; ;./ccp2.h: 102:  void CCP2_SetCallBack(void (*customCallBack)(uint16_t));
+"180 ./ccp2.h
+[; ;./ccp2.h: 180:  void CCP2_SetCallBack(void (*customCallBack)(uint16_t));
 [v _CCP2_SetCallBack `(v ~T0 @X0 0 ef1`*F6666 ]
 "6670 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h
 [; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 6670:     struct {
@@ -53,16 +53,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1933
 [; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 1933: extern volatile PIE4bits_t PIE4bits __attribute__((address(0x094)));
 [v _PIE4bits `VS99 ~T0 @X0 0 e@148 ]
-"35 ./ccp2.h
-[; ;./ccp2.h: 35:    {
+"83 ./ccp2.h
+[; ;./ccp2.h: 83:    {
 [s S964 `uc 1 `uc 1 ]
 [n S964 . ccpr2l ccpr2h ]
-"40
-[; ;./ccp2.h: 40:    {
+"88
+[; ;./ccp2.h: 88:    {
 [s S965 `us 1 ]
 [n S965 . ccpr2_16Bit ]
-"33
-[; ;./ccp2.h: 33: {
+"81
+[; ;./ccp2.h: 81: {
 [u S963 `S964 1 `S965 1 ]
 [n S963 CCPR2Reg_tag . . ]
 [v F6682 `(v ~T0 @X0 0 tf1`us ]
@@ -1126,100 +1126,100 @@ Version 4.0 HI-TECH Software Intermediate Code
 "19652
 [; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 19652: __asm("TOSH equ 0FEFh");
 [; <" TOSH equ 0FEFh ;# ">
-"13 ccp2.c
-[; ;ccp2.c: 13: static void (*CCP2_CallBack)(uint16_t);
+"54 ccp2.c
+[; ;ccp2.c: 54: static void (*CCP2_CallBack)(uint16_t);
 [v _CCP2_CallBack `*F6672 ~T0 @X0 1 s ]
-"17
-[; ;ccp2.c: 17: static void CCP2_DefaultCallBack(uint16_t capturedValue)
+"60
+[; ;ccp2.c: 60: static void CCP2_DefaultCallBack(uint16_t capturedValue)
 [v _CCP2_DefaultCallBack `(v ~T0 @X0 1 sf1`us ]
-"18
-[; ;ccp2.c: 18: {
+"61
+[; ;ccp2.c: 61: {
 {
 [e :U _CCP2_DefaultCallBack ]
-"17
-[; ;ccp2.c: 17: static void CCP2_DefaultCallBack(uint16_t capturedValue)
+"60
+[; ;ccp2.c: 60: static void CCP2_DefaultCallBack(uint16_t capturedValue)
 [v _capturedValue `us ~T0 @X0 1 r1 ]
-"18
-[; ;ccp2.c: 18: {
+"61
+[; ;ccp2.c: 61: {
 [f ]
-"20
-[; ;ccp2.c: 20: }
+"63
+[; ;ccp2.c: 63: }
 [e :UE 966 ]
 }
-"24
-[; ;ccp2.c: 24: void CCP2_Initialize(void)
+"65
+[; ;ccp2.c: 65: void CCP2_Initialize(void)
 [v _CCP2_Initialize `(v ~T0 @X0 1 ef ]
-"25
-[; ;ccp2.c: 25: {
+"66
+[; ;ccp2.c: 66: {
 {
 [e :U _CCP2_Initialize ]
 [f ]
-"29
-[; ;ccp2.c: 29:  CCP2CON = 0x83;
+"70
+[; ;ccp2.c: 70:  CCP2CON = 0x83;
 [e = _CCP2CON -> -> 131 `i `uc ]
-"32
-[; ;ccp2.c: 32:  CCP2CAP = 0x00;
+"73
+[; ;ccp2.c: 73:  CCP2CAP = 0x00;
 [e = _CCP2CAP -> -> 0 `i `uc ]
-"35
-[; ;ccp2.c: 35:  CCPR2H = 0x00;
+"76
+[; ;ccp2.c: 76:  CCPR2H = 0x00;
 [e = _CCPR2H -> -> 0 `i `uc ]
-"38
-[; ;ccp2.c: 38:  CCPR2L = 0x00;
+"79
+[; ;ccp2.c: 79:  CCPR2L = 0x00;
 [e = _CCPR2L -> -> 0 `i `uc ]
-"41
-[; ;ccp2.c: 41:     CCP2_SetCallBack(CCP2_DefaultCallBack);
+"82
+[; ;ccp2.c: 82:     CCP2_SetCallBack(CCP2_DefaultCallBack);
 [e ( _CCP2_SetCallBack (1 &U _CCP2_DefaultCallBack ]
-"44
-[; ;ccp2.c: 44:  CCPTMRSbits.C2TSEL = 0x1;
+"85
+[; ;ccp2.c: 85:  CCPTMRSbits.C2TSEL = 0x1;
 [e = . . _CCPTMRSbits 0 1 -> -> 1 `i `uc ]
-"47
-[; ;ccp2.c: 47:     PIR4bits.CCP2IF = 0;
+"88
+[; ;ccp2.c: 88:     PIR4bits.CCP2IF = 0;
 [e = . . _PIR4bits 0 1 -> -> 0 `i `uc ]
-"50
-[; ;ccp2.c: 50:     PIE4bits.CCP2IE = 1;
+"91
+[; ;ccp2.c: 91:     PIE4bits.CCP2IE = 1;
 [e = . . _PIE4bits 0 1 -> -> 1 `i `uc ]
-"51
-[; ;ccp2.c: 51: }
+"92
+[; ;ccp2.c: 92: }
 [e :UE 967 ]
 }
-"55
-[; ;ccp2.c: 55: void CCP2_CaptureISR(void)
+"94
+[; ;ccp2.c: 94: void CCP2_CaptureISR(void)
 [v _CCP2_CaptureISR `(v ~T0 @X0 1 ef ]
-"56
-[; ;ccp2.c: 56: {
+"95
+[; ;ccp2.c: 95: {
 {
 [e :U _CCP2_CaptureISR ]
 [f ]
-"57
-[; ;ccp2.c: 57:     CCP2_PERIOD_REG_T module;
+"96
+[; ;ccp2.c: 96:     CCP2_PERIOD_REG_T module;
 [v _module `S963 ~T0 @X0 1 a ]
-"60
-[; ;ccp2.c: 60:     PIR4bits.CCP2IF = 0;
+"99
+[; ;ccp2.c: 99:     PIR4bits.CCP2IF = 0;
 [e = . . _PIR4bits 0 1 -> -> 0 `i `uc ]
-"63
-[; ;ccp2.c: 63:     module.ccpr2l = CCPR2L;
+"102
+[; ;ccp2.c: 102:     module.ccpr2l = CCPR2L;
 [e = . . _module 0 0 _CCPR2L ]
-"64
-[; ;ccp2.c: 64:     module.ccpr2h = CCPR2H;
+"103
+[; ;ccp2.c: 103:     module.ccpr2h = CCPR2H;
 [e = . . _module 0 1 _CCPR2H ]
-"67
-[; ;ccp2.c: 67:     CCP2_CallBack(module.ccpr2_16Bit);
+"106
+[; ;ccp2.c: 106:     CCP2_CallBack(module.ccpr2_16Bit);
 [e ( *U _CCP2_CallBack (1 . . _module 1 0 ]
-"68
-[; ;ccp2.c: 68: }
+"107
+[; ;ccp2.c: 107: }
 [e :UE 968 ]
 }
-"72
-[; ;ccp2.c: 72: void CCP2_SetCallBack(void (*customCallBack)(uint16_t)){
+"109
+[; ;ccp2.c: 109: void CCP2_SetCallBack(void (*customCallBack)(uint16_t)){
 [v _CCP2_SetCallBack `(v ~T0 @X0 1 ef1`*F6682 ]
 {
 [e :U _CCP2_SetCallBack ]
 [v _customCallBack `*F6685 ~T0 @X0 1 r1 ]
 [f ]
-"73
-[; ;ccp2.c: 73:     CCP2_CallBack = customCallBack;
+"110
+[; ;ccp2.c: 110:     CCP2_CallBack = customCallBack;
 [e = _CCP2_CallBack _customCallBack ]
-"74
-[; ;ccp2.c: 74: }
+"111
+[; ;ccp2.c: 111: }
 [e :UE 969 ]
 }

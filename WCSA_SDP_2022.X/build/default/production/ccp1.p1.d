@@ -4,8 +4,11 @@ ccp1.h  \
 PIC16Xpress_DevBoard.h  \
 mcc.h  \
 device_config.h  \
-tmr0.h  \
-tmr1.h  \
+pin_manager.h  \
+interrupt_manager.h  \
 ccp2.h  \
 ccp3.h  \
+tmr1.h  \
+tmr0.h  \
+eusart.h  \
 JSN_Sensor.h 

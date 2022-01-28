@@ -7,7 +7,6 @@
 # 1 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "tmr1.c" 2
-# 12 "tmr1.c"
 # 1 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -11192,45 +11191,43 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 2 3
-# 12 "tmr1.c" 2
+# 1 "tmr1.c" 2
 
 # 1 "./tmr1.h" 1
-# 13 "./tmr1.h"
+# 54 "./tmr1.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdbool.h" 1 3
-# 13 "./tmr1.h" 2
-# 41 "./tmr1.h"
+# 54 "./tmr1.h" 2
+# 101 "./tmr1.h"
 void TMR1_Initialize(void);
-# 61 "./tmr1.h"
+# 130 "./tmr1.h"
 void TMR1_StartTimer(void);
-# 81 "./tmr1.h"
+# 162 "./tmr1.h"
 void TMR1_StopTimer(void);
-# 100 "./tmr1.h"
+# 197 "./tmr1.h"
 uint16_t TMR1_ReadTimer(void);
-# 120 "./tmr1.h"
+# 236 "./tmr1.h"
 void TMR1_WriteTimer(uint16_t timerVal);
-# 140 "./tmr1.h"
+# 272 "./tmr1.h"
 void TMR1_Reload(void);
-# 160 "./tmr1.h"
+# 311 "./tmr1.h"
 void TMR1_StartSinglePulseAcquisition(void);
-# 180 "./tmr1.h"
+# 350 "./tmr1.h"
 uint8_t TMR1_CheckGateValueStatus(void);
-# 199 "./tmr1.h"
+# 368 "./tmr1.h"
 void TMR1_ISR(void);
-# 218 "./tmr1.h"
+# 385 "./tmr1.h"
 void TMR1_CallBack(void);
-# 237 "./tmr1.h"
+# 403 "./tmr1.h"
  void TMR1_SetInterruptHandler(void (* InterruptHandler)(void));
-# 256 "./tmr1.h"
+# 421 "./tmr1.h"
 extern void (*TMR1_InterruptHandler)(void);
-# 275 "./tmr1.h"
+# 439 "./tmr1.h"
 void TMR1_DefaultInterruptHandler(void);
-# 13 "tmr1.c" 2
+# 2 "tmr1.c" 2
 
 
 volatile uint16_t timer1ReloadVal;
 void (*TMR1_InterruptHandler)(void);
-
-
 
 void TMR1_Initialize(void)
 {
@@ -11240,7 +11237,7 @@ void TMR1_Initialize(void)
     T1GCON = 0x00;
 
 
-    TMR1H = 0x80;
+    TMR1H = 0x00;
 
 
     TMR1L = 0x00;
@@ -11258,10 +11255,8 @@ void TMR1_Initialize(void)
     TMR1_SetInterruptHandler(TMR1_DefaultInterruptHandler);
 
 
-    T1CON = 0x11;
+    T1CON = 0x21;
 }
-
-
 
 void TMR1_StartTimer(void)
 {
@@ -11269,15 +11264,11 @@ void TMR1_StartTimer(void)
     T1CONbits.TMR1ON = 1;
 }
 
-
-
 void TMR1_StopTimer(void)
 {
 
     T1CONbits.TMR1ON = 0;
 }
-
-
 
 uint16_t TMR1_ReadTimer(void)
 {
@@ -11293,8 +11284,6 @@ uint16_t TMR1_ReadTimer(void)
 
     return readVal;
 }
-
-
 
 void TMR1_WriteTimer(uint16_t timerVal)
 {
@@ -11318,28 +11307,20 @@ void TMR1_WriteTimer(uint16_t timerVal)
     }
 }
 
-
-
 void TMR1_Reload(void)
 {
     TMR1_WriteTimer(timer1ReloadVal);
 }
-
-
 
 void TMR1_StartSinglePulseAcquisition(void)
 {
     T1GCONbits.T1GGO_nDONE = 1;
 }
 
-
-
 uint8_t TMR1_CheckGateValueStatus(void)
 {
     return (T1GCONbits.T1GVAL);
 }
-
-
 
 void TMR1_ISR(void)
 {
@@ -11353,8 +11334,6 @@ void TMR1_ISR(void)
     TMR1_CallBack();
 }
 
-
-
 void TMR1_CallBack(void)
 {
 
@@ -11364,13 +11343,9 @@ void TMR1_CallBack(void)
     }
 }
 
-
-
 void TMR1_SetInterruptHandler(void (* InterruptHandler)(void)){
     TMR1_InterruptHandler = InterruptHandler;
 }
-
-
 
 void TMR1_DefaultInterruptHandler(void){
 

@@ -14,6 +14,9 @@
       <itemPath>ccp2.h</itemPath>
       <itemPath>ccp3.h</itemPath>
       <itemPath>tmr1.h</itemPath>
+      <itemPath>eusart.h</itemPath>
+      <itemPath>interrupt_manager.h</itemPath>
+      <itemPath>pin_manager.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -32,6 +35,10 @@
       <itemPath>ccp2.c</itemPath>
       <itemPath>ccp3.c</itemPath>
       <itemPath>tmr1.c</itemPath>
+      <itemPath>eusart.c</itemPath>
+      <itemPath>main.c</itemPath>
+      <itemPath>interrupt_manager.c</itemPath>
+      <itemPath>pin_manager.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -1141,6 +1148,8 @@
         <property key="user-pack-device-support" value=""/>
         <property key="wpo-lto" value="false"/>
       </XC8-config-global>
+      <item path="main.c" ex="true" overriding="false">
+      </item>
     </conf>
   </confs>
 </configurationDescriptor>

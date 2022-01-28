@@ -15,6 +15,7 @@
 #include "ccp1.h"
 #include "ccp2.h"
 #include "ccp3.h"
+#include "eusart.h"
 
 #ifndef PIC16XPRESS_DEVBOARD_H
 #define	PIC16XPRESS_DEVBOARD_H

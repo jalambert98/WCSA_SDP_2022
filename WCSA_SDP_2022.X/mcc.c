@@ -14,8 +14,14 @@
 void SYSTEM_Initialize(void)
 {
     PMD_Initialize();
+    PIN_MANAGER_Initialize();
     OSCILLATOR_Initialize();
     WDT_Initialize();
+    CCP2_Initialize();
+    CCP3_Initialize();
+    CCP1_Initialize();
+    TMR1_Initialize();
+    TMR0_Initialize();
 }
 
 //------------------------------------------------------------------------------
@@ -33,7 +39,9 @@ void OSCILLATOR_Initialize(void)
     // HFTUN 0; 
     OSCTUNE = 0x00;
     // Wait for PLL to stabilize
-    while(PLLR == 0);
+    while(PLLR == 0)
+    {
+    }
 }
 
 //------------------------------------------------------------------------------
@@ -63,7 +71,6 @@ void PMD_Initialize(void)
 }
 
 //------------------------------------------------------------------------------
-
 /**
  End of File
 */

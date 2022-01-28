@@ -1,4 +1,4 @@
-# 1 "mcc.c"
+# 1 "eusart.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,10 +6,10 @@
 # 1 "<built-in>" 2
 # 1 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "mcc.c" 2
-# 10 "mcc.c"
-# 1 "./mcc.h" 1
-# 49 "./mcc.h"
+# 1 "eusart.c" 2
+# 10 "eusart.c"
+# 1 "./eusart.h" 1
+# 13 "./eusart.h"
 # 1 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -11194,27 +11194,10 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 2 3
-# 49 "./mcc.h" 2
-
-# 1 "./device_config.h" 1
-# 50 "./mcc.h" 2
-
-# 1 "./pin_manager.h" 1
-# 58 "./pin_manager.h"
-void PIN_MANAGER_Initialize (void);
-# 70 "./pin_manager.h"
-void PIN_MANAGER_IOC(void);
-# 51 "./mcc.h" 2
-
+# 13 "./eusart.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdbool.h" 1 3
-# 53 "./mcc.h" 2
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\conio.h" 1 3
-
-
-
-
+# 14 "./eusart.h" 2
 
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdio.h" 1 3
@@ -11361,199 +11344,338 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 7 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\conio.h" 2 3
-# 54 "./mcc.h" 2
+# 16 "./eusart.h" 2
 
-# 1 "./interrupt_manager.h" 1
-# 55 "./mcc.h" 2
 
-# 1 "./ccp2.h" 1
-# 80 "./ccp2.h"
-typedef union CCPR2Reg_tag
+
+
+
+
+typedef union {
+    struct {
+        unsigned perr : 1;
+        unsigned ferr : 1;
+        unsigned oerr : 1;
+        unsigned reserved : 5;
+    };
+    uint8_t status;
+}eusart_status_t;
+
+
+
+
+extern volatile uint8_t eusartTxBufferRemaining;
+extern volatile uint8_t eusartRxCount;
+
+
+
+extern void (*EUSART_TxDefaultInterruptHandler)(void);
+extern void (*EUSART_RxDefaultInterruptHandler)(void);
+# 61 "./eusart.h"
+void EUSART_Initialize(void);
+# 86 "./eusart.h"
+_Bool EUSART_is_tx_ready(void);
+# 111 "./eusart.h"
+_Bool EUSART_is_rx_ready(void);
+# 135 "./eusart.h"
+_Bool EUSART_is_tx_done(void);
+# 156 "./eusart.h"
+eusart_status_t EUSART_get_last_status(void);
+# 177 "./eusart.h"
+uint8_t EUSART_Read(void);
+# 198 "./eusart.h"
+void EUSART_Write(uint8_t txData);
+# 220 "./eusart.h"
+void EUSART_Transmit_ISR(void);
+# 242 "./eusart.h"
+void EUSART_Receive_ISR(void);
+# 264 "./eusart.h"
+void EUSART_RxDataHandler(void);
+# 283 "./eusart.h"
+void EUSART_SetFramingErrorHandler(void (* interruptHandler)(void));
+# 302 "./eusart.h"
+void EUSART_SetOverrunErrorHandler(void (* interruptHandler)(void));
+# 321 "./eusart.h"
+void EUSART_SetErrorHandler(void (* interruptHandler)(void));
+# 342 "./eusart.h"
+void EUSART_SetTxInterruptHandler(void (* interruptHandler)(void));
+# 363 "./eusart.h"
+void EUSART_SetRxInterruptHandler(void (* interruptHandler)(void));
+# 10 "eusart.c" 2
+
+
+
+
+
+
+
+
+volatile uint8_t eusartTxHead = 0;
+volatile uint8_t eusartTxTail = 0;
+volatile uint8_t eusartTxBuffer[8];
+volatile uint8_t eusartTxBufferRemaining;
+
+volatile uint8_t eusartRxHead = 0;
+volatile uint8_t eusartRxTail = 0;
+volatile uint8_t eusartRxBuffer[8];
+volatile eusart_status_t eusartRxStatusBuffer[8];
+volatile uint8_t eusartRxCount;
+volatile eusart_status_t eusartRxLastError;
+
+
+
+void (*EUSART_TxDefaultInterruptHandler)(void);
+void (*EUSART_RxDefaultInterruptHandler)(void);
+
+void (*EUSART_FramingErrorHandler)(void);
+void (*EUSART_OverrunErrorHandler)(void);
+void (*EUSART_ErrorHandler)(void);
+
+void EUSART_DefaultFramingErrorHandler(void);
+void EUSART_DefaultOverrunErrorHandler(void);
+void EUSART_DefaultErrorHandler(void);
+
+
+
+void EUSART_Initialize(void)
 {
-   struct
-   {
-      uint8_t ccpr2l;
-      uint8_t ccpr2h;
-   };
-   struct
-   {
-      uint16_t ccpr2_16Bit;
-   };
-} CCP2_PERIOD_REG_T ;
-# 123 "./ccp2.h"
-void CCP2_Initialize(void);
-# 139 "./ccp2.h"
-void CCP2_CaptureISR(void);
-# 180 "./ccp2.h"
- void CCP2_SetCallBack(void (*customCallBack)(uint16_t));
-# 56 "./mcc.h" 2
 
-# 1 "./ccp3.h" 1
-# 80 "./ccp3.h"
-typedef union CCPR3Reg_tag
-{
-   struct
-   {
-      uint8_t ccpr3l;
-      uint8_t ccpr3h;
-   };
-   struct
-   {
-      uint16_t ccpr3_16Bit;
-   };
-} CCP3_PERIOD_REG_T ;
-# 123 "./ccp3.h"
-void CCP3_Initialize(void);
-# 139 "./ccp3.h"
-void CCP3_CaptureISR(void);
-# 180 "./ccp3.h"
- void CCP3_SetCallBack(void (*customCallBack)(uint16_t));
-# 57 "./mcc.h" 2
-
-# 1 "./tmr1.h" 1
-# 101 "./tmr1.h"
-void TMR1_Initialize(void);
-# 130 "./tmr1.h"
-void TMR1_StartTimer(void);
-# 162 "./tmr1.h"
-void TMR1_StopTimer(void);
-# 197 "./tmr1.h"
-uint16_t TMR1_ReadTimer(void);
-# 236 "./tmr1.h"
-void TMR1_WriteTimer(uint16_t timerVal);
-# 272 "./tmr1.h"
-void TMR1_Reload(void);
-# 311 "./tmr1.h"
-void TMR1_StartSinglePulseAcquisition(void);
-# 350 "./tmr1.h"
-uint8_t TMR1_CheckGateValueStatus(void);
-# 368 "./tmr1.h"
-void TMR1_ISR(void);
-# 385 "./tmr1.h"
-void TMR1_CallBack(void);
-# 403 "./tmr1.h"
- void TMR1_SetInterruptHandler(void (* InterruptHandler)(void));
-# 421 "./tmr1.h"
-extern void (*TMR1_InterruptHandler)(void);
-# 439 "./tmr1.h"
-void TMR1_DefaultInterruptHandler(void);
-# 58 "./mcc.h" 2
-
-# 1 "./ccp1.h" 1
-# 80 "./ccp1.h"
-typedef union CCPR1Reg_tag
-{
-   struct
-   {
-      uint8_t ccpr1l;
-      uint8_t ccpr1h;
-   };
-   struct
-   {
-      uint16_t ccpr1_16Bit;
-   };
-} CCP1_PERIOD_REG_T ;
-# 123 "./ccp1.h"
-void CCP1_Initialize(void);
-# 139 "./ccp1.h"
-void CCP1_CaptureISR(void);
-# 180 "./ccp1.h"
- void CCP1_SetCallBack(void (*customCallBack)(uint16_t));
-# 59 "./mcc.h" 2
-
-# 1 "./tmr0.h" 1
-# 106 "./tmr0.h"
-void TMR0_Initialize(void);
-# 135 "./tmr0.h"
-void TMR0_StartTimer(void);
-# 167 "./tmr0.h"
-void TMR0_StopTimer(void);
-# 202 "./tmr0.h"
-uint8_t TMR0_ReadTimer(void);
-# 241 "./tmr0.h"
-void TMR0_WriteTimer(uint8_t timerVal);
-# 278 "./tmr0.h"
-void TMR0_Reload(uint8_t periodVal);
-# 297 "./tmr0.h"
-void TMR0_ISR(void);
-# 315 "./tmr0.h"
-void TMR0_CallBack(void);
-# 333 "./tmr0.h"
- void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
-# 351 "./tmr0.h"
-extern void (*TMR0_InterruptHandler)(void);
-# 369 "./tmr0.h"
-void TMR0_DefaultInterruptHandler(void);
-# 60 "./mcc.h" 2
-# 75 "./mcc.h"
-void SYSTEM_Initialize(void);
-# 88 "./mcc.h"
-void OSCILLATOR_Initialize(void);
-# 100 "./mcc.h"
-void WDT_Initialize(void);
-# 112 "./mcc.h"
-void PMD_Initialize(void);
-# 10 "mcc.c" 2
+    PIE1bits.RCIE = 0;
+    EUSART_SetRxInterruptHandler(EUSART_Receive_ISR);
+    PIE1bits.TXIE = 0;
+    EUSART_SetTxInterruptHandler(EUSART_Transmit_ISR);
 
 
 
+    BAUD1CON = 0x08;
 
-void SYSTEM_Initialize(void)
-{
-    PMD_Initialize();
-    PIN_MANAGER_Initialize();
-    OSCILLATOR_Initialize();
-    WDT_Initialize();
-    CCP2_Initialize();
-    CCP3_Initialize();
-    CCP1_Initialize();
-    TMR1_Initialize();
-    TMR0_Initialize();
+
+    RC1STA = 0x90;
+
+
+    TX1STA = 0x24;
+
+
+    SP1BRGL = 0xA0;
+
+
+    SP1BRGH = 0x01;
+
+
+    EUSART_SetFramingErrorHandler(EUSART_DefaultFramingErrorHandler);
+    EUSART_SetOverrunErrorHandler(EUSART_DefaultOverrunErrorHandler);
+    EUSART_SetErrorHandler(EUSART_DefaultErrorHandler);
+
+    eusartRxLastError.status = 0;
+
+
+    eusartTxHead = 0;
+    eusartTxTail = 0;
+    eusartTxBufferRemaining = sizeof(eusartTxBuffer);
+
+    eusartRxHead = 0;
+    eusartRxTail = 0;
+    eusartRxCount = 0;
+
+
+    PIE1bits.RCIE = 1;
 }
 
 
 
-void OSCILLATOR_Initialize(void)
+_Bool EUSART_is_tx_ready(void)
+{
+    return (eusartTxBufferRemaining ? 1 : 0);
+}
+
+
+
+_Bool EUSART_is_rx_ready(void)
+{
+    return (eusartRxCount ? 1 : 0);
+}
+
+
+
+_Bool EUSART_is_tx_done(void)
+{
+    return TX1STAbits.TRMT;
+}
+
+
+
+eusart_status_t EUSART_get_last_status(void){
+    return eusartRxLastError;
+}
+
+
+
+uint8_t EUSART_Read(void)
+{
+    uint8_t readValue = 0;
+
+    while(0 == eusartRxCount)
+    {
+    }
+
+    eusartRxLastError = eusartRxStatusBuffer[eusartRxTail];
+
+    readValue = eusartRxBuffer[eusartRxTail++];
+    if(sizeof(eusartRxBuffer) <= eusartRxTail)
+    {
+        eusartRxTail = 0;
+    }
+    PIE1bits.RCIE = 0;
+    eusartRxCount--;
+    PIE1bits.RCIE = 1;
+
+    return readValue;
+}
+
+
+
+void EUSART_Write(uint8_t txData)
+{
+    while(0 == eusartTxBufferRemaining)
+    {
+    }
+
+    if(0 == PIE1bits.TXIE)
+    {
+        TX1REG = txData;
+    }
+    else
+    {
+        PIE1bits.TXIE = 0;
+        eusartTxBuffer[eusartTxHead++] = txData;
+        if(sizeof(eusartTxBuffer) <= eusartTxHead)
+        {
+            eusartTxHead = 0;
+        }
+        eusartTxBufferRemaining--;
+    }
+    PIE1bits.TXIE = 1;
+}
+
+
+
+char getch(void)
+{
+    return EUSART_Read();
+}
+
+
+
+void putch(char txData)
+{
+    EUSART_Write(txData);
+}
+
+
+
+void EUSART_Transmit_ISR(void)
 {
 
-    OSCCON1 = 0x00;
 
-    OSCCON3 = 0x00;
-
-    OSCEN = 0x00;
-
-    OSCFRQ = 0x04;
-
-    OSCTUNE = 0x00;
-
-    while(PLLR == 0)
+    if(sizeof(eusartTxBuffer) > eusartTxBufferRemaining)
     {
+        TX1REG = eusartTxBuffer[eusartTxTail++];
+        if(sizeof(eusartTxBuffer) <= eusartTxTail)
+        {
+            eusartTxTail = 0;
+        }
+        eusartTxBufferRemaining++;
+    }
+    else
+    {
+        PIE1bits.TXIE = 0;
     }
 }
 
 
 
-void WDT_Initialize(void)
+void EUSART_Receive_ISR(void)
 {
 
-    WDTCON = 0x16;
+    eusartRxStatusBuffer[eusartRxHead].status = 0;
+
+    if(RC1STAbits.FERR){
+        eusartRxStatusBuffer[eusartRxHead].ferr = 1;
+        EUSART_FramingErrorHandler();
+    }
+
+    if(RC1STAbits.OERR){
+        eusartRxStatusBuffer[eusartRxHead].oerr = 1;
+        EUSART_OverrunErrorHandler();
+    }
+
+    if(eusartRxStatusBuffer[eusartRxHead].status){
+        EUSART_ErrorHandler();
+    } else {
+        EUSART_RxDataHandler();
+    }
+
+
 }
 
 
 
-void PMD_Initialize(void)
-{
+void EUSART_RxDataHandler(void){
 
-    PMD0 = 0x00;
+    eusartRxBuffer[eusartRxHead++] = RC1REG;
+    if(sizeof(eusartRxBuffer) <= eusartRxHead)
+    {
+        eusartRxHead = 0;
+    }
+    eusartRxCount++;
+}
 
-    PMD1 = 0x7C;
 
-    PMD2 = 0x66;
 
-    PMD3 = 0xC8;
+void EUSART_DefaultFramingErrorHandler(void){}
 
-    PMD4 = 0x00;
 
-    PMD5 = 0x1F;
+
+void EUSART_DefaultOverrunErrorHandler(void){
+
+
+    RC1STAbits.CREN = 0;
+    RC1STAbits.CREN = 1;
+
+}
+
+
+
+void EUSART_DefaultErrorHandler(void){
+    EUSART_RxDataHandler();
+}
+
+
+
+void EUSART_SetFramingErrorHandler(void (* interruptHandler)(void)){
+    EUSART_FramingErrorHandler = interruptHandler;
+}
+
+
+
+void EUSART_SetOverrunErrorHandler(void (* interruptHandler)(void)){
+    EUSART_OverrunErrorHandler = interruptHandler;
+}
+
+
+
+void EUSART_SetErrorHandler(void (* interruptHandler)(void)){
+    EUSART_ErrorHandler = interruptHandler;
+}
+
+
+
+void EUSART_SetTxInterruptHandler(void (* interruptHandler)(void)){
+    EUSART_TxDefaultInterruptHandler = interruptHandler;
+}
+
+
+
+void EUSART_SetRxInterruptHandler(void (* interruptHandler)(void)){
+    EUSART_RxDefaultInterruptHandler = interruptHandler;
 }

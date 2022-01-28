@@ -4,9 +4,12 @@ JSN_Sensor.h  \
 PIC16Xpress_DevBoard.h  \
 mcc.h  \
 device_config.h  \
-tmr0.h  \
-tmr1.h  \
-ccp1.h  \
+pin_manager.h  \
+interrupt_manager.h  \
 ccp2.h  \
 ccp3.h  \
+tmr1.h  \
+ccp1.h  \
+tmr0.h  \
+eusart.h  \
 FR_Timer.h 

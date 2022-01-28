@@ -1,4 +1,4 @@
-# 1 "mcc.c"
+# 1 "pin_manager.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,10 +6,12 @@
 # 1 "<built-in>" 2
 # 1 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "mcc.c" 2
-# 10 "mcc.c"
-# 1 "./mcc.h" 1
-# 49 "./mcc.h"
+# 1 "pin_manager.c" 2
+
+# 1 "./pin_manager.h" 1
+
+
+
 # 1 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -11194,366 +11196,70 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 2 3
-# 49 "./mcc.h" 2
-
-# 1 "./device_config.h" 1
-# 50 "./mcc.h" 2
-
-# 1 "./pin_manager.h" 1
+# 4 "./pin_manager.h" 2
 # 58 "./pin_manager.h"
 void PIN_MANAGER_Initialize (void);
 # 70 "./pin_manager.h"
 void PIN_MANAGER_IOC(void);
-# 51 "./mcc.h" 2
+# 2 "pin_manager.c" 2
 
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdbool.h" 1 3
-# 53 "./mcc.h" 2
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\conio.h" 1 3
-
-
-
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdio.h" 1 3
-# 24 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdio.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\bits/alltypes.h" 1 3
-
-
-
-
-
-typedef void * va_list[1];
-
-
-
-
-typedef void * __isoc_va_list[1];
-# 137 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long ssize_t;
-# 246 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long long off_t;
-# 399 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef struct _IO_FILE FILE;
-# 24 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdio.h" 2 3
-# 52 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdio.h" 3
-typedef union _G_fpos64_t {
- char __opaque[16];
- double __align;
-} fpos_t;
-
-extern FILE *const stdin;
-extern FILE *const stdout;
-extern FILE *const stderr;
-
-
-
-
-
-FILE *fopen(const char *restrict, const char *restrict);
-FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
-int fclose(FILE *);
-
-int remove(const char *);
-int rename(const char *, const char *);
-
-int feof(FILE *);
-int ferror(FILE *);
-int fflush(FILE *);
-void clearerr(FILE *);
-
-int fseek(FILE *, long, int);
-long ftell(FILE *);
-void rewind(FILE *);
-
-int fgetpos(FILE *restrict, fpos_t *restrict);
-int fsetpos(FILE *, const fpos_t *);
-
-size_t fread(void *restrict, size_t, size_t, FILE *restrict);
-size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
-
-int fgetc(FILE *);
-int getc(FILE *);
-int getchar(void);
-int ungetc(int, FILE *);
-
-int fputc(int, FILE *);
-int putc(int, FILE *);
-int putchar(int);
-
-char *fgets(char *restrict, int, FILE *restrict);
-
-char *gets(char *);
-
-
-int fputs(const char *restrict, FILE *restrict);
-int puts(const char *);
-
-__attribute__((__format__(__printf__, 1, 2)))
-int printf(const char *restrict, ...);
-__attribute__((__format__(__printf__, 2, 3)))
-int fprintf(FILE *restrict, const char *restrict, ...);
-__attribute__((__format__(__printf__, 2, 3)))
-int sprintf(char *restrict, const char *restrict, ...);
-__attribute__((__format__(__printf__, 3, 4)))
-int snprintf(char *restrict, size_t, const char *restrict, ...);
-
-__attribute__((__format__(__printf__, 1, 0)))
-int vprintf(const char *restrict, __isoc_va_list);
-int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__printf__, 2, 0)))
-int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__printf__, 3, 0)))
-int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
-
-__attribute__((__format__(__scanf__, 1, 2)))
-int scanf(const char *restrict, ...);
-__attribute__((__format__(__scanf__, 2, 3)))
-int fscanf(FILE *restrict, const char *restrict, ...);
-__attribute__((__format__(__scanf__, 2, 3)))
-int sscanf(const char *restrict, const char *restrict, ...);
-
-__attribute__((__format__(__scanf__, 1, 0)))
-int vscanf(const char *restrict, __isoc_va_list);
-int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__scanf__, 2, 0)))
-int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
-
-void perror(const char *);
-
-int setvbuf(FILE *restrict, char *restrict, int, size_t);
-void setbuf(FILE *restrict, char *restrict);
-
-char *tmpnam(char *);
-FILE *tmpfile(void);
-
-
-
-
-FILE *fmemopen(void *restrict, size_t, const char *restrict);
-FILE *open_memstream(char **, size_t *);
-FILE *fdopen(int, const char *);
-FILE *popen(const char *, const char *);
-int pclose(FILE *);
-int fileno(FILE *);
-int fseeko(FILE *, off_t, int);
-off_t ftello(FILE *);
-int dprintf(int, const char *restrict, ...);
-int vdprintf(int, const char *restrict, __isoc_va_list);
-void flockfile(FILE *);
-int ftrylockfile(FILE *);
-void funlockfile(FILE *);
-int getc_unlocked(FILE *);
-int getchar_unlocked(void);
-int putc_unlocked(int, FILE *);
-int putchar_unlocked(int);
-ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
-ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
-int renameat(int, const char *, int, const char *);
-char *ctermid(char *);
-
-
-
-
-
-
-
-char *tempnam(const char *, const char *);
-# 7 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\conio.h" 2 3
-# 54 "./mcc.h" 2
-
-# 1 "./interrupt_manager.h" 1
-# 55 "./mcc.h" 2
-
-# 1 "./ccp2.h" 1
-# 80 "./ccp2.h"
-typedef union CCPR2Reg_tag
+void PIN_MANAGER_Initialize(void)
 {
-   struct
-   {
-      uint8_t ccpr2l;
-      uint8_t ccpr2h;
-   };
-   struct
-   {
-      uint16_t ccpr2_16Bit;
-   };
-} CCP2_PERIOD_REG_T ;
-# 123 "./ccp2.h"
-void CCP2_Initialize(void);
-# 139 "./ccp2.h"
-void CCP2_CaptureISR(void);
-# 180 "./ccp2.h"
- void CCP2_SetCallBack(void (*customCallBack)(uint16_t));
-# 56 "./mcc.h" 2
 
-# 1 "./ccp3.h" 1
-# 80 "./ccp3.h"
-typedef union CCPR3Reg_tag
-{
-   struct
-   {
-      uint8_t ccpr3l;
-      uint8_t ccpr3h;
-   };
-   struct
-   {
-      uint16_t ccpr3_16Bit;
-   };
-} CCP3_PERIOD_REG_T ;
-# 123 "./ccp3.h"
-void CCP3_Initialize(void);
-# 139 "./ccp3.h"
-void CCP3_CaptureISR(void);
-# 180 "./ccp3.h"
- void CCP3_SetCallBack(void (*customCallBack)(uint16_t));
-# 57 "./mcc.h" 2
 
-# 1 "./tmr1.h" 1
-# 101 "./tmr1.h"
-void TMR1_Initialize(void);
-# 130 "./tmr1.h"
-void TMR1_StartTimer(void);
-# 162 "./tmr1.h"
-void TMR1_StopTimer(void);
-# 197 "./tmr1.h"
-uint16_t TMR1_ReadTimer(void);
-# 236 "./tmr1.h"
-void TMR1_WriteTimer(uint16_t timerVal);
-# 272 "./tmr1.h"
-void TMR1_Reload(void);
-# 311 "./tmr1.h"
-void TMR1_StartSinglePulseAcquisition(void);
-# 350 "./tmr1.h"
-uint8_t TMR1_CheckGateValueStatus(void);
-# 368 "./tmr1.h"
-void TMR1_ISR(void);
-# 385 "./tmr1.h"
-void TMR1_CallBack(void);
-# 403 "./tmr1.h"
- void TMR1_SetInterruptHandler(void (* InterruptHandler)(void));
-# 421 "./tmr1.h"
-extern void (*TMR1_InterruptHandler)(void);
-# 439 "./tmr1.h"
-void TMR1_DefaultInterruptHandler(void);
-# 58 "./mcc.h" 2
 
-# 1 "./ccp1.h" 1
-# 80 "./ccp1.h"
-typedef union CCPR1Reg_tag
-{
-   struct
-   {
-      uint8_t ccpr1l;
-      uint8_t ccpr1h;
-   };
-   struct
-   {
-      uint16_t ccpr1_16Bit;
-   };
-} CCP1_PERIOD_REG_T ;
-# 123 "./ccp1.h"
-void CCP1_Initialize(void);
-# 139 "./ccp1.h"
-void CCP1_CaptureISR(void);
-# 180 "./ccp1.h"
- void CCP1_SetCallBack(void (*customCallBack)(uint16_t));
-# 59 "./mcc.h" 2
-
-# 1 "./tmr0.h" 1
-# 106 "./tmr0.h"
-void TMR0_Initialize(void);
-# 135 "./tmr0.h"
-void TMR0_StartTimer(void);
-# 167 "./tmr0.h"
-void TMR0_StopTimer(void);
-# 202 "./tmr0.h"
-uint8_t TMR0_ReadTimer(void);
-# 241 "./tmr0.h"
-void TMR0_WriteTimer(uint8_t timerVal);
-# 278 "./tmr0.h"
-void TMR0_Reload(uint8_t periodVal);
-# 297 "./tmr0.h"
-void TMR0_ISR(void);
-# 315 "./tmr0.h"
-void TMR0_CallBack(void);
-# 333 "./tmr0.h"
- void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
-# 351 "./tmr0.h"
-extern void (*TMR0_InterruptHandler)(void);
-# 369 "./tmr0.h"
-void TMR0_DefaultInterruptHandler(void);
-# 60 "./mcc.h" 2
-# 75 "./mcc.h"
-void SYSTEM_Initialize(void);
-# 88 "./mcc.h"
-void OSCILLATOR_Initialize(void);
-# 100 "./mcc.h"
-void WDT_Initialize(void);
-# 112 "./mcc.h"
-void PMD_Initialize(void);
-# 10 "mcc.c" 2
+    LATA = 0x00;
+    LATB = 0x00;
+    LATC = 0x00;
 
 
 
 
-void SYSTEM_Initialize(void)
-{
-    PMD_Initialize();
-    PIN_MANAGER_Initialize();
-    OSCILLATOR_Initialize();
-    WDT_Initialize();
-    CCP2_Initialize();
-    CCP3_Initialize();
-    CCP1_Initialize();
-    TMR1_Initialize();
-    TMR0_Initialize();
+    TRISA = 0x37;
+    TRISB = 0xF0;
+    TRISC = 0xFF;
+
+
+
+
+    ANSELC = 0xD7;
+    ANSELB = 0xF0;
+    ANSELA = 0x33;
+
+
+
+
+    WPUB = 0x00;
+    WPUA = 0x00;
+    WPUC = 0x00;
+
+
+
+
+    ODCONA = 0x00;
+    ODCONB = 0x00;
+    ODCONC = 0x00;
+
+
+
+
+    SLRCONA = 0x37;
+    SLRCONB = 0xF0;
+    SLRCONC = 0xFF;
+
+
+
+
+    INLVLA = 0x3F;
+    INLVLB = 0xF0;
+    INLVLC = 0xFF;
+
+    CCP2PPS = 0x13;
+    CCP3PPS = 0x02;
+    CCP1PPS = 0x15;
 }
 
-
-
-void OSCILLATOR_Initialize(void)
+void PIN_MANAGER_IOC(void)
 {
-
-    OSCCON1 = 0x00;
-
-    OSCCON3 = 0x00;
-
-    OSCEN = 0x00;
-
-    OSCFRQ = 0x04;
-
-    OSCTUNE = 0x00;
-
-    while(PLLR == 0)
-    {
-    }
-}
-
-
-
-void WDT_Initialize(void)
-{
-
-    WDTCON = 0x16;
-}
-
-
-
-void PMD_Initialize(void)
-{
-
-    PMD0 = 0x00;
-
-    PMD1 = 0x7C;
-
-    PMD2 = 0x66;
-
-    PMD3 = 0xC8;
-
-    PMD4 = 0x00;
-
-    PMD5 = 0x1F;
 }
