@@ -7,7 +7,7 @@
  */
 //------------------------------------------------------------------------------
 
-// [CCP1 = pinRC5 (echo)], [TMR1 ticks @2MHz, rolls over every 32ms]
+// [CCP1 = pinRC5 (echo)], [TMR1 ticks @1MHz & rolls over after 16-bit range]
 
 #include "ccp1.h"
 #include "PIC16Xpress_DevBoard.h"
@@ -19,7 +19,8 @@
 
 static void (*CCP1_CallBack)(uint16_t);
 static uint16_t ticksUp, ticksDown;
-
+static JSN_t *sameSens;
+static JSN_t *lastTrig;
 
 //==============================================================================
 //------------------------------ PUBLIC LIBRARY --------------------------------
@@ -27,15 +28,19 @@ static uint16_t ticksUp, ticksDown;
 
 static void CCP1_DefaultCallBack(uint16_t capturedValue)
 {
-    switch(ReadPin(JSN_GetLastTrig()->echoPin)) {
+    lastTrig = JSN_GetLastTrig();
+    switch(ReadPin(lastTrig->echoPin)) {
         // If pin RC5 is high on this ISR, store ticks
         case HIGH:
             ticksUp = capturedValue;
+            sameSens = lastTrig;
             break;
         // If pin RC5 is low on this ISR, store ticks & calculate highTime
         case LOW:
             ticksDown = capturedValue;
-            JSN_GetLastTrig()->echoHighTime = ((ticksDown - ticksUp)>>1);
+            
+            // TMR1 ticks @1MHz, so {(tDown-tUp) = eHT[us]}
+            sameSens->echoHighTime = (ticksDown - ticksUp);
             break;
     }
 }

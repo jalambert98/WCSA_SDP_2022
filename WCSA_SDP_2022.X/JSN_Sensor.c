@@ -21,7 +21,7 @@
 //---------------------------- STATICS VARIABLES -------------------------------
 //==============================================================================
 
-static JSN_t *lastTrig;     // pointer to sensor which last sent TRIG signal
+static JSN_t *lastTrig; // pointer to sensor which last sent TRIG signal
 static unsigned long micros;
 static JSN_t Sens1, Sens2, Sens3;
 
@@ -31,9 +31,9 @@ static JSN_t Sens1, Sens2, Sens3;
 //==============================================================================
 
 uint8_t JSN_Sensor_Init(JSN_t *Sensor, PinName_t trigPin, PinName_t echoPin) {
-    
+
     // Set echoPin as INPUT if it is one of the following: [A2,A4,C3,C5]
-    switch(echoPin) {
+    switch (echoPin) {
         case A2:
         case A4:
         case C3:
@@ -43,9 +43,9 @@ uint8_t JSN_Sensor_Init(JSN_t *Sensor, PinName_t trigPin, PinName_t echoPin) {
         default:
             return ERROR;
     }
-    
+
     // set trigPin as OUTPUT & initialize low
-    switch(trigPin) {
+    switch (trigPin) {
         case A5:
         case C4:
         case C6:
@@ -65,34 +65,35 @@ uint8_t JSN_Sensor_Init(JSN_t *Sensor, PinName_t trigPin, PinName_t echoPin) {
         default:
             return ERROR;
     }
-    
+
     // Initialize JSN_t instance variables
     Sensor->distance = 0;
     Sensor->echoHighTime = 0;
     Sensor->echoPin = echoPin;
     Sensor->trigPin = trigPin;
-    
-    lastTrig = Sensor;      // default lastTrig to last initialized
-    
+
+    lastTrig = Sensor; // default lastTrig to last initialized
+
     return SUCCESS;
 }
 
 //------------------------------------------------------------------------------
+
 /*
  *  EXPECTS that FRT_Init() has already been called!!
  */
 void JSN_Sensor_Trig(JSN_t *Sensor) {
     micros = FRT_GetMicros();
-    
+
     // Raise TRIG pin HIGH
     WritePin(Sensor->trigPin, HIGH);
-    
+
     // Block further instruction for defined TRIG pulse width duration
-    while((FRT_GetMicros() - micros) < TRIG_PULSE_WIDTH);
-    
+    while ((FRT_GetMicros() - micros) < TRIG_PULSE_WIDTH);
+
     // Lower TRIG pin after pulse duration elapsed
     WritePin(Sensor->trigPin, LOW);
-    
+
     // Indicate that this Sensor was last to send TRIG pulse
     lastTrig = Sensor;
     return;
@@ -105,8 +106,8 @@ unsigned int JSN_Sensor_GetDistance(JSN_t *Sensor) {
      * This type-casting looks really stupid, but it's 100% necessary,
      * so DON'T TOUCH IT!! (echoHighTime needs to be cast as a 32-bit variable)
      */
-    Sensor->distance = (unsigned int)(((uint32_t)Sensor->echoHighTime * 
-                                    US_WAVE_SPEED) / (MICROS_PER_MILLI << 1));
+    Sensor->distance = (unsigned int) (((uint32_t) Sensor->echoHighTime *
+            US_WAVE_SPEED) / (MICROS_PER_MILLI << 1));
     return Sensor->distance;
 }
 
@@ -130,40 +131,53 @@ int main(void) {
     // Initialize required libraries
     PIC16_Init();
     JSN_Sensor_Init(&Sens1, C6, C5);
-    
+    JSN_Sensor_Init(&Sens2, A1, C3);
+
     // Initialize function variables
     unsigned long currMilli = 0;
     unsigned long prevMilli = 0;
+    uint8_t i = 1;
     SetPin(C0, OUTPUT);
     WritePin(C0, LOW);
-    
-    JSN_Sensor_Trig(&Sens1);
 
-    while(1) {
+    JSN_Sensor_Trig(&Sens1);
+    JSN_Sensor_Trig(&Sens2);
+
+    while (1) {
         currMilli = FRT_GetMillis();
-        
-        // This block runs every SAMPLE_PERIOD milliseconds
-        if((currMilli - prevMilli) >= SAMPLE_PERIOD) {
-            
-            // Turn on LED if sensor sees object within MIN_DIST_LED millimeters
-            if(JSN_Sensor_GetDistance(&Sens1) < MIN_DIST_LED) {
-                WritePin(C0, HIGH);
+
+        // Trigger a sensor every SAMPLE_PERIOD milliseconds
+        if ((currMilli - prevMilli) >= SAMPLE_PERIOD) {
+            switch (i) {
+                case 1:
+                    // send new TRIG signal*/
+                    JSN_Sensor_Trig(&Sens1);
+                    i = 2;
+                    break;
+
+                case 2:                    
+                    // send new TRIG signal*/
+                    JSN_Sensor_Trig(&Sens2);
+                    i = 1;
+                    break;
             }
-            else if (Sens1.distance > MIN_DIST_LED) {
+            
+            // Turn on LED if either sensor sees object within MIN_DIST_LED [mm]
+            if ((Sens1.distance < MIN_DIST_LED)||(Sens2.distance < MIN_DIST_LED)) {
+                WritePin(C0, HIGH);
+            } else {
                 WritePin(C0, LOW);
             }
             
             // Print distance measured by sensor (Serial TX pin = [RC4])
-            printf("Distance = %u \n", JSN_Sensor_GetDistance(&Sens1));
-            
-            // send new TRIG signal*/
-            JSN_Sensor_Trig(&Sens1);
-            
+            printf("%u", JSN_Sensor_GetDistance(&Sens1));
+            printf("%u", JSN_Sensor_GetDistance(&Sens2));
+
             // Update prevMilli to ensure SAMPLE_PERIOD remains constant
             prevMilli = currMilli;
-        }        
+        }
     }
-    
+
     return 0;
 }
 

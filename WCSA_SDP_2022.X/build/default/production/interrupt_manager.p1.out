@@ -1,50 +1,33 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[v F7156 `(v ~T0 @X0 0 tf1`us ]
-"22 ccp1.c
-[; ;ccp1.c: 22: static JSN_t *sameSens;
-[c E7110 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 .. ]
-[n E7110 . A5 A4 A3 C5 C4 C3 C6 C7 B7 A0 A1 A2 C0 C1 C2 B4 B5 B6  ]
-"28 ./JSN_Sensor.h
-[; ;./JSN_Sensor.h: 28: typedef struct {
-[s S976 `ui 1 `ui 1 `E7110 1 `E7110 1 ]
-[n S976 . echoHighTime distance trigPin echoPin ]
-"92
-[; ;./JSN_Sensor.h: 92: JSN_t* JSN_GetLastTrig(void);
-[v _JSN_GetLastTrig `(*S976 ~T0 @X0 0 ef ]
-"128 ./PIC16Xpress_DevBoard.h
-[; ;./PIC16Xpress_DevBoard.h: 128: uint8_t ReadPin(PinName_t pin);
-[v _ReadPin `(uc ~T0 @X0 0 ef1`E7110 ]
-"6395 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
-[v _CCP1CON `Vuc ~T0 @X0 0 e@659 ]
-"6460
-[v _CCP1CAP `Vuc ~T0 @X0 0 e@660 ]
-"6375
-[v _CCPR1H `Vuc ~T0 @X0 0 e@658 ]
-"6355
-[v _CCPR1L `Vuc ~T0 @X0 0 e@657 ]
-[v F6666 `(v ~T0 @X0 0 tf1`us ]
-"101 ./ccp1.h
-[; ;./ccp1.h: 101:  void CCP1_SetCallBack(void (*customCallBack)(uint16_t));
-[v _CCP1_SetCallBack `(v ~T0 @X0 0 ef1`*F6666 ]
-"6670 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
-[s S317 :2 `uc 1 :2 `uc 1 :2 `uc 1 :2 `uc 1 ]
-[n S317 . C1TSEL C2TSEL C3TSEL C4TSEL ]
-"6676
-[s S318 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S318 . C1TSEL0 C1TSEL1 C2TSEL0 C2TSEL1 C3TSEL0 C3TSEL1 C4TSEL0 C4TSEL1 ]
-"6669
-[u S316 `S317 1 `S318 1 ]
-[n S316 . . . ]
-"6687
-[v _CCPTMRSbits `VS316 ~T0 @X0 0 e@671 ]
-"761
-[s S47 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S47 . CCP1IF CCP2IF CCP3IF CCP4IF TMR5IF TMR5GIF CWG1IF CWG2IF ]
-"760
-[u S46 `S47 1 ]
-[n S46 . . ]
-"772
-[v _PIR4bits `VS46 ~T0 @X0 0 e@20 ]
+[t ~ __interrupt . k ]
+[t T2 __interrupt ]
+"1703 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
+[s S92 :1 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S92 . INTE . IOCIE TMR0IE ]
+"1702
+[u S91 `S92 1 ]
+[n S91 . . ]
+"1710
+[v _PIE0bits `VS91 ~T0 @X0 0 e@144 ]
+"542
+[s S39 :1 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S39 . INTF . IOCIF TMR0IF ]
+"541
+[u S38 `S39 1 ]
+[n S38 . . ]
+"549
+[v _PIR0bits `VS38 ~T0 @X0 0 e@16 ]
+"155 ./tmr0.h
+[; ;./tmr0.h: 155: void TMR0_ISR(void);
+[v _TMR0_ISR `(v ~T0 @X0 0 ef ]
+"358 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
+[s S31 :1 `uc 1 :5 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S31 . INTEDG . PEIE GIE ]
+"357
+[u S30 `S31 1 ]
+[n S30 . . ]
+"365
+[v _INTCONbits `VS30 ~T0 @X0 0 e@11 ]
 "1922
 [s S100 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S100 . CCP1IE CCP2IE CCP3IE CCP4IE TMR5IE TMR5GIE CWG1IE CWG2IE ]
@@ -53,20 +36,50 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S99 . . ]
 "1933
 [v _PIE4bits `VS99 ~T0 @X0 0 e@148 ]
-"32 ./ccp1.h
-[; ;./ccp1.h: 32:    {
-[s S964 `uc 1 `uc 1 ]
-[n S964 . ccpr1l ccpr1h ]
-"37
-[; ;./ccp1.h: 37:    {
-[s S965 `us 1 ]
-[n S965 . ccpr1_16Bit ]
-"30
-[; ;./ccp1.h: 30: {
-[u S963 `S964 1 `S965 1 ]
-[n S963 CCPR1Reg_tag . . ]
-[v F7170 `(v ~T0 @X0 0 tf1`us ]
-[v F7173 `(v ~T0 @X0 0 tf1`us ]
+"761
+[s S47 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S47 . CCP1IF CCP2IF CCP3IF CCP4IF TMR5IF TMR5GIF CWG1IF CWG2IF ]
+"760
+[u S46 `S47 1 ]
+[n S46 . . ]
+"772
+[v _PIR4bits `VS46 ~T0 @X0 0 e@20 ]
+"81 ./ccp1.h
+[; ;./ccp1.h: 81: void CCP1_CaptureISR(void);
+[v _CCP1_CaptureISR `(v ~T0 @X0 0 ef ]
+"81 ./ccp2.h
+[; ;./ccp2.h: 81: void CCP2_CaptureISR(void);
+[v _CCP2_CaptureISR `(v ~T0 @X0 0 ef ]
+"81 ./ccp3.h
+[; ;./ccp3.h: 81: void CCP3_CaptureISR(void);
+[v _CCP3_CaptureISR `(v ~T0 @X0 0 ef ]
+"1736 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
+[s S94 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S94 . TMR1IE TMR2IE BCL1IE SSP1IE TXIE RCIE ADIE TMR1GIE ]
+"1735
+[u S93 `S94 1 ]
+[n S93 . . ]
+"1747
+[v _PIE1bits `VS93 ~T0 @X0 0 e@145 ]
+"575
+[s S41 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S41 . TMR1IF TMR2IF BCL1IF SSP1IF TXIF RCIF ADIF TMR1GIF ]
+"574
+[u S40 `S41 1 ]
+[n S40 . . ]
+"586
+[v _PIR1bits `VS40 ~T0 @X0 0 e@17 ]
+"195 ./tmr1.h
+[; ;./tmr1.h: 195: void TMR1_ISR(void);
+[v _TMR1_ISR `(v ~T0 @X0 0 ef ]
+[v F7078 `(v ~T0 @X0 0 tf ]
+"41 ./eusart.h
+[; ;./eusart.h: 41: extern void (*EUSART_RxDefaultInterruptHandler)(void);
+[v _EUSART_RxDefaultInterruptHandler `*F7078 ~T0 @X0 0 e ]
+[v F7076 `(v ~T0 @X0 0 tf ]
+"40
+[; ;./eusart.h: 40: extern void (*EUSART_TxDefaultInterruptHandler)(void);
+[v _EUSART_TxDefaultInterruptHandler `*F7076 ~T0 @X0 0 e ]
 "55 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
 [; <" INDF0 equ 00h ;# ">
 "75
@@ -773,150 +786,129 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSL equ 0FEEh ;# ">
 "19652
 [; <" TOSH equ 0FEFh ;# ">
-"20 ccp1.c
-[; ;ccp1.c: 20: static void (*CCP1_CallBack)(uint16_t);
-[v _CCP1_CallBack `*F7156 ~T0 @X0 1 s ]
+[v $root$_INTERRUPT_InterruptManager `(v ~T0 @X0 0 e ]
+"16 interrupt_manager.c
+[; ;interrupt_manager.c: 16: void __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager (void)
+[v _INTERRUPT_InterruptManager `(v ~T2 @X0 1 ef ]
+"17
+[; ;interrupt_manager.c: 17: {
+{
+[e :U _INTERRUPT_InterruptManager ]
+[f ]
+"19
+[; ;interrupt_manager.c: 19:     if(PIE0bits.TMR0IE == 1 && PIR0bits.TMR0IF == 1)
+[e $ ! && == -> . . _PIE0bits 0 3 `i -> 1 `i == -> . . _PIR0bits 0 3 `i -> 1 `i 977  ]
+"20
+[; ;interrupt_manager.c: 20:     {
+{
 "21
-[; ;ccp1.c: 21: static uint16_t ticksUp, ticksDown;
-[v _ticksUp `us ~T0 @X0 1 s ]
-[v _ticksDown `us ~T0 @X0 1 s ]
+[; ;interrupt_manager.c: 21:         TMR0_ISR();
+[e ( _TMR0_ISR ..  ]
 "22
-[; ;ccp1.c: 22: static JSN_t *sameSens;
-[v _sameSens `*S976 ~T0 @X0 1 s ]
+[; ;interrupt_manager.c: 22:     }
+}
+[e $U 978  ]
 "23
-[; ;ccp1.c: 23: static JSN_t *lastTrig;
-[v _lastTrig `*S976 ~T0 @X0 1 s ]
-"29
-[; ;ccp1.c: 29: static void CCP1_DefaultCallBack(uint16_t capturedValue)
-[v _CCP1_DefaultCallBack `(v ~T0 @X0 1 sf1`us ]
-"30
-[; ;ccp1.c: 30: {
+[; ;interrupt_manager.c: 23:     else if(INTCONbits.PEIE == 1)
+[e :U 977 ]
+[e $ ! == -> . . _INTCONbits 0 2 `i -> 1 `i 979  ]
+"24
+[; ;interrupt_manager.c: 24:     {
 {
-[e :U _CCP1_DefaultCallBack ]
-"29
-[; ;ccp1.c: 29: static void CCP1_DefaultCallBack(uint16_t capturedValue)
-[v _capturedValue `us ~T0 @X0 1 r1 ]
-"30
-[; ;ccp1.c: 30: {
-[f ]
-"31
-[; ;ccp1.c: 31:     lastTrig = JSN_GetLastTrig();
-[e = _lastTrig ( _JSN_GetLastTrig ..  ]
-"32
-[; ;ccp1.c: 32:     switch(ReadPin(lastTrig->echoPin)) {
-[e $U 979  ]
+"25
+[; ;interrupt_manager.c: 25:         if(PIE4bits.CCP1IE == 1 && PIR4bits.CCP1IF == 1)
+[e $ ! && == -> . . _PIE4bits 0 0 `i -> 1 `i == -> . . _PIR4bits 0 0 `i -> 1 `i 980  ]
+"26
+[; ;interrupt_manager.c: 26:         {
 {
-"34
-[; ;ccp1.c: 34:         case 1:
+"27
+[; ;interrupt_manager.c: 27:             CCP1_CaptureISR();
+[e ( _CCP1_CaptureISR ..  ]
+"28
+[; ;interrupt_manager.c: 28:         }
+}
+[e $U 981  ]
+"29
+[; ;interrupt_manager.c: 29:         else if(PIE4bits.CCP2IE == 1 && PIR4bits.CCP2IF == 1)
 [e :U 980 ]
+[e $ ! && == -> . . _PIE4bits 0 1 `i -> 1 `i == -> . . _PIR4bits 0 1 `i -> 1 `i 982  ]
+"30
+[; ;interrupt_manager.c: 30:         {
+{
+"31
+[; ;interrupt_manager.c: 31:             CCP2_CaptureISR();
+[e ( _CCP2_CaptureISR ..  ]
+"32
+[; ;interrupt_manager.c: 32:         }
+}
+[e $U 983  ]
+"33
+[; ;interrupt_manager.c: 33:         else if(PIE4bits.CCP3IE == 1 && PIR4bits.CCP3IF == 1)
+[e :U 982 ]
+[e $ ! && == -> . . _PIE4bits 0 2 `i -> 1 `i == -> . . _PIR4bits 0 2 `i -> 1 `i 984  ]
+"34
+[; ;interrupt_manager.c: 34:         {
+{
 "35
-[; ;ccp1.c: 35:             ticksUp = capturedValue;
-[e = _ticksUp _capturedValue ]
+[; ;interrupt_manager.c: 35:             CCP3_CaptureISR();
+[e ( _CCP3_CaptureISR ..  ]
 "36
-[; ;ccp1.c: 36:             sameSens = lastTrig;
-[e = _sameSens _lastTrig ]
+[; ;interrupt_manager.c: 36:         }
+}
+[e $U 985  ]
 "37
-[; ;ccp1.c: 37:             break;
-[e $U 978  ]
+[; ;interrupt_manager.c: 37:         else if(PIE1bits.TMR1IE == 1 && PIR1bits.TMR1IF == 1)
+[e :U 984 ]
+[e $ ! && == -> . . _PIE1bits 0 0 `i -> 1 `i == -> . . _PIR1bits 0 0 `i -> 1 `i 986  ]
+"38
+[; ;interrupt_manager.c: 38:         {
+{
 "39
-[; ;ccp1.c: 39:         case 0:
-[e :U 981 ]
+[; ;interrupt_manager.c: 39:             TMR1_ISR();
+[e ( _TMR1_ISR ..  ]
 "40
-[; ;ccp1.c: 40:             ticksDown = capturedValue;
-[e = _ticksDown _capturedValue ]
+[; ;interrupt_manager.c: 40:         }
+}
+[e $U 987  ]
+"41
+[; ;interrupt_manager.c: 41:         else if(PIE1bits.RCIE == 1 && PIR1bits.RCIF == 1)
+[e :U 986 ]
+[e $ ! && == -> . . _PIE1bits 0 5 `i -> 1 `i == -> . . _PIR1bits 0 5 `i -> 1 `i 988  ]
+"42
+[; ;interrupt_manager.c: 42:         {
+{
 "43
-[; ;ccp1.c: 43:             sameSens->echoHighTime = (ticksDown - ticksUp);
-[e = . *U _sameSens 0 - -> _ticksDown `ui -> _ticksUp `ui ]
+[; ;interrupt_manager.c: 43:             EUSART_RxDefaultInterruptHandler();
+[e ( *U _EUSART_RxDefaultInterruptHandler ..  ]
 "44
-[; ;ccp1.c: 44:             break;
-[e $U 978  ]
+[; ;interrupt_manager.c: 44:         }
+}
+[e $U 989  ]
 "45
-[; ;ccp1.c: 45:     }
-}
-[e $U 978  ]
-[e :U 979 ]
-[e [\ -> ( _ReadPin (1 . *U _lastTrig 3 `i , $ -> 1 `i 980
- , $ -> 0 `i 981
- 978 ]
-[e :U 978 ]
+[; ;interrupt_manager.c: 45:         else if(PIE1bits.TXIE == 1 && PIR1bits.TXIF == 1)
+[e :U 988 ]
+[e $ ! && == -> . . _PIE1bits 0 4 `i -> 1 `i == -> . . _PIR1bits 0 4 `i -> 1 `i 990  ]
 "46
-[; ;ccp1.c: 46: }
-[e :UE 977 ]
-}
-"50
-[; ;ccp1.c: 50: void CCP1_Initialize(void)
-[v _CCP1_Initialize `(v ~T0 @X0 1 ef ]
-"51
-[; ;ccp1.c: 51: {
+[; ;interrupt_manager.c: 46:         {
 {
-[e :U _CCP1_Initialize ]
-[f ]
-"55
-[; ;ccp1.c: 55:  CCP1CON = 0x83;
-[e = _CCP1CON -> -> 131 `i `uc ]
+"47
+[; ;interrupt_manager.c: 47:             EUSART_TxDefaultInterruptHandler();
+[e ( *U _EUSART_TxDefaultInterruptHandler ..  ]
+"48
+[; ;interrupt_manager.c: 48:         }
+}
+[e :U 990 ]
+[e :U 989 ]
+[e :U 987 ]
+[e :U 985 ]
+[e :U 983 ]
+[e :U 981 ]
+"53
+[; ;interrupt_manager.c: 53:     }
+}
+[e :U 979 ]
+[e :U 978 ]
 "58
-[; ;ccp1.c: 58:  CCP1CAP = 0x00;
-[e = _CCP1CAP -> -> 0 `i `uc ]
-"61
-[; ;ccp1.c: 61:  CCPR1H = 0x00;
-[e = _CCPR1H -> -> 0 `i `uc ]
-"64
-[; ;ccp1.c: 64:  CCPR1L = 0x00;
-[e = _CCPR1L -> -> 0 `i `uc ]
-"67
-[; ;ccp1.c: 67:     CCP1_SetCallBack(CCP1_DefaultCallBack);
-[e ( _CCP1_SetCallBack (1 &U _CCP1_DefaultCallBack ]
-"70
-[; ;ccp1.c: 70:  CCPTMRSbits.C1TSEL = 0x1;
-[e = . . _CCPTMRSbits 0 0 -> -> 1 `i `uc ]
-"73
-[; ;ccp1.c: 73:     PIR4bits.CCP1IF = 0;
-[e = . . _PIR4bits 0 0 -> -> 0 `i `uc ]
-"76
-[; ;ccp1.c: 76:     PIE4bits.CCP1IE = 1;
-[e = . . _PIE4bits 0 0 -> -> 1 `i `uc ]
-"77
-[; ;ccp1.c: 77: }
-[e :UE 982 ]
-}
-"81
-[; ;ccp1.c: 81: void CCP1_CaptureISR(void)
-[v _CCP1_CaptureISR `(v ~T0 @X0 1 ef ]
-"82
-[; ;ccp1.c: 82: {
-{
-[e :U _CCP1_CaptureISR ]
-[f ]
-"83
-[; ;ccp1.c: 83:     CCP1_PERIOD_REG_T module;
-[v _module `S963 ~T0 @X0 1 a ]
-"86
-[; ;ccp1.c: 86:     PIR4bits.CCP1IF = 0;
-[e = . . _PIR4bits 0 0 -> -> 0 `i `uc ]
-"89
-[; ;ccp1.c: 89:     module.ccpr1l = CCPR1L;
-[e = . . _module 0 0 _CCPR1L ]
-"90
-[; ;ccp1.c: 90:     module.ccpr1h = CCPR1H;
-[e = . . _module 0 1 _CCPR1H ]
-"93
-[; ;ccp1.c: 93:     CCP1_CallBack(module.ccpr1_16Bit);
-[e ( *U _CCP1_CallBack (1 . . _module 1 0 ]
-"94
-[; ;ccp1.c: 94: }
-[e :UE 983 ]
-}
-"98
-[; ;ccp1.c: 98: void CCP1_SetCallBack(void (*customCallBack)(uint16_t)){
-[v _CCP1_SetCallBack `(v ~T0 @X0 1 ef1`*F7170 ]
-{
-[e :U _CCP1_SetCallBack ]
-[v _customCallBack `*F7173 ~T0 @X0 1 r1 ]
-[f ]
-"99
-[; ;ccp1.c: 99:     CCP1_CallBack = customCallBack;
-[e = _CCP1_CallBack _customCallBack ]
-"100
-[; ;ccp1.c: 100: }
-[e :UE 984 ]
+[; ;interrupt_manager.c: 58: }
+[e :UE 976 ]
 }

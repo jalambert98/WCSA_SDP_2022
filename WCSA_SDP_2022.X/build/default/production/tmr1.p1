@@ -1169,8 +1169,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;tmr1.c: 43:     TMR1_SetInterruptHandler(TMR1_DefaultInterruptHandler);
 [e ( _TMR1_SetInterruptHandler (1 &U _TMR1_DefaultInterruptHandler ]
 "46
-[; ;tmr1.c: 46:     T1CON = 0x11;
-[e = _T1CON -> -> 17 `i `uc ]
+[; ;tmr1.c: 46:     T1CON = 0b00100001;
+[e = _T1CON -> -> 33 `i `uc ]
 "47
 [; ;tmr1.c: 47: }
 [e :UE 963 ]

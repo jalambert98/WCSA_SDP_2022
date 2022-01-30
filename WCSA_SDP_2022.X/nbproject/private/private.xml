@@ -7,12 +7,15 @@
             <file>file:/C:/Users/Jack/MPLABXProjects/WCSA_SDP_2022/WCSA_SDP_2022.X/pin_manager.c</file>
             <file>file:/C:/Users/Jack/MPLABXProjects/WCSA_SDP_2022/WCSA_SDP_2022.X/JSN_Sensor.c</file>
             <file>file:/C:/Users/Jack/MPLABXProjects/WCSA_SDP_2022/WCSA_SDP_2022.X/tmr1.c</file>
-            <file>file:/C:/Users/Jack/MPLABXProjects/WCSA_SDP_2022/WCSA_SDP_2022.X/FR_Timer.c</file>
+            <file>file:/C:/Users/Jack/MPLABXProjects/WCSA_SDP_2022/WCSA_SDP_2022.X/mcc.c</file>
+            <file>file:/C:/Users/Jack/MPLABXProjects/WCSA_SDP_2022/WCSA_SDP_2022.X/FRT.c</file>
+            <file>file:/C:/Users/Jack/MPLABXProjects/WCSA_SDP_2022/WCSA_SDP_2022.X/JSN_Sensor.h</file>
+            <file>file:/C:/Users/Jack/MPLABXProjects/WCSA_SDP_2022/WCSA_SDP_2022.X/ccp1.h</file>
             <file>file:/C:/Users/Jack/MPLABXProjects/WCSA_SDP_2022/WCSA_SDP_2022.X/PIC16Xpress_DevBoard.c</file>
             <file>file:/C:/Users/Jack/MPLABXProjects/WCSA_SDP_2022/WCSA_SDP_2022.X/tmr0.c</file>
-            <file>file:/C:/Users/Jack/MPLABXProjects/WCSA_SDP_2022/WCSA_SDP_2022.X/interrupt_manager.h</file>
-            <file>file:/C:/Users/Jack/MPLABXProjects/WCSA_SDP_2022/WCSA_SDP_2022.X/pin_manager.h</file>
-            <file>file:/C:/Users/Jack/MPLABXProjects/WCSA_SDP_2022/WCSA_SDP_2022.X/mcc.c</file>
+            <file>file:/C:/Users/Jack/MPLABXProjects/WCSA_SDP_2022/WCSA_SDP_2022.X/ccp2.c</file>
+            <file>file:/C:/Users/Jack/MPLABXProjects/WCSA_SDP_2022/WCSA_SDP_2022.X/FRT.h</file>
+            <file>file:/C:/Users/Jack/MPLABXProjects/WCSA_SDP_2022/WCSA_SDP_2022.X/ccp1.c</file>
         </group>
     </open-files>
 </project-private>

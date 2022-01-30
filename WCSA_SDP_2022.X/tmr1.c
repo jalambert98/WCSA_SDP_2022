@@ -15,7 +15,7 @@ void (*TMR1_InterruptHandler)(void);
 
 //------------------------------------------------------------------------------
 /*
- * TMR1 ticks @2MHz & rolls over after 16-bit range [0x0000 --> 0xFFFF]
+ * TMR1 ticks @1MHz & rolls over after 16-bit range [0x0000 --> 0xFFFF]
  */
 void TMR1_Initialize(void)
 {
@@ -42,8 +42,8 @@ void TMR1_Initialize(void)
     // Set Default Interrupt Handler
     TMR1_SetInterruptHandler(TMR1_DefaultInterruptHandler);
 
-    // T1CKPS 1:2; T1SOSC T1CKI_enabled; T1SYNC synchronize; TMR1CS FOSC/4; TMR1ON enabled; 
-    T1CON = 0x11;
+    // T1CKPS 1:4; T1SOSC T1CKI_enabled; T1SYNC synchronize; TMR1CS FOSC/4; TMR1ON enabled; 
+    T1CON = 0b00100001;
 }
 
 //------------------------------------------------------------------------------

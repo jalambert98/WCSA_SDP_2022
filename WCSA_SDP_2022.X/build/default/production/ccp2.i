@@ -11618,7 +11618,8 @@ JSN_t* JSN_GetLastTrig(void);
 
 static void (*CCP2_CallBack)(uint16_t);
 static uint16_t ticksUp, ticksDown;
-
+static JSN_t *sameSens;
+static JSN_t *lastTrig;
 
 
 
@@ -11626,15 +11627,19 @@ static uint16_t ticksUp, ticksDown;
 
 static void CCP2_DefaultCallBack(uint16_t capturedValue)
 {
-    switch(ReadPin(JSN_GetLastTrig()->echoPin)) {
+    lastTrig = JSN_GetLastTrig();
+    switch(ReadPin(lastTrig->echoPin)) {
 
         case 1:
             ticksUp = capturedValue;
+            sameSens = lastTrig;
             break;
 
         case 0:
             ticksDown = capturedValue;
-            JSN_GetLastTrig()->echoHighTime = ((ticksDown - ticksUp)>>1);
+
+
+            sameSens->echoHighTime = (ticksDown - ticksUp);
             break;
     }
 }

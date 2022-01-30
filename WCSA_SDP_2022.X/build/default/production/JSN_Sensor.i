@@ -11634,7 +11634,7 @@ static JSN_t Sens1, Sens2, Sens3;
 uint8_t JSN_Sensor_Init(JSN_t *Sensor, PinName_t trigPin, PinName_t echoPin) {
 
 
-    switch(echoPin) {
+    switch (echoPin) {
         case A2:
         case A4:
         case C3:
@@ -11646,7 +11646,7 @@ uint8_t JSN_Sensor_Init(JSN_t *Sensor, PinName_t trigPin, PinName_t echoPin) {
     }
 
 
-    switch(trigPin) {
+    switch (trigPin) {
         case A5:
         case C4:
         case C6:
@@ -11682,6 +11682,7 @@ uint8_t JSN_Sensor_Init(JSN_t *Sensor, PinName_t trigPin, PinName_t echoPin) {
 
 
 
+
 void JSN_Sensor_Trig(JSN_t *Sensor) {
     micros = FRT_GetMicros();
 
@@ -11689,7 +11690,7 @@ void JSN_Sensor_Trig(JSN_t *Sensor) {
     WritePin(Sensor->trigPin, 1);
 
 
-    while((FRT_GetMicros() - micros) < 11);
+    while ((FRT_GetMicros() - micros) < 11);
 
 
     WritePin(Sensor->trigPin, 0);
@@ -11706,8 +11707,8 @@ unsigned int JSN_Sensor_GetDistance(JSN_t *Sensor) {
 
 
 
-    Sensor->distance = (unsigned int)(((uint32_t)Sensor->echoHighTime *
-                                    343) / (1000 << 1));
+    Sensor->distance = (unsigned int) (((uint32_t) Sensor->echoHighTime *
+            343) / (1000 << 1));
     return Sensor->distance;
 }
 
@@ -11716,39 +11717,52 @@ unsigned int JSN_Sensor_GetDistance(JSN_t *Sensor) {
 JSN_t* JSN_GetLastTrig(void) {
     return lastTrig;
 }
-# 129 "JSN_Sensor.c"
+# 130 "JSN_Sensor.c"
 int main(void) {
 
     PIC16_Init();
     JSN_Sensor_Init(&Sens1, C6, C5);
+    JSN_Sensor_Init(&Sens2, A1, C3);
 
 
     unsigned long currMilli = 0;
     unsigned long prevMilli = 0;
+    uint8_t i = 1;
     SetPin(C0, 0);
     WritePin(C0, 0);
 
     JSN_Sensor_Trig(&Sens1);
+    JSN_Sensor_Trig(&Sens2);
 
-    while(1) {
+    while (1) {
         currMilli = FRT_GetMillis();
 
 
-        if((currMilli - prevMilli) >= 50) {
+        if ((currMilli - prevMilli) >= 50) {
+            switch (i) {
+                case 1:
 
+                    JSN_Sensor_Trig(&Sens1);
+                    i = 2;
+                    break;
 
-            if(JSN_Sensor_GetDistance(&Sens1) < 500) {
-                WritePin(C0, 1);
+                case 2:
+
+                    JSN_Sensor_Trig(&Sens2);
+                    i = 1;
+                    break;
             }
-            else if (Sens1.distance > 500) {
+
+
+            if ((Sens1.distance < 500)||(Sens2.distance < 500)) {
+                WritePin(C0, 1);
+            } else {
                 WritePin(C0, 0);
             }
 
 
-            printf("Distance = %u \n", JSN_Sensor_GetDistance(&Sens1));
-
-
-            JSN_Sensor_Trig(&Sens1);
+            printf("%u", JSN_Sensor_GetDistance(&Sens1));
+            printf("%u", JSN_Sensor_GetDistance(&Sens2));
 
 
             prevMilli = currMilli;
