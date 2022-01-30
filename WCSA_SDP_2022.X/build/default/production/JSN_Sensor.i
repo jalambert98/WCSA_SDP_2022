@@ -11639,7 +11639,6 @@ void JSN_Library_Init(void) {
 
     TMR1_Initialize();
     CCP1_Initialize();
-    JSN_Sensor_Init(&Sens1, C6, C5);
     return;
 }
 
@@ -11730,12 +11729,13 @@ unsigned int JSN_Sensor_GetDistance(JSN_t *Sensor) {
 JSN_t* JSN_GetLastTrig(void) {
     return lastTrig;
 }
-# 139 "JSN_Sensor.c"
+# 138 "JSN_Sensor.c"
 int main(void) {
 
     PIC16_Init();
     FR_Timer_Init();
     JSN_Library_Init();
+    JSN_Sensor_Init(&Sens1, C6, C5);
 
 
     unsigned long currMilli = 0;

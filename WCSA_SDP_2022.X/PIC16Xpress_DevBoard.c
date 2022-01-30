@@ -1,5 +1,5 @@
 /* 
- * File:    PIC16Xpress_DevBoard.h
+ * File:    PIC16Xpress_DevBoard.c
  * Author:  Jack Lambert     <joalambe@ucsc.edu>
  * Project: WCSA_SDP_2022
  *
@@ -57,9 +57,12 @@ void PIC16_Init(void) {
     PIR3 = 0x00;
     PIR4 = 0x00;
     
-    SYSTEM_Initialize();        // Initialize CPU clk + Peripherals
-    INTCONbits.PEIE = HIGH;     // Enable peripheral interrupts
-    INTCONbits.GIE = HIGH;      // Enable global interrupts
+    // Initialize CPU clk + Peripherals
+    SYSTEM_Initialize();
+    
+    // Enable global + peripheral interrupts
+    INTERRUPT_PeripheralInterruptEnable();
+    INTERRUPT_GlobalInterruptEnable();
 }
 
 //------------------------------------------------------------------------------

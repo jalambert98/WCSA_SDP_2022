@@ -1,7 +1,7 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [v F7157 `(v ~T0 @X0 0 tf1`us ]
-"32 ccp1.c
-[; ;ccp1.c: 32:             JSN_GetLastTrig()->echoHighTime = ((ticksDown - ticksUp)>>1);
+"40 ccp1.c
+[; ;ccp1.c: 40:             JSN_GetLastTrig()->echoHighTime = ((ticksDown - ticksUp)>>1);
 [c E7110 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 .. ]
 [n E7110 . A5 A4 A3 C5 C4 C3 C6 C7 B7 A0 A1 A2 C0 C1 C2 B4 B5 B6  ]
 "28 ./JSN_Sensor.h
@@ -11,15 +11,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "107
 [; ;./JSN_Sensor.h: 107: JSN_t* JSN_GetLastTrig(void);
 [v _JSN_GetLastTrig `(*S976 ~T0 @X0 0 ef ]
-"480 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
-[s S37 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S37 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
-"479
-[u S36 `S37 1 ]
-[n S36 . . ]
-"491
-[v _PORTCbits `VS36 ~T0 @X0 0 e@14 ]
-"6395
+"128 ./PIC16Xpress_DevBoard.h
+[; ;./PIC16Xpress_DevBoard.h: 128: uint8_t ReadPin(PinName_t pin);
+[v _ReadPin `(uc ~T0 @X0 0 ef1`E7110 ]
+"6395 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
 [v _CCP1CON `Vuc ~T0 @X0 0 e@659 ]
 "6460
 [v _CCP1CAP `Vuc ~T0 @X0 0 e@660 ]
@@ -778,138 +773,138 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSL equ 0FEEh ;# ">
 "19652
 [; <" TOSH equ 0FEFh ;# ">
-"17 ccp1.c
-[; ;ccp1.c: 17: static void (*CCP1_CallBack)(uint16_t);
+"22 ccp1.c
+[; ;ccp1.c: 22: static void (*CCP1_CallBack)(uint16_t);
 [v _CCP1_CallBack `*F7157 ~T0 @X0 1 s ]
-"18
-[; ;ccp1.c: 18: static uint16_t ticksUp, ticksDown;
+"23
+[; ;ccp1.c: 23: static uint16_t ticksUp, ticksDown;
 [v _ticksUp `us ~T0 @X0 1 s ]
 [v _ticksDown `us ~T0 @X0 1 s ]
-"22
-[; ;ccp1.c: 22: static void CCP1_DefaultCallBack(uint16_t capturedValue)
+"30
+[; ;ccp1.c: 30: static void CCP1_DefaultCallBack(uint16_t capturedValue)
 [v _CCP1_DefaultCallBack `(v ~T0 @X0 1 sf1`us ]
-"23
-[; ;ccp1.c: 23: {
+"31
+[; ;ccp1.c: 31: {
 {
 [e :U _CCP1_DefaultCallBack ]
-"22
-[; ;ccp1.c: 22: static void CCP1_DefaultCallBack(uint16_t capturedValue)
+"30
+[; ;ccp1.c: 30: static void CCP1_DefaultCallBack(uint16_t capturedValue)
 [v _capturedValue `us ~T0 @X0 1 r1 ]
-"23
-[; ;ccp1.c: 23: {
+"31
+[; ;ccp1.c: 31: {
 [f ]
-"24
-[; ;ccp1.c: 24:     switch(PORTCbits.RC5) {
+"32
+[; ;ccp1.c: 32:     switch(ReadPin(JSN_GetLastTrig()->echoPin)) {
 [e $U 979  ]
 {
-"26
-[; ;ccp1.c: 26:         case 1:
-[e :U 980 ]
-"27
-[; ;ccp1.c: 27:             ticksUp = capturedValue;
-[e = _ticksUp _capturedValue ]
-"28
-[; ;ccp1.c: 28:             break;
-[e $U 978  ]
-"30
-[; ;ccp1.c: 30:         case 0:
-[e :U 981 ]
-"31
-[; ;ccp1.c: 31:             ticksDown = capturedValue;
-[e = _ticksDown _capturedValue ]
-"32
-[; ;ccp1.c: 32:             JSN_GetLastTrig()->echoHighTime = ((ticksDown - ticksUp)>>1);
-[e = . *U ( _JSN_GetLastTrig ..  0 >> - -> _ticksDown `ui -> _ticksUp `ui -> 1 `i ]
-"33
-[; ;ccp1.c: 33:             break;
-[e $U 978  ]
 "34
-[; ;ccp1.c: 34:     }
+[; ;ccp1.c: 34:         case 1:
+[e :U 980 ]
+"35
+[; ;ccp1.c: 35:             ticksUp = capturedValue;
+[e = _ticksUp _capturedValue ]
+"36
+[; ;ccp1.c: 36:             break;
+[e $U 978  ]
+"38
+[; ;ccp1.c: 38:         case 0:
+[e :U 981 ]
+"39
+[; ;ccp1.c: 39:             ticksDown = capturedValue;
+[e = _ticksDown _capturedValue ]
+"40
+[; ;ccp1.c: 40:             JSN_GetLastTrig()->echoHighTime = ((ticksDown - ticksUp)>>1);
+[e = . *U ( _JSN_GetLastTrig ..  0 >> - -> _ticksDown `ui -> _ticksUp `ui -> 1 `i ]
+"41
+[; ;ccp1.c: 41:             break;
+[e $U 978  ]
+"42
+[; ;ccp1.c: 42:     }
 }
 [e $U 978  ]
 [e :U 979 ]
-[e [\ -> . . _PORTCbits 0 5 `i , $ -> 1 `i 980
+[e [\ -> ( _ReadPin (1 . *U ( _JSN_GetLastTrig ..  3 `i , $ -> 1 `i 980
  , $ -> 0 `i 981
  978 ]
 [e :U 978 ]
-"35
-[; ;ccp1.c: 35: }
+"43
+[; ;ccp1.c: 43: }
 [e :UE 977 ]
 }
-"39
-[; ;ccp1.c: 39: void CCP1_Initialize(void)
+"47
+[; ;ccp1.c: 47: void CCP1_Initialize(void)
 [v _CCP1_Initialize `(v ~T0 @X0 1 ef ]
-"40
-[; ;ccp1.c: 40: {
+"48
+[; ;ccp1.c: 48: {
 {
 [e :U _CCP1_Initialize ]
 [f ]
-"44
-[; ;ccp1.c: 44:  CCP1CON = 0x83;
+"52
+[; ;ccp1.c: 52:  CCP1CON = 0x83;
 [e = _CCP1CON -> -> 131 `i `uc ]
-"47
-[; ;ccp1.c: 47:  CCP1CAP = 0x00;
+"55
+[; ;ccp1.c: 55:  CCP1CAP = 0x00;
 [e = _CCP1CAP -> -> 0 `i `uc ]
-"50
-[; ;ccp1.c: 50:  CCPR1H = 0x00;
+"58
+[; ;ccp1.c: 58:  CCPR1H = 0x00;
 [e = _CCPR1H -> -> 0 `i `uc ]
-"53
-[; ;ccp1.c: 53:  CCPR1L = 0x00;
+"61
+[; ;ccp1.c: 61:  CCPR1L = 0x00;
 [e = _CCPR1L -> -> 0 `i `uc ]
-"56
-[; ;ccp1.c: 56:     CCP1_SetCallBack(CCP1_DefaultCallBack);
+"64
+[; ;ccp1.c: 64:     CCP1_SetCallBack(CCP1_DefaultCallBack);
 [e ( _CCP1_SetCallBack (1 &U _CCP1_DefaultCallBack ]
-"59
-[; ;ccp1.c: 59:  CCPTMRSbits.C1TSEL = 0x1;
+"67
+[; ;ccp1.c: 67:  CCPTMRSbits.C1TSEL = 0x1;
 [e = . . _CCPTMRSbits 0 0 -> -> 1 `i `uc ]
-"62
-[; ;ccp1.c: 62:     PIR4bits.CCP1IF = 0;
+"70
+[; ;ccp1.c: 70:     PIR4bits.CCP1IF = 0;
 [e = . . _PIR4bits 0 0 -> -> 0 `i `uc ]
-"65
-[; ;ccp1.c: 65:     PIE4bits.CCP1IE = 1;
+"73
+[; ;ccp1.c: 73:     PIE4bits.CCP1IE = 1;
 [e = . . _PIE4bits 0 0 -> -> 1 `i `uc ]
-"66
-[; ;ccp1.c: 66: }
+"74
+[; ;ccp1.c: 74: }
 [e :UE 982 ]
 }
-"70
-[; ;ccp1.c: 70: void CCP1_CaptureISR(void)
+"78
+[; ;ccp1.c: 78: void CCP1_CaptureISR(void)
 [v _CCP1_CaptureISR `(v ~T0 @X0 1 ef ]
-"71
-[; ;ccp1.c: 71: {
+"79
+[; ;ccp1.c: 79: {
 {
 [e :U _CCP1_CaptureISR ]
 [f ]
-"72
-[; ;ccp1.c: 72:     CCP1_PERIOD_REG_T module;
+"80
+[; ;ccp1.c: 80:     CCP1_PERIOD_REG_T module;
 [v _module `S963 ~T0 @X0 1 a ]
-"75
-[; ;ccp1.c: 75:     PIR4bits.CCP1IF = 0;
-[e = . . _PIR4bits 0 0 -> -> 0 `i `uc ]
-"78
-[; ;ccp1.c: 78:     module.ccpr1l = CCPR1L;
-[e = . . _module 0 0 _CCPR1L ]
-"79
-[; ;ccp1.c: 79:     module.ccpr1h = CCPR1H;
-[e = . . _module 0 1 _CCPR1H ]
-"82
-[; ;ccp1.c: 82:     CCP1_CallBack(module.ccpr1_16Bit);
-[e ( *U _CCP1_CallBack (1 . . _module 1 0 ]
 "83
-[; ;ccp1.c: 83: }
+[; ;ccp1.c: 83:     PIR4bits.CCP1IF = 0;
+[e = . . _PIR4bits 0 0 -> -> 0 `i `uc ]
+"86
+[; ;ccp1.c: 86:     module.ccpr1l = CCPR1L;
+[e = . . _module 0 0 _CCPR1L ]
+"87
+[; ;ccp1.c: 87:     module.ccpr1h = CCPR1H;
+[e = . . _module 0 1 _CCPR1H ]
+"90
+[; ;ccp1.c: 90:     CCP1_CallBack(module.ccpr1_16Bit);
+[e ( *U _CCP1_CallBack (1 . . _module 1 0 ]
+"91
+[; ;ccp1.c: 91: }
 [e :UE 983 ]
 }
-"87
-[; ;ccp1.c: 87: void CCP1_SetCallBack(void (*customCallBack)(uint16_t)){
+"95
+[; ;ccp1.c: 95: void CCP1_SetCallBack(void (*customCallBack)(uint16_t)){
 [v _CCP1_SetCallBack `(v ~T0 @X0 1 ef1`*F7169 ]
 {
 [e :U _CCP1_SetCallBack ]
 [v _customCallBack `*F7172 ~T0 @X0 1 r1 ]
 [f ]
-"88
-[; ;ccp1.c: 88:     CCP1_CallBack = customCallBack;
+"96
+[; ;ccp1.c: 96:     CCP1_CallBack = customCallBack;
 [e = _CCP1_CallBack _customCallBack ]
-"89
-[; ;ccp1.c: 89: }
+"97
+[; ;ccp1.c: 97: }
 [e :UE 984 ]
 }

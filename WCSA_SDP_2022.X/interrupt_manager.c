@@ -1,6 +1,17 @@
+/* 
+ * File:    interrupt_manager.c
+ * Author:  Jack Lambert     <joalambe@ucsc.edu>
+ * Project: WCSA_SDP_2022
+ *
+ * Created on January 26, 2022, 12:35 PM
+ */
+//------------------------------------------------------------------------------
+
 #include "PIC16Xpress_DevBoard.h"
 #include "interrupt_manager.h"
 #include "mcc.h"
+
+//------------------------------------------------------------------------------
 
 void __interrupt() INTERRUPT_InterruptManager (void)
 {
@@ -45,6 +56,8 @@ void __interrupt() INTERRUPT_InterruptManager (void)
         //Unhandled Interrupt
     }*/
 }
-/**
- End of File
-*/
+
+
+//==============================================================================
+//--------------------------------END OF FILE-----------------------------------
+//==============================================================================

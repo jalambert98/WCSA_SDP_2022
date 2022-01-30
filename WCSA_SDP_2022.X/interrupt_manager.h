@@ -1,8 +1,16 @@
+/* 
+ * File:    interrupt_manager.h
+ * Author:  Jack Lambert     <joalambe@ucsc.edu>
+ * Project: WCSA_SDP_2022
+ *
+ * Created on January 26, 2022, 12:35 PM
+ */
+//------------------------------------------------------------------------------
 
 #ifndef INTERRUPT_MANAGER_H
 #define INTERRUPT_MANAGER_H
 
-
+//------------------------------------------------------------------------------
 /**
  * @Param
     none
@@ -10,11 +18,10 @@
     none
  * @Description
     This macro will enable global interrupts.
- * @Example
-    INTERRUPT_GlobalInterruptEnable();
  */
 #define INTERRUPT_GlobalInterruptEnable() (INTCONbits.GIE = 1)
 
+//------------------------------------------------------------------------------
 /**
  * @Param
     none
@@ -22,11 +29,10 @@
     none
  * @Description
     This macro will disable global interrupts.
- * @Example
-    INTERRUPT_GlobalInterruptDisable();
  */
 #define INTERRUPT_GlobalInterruptDisable() (INTCONbits.GIE = 0)
 
+//------------------------------------------------------------------------------
 /**
  * @Param
     none
@@ -34,11 +40,10 @@
     none
  * @Description
     This macro will enable peripheral interrupts.
- * @Example
-    INTERRUPT_PeripheralInterruptEnable();
  */
 #define INTERRUPT_PeripheralInterruptEnable() (INTCONbits.PEIE = 1)
 
+//------------------------------------------------------------------------------
 /**
  * @Param
     none
@@ -46,13 +51,13 @@
     none
  * @Description
     This macro will disable peripheral interrupts.
- * @Example
-    INTERRUPT_PeripheralInterruptDisable();
  */
 #define INTERRUPT_PeripheralInterruptDisable() (INTCONbits.PEIE = 0)
 
+//------------------------------------------------------------------------------
 
 #endif  // INTERRUPT_MANAGER_H
-/**
- End of File
-*/
+
+//==============================================================================
+//--------------------------------END OF FILE-----------------------------------
+//==============================================================================

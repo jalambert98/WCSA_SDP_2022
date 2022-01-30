@@ -11613,14 +11613,22 @@ JSN_t* JSN_GetLastTrig(void);
 # 15 "ccp1.c" 2
 
 
+
+
+
+
+
 static void (*CCP1_CallBack)(uint16_t);
 static uint16_t ticksUp, ticksDown;
 
 
 
+
+
+
 static void CCP1_DefaultCallBack(uint16_t capturedValue)
 {
-    switch(PORTCbits.RC5) {
+    switch(ReadPin(JSN_GetLastTrig()->echoPin)) {
 
         case 1:
             ticksUp = capturedValue;

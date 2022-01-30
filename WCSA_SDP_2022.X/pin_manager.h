@@ -1,3 +1,12 @@
+/* 
+ * File:    pin_manager.h
+ * Author:  Jack Lambert     <joalambe@ucsc.edu>
+ * Project: WCSA_SDP_2022
+ *
+ * Created on January 26, 2022, 12:35 PM
+ */
+//------------------------------------------------------------------------------
+
 #ifndef PIN_MANAGER_H
 #define PIN_MANAGER_H
 
@@ -45,6 +54,8 @@
 #define RC5_SetAnalogMode()         do { ANSELCbits.ANSC5 = 1; } while(0)
 #define RC5_SetDigitalMode()        do { ANSELCbits.ANSC5 = 0; } while(0)
 
+
+//------------------------------------------------------------------------------
 /**
    @Param
     none
@@ -52,11 +63,10 @@
     none
    @Description
     GPIO and peripheral I/O initialization
-   @Example
-    PIN_MANAGER_Initialize();
  */
 void PIN_MANAGER_Initialize (void);
 
+//------------------------------------------------------------------------------
 /**
  * @Param
     none
@@ -64,14 +74,14 @@ void PIN_MANAGER_Initialize (void);
     none
  * @Description
     Interrupt on Change Handling routine
- * @Example
-    PIN_MANAGER_IOC();
  */
 void PIN_MANAGER_IOC(void);
 
-
+//------------------------------------------------------------------------------
 
 #endif // PIN_MANAGER_H
-/**
- End of File
-*/
+
+
+//==============================================================================
+//--------------------------------END OF FILE-----------------------------------
+//==============================================================================

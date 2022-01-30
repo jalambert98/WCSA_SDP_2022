@@ -31,10 +31,9 @@ static JSN_t Sens1, Sens2, Sens3;
 //==============================================================================
 
 void JSN_Library_Init(void) {
-    // Initialize TMR1 & CCP1 peripherals
+    // Initialize TMR1 & CCP[1,2,3] peripherals
     TMR1_Initialize();
     CCP1_Initialize();
-    JSN_Sensor_Init(&Sens1, C6, C5);
     return;
 }
 
@@ -141,6 +140,7 @@ int main(void) {
     PIC16_Init();
     FR_Timer_Init();
     JSN_Library_Init();
+    JSN_Sensor_Init(&Sens1, C6, C5);
     
     // Initialize function variables
     unsigned long currMilli = 0;
