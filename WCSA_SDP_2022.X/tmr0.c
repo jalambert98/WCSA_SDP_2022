@@ -9,7 +9,7 @@
 
 #include <xc.h>
 #include "tmr0.h"
-#include "FR_Timer.h"
+#include "FRT.h"
 
 void (*TMR0_InterruptHandler)(void);
 
@@ -110,8 +110,8 @@ void TMR0_ISR(void)
 
 void TMR0_CallBack(void)
 {
-    FR_Timer_IncMillis();
-    FR_Timer_IncMicros();
+    FRT_IncMillis();
+    FRT_IncMicros();
 }
 
 //------------------------------------------------------------------------------

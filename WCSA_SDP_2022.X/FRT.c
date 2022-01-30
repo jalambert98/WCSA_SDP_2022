@@ -1,5 +1,5 @@
 /* 
- * File:    FR_Timer.c
+ * File:    FRT.c
  * Author:  Jack Lambert     <joalambe@ucsc.edu>
  * Project: WCSA_SDP_2022
  *
@@ -7,15 +7,13 @@
  */
 //------------------------------------------------------------------------------
 
-#include "FR_Timer.h"
-#include "tmr0.h"
-#include "PIC16Xpress_DevBoard.h"
+#include "FRT.h"
 
 //==============================================================================
 //-------------------------------- #DEFINES ------------------------------------
 //==============================================================================
 
-//#define FR_TIMER_TEST
+//#define FRT_TEST
 
 
 //==============================================================================
@@ -25,38 +23,30 @@
 static unsigned long millis;
 static unsigned long micros;
 
-
 //==============================================================================
 //------------------------------ PUBLIC LIBRARY --------------------------------
 //==============================================================================
 
-void FR_Timer_Init(void) {
-    TMR0_Initialize();
-    return;
-}
-
-//------------------------------------------------------------------------------
-
-unsigned long FR_Timer_GetMillis() {
+unsigned long FRT_GetMillis() {
     return millis;
 }
 
 //------------------------------------------------------------------------------
 
-unsigned long FR_Timer_GetMicros() {
+unsigned long FRT_GetMicros() {
     return (micros + TMR0_ReadTimer());
 }
 
 //------------------------------------------------------------------------------
 
-void FR_Timer_IncMillis(void) {
+void FRT_IncMillis(void) {
     millis ++;
     return;
 }
 
 //------------------------------------------------------------------------------
 
-void FR_Timer_IncMicros(void) {
+void FRT_IncMicros(void) {
     micros += 1000;
     return;
 }
@@ -66,7 +56,7 @@ void FR_Timer_IncMicros(void) {
 //------------------------- CONDITIONAL TEST HARNESS ---------------------------
 //==============================================================================
 
-#ifdef FR_TIMER_TEST
+#ifdef FRT_TEST
 
 int main(void) {
     /*
@@ -77,13 +67,12 @@ int main(void) {
     
     // Initialize required libraries
     PIC16_Init();
-    FR_Timer_Init();
     
     SET_C0() = OUTPUT;
     WRITE_C0() = LOW;
     
     while(1) {
-        currMilli = FR_Timer_GetMillis();
+        currMilli = FRT_GetMillis();
         
         // Toggle output pin every 500ms (full cycle every 1s)
         if((unsigned long)(currMilli - prevMilli) >= 500) {

@@ -12,4 +12,4 @@ tmr1.h  \
 ccp1.h  \
 tmr0.h  \
 eusart.h  \
-FR_Timer.h 
+FRT.h 

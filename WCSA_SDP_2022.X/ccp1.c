@@ -9,11 +9,9 @@
 
 // [CCP1 = pinRC5 (echo)], [TMR1 ticks @2MHz, rolls over every 32ms]
 
-#include <xc.h>
 #include "ccp1.h"
 #include "PIC16Xpress_DevBoard.h"
 #include "JSN_Sensor.h"
-
 
 //==============================================================================
 //---------------------------- STATICS VARIABLES -------------------------------

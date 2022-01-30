@@ -7,6 +7,7 @@
 # 1 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "tmr1.c" 2
+# 10 "tmr1.c"
 # 1 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -11191,41 +11192,39 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 2 3
-# 1 "tmr1.c" 2
+# 10 "tmr1.c" 2
 
 # 1 "./tmr1.h" 1
-
-
-
+# 13 "./tmr1.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdbool.h" 1 3
-# 4 "./tmr1.h" 2
-# 27 "./tmr1.h"
+# 13 "./tmr1.h" 2
+# 37 "./tmr1.h"
 void TMR1_Initialize(void);
-# 47 "./tmr1.h"
+# 57 "./tmr1.h"
 void TMR1_StartTimer(void);
-# 67 "./tmr1.h"
+# 77 "./tmr1.h"
 void TMR1_StopTimer(void);
-# 86 "./tmr1.h"
+# 96 "./tmr1.h"
 uint16_t TMR1_ReadTimer(void);
-# 106 "./tmr1.h"
+# 116 "./tmr1.h"
 void TMR1_WriteTimer(uint16_t timerVal);
-# 126 "./tmr1.h"
+# 136 "./tmr1.h"
 void TMR1_Reload(void);
-# 146 "./tmr1.h"
+# 156 "./tmr1.h"
 void TMR1_StartSinglePulseAcquisition(void);
-# 166 "./tmr1.h"
+# 176 "./tmr1.h"
 uint8_t TMR1_CheckGateValueStatus(void);
-# 185 "./tmr1.h"
+# 195 "./tmr1.h"
 void TMR1_ISR(void);
-# 204 "./tmr1.h"
+# 214 "./tmr1.h"
 void TMR1_CallBack(void);
-# 223 "./tmr1.h"
+# 233 "./tmr1.h"
  void TMR1_SetInterruptHandler(void (* InterruptHandler)(void));
-# 242 "./tmr1.h"
+# 252 "./tmr1.h"
 extern void (*TMR1_InterruptHandler)(void);
-# 261 "./tmr1.h"
+# 271 "./tmr1.h"
 void TMR1_DefaultInterruptHandler(void);
-# 2 "tmr1.c" 2
+# 11 "tmr1.c" 2
 
 
 volatile uint16_t timer1ReloadVal;

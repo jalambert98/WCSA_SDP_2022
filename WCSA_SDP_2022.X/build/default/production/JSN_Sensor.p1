@@ -7,31 +7,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./JSN_Sensor.h: 28: typedef struct {
 [s S976 `ui 1 `ui 1 `E7110 1 `E7110 1 ]
 [n S976 . echoHighTime distance trigPin echoPin ]
-"27 ./tmr1.h
-[; ;./tmr1.h: 27: void TMR1_Initialize(void);
-[v _TMR1_Initialize `(v ~T0 @X0 0 ef ]
-"123 ./ccp1.h
-[; ;./ccp1.h: 123: void CCP1_Initialize(void);
-[v _CCP1_Initialize `(v ~T0 @X0 0 ef ]
 "124 ./PIC16Xpress_DevBoard.h
 [; ;./PIC16Xpress_DevBoard.h: 124: uint8_t SetPin(PinName_t pin, uint8_t io);
 [v _SetPin `(uc ~T0 @X0 0 ef2`E7110`uc ]
 "132
 [; ;./PIC16Xpress_DevBoard.h: 132: uint8_t WritePin(PinName_t pin, uint8_t val);
 [v _WritePin `(uc ~T0 @X0 0 ef2`E7110`uc ]
-"62 ./FR_Timer.h
-[; ;./FR_Timer.h: 62: unsigned long FR_Timer_GetMicros(void);
-[v _FR_Timer_GetMicros `(ul ~T0 @X0 0 ef ]
+"45 ./FRT.h
+[; ;./FRT.h: 45: unsigned long FRT_GetMicros(void);
+[v _FRT_GetMicros `(ul ~T0 @X0 0 ef ]
 [p mainexit ]
 "120 ./PIC16Xpress_DevBoard.h
 [; ;./PIC16Xpress_DevBoard.h: 120: void PIC16_Init(void);
 [v _PIC16_Init `(v ~T0 @X0 0 ef ]
-"32 ./FR_Timer.h
-[; ;./FR_Timer.h: 32: void FR_Timer_Init(void);
-[v _FR_Timer_Init `(v ~T0 @X0 0 ef ]
-"47
-[; ;./FR_Timer.h: 47: unsigned long FR_Timer_GetMillis(void);
-[v _FR_Timer_GetMillis `(ul ~T0 @X0 0 ef ]
+"30 ./FRT.h
+[; ;./FRT.h: 30: unsigned long FRT_GetMillis(void);
+[v _FRT_GetMillis `(ul ~T0 @X0 0 ef ]
 "105 C:\Program Files\Microchip\xc8\v2.35\pic\include\c99\stdio.h
 [; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\c99\stdio.h: 105: int printf(const char *restrict, ...);
 [v _printf `(i ~T0 @X0 0 ev`*Cuc ]
@@ -753,26 +744,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _Sens2 `S976 ~T0 @X0 1 s ]
 [v _Sens3 `S976 ~T0 @X0 1 s ]
 "33
-[; ;JSN_Sensor.c: 33: void JSN_Library_Init(void) {
-[v _JSN_Library_Init `(v ~T0 @X0 1 ef ]
-{
-[e :U _JSN_Library_Init ]
-[f ]
-"35
-[; ;JSN_Sensor.c: 35:     TMR1_Initialize();
-[e ( _TMR1_Initialize ..  ]
-"36
-[; ;JSN_Sensor.c: 36:     CCP1_Initialize();
-[e ( _CCP1_Initialize ..  ]
-"37
-[; ;JSN_Sensor.c: 37:     return;
-[e $UE 977  ]
-"38
-[; ;JSN_Sensor.c: 38: }
-[e :UE 977 ]
-}
-"42
-[; ;JSN_Sensor.c: 42: uint8_t JSN_Sensor_Init(JSN_t *Sensor, PinName_t trigPin, PinName_t echoPin) {
+[; ;JSN_Sensor.c: 33: uint8_t JSN_Sensor_Init(JSN_t *Sensor, PinName_t trigPin, PinName_t echoPin) {
 [v _JSN_Sensor_Init `(uc ~T0 @X0 1 ef3`*S976`E7110`E7110 ]
 {
 [e :U _JSN_Sensor_Init ]
@@ -780,310 +752,304 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _trigPin `E7110 ~T0 @X0 1 r2 ]
 [v _echoPin `E7110 ~T0 @X0 1 r3 ]
 [f ]
-"45
-[; ;JSN_Sensor.c: 45:     switch(echoPin) {
-[e $U 980  ]
+"36
+[; ;JSN_Sensor.c: 36:     switch(echoPin) {
+[e $U 979  ]
 {
-"46
-[; ;JSN_Sensor.c: 46:         case A2:
-[e :U 981 ]
-"47
-[; ;JSN_Sensor.c: 47:         case A4:
-[e :U 982 ]
-"48
-[; ;JSN_Sensor.c: 48:         case C3:
-[e :U 983 ]
-"49
-[; ;JSN_Sensor.c: 49:         case C5:
-[e :U 984 ]
-"50
-[; ;JSN_Sensor.c: 50:             SetPin(echoPin, 1);
-[e ( _SetPin (2 , _echoPin -> -> 1 `i `uc ]
-"51
-[; ;JSN_Sensor.c: 51:             break;
-[e $U 979  ]
-"52
-[; ;JSN_Sensor.c: 52:         default:
-[e :U 985 ]
-"53
-[; ;JSN_Sensor.c: 53:             return 0xFF;
-[e ) -> -> 255 `i `uc ]
-[e $UE 978  ]
-"54
-[; ;JSN_Sensor.c: 54:     }
-}
-[e $U 979  ]
+"37
+[; ;JSN_Sensor.c: 37:         case A2:
 [e :U 980 ]
-[e [\ -> _echoPin `ui , $ -> . `E7110 11 `ui 981
- , $ -> . `E7110 1 `ui 982
- , $ -> . `E7110 5 `ui 983
- , $ -> . `E7110 3 `ui 984
- 985 ]
-[e :U 979 ]
-"57
-[; ;JSN_Sensor.c: 57:     switch(trigPin) {
-[e $U 987  ]
-{
-"58
-[; ;JSN_Sensor.c: 58:         case A5:
-[e :U 988 ]
-"59
-[; ;JSN_Sensor.c: 59:         case C4:
-[e :U 989 ]
-"60
-[; ;JSN_Sensor.c: 60:         case C6:
-[e :U 990 ]
-"61
-[; ;JSN_Sensor.c: 61:         case C7:
-[e :U 991 ]
-"62
-[; ;JSN_Sensor.c: 62:         case B7:
-[e :U 992 ]
-"63
-[; ;JSN_Sensor.c: 63:         case B6:
-[e :U 993 ]
-"64
-[; ;JSN_Sensor.c: 64:         case B5:
-[e :U 994 ]
-"65
-[; ;JSN_Sensor.c: 65:         case B4:
-[e :U 995 ]
-"66
-[; ;JSN_Sensor.c: 66:         case C2:
-[e :U 996 ]
-"67
-[; ;JSN_Sensor.c: 67:         case C1:
-[e :U 997 ]
-"68
-[; ;JSN_Sensor.c: 68:         case C0:
-[e :U 998 ]
-"69
-[; ;JSN_Sensor.c: 69:         case A1:
-[e :U 999 ]
-"70
-[; ;JSN_Sensor.c: 70:         case A0:
-[e :U 1000 ]
-"71
-[; ;JSN_Sensor.c: 71:             SetPin(trigPin, 0);
-[e ( _SetPin (2 , _trigPin -> -> 0 `i `uc ]
-"72
-[; ;JSN_Sensor.c: 72:             WritePin(trigPin, 0);
-[e ( _WritePin (2 , _trigPin -> -> 0 `i `uc ]
-"73
-[; ;JSN_Sensor.c: 73:             break;
-[e $U 986  ]
-"74
-[; ;JSN_Sensor.c: 74:         default:
-[e :U 1001 ]
-"75
-[; ;JSN_Sensor.c: 75:             return 0xFF;
+"38
+[; ;JSN_Sensor.c: 38:         case A4:
+[e :U 981 ]
+"39
+[; ;JSN_Sensor.c: 39:         case C3:
+[e :U 982 ]
+"40
+[; ;JSN_Sensor.c: 40:         case C5:
+[e :U 983 ]
+"41
+[; ;JSN_Sensor.c: 41:             SetPin(echoPin, 1);
+[e ( _SetPin (2 , _echoPin -> -> 1 `i `uc ]
+"42
+[; ;JSN_Sensor.c: 42:             break;
+[e $U 978  ]
+"43
+[; ;JSN_Sensor.c: 43:         default:
+[e :U 984 ]
+"44
+[; ;JSN_Sensor.c: 44:             return 0xFF;
 [e ) -> -> 255 `i `uc ]
-[e $UE 978  ]
-"76
-[; ;JSN_Sensor.c: 76:     }
+[e $UE 977  ]
+"45
+[; ;JSN_Sensor.c: 45:     }
 }
+[e $U 978  ]
+[e :U 979 ]
+[e [\ -> _echoPin `ui , $ -> . `E7110 11 `ui 980
+ , $ -> . `E7110 1 `ui 981
+ , $ -> . `E7110 5 `ui 982
+ , $ -> . `E7110 3 `ui 983
+ 984 ]
+[e :U 978 ]
+"48
+[; ;JSN_Sensor.c: 48:     switch(trigPin) {
 [e $U 986  ]
+{
+"49
+[; ;JSN_Sensor.c: 49:         case A5:
 [e :U 987 ]
-[e [\ -> _trigPin `ui , $ -> . `E7110 0 `ui 988
- , $ -> . `E7110 4 `ui 989
- , $ -> . `E7110 6 `ui 990
- , $ -> . `E7110 7 `ui 991
- , $ -> . `E7110 8 `ui 992
- , $ -> . `E7110 17 `ui 993
- , $ -> . `E7110 16 `ui 994
- , $ -> . `E7110 15 `ui 995
- , $ -> . `E7110 14 `ui 996
- , $ -> . `E7110 13 `ui 997
- , $ -> . `E7110 12 `ui 998
- , $ -> . `E7110 10 `ui 999
- , $ -> . `E7110 9 `ui 1000
- 1001 ]
-[e :U 986 ]
-"79
-[; ;JSN_Sensor.c: 79:     Sensor->distance = 0;
-[e = . *U _Sensor 1 -> -> 0 `i `ui ]
-"80
-[; ;JSN_Sensor.c: 80:     Sensor->echoHighTime = 0;
-[e = . *U _Sensor 0 -> -> 0 `i `ui ]
-"81
-[; ;JSN_Sensor.c: 81:     Sensor->echoPin = echoPin;
-[e = . *U _Sensor 3 _echoPin ]
-"82
-[; ;JSN_Sensor.c: 82:     Sensor->trigPin = trigPin;
-[e = . *U _Sensor 2 _trigPin ]
-"84
-[; ;JSN_Sensor.c: 84:     lastTrig = Sensor;
-[e = _lastTrig _Sensor ]
-"86
-[; ;JSN_Sensor.c: 86:     return 0x00;
-[e ) -> -> 0 `i `uc ]
-[e $UE 978  ]
-"87
-[; ;JSN_Sensor.c: 87: }
-[e :UE 978 ]
+"50
+[; ;JSN_Sensor.c: 50:         case C4:
+[e :U 988 ]
+"51
+[; ;JSN_Sensor.c: 51:         case C6:
+[e :U 989 ]
+"52
+[; ;JSN_Sensor.c: 52:         case C7:
+[e :U 990 ]
+"53
+[; ;JSN_Sensor.c: 53:         case B7:
+[e :U 991 ]
+"54
+[; ;JSN_Sensor.c: 54:         case B6:
+[e :U 992 ]
+"55
+[; ;JSN_Sensor.c: 55:         case B5:
+[e :U 993 ]
+"56
+[; ;JSN_Sensor.c: 56:         case B4:
+[e :U 994 ]
+"57
+[; ;JSN_Sensor.c: 57:         case C2:
+[e :U 995 ]
+"58
+[; ;JSN_Sensor.c: 58:         case C1:
+[e :U 996 ]
+"59
+[; ;JSN_Sensor.c: 59:         case C0:
+[e :U 997 ]
+"60
+[; ;JSN_Sensor.c: 60:         case A1:
+[e :U 998 ]
+"61
+[; ;JSN_Sensor.c: 61:         case A0:
+[e :U 999 ]
+"62
+[; ;JSN_Sensor.c: 62:             SetPin(trigPin, 0);
+[e ( _SetPin (2 , _trigPin -> -> 0 `i `uc ]
+"63
+[; ;JSN_Sensor.c: 63:             WritePin(trigPin, 0);
+[e ( _WritePin (2 , _trigPin -> -> 0 `i `uc ]
+"64
+[; ;JSN_Sensor.c: 64:             break;
+[e $U 985  ]
+"65
+[; ;JSN_Sensor.c: 65:         default:
+[e :U 1000 ]
+"66
+[; ;JSN_Sensor.c: 66:             return 0xFF;
+[e ) -> -> 255 `i `uc ]
+[e $UE 977  ]
+"67
+[; ;JSN_Sensor.c: 67:     }
 }
-"93
-[; ;JSN_Sensor.c: 93: void JSN_Sensor_Trig(JSN_t *Sensor) {
+[e $U 985  ]
+[e :U 986 ]
+[e [\ -> _trigPin `ui , $ -> . `E7110 0 `ui 987
+ , $ -> . `E7110 4 `ui 988
+ , $ -> . `E7110 6 `ui 989
+ , $ -> . `E7110 7 `ui 990
+ , $ -> . `E7110 8 `ui 991
+ , $ -> . `E7110 17 `ui 992
+ , $ -> . `E7110 16 `ui 993
+ , $ -> . `E7110 15 `ui 994
+ , $ -> . `E7110 14 `ui 995
+ , $ -> . `E7110 13 `ui 996
+ , $ -> . `E7110 12 `ui 997
+ , $ -> . `E7110 10 `ui 998
+ , $ -> . `E7110 9 `ui 999
+ 1000 ]
+[e :U 985 ]
+"70
+[; ;JSN_Sensor.c: 70:     Sensor->distance = 0;
+[e = . *U _Sensor 1 -> -> 0 `i `ui ]
+"71
+[; ;JSN_Sensor.c: 71:     Sensor->echoHighTime = 0;
+[e = . *U _Sensor 0 -> -> 0 `i `ui ]
+"72
+[; ;JSN_Sensor.c: 72:     Sensor->echoPin = echoPin;
+[e = . *U _Sensor 3 _echoPin ]
+"73
+[; ;JSN_Sensor.c: 73:     Sensor->trigPin = trigPin;
+[e = . *U _Sensor 2 _trigPin ]
+"75
+[; ;JSN_Sensor.c: 75:     lastTrig = Sensor;
+[e = _lastTrig _Sensor ]
+"77
+[; ;JSN_Sensor.c: 77:     return 0x00;
+[e ) -> -> 0 `i `uc ]
+[e $UE 977  ]
+"78
+[; ;JSN_Sensor.c: 78: }
+[e :UE 977 ]
+}
+"84
+[; ;JSN_Sensor.c: 84: void JSN_Sensor_Trig(JSN_t *Sensor) {
 [v _JSN_Sensor_Trig `(v ~T0 @X0 1 ef1`*S976 ]
 {
 [e :U _JSN_Sensor_Trig ]
 [v _Sensor `*S976 ~T0 @X0 1 r1 ]
 [f ]
-"94
-[; ;JSN_Sensor.c: 94:     micros = FR_Timer_GetMicros();
-[e = _micros ( _FR_Timer_GetMicros ..  ]
-"97
-[; ;JSN_Sensor.c: 97:     WritePin(Sensor->trigPin, 1);
+"85
+[; ;JSN_Sensor.c: 85:     micros = FRT_GetMicros();
+[e = _micros ( _FRT_GetMicros ..  ]
+"88
+[; ;JSN_Sensor.c: 88:     WritePin(Sensor->trigPin, 1);
 [e ( _WritePin (2 , . *U _Sensor 2 -> -> 1 `i `uc ]
-"100
-[; ;JSN_Sensor.c: 100:     while((FR_Timer_GetMicros() - micros) < 11);
-[e $U 1003  ]
-[e :U 1004 ]
+"91
+[; ;JSN_Sensor.c: 91:     while((FRT_GetMicros() - micros) < 11);
+[e $U 1002  ]
 [e :U 1003 ]
-[e $ < - ( _FR_Timer_GetMicros ..  _micros -> -> -> 11 `i `l `ul 1004  ]
-[e :U 1005 ]
-"103
-[; ;JSN_Sensor.c: 103:     WritePin(Sensor->trigPin, 0);
+[e :U 1002 ]
+[e $ < - ( _FRT_GetMicros ..  _micros -> -> -> 11 `i `l `ul 1003  ]
+[e :U 1004 ]
+"94
+[; ;JSN_Sensor.c: 94:     WritePin(Sensor->trigPin, 0);
 [e ( _WritePin (2 , . *U _Sensor 2 -> -> 0 `i `uc ]
-"106
-[; ;JSN_Sensor.c: 106:     lastTrig = Sensor;
+"97
+[; ;JSN_Sensor.c: 97:     lastTrig = Sensor;
 [e = _lastTrig _Sensor ]
-"107
-[; ;JSN_Sensor.c: 107:     return;
-[e $UE 1002  ]
-"108
-[; ;JSN_Sensor.c: 108: }
-[e :UE 1002 ]
+"98
+[; ;JSN_Sensor.c: 98:     return;
+[e $UE 1001  ]
+"99
+[; ;JSN_Sensor.c: 99: }
+[e :UE 1001 ]
 }
-"112
-[; ;JSN_Sensor.c: 112: unsigned int JSN_Sensor_GetDistance(JSN_t *Sensor) {
+"103
+[; ;JSN_Sensor.c: 103: unsigned int JSN_Sensor_GetDistance(JSN_t *Sensor) {
 [v _JSN_Sensor_GetDistance `(ui ~T0 @X0 1 ef1`*S976 ]
 {
 [e :U _JSN_Sensor_GetDistance ]
 [v _Sensor `*S976 ~T0 @X0 1 r1 ]
 [f ]
-"117
-[; ;JSN_Sensor.c: 117:     Sensor->distance = (unsigned int)(((uint32_t)Sensor->echoHighTime *
+"108
+[; ;JSN_Sensor.c: 108:     Sensor->distance = (unsigned int)(((uint32_t)Sensor->echoHighTime *
 [e = . *U _Sensor 1 -> / * -> . *U _Sensor 0 `ul -> -> -> 343 `i `l `ul -> -> << -> 1000 `i -> 1 `i `l `ul `ui ]
-"119
-[; ;JSN_Sensor.c: 119:     return Sensor->distance;
+"110
+[; ;JSN_Sensor.c: 110:     return Sensor->distance;
 [e ) . *U _Sensor 1 ]
-[e $UE 1006  ]
-"120
-[; ;JSN_Sensor.c: 120: }
-[e :UE 1006 ]
+[e $UE 1005  ]
+"111
+[; ;JSN_Sensor.c: 111: }
+[e :UE 1005 ]
 }
-"124
-[; ;JSN_Sensor.c: 124: JSN_t* JSN_GetLastTrig(void) {
+"115
+[; ;JSN_Sensor.c: 115: JSN_t* JSN_GetLastTrig(void) {
 [v _JSN_GetLastTrig `(*S976 ~T0 @X0 1 ef ]
 {
 [e :U _JSN_GetLastTrig ]
 [f ]
-"125
-[; ;JSN_Sensor.c: 125:     return lastTrig;
+"116
+[; ;JSN_Sensor.c: 116:     return lastTrig;
 [e ) _lastTrig ]
-[e $UE 1007  ]
-"126
-[; ;JSN_Sensor.c: 126: }
-[e :UE 1007 ]
+[e $UE 1006  ]
+"117
+[; ;JSN_Sensor.c: 117: }
+[e :UE 1006 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"138
-[; ;JSN_Sensor.c: 138: int main(void) {
+"129
+[; ;JSN_Sensor.c: 129: int main(void) {
 [v _main `(i ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"140
-[; ;JSN_Sensor.c: 140:     PIC16_Init();
+"131
+[; ;JSN_Sensor.c: 131:     PIC16_Init();
 [e ( _PIC16_Init ..  ]
-"141
-[; ;JSN_Sensor.c: 141:     FR_Timer_Init();
-[e ( _FR_Timer_Init ..  ]
-"142
-[; ;JSN_Sensor.c: 142:     JSN_Library_Init();
-[e ( _JSN_Library_Init ..  ]
-"143
-[; ;JSN_Sensor.c: 143:     JSN_Sensor_Init(&Sens1, C6, C5);
+"132
+[; ;JSN_Sensor.c: 132:     JSN_Sensor_Init(&Sens1, C6, C5);
 [e ( _JSN_Sensor_Init (3 , , &U _Sens1 . `E7110 6 . `E7110 3 ]
-"146
-[; ;JSN_Sensor.c: 146:     unsigned long currMilli = 0;
+"135
+[; ;JSN_Sensor.c: 135:     unsigned long currMilli = 0;
 [v _currMilli `ul ~T0 @X0 1 a ]
 [e = _currMilli -> -> -> 0 `i `l `ul ]
-"147
-[; ;JSN_Sensor.c: 147:     unsigned long prevMilli = 0;
+"136
+[; ;JSN_Sensor.c: 136:     unsigned long prevMilli = 0;
 [v _prevMilli `ul ~T0 @X0 1 a ]
 [e = _prevMilli -> -> -> 0 `i `l `ul ]
-"148
-[; ;JSN_Sensor.c: 148:     SetPin(C0, 0);
+"137
+[; ;JSN_Sensor.c: 137:     SetPin(C0, 0);
 [e ( _SetPin (2 , . `E7110 12 -> -> 0 `i `uc ]
-"149
-[; ;JSN_Sensor.c: 149:     WritePin(C0, 0);
+"138
+[; ;JSN_Sensor.c: 138:     WritePin(C0, 0);
 [e ( _WritePin (2 , . `E7110 12 -> -> 0 `i `uc ]
-"151
-[; ;JSN_Sensor.c: 151:     JSN_Sensor_Trig(&Sens1);
+"140
+[; ;JSN_Sensor.c: 140:     JSN_Sensor_Trig(&Sens1);
 [e ( _JSN_Sensor_Trig (1 &U _Sens1 ]
-"153
-[; ;JSN_Sensor.c: 153:     while(1) {
-[e :U 1010 ]
-{
-"154
-[; ;JSN_Sensor.c: 154:         currMilli = FR_Timer_GetMillis();
-[e = _currMilli ( _FR_Timer_GetMillis ..  ]
-"157
-[; ;JSN_Sensor.c: 157:         if((currMilli - prevMilli) >= 50) {
-[e $ ! >= - _currMilli _prevMilli -> -> -> 50 `i `l `ul 1012  ]
-{
-"160
-[; ;JSN_Sensor.c: 160:             if(JSN_Sensor_GetDistance(&Sens1) < 500) {
-[e $ ! < ( _JSN_Sensor_GetDistance (1 &U _Sens1 -> -> 500 `i `ui 1013  ]
-{
-"161
-[; ;JSN_Sensor.c: 161:                 WritePin(C0, 1);
-[e ( _WritePin (2 , . `E7110 12 -> -> 1 `i `uc ]
-"162
-[; ;JSN_Sensor.c: 162:             }
-}
-[e $U 1014  ]
-"163
-[; ;JSN_Sensor.c: 163:             else if (Sens1.distance > 500) {
-[e :U 1013 ]
-[e $ ! > . _Sens1 1 -> -> 500 `i `ui 1015  ]
-{
-"164
-[; ;JSN_Sensor.c: 164:                 WritePin(C0, 0);
-[e ( _WritePin (2 , . `E7110 12 -> -> 0 `i `uc ]
-"165
-[; ;JSN_Sensor.c: 165:             }
-}
-[e :U 1015 ]
-[e :U 1014 ]
-"168
-[; ;JSN_Sensor.c: 168:             printf("Distance = %u \n", JSN_Sensor_GetDistance(&Sens1));
-[e ( _printf , (. :s 1C ( _JSN_Sensor_GetDistance (1 &U _Sens1 ]
-"171
-[; ;JSN_Sensor.c: 171:             JSN_Sensor_Trig(&Sens1);
-[e ( _JSN_Sensor_Trig (1 &U _Sens1 ]
-"174
-[; ;JSN_Sensor.c: 174:             prevMilli = currMilli;
-[e = _prevMilli _currMilli ]
-"175
-[; ;JSN_Sensor.c: 175:         }
-}
-[e :U 1012 ]
-"176
-[; ;JSN_Sensor.c: 176:     }
-}
+"142
+[; ;JSN_Sensor.c: 142:     while(1) {
 [e :U 1009 ]
-[e $U 1010  ]
+{
+"143
+[; ;JSN_Sensor.c: 143:         currMilli = FRT_GetMillis();
+[e = _currMilli ( _FRT_GetMillis ..  ]
+"146
+[; ;JSN_Sensor.c: 146:         if((currMilli - prevMilli) >= 50) {
+[e $ ! >= - _currMilli _prevMilli -> -> -> 50 `i `l `ul 1011  ]
+{
+"149
+[; ;JSN_Sensor.c: 149:             if(JSN_Sensor_GetDistance(&Sens1) < 500) {
+[e $ ! < ( _JSN_Sensor_GetDistance (1 &U _Sens1 -> -> 500 `i `ui 1012  ]
+{
+"150
+[; ;JSN_Sensor.c: 150:                 WritePin(C0, 1);
+[e ( _WritePin (2 , . `E7110 12 -> -> 1 `i `uc ]
+"151
+[; ;JSN_Sensor.c: 151:             }
+}
+[e $U 1013  ]
+"152
+[; ;JSN_Sensor.c: 152:             else if (Sens1.distance > 500) {
+[e :U 1012 ]
+[e $ ! > . _Sens1 1 -> -> 500 `i `ui 1014  ]
+{
+"153
+[; ;JSN_Sensor.c: 153:                 WritePin(C0, 0);
+[e ( _WritePin (2 , . `E7110 12 -> -> 0 `i `uc ]
+"154
+[; ;JSN_Sensor.c: 154:             }
+}
+[e :U 1014 ]
+[e :U 1013 ]
+"157
+[; ;JSN_Sensor.c: 157:             printf("Distance = %u \n", JSN_Sensor_GetDistance(&Sens1));
+[e ( _printf , (. :s 1C ( _JSN_Sensor_GetDistance (1 &U _Sens1 ]
+"160
+[; ;JSN_Sensor.c: 160:             JSN_Sensor_Trig(&Sens1);
+[e ( _JSN_Sensor_Trig (1 &U _Sens1 ]
+"163
+[; ;JSN_Sensor.c: 163:             prevMilli = currMilli;
+[e = _prevMilli _currMilli ]
+"164
+[; ;JSN_Sensor.c: 164:         }
+}
 [e :U 1011 ]
-"178
-[; ;JSN_Sensor.c: 178:     return 0;
+"165
+[; ;JSN_Sensor.c: 165:     }
+}
+[e :U 1008 ]
+[e $U 1009  ]
+[e :U 1010 ]
+"167
+[; ;JSN_Sensor.c: 167:     return 0;
 [e ) -> 0 `i ]
-[e $UE 1008  ]
-"179
-[; ;JSN_Sensor.c: 179: }
-[e :UE 1008 ]
+[e $UE 1007  ]
+"168
+[; ;JSN_Sensor.c: 168: }
+[e :UE 1007 ]
 }
 [p f _printf 8389632 ]
 [a 1C 68 105 115 116 97 110 99 101 32 61 32 37 117 32 10 0 ]

@@ -8,12 +8,14 @@
 
 ### Memory Usage ###
  Intel Hex-file ranges:
-  0h - FFFh		(dist/default/production\WCSA_SDP_2022.X.production.hex)
-  1710h - 201Fh		(dist/default/production\WCSA_SDP_2022.X.production.hex)
+  0h - 3h		(dist/default/production\WCSA_SDP_2022.X.production.hex)
+  6h - FFFh		(dist/default/production\WCSA_SDP_2022.X.production.hex)
+  16BEh - 201Fh		(dist/default/production\WCSA_SDP_2022.X.production.hex)
   10000h - 10007h		(dist/default/production\WCSA_SDP_2022.X.production.hex)
   1000Eh - 10015h		(dist/default/production\WCSA_SDP_2022.X.production.hex)
  Unused ranges:
-  1000h - 170Fh
+  4h - 5h
+  1000h - 16BDh
   2020h - FFFFh
   10008h - 1000Dh
 
@@ -24,7 +26,7 @@
 ----------------------------------------------------------
          | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 ----------------------------------------------------------
-00000000 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00000000 | H1 H1 H1 H1 -- -- H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000010 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000020 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000030 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
@@ -281,6 +283,12 @@
 00000FE0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000FF0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 ----------------------------------------------------------
+000016B0 | -- -- -- -- -- -- -- -- -- -- -- -- -- -- H1 H1
+000016C0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000016D0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000016E0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000016F0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001700 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001710 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001720 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001730 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1

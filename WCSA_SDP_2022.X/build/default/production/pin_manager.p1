@@ -1136,105 +1136,105 @@ Version 4.0 HI-TECH Software Intermediate Code
 "19652
 [; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 19652: __asm("TOSH equ 0FEFh");
 [; <" TOSH equ 0FEFh ;# ">
-"4 pin_manager.c
-[; ;pin_manager.c: 4: void PIN_MANAGER_Initialize(void)
+"14 pin_manager.c
+[; ;pin_manager.c: 14: void PIN_MANAGER_Initialize(void)
 [v _PIN_MANAGER_Initialize `(v ~T0 @X0 1 ef ]
-"5
-[; ;pin_manager.c: 5: {
+"15
+[; ;pin_manager.c: 15: {
 {
 [e :U _PIN_MANAGER_Initialize ]
 [f ]
-"9
-[; ;pin_manager.c: 9:     LATA = 0x00;
+"19
+[; ;pin_manager.c: 19:     LATA = 0x00;
 [e = _LATA -> -> 0 `i `uc ]
-"10
-[; ;pin_manager.c: 10:     LATB = 0x00;
+"20
+[; ;pin_manager.c: 20:     LATB = 0x00;
 [e = _LATB -> -> 0 `i `uc ]
-"11
-[; ;pin_manager.c: 11:     LATC = 0x00;
+"21
+[; ;pin_manager.c: 21:     LATC = 0x00;
 [e = _LATC -> -> 0 `i `uc ]
-"16
-[; ;pin_manager.c: 16:     TRISA = 0x37;
+"26
+[; ;pin_manager.c: 26:     TRISA = 0x37;
 [e = _TRISA -> -> 55 `i `uc ]
-"17
-[; ;pin_manager.c: 17:     TRISB = 0xF0;
+"27
+[; ;pin_manager.c: 27:     TRISB = 0xF0;
 [e = _TRISB -> -> 240 `i `uc ]
-"18
-[; ;pin_manager.c: 18:     TRISC = 0xFF;
+"28
+[; ;pin_manager.c: 28:     TRISC = 0xFF;
 [e = _TRISC -> -> 255 `i `uc ]
-"23
-[; ;pin_manager.c: 23:     ANSELC = 0xD7;
+"33
+[; ;pin_manager.c: 33:     ANSELC = 0xD7;
 [e = _ANSELC -> -> 215 `i `uc ]
-"24
-[; ;pin_manager.c: 24:     ANSELB = 0xF0;
+"34
+[; ;pin_manager.c: 34:     ANSELB = 0xF0;
 [e = _ANSELB -> -> 240 `i `uc ]
-"25
-[; ;pin_manager.c: 25:     ANSELA = 0x33;
+"35
+[; ;pin_manager.c: 35:     ANSELA = 0x33;
 [e = _ANSELA -> -> 51 `i `uc ]
-"30
-[; ;pin_manager.c: 30:     WPUB = 0x00;
+"40
+[; ;pin_manager.c: 40:     WPUB = 0x00;
 [e = _WPUB -> -> 0 `i `uc ]
-"31
-[; ;pin_manager.c: 31:     WPUA = 0x00;
+"41
+[; ;pin_manager.c: 41:     WPUA = 0x00;
 [e = _WPUA -> -> 0 `i `uc ]
-"32
-[; ;pin_manager.c: 32:     WPUC = 0x00;
+"42
+[; ;pin_manager.c: 42:     WPUC = 0x00;
 [e = _WPUC -> -> 0 `i `uc ]
-"37
-[; ;pin_manager.c: 37:     ODCONA = 0x00;
+"47
+[; ;pin_manager.c: 47:     ODCONA = 0x00;
 [e = _ODCONA -> -> 0 `i `uc ]
-"38
-[; ;pin_manager.c: 38:     ODCONB = 0x00;
+"48
+[; ;pin_manager.c: 48:     ODCONB = 0x00;
 [e = _ODCONB -> -> 0 `i `uc ]
-"39
-[; ;pin_manager.c: 39:     ODCONC = 0x00;
+"49
+[; ;pin_manager.c: 49:     ODCONC = 0x00;
 [e = _ODCONC -> -> 0 `i `uc ]
-"44
-[; ;pin_manager.c: 44:     SLRCONA = 0x37;
+"54
+[; ;pin_manager.c: 54:     SLRCONA = 0x37;
 [e = _SLRCONA -> -> 55 `i `uc ]
-"45
-[; ;pin_manager.c: 45:     SLRCONB = 0xF0;
-[e = _SLRCONB -> -> 240 `i `uc ]
-"46
-[; ;pin_manager.c: 46:     SLRCONC = 0xFF;
-[e = _SLRCONC -> -> 255 `i `uc ]
-"51
-[; ;pin_manager.c: 51:     INLVLA = 0x3F;
-[e = _INLVLA -> -> 63 `i `uc ]
-"52
-[; ;pin_manager.c: 52:     INLVLB = 0xF0;
-[e = _INLVLB -> -> 240 `i `uc ]
-"53
-[; ;pin_manager.c: 53:     INLVLC = 0xFF;
-[e = _INLVLC -> -> 255 `i `uc ]
 "55
-[; ;pin_manager.c: 55:     RXPPS = 0x0D;
-[e = _RXPPS -> -> 13 `i `uc ]
+[; ;pin_manager.c: 55:     SLRCONB = 0xF0;
+[e = _SLRCONB -> -> 240 `i `uc ]
 "56
-[; ;pin_manager.c: 56:     CCP2PPS = 0x13;
+[; ;pin_manager.c: 56:     SLRCONC = 0xFF;
+[e = _SLRCONC -> -> 255 `i `uc ]
+"61
+[; ;pin_manager.c: 61:     INLVLA = 0x3F;
+[e = _INLVLA -> -> 63 `i `uc ]
+"62
+[; ;pin_manager.c: 62:     INLVLB = 0xF0;
+[e = _INLVLB -> -> 240 `i `uc ]
+"63
+[; ;pin_manager.c: 63:     INLVLC = 0xFF;
+[e = _INLVLC -> -> 255 `i `uc ]
+"65
+[; ;pin_manager.c: 65:     RXPPS = 0x0D;
+[e = _RXPPS -> -> 13 `i `uc ]
+"66
+[; ;pin_manager.c: 66:     CCP2PPS = 0x13;
 [e = _CCP2PPS -> -> 19 `i `uc ]
-"57
-[; ;pin_manager.c: 57:     CCP3PPS = 0x02;
+"67
+[; ;pin_manager.c: 67:     CCP3PPS = 0x02;
 [e = _CCP3PPS -> -> 2 `i `uc ]
-"58
-[; ;pin_manager.c: 58:     RC4PPS = 0x14;
+"68
+[; ;pin_manager.c: 68:     RC4PPS = 0x14;
 [e = _RC4PPS -> -> 20 `i `uc ]
-"59
-[; ;pin_manager.c: 59:     CCP1PPS = 0x15;
+"69
+[; ;pin_manager.c: 69:     CCP1PPS = 0x15;
 [e = _CCP1PPS -> -> 21 `i `uc ]
-"60
-[; ;pin_manager.c: 60: }
+"70
+[; ;pin_manager.c: 70: }
 [e :UE 963 ]
 }
-"62
-[; ;pin_manager.c: 62: void PIN_MANAGER_IOC(void)
+"74
+[; ;pin_manager.c: 74: void PIN_MANAGER_IOC(void)
 [v _PIN_MANAGER_IOC `(v ~T0 @X0 1 ef ]
-"63
-[; ;pin_manager.c: 63: {
+"75
+[; ;pin_manager.c: 75: {
 {
 [e :U _PIN_MANAGER_IOC ]
 [f ]
-"64
-[; ;pin_manager.c: 64: }
+"76
+[; ;pin_manager.c: 76: }
 [e :UE 964 ]
 }

@@ -37,21 +37,6 @@ typedef struct {
 //------------------------------ PUBLIC LIBRARY --------------------------------
 //==============================================================================
 /**
- * @funct    JSN_Library_Init()
- * 
- * @param    None
- * 
- * @return   None
- * 
- * @brief    Initializes the hardware peripherals required to operate the JSN
- *           ultrasonic sensors. This includes: [TMRx], [ICx]
- * 
- * @author   Jack Lambert, 2022.01.25
- **/
-void JSN_Library_Init(void);
-
-//------------------------------------------------------------------------------
-/**
  * @funct    JSN_Sensor_Init(*Sensor, trigPin, echoPin)
  * 
  * @param    JSN_t *Sensor      - A pointer to the JSN_t instance to initialize

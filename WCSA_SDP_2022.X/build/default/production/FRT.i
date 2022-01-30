@@ -1,4 +1,4 @@
-# 1 "FR_Timer.c"
+# 1 "FRT.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,14 +6,14 @@
 # 1 "<built-in>" 2
 # 1 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "FR_Timer.c" 2
-# 10 "FR_Timer.c"
-# 1 "./FR_Timer.h" 1
-# 10 "./FR_Timer.h"
+# 1 "FRT.c" 2
+# 10 "FRT.c"
+# 1 "./FRT.h" 1
+# 10 "./FRT.h"
 # 1 "./PIC16Xpress_DevBoard.h" 1
 # 10 "./PIC16Xpress_DevBoard.h"
 # 1 "./mcc.h" 1
-# 49 "./mcc.h"
+# 12 "./mcc.h"
 # 1 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -11198,21 +11198,21 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 2 3
-# 49 "./mcc.h" 2
+# 12 "./mcc.h" 2
 
 # 1 "./device_config.h" 1
-# 50 "./mcc.h" 2
+# 13 "./mcc.h" 2
 
 # 1 "./pin_manager.h" 1
-# 58 "./pin_manager.h"
+# 67 "./pin_manager.h"
 void PIN_MANAGER_Initialize (void);
-# 70 "./pin_manager.h"
+# 78 "./pin_manager.h"
 void PIN_MANAGER_IOC(void);
-# 51 "./mcc.h" 2
+# 14 "./mcc.h" 2
 
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdbool.h" 1 3
-# 53 "./mcc.h" 2
+# 16 "./mcc.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\conio.h" 1 3
 
@@ -11366,13 +11366,13 @@ char *ctermid(char *);
 
 char *tempnam(const char *, const char *);
 # 7 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\conio.h" 2 3
-# 54 "./mcc.h" 2
+# 17 "./mcc.h" 2
 
 # 1 "./interrupt_manager.h" 1
-# 55 "./mcc.h" 2
+# 18 "./mcc.h" 2
 
 # 1 "./ccp2.h" 1
-# 80 "./ccp2.h"
+# 29 "./ccp2.h"
 typedef union CCPR2Reg_tag
 {
    struct
@@ -11385,16 +11385,16 @@ typedef union CCPR2Reg_tag
       uint16_t ccpr2_16Bit;
    };
 } CCP2_PERIOD_REG_T ;
-# 123 "./ccp2.h"
+# 64 "./ccp2.h"
 void CCP2_Initialize(void);
-# 139 "./ccp2.h"
+# 81 "./ccp2.h"
 void CCP2_CaptureISR(void);
-# 180 "./ccp2.h"
+# 101 "./ccp2.h"
  void CCP2_SetCallBack(void (*customCallBack)(uint16_t));
-# 56 "./mcc.h" 2
+# 19 "./mcc.h" 2
 
 # 1 "./ccp3.h" 1
-# 80 "./ccp3.h"
+# 29 "./ccp3.h"
 typedef union CCPR3Reg_tag
 {
    struct
@@ -11407,45 +11407,45 @@ typedef union CCPR3Reg_tag
       uint16_t ccpr3_16Bit;
    };
 } CCP3_PERIOD_REG_T ;
-# 123 "./ccp3.h"
+# 64 "./ccp3.h"
 void CCP3_Initialize(void);
-# 139 "./ccp3.h"
+# 81 "./ccp3.h"
 void CCP3_CaptureISR(void);
-# 180 "./ccp3.h"
+# 101 "./ccp3.h"
  void CCP3_SetCallBack(void (*customCallBack)(uint16_t));
-# 57 "./mcc.h" 2
+# 20 "./mcc.h" 2
 
 # 1 "./tmr1.h" 1
-# 27 "./tmr1.h"
+# 37 "./tmr1.h"
 void TMR1_Initialize(void);
-# 47 "./tmr1.h"
+# 57 "./tmr1.h"
 void TMR1_StartTimer(void);
-# 67 "./tmr1.h"
+# 77 "./tmr1.h"
 void TMR1_StopTimer(void);
-# 86 "./tmr1.h"
+# 96 "./tmr1.h"
 uint16_t TMR1_ReadTimer(void);
-# 106 "./tmr1.h"
+# 116 "./tmr1.h"
 void TMR1_WriteTimer(uint16_t timerVal);
-# 126 "./tmr1.h"
+# 136 "./tmr1.h"
 void TMR1_Reload(void);
-# 146 "./tmr1.h"
+# 156 "./tmr1.h"
 void TMR1_StartSinglePulseAcquisition(void);
-# 166 "./tmr1.h"
+# 176 "./tmr1.h"
 uint8_t TMR1_CheckGateValueStatus(void);
-# 185 "./tmr1.h"
+# 195 "./tmr1.h"
 void TMR1_ISR(void);
-# 204 "./tmr1.h"
+# 214 "./tmr1.h"
 void TMR1_CallBack(void);
-# 223 "./tmr1.h"
+# 233 "./tmr1.h"
  void TMR1_SetInterruptHandler(void (* InterruptHandler)(void));
-# 242 "./tmr1.h"
+# 252 "./tmr1.h"
 extern void (*TMR1_InterruptHandler)(void);
-# 261 "./tmr1.h"
+# 271 "./tmr1.h"
 void TMR1_DefaultInterruptHandler(void);
-# 58 "./mcc.h" 2
+# 21 "./mcc.h" 2
 
 # 1 "./ccp1.h" 1
-# 80 "./ccp1.h"
+# 29 "./ccp1.h"
 typedef union CCPR1Reg_tag
 {
    struct
@@ -11458,45 +11458,45 @@ typedef union CCPR1Reg_tag
       uint16_t ccpr1_16Bit;
    };
 } CCP1_PERIOD_REG_T ;
-# 123 "./ccp1.h"
+# 64 "./ccp1.h"
 void CCP1_Initialize(void);
-# 139 "./ccp1.h"
+# 81 "./ccp1.h"
 void CCP1_CaptureISR(void);
-# 180 "./ccp1.h"
+# 101 "./ccp1.h"
  void CCP1_SetCallBack(void (*customCallBack)(uint16_t));
-# 59 "./mcc.h" 2
+# 22 "./mcc.h" 2
 
 # 1 "./tmr0.h" 1
-# 106 "./tmr0.h"
+# 37 "./tmr0.h"
 void TMR0_Initialize(void);
-# 135 "./tmr0.h"
+# 57 "./tmr0.h"
 void TMR0_StartTimer(void);
-# 167 "./tmr0.h"
+# 77 "./tmr0.h"
 void TMR0_StopTimer(void);
-# 202 "./tmr0.h"
+# 96 "./tmr0.h"
 uint8_t TMR0_ReadTimer(void);
-# 241 "./tmr0.h"
+# 116 "./tmr0.h"
 void TMR0_WriteTimer(uint8_t timerVal);
-# 278 "./tmr0.h"
+# 136 "./tmr0.h"
 void TMR0_Reload(uint8_t periodVal);
-# 297 "./tmr0.h"
+# 155 "./tmr0.h"
 void TMR0_ISR(void);
-# 315 "./tmr0.h"
+# 174 "./tmr0.h"
 void TMR0_CallBack(void);
-# 333 "./tmr0.h"
+# 193 "./tmr0.h"
  void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
-# 351 "./tmr0.h"
+# 212 "./tmr0.h"
 extern void (*TMR0_InterruptHandler)(void);
-# 369 "./tmr0.h"
+# 231 "./tmr0.h"
 void TMR0_DefaultInterruptHandler(void);
-# 60 "./mcc.h" 2
-# 75 "./mcc.h"
+# 23 "./mcc.h" 2
+# 35 "./mcc.h"
 void SYSTEM_Initialize(void);
-# 88 "./mcc.h"
+# 47 "./mcc.h"
 void OSCILLATOR_Initialize(void);
-# 100 "./mcc.h"
+# 59 "./mcc.h"
 void WDT_Initialize(void);
-# 112 "./mcc.h"
+# 71 "./mcc.h"
 void PMD_Initialize(void);
 # 10 "./PIC16Xpress_DevBoard.h" 2
 
@@ -11585,23 +11585,17 @@ uint8_t ReadPin(PinName_t pin);
 uint8_t WritePin(PinName_t pin, uint8_t val);
 # 147 "./PIC16Xpress_DevBoard.h"
 void __attribute__((picinterrupt(("")))) InterruptManager (void);
-# 10 "./FR_Timer.h" 2
-# 32 "./FR_Timer.h"
-void FR_Timer_Init(void);
-# 47 "./FR_Timer.h"
-unsigned long FR_Timer_GetMillis(void);
-# 62 "./FR_Timer.h"
-unsigned long FR_Timer_GetMicros(void);
-# 80 "./FR_Timer.h"
-void FR_Timer_IncMillis(void);
-# 99 "./FR_Timer.h"
-void FR_Timer_IncMicros(void);
-# 10 "FR_Timer.c" 2
-
-
-# 1 "./PIC16Xpress_DevBoard.h" 1
-# 12 "FR_Timer.c" 2
-# 25 "FR_Timer.c"
+# 10 "./FRT.h" 2
+# 30 "./FRT.h"
+unsigned long FRT_GetMillis(void);
+# 45 "./FRT.h"
+unsigned long FRT_GetMicros(void);
+# 63 "./FRT.h"
+void FRT_IncMillis(void);
+# 82 "./FRT.h"
+void FRT_IncMicros(void);
+# 10 "FRT.c" 2
+# 23 "FRT.c"
 static unsigned long millis;
 static unsigned long micros;
 
@@ -11609,34 +11603,26 @@ static unsigned long micros;
 
 
 
-
-void FR_Timer_Init(void) {
-    TMR0_Initialize();
-    return;
-}
-
-
-
-unsigned long FR_Timer_GetMillis() {
+unsigned long FRT_GetMillis() {
     return millis;
 }
 
 
 
-unsigned long FR_Timer_GetMicros() {
+unsigned long FRT_GetMicros() {
     return (micros + TMR0_ReadTimer());
 }
 
 
 
-void FR_Timer_IncMillis(void) {
+void FRT_IncMillis(void) {
     millis ++;
     return;
 }
 
 
 
-void FR_Timer_IncMicros(void) {
+void FRT_IncMicros(void) {
     micros += 1000;
     return;
 }

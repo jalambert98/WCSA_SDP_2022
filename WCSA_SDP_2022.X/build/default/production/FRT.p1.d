@@ -1,6 +1,6 @@
-build/default/production/FR_Timer.p1:  \
-FR_Timer.c  \
-FR_Timer.h  \
+build/default/production/FRT.p1:  \
+FRT.c  \
+FRT.h  \
 PIC16Xpress_DevBoard.h  \
 mcc.h  \
 device_config.h  \

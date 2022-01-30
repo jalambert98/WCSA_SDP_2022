@@ -9,7 +9,7 @@
 
 #include "JSN_Sensor.h"
 #include "PIC16Xpress_DevBoard.h"
-#include "FR_Timer.h"
+#include "FRT.h"
 #include "tmr1.h"
 #include "ccp1.h"
 #include <stdio.h>
@@ -29,15 +29,6 @@ static JSN_t Sens1, Sens2, Sens3;
 //==============================================================================
 //------------------------------ PUBLIC LIBRARY --------------------------------
 //==============================================================================
-
-void JSN_Library_Init(void) {
-    // Initialize TMR1 & CCP[1,2,3] peripherals
-    TMR1_Initialize();
-    CCP1_Initialize();
-    return;
-}
-
-//------------------------------------------------------------------------------
 
 uint8_t JSN_Sensor_Init(JSN_t *Sensor, PinName_t trigPin, PinName_t echoPin) {
     
@@ -88,16 +79,16 @@ uint8_t JSN_Sensor_Init(JSN_t *Sensor, PinName_t trigPin, PinName_t echoPin) {
 
 //------------------------------------------------------------------------------
 /*
- *  EXPECTS that FR_Timer_Init() has already been called!!
+ *  EXPECTS that FRT_Init() has already been called!!
  */
 void JSN_Sensor_Trig(JSN_t *Sensor) {
-    micros = FR_Timer_GetMicros();
+    micros = FRT_GetMicros();
     
     // Raise TRIG pin HIGH
     WritePin(Sensor->trigPin, HIGH);
     
     // Block further instruction for defined TRIG pulse width duration
-    while((FR_Timer_GetMicros() - micros) < TRIG_PULSE_WIDTH);
+    while((FRT_GetMicros() - micros) < TRIG_PULSE_WIDTH);
     
     // Lower TRIG pin after pulse duration elapsed
     WritePin(Sensor->trigPin, LOW);
@@ -138,8 +129,6 @@ JSN_t* JSN_GetLastTrig(void) {
 int main(void) {
     // Initialize required libraries
     PIC16_Init();
-    FR_Timer_Init();
-    JSN_Library_Init();
     JSN_Sensor_Init(&Sens1, C6, C5);
     
     // Initialize function variables
@@ -151,7 +140,7 @@ int main(void) {
     JSN_Sensor_Trig(&Sens1);
 
     while(1) {
-        currMilli = FR_Timer_GetMillis();
+        currMilli = FRT_GetMillis();
         
         // This block runs every SAMPLE_PERIOD milliseconds
         if((currMilli - prevMilli) >= SAMPLE_PERIOD) {

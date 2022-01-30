@@ -1,38 +1,37 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"50 device_config.c
+"26 device_config.c
 [p x FEXTOSC  =  OFF     ]
-"51
+"27
 [p x RSTOSC  =  HFINT32     ]
-"52
+"28
 [p x CLKOUTEN  =  OFF     ]
-"53
+"29
 [p x CSWEN  =  ON     ]
-"54
+"30
 [p x FCMEN  =  ON     ]
-"57
+"33
 [p x MCLRE  =  ON     ]
-"58
+"34
 [p x PWRTE  =  OFF     ]
-"59
+"35
 [p x WDTE  =  OFF     ]
-"60
+"36
 [p x LPBOREN  =  OFF     ]
-"61
+"37
 [p x BOREN  =  ON     ]
-"62
+"38
 [p x BORV  =  LOW     ]
-"63
+"39
 [p x PPS1WAY  =  ON     ]
-"64
+"40
 [p x STVREN  =  ON     ]
-"65
+"41
 [p x DEBUG  =  OFF     ]
-"68
+"44
 [p x WRT  =  OFF     ]
-"69
+"45
 [p x LVP  =  ON     ]
-"72
+"48
 [p x CP  =  OFF     ]
-"73
-[; ;device_config.c: 73: 
+"49
 [p x CPD  =  OFF     ]

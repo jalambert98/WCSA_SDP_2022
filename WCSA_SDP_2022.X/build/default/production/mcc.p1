@@ -1,30 +1,30 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"112 ./mcc.h
-[; ;./mcc.h: 112: void PMD_Initialize(void);
+"71 ./mcc.h
+[; ;./mcc.h: 71: void PMD_Initialize(void);
 [v _PMD_Initialize `(v ~T0 @X0 0 ef ]
-"58 ./pin_manager.h
-[; ;./pin_manager.h: 58: void PIN_MANAGER_Initialize (void);
+"67 ./pin_manager.h
+[; ;./pin_manager.h: 67: void PIN_MANAGER_Initialize (void);
 [v _PIN_MANAGER_Initialize `(v ~T0 @X0 0 ef ]
-"88 ./mcc.h
-[; ;./mcc.h: 88: void OSCILLATOR_Initialize(void);
+"47 ./mcc.h
+[; ;./mcc.h: 47: void OSCILLATOR_Initialize(void);
 [v _OSCILLATOR_Initialize `(v ~T0 @X0 0 ef ]
-"100
-[; ;./mcc.h: 100: void WDT_Initialize(void);
+"59
+[; ;./mcc.h: 59: void WDT_Initialize(void);
 [v _WDT_Initialize `(v ~T0 @X0 0 ef ]
-"123 ./ccp2.h
-[; ;./ccp2.h: 123: void CCP2_Initialize(void);
+"64 ./ccp2.h
+[; ;./ccp2.h: 64: void CCP2_Initialize(void);
 [v _CCP2_Initialize `(v ~T0 @X0 0 ef ]
-"123 ./ccp3.h
-[; ;./ccp3.h: 123: void CCP3_Initialize(void);
+"64 ./ccp3.h
+[; ;./ccp3.h: 64: void CCP3_Initialize(void);
 [v _CCP3_Initialize `(v ~T0 @X0 0 ef ]
-"123 ./ccp1.h
-[; ;./ccp1.h: 123: void CCP1_Initialize(void);
+"64 ./ccp1.h
+[; ;./ccp1.h: 64: void CCP1_Initialize(void);
 [v _CCP1_Initialize `(v ~T0 @X0 0 ef ]
-"27 ./tmr1.h
-[; ;./tmr1.h: 27: void TMR1_Initialize(void);
+"37 ./tmr1.h
+[; ;./tmr1.h: 37: void TMR1_Initialize(void);
 [v _TMR1_Initialize `(v ~T0 @X0 0 ef ]
-"106 ./tmr0.h
-[; ;./tmr0.h: 106: void TMR0_Initialize(void);
+"37 ./tmr0.h
+[; ;./tmr0.h: 37: void TMR0_Initialize(void);
 [v _TMR0_Initialize `(v ~T0 @X0 0 ef ]
 "61 ./eusart.h
 [; ;./eusart.h: 61: void EUSART_Initialize(void);

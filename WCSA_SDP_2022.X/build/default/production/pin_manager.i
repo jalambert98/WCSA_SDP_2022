@@ -7,11 +7,9 @@
 # 1 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "pin_manager.c" 2
-
+# 10 "pin_manager.c"
 # 1 "./pin_manager.h" 1
-
-
-
+# 13 "./pin_manager.h"
 # 1 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -11196,12 +11194,14 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 2 3
-# 4 "./pin_manager.h" 2
-# 58 "./pin_manager.h"
+# 13 "./pin_manager.h" 2
+# 67 "./pin_manager.h"
 void PIN_MANAGER_Initialize (void);
-# 70 "./pin_manager.h"
+# 78 "./pin_manager.h"
 void PIN_MANAGER_IOC(void);
-# 2 "pin_manager.c" 2
+# 10 "pin_manager.c" 2
+
+
 
 
 void PIN_MANAGER_Initialize(void)
@@ -11261,6 +11261,8 @@ void PIN_MANAGER_Initialize(void)
     RC4PPS = 0x14;
     CCP1PPS = 0x15;
 }
+
+
 
 void PIN_MANAGER_IOC(void)
 {
