@@ -8,4 +8,5 @@ ccp2.h  \
 ccp3.h  \
 tmr1.h  \
 ccp1.h  \
-tmr0.h 
+tmr0.h  \
+eusart.h 

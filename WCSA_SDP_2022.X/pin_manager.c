@@ -52,9 +52,11 @@ void PIN_MANAGER_Initialize(void)
     INLVLB = 0xF0;
     INLVLC = 0xFF;
 
+    RXPPS = 0x0D;   //RB5->EUSART:RX;    
     CCP2PPS = 0x13;   //RC3->CCP2:CCP2;    
     CCP3PPS = 0x02;   //RA2->CCP3:CCP3;    
-    CCP1PPS = 0x15;   //RC5->CCP1:CCP1;    
+    RC4PPS = 0x14;   //RC4->EUSART:TX;    
+    CCP1PPS = 0x15;   //RC5->CCP1:CCP1;   
 }
   
 void PIN_MANAGER_IOC(void)

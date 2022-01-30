@@ -20,12 +20,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "123 ./ccp1.h
 [; ;./ccp1.h: 123: void CCP1_Initialize(void);
 [v _CCP1_Initialize `(v ~T0 @X0 0 ef ]
-"101 ./tmr1.h
-[; ;./tmr1.h: 101: void TMR1_Initialize(void);
+"27 ./tmr1.h
+[; ;./tmr1.h: 27: void TMR1_Initialize(void);
 [v _TMR1_Initialize `(v ~T0 @X0 0 ef ]
 "106 ./tmr0.h
 [; ;./tmr0.h: 106: void TMR0_Initialize(void);
 [v _TMR0_Initialize `(v ~T0 @X0 0 ef ]
+"61 ./eusart.h
+[; ;./eusart.h: 61: void EUSART_Initialize(void);
+[v _EUSART_Initialize `(v ~T0 @X0 0 ef ]
 "12489 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h
 [; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 12489: extern volatile unsigned char OSCCON1 __attribute__((address(0x919)));
 [v _OSCCON1 `Vuc ~T0 @X0 0 e@2329 ]
@@ -1124,129 +1127,132 @@ Version 4.0 HI-TECH Software Intermediate Code
 "19652
 [; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 19652: __asm("TOSH equ 0FEFh");
 [; <" TOSH equ 0FEFh ;# ">
-"14 mcc.c
-[; ;mcc.c: 14: void SYSTEM_Initialize(void)
+"15 mcc.c
+[; ;mcc.c: 15: void SYSTEM_Initialize(void)
 [v _SYSTEM_Initialize `(v ~T0 @X0 1 ef ]
-"15
-[; ;mcc.c: 15: {
+"16
+[; ;mcc.c: 16: {
 {
 [e :U _SYSTEM_Initialize ]
 [f ]
-"16
-[; ;mcc.c: 16:     PMD_Initialize();
-[e ( _PMD_Initialize ..  ]
 "17
-[; ;mcc.c: 17:     PIN_MANAGER_Initialize();
-[e ( _PIN_MANAGER_Initialize ..  ]
+[; ;mcc.c: 17:     PMD_Initialize();
+[e ( _PMD_Initialize ..  ]
 "18
-[; ;mcc.c: 18:     OSCILLATOR_Initialize();
-[e ( _OSCILLATOR_Initialize ..  ]
+[; ;mcc.c: 18:     PIN_MANAGER_Initialize();
+[e ( _PIN_MANAGER_Initialize ..  ]
 "19
-[; ;mcc.c: 19:     WDT_Initialize();
-[e ( _WDT_Initialize ..  ]
+[; ;mcc.c: 19:     OSCILLATOR_Initialize();
+[e ( _OSCILLATOR_Initialize ..  ]
 "20
-[; ;mcc.c: 20:     CCP2_Initialize();
-[e ( _CCP2_Initialize ..  ]
+[; ;mcc.c: 20:     WDT_Initialize();
+[e ( _WDT_Initialize ..  ]
 "21
-[; ;mcc.c: 21:     CCP3_Initialize();
-[e ( _CCP3_Initialize ..  ]
+[; ;mcc.c: 21:     CCP2_Initialize();
+[e ( _CCP2_Initialize ..  ]
 "22
-[; ;mcc.c: 22:     CCP1_Initialize();
-[e ( _CCP1_Initialize ..  ]
+[; ;mcc.c: 22:     CCP3_Initialize();
+[e ( _CCP3_Initialize ..  ]
 "23
-[; ;mcc.c: 23:     TMR1_Initialize();
-[e ( _TMR1_Initialize ..  ]
+[; ;mcc.c: 23:     CCP1_Initialize();
+[e ( _CCP1_Initialize ..  ]
 "24
-[; ;mcc.c: 24:     TMR0_Initialize();
-[e ( _TMR0_Initialize ..  ]
+[; ;mcc.c: 24:     TMR1_Initialize();
+[e ( _TMR1_Initialize ..  ]
 "25
-[; ;mcc.c: 25: }
-[e :UE 974 ]
+[; ;mcc.c: 25:     TMR0_Initialize();
+[e ( _TMR0_Initialize ..  ]
+"26
+[; ;mcc.c: 26:     EUSART_Initialize();
+[e ( _EUSART_Initialize ..  ]
+"27
+[; ;mcc.c: 27: }
+[e :UE 976 ]
 }
-"29
-[; ;mcc.c: 29: void OSCILLATOR_Initialize(void)
+"31
+[; ;mcc.c: 31: void OSCILLATOR_Initialize(void)
 [v _OSCILLATOR_Initialize `(v ~T0 @X0 1 ef ]
-"30
-[; ;mcc.c: 30: {
+"32
+[; ;mcc.c: 32: {
 {
 [e :U _OSCILLATOR_Initialize ]
 [f ]
-"32
-[; ;mcc.c: 32:     OSCCON1 = 0x00;
-[e = _OSCCON1 -> -> 0 `i `uc ]
 "34
-[; ;mcc.c: 34:     OSCCON3 = 0x00;
-[e = _OSCCON3 -> -> 0 `i `uc ]
+[; ;mcc.c: 34:     OSCCON1 = 0x00;
+[e = _OSCCON1 -> -> 0 `i `uc ]
 "36
-[; ;mcc.c: 36:     OSCEN = 0x00;
-[e = _OSCEN -> -> 0 `i `uc ]
+[; ;mcc.c: 36:     OSCCON3 = 0x00;
+[e = _OSCCON3 -> -> 0 `i `uc ]
 "38
-[; ;mcc.c: 38:     OSCFRQ = 0x04;
-[e = _OSCFRQ -> -> 4 `i `uc ]
+[; ;mcc.c: 38:     OSCEN = 0x00;
+[e = _OSCEN -> -> 0 `i `uc ]
 "40
-[; ;mcc.c: 40:     OSCTUNE = 0x00;
+[; ;mcc.c: 40:     OSCFRQ = 0x04;
+[e = _OSCFRQ -> -> 4 `i `uc ]
+"42
+[; ;mcc.c: 42:     OSCTUNE = 0x00;
 [e = _OSCTUNE -> -> 0 `i `uc ]
-"42
-[; ;mcc.c: 42:     while(PLLR == 0)
-[e $U 976  ]
-[e :U 977 ]
-"43
-[; ;mcc.c: 43:     {
-{
 "44
-[; ;mcc.c: 44:     }
-}
-[e :U 976 ]
-"42
-[; ;mcc.c: 42:     while(PLLR == 0)
-[e $ == -> _PLLR `i -> 0 `i 977  ]
-[e :U 978 ]
+[; ;mcc.c: 44:     while(PLLR == 0)
+[e $U 978  ]
+[e :U 979 ]
 "45
-[; ;mcc.c: 45: }
-[e :UE 975 ]
+[; ;mcc.c: 45:     {
+{
+"46
+[; ;mcc.c: 46:     }
 }
-"49
-[; ;mcc.c: 49: void WDT_Initialize(void)
+[e :U 978 ]
+"44
+[; ;mcc.c: 44:     while(PLLR == 0)
+[e $ == -> _PLLR `i -> 0 `i 979  ]
+[e :U 980 ]
+"47
+[; ;mcc.c: 47: }
+[e :UE 977 ]
+}
+"51
+[; ;mcc.c: 51: void WDT_Initialize(void)
 [v _WDT_Initialize `(v ~T0 @X0 1 ef ]
-"50
-[; ;mcc.c: 50: {
+"52
+[; ;mcc.c: 52: {
 {
 [e :U _WDT_Initialize ]
 [f ]
-"52
-[; ;mcc.c: 52:     WDTCON = 0x16;
+"54
+[; ;mcc.c: 54:     WDTCON = 0x16;
 [e = _WDTCON -> -> 22 `i `uc ]
-"53
-[; ;mcc.c: 53: }
-[e :UE 979 ]
+"55
+[; ;mcc.c: 55: }
+[e :UE 981 ]
 }
-"57
-[; ;mcc.c: 57: void PMD_Initialize(void)
+"59
+[; ;mcc.c: 59: void PMD_Initialize(void)
 [v _PMD_Initialize `(v ~T0 @X0 1 ef ]
-"58
-[; ;mcc.c: 58: {
+"60
+[; ;mcc.c: 60: {
 {
 [e :U _PMD_Initialize ]
 [f ]
-"60
-[; ;mcc.c: 60:     PMD0 = 0x00;
-[e = _PMD0 -> -> 0 `i `uc ]
 "62
-[; ;mcc.c: 62:     PMD1 = 0x7C;
-[e = _PMD1 -> -> 124 `i `uc ]
+[; ;mcc.c: 62:     PMD0 = 0x00;
+[e = _PMD0 -> -> 0 `i `uc ]
 "64
-[; ;mcc.c: 64:     PMD2 = 0x66;
-[e = _PMD2 -> -> 102 `i `uc ]
+[; ;mcc.c: 64:     PMD1 = 0x7C;
+[e = _PMD1 -> -> 124 `i `uc ]
 "66
-[; ;mcc.c: 66:     PMD3 = 0xC8;
-[e = _PMD3 -> -> 200 `i `uc ]
+[; ;mcc.c: 66:     PMD2 = 0x66;
+[e = _PMD2 -> -> 102 `i `uc ]
 "68
-[; ;mcc.c: 68:     PMD4 = 0x00;
-[e = _PMD4 -> -> 0 `i `uc ]
+[; ;mcc.c: 68:     PMD3 = 0xC8;
+[e = _PMD3 -> -> 200 `i `uc ]
 "70
-[; ;mcc.c: 70:     PMD5 = 0x1F;
+[; ;mcc.c: 70:     PMD4 = 0x00;
+[e = _PMD4 -> -> 0 `i `uc ]
+"72
+[; ;mcc.c: 72:     PMD5 = 0x1F;
 [e = _PMD5 -> -> 31 `i `uc ]
-"71
-[; ;mcc.c: 71: }
-[e :UE 980 ]
+"73
+[; ;mcc.c: 73: }
+[e :UE 982 ]
 }

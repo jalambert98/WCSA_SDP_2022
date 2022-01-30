@@ -11412,31 +11412,31 @@ void CCP3_CaptureISR(void);
 # 57 "./mcc.h" 2
 
 # 1 "./tmr1.h" 1
-# 101 "./tmr1.h"
+# 27 "./tmr1.h"
 void TMR1_Initialize(void);
-# 130 "./tmr1.h"
+# 47 "./tmr1.h"
 void TMR1_StartTimer(void);
-# 162 "./tmr1.h"
+# 67 "./tmr1.h"
 void TMR1_StopTimer(void);
-# 197 "./tmr1.h"
+# 86 "./tmr1.h"
 uint16_t TMR1_ReadTimer(void);
-# 236 "./tmr1.h"
+# 106 "./tmr1.h"
 void TMR1_WriteTimer(uint16_t timerVal);
-# 272 "./tmr1.h"
+# 126 "./tmr1.h"
 void TMR1_Reload(void);
-# 311 "./tmr1.h"
+# 146 "./tmr1.h"
 void TMR1_StartSinglePulseAcquisition(void);
-# 350 "./tmr1.h"
+# 166 "./tmr1.h"
 uint8_t TMR1_CheckGateValueStatus(void);
-# 368 "./tmr1.h"
+# 185 "./tmr1.h"
 void TMR1_ISR(void);
-# 385 "./tmr1.h"
+# 204 "./tmr1.h"
 void TMR1_CallBack(void);
-# 403 "./tmr1.h"
+# 223 "./tmr1.h"
  void TMR1_SetInterruptHandler(void (* InterruptHandler)(void));
-# 421 "./tmr1.h"
+# 242 "./tmr1.h"
 extern void (*TMR1_InterruptHandler)(void);
-# 439 "./tmr1.h"
+# 261 "./tmr1.h"
 void TMR1_DefaultInterruptHandler(void);
 # 58 "./mcc.h" 2
 
@@ -11496,6 +11496,60 @@ void WDT_Initialize(void);
 void PMD_Initialize(void);
 # 10 "mcc.c" 2
 
+# 1 "./eusart.h" 1
+# 22 "./eusart.h"
+typedef union {
+    struct {
+        unsigned perr : 1;
+        unsigned ferr : 1;
+        unsigned oerr : 1;
+        unsigned reserved : 5;
+    };
+    uint8_t status;
+}eusart_status_t;
+
+
+
+
+extern volatile uint8_t eusartTxBufferRemaining;
+extern volatile uint8_t eusartRxCount;
+
+
+
+extern void (*EUSART_TxDefaultInterruptHandler)(void);
+extern void (*EUSART_RxDefaultInterruptHandler)(void);
+# 61 "./eusart.h"
+void EUSART_Initialize(void);
+# 86 "./eusart.h"
+_Bool EUSART_is_tx_ready(void);
+# 111 "./eusart.h"
+_Bool EUSART_is_rx_ready(void);
+# 135 "./eusart.h"
+_Bool EUSART_is_tx_done(void);
+# 156 "./eusart.h"
+eusart_status_t EUSART_get_last_status(void);
+# 177 "./eusart.h"
+uint8_t EUSART_Read(void);
+# 198 "./eusart.h"
+void EUSART_Write(uint8_t txData);
+# 220 "./eusart.h"
+void EUSART_Transmit_ISR(void);
+# 242 "./eusart.h"
+void EUSART_Receive_ISR(void);
+# 264 "./eusart.h"
+void EUSART_RxDataHandler(void);
+# 283 "./eusart.h"
+void EUSART_SetFramingErrorHandler(void (* interruptHandler)(void));
+# 302 "./eusart.h"
+void EUSART_SetOverrunErrorHandler(void (* interruptHandler)(void));
+# 321 "./eusart.h"
+void EUSART_SetErrorHandler(void (* interruptHandler)(void));
+# 342 "./eusart.h"
+void EUSART_SetTxInterruptHandler(void (* interruptHandler)(void));
+# 363 "./eusart.h"
+void EUSART_SetRxInterruptHandler(void (* interruptHandler)(void));
+# 11 "mcc.c" 2
+
 
 
 
@@ -11510,6 +11564,7 @@ void SYSTEM_Initialize(void)
     CCP1_Initialize();
     TMR1_Initialize();
     TMR0_Initialize();
+    EUSART_Initialize();
 }
 
 

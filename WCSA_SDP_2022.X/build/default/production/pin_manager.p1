@@ -62,12 +62,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7303
 [; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 7303: extern volatile unsigned char INLVLC __attribute__((address(0x38E)));
 [v _INLVLC `Vuc ~T0 @X0 0 e@910 ]
+"13884
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 13884: extern volatile unsigned char RXPPS __attribute__((address(0xE24)));
+[v _RXPPS `Vuc ~T0 @X0 0 e@3620 ]
 "13156
 [; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 13156: extern volatile unsigned char CCP2PPS __attribute__((address(0xE15)));
 [v _CCP2PPS `Vuc ~T0 @X0 0 e@3605 ]
 "13208
 [; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 13208: extern volatile unsigned char CCP3PPS __attribute__((address(0xE16)));
 [v _CCP3PPS `Vuc ~T0 @X0 0 e@3606 ]
+"14952
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 14952: extern volatile unsigned char RC4PPS __attribute__((address(0xEA4)));
+[v _RC4PPS `Vuc ~T0 @X0 0 e@3748 ]
 "13104
 [; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 13104: extern volatile unsigned char CCP1PPS __attribute__((address(0xE14)));
 [v _CCP1PPS `Vuc ~T0 @X0 0 e@3604 ]
@@ -1202,27 +1208,33 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;pin_manager.c: 53:     INLVLC = 0xFF;
 [e = _INLVLC -> -> 255 `i `uc ]
 "55
-[; ;pin_manager.c: 55:     CCP2PPS = 0x13;
-[e = _CCP2PPS -> -> 19 `i `uc ]
+[; ;pin_manager.c: 55:     RXPPS = 0x0D;
+[e = _RXPPS -> -> 13 `i `uc ]
 "56
-[; ;pin_manager.c: 56:     CCP3PPS = 0x02;
-[e = _CCP3PPS -> -> 2 `i `uc ]
+[; ;pin_manager.c: 56:     CCP2PPS = 0x13;
+[e = _CCP2PPS -> -> 19 `i `uc ]
 "57
-[; ;pin_manager.c: 57:     CCP1PPS = 0x15;
-[e = _CCP1PPS -> -> 21 `i `uc ]
+[; ;pin_manager.c: 57:     CCP3PPS = 0x02;
+[e = _CCP3PPS -> -> 2 `i `uc ]
 "58
-[; ;pin_manager.c: 58: }
+[; ;pin_manager.c: 58:     RC4PPS = 0x14;
+[e = _RC4PPS -> -> 20 `i `uc ]
+"59
+[; ;pin_manager.c: 59:     CCP1PPS = 0x15;
+[e = _CCP1PPS -> -> 21 `i `uc ]
+"60
+[; ;pin_manager.c: 60: }
 [e :UE 963 ]
 }
-"60
-[; ;pin_manager.c: 60: void PIN_MANAGER_IOC(void)
+"62
+[; ;pin_manager.c: 62: void PIN_MANAGER_IOC(void)
 [v _PIN_MANAGER_IOC `(v ~T0 @X0 1 ef ]
-"61
-[; ;pin_manager.c: 61: {
+"63
+[; ;pin_manager.c: 63: {
 {
 [e :U _PIN_MANAGER_IOC ]
 [f ]
-"62
-[; ;pin_manager.c: 62: }
+"64
+[; ;pin_manager.c: 64: }
 [e :UE 964 ]
 }

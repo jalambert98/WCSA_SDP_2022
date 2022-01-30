@@ -4,6 +4,10 @@
 volatile uint16_t timer1ReloadVal;
 void (*TMR1_InterruptHandler)(void);
 
+//------------------------------------------------------------------------------
+/*
+ * TMR1 ticks @2MHz & rolls over after 16-bit range [0x0000 --> 0xFFFF]
+ */
 void TMR1_Initialize(void)
 {
     //Set the Timer to the options selected in the GUI
@@ -29,9 +33,11 @@ void TMR1_Initialize(void)
     // Set Default Interrupt Handler
     TMR1_SetInterruptHandler(TMR1_DefaultInterruptHandler);
 
-    // T1CKPS 1:4; T1SOSC T1CKI_enabled; T1SYNC synchronize; TMR1CS FOSC/4; TMR1ON enabled; 
-    T1CON = 0x21;
+    // T1CKPS 1:2; T1SOSC T1CKI_enabled; T1SYNC synchronize; TMR1CS FOSC/4; TMR1ON enabled; 
+    T1CON = 0x11;
 }
+
+//------------------------------------------------------------------------------
 
 void TMR1_StartTimer(void)
 {
@@ -39,11 +45,15 @@ void TMR1_StartTimer(void)
     T1CONbits.TMR1ON = 1;
 }
 
+//------------------------------------------------------------------------------
+
 void TMR1_StopTimer(void)
 {
     // Stop the Timer by writing to TMRxON bit
     T1CONbits.TMR1ON = 0;
 }
+
+//------------------------------------------------------------------------------
 
 uint16_t TMR1_ReadTimer(void)
 {
@@ -59,6 +69,8 @@ uint16_t TMR1_ReadTimer(void)
 
     return readVal;
 }
+
+//------------------------------------------------------------------------------
 
 void TMR1_WriteTimer(uint16_t timerVal)
 {
@@ -82,20 +94,28 @@ void TMR1_WriteTimer(uint16_t timerVal)
     }
 }
 
+//------------------------------------------------------------------------------
+
 void TMR1_Reload(void)
 {
     TMR1_WriteTimer(timer1ReloadVal);
 }
+
+//------------------------------------------------------------------------------
 
 void TMR1_StartSinglePulseAcquisition(void)
 {
     T1GCONbits.T1GGO_nDONE = 1;
 }
 
+//------------------------------------------------------------------------------
+
 uint8_t TMR1_CheckGateValueStatus(void)
 {
     return (T1GCONbits.T1GVAL);
 }
+
+//------------------------------------------------------------------------------
 
 void TMR1_ISR(void)
 {
@@ -106,8 +126,10 @@ void TMR1_ISR(void)
 
     // ticker function call;
     // ticker is 1 -> Callback function gets called everytime this ISR executes
-    TMR1_CallBack();
+    //TMR1_CallBack();
 }
+
+//------------------------------------------------------------------------------
 
 void TMR1_CallBack(void)
 {
@@ -118,15 +140,21 @@ void TMR1_CallBack(void)
     }
 }
 
+//------------------------------------------------------------------------------
+
 void TMR1_SetInterruptHandler(void (* InterruptHandler)(void)){
     TMR1_InterruptHandler = InterruptHandler;
 }
+
+//------------------------------------------------------------------------------
 
 void TMR1_DefaultInterruptHandler(void){
     // add your TMR1 interrupt custom code
     // or set custom function using TMR1_SetInterruptHandler()
 }
 
+
+//------------------------------------------------------------------------------
 /**
   End of File
 */

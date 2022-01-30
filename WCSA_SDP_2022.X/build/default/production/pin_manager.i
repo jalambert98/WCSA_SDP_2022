@@ -11255,8 +11255,10 @@ void PIN_MANAGER_Initialize(void)
     INLVLB = 0xF0;
     INLVLC = 0xFF;
 
+    RXPPS = 0x0D;
     CCP2PPS = 0x13;
     CCP3PPS = 0x02;
+    RC4PPS = 0x14;
     CCP1PPS = 0x15;
 }
 

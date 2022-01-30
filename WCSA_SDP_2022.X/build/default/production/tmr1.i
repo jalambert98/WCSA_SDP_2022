@@ -11194,40 +11194,46 @@ extern __bank0 __bit __timeout;
 # 1 "tmr1.c" 2
 
 # 1 "./tmr1.h" 1
-# 54 "./tmr1.h"
+
+
+
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdbool.h" 1 3
-# 54 "./tmr1.h" 2
-# 101 "./tmr1.h"
+# 4 "./tmr1.h" 2
+# 27 "./tmr1.h"
 void TMR1_Initialize(void);
-# 130 "./tmr1.h"
+# 47 "./tmr1.h"
 void TMR1_StartTimer(void);
-# 162 "./tmr1.h"
+# 67 "./tmr1.h"
 void TMR1_StopTimer(void);
-# 197 "./tmr1.h"
+# 86 "./tmr1.h"
 uint16_t TMR1_ReadTimer(void);
-# 236 "./tmr1.h"
+# 106 "./tmr1.h"
 void TMR1_WriteTimer(uint16_t timerVal);
-# 272 "./tmr1.h"
+# 126 "./tmr1.h"
 void TMR1_Reload(void);
-# 311 "./tmr1.h"
+# 146 "./tmr1.h"
 void TMR1_StartSinglePulseAcquisition(void);
-# 350 "./tmr1.h"
+# 166 "./tmr1.h"
 uint8_t TMR1_CheckGateValueStatus(void);
-# 368 "./tmr1.h"
+# 185 "./tmr1.h"
 void TMR1_ISR(void);
-# 385 "./tmr1.h"
+# 204 "./tmr1.h"
 void TMR1_CallBack(void);
-# 403 "./tmr1.h"
+# 223 "./tmr1.h"
  void TMR1_SetInterruptHandler(void (* InterruptHandler)(void));
-# 421 "./tmr1.h"
+# 242 "./tmr1.h"
 extern void (*TMR1_InterruptHandler)(void);
-# 439 "./tmr1.h"
+# 261 "./tmr1.h"
 void TMR1_DefaultInterruptHandler(void);
 # 2 "tmr1.c" 2
 
 
 volatile uint16_t timer1ReloadVal;
 void (*TMR1_InterruptHandler)(void);
+
+
+
+
 
 void TMR1_Initialize(void)
 {
@@ -11255,8 +11261,10 @@ void TMR1_Initialize(void)
     TMR1_SetInterruptHandler(TMR1_DefaultInterruptHandler);
 
 
-    T1CON = 0x21;
+    T1CON = 0x11;
 }
+
+
 
 void TMR1_StartTimer(void)
 {
@@ -11264,11 +11272,15 @@ void TMR1_StartTimer(void)
     T1CONbits.TMR1ON = 1;
 }
 
+
+
 void TMR1_StopTimer(void)
 {
 
     T1CONbits.TMR1ON = 0;
 }
+
+
 
 uint16_t TMR1_ReadTimer(void)
 {
@@ -11284,6 +11296,8 @@ uint16_t TMR1_ReadTimer(void)
 
     return readVal;
 }
+
+
 
 void TMR1_WriteTimer(uint16_t timerVal)
 {
@@ -11307,20 +11321,28 @@ void TMR1_WriteTimer(uint16_t timerVal)
     }
 }
 
+
+
 void TMR1_Reload(void)
 {
     TMR1_WriteTimer(timer1ReloadVal);
 }
+
+
 
 void TMR1_StartSinglePulseAcquisition(void)
 {
     T1GCONbits.T1GGO_nDONE = 1;
 }
 
+
+
 uint8_t TMR1_CheckGateValueStatus(void)
 {
     return (T1GCONbits.T1GVAL);
 }
+
+
 
 void TMR1_ISR(void)
 {
@@ -11331,8 +11353,10 @@ void TMR1_ISR(void)
 
 
 
-    TMR1_CallBack();
+
 }
+
+
 
 void TMR1_CallBack(void)
 {
@@ -11343,9 +11367,13 @@ void TMR1_CallBack(void)
     }
 }
 
+
+
 void TMR1_SetInterruptHandler(void (* InterruptHandler)(void)){
     TMR1_InterruptHandler = InterruptHandler;
 }
+
+
 
 void TMR1_DefaultInterruptHandler(void){
 

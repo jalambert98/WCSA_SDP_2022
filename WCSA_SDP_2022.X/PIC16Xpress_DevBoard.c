@@ -57,8 +57,8 @@ void PIC16_Init(void) {
     PIR3 = 0x00;
     PIR4 = 0x00;
     
-    SYSTEM_Initialize();
-    
+    SYSTEM_Initialize();        // Initialize CPU clk + Peripherals
+    INTCONbits.PEIE = HIGH;     // Enable peripheral interrupts
     INTCONbits.GIE = HIGH;      // Enable global interrupts
 }
 

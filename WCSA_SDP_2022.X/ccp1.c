@@ -29,7 +29,7 @@ static void CCP1_DefaultCallBack(uint16_t capturedValue)
         // If pin RC5 is low on this ISR, store ticks & calculate highTime
         case LOW:
             ticksDown = capturedValue;
-            JSN_GetLastTrig()->echoHighTime = ((ticksDown - ticksUp) >> 1);
+            JSN_GetLastTrig()->echoHighTime = ((ticksDown - ticksUp)>>1);
             break;
     }
 }

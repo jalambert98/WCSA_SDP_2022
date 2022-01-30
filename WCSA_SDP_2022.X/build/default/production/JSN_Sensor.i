@@ -11416,31 +11416,31 @@ void CCP3_CaptureISR(void);
 # 57 "./mcc.h" 2
 
 # 1 "./tmr1.h" 1
-# 101 "./tmr1.h"
+# 27 "./tmr1.h"
 void TMR1_Initialize(void);
-# 130 "./tmr1.h"
+# 47 "./tmr1.h"
 void TMR1_StartTimer(void);
-# 162 "./tmr1.h"
+# 67 "./tmr1.h"
 void TMR1_StopTimer(void);
-# 197 "./tmr1.h"
+# 86 "./tmr1.h"
 uint16_t TMR1_ReadTimer(void);
-# 236 "./tmr1.h"
+# 106 "./tmr1.h"
 void TMR1_WriteTimer(uint16_t timerVal);
-# 272 "./tmr1.h"
+# 126 "./tmr1.h"
 void TMR1_Reload(void);
-# 311 "./tmr1.h"
+# 146 "./tmr1.h"
 void TMR1_StartSinglePulseAcquisition(void);
-# 350 "./tmr1.h"
+# 166 "./tmr1.h"
 uint8_t TMR1_CheckGateValueStatus(void);
-# 368 "./tmr1.h"
+# 185 "./tmr1.h"
 void TMR1_ISR(void);
-# 385 "./tmr1.h"
+# 204 "./tmr1.h"
 void TMR1_CallBack(void);
-# 403 "./tmr1.h"
+# 223 "./tmr1.h"
  void TMR1_SetInterruptHandler(void (* InterruptHandler)(void));
-# 421 "./tmr1.h"
+# 242 "./tmr1.h"
 extern void (*TMR1_InterruptHandler)(void);
-# 439 "./tmr1.h"
+# 261 "./tmr1.h"
 void TMR1_DefaultInterruptHandler(void);
 # 58 "./mcc.h" 2
 
@@ -11625,7 +11625,7 @@ void FR_Timer_IncMillis(void);
 # 99 "./FR_Timer.h"
 void FR_Timer_IncMicros(void);
 # 12 "JSN_Sensor.c" 2
-# 23 "JSN_Sensor.c"
+# 24 "JSN_Sensor.c"
 static JSN_t *lastTrig;
 static unsigned long micros;
 static JSN_t Sens1, Sens2, Sens3;
@@ -11639,7 +11639,7 @@ void JSN_Library_Init(void) {
 
     TMR1_Initialize();
     CCP1_Initialize();
-    JSN_Sensor_Init(&Sens1, C4, C5);
+    JSN_Sensor_Init(&Sens1, C6, C5);
     return;
 }
 
@@ -11716,7 +11716,12 @@ void JSN_Sensor_Trig(JSN_t *Sensor) {
 
 
 unsigned int JSN_Sensor_GetDistance(JSN_t *Sensor) {
-    Sensor->distance = (Sensor->echoHighTime*343)/(1000<<1);
+
+
+
+
+    Sensor->distance = (unsigned int)(((uint32_t)Sensor->echoHighTime *
+                                    343) / (1000 << 1));
     return Sensor->distance;
 }
 
@@ -11725,7 +11730,7 @@ unsigned int JSN_Sensor_GetDistance(JSN_t *Sensor) {
 JSN_t* JSN_GetLastTrig(void) {
     return lastTrig;
 }
-# 130 "JSN_Sensor.c"
+# 139 "JSN_Sensor.c"
 int main(void) {
 
     PIC16_Init();
@@ -11739,18 +11744,28 @@ int main(void) {
     WritePin(C0, 0);
 
     JSN_Sensor_Trig(&Sens1);
+
     while(1) {
         currMilli = FR_Timer_GetMillis();
 
 
-        if((currMilli - prevMilli) >= 500) {
+        if((currMilli - prevMilli) >= 50) {
 
-            if(JSN_Sensor_GetDistance(&Sens1) > 300) {
+
+            if(JSN_Sensor_GetDistance(&Sens1) < 500) {
                 WritePin(C0, 1);
+            }
+            else if (Sens1.distance > 500) {
+                WritePin(C0, 0);
             }
 
 
+            printf("Distance = %u \n", JSN_Sensor_GetDistance(&Sens1));
+
+
             JSN_Sensor_Trig(&Sens1);
+
+
             prevMilli = currMilli;
         }
     }

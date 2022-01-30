@@ -12,6 +12,7 @@
 #include "FR_Timer.h"
 #include "tmr1.h"
 #include "ccp1.h"
+#include <stdio.h>
 
 
 #define JSN_SENSOR_TEST
@@ -33,7 +34,7 @@ void JSN_Library_Init(void) {
     // Initialize TMR1 & CCP1 peripherals
     TMR1_Initialize();
     CCP1_Initialize();
-    JSN_Sensor_Init(&Sens1, C4, C5);
+    JSN_Sensor_Init(&Sens1, C6, C5);
     return;
 }
 
@@ -110,7 +111,12 @@ void JSN_Sensor_Trig(JSN_t *Sensor) {
 //------------------------------------------------------------------------------
 
 unsigned int JSN_Sensor_GetDistance(JSN_t *Sensor) {
-    Sensor->distance = (Sensor->echoHighTime*US_WAVE_SPEED)/(MICROS_PER_MILLI<<1);
+    /*
+     * This type-casting looks really stupid, but it's 100% necessary,
+     * so DON'T TOUCH IT!! (echoHighTime needs to be cast as a 32-bit variable)
+     */
+    Sensor->distance = (unsigned int)(((uint32_t)Sensor->echoHighTime * 
+                                    US_WAVE_SPEED) / (MICROS_PER_MILLI << 1));
     return Sensor->distance;
 }
 
@@ -127,6 +133,9 @@ JSN_t* JSN_GetLastTrig(void) {
 
 #ifdef JSN_SENSOR_TEST
 
+#define SAMPLE_PERIOD       50  // Sensor reading occus every [x]ms
+#define MIN_DIST_LED        500 // Turn LED on if object within [x]mm of sensor
+
 int main(void) {
     // Initialize required libraries
     PIC16_Init();
@@ -140,18 +149,28 @@ int main(void) {
     WritePin(C0, LOW);
     
     JSN_Sensor_Trig(&Sens1);
+
     while(1) {
         currMilli = FR_Timer_GetMillis();
         
-        // This block runs every 250ms
-        if((currMilli - prevMilli) >= 500) {
-            // flicker LED output if sensor measures < 300mm distance
-            if(JSN_Sensor_GetDistance(&Sens1) > 300) {
+        // This block runs every SAMPLE_PERIOD milliseconds
+        if((currMilli - prevMilli) >= SAMPLE_PERIOD) {
+            
+            // Turn on LED if sensor sees object within MIN_DIST_LED millimeters
+            if(JSN_Sensor_GetDistance(&Sens1) < MIN_DIST_LED) {
                 WritePin(C0, HIGH);
             }
+            else if (Sens1.distance > MIN_DIST_LED) {
+                WritePin(C0, LOW);
+            }
             
-            // send new TRIG signal
+            // Print distance measured by sensor (Serial TX pin = [RC4])
+            printf("Distance = %u \n", JSN_Sensor_GetDistance(&Sens1));
+            
+            // send new TRIG signal*/
             JSN_Sensor_Trig(&Sens1);
+            
+            // Update prevMilli to ensure SAMPLE_PERIOD remains constant
             prevMilli = currMilli;
         }        
     }

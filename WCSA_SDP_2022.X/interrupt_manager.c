@@ -1,4 +1,4 @@
-
+#include "PIC16Xpress_DevBoard.h"
 #include "interrupt_manager.h"
 #include "mcc.h"
 
@@ -26,16 +26,24 @@ void __interrupt() INTERRUPT_InterruptManager (void)
         else if(PIE1bits.TMR1IE == 1 && PIR1bits.TMR1IF == 1)
         {
             TMR1_ISR();
+        }
+        else if(PIE1bits.RCIE == 1 && PIR1bits.RCIF == 1)
+        {
+            EUSART_RxDefaultInterruptHandler();
         } 
-        else
+        else if(PIE1bits.TXIE == 1 && PIR1bits.TXIF == 1)
+        {
+            EUSART_TxDefaultInterruptHandler();
+        } 
+        /*else
         {
             //Unhandled Interrupt
-        }
+        }*/
     }      
-    else
+    /*else
     {
         //Unhandled Interrupt
-    }
+    }*/
 }
 /**
  End of File

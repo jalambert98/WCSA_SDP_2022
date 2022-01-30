@@ -956,6 +956,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "60
 [; ;PIC16Xpress_DevBoard.c: 60:     SYSTEM_Initialize();
 [e ( _SYSTEM_Initialize ..  ]
+"61
+[; ;PIC16Xpress_DevBoard.c: 61:     INTCONbits.PEIE = 1;
+[e = . . _INTCONbits 0 2 -> -> 1 `i `uc ]
 "62
 [; ;PIC16Xpress_DevBoard.c: 62:     INTCONbits.GIE = 1;
 [e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]

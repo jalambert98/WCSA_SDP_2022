@@ -1,70 +1,10 @@
-/**
-  TMR1 Generated Driver API Header File
-
-  @Company
-    Microchip Technology Inc.
-
-  @File Name
-    tmr1.h
-
-  @Summary
-    This is the generated header file for the TMR1 driver using PIC10 / PIC12 / PIC16 / PIC18 MCUs
-
-  @Description
-    This header file provides APIs for driver for TMR1.
-    Generation Information :
-        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.81.7
-        Device            :  PIC16F18345
-        Driver Version    :  2.11
-    The generated drivers are tested against the following:
-        Compiler          :  XC8 2.31 and above
-        MPLAB 	          :  MPLAB X 5.45
-*/
-
-/*
-    (c) 2018 Microchip Technology Inc. and its subsidiaries. 
-    
-    Subject to your compliance with these terms, you may use Microchip software and any 
-    derivatives exclusively with Microchip products. It is your responsibility to comply with third party 
-    license terms applicable to your use of third party software (including open source software) that 
-    may accompany Microchip software.
-    
-    THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER 
-    EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY 
-    IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS 
-    FOR A PARTICULAR PURPOSE.
-    
-    IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE, 
-    INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND 
-    WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP 
-    HAS BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO 
-    THE FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL 
-    CLAIMS IN ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT 
-    OF FEES, IF ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS 
-    SOFTWARE.
-*/
-
 #ifndef TMR1_H
 #define TMR1_H
-
-/**
-  Section: Included Files
-*/
 
 #include <stdbool.h>
 #include <stdint.h>
 
-#ifdef __cplusplus  // Provide C++ Compatibility
-
-    extern "C" {
-
-#endif
-
 #define TMR1_INTERRUPT_TICKER_FACTOR    1
-
-/**
-  Section: TMR1 APIs
-*/
 
 /**
   @Summary
@@ -83,23 +23,10 @@
 
   @Returns
     None
-
-  @Comment
-    
-
-  @Example
-    <code>
-    main()
-    {
-        // Initialize TMR1 module
-        TMR1_Initialize();
-
-        // Do something else...
-    }
-    </code>
 */
 void TMR1_Initialize(void);
 
+//------------------------------------------------------------------------------
 /**
   @Summary
     This function starts the TMR1.
@@ -116,19 +43,10 @@ void TMR1_Initialize(void);
 
   @Returns
     None
-
-  @Example
-    <code>
-    // Initialize TMR1 module
-
-    // Start TMR1
-    TMR1_StartTimer();
-
-    // Do something else...
-    </code>
 */
 void TMR1_StartTimer(void);
 
+//------------------------------------------------------------------------------
 /**
   @Summary
     This function stops the TMR1.
@@ -145,22 +63,10 @@ void TMR1_StartTimer(void);
 
   @Returns
     None
-
-  @Example
-    <code>
-    // Initialize TMR1 module
-
-    // Start TMR1
-    TMR1_StartTimer();
-
-    // Do something else...
-
-    // Stop TMR1;
-    TMR1_StopTimer();
-    </code>
 */
 void TMR1_StopTimer(void);
 
+//------------------------------------------------------------------------------
 /**
   @Summary
     Reads the TMR1 register.
@@ -176,26 +82,10 @@ void TMR1_StopTimer(void);
 
   @Returns
     This function returns the current value of TMR1 register.
-
-  @Example
-    <code>
-    // Initialize TMR1 module
-
-    // Start TMR1
-    TMR1_StartTimer();
-
-    // Read the current value of TMR1
-    if(0 == TMR1_ReadTimer())
-    {
-        // Do something else...
-
-        // Reload the TMR value
-        TMR1_Reload();
-    }
-    </code>
 */
 uint16_t TMR1_ReadTimer(void);
 
+//------------------------------------------------------------------------------
 /**
   @Summary
     Writes the TMR1 register.
@@ -212,29 +102,10 @@ uint16_t TMR1_ReadTimer(void);
 
   @Returns
     None
-
-  @Example
-    <code>
-    #define PERIOD 0x80
-    #define ZERO   0x00
-
-    while(1)
-    {
-        // Read the TMR1 register
-        if(ZERO == TMR1_ReadTimer())
-        {
-            // Do something else...
-
-            // Write the TMR1 register
-            TMR1_WriteTimer(PERIOD);
-        }
-
-        // Do something else...
-    }
-    </code>
 */
 void TMR1_WriteTimer(uint16_t timerVal);
 
+//------------------------------------------------------------------------------
 /**
   @Summary
     Reload the TMR1 register.
@@ -251,26 +122,10 @@ void TMR1_WriteTimer(uint16_t timerVal);
 
   @Returns
     None
-
-  @Example
-    <code>
-    while(1)
-    {
-        if(TMR1IF)
-        {
-            // Do something else...
-
-            // clear the TMR1 interrupt flag
-            TMR1IF = 0;
-
-            // Reload the initial value of TMR1
-            TMR1_Reload();
-        }
-    }
-    </code>
 */
 void TMR1_Reload(void);
 
+//------------------------------------------------------------------------------
 /**
   @Summary
     Starts the single pulse acquisition in TMR1 gate operation.
@@ -287,29 +142,10 @@ void TMR1_Reload(void);
 
   @Returns
     None
-
-  @Example
-    <code>
-    uint16_t xVal;
-    uint16_t yVal;
-
-    // enable TMR1 singlepulse mode
-    TMR1_StartSinglePulseAcquistion();
-
-    // check TMR1 gate status
-    if(TMR1_CheckGateValueStatus()== 0)
-        xVal = TMR1_ReadTimer();
-
-    // wait untill gate interrupt occured
-    while(TMR1GIF == 0)
-    {
-    }
-
-    yVal = TMR1_ReadTimer();
-    </code>
 */
 void TMR1_StartSinglePulseAcquisition(void);
 
+//------------------------------------------------------------------------------
 /**
   @Summary
     Check the current state of Timer1 gate.
@@ -326,29 +162,10 @@ void TMR1_StartSinglePulseAcquisition(void);
 
   @Returns
     None
-
-  @Example
-    <code>
-    uint16_t xVal;
-    uint16_t yVal;
-
-    // enable TMR1 singlepulse mode
-    TMR1_StartSinglePulseAcquistion();
-
-    // check TMR1 gate status
-    if(TMR1_CheckGateValueStatus()== 0)
-        xVal = TMR1_ReadTimer();
-
-    // wait untill gate interrupt occured
-    while(TMR1IF == 0)
-    {
-    }
-
-    yVal = TMR1_ReadTimer();
-    </code>
 */
 uint8_t TMR1_CheckGateValueStatus(void);
 
+//------------------------------------------------------------------------------
 /**
   @Summary
     Timer Interrupt Service Routine
@@ -366,6 +183,8 @@ uint8_t TMR1_CheckGateValueStatus(void);
     None
 */
 void TMR1_ISR(void);
+
+//------------------------------------------------------------------------------
 /**
   @Summary
     CallBack function.
@@ -384,6 +203,7 @@ void TMR1_ISR(void);
 */
 void TMR1_CallBack(void);
 
+//------------------------------------------------------------------------------
 /**
   @Summary
     Set Timer Interrupt Handler
@@ -402,6 +222,7 @@ void TMR1_CallBack(void);
 */
  void TMR1_SetInterruptHandler(void (* InterruptHandler)(void));
 
+ //------------------------------------------------------------------------------
 /**
   @Summary
     Timer Interrupt Handler
@@ -420,6 +241,7 @@ void TMR1_CallBack(void);
 */
 extern void (*TMR1_InterruptHandler)(void);
 
+//------------------------------------------------------------------------------
 /**
   @Summary
     Default Timer Interrupt Handler
@@ -438,13 +260,11 @@ extern void (*TMR1_InterruptHandler)(void);
 */
 void TMR1_DefaultInterruptHandler(void);
 
-#ifdef __cplusplus  // Provide C++ Compatibility
-
-    }
-
-#endif
+//------------------------------------------------------------------------------
 
 #endif // TMR1_H
+
+//------------------------------------------------------------------------------
 /**
  End of File
 */

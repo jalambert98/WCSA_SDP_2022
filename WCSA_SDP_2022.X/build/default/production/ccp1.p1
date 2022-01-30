@@ -1,7 +1,7 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [v F7157 `(v ~T0 @X0 0 tf1`us ]
 "32 ccp1.c
-[; ;ccp1.c: 32:             JSN_GetLastTrig()->echoHighTime = ((ticksDown - ticksUp) >> 1);
+[; ;ccp1.c: 32:             JSN_GetLastTrig()->echoHighTime = ((ticksDown - ticksUp)>>1);
 [c E7110 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 .. ]
 [n E7110 . A5 A4 A3 C5 C4 C3 C6 C7 B7 A0 A1 A2 C0 C1 C2 B4 B5 B6  ]
 "28 ./JSN_Sensor.h
@@ -818,7 +818,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;ccp1.c: 31:             ticksDown = capturedValue;
 [e = _ticksDown _capturedValue ]
 "32
-[; ;ccp1.c: 32:             JSN_GetLastTrig()->echoHighTime = ((ticksDown - ticksUp) >> 1);
+[; ;ccp1.c: 32:             JSN_GetLastTrig()->echoHighTime = ((ticksDown - ticksUp)>>1);
 [e = . *U ( _JSN_GetLastTrig ..  0 >> - -> _ticksDown `ui -> _ticksUp `ui -> 1 `i ]
 "33
 [; ;ccp1.c: 33:             break;
