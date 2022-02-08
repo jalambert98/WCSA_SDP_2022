@@ -16,11 +16,16 @@
 #include <stdbool.h>
 #include <conio.h>
 #include "interrupt_manager.h"
+#include "tmr3.h"
+#include "tmr1.h"
+#include "tmr2.h"
+#include "pwm5.h"
+#include "tmr0.h"
+#include "ccp4.h"
 #include "ccp2.h"
 #include "ccp3.h"
-#include "tmr1.h"
 #include "ccp1.h"
-#include "tmr0.h"
+#include "eusart.h"
 
 //------------------------------------------------------------------------------
 /**

@@ -1,31 +1,43 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"71 ./mcc.h
-[; ;./mcc.h: 71: void PMD_Initialize(void);
+"76 ./mcc.h
+[; ;./mcc.h: 76: void PMD_Initialize(void);
 [v _PMD_Initialize `(v ~T0 @X0 0 ef ]
 "67 ./pin_manager.h
 [; ;./pin_manager.h: 67: void PIN_MANAGER_Initialize (void);
 [v _PIN_MANAGER_Initialize `(v ~T0 @X0 0 ef ]
-"47 ./mcc.h
-[; ;./mcc.h: 47: void OSCILLATOR_Initialize(void);
+"52 ./mcc.h
+[; ;./mcc.h: 52: void OSCILLATOR_Initialize(void);
 [v _OSCILLATOR_Initialize `(v ~T0 @X0 0 ef ]
-"59
-[; ;./mcc.h: 59: void WDT_Initialize(void);
+"64
+[; ;./mcc.h: 64: void WDT_Initialize(void);
 [v _WDT_Initialize `(v ~T0 @X0 0 ef ]
-"64 ./ccp2.h
-[; ;./ccp2.h: 64: void CCP2_Initialize(void);
-[v _CCP2_Initialize `(v ~T0 @X0 0 ef ]
 "64 ./ccp3.h
 [; ;./ccp3.h: 64: void CCP3_Initialize(void);
 [v _CCP3_Initialize `(v ~T0 @X0 0 ef ]
 "64 ./ccp1.h
 [; ;./ccp1.h: 64: void CCP1_Initialize(void);
 [v _CCP1_Initialize `(v ~T0 @X0 0 ef ]
-"37 ./tmr1.h
-[; ;./tmr1.h: 37: void TMR1_Initialize(void);
-[v _TMR1_Initialize `(v ~T0 @X0 0 ef ]
+"30 ./tmr2.h
+[; ;./tmr2.h: 30: void TMR2_Initialize(void);
+[v _TMR2_Initialize `(v ~T0 @X0 0 ef ]
 "37 ./tmr0.h
 [; ;./tmr0.h: 37: void TMR0_Initialize(void);
 [v _TMR0_Initialize `(v ~T0 @X0 0 ef ]
+"64 ./ccp2.h
+[; ;./ccp2.h: 64: void CCP2_Initialize(void);
+[v _CCP2_Initialize `(v ~T0 @X0 0 ef ]
+"54 ./ccp4.h
+[; ;./ccp4.h: 54: void CCP4_Initialize(void);
+[v _CCP4_Initialize `(v ~T0 @X0 0 ef ]
+"31 ./tmr3.h
+[; ;./tmr3.h: 31: void TMR3_Initialize(void);
+[v _TMR3_Initialize `(v ~T0 @X0 0 ef ]
+"33 ./pwm5.h
+[; ;./pwm5.h: 33: void PWM5_Initialize(void);
+[v _PWM5_Initialize `(v ~T0 @X0 0 ef ]
+"37 ./tmr1.h
+[; ;./tmr1.h: 37: void TMR1_Initialize(void);
+[v _TMR1_Initialize `(v ~T0 @X0 0 ef ]
 "61 ./eusart.h
 [; ;./eusart.h: 61: void EUSART_Initialize(void);
 [v _EUSART_Initialize `(v ~T0 @X0 0 ef ]
@@ -1148,111 +1160,123 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;mcc.c: 20:     WDT_Initialize();
 [e ( _WDT_Initialize ..  ]
 "21
-[; ;mcc.c: 21:     CCP2_Initialize();
-[e ( _CCP2_Initialize ..  ]
-"22
-[; ;mcc.c: 22:     CCP3_Initialize();
+[; ;mcc.c: 21:     CCP3_Initialize();
 [e ( _CCP3_Initialize ..  ]
-"23
-[; ;mcc.c: 23:     CCP1_Initialize();
+"22
+[; ;mcc.c: 22:     CCP1_Initialize();
 [e ( _CCP1_Initialize ..  ]
+"23
+[; ;mcc.c: 23:     TMR2_Initialize();
+[e ( _TMR2_Initialize ..  ]
 "24
-[; ;mcc.c: 24:     TMR1_Initialize();
-[e ( _TMR1_Initialize ..  ]
-"25
-[; ;mcc.c: 25:     TMR0_Initialize();
+[; ;mcc.c: 24:     TMR0_Initialize();
 [e ( _TMR0_Initialize ..  ]
+"25
+[; ;mcc.c: 25:     CCP2_Initialize();
+[e ( _CCP2_Initialize ..  ]
 "26
-[; ;mcc.c: 26:     EUSART_Initialize();
-[e ( _EUSART_Initialize ..  ]
+[; ;mcc.c: 26:     CCP4_Initialize();
+[e ( _CCP4_Initialize ..  ]
 "27
-[; ;mcc.c: 27: }
-[e :UE 976 ]
-}
+[; ;mcc.c: 27:     TMR3_Initialize();
+[e ( _TMR3_Initialize ..  ]
+"28
+[; ;mcc.c: 28:     PWM5_Initialize();
+[e ( _PWM5_Initialize ..  ]
+"29
+[; ;mcc.c: 29:     TMR1_Initialize();
+[e ( _TMR1_Initialize ..  ]
+"30
+[; ;mcc.c: 30:     EUSART_Initialize();
+[e ( _EUSART_Initialize ..  ]
 "31
-[; ;mcc.c: 31: void OSCILLATOR_Initialize(void)
+[; ;mcc.c: 31: }
+[e :UE 979 ]
+}
+"35
+[; ;mcc.c: 35: void OSCILLATOR_Initialize(void)
 [v _OSCILLATOR_Initialize `(v ~T0 @X0 1 ef ]
-"32
-[; ;mcc.c: 32: {
+"36
+[; ;mcc.c: 36: {
 {
 [e :U _OSCILLATOR_Initialize ]
 [f ]
-"34
-[; ;mcc.c: 34:     OSCCON1 = 0x00;
-[e = _OSCCON1 -> -> 0 `i `uc ]
-"36
-[; ;mcc.c: 36:     OSCCON3 = 0x00;
-[e = _OSCCON3 -> -> 0 `i `uc ]
 "38
-[; ;mcc.c: 38:     OSCEN = 0x00;
-[e = _OSCEN -> -> 0 `i `uc ]
+[; ;mcc.c: 38:     OSCCON1 = 0x00;
+[e = _OSCCON1 -> -> 0 `i `uc ]
 "40
-[; ;mcc.c: 40:     OSCFRQ = 0x04;
-[e = _OSCFRQ -> -> 4 `i `uc ]
+[; ;mcc.c: 40:     OSCCON3 = 0x00;
+[e = _OSCCON3 -> -> 0 `i `uc ]
 "42
-[; ;mcc.c: 42:     OSCTUNE = 0x00;
-[e = _OSCTUNE -> -> 0 `i `uc ]
+[; ;mcc.c: 42:     OSCEN = 0x00;
+[e = _OSCEN -> -> 0 `i `uc ]
 "44
-[; ;mcc.c: 44:     while(PLLR == 0)
-[e $U 978  ]
-[e :U 979 ]
-"45
-[; ;mcc.c: 45:     {
-{
+[; ;mcc.c: 44:     OSCFRQ = 0x04;
+[e = _OSCFRQ -> -> 4 `i `uc ]
 "46
-[; ;mcc.c: 46:     }
+[; ;mcc.c: 46:     OSCTUNE = 0x00;
+[e = _OSCTUNE -> -> 0 `i `uc ]
+"48
+[; ;mcc.c: 48:     while(PLLR == 0)
+[e $U 981  ]
+[e :U 982 ]
+"49
+[; ;mcc.c: 49:     {
+{
+"50
+[; ;mcc.c: 50:     }
 }
-[e :U 978 ]
-"44
-[; ;mcc.c: 44:     while(PLLR == 0)
-[e $ == -> _PLLR `i -> 0 `i 979  ]
-[e :U 980 ]
-"47
-[; ;mcc.c: 47: }
-[e :UE 977 ]
-}
+[e :U 981 ]
+"48
+[; ;mcc.c: 48:     while(PLLR == 0)
+[e $ == -> _PLLR `i -> 0 `i 982  ]
+[e :U 983 ]
 "51
-[; ;mcc.c: 51: void WDT_Initialize(void)
+[; ;mcc.c: 51: }
+[e :UE 980 ]
+}
+"55
+[; ;mcc.c: 55: void WDT_Initialize(void)
 [v _WDT_Initialize `(v ~T0 @X0 1 ef ]
-"52
-[; ;mcc.c: 52: {
+"56
+[; ;mcc.c: 56: {
 {
 [e :U _WDT_Initialize ]
 [f ]
-"54
-[; ;mcc.c: 54:     WDTCON = 0x16;
+"58
+[; ;mcc.c: 58:     WDTCON = 0x16;
 [e = _WDTCON -> -> 22 `i `uc ]
-"55
-[; ;mcc.c: 55: }
-[e :UE 981 ]
-}
 "59
-[; ;mcc.c: 59: void PMD_Initialize(void)
+[; ;mcc.c: 59: }
+[e :UE 984 ]
+}
+"63
+[; ;mcc.c: 63: void PMD_Initialize(void)
 [v _PMD_Initialize `(v ~T0 @X0 1 ef ]
-"60
-[; ;mcc.c: 60: {
+"64
+[; ;mcc.c: 64: {
 {
 [e :U _PMD_Initialize ]
 [f ]
-"62
-[; ;mcc.c: 62:     PMD0 = 0x00;
-[e = _PMD0 -> -> 0 `i `uc ]
-"64
-[; ;mcc.c: 64:     PMD1 = 0x7C;
-[e = _PMD1 -> -> 124 `i `uc ]
 "66
-[; ;mcc.c: 66:     PMD2 = 0x66;
-[e = _PMD2 -> -> 102 `i `uc ]
+[; ;mcc.c: 66:     PMD0 = 0x00;
+[e = _PMD0 -> -> 0 `i `uc ]
 "68
-[; ;mcc.c: 68:     PMD3 = 0xC8;
-[e = _PMD3 -> -> 200 `i `uc ]
+[; ;mcc.c: 68:     PMD1 = 0x7C;
+[e = _PMD1 -> -> 124 `i `uc ]
 "70
-[; ;mcc.c: 70:     PMD4 = 0x00;
-[e = _PMD4 -> -> 0 `i `uc ]
+[; ;mcc.c: 70:     PMD2 = 0x66;
+[e = _PMD2 -> -> 102 `i `uc ]
 "72
-[; ;mcc.c: 72:     PMD5 = 0x1F;
+[; ;mcc.c: 72:     PMD3 = 0xC8;
+[e = _PMD3 -> -> 200 `i `uc ]
+"74
+[; ;mcc.c: 74:     PMD4 = 0x00;
+[e = _PMD4 -> -> 0 `i `uc ]
+"76
+[; ;mcc.c: 76:     PMD5 = 0x1F;
 [e = _PMD5 -> -> 31 `i `uc ]
-"73
-[; ;mcc.c: 73: }
-[e :UE 982 ]
+"77
+[; ;mcc.c: 77: }
+[e :UE 985 ]
 }

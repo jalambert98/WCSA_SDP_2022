@@ -11371,49 +11371,32 @@ char *tempnam(const char *, const char *);
 # 1 "./interrupt_manager.h" 1
 # 18 "./mcc.h" 2
 
-# 1 "./ccp2.h" 1
-# 29 "./ccp2.h"
-typedef union CCPR2Reg_tag
-{
-   struct
-   {
-      uint8_t ccpr2l;
-      uint8_t ccpr2h;
-   };
-   struct
-   {
-      uint16_t ccpr2_16Bit;
-   };
-} CCP2_PERIOD_REG_T ;
-# 64 "./ccp2.h"
-void CCP2_Initialize(void);
-# 81 "./ccp2.h"
-void CCP2_CaptureISR(void);
-# 101 "./ccp2.h"
- void CCP2_SetCallBack(void (*customCallBack)(uint16_t));
+# 1 "./tmr3.h" 1
+# 31 "./tmr3.h"
+void TMR3_Initialize(void);
+# 47 "./tmr3.h"
+void TMR3_StartTimer(void);
+# 63 "./tmr3.h"
+void TMR3_StopTimer(void);
+# 78 "./tmr3.h"
+uint16_t TMR3_ReadTimer(void);
+# 94 "./tmr3.h"
+void TMR3_WriteTimer(uint16_t timerVal);
+# 110 "./tmr3.h"
+void TMR3_Reload(void);
+# 126 "./tmr3.h"
+void TMR3_StartSinglePulseAcquisition(void);
+# 142 "./tmr3.h"
+uint8_t TMR3_CheckGateValueStatus(void);
+# 157 "./tmr3.h"
+void TMR3_ISR(void);
+# 172 "./tmr3.h"
+void TMR3_SetInterruptHandler(void (* InterruptHandler)(void));
+# 187 "./tmr3.h"
+extern void (*TMR3_InterruptHandler)(void);
+# 202 "./tmr3.h"
+void TMR3_DefaultInterruptHandler(void);
 # 19 "./mcc.h" 2
-
-# 1 "./ccp3.h" 1
-# 29 "./ccp3.h"
-typedef union CCPR3Reg_tag
-{
-   struct
-   {
-      uint8_t ccpr3l;
-      uint8_t ccpr3h;
-   };
-   struct
-   {
-      uint16_t ccpr3_16Bit;
-   };
-} CCP3_PERIOD_REG_T ;
-# 64 "./ccp3.h"
-void CCP3_Initialize(void);
-# 81 "./ccp3.h"
-void CCP3_CaptureISR(void);
-# 101 "./ccp3.h"
- void CCP3_SetCallBack(void (*customCallBack)(uint16_t));
-# 20 "./mcc.h" 2
 
 # 1 "./tmr1.h" 1
 # 37 "./tmr1.h"
@@ -11442,28 +11425,30 @@ void TMR1_CallBack(void);
 extern void (*TMR1_InterruptHandler)(void);
 # 271 "./tmr1.h"
 void TMR1_DefaultInterruptHandler(void);
+# 20 "./mcc.h" 2
+
+# 1 "./tmr2.h" 1
+# 30 "./tmr2.h"
+void TMR2_Initialize(void);
+# 46 "./tmr2.h"
+void TMR2_StartTimer(void);
+# 62 "./tmr2.h"
+void TMR2_StopTimer(void);
+# 77 "./tmr2.h"
+uint8_t TMR2_ReadTimer(void);
+# 93 "./tmr2.h"
+void TMR2_WriteTimer(uint8_t timerVal);
+# 109 "./tmr2.h"
+void TMR2_LoadPeriodRegister(uint8_t periodVal);
+# 126 "./tmr2.h"
+_Bool TMR2_HasOverflowOccured(void);
 # 21 "./mcc.h" 2
 
-# 1 "./ccp1.h" 1
-# 29 "./ccp1.h"
-typedef union CCPR1Reg_tag
-{
-   struct
-   {
-      uint8_t ccpr1l;
-      uint8_t ccpr1h;
-   };
-   struct
-   {
-      uint16_t ccpr1_16Bit;
-   };
-} CCP1_PERIOD_REG_T ;
-# 64 "./ccp1.h"
-void CCP1_Initialize(void);
-# 81 "./ccp1.h"
-void CCP1_CaptureISR(void);
-# 101 "./ccp1.h"
- void CCP1_SetCallBack(void (*customCallBack)(uint16_t));
+# 1 "./pwm5.h" 1
+# 33 "./pwm5.h"
+void PWM5_Initialize(void);
+# 49 "./pwm5.h"
+void PWM5_LoadDutyValue(uint16_t dutyValue);
 # 22 "./mcc.h" 2
 
 # 1 "./tmr0.h" 1
@@ -11490,22 +11475,96 @@ extern void (*TMR0_InterruptHandler)(void);
 # 231 "./tmr0.h"
 void TMR0_DefaultInterruptHandler(void);
 # 23 "./mcc.h" 2
-# 35 "./mcc.h"
-void SYSTEM_Initialize(void);
-# 47 "./mcc.h"
-void OSCILLATOR_Initialize(void);
-# 59 "./mcc.h"
-void WDT_Initialize(void);
-# 71 "./mcc.h"
-void PMD_Initialize(void);
-# 10 "./PIC16Xpress_DevBoard.h" 2
 
+# 1 "./ccp4.h" 1
+# 26 "./ccp4.h"
+typedef union CCPR4Reg_tag
+{
+   struct
+   {
+      uint8_t ccpr4l;
+      uint8_t ccpr4h;
+   };
+   struct
+   {
+      uint16_t ccpr4_16Bit;
+   };
+} CCP4_PERIOD_REG_T ;
+# 54 "./ccp4.h"
+void CCP4_Initialize(void);
+# 70 "./ccp4.h"
+void CCP4_SetCompareCount(uint16_t compareCount);
+# 87 "./ccp4.h"
+_Bool CCP4_OutputStatusGet(void);
+# 101 "./ccp4.h"
+void CCP4_CompareISR(void);
+# 24 "./mcc.h" 2
 
+# 1 "./ccp2.h" 1
+# 29 "./ccp2.h"
+typedef union CCPR2Reg_tag
+{
+   struct
+   {
+      uint8_t ccpr2l;
+      uint8_t ccpr2h;
+   };
+   struct
+   {
+      uint16_t ccpr2_16Bit;
+   };
+} CCP2_PERIOD_REG_T ;
+# 64 "./ccp2.h"
+void CCP2_Initialize(void);
+# 81 "./ccp2.h"
+void CCP2_CaptureISR(void);
+# 101 "./ccp2.h"
+ void CCP2_SetCallBack(void (*customCallBack)(uint16_t));
+# 25 "./mcc.h" 2
 
+# 1 "./ccp3.h" 1
+# 29 "./ccp3.h"
+typedef union CCPR3Reg_tag
+{
+   struct
+   {
+      uint8_t ccpr3l;
+      uint8_t ccpr3h;
+   };
+   struct
+   {
+      uint16_t ccpr3_16Bit;
+   };
+} CCP3_PERIOD_REG_T ;
+# 64 "./ccp3.h"
+void CCP3_Initialize(void);
+# 81 "./ccp3.h"
+void CCP3_CaptureISR(void);
+# 101 "./ccp3.h"
+ void CCP3_SetCallBack(void (*customCallBack)(uint16_t));
+# 26 "./mcc.h" 2
 
-
-
-
+# 1 "./ccp1.h" 1
+# 29 "./ccp1.h"
+typedef union CCPR1Reg_tag
+{
+   struct
+   {
+      uint8_t ccpr1l;
+      uint8_t ccpr1h;
+   };
+   struct
+   {
+      uint16_t ccpr1_16Bit;
+   };
+} CCP1_PERIOD_REG_T ;
+# 64 "./ccp1.h"
+void CCP1_Initialize(void);
+# 81 "./ccp1.h"
+void CCP1_CaptureISR(void);
+# 101 "./ccp1.h"
+ void CCP1_SetCallBack(void (*customCallBack)(uint16_t));
+# 27 "./mcc.h" 2
 
 # 1 "./eusart.h" 1
 # 22 "./eusart.h"
@@ -11559,7 +11618,16 @@ void EUSART_SetErrorHandler(void (* interruptHandler)(void));
 void EUSART_SetTxInterruptHandler(void (* interruptHandler)(void));
 # 363 "./eusart.h"
 void EUSART_SetRxInterruptHandler(void (* interruptHandler)(void));
-# 18 "./PIC16Xpress_DevBoard.h" 2
+# 28 "./mcc.h" 2
+# 40 "./mcc.h"
+void SYSTEM_Initialize(void);
+# 52 "./mcc.h"
+void OSCILLATOR_Initialize(void);
+# 64 "./mcc.h"
+void WDT_Initialize(void);
+# 76 "./mcc.h"
+void PMD_Initialize(void);
+# 10 "./PIC16Xpress_DevBoard.h" 2
 # 96 "./PIC16Xpress_DevBoard.h"
 typedef enum {
     A5, A4, A3,
@@ -11634,6 +11702,10 @@ static JSN_t Sens1, Sens2, Sens3;
 uint8_t JSN_Sensor_Init(JSN_t *Sensor, PinName_t trigPin, PinName_t echoPin) {
 
 
+
+
+
+
     switch (echoPin) {
         case A2:
         case A4:
@@ -11642,6 +11714,7 @@ uint8_t JSN_Sensor_Init(JSN_t *Sensor, PinName_t trigPin, PinName_t echoPin) {
             SetPin(echoPin, 1);
             break;
         default:
+            printf("ERROR: Invalid echoPin (must be [A2, A4, C3, C5])");
             return 0xFF;
     }
 
@@ -11664,6 +11737,7 @@ uint8_t JSN_Sensor_Init(JSN_t *Sensor, PinName_t trigPin, PinName_t echoPin) {
             WritePin(trigPin, 0);
             break;
         default:
+            printf("ERROR: Invalid trigPin (must NOT be [A2, A3, A4, C3, C5])");
             return 0xFF;
     }
 
@@ -11677,9 +11751,6 @@ uint8_t JSN_Sensor_Init(JSN_t *Sensor, PinName_t trigPin, PinName_t echoPin) {
 
     return 0x00;
 }
-
-
-
 
 
 
@@ -11717,35 +11788,51 @@ unsigned int JSN_Sensor_GetDistance(JSN_t *Sensor) {
 JSN_t* JSN_GetLastTrig(void) {
     return lastTrig;
 }
-# 130 "JSN_Sensor.c"
+# 140 "JSN_Sensor.c"
 int main(void) {
 
     PIC16_Init();
-    JSN_Sensor_Init(&Sens1, C6, C5);
-    JSN_Sensor_Init(&Sens2, A1, C3);
 
 
-    unsigned long currMilli = 0;
-    unsigned long prevMilli = 0;
+
+
+
+    if(JSN_Sensor_Init(&Sens1, C6, C5) == 0xFF)
+        while(1);
+    if(JSN_Sensor_Init(&Sens2, A1, C3) == 0xFF)
+        while(1);
+
+
+    unsigned long currMilli = FRT_GetMillis();
+    unsigned long prevMilli = currMilli;
     uint8_t i = 1;
+
+
     SetPin(C0, 0);
     WritePin(C0, 0);
 
-    JSN_Sensor_Trig(&Sens1);
+
+
+
+
     JSN_Sensor_Trig(&Sens2);
 
     while (1) {
+
         currMilli = FRT_GetMillis();
 
 
         if ((currMilli - prevMilli) >= 50) {
+
+
+
+
             switch (i) {
                 case 1:
 
                     JSN_Sensor_Trig(&Sens1);
                     i = 2;
                     break;
-
                 case 2:
 
                     JSN_Sensor_Trig(&Sens2);

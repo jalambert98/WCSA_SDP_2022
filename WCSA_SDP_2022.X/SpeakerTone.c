@@ -1,6 +1,7 @@
 /* 
- * File:   SpeakerTone.c
- * Author: Jack
+ * File:    SpeakerTone.c
+ * Author:  Jack Lambert     <joalambe@ucsc.edu>
+ * Project: WCSA_SDP_2022
  *
  * Created on February 7, 2022, 9:30 PM
  */
@@ -12,7 +13,7 @@
 //-------------------------------- #DEFINES ------------------------------------
 //==============================================================================
 
-#define SPEAKERTONE_TEST
+// #define SPEAKERTONE_TEST
 
 //==============================================================================
 //---------------------------- STATIC VARIABLES --------------------------------

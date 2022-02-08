@@ -1,5 +1,5 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[v F7145 `(v ~T0 @X0 0 tf ]
+[v F7188 `(v ~T0 @X0 0 tf ]
 "1174 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
 [v _T0CON1 `Vuc ~T0 @X0 0 e@24 ]
 "955
@@ -51,8 +51,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "82
 [; ;./FRT.h: 82: void FRT_IncMicros(void);
 [v _FRT_IncMicros `(v ~T0 @X0 0 ef ]
-[v F7160 `(v ~T0 @X0 0 tf ]
-[v F7162 `(v ~T0 @X0 0 tf ]
+[v F7203 `(v ~T0 @X0 0 tf ]
+[v F7205 `(v ~T0 @X0 0 tf ]
 "55 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
 [; <" INDF0 equ 00h ;# ">
 "75
@@ -761,7 +761,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSH equ 0FEFh ;# ">
 "14 tmr0.c
 [; ;tmr0.c: 14: void (*TMR0_InterruptHandler)(void);
-[v _TMR0_InterruptHandler `*F7145 ~T0 @X0 1 e ]
+[v _TMR0_InterruptHandler `*F7188 ~T0 @X0 1 e ]
 "18
 [; ;tmr0.c: 18: void TMR0_Initialize(void)
 [v _TMR0_Initialize `(v ~T0 @X0 1 ef ]
@@ -793,7 +793,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _T0CON0 -> -> 128 `i `uc ]
 "42
 [; ;tmr0.c: 42: }
-[e :UE 976 ]
+[e :UE 979 ]
 }
 "46
 [; ;tmr0.c: 46: void TMR0_StartTimer(void)
@@ -808,7 +808,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _T0CON0bits 0 4 -> -> 1 `i `uc ]
 "50
 [; ;tmr0.c: 50: }
-[e :UE 977 ]
+[e :UE 980 ]
 }
 "54
 [; ;tmr0.c: 54: void TMR0_StopTimer(void)
@@ -823,7 +823,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _T0CON0bits 0 4 -> -> 0 `i `uc ]
 "58
 [; ;tmr0.c: 58: }
-[e :UE 978 ]
+[e :UE 981 ]
 }
 "62
 [; ;tmr0.c: 62: uint8_t TMR0_ReadTimer(void)
@@ -842,10 +842,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "69
 [; ;tmr0.c: 69:     return readVal;
 [e ) _readVal ]
-[e $UE 979  ]
+[e $UE 982  ]
 "70
 [; ;tmr0.c: 70: }
-[e :UE 979 ]
+[e :UE 982 ]
 }
 "74
 [; ;tmr0.c: 74: void TMR0_WriteTimer(uint8_t timerVal)
@@ -865,7 +865,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _TMR0L _timerVal ]
 "78
 [; ;tmr0.c: 78:  }
-[e :UE 980 ]
+[e :UE 983 ]
 }
 "82
 [; ;tmr0.c: 82: void TMR0_Reload(uint8_t periodVal)
@@ -885,7 +885,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _TMR0H _periodVal ]
 "86
 [; ;tmr0.c: 86: }
-[e :UE 981 ]
+[e :UE 984 ]
 }
 "90
 [; ;tmr0.c: 90: void TMR0_ISR(void)
@@ -897,8 +897,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "92
 [; ;tmr0.c: 92:     static volatile uint16_t CountCallBack = 0;
-[v F7157 `Vus ~T0 @X0 1 s CountCallBack ]
-[i F7157
+[v F7200 `Vus ~T0 @X0 1 s CountCallBack ]
+[i F7200
 -> -> 0 `i `us
 ]
 "95
@@ -906,7 +906,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _PIR0bits 0 3 -> -> 0 `i `uc ]
 "97
 [; ;tmr0.c: 97:     if (++CountCallBack >= 4)
-[e $ ! >= -> =+ F7157 -> -> 1 `i `Vus `ui -> -> 4 `i `ui 983  ]
+[e $ ! >= -> =+ F7200 -> -> 1 `i `Vus `ui -> -> 4 `i `ui 986  ]
 "98
 [; ;tmr0.c: 98:     {
 {
@@ -915,14 +915,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _TMR0_CallBack ..  ]
 "103
 [; ;tmr0.c: 103:         CountCallBack = 0;
-[e = F7157 -> -> 0 `i `us ]
+[e = F7200 -> -> 0 `i `us ]
 "104
 [; ;tmr0.c: 104:     }
 }
-[e :U 983 ]
+[e :U 986 ]
 "107
 [; ;tmr0.c: 107: }
-[e :UE 982 ]
+[e :UE 985 ]
 }
 "111
 [; ;tmr0.c: 111: void TMR0_CallBack(void)
@@ -940,21 +940,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _FRT_IncMicros ..  ]
 "115
 [; ;tmr0.c: 115: }
-[e :UE 984 ]
+[e :UE 987 ]
 }
 "119
 [; ;tmr0.c: 119: void TMR0_SetInterruptHandler(void (* InterruptHandler)(void)){
-[v _TMR0_SetInterruptHandler `(v ~T0 @X0 1 ef1`*F7160 ]
+[v _TMR0_SetInterruptHandler `(v ~T0 @X0 1 ef1`*F7203 ]
 {
 [e :U _TMR0_SetInterruptHandler ]
-[v _InterruptHandler `*F7162 ~T0 @X0 1 r1 ]
+[v _InterruptHandler `*F7205 ~T0 @X0 1 r1 ]
 [f ]
 "120
 [; ;tmr0.c: 120:     TMR0_InterruptHandler = InterruptHandler;
 [e = _TMR0_InterruptHandler _InterruptHandler ]
 "121
 [; ;tmr0.c: 121: }
-[e :UE 985 ]
+[e :UE 988 ]
 }
 "125
 [; ;tmr0.c: 125: void TMR0_DefaultInterruptHandler(void){
@@ -964,5 +964,5 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "128
 [; ;tmr0.c: 128: }
-[e :UE 986 ]
+[e :UE 989 ]
 }

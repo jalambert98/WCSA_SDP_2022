@@ -1,6 +1,7 @@
 /* 
- * File:   SpeakerTone.h
- * Author: Jack
+ * File:    SpeakerTone.h
+ * Author:  Jack Lambert     <joalambe@ucsc.edu>
+ * Project: WCSA_SDP_2022
  *
  * Created on February 7, 2022, 8:20 PM
  */

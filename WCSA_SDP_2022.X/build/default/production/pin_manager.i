@@ -11218,13 +11218,13 @@ void PIN_MANAGER_Initialize(void)
 
     TRISA = 0x37;
     TRISB = 0xF0;
-    TRISC = 0xFF;
+    TRISC = 0xEF;
 
 
 
 
     ANSELC = 0xD7;
-    ANSELB = 0xF0;
+    ANSELB = 0xD0;
     ANSELA = 0x33;
 
 
@@ -11254,6 +11254,7 @@ void PIN_MANAGER_Initialize(void)
     INLVLA = 0x3F;
     INLVLB = 0xF0;
     INLVLC = 0xFF;
+
 
     RXPPS = 0x0D;
     CCP2PPS = 0x13;

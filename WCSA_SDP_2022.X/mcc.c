@@ -18,11 +18,15 @@ void SYSTEM_Initialize(void)
     PIN_MANAGER_Initialize();
     OSCILLATOR_Initialize();
     WDT_Initialize();
-    CCP2_Initialize();
     CCP3_Initialize();
     CCP1_Initialize();
-    TMR1_Initialize();
+    TMR2_Initialize();
     TMR0_Initialize();
+    CCP2_Initialize();
+    CCP4_Initialize();
+    TMR3_Initialize();
+    PWM5_Initialize();
+    TMR1_Initialize();
     EUSART_Initialize();
 }
 

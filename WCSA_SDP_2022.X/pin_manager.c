@@ -25,13 +25,13 @@ void PIN_MANAGER_Initialize(void)
     */
     TRISA = 0x37;
     TRISB = 0xF0;
-    TRISC = 0xFF;
+    TRISC = 0xEF;
 
     /**
     ANSELx registers
     */
     ANSELC = 0xD7;
-    ANSELB = 0xF0;
+    ANSELB = 0xD0;
     ANSELA = 0x33;
 
     /**
@@ -62,6 +62,7 @@ void PIN_MANAGER_Initialize(void)
     INLVLB = 0xF0;
     INLVLC = 0xFF;
 
+    // PPS Module IO config
     RXPPS = 0x0D;   //RB5->EUSART:RX;    
     CCP2PPS = 0x13;   //RC3->CCP2:CCP2;    
     CCP3PPS = 0x02;   //RA2->CCP3:CCP3;    

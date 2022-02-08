@@ -4,9 +4,13 @@ mcc.h  \
 device_config.h  \
 pin_manager.h  \
 interrupt_manager.h  \
+tmr3.h  \
+tmr1.h  \
+tmr2.h  \
+pwm5.h  \
+tmr0.h  \
+ccp4.h  \
 ccp2.h  \
 ccp3.h  \
-tmr1.h  \
 ccp1.h  \
-tmr0.h  \
 eusart.h 

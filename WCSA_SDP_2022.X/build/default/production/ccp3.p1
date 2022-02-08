@@ -1,19 +1,19 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[v F7156 `(v ~T0 @X0 0 tf1`us ]
+[v F7199 `(v ~T0 @X0 0 tf1`us ]
 "22 ccp3.c
 [; ;ccp3.c: 22: static JSN_t *sameSens;
-[c E7110 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 .. ]
-[n E7110 . A5 A4 A3 C5 C4 C3 C6 C7 B7 A0 A1 A2 C0 C1 C2 B4 B5 B6  ]
+[c E7153 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 .. ]
+[n E7153 . A5 A4 A3 C5 C4 C3 C6 C7 B7 A0 A1 A2 C0 C1 C2 B4 B5 B6  ]
 "28 ./JSN_Sensor.h
 [; ;./JSN_Sensor.h: 28: typedef struct {
-[s S976 `ui 1 `ui 1 `E7110 1 `E7110 1 ]
-[n S976 . echoHighTime distance trigPin echoPin ]
+[s S979 `ui 1 `ui 1 `E7153 1 `E7153 1 ]
+[n S979 . echoHighTime distance trigPin echoPin ]
 "92
 [; ;./JSN_Sensor.h: 92: JSN_t* JSN_GetLastTrig(void);
-[v _JSN_GetLastTrig `(*S976 ~T0 @X0 0 ef ]
+[v _JSN_GetLastTrig `(*S979 ~T0 @X0 0 ef ]
 "128 ./PIC16Xpress_DevBoard.h
 [; ;./PIC16Xpress_DevBoard.h: 128: uint8_t ReadPin(PinName_t pin);
-[v _ReadPin `(uc ~T0 @X0 0 ef1`E7110 ]
+[v _ReadPin `(uc ~T0 @X0 0 ef1`E7153 ]
 "6945 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
 [v _CCP3CON `Vuc ~T0 @X0 0 e@787 ]
 "7010
@@ -65,8 +65,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./ccp3.h: 30: {
 [u S963 `S964 1 `S965 1 ]
 [n S963 CCPR3Reg_tag . . ]
-[v F7170 `(v ~T0 @X0 0 tf1`us ]
-[v F7173 `(v ~T0 @X0 0 tf1`us ]
+[v F7213 `(v ~T0 @X0 0 tf1`us ]
+[v F7216 `(v ~T0 @X0 0 tf1`us ]
 "55 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
 [; <" INDF0 equ 00h ;# ">
 "75
@@ -775,17 +775,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSH equ 0FEFh ;# ">
 "20 ccp3.c
 [; ;ccp3.c: 20: static void (*CCP3_CallBack)(uint16_t);
-[v _CCP3_CallBack `*F7156 ~T0 @X0 1 s ]
+[v _CCP3_CallBack `*F7199 ~T0 @X0 1 s ]
 "21
 [; ;ccp3.c: 21: static uint16_t ticksUp, ticksDown;
 [v _ticksUp `us ~T0 @X0 1 s ]
 [v _ticksDown `us ~T0 @X0 1 s ]
 "22
 [; ;ccp3.c: 22: static JSN_t *sameSens;
-[v _sameSens `*S976 ~T0 @X0 1 s ]
+[v _sameSens `*S979 ~T0 @X0 1 s ]
 "23
 [; ;ccp3.c: 23: static JSN_t *lastTrig;
-[v _lastTrig `*S976 ~T0 @X0 1 s ]
+[v _lastTrig `*S979 ~T0 @X0 1 s ]
 "29
 [; ;ccp3.c: 29: static void CCP3_DefaultCallBack(uint16_t capturedValue)
 [v _CCP3_DefaultCallBack `(v ~T0 @X0 1 sf1`us ]
@@ -804,11 +804,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _lastTrig ( _JSN_GetLastTrig ..  ]
 "32
 [; ;ccp3.c: 32:     switch(ReadPin(lastTrig->echoPin)) {
-[e $U 979  ]
+[e $U 982  ]
 {
 "34
 [; ;ccp3.c: 34:         case 1:
-[e :U 980 ]
+[e :U 983 ]
 "35
 [; ;ccp3.c: 35:             ticksUp = capturedValue;
 [e = _ticksUp _capturedValue ]
@@ -817,10 +817,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _sameSens _lastTrig ]
 "37
 [; ;ccp3.c: 37:             break;
-[e $U 978  ]
+[e $U 981  ]
 "39
 [; ;ccp3.c: 39:         case 0:
-[e :U 981 ]
+[e :U 984 ]
 "40
 [; ;ccp3.c: 40:             ticksDown = capturedValue;
 [e = _ticksDown _capturedValue ]
@@ -829,19 +829,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . *U _sameSens 0 - -> _ticksDown `ui -> _ticksUp `ui ]
 "44
 [; ;ccp3.c: 44:             break;
-[e $U 978  ]
+[e $U 981  ]
 "45
 [; ;ccp3.c: 45:     }
 }
-[e $U 978  ]
-[e :U 979 ]
-[e [\ -> ( _ReadPin (1 . *U _lastTrig 3 `i , $ -> 1 `i 980
- , $ -> 0 `i 981
- 978 ]
-[e :U 978 ]
+[e $U 981  ]
+[e :U 982 ]
+[e [\ -> ( _ReadPin (1 . *U _lastTrig 3 `i , $ -> 1 `i 983
+ , $ -> 0 `i 984
+ 981 ]
+[e :U 981 ]
 "46
 [; ;ccp3.c: 46: }
-[e :UE 977 ]
+[e :UE 980 ]
 }
 "50
 [; ;ccp3.c: 50: void CCP3_Initialize(void)
@@ -877,7 +877,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _PIE4bits 0 2 -> -> 1 `i `uc ]
 "77
 [; ;ccp3.c: 77: }
-[e :UE 982 ]
+[e :UE 985 ]
 }
 "81
 [; ;ccp3.c: 81: void CCP3_CaptureISR(void)
@@ -904,19 +904,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( *U _CCP3_CallBack (1 . . _module 1 0 ]
 "94
 [; ;ccp3.c: 94: }
-[e :UE 983 ]
+[e :UE 986 ]
 }
 "98
 [; ;ccp3.c: 98: void CCP3_SetCallBack(void (*customCallBack)(uint16_t)){
-[v _CCP3_SetCallBack `(v ~T0 @X0 1 ef1`*F7170 ]
+[v _CCP3_SetCallBack `(v ~T0 @X0 1 ef1`*F7213 ]
 {
 [e :U _CCP3_SetCallBack ]
-[v _customCallBack `*F7173 ~T0 @X0 1 r1 ]
+[v _customCallBack `*F7216 ~T0 @X0 1 r1 ]
 [f ]
 "99
 [; ;ccp3.c: 99:     CCP3_CallBack = customCallBack;
 [e = _CCP3_CallBack _customCallBack ]
 "100
 [; ;ccp3.c: 100: }
-[e :UE 984 ]
+[e :UE 987 ]
 }
