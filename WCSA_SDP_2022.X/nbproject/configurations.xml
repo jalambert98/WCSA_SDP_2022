@@ -17,6 +17,8 @@
       <itemPath>interrupt_manager.h</itemPath>
       <itemPath>pin_manager.h</itemPath>
       <itemPath>FRT.h</itemPath>
+      <itemPath>SpeakerTone.h</itemPath>
+      <itemPath>MotorControl.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -38,6 +40,8 @@
       <itemPath>interrupt_manager.c</itemPath>
       <itemPath>pin_manager.c</itemPath>
       <itemPath>FRT.c</itemPath>
+      <itemPath>SpeakerTone.c</itemPath>
+      <itemPath>MotorControl.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

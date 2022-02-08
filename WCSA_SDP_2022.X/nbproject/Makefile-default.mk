@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=JSN_Sensor.c PIC16Xpress_DevBoard.c device_config.c mcc.c tmr0.c ccp1.c ccp2.c ccp3.c tmr1.c eusart.c interrupt_manager.c pin_manager.c FRT.c
+SOURCEFILES_QUOTED_IF_SPACED=JSN_Sensor.c PIC16Xpress_DevBoard.c device_config.c mcc.c tmr0.c ccp1.c ccp2.c ccp3.c tmr1.c eusart.c interrupt_manager.c pin_manager.c FRT.c SpeakerTone.c MotorControl.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/JSN_Sensor.p1 ${OBJECTDIR}/PIC16Xpress_DevBoard.p1 ${OBJECTDIR}/device_config.p1 ${OBJECTDIR}/mcc.p1 ${OBJECTDIR}/tmr0.p1 ${OBJECTDIR}/ccp1.p1 ${OBJECTDIR}/ccp2.p1 ${OBJECTDIR}/ccp3.p1 ${OBJECTDIR}/tmr1.p1 ${OBJECTDIR}/eusart.p1 ${OBJECTDIR}/interrupt_manager.p1 ${OBJECTDIR}/pin_manager.p1 ${OBJECTDIR}/FRT.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/JSN_Sensor.p1.d ${OBJECTDIR}/PIC16Xpress_DevBoard.p1.d ${OBJECTDIR}/device_config.p1.d ${OBJECTDIR}/mcc.p1.d ${OBJECTDIR}/tmr0.p1.d ${OBJECTDIR}/ccp1.p1.d ${OBJECTDIR}/ccp2.p1.d ${OBJECTDIR}/ccp3.p1.d ${OBJECTDIR}/tmr1.p1.d ${OBJECTDIR}/eusart.p1.d ${OBJECTDIR}/interrupt_manager.p1.d ${OBJECTDIR}/pin_manager.p1.d ${OBJECTDIR}/FRT.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/JSN_Sensor.p1 ${OBJECTDIR}/PIC16Xpress_DevBoard.p1 ${OBJECTDIR}/device_config.p1 ${OBJECTDIR}/mcc.p1 ${OBJECTDIR}/tmr0.p1 ${OBJECTDIR}/ccp1.p1 ${OBJECTDIR}/ccp2.p1 ${OBJECTDIR}/ccp3.p1 ${OBJECTDIR}/tmr1.p1 ${OBJECTDIR}/eusart.p1 ${OBJECTDIR}/interrupt_manager.p1 ${OBJECTDIR}/pin_manager.p1 ${OBJECTDIR}/FRT.p1 ${OBJECTDIR}/SpeakerTone.p1 ${OBJECTDIR}/MotorControl.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/JSN_Sensor.p1.d ${OBJECTDIR}/PIC16Xpress_DevBoard.p1.d ${OBJECTDIR}/device_config.p1.d ${OBJECTDIR}/mcc.p1.d ${OBJECTDIR}/tmr0.p1.d ${OBJECTDIR}/ccp1.p1.d ${OBJECTDIR}/ccp2.p1.d ${OBJECTDIR}/ccp3.p1.d ${OBJECTDIR}/tmr1.p1.d ${OBJECTDIR}/eusart.p1.d ${OBJECTDIR}/interrupt_manager.p1.d ${OBJECTDIR}/pin_manager.p1.d ${OBJECTDIR}/FRT.p1.d ${OBJECTDIR}/SpeakerTone.p1.d ${OBJECTDIR}/MotorControl.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/JSN_Sensor.p1 ${OBJECTDIR}/PIC16Xpress_DevBoard.p1 ${OBJECTDIR}/device_config.p1 ${OBJECTDIR}/mcc.p1 ${OBJECTDIR}/tmr0.p1 ${OBJECTDIR}/ccp1.p1 ${OBJECTDIR}/ccp2.p1 ${OBJECTDIR}/ccp3.p1 ${OBJECTDIR}/tmr1.p1 ${OBJECTDIR}/eusart.p1 ${OBJECTDIR}/interrupt_manager.p1 ${OBJECTDIR}/pin_manager.p1 ${OBJECTDIR}/FRT.p1
+OBJECTFILES=${OBJECTDIR}/JSN_Sensor.p1 ${OBJECTDIR}/PIC16Xpress_DevBoard.p1 ${OBJECTDIR}/device_config.p1 ${OBJECTDIR}/mcc.p1 ${OBJECTDIR}/tmr0.p1 ${OBJECTDIR}/ccp1.p1 ${OBJECTDIR}/ccp2.p1 ${OBJECTDIR}/ccp3.p1 ${OBJECTDIR}/tmr1.p1 ${OBJECTDIR}/eusart.p1 ${OBJECTDIR}/interrupt_manager.p1 ${OBJECTDIR}/pin_manager.p1 ${OBJECTDIR}/FRT.p1 ${OBJECTDIR}/SpeakerTone.p1 ${OBJECTDIR}/MotorControl.p1
 
 # Source Files
-SOURCEFILES=JSN_Sensor.c PIC16Xpress_DevBoard.c device_config.c mcc.c tmr0.c ccp1.c ccp2.c ccp3.c tmr1.c eusart.c interrupt_manager.c pin_manager.c FRT.c
+SOURCEFILES=JSN_Sensor.c PIC16Xpress_DevBoard.c device_config.c mcc.c tmr0.c ccp1.c ccp2.c ccp3.c tmr1.c eusart.c interrupt_manager.c pin_manager.c FRT.c SpeakerTone.c MotorControl.c
 
 
 
@@ -198,6 +198,22 @@ ${OBJECTDIR}/FRT.p1: FRT.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/FRT.d ${OBJECTDIR}/FRT.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/FRT.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/SpeakerTone.p1: SpeakerTone.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/SpeakerTone.p1.d 
+	@${RM} ${OBJECTDIR}/SpeakerTone.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=none   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/SpeakerTone.p1 SpeakerTone.c 
+	@-${MV} ${OBJECTDIR}/SpeakerTone.d ${OBJECTDIR}/SpeakerTone.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/SpeakerTone.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/MotorControl.p1: MotorControl.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/MotorControl.p1.d 
+	@${RM} ${OBJECTDIR}/MotorControl.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=none   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/MotorControl.p1 MotorControl.c 
+	@-${MV} ${OBJECTDIR}/MotorControl.d ${OBJECTDIR}/MotorControl.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/MotorControl.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 else
 ${OBJECTDIR}/JSN_Sensor.p1: JSN_Sensor.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
@@ -302,6 +318,22 @@ ${OBJECTDIR}/FRT.p1: FRT.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/FRT.p1 FRT.c 
 	@-${MV} ${OBJECTDIR}/FRT.d ${OBJECTDIR}/FRT.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/FRT.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/SpeakerTone.p1: SpeakerTone.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/SpeakerTone.p1.d 
+	@${RM} ${OBJECTDIR}/SpeakerTone.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/SpeakerTone.p1 SpeakerTone.c 
+	@-${MV} ${OBJECTDIR}/SpeakerTone.d ${OBJECTDIR}/SpeakerTone.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/SpeakerTone.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/MotorControl.p1: MotorControl.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/MotorControl.p1.d 
+	@${RM} ${OBJECTDIR}/MotorControl.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/MotorControl.p1 MotorControl.c 
+	@-${MV} ${OBJECTDIR}/MotorControl.d ${OBJECTDIR}/MotorControl.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/MotorControl.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 
