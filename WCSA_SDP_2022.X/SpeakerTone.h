@@ -17,6 +17,20 @@
 #define DEFAULT_TONE    440     // (A4 = 440Hz)
 #define DEFAULT_OCCOUNT 0x11C1  // (output compare reg value for 440Hz)
 
+#define TONE_C4         262
+#define TONE_Db4        277
+#define TONE_D4         294
+#define TONE_Eb4        311
+#define TONE_E4         330
+#define TONE_F4         349
+#define TONE_Gb4        370
+#define TONE_G4         392
+#define TONE_Ab4        415
+#define TONE_A4         440
+#define TONE_Bb4        466
+#define TONE_B4         494
+#define TONE_C5         523         
+
 
 //==============================================================================
 //------------------------------ PUBLIC LIBRARY --------------------------------

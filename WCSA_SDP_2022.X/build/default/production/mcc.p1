@@ -38,8 +38,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "37 ./tmr1.h
 [; ;./tmr1.h: 37: void TMR1_Initialize(void);
 [v _TMR1_Initialize `(v ~T0 @X0 0 ef ]
-"61 ./eusart.h
-[; ;./eusart.h: 61: void EUSART_Initialize(void);
+"62 ./eusart.h
+[; ;./eusart.h: 62: void EUSART_Initialize(void);
 [v _EUSART_Initialize `(v ~T0 @X0 0 ef ]
 "12489 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h
 [; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 12489: extern volatile unsigned char OSCCON1 __attribute__((address(0x919)));

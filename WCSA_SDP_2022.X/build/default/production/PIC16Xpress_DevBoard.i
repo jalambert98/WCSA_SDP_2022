@@ -11565,7 +11565,7 @@ void CCP1_CaptureISR(void);
 # 27 "./mcc.h" 2
 
 # 1 "./eusart.h" 1
-# 22 "./eusart.h"
+# 23 "./eusart.h"
 typedef union {
     struct {
         unsigned perr : 1;
@@ -11586,35 +11586,35 @@ extern volatile uint8_t eusartRxCount;
 
 extern void (*EUSART_TxDefaultInterruptHandler)(void);
 extern void (*EUSART_RxDefaultInterruptHandler)(void);
-# 61 "./eusart.h"
+# 62 "./eusart.h"
 void EUSART_Initialize(void);
-# 86 "./eusart.h"
+# 87 "./eusart.h"
 _Bool EUSART_is_tx_ready(void);
-# 111 "./eusart.h"
+# 112 "./eusart.h"
 _Bool EUSART_is_rx_ready(void);
-# 135 "./eusart.h"
+# 136 "./eusart.h"
 _Bool EUSART_is_tx_done(void);
-# 156 "./eusart.h"
+# 157 "./eusart.h"
 eusart_status_t EUSART_get_last_status(void);
-# 177 "./eusart.h"
+# 178 "./eusart.h"
 uint8_t EUSART_Read(void);
-# 198 "./eusart.h"
+# 199 "./eusart.h"
 void EUSART_Write(uint8_t txData);
-# 220 "./eusart.h"
+# 221 "./eusart.h"
 void EUSART_Transmit_ISR(void);
-# 242 "./eusart.h"
+# 243 "./eusart.h"
 void EUSART_Receive_ISR(void);
-# 264 "./eusart.h"
+# 265 "./eusart.h"
 void EUSART_RxDataHandler(void);
-# 283 "./eusart.h"
+# 284 "./eusart.h"
 void EUSART_SetFramingErrorHandler(void (* interruptHandler)(void));
-# 302 "./eusart.h"
+# 303 "./eusart.h"
 void EUSART_SetOverrunErrorHandler(void (* interruptHandler)(void));
-# 321 "./eusart.h"
+# 322 "./eusart.h"
 void EUSART_SetErrorHandler(void (* interruptHandler)(void));
-# 342 "./eusart.h"
+# 343 "./eusart.h"
 void EUSART_SetTxInterruptHandler(void (* interruptHandler)(void));
-# 363 "./eusart.h"
+# 364 "./eusart.h"
 void EUSART_SetRxInterruptHandler(void (* interruptHandler)(void));
 # 28 "./mcc.h" 2
 # 40 "./mcc.h"
@@ -11665,35 +11665,6 @@ void PIC16_Init(void) {
     PIE2 = 0x00;
     PIE3 = 0x00;
     PIE4 = 0x00;
-
-
-    LATA = 0x00;
-    LATB = 0x00;
-    LATC = 0x00;
-
-    TRISA = 0x37;
-    TRISB = 0xF0;
-    TRISC = 0xFF;
-
-    ANSELC = 0xFF;
-    ANSELB = 0xF0;
-    ANSELA = 0x37;
-
-    WPUB = 0x00;
-    WPUA = 0x00;
-    WPUC = 0x00;
-
-    ODCONA = 0x00;
-    ODCONB = 0x00;
-    ODCONC = 0x00;
-
-    SLRCONA = 0x37;
-    SLRCONB = 0xF0;
-    SLRCONC = 0xFF;
-
-    INLVLA = 0x3F;
-    INLVLB = 0xF0;
-    INLVLC = 0xFF;
 
 
     PIR0 = 0x00;

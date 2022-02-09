@@ -32,7 +32,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S99 . . ]
 "1933
 [v _PIE4bits `VS99 ~T0 @X0 0 e@148 ]
-"7109
+"29 ./ccp4.h
+[; ;./ccp4.h: 29:    {
+[s S964 `uc 1 `uc 1 ]
+[n S964 . ccpr4l ccpr4h ]
+"34
+[; ;./ccp4.h: 34:    {
+[s S965 `us 1 ]
+[n S965 . ccpr4_16Bit ]
+"27
+[; ;./ccp4.h: 27: {
+[u S963 `S964 1 `S965 1 ]
+[n S963 CCPR4Reg_tag . . ]
+"7109 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
 [s S340 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S340 . CCP4MODE CCP4FMT CCP4OUT . CCP4EN ]
 "7116
@@ -43,13 +55,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S339 . . . ]
 "7123
 [v _CCP4CONbits `VS339 ~T0 @X0 0 e@791 ]
-"68 ccp4.c
-[; ;ccp4.c: 68:     WritePin(C0, 1);
-[c E7153 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 .. ]
-[n E7153 . A5 A4 A3 C5 C4 C3 C6 C7 B7 A0 A1 A2 C0 C1 C2 B4 B5 B6  ]
-"132 ./PIC16Xpress_DevBoard.h
-[; ;./PIC16Xpress_DevBoard.h: 132: uint8_t WritePin(PinName_t pin, uint8_t val);
-[v _WritePin `(uc ~T0 @X0 0 ef2`E7153`uc ]
 "55 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
 [; <" INDF0 equ 00h ;# ">
 "75
@@ -799,47 +804,50 @@ Version 4.0 HI-TECH Software Intermediate Code
 "40
 [; ;ccp4.c: 40: {
 [f ]
-"50
-[; ;ccp4.c: 50:     CCPR4L = compareCount & 0x00FF;
-[e = _CCPR4L -> & -> _compareCount `ui -> -> 255 `i `ui `uc ]
-"51
-[; ;ccp4.c: 51:     CCPR4H = ((compareCount & 0xFF00)>>8);
-[e = _CCPR4H -> >> & -> _compareCount `ui -> 65280 `ui -> 8 `i `uc ]
-"52
-[; ;ccp4.c: 52: }
+"41
+[; ;ccp4.c: 41:     CCP4_PERIOD_REG_T module;
+[v _module `S963 ~T0 @X0 1 a ]
+"44
+[; ;ccp4.c: 44:     module.ccpr4_16Bit = compareCount;
+[e = . . _module 1 0 _compareCount ]
+"46
+[; ;ccp4.c: 46:     CCPR4L = module.ccpr4l;
+[e = _CCPR4L . . _module 0 0 ]
+"47
+[; ;ccp4.c: 47:     CCPR4H = module.ccpr4h;
+[e = _CCPR4H . . _module 0 1 ]
+"48
+[; ;ccp4.c: 48: }
 [e :UE 980 ]
 }
-"56
-[; ;ccp4.c: 56: _Bool CCP4_OutputStatusGet(void)
+"52
+[; ;ccp4.c: 52: _Bool CCP4_OutputStatusGet(void)
 [v _CCP4_OutputStatusGet `(a ~T0 @X0 1 ef ]
-"57
-[; ;ccp4.c: 57: {
+"53
+[; ;ccp4.c: 53: {
 {
 [e :U _CCP4_OutputStatusGet ]
 [f ]
-"59
-[; ;ccp4.c: 59:     return(CCP4CONbits.CCP4OUT);
+"55
+[; ;ccp4.c: 55:     return(CCP4CONbits.CCP4OUT);
 [e ) -> . . _CCP4CONbits 0 2 `a ]
 [e $UE 981  ]
-"60
-[; ;ccp4.c: 60: }
+"56
+[; ;ccp4.c: 56: }
 [e :UE 981 ]
 }
-"64
-[; ;ccp4.c: 64: void CCP4_CompareISR(void)
+"60
+[; ;ccp4.c: 60: void CCP4_CompareISR(void)
 [v _CCP4_CompareISR `(v ~T0 @X0 1 ef ]
-"65
-[; ;ccp4.c: 65: {
+"61
+[; ;ccp4.c: 61: {
 {
 [e :U _CCP4_CompareISR ]
 [f ]
-"67
-[; ;ccp4.c: 67:     PIR4bits.CCP4IF = 0;
+"63
+[; ;ccp4.c: 63:     PIR4bits.CCP4IF = 0;
 [e = . . _PIR4bits 0 3 -> -> 0 `i `uc ]
-"68
-[; ;ccp4.c: 68:     WritePin(C0, 1);
-[e ( _WritePin (2 , . `E7153 12 -> -> 1 `i `uc ]
-"70
-[; ;ccp4.c: 70: }
+"64
+[; ;ccp4.c: 64: }
 [e :UE 982 ]
 }

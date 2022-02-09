@@ -71,17 +71,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8226
 [; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 8226: extern volatile T3GCONbits_t T3GCONbits __attribute__((address(0x414)));
 [v _T3GCONbits `VS390 ~T0 @X0 0 e@1044 ]
-"2384
-[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 2384:     struct {
-[s S123 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S123 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
-"2383
-[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 2383: typedef union {
-[u S122 `S123 1 ]
-[n S122 . . ]
-"2395
-[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 2395: extern volatile LATCbits_t LATCbits __attribute__((address(0x10E)));
-[v _LATCbits `VS122 ~T0 @X0 0 e@270 ]
 [v F6689 `(v ~T0 @X0 0 tf ]
 [v F6691 `(v ~T0 @X0 0 tf ]
 "55 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h
@@ -1170,8 +1159,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;tmr3.c: 33:     PIR3bits.TMR3IF = 0;
 [e = . . _PIR3bits 0 4 -> -> 0 `i `uc ]
 "36
-[; ;tmr3.c: 36:     timer3ReloadVal=(uint16_t)((TMR3H << 8) | TMR3L);
-[e = _timer3ReloadVal -> | << -> _TMR3H `i -> 8 `i -> _TMR3L `i `us ]
+[; ;tmr3.c: 36:     timer3ReloadVal = 0x0000;
+[e = _timer3ReloadVal -> -> 0 `i `us ]
 "39
 [; ;tmr3.c: 39:     PIE3bits.TMR3IE = 1;
 [e = . . _PIE3bits 0 4 -> -> 1 `i `uc ]
@@ -1364,34 +1353,31 @@ Version 4.0 HI-TECH Software Intermediate Code
 "132
 [; ;tmr3.c: 132:     TMR3_Reload();
 [e ( _TMR3_Reload ..  ]
-"133
-[; ;tmr3.c: 133:     LATCbits.LATC0 = 1;
-[e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
-"138
-[; ;tmr3.c: 138: }
+"137
+[; ;tmr3.c: 137: }
 [e :UE 973 ]
 }
-"142
-[; ;tmr3.c: 142: void TMR3_SetInterruptHandler(void (* InterruptHandler)(void)){
+"141
+[; ;tmr3.c: 141: void TMR3_SetInterruptHandler(void (* InterruptHandler)(void)){
 [v _TMR3_SetInterruptHandler `(v ~T0 @X0 1 ef1`*F6689 ]
 {
 [e :U _TMR3_SetInterruptHandler ]
 [v _InterruptHandler `*F6691 ~T0 @X0 1 r1 ]
 [f ]
-"143
-[; ;tmr3.c: 143:     TMR3_InterruptHandler = InterruptHandler;
+"142
+[; ;tmr3.c: 142:     TMR3_InterruptHandler = InterruptHandler;
 [e = _TMR3_InterruptHandler _InterruptHandler ]
-"144
-[; ;tmr3.c: 144: }
+"143
+[; ;tmr3.c: 143: }
 [e :UE 974 ]
 }
-"148
-[; ;tmr3.c: 148: void TMR3_DefaultInterruptHandler(void){
+"147
+[; ;tmr3.c: 147: void TMR3_DefaultInterruptHandler(void){
 [v _TMR3_DefaultInterruptHandler `(v ~T0 @X0 1 ef ]
 {
 [e :U _TMR3_DefaultInterruptHandler ]
 [f ]
-"151
-[; ;tmr3.c: 151: }
+"150
+[; ;tmr3.c: 150: }
 [e :UE 975 ]
 }

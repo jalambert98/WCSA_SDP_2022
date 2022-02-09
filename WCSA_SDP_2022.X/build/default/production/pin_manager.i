@@ -11261,7 +11261,7 @@ void PIN_MANAGER_Initialize(void)
     CCP3PPS = 0x02;
     RC4PPS = 0x14;
     CCP1PPS = 0x15;
-
+    RC1PPS = 0x0F;
 }
 
 

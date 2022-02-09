@@ -1,10 +1,10 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"23 ./eusart.h
-[; ;./eusart.h: 23:     struct {
+"24 ./eusart.h
+[; ;./eusart.h: 24:     struct {
 [s S966 :1 `uc 1 :1 `uc 1 :1 `uc 1 :5 `uc 1 ]
 [n S966 . perr ferr oerr reserved ]
-"22
-[; ;./eusart.h: 22: typedef union {
+"23
+[; ;./eusart.h: 23: typedef union {
 [u S965 `S966 1 `uc 1 ]
 [n S965 . . status ]
 [v F7029 `(v ~T0 @X0 0 tf ]
@@ -24,18 +24,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 1747: extern volatile PIE1bits_t PIE1bits __attribute__((address(0x091)));
 [v _PIE1bits `VS93 ~T0 @X0 0 e@145 ]
 [v F7015 `(v ~T0 @X0 0 tf ]
-"363 ./eusart.h
-[; ;./eusart.h: 363: void EUSART_SetRxInterruptHandler(void (* interruptHandler)(void));
+"364 ./eusart.h
+[; ;./eusart.h: 364: void EUSART_SetRxInterruptHandler(void (* interruptHandler)(void));
 [v _EUSART_SetRxInterruptHandler `(v ~T0 @X0 0 ef1`*F7015 ]
-"242
-[; ;./eusart.h: 242: void EUSART_Receive_ISR(void);
+"243
+[; ;./eusart.h: 243: void EUSART_Receive_ISR(void);
 [v _EUSART_Receive_ISR `(v ~T0 @X0 0 ef ]
 [v F7011 `(v ~T0 @X0 0 tf ]
-"342
-[; ;./eusart.h: 342: void EUSART_SetTxInterruptHandler(void (* interruptHandler)(void));
+"343
+[; ;./eusart.h: 343: void EUSART_SetTxInterruptHandler(void (* interruptHandler)(void));
 [v _EUSART_SetTxInterruptHandler `(v ~T0 @X0 0 ef1`*F7011 ]
-"220
-[; ;./eusart.h: 220: void EUSART_Transmit_ISR(void);
+"221
+[; ;./eusart.h: 221: void EUSART_Transmit_ISR(void);
 [v _EUSART_Transmit_ISR `(v ~T0 @X0 0 ef ]
 "3699 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h
 [; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 3699: extern volatile unsigned char BAUD1CON __attribute__((address(0x19F)));
@@ -53,22 +53,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 3285: extern volatile unsigned char SP1BRGH __attribute__((address(0x19C)));
 [v _SP1BRGH `Vuc ~T0 @X0 0 e@412 ]
 [v F6999 `(v ~T0 @X0 0 tf ]
-"283 ./eusart.h
-[; ;./eusart.h: 283: void EUSART_SetFramingErrorHandler(void (* interruptHandler)(void));
+"284 ./eusart.h
+[; ;./eusart.h: 284: void EUSART_SetFramingErrorHandler(void (* interruptHandler)(void));
 [v _EUSART_SetFramingErrorHandler `(v ~T0 @X0 0 ef1`*F6999 ]
 "39 eusart.c
 [; ;eusart.c: 39: void EUSART_DefaultFramingErrorHandler(void);
 [v _EUSART_DefaultFramingErrorHandler `(v ~T0 @X0 0 ef ]
 [v F7003 `(v ~T0 @X0 0 tf ]
-"302 ./eusart.h
-[; ;./eusart.h: 302: void EUSART_SetOverrunErrorHandler(void (* interruptHandler)(void));
+"303 ./eusart.h
+[; ;./eusart.h: 303: void EUSART_SetOverrunErrorHandler(void (* interruptHandler)(void));
 [v _EUSART_SetOverrunErrorHandler `(v ~T0 @X0 0 ef1`*F7003 ]
 "40 eusart.c
 [; ;eusart.c: 40: void EUSART_DefaultOverrunErrorHandler(void);
 [v _EUSART_DefaultOverrunErrorHandler `(v ~T0 @X0 0 ef ]
 [v F7007 `(v ~T0 @X0 0 tf ]
-"321 ./eusart.h
-[; ;./eusart.h: 321: void EUSART_SetErrorHandler(void (* interruptHandler)(void));
+"322 ./eusart.h
+[; ;./eusart.h: 322: void EUSART_SetErrorHandler(void (* interruptHandler)(void));
 [v _EUSART_SetErrorHandler `(v ~T0 @X0 0 ef1`*F7007 ]
 "41 eusart.c
 [; ;eusart.c: 41: void EUSART_DefaultErrorHandler(void);
@@ -98,8 +98,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3365
 [; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 3365: extern volatile RC1STAbits_t RC1STAbits __attribute__((address(0x19D)));
 [v _RC1STAbits `VS181 ~T0 @X0 0 e@413 ]
-"264 ./eusart.h
-[; ;./eusart.h: 264: void EUSART_RxDataHandler(void);
+"265 ./eusart.h
+[; ;./eusart.h: 265: void EUSART_RxDataHandler(void);
 [v _EUSART_RxDataHandler `(v ~T0 @X0 0 ef ]
 "3100 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h
 [; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 3100: extern volatile unsigned char RC1REG __attribute__((address(0x199)));

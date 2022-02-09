@@ -38,7 +38,6 @@ void CCP4_Initialize(void)
 
 void CCP4_SetCompareCount(uint16_t compareCount)
 {
-    /*
     CCP4_PERIOD_REG_T module;
     
     // Write the 16-bit compare value
@@ -46,9 +45,6 @@ void CCP4_SetCompareCount(uint16_t compareCount)
     
     CCPR4L = module.ccpr4l;
     CCPR4H = module.ccpr4h;
-     */
-    CCPR4L = compareCount & 0x00FF;
-    CCPR4H = ((compareCount & 0xFF00)>>8);
 }
 
 //------------------------------------------------------------------------------
@@ -65,8 +61,6 @@ void CCP4_CompareISR(void)
 {
     // Clear the CCP4 interrupt flag
     PIR4bits.CCP4IF = 0;
-    
-    // Add user code here
 }
 
 //------------------------------------------------------------------------------

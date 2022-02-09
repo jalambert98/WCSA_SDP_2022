@@ -11565,7 +11565,7 @@ void CCP1_CaptureISR(void);
 # 27 "./mcc.h" 2
 
 # 1 "./eusart.h" 1
-# 22 "./eusart.h"
+# 23 "./eusart.h"
 typedef union {
     struct {
         unsigned perr : 1;
@@ -11586,35 +11586,35 @@ extern volatile uint8_t eusartRxCount;
 
 extern void (*EUSART_TxDefaultInterruptHandler)(void);
 extern void (*EUSART_RxDefaultInterruptHandler)(void);
-# 61 "./eusart.h"
+# 62 "./eusart.h"
 void EUSART_Initialize(void);
-# 86 "./eusart.h"
+# 87 "./eusart.h"
 _Bool EUSART_is_tx_ready(void);
-# 111 "./eusart.h"
+# 112 "./eusart.h"
 _Bool EUSART_is_rx_ready(void);
-# 135 "./eusart.h"
+# 136 "./eusart.h"
 _Bool EUSART_is_tx_done(void);
-# 156 "./eusart.h"
+# 157 "./eusart.h"
 eusart_status_t EUSART_get_last_status(void);
-# 177 "./eusart.h"
+# 178 "./eusart.h"
 uint8_t EUSART_Read(void);
-# 198 "./eusart.h"
+# 199 "./eusart.h"
 void EUSART_Write(uint8_t txData);
-# 220 "./eusart.h"
+# 221 "./eusart.h"
 void EUSART_Transmit_ISR(void);
-# 242 "./eusart.h"
+# 243 "./eusart.h"
 void EUSART_Receive_ISR(void);
-# 264 "./eusart.h"
+# 265 "./eusart.h"
 void EUSART_RxDataHandler(void);
-# 283 "./eusart.h"
+# 284 "./eusart.h"
 void EUSART_SetFramingErrorHandler(void (* interruptHandler)(void));
-# 302 "./eusart.h"
+# 303 "./eusart.h"
 void EUSART_SetOverrunErrorHandler(void (* interruptHandler)(void));
-# 321 "./eusart.h"
+# 322 "./eusart.h"
 void EUSART_SetErrorHandler(void (* interruptHandler)(void));
-# 342 "./eusart.h"
+# 343 "./eusart.h"
 void EUSART_SetTxInterruptHandler(void (* interruptHandler)(void));
-# 363 "./eusart.h"
+# 364 "./eusart.h"
 void EUSART_SetRxInterruptHandler(void (* interruptHandler)(void));
 # 28 "./mcc.h" 2
 # 40 "./mcc.h"
@@ -11654,9 +11654,9 @@ void __attribute__((picinterrupt(("")))) InterruptManager (void);
 # 10 "SpeakerTone.c" 2
 
 # 1 "./SpeakerTone.h" 1
-# 30 "./SpeakerTone.h"
+# 44 "./SpeakerTone.h"
 void SpeakerTone_Init(void);
-# 39 "./SpeakerTone.h"
+# 53 "./SpeakerTone.h"
 uint8_t SpeakerTone_SetFrequency(uint16_t newFrequency);
 
 
@@ -11703,9 +11703,11 @@ uint8_t SpeakerTone_SetFrequency(uint16_t newFrequency) {
     if((newFrequency < 100)||(newFrequency > 10000))
         return 0xFF;
     else {
+        SpeakerTone_Off();
         currFreq = newFrequency;
-        ocCount = (uint16_t)((uint32_t)2000000 / newFrequency);
+        ocCount = (uint16_t)(0x001E8480 / newFrequency);
         CCP4_SetCompareCount(ocCount);
+        SpeakerTone_On();
         return 0x00;
     }
 }
@@ -11730,15 +11732,56 @@ void SpeakerTone_On(void) {
     TMR3_StartTimer();
     return;
 }
-# 82 "SpeakerTone.c"
+# 84 "SpeakerTone.c"
+# 1 "./FRT.h" 1
+# 10 "./FRT.h"
+# 1 "./PIC16Xpress_DevBoard.h" 1
+# 10 "./FRT.h" 2
+# 30 "./FRT.h"
+unsigned long FRT_GetMillis(void);
+# 45 "./FRT.h"
+unsigned long FRT_GetMicros(void);
+# 63 "./FRT.h"
+void FRT_IncMillis(void);
+# 82 "./FRT.h"
+void FRT_IncMicros(void);
+# 84 "SpeakerTone.c" 2
+
+
+
+
+
 int main(void) {
     PIC16_Init();
     SpeakerTone_Init();
-    SpeakerTone_On();
-
     SetPin(C0, 0);
     WritePin(C0, 0);
 
-    while(1);
+    unsigned long currMilli = FRT_GetMillis();
+    unsigned long prevMilli = currMilli;
+    SpeakerTone_SetFrequency(262);
+    uint8_t i = 0;
+    SpeakerTone_On();
+
+    while(1) {
+        currMilli = FRT_GetMillis();
+        if((currMilli - prevMilli) > 500) {
+            switch(i) {
+                case 0:
+                    SpeakerTone_SetFrequency(262);
+                    i++;
+                    break;
+                case 1:
+                    SpeakerTone_SetFrequency(392);
+                    i++;
+                    break;
+                case 2:
+                    SpeakerTone_SetFrequency(523);
+                    i -=2;
+                    break;
+            }
+            prevMilli = currMilli;
+        }
+    }
     return 0;
 }

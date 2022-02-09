@@ -33,7 +33,7 @@ void TMR3_Initialize(void)
     PIR3bits.TMR3IF = 0;
 
     // Load the TMR value to reload variable
-    timer3ReloadVal=(uint16_t)((TMR3H << 8) | TMR3L);
+    timer3ReloadVal = 0x0000;
 
     // Enabling TMR3 interrupt.
     PIE3bits.TMR3IE = 1;
@@ -130,7 +130,6 @@ void TMR3_ISR(void)
     // Clear the TMR3 interrupt flag
     PIR3bits.TMR3IF = 0;
     TMR3_Reload();
-    LATCbits.LATC0 = 1;
     /*if(TMR3_InterruptHandler)
     {
         TMR3_InterruptHandler();

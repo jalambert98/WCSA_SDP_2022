@@ -21,35 +21,6 @@ void PIC16_Init(void) {
     PIE3 = 0x00;
     PIE4 = 0x00;
     
-    // Initialize GPIO pins
-    LATA = 0x00;
-    LATB = 0x00;
-    LATC = 0x00;
-    
-    TRISA = 0x37;
-    TRISB = 0xF0;
-    TRISC = 0xFF;
-    
-    ANSELC = 0xFF;
-    ANSELB = 0xF0;
-    ANSELA = 0x37;
-    
-    WPUB = 0x00;
-    WPUA = 0x00;
-    WPUC = 0x00;
-    
-    ODCONA = 0x00;
-    ODCONB = 0x00;
-    ODCONC = 0x00;
-    
-    SLRCONA = 0x37;
-    SLRCONB = 0xF0;
-    SLRCONC = 0xFF;
-    
-    INLVLA = 0x3F;
-    INLVLB = 0xF0;
-    INLVLC = 0xFF;
-    
     // Manually clear any existing interrupt flags
     PIR0 = 0x00;
     PIR1 = 0x00;

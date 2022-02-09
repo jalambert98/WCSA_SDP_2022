@@ -77,6 +77,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "13104
 [; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 13104: extern volatile unsigned char CCP1PPS __attribute__((address(0xE14)));
 [v _CCP1PPS `Vuc ~T0 @X0 0 e@3604 ]
+"14796
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 14796: extern volatile unsigned char RC1PPS __attribute__((address(0xEA1)));
+[v _RC1PPS `Vuc ~T0 @X0 0 e@3745 ]
 "55 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h
 [; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 55: __asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
@@ -1222,6 +1225,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "70
 [; ;pin_manager.c: 70:     CCP1PPS = 0x15;
 [e = _CCP1PPS -> -> 21 `i `uc ]
+"71
+[; ;pin_manager.c: 71:     RC1PPS = 0x0F;
+[e = _RC1PPS -> -> 15 `i `uc ]
 "72
 [; ;pin_manager.c: 72: }
 [e :UE 963 ]

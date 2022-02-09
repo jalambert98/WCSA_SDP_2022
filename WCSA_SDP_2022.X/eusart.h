@@ -17,6 +17,7 @@
 
 #define EUSART_DataReady  (EUSART_is_rx_ready())
 
+// PIN RC4 = EUSART TX
 //------------------------------------------------------------------------------
 
 typedef union {

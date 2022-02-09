@@ -44,9 +44,11 @@ uint8_t SpeakerTone_SetFrequency(uint16_t newFrequency) {
     if((newFrequency < 100)||(newFrequency > 10000))
         return ERROR;
     else {
+        SpeakerTone_Off();
         currFreq = newFrequency;
-        ocCount = (uint16_t)((uint32_t)2000000 / newFrequency);
+        ocCount = (uint16_t)(0x001E8480 / newFrequency);
         CCP4_SetCompareCount(ocCount);
+        SpeakerTone_On();
         return SUCCESS;
     }
 }
@@ -79,15 +81,40 @@ void SpeakerTone_On(void) {
 
 #ifdef SPEAKERTONE_TEST
 
+#include "FRT.h"
+#define FREQ_CHANGE_RATE    500     // change speakerTone freq every 500ms
+
 int main(void) {
     PIC16_Init();
-    SpeakerTone_Init();
+    SpeakerTone_Init(); // speakerTone pinRC1
+    
+    unsigned long currMilli = FRT_GetMillis();
+    unsigned long prevMilli = currMilli;
+    SpeakerTone_SetFrequency(TONE_C4);
+    uint8_t i = 0;
     SpeakerTone_On();
-    
-    SetPin(C0, OUTPUT);
-    WritePin(C0, LOW);
-    
-    while(1);
+
+    // arpeggio (C->G->C) triplets (changes pitch every 500ms)
+    while(1) {
+        currMilli = FRT_GetMillis();
+        if((currMilli - prevMilli) > FREQ_CHANGE_RATE) {
+            switch(i) {
+                case 0:
+                    SpeakerTone_SetFrequency(TONE_C4);
+                    i++;
+                    break;
+                case 1:
+                    SpeakerTone_SetFrequency(TONE_G4);
+                    i++;
+                    break;
+                case 2:
+                    SpeakerTone_SetFrequency(TONE_C5);
+                    i -=2;
+                    break;
+            }
+            prevMilli = currMilli;
+        }
+    }
     return 0;
 }
 
