@@ -67,7 +67,8 @@ void PIN_MANAGER_Initialize(void)
     CCP2PPS = 0x13;   //RC3->CCP2:CCP2;    
     CCP3PPS = 0x02;   //RA2->CCP3:CCP3;    
     RC4PPS = 0x14;   //RC4->EUSART:TX;    
-    CCP1PPS = 0x15;   //RC5->CCP1:CCP1;   
+    CCP1PPS = 0x15;   //RC5->CCP1:CCP1;
+    //RC1PPS = 0x0F;  //CCP4->RC1:speaker;
 }
 
 //------------------------------------------------------------------------------

@@ -11206,7 +11206,6 @@ void PWM5_LoadDutyValue(uint16_t dutyValue);
 
 void PWM5_Initialize(void) {
 
-
     PWM5CON = 0x80;
 
 

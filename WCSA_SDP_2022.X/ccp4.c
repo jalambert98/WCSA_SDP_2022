@@ -7,22 +7,21 @@
  */
 //------------------------------------------------------------------------------
 
+// [CCP4 = pinRC1 (SpeakerTone output)], [TMR3 ticks @4MHz & rolls over after 16-bit range]
+
 #include <xc.h>
 #include "ccp4.h"
+#include "PIC16Xpress_DevBoard.h"
 
 //------------------------------------------------------------------------------
 
 void CCP4_Initialize(void)
 {
-    // Set the CCP4 to the options selected in the User Interface
-	
 	// CCP4MODE Toggle_cleartmr; CCP4OUT 0; CCP4EN enabled; CCP4FMT right_aligned; 
 	CCP4CON = 0x81;    
 	
-	// CCPR4H 17; 
-	CCPR4H = 0x11;    
-	
-	// CCPR4L 193; 
+    // Initialize OC value to Default 440Hz speakerTone
+	CCPR4H = 0x11;     
 	CCPR4L = 0xC1;    
 
 	// Selecting Timer 3
@@ -39,6 +38,7 @@ void CCP4_Initialize(void)
 
 void CCP4_SetCompareCount(uint16_t compareCount)
 {
+    /*
     CCP4_PERIOD_REG_T module;
     
     // Write the 16-bit compare value
@@ -46,6 +46,9 @@ void CCP4_SetCompareCount(uint16_t compareCount)
     
     CCPR4L = module.ccpr4l;
     CCPR4H = module.ccpr4h;
+     */
+    CCPR4L = compareCount & 0x00FF;
+    CCPR4H = ((compareCount & 0xFF00)>>8);
 }
 
 //------------------------------------------------------------------------------
@@ -62,7 +65,7 @@ void CCP4_CompareISR(void)
 {
     // Clear the CCP4 interrupt flag
     PIR4bits.CCP4IF = 0;
-    
+    WritePin(C0, HIGH);
     // Add user code here
 }
 

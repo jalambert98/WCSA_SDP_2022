@@ -15,7 +15,7 @@
 #include <stdio.h>
 
 
-#define JSN_SENSOR_TEST       // toggle comment to enable/disable test harness
+// #define JSN_SENSOR_TEST       // toggle comment to enable/disable test harness
 
 //==============================================================================
 //---------------------------- STATICS VARIABLES -------------------------------

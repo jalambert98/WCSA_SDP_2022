@@ -13,7 +13,6 @@
 //------------------------------------------------------------------------------
 
 void PWM5_Initialize(void) {
-    // Set the PWM to the options selected in the PIC10 / PIC12 / PIC16 / PIC18 MCUs.
     // PWM5POL active_hi; PWM5EN enabled; 
     PWM5CON = 0x80;
 
@@ -23,7 +22,7 @@ void PWM5_Initialize(void) {
     // PWM5DCL 0; 
     PWM5DCL = 0x00;
 
-    // Select timer
+    // Select timer [TMR2]
     PWMTMRSbits.P5TSEL = 1;
 }
 

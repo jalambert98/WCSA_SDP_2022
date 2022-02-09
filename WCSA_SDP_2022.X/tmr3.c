@@ -16,16 +16,15 @@ volatile uint16_t timer3ReloadVal;
 void (*TMR3_InterruptHandler)(void);
 
 //------------------------------------------------------------------------------
-
+/* TMR3 ticks@4MHz, rollover after 16-bit range (always cleared before rollover)
+ */
 void TMR3_Initialize(void)
 {
-    //Set the Timer to the options selected in the GUI
-
     //T3GSS T3G_pin; TMR3GE disabled; T3GTM disabled; T3GPOL low; T3GGO_nDONE done; T3GSPM disabled; 
     T3GCON = 0x00;
 
     //TMR3H 6; 
-    TMR3H = 0x06;
+    TMR3H = 0x00;
 
     //TMR3L 0; 
     TMR3L = 0x00;
@@ -42,8 +41,8 @@ void TMR3_Initialize(void)
     // Set Default Interrupt Handler
     TMR3_SetInterruptHandler(TMR3_DefaultInterruptHandler);
 
-    // T3CKPS 1:1; T3SOSC T3CKI_enabled; T3SYNC synchronize; TMR3CS FOSC/4; TMR3ON enabled; 
-    T3CON = 0x01;
+    // T3CKPS 1:1; T3SOSC T3CKI_enabled; T3SYNC synchronize; TMR3CS FOSC/4; TMR3ON disabled; 
+    T3CON = 0x00;
 }
 
 //------------------------------------------------------------------------------
@@ -128,15 +127,14 @@ uint8_t TMR3_CheckGateValueStatus(void)
 
 void TMR3_ISR(void)
 {
-
     // Clear the TMR3 interrupt flag
     PIR3bits.TMR3IF = 0;
-    TMR3_WriteTimer(timer3ReloadVal);
-
-    if(TMR3_InterruptHandler)
+    TMR3_Reload();
+    LATCbits.LATC0 = 1;
+    /*if(TMR3_InterruptHandler)
     {
         TMR3_InterruptHandler();
-    }
+    }*/
 }
 
 //------------------------------------------------------------------------------

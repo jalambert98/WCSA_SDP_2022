@@ -6,7 +6,9 @@
  * Created on February 8, 2022, 2:15 PM
  */
 //------------------------------------------------------------------------------
-
+/* TMR2 ticks @250kHz & rolls over every 1ms
+ * This timer is used to control PWM5 (motor control output)
+ * PWM frequency is fixed @1kHz, but duty cycle is variable */
 #include <xc.h>
 #include "tmr2.h"
 
@@ -14,8 +16,6 @@
 
 void TMR2_Initialize(void)
 {
-    // Set TMR2 to the options selected in the User Interface
-
     // PR2 249; 
     PR2 = 0xF9;
 

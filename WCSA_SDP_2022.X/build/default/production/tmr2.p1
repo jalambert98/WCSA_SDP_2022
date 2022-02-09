@@ -1093,11 +1093,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "19652
 [; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 19652: __asm("TOSH equ 0FEFh");
 [; <" TOSH equ 0FEFh ;# ">
-"15 tmr2.c
-[; ;tmr2.c: 15: void TMR2_Initialize(void)
+"17 tmr2.c
+[; ;tmr2.c: 17: void TMR2_Initialize(void)
 [v _TMR2_Initialize `(v ~T0 @X0 1 ef ]
-"16
-[; ;tmr2.c: 16: {
+"18
+[; ;tmr2.c: 18: {
 {
 [e :U _TMR2_Initialize ]
 [f ]

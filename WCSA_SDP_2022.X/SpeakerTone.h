@@ -7,8 +7,6 @@
  */
 //------------------------------------------------------------------------------
 
-#include "PIC16Xpress_DevBoard.h"
-
 #ifndef SPEAKERTONE_H
 #define	SPEAKERTONE_H
 
@@ -17,27 +15,28 @@
 //==============================================================================
 
 #define DEFAULT_TONE    440     // (A4 = 440Hz)
+#define DEFAULT_OCCOUNT 0x11C1  // (output compare reg value for 440Hz)
 
 
 //==============================================================================
 //------------------------------ PUBLIC LIBRARY --------------------------------
 //==============================================================================
 /**
- * @funct   FrequencyGenerator_Init(speakerPin)
+ * @funct   SpeakerTone_Init(speakerPin)
  * @param   PinName_t speakerPin
  * @return  [uint8_t] SUCCESS or ERROR
  * @brief   Initializes the timer and for the tone system
  * @author  Jack Lambert, 2022.02.07 */
-uint8_t FrequencyGenerator_Init(PinName_t speakerPin);
+void SpeakerTone_Init(void);
 
 //------------------------------------------------------------------------------
 /**
- * @funct   FrequencyGenerator_SetFrequency(unsigned int NewFrequency)
+ * @funct   SpeakerTone_SetFrequency(unsigned int NewFrequency)
  * @param   newFrequency - new frequency to set. 
  * @return  [uint8_t] SUCCESS or ERROR
  * @brief   Changes the frequency of the  system.
  * @author  Jack Lambert, 2022.02.07 */
-uint8_t FrequencyGenerator_SetFrequency(unsigned int newFrequency);
+uint8_t SpeakerTone_SetFrequency(uint16_t newFrequency);
 
 //------------------------------------------------------------------------------
 /**
@@ -45,21 +44,21 @@ uint8_t FrequencyGenerator_SetFrequency(unsigned int newFrequency);
  * @return  Frequency of system in Hertz
  * @brief   gets the frequency of the  system.
  * @author  Jack Lambert, 2022.02.07 */
-unsigned int FrequencyGenerator_GetFrequency(void);
+uint16_t SpeakerTone_GetFrequency(void);
 
 //------------------------------------------------------------------------------
 /**
  * @funct   FrequencyGenerator_Off(void)
  * @return  Turns output Off
  * @author  Jack Lambert, 2022.02.07 */
-void FrequencyGenerator_Off(void);
+void SpeakerTone_Off(void);
 
 //------------------------------------------------------------------------------
 /**
  * @Function FrequencyGenerator_On(void)
  * @return Turns output On
  * @author  Jack Lambert, 2022.02.07 */
-void FrequencyGenerator_On(void);
+void SpeakerTone_On(void);
 
 //------------------------------------------------------------------------------
 

@@ -11232,15 +11232,14 @@ void (*TMR3_InterruptHandler)(void);
 
 
 
+
 void TMR3_Initialize(void)
 {
-
-
 
     T3GCON = 0x00;
 
 
-    TMR3H = 0x06;
+    TMR3H = 0x00;
 
 
     TMR3L = 0x00;
@@ -11258,7 +11257,7 @@ void TMR3_Initialize(void)
     TMR3_SetInterruptHandler(TMR3_DefaultInterruptHandler);
 
 
-    T3CON = 0x01;
+    T3CON = 0x00;
 }
 
 
@@ -11344,14 +11343,13 @@ uint8_t TMR3_CheckGateValueStatus(void)
 void TMR3_ISR(void)
 {
 
-
     PIR3bits.TMR3IF = 0;
-    TMR3_WriteTimer(timer3ReloadVal);
+    TMR3_Reload();
+    LATCbits.LATC0 = 1;
 
-    if(TMR3_InterruptHandler)
-    {
-        TMR3_InterruptHandler();
-    }
+
+
+
 }
 
 

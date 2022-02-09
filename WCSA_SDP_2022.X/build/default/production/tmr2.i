@@ -7,7 +7,7 @@
 # 1 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "tmr2.c" 2
-# 10 "tmr2.c"
+# 12 "tmr2.c"
 # 1 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -11192,7 +11192,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 2 3
-# 10 "tmr2.c" 2
+# 12 "tmr2.c" 2
 
 # 1 "./tmr2.h" 1
 # 14 "./tmr2.h"
@@ -11212,15 +11212,13 @@ void TMR2_WriteTimer(uint8_t timerVal);
 void TMR2_LoadPeriodRegister(uint8_t periodVal);
 # 126 "./tmr2.h"
 _Bool TMR2_HasOverflowOccured(void);
-# 11 "tmr2.c" 2
+# 13 "tmr2.c" 2
 
 
 
 
 void TMR2_Initialize(void)
 {
-
-
 
     PR2 = 0xF9;
 

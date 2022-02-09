@@ -8,8 +8,6 @@
 # 2 "<built-in>" 2
 # 1 "SpeakerTone.c" 2
 # 10 "SpeakerTone.c"
-# 1 "./SpeakerTone.h" 1
-# 10 "./SpeakerTone.h"
 # 1 "./PIC16Xpress_DevBoard.h" 1
 # 10 "./PIC16Xpress_DevBoard.h"
 # 1 "./mcc.h" 1
@@ -11653,59 +11651,94 @@ uint8_t ReadPin(PinName_t pin);
 uint8_t WritePin(PinName_t pin, uint8_t val);
 # 147 "./PIC16Xpress_DevBoard.h"
 void __attribute__((picinterrupt(("")))) InterruptManager (void);
-# 10 "./SpeakerTone.h" 2
-# 31 "./SpeakerTone.h"
-uint8_t FrequencyGenerator_Init(PinName_t speakerPin);
-# 40 "./SpeakerTone.h"
-uint8_t FrequencyGenerator_SetFrequency(unsigned int newFrequency);
-
-
-
-
-
-
-
-unsigned int FrequencyGenerator_GetFrequency(void);
-
-
-
-
-
-
-void FrequencyGenerator_Off(void);
-
-
-
-
-
-
-void FrequencyGenerator_On(void);
 # 10 "SpeakerTone.c" 2
-# 22 "SpeakerTone.c"
-uint8_t FrequencyGenerator_Init(PinName_t speakerPin) {
-    return 0;
+
+# 1 "./SpeakerTone.h" 1
+# 30 "./SpeakerTone.h"
+void SpeakerTone_Init(void);
+# 39 "./SpeakerTone.h"
+uint8_t SpeakerTone_SetFrequency(uint16_t newFrequency);
+
+
+
+
+
+
+
+uint16_t SpeakerTone_GetFrequency(void);
+
+
+
+
+
+
+void SpeakerTone_Off(void);
+
+
+
+
+
+
+void SpeakerTone_On(void);
+# 11 "SpeakerTone.c" 2
+# 26 "SpeakerTone.c"
+uint16_t currFreq, ocCount;
+
+
+
+
+
+
+void SpeakerTone_Init(void) {
+    SetPin(C1, 0);
+    WritePin(C1, 0);
+    currFreq = 440;
+    ocCount = 0x11C1;
+    SpeakerTone_Off();
 }
 
 
 
-uint8_t FrequencyGenerator_SetFrequency(unsigned int newFrequency) {
-    return 0;
+uint8_t SpeakerTone_SetFrequency(uint16_t newFrequency) {
+    if((newFrequency < 100)||(newFrequency > 10000))
+        return 0xFF;
+    else {
+        currFreq = newFrequency;
+        ocCount = (uint16_t)((uint32_t)2000000 / newFrequency);
+        CCP4_SetCompareCount(ocCount);
+        return 0x00;
+    }
 }
 
 
 
-unsigned int FrequencyGenerator_GetFrequency(void) {
-    return 0;
+uint16_t SpeakerTone_GetFrequency(void) {
+    return currFreq;
 }
 
 
 
-void FrequencyGenerator_Off(void) {
+void SpeakerTone_Off(void) {
+    TMR3_StopTimer();
+    TMR3_Reload();
     return;
 }
 
 
 
-void FrequencyGenerator_On(void) {
+void SpeakerTone_On(void) {
+    TMR3_StartTimer();
     return;
+}
+# 82 "SpeakerTone.c"
+int main(void) {
+    PIC16_Init();
+    SpeakerTone_Init();
+    SpeakerTone_On();
+
+    SetPin(C0, 0);
+    WritePin(C0, 0);
+
+    while(1);
+    return 0;
 }

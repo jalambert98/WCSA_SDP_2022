@@ -1,6 +1,5 @@
 build/default/production/SpeakerTone.p1:  \
 SpeakerTone.c  \
-SpeakerTone.h  \
 PIC16Xpress_DevBoard.h  \
 mcc.h  \
 device_config.h  \
@@ -15,4 +14,5 @@ ccp4.h  \
 ccp2.h  \
 ccp3.h  \
 ccp1.h  \
-eusart.h 
+eusart.h  \
+SpeakerTone.h 
