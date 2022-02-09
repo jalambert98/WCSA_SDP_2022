@@ -11680,15 +11680,15 @@ void WDT_Initialize(void)
 void PMD_Initialize(void)
 {
 
-    PMD0 = 0x00;
 
-    PMD1 = 0x7C;
+    PMD0 = 0x00;
+    PMD1 = 0x00;
+
 
     PMD2 = 0x66;
-
-    PMD3 = 0xC8;
-
+    PMD3 = 0x00;
     PMD4 = 0x00;
+
 
     PMD5 = 0x1F;
 }

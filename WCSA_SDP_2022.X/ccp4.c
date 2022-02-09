@@ -65,7 +65,7 @@ void CCP4_CompareISR(void)
 {
     // Clear the CCP4 interrupt flag
     PIR4bits.CCP4IF = 0;
-    WritePin(C0, HIGH);
+    
     // Add user code here
 }
 

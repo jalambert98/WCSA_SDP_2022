@@ -1258,20 +1258,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _PMD_Initialize ]
 [f ]
-"66
-[; ;mcc.c: 66:     PMD0 = 0x00;
+"67
+[; ;mcc.c: 67:     PMD0 = 0x00;
 [e = _PMD0 -> -> 0 `i `uc ]
 "68
-[; ;mcc.c: 68:     PMD1 = 0x7C;
-[e = _PMD1 -> -> 124 `i `uc ]
-"70
-[; ;mcc.c: 70:     PMD2 = 0x66;
+[; ;mcc.c: 68:     PMD1 = 0x00;
+[e = _PMD1 -> -> 0 `i `uc ]
+"71
+[; ;mcc.c: 71:     PMD2 = 0x66;
 [e = _PMD2 -> -> 102 `i `uc ]
 "72
-[; ;mcc.c: 72:     PMD3 = 0xC8;
-[e = _PMD3 -> -> 200 `i `uc ]
-"74
-[; ;mcc.c: 74:     PMD4 = 0x00;
+[; ;mcc.c: 72:     PMD3 = 0x00;
+[e = _PMD3 -> -> 0 `i `uc ]
+"73
+[; ;mcc.c: 73:     PMD4 = 0x00;
 [e = _PMD4 -> -> 0 `i `uc ]
 "76
 [; ;mcc.c: 76:     PMD5 = 0x1F;

@@ -62,16 +62,16 @@ void WDT_Initialize(void)
 
 void PMD_Initialize(void)
 {
-    // CLKRMD CLKR enabled; SYSCMD SYSCLK enabled; FVRMD FVR enabled; IOCMD IOC enabled; NVMMD NVM enabled; 
+    /* EVERYTHING IS CURRENTLY ENABLED!! 
+     * FIX THIS WHEN YOU FINISH THE PERIPHERAL LIST!! */
     PMD0 = 0x00;
-    // TMR0MD TMR0 enabled; TMR1MD TMR1 enabled; TMR4MD TMR4 disabled; TMR5MD TMR5 disabled; TMR2MD TMR2 disabled; TMR3MD TMR3 disabled; NCOMD DDS(NCO) enabled; TMR6MD TMR6 disabled; 
-    PMD1 = 0x7C;
+    PMD1 = 0x00;
+    
     // DACMD DAC disabled; CMP1MD CMP1 disabled; ADCMD ADC disabled; CMP2MD CMP2 disabled; 
     PMD2 = 0x66;
-    // CCP2MD CCP2 enabled; CCP1MD CCP1 enabled; CCP4MD CCP4 disabled; CCP3MD CCP3 enabled; PWM6MD PWM6 enabled; PWM5MD PWM5 enabled; CWG2MD CWG2 disabled; CWG1MD CWG1 disabled; 
-    PMD3 = 0xC8;
-    // MSSP1MD MSSP1 enabled; UART1MD EUSART enabled; MSSP2MD MSSP2 enabled; 
+    PMD3 = 0x00;
     PMD4 = 0x00;
+    
     // DSMMD DSM disabled; CLC3MD CLC3 disabled; CLC4MD CLC4 disabled; CLC1MD CLC1 disabled; CLC2MD CLC2 disabled; 
     PMD5 = 0x1F;
 }
