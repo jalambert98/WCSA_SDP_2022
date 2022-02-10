@@ -32,8 +32,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _INTCONbits `VS30 ~T0 @X0 0 e@11 ]
 "41 PIC16Xpress_DevBoard.c
 [; ;PIC16Xpress_DevBoard.c: 41: uint8_t SetPin(PinName_t pin, uint8_t io) {
-[c E7153 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 .. ]
-[n E7153 . A5 A4 A3 C5 C4 C3 C6 C7 B7 A0 A1 A2 C0 C1 C2 B4 B5 B6  ]
+[c E7144 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 .. ]
+[n E7144 . A5 A4 A3 C5 C4 C3 C6 C7 B7 A0 A1 A2 C0 C1 C2 B4 B5 B6  ]
 "1557 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
 [s S86 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S86 . TRISA0 TRISA1 TRISA2 . TRISA4 TRISA5 ]
@@ -863,10 +863,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "41
 [; ;PIC16Xpress_DevBoard.c: 41: uint8_t SetPin(PinName_t pin, uint8_t io) {
-[v _SetPin `(uc ~T0 @X0 1 ef2`E7153`uc ]
+[v _SetPin `(uc ~T0 @X0 1 ef2`E7144`uc ]
 {
 [e :U _SetPin ]
-[v _pin `E7153 ~T0 @X0 1 r1 ]
+[v _pin `E7144 ~T0 @X0 1 r1 ]
 [v _io `uc ~T0 @X0 1 r2 ]
 [f ]
 "42
@@ -1062,24 +1062,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 981  ]
 [e :U 982 ]
-[e [\ -> _pin `ui , $ -> . `E7153 0 `ui 983
- , $ -> . `E7153 1 `ui 984
- , $ -> . `E7153 2 `ui 985
- , $ -> . `E7153 3 `ui 986
- , $ -> . `E7153 4 `ui 987
- , $ -> . `E7153 5 `ui 988
- , $ -> . `E7153 6 `ui 989
- , $ -> . `E7153 7 `ui 990
- , $ -> . `E7153 8 `ui 991
- , $ -> . `E7153 9 `ui 992
- , $ -> . `E7153 10 `ui 993
- , $ -> . `E7153 11 `ui 994
- , $ -> . `E7153 12 `ui 995
- , $ -> . `E7153 13 `ui 996
- , $ -> . `E7153 14 `ui 997
- , $ -> . `E7153 15 `ui 998
- , $ -> . `E7153 16 `ui 999
- , $ -> . `E7153 17 `ui 1000
+[e [\ -> _pin `ui , $ -> . `E7144 0 `ui 983
+ , $ -> . `E7144 1 `ui 984
+ , $ -> . `E7144 2 `ui 985
+ , $ -> . `E7144 3 `ui 986
+ , $ -> . `E7144 4 `ui 987
+ , $ -> . `E7144 5 `ui 988
+ , $ -> . `E7144 6 `ui 989
+ , $ -> . `E7144 7 `ui 990
+ , $ -> . `E7144 8 `ui 991
+ , $ -> . `E7144 9 `ui 992
+ , $ -> . `E7144 10 `ui 993
+ , $ -> . `E7144 11 `ui 994
+ , $ -> . `E7144 12 `ui 995
+ , $ -> . `E7144 13 `ui 996
+ , $ -> . `E7144 14 `ui 997
+ , $ -> . `E7144 15 `ui 998
+ , $ -> . `E7144 16 `ui 999
+ , $ -> . `E7144 17 `ui 1000
  1001 ]
 [e :U 981 ]
 "99
@@ -1088,10 +1088,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "103
 [; ;PIC16Xpress_DevBoard.c: 103: uint8_t ReadPin(PinName_t pin) {
-[v _ReadPin `(uc ~T0 @X0 1 ef1`E7153 ]
+[v _ReadPin `(uc ~T0 @X0 1 ef1`E7144 ]
 {
 [e :U _ReadPin ]
-[v _pin `E7153 ~T0 @X0 1 r1 ]
+[v _pin `E7144 ~T0 @X0 1 r1 ]
 [f ]
 "104
 [; ;PIC16Xpress_DevBoard.c: 104:     switch(pin) {
@@ -1235,24 +1235,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 1003  ]
 [e :U 1004 ]
-[e [\ -> _pin `ui , $ -> . `E7153 0 `ui 1005
- , $ -> . `E7153 1 `ui 1006
- , $ -> . `E7153 2 `ui 1007
- , $ -> . `E7153 3 `ui 1008
- , $ -> . `E7153 4 `ui 1009
- , $ -> . `E7153 5 `ui 1010
- , $ -> . `E7153 6 `ui 1011
- , $ -> . `E7153 7 `ui 1012
- , $ -> . `E7153 8 `ui 1013
- , $ -> . `E7153 9 `ui 1014
- , $ -> . `E7153 10 `ui 1015
- , $ -> . `E7153 11 `ui 1016
- , $ -> . `E7153 12 `ui 1017
- , $ -> . `E7153 13 `ui 1018
- , $ -> . `E7153 14 `ui 1019
- , $ -> . `E7153 15 `ui 1020
- , $ -> . `E7153 16 `ui 1021
- , $ -> . `E7153 17 `ui 1022
+[e [\ -> _pin `ui , $ -> . `E7144 0 `ui 1005
+ , $ -> . `E7144 1 `ui 1006
+ , $ -> . `E7144 2 `ui 1007
+ , $ -> . `E7144 3 `ui 1008
+ , $ -> . `E7144 4 `ui 1009
+ , $ -> . `E7144 5 `ui 1010
+ , $ -> . `E7144 6 `ui 1011
+ , $ -> . `E7144 7 `ui 1012
+ , $ -> . `E7144 8 `ui 1013
+ , $ -> . `E7144 9 `ui 1014
+ , $ -> . `E7144 10 `ui 1015
+ , $ -> . `E7144 11 `ui 1016
+ , $ -> . `E7144 12 `ui 1017
+ , $ -> . `E7144 13 `ui 1018
+ , $ -> . `E7144 14 `ui 1019
+ , $ -> . `E7144 15 `ui 1020
+ , $ -> . `E7144 16 `ui 1021
+ , $ -> . `E7144 17 `ui 1022
  1023 ]
 [e :U 1003 ]
 "144
@@ -1261,10 +1261,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "148
 [; ;PIC16Xpress_DevBoard.c: 148: uint8_t WritePin(PinName_t pin, uint8_t val) {
-[v _WritePin `(uc ~T0 @X0 1 ef2`E7153`uc ]
+[v _WritePin `(uc ~T0 @X0 1 ef2`E7144`uc ]
 {
 [e :U _WritePin ]
-[v _pin `E7153 ~T0 @X0 1 r1 ]
+[v _pin `E7144 ~T0 @X0 1 r1 ]
 [v _val `uc ~T0 @X0 1 r2 ]
 [f ]
 "149
@@ -1460,24 +1460,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 1025  ]
 [e :U 1026 ]
-[e [\ -> _pin `ui , $ -> . `E7153 0 `ui 1027
- , $ -> . `E7153 1 `ui 1028
- , $ -> . `E7153 2 `ui 1029
- , $ -> . `E7153 3 `ui 1030
- , $ -> . `E7153 4 `ui 1031
- , $ -> . `E7153 5 `ui 1032
- , $ -> . `E7153 6 `ui 1033
- , $ -> . `E7153 7 `ui 1034
- , $ -> . `E7153 8 `ui 1035
- , $ -> . `E7153 9 `ui 1036
- , $ -> . `E7153 10 `ui 1037
- , $ -> . `E7153 11 `ui 1038
- , $ -> . `E7153 12 `ui 1039
- , $ -> . `E7153 13 `ui 1040
- , $ -> . `E7153 14 `ui 1041
- , $ -> . `E7153 15 `ui 1042
- , $ -> . `E7153 16 `ui 1043
- , $ -> . `E7153 17 `ui 1044
+[e [\ -> _pin `ui , $ -> . `E7144 0 `ui 1027
+ , $ -> . `E7144 1 `ui 1028
+ , $ -> . `E7144 2 `ui 1029
+ , $ -> . `E7144 3 `ui 1030
+ , $ -> . `E7144 4 `ui 1031
+ , $ -> . `E7144 5 `ui 1032
+ , $ -> . `E7144 6 `ui 1033
+ , $ -> . `E7144 7 `ui 1034
+ , $ -> . `E7144 8 `ui 1035
+ , $ -> . `E7144 9 `ui 1036
+ , $ -> . `E7144 10 `ui 1037
+ , $ -> . `E7144 11 `ui 1038
+ , $ -> . `E7144 12 `ui 1039
+ , $ -> . `E7144 13 `ui 1040
+ , $ -> . `E7144 14 `ui 1041
+ , $ -> . `E7144 15 `ui 1042
+ , $ -> . `E7144 16 `ui 1043
+ , $ -> . `E7144 17 `ui 1044
  1045 ]
 [e :U 1025 ]
 "206

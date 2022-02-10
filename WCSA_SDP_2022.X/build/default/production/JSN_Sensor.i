@@ -11411,20 +11411,8 @@ uint16_t TMR1_ReadTimer(void);
 void TMR1_WriteTimer(uint16_t timerVal);
 # 136 "./tmr1.h"
 void TMR1_Reload(void);
-# 156 "./tmr1.h"
-void TMR1_StartSinglePulseAcquisition(void);
-# 176 "./tmr1.h"
-uint8_t TMR1_CheckGateValueStatus(void);
-# 195 "./tmr1.h"
+# 155 "./tmr1.h"
 void TMR1_ISR(void);
-# 214 "./tmr1.h"
-void TMR1_CallBack(void);
-# 233 "./tmr1.h"
- void TMR1_SetInterruptHandler(void (* InterruptHandler)(void));
-# 252 "./tmr1.h"
-extern void (*TMR1_InterruptHandler)(void);
-# 271 "./tmr1.h"
-void TMR1_DefaultInterruptHandler(void);
 # 20 "./mcc.h" 2
 
 # 1 "./tmr2.h" 1
@@ -11474,6 +11462,12 @@ void TMR0_CallBack(void);
 extern void (*TMR0_InterruptHandler)(void);
 # 231 "./tmr0.h"
 void TMR0_DefaultInterruptHandler(void);
+
+
+
+
+
+uint8_t TMR0_GetCallBackNum(void);
 # 23 "./mcc.h" 2
 
 # 1 "./ccp4.h" 1

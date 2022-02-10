@@ -11210,25 +11210,12 @@ uint16_t TMR1_ReadTimer(void);
 void TMR1_WriteTimer(uint16_t timerVal);
 # 136 "./tmr1.h"
 void TMR1_Reload(void);
-# 156 "./tmr1.h"
-void TMR1_StartSinglePulseAcquisition(void);
-# 176 "./tmr1.h"
-uint8_t TMR1_CheckGateValueStatus(void);
-# 195 "./tmr1.h"
+# 155 "./tmr1.h"
 void TMR1_ISR(void);
-# 214 "./tmr1.h"
-void TMR1_CallBack(void);
-# 233 "./tmr1.h"
- void TMR1_SetInterruptHandler(void (* InterruptHandler)(void));
-# 252 "./tmr1.h"
-extern void (*TMR1_InterruptHandler)(void);
-# 271 "./tmr1.h"
-void TMR1_DefaultInterruptHandler(void);
 # 11 "tmr1.c" 2
 
 
 volatile uint16_t timer1ReloadVal;
-void (*TMR1_InterruptHandler)(void);
 
 
 
@@ -11255,9 +11242,6 @@ void TMR1_Initialize(void)
 
 
     PIE1bits.TMR1IE = 1;
-
-
-    TMR1_SetInterruptHandler(TMR1_DefaultInterruptHandler);
 
 
     T1CON = 0b00100001;
@@ -11329,52 +11313,9 @@ void TMR1_Reload(void)
 
 
 
-void TMR1_StartSinglePulseAcquisition(void)
-{
-    T1GCONbits.T1GGO_nDONE = 1;
-}
-
-
-
-uint8_t TMR1_CheckGateValueStatus(void)
-{
-    return (T1GCONbits.T1GVAL);
-}
-
-
-
 void TMR1_ISR(void)
 {
 
-
     PIR1bits.TMR1IF = 0;
     TMR1_WriteTimer(timer1ReloadVal);
-
-
-
-
-}
-
-
-
-void TMR1_CallBack(void)
-{
-
-    if(TMR1_InterruptHandler)
-    {
-        TMR1_InterruptHandler();
-    }
-}
-
-
-
-void TMR1_SetInterruptHandler(void (* InterruptHandler)(void)){
-    TMR1_InterruptHandler = InterruptHandler;
-}
-
-
-
-void TMR1_DefaultInterruptHandler(void){
-
-
 }

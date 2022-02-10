@@ -1,4 +1,4 @@
-# 1 "interrupt_manager.c"
+# 1 "tmr3.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,12 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "interrupt_manager.c" 2
-# 10 "interrupt_manager.c"
-# 1 "./PIC16Xpress_DevBoard.h" 1
-# 10 "./PIC16Xpress_DevBoard.h"
-# 1 "./mcc.h" 1
-# 12 "./mcc.h"
+# 1 "tmr3.c" 2
+# 10 "tmr3.c"
 # 1 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -11196,180 +11192,12 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 2 3
-# 12 "./mcc.h" 2
-
-# 1 "./device_config.h" 1
-# 13 "./mcc.h" 2
-
-# 1 "./pin_manager.h" 1
-# 67 "./pin_manager.h"
-void PIN_MANAGER_Initialize (void);
-# 78 "./pin_manager.h"
-void PIN_MANAGER_IOC(void);
-# 14 "./mcc.h" 2
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdbool.h" 1 3
-# 16 "./mcc.h" 2
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\conio.h" 1 3
-
-
-
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdio.h" 1 3
-# 24 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdio.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\bits/alltypes.h" 1 3
-
-
-
-
-
-typedef void * va_list[1];
-
-
-
-
-typedef void * __isoc_va_list[1];
-# 137 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long ssize_t;
-# 246 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long long off_t;
-# 399 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef struct _IO_FILE FILE;
-# 24 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdio.h" 2 3
-# 52 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdio.h" 3
-typedef union _G_fpos64_t {
- char __opaque[16];
- double __align;
-} fpos_t;
-
-extern FILE *const stdin;
-extern FILE *const stdout;
-extern FILE *const stderr;
-
-
-
-
-
-FILE *fopen(const char *restrict, const char *restrict);
-FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
-int fclose(FILE *);
-
-int remove(const char *);
-int rename(const char *, const char *);
-
-int feof(FILE *);
-int ferror(FILE *);
-int fflush(FILE *);
-void clearerr(FILE *);
-
-int fseek(FILE *, long, int);
-long ftell(FILE *);
-void rewind(FILE *);
-
-int fgetpos(FILE *restrict, fpos_t *restrict);
-int fsetpos(FILE *, const fpos_t *);
-
-size_t fread(void *restrict, size_t, size_t, FILE *restrict);
-size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
-
-int fgetc(FILE *);
-int getc(FILE *);
-int getchar(void);
-int ungetc(int, FILE *);
-
-int fputc(int, FILE *);
-int putc(int, FILE *);
-int putchar(int);
-
-char *fgets(char *restrict, int, FILE *restrict);
-
-char *gets(char *);
-
-
-int fputs(const char *restrict, FILE *restrict);
-int puts(const char *);
-
-__attribute__((__format__(__printf__, 1, 2)))
-int printf(const char *restrict, ...);
-__attribute__((__format__(__printf__, 2, 3)))
-int fprintf(FILE *restrict, const char *restrict, ...);
-__attribute__((__format__(__printf__, 2, 3)))
-int sprintf(char *restrict, const char *restrict, ...);
-__attribute__((__format__(__printf__, 3, 4)))
-int snprintf(char *restrict, size_t, const char *restrict, ...);
-
-__attribute__((__format__(__printf__, 1, 0)))
-int vprintf(const char *restrict, __isoc_va_list);
-int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__printf__, 2, 0)))
-int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__printf__, 3, 0)))
-int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
-
-__attribute__((__format__(__scanf__, 1, 2)))
-int scanf(const char *restrict, ...);
-__attribute__((__format__(__scanf__, 2, 3)))
-int fscanf(FILE *restrict, const char *restrict, ...);
-__attribute__((__format__(__scanf__, 2, 3)))
-int sscanf(const char *restrict, const char *restrict, ...);
-
-__attribute__((__format__(__scanf__, 1, 0)))
-int vscanf(const char *restrict, __isoc_va_list);
-int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__scanf__, 2, 0)))
-int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
-
-void perror(const char *);
-
-int setvbuf(FILE *restrict, char *restrict, int, size_t);
-void setbuf(FILE *restrict, char *restrict);
-
-char *tmpnam(char *);
-FILE *tmpfile(void);
-
-
-
-
-FILE *fmemopen(void *restrict, size_t, const char *restrict);
-FILE *open_memstream(char **, size_t *);
-FILE *fdopen(int, const char *);
-FILE *popen(const char *, const char *);
-int pclose(FILE *);
-int fileno(FILE *);
-int fseeko(FILE *, off_t, int);
-off_t ftello(FILE *);
-int dprintf(int, const char *restrict, ...);
-int vdprintf(int, const char *restrict, __isoc_va_list);
-void flockfile(FILE *);
-int ftrylockfile(FILE *);
-void funlockfile(FILE *);
-int getc_unlocked(FILE *);
-int getchar_unlocked(void);
-int putc_unlocked(int, FILE *);
-int putchar_unlocked(int);
-ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
-ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
-int renameat(int, const char *, int, const char *);
-char *ctermid(char *);
-
-
-
-
-
-
-
-char *tempnam(const char *, const char *);
-# 7 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\conio.h" 2 3
-# 17 "./mcc.h" 2
-
-# 1 "./interrupt_manager.h" 1
-# 18 "./mcc.h" 2
+# 10 "tmr3.c" 2
 
 # 1 "./tmr3.h" 1
+# 13 "./tmr3.h"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdbool.h" 1 3
+# 13 "./tmr3.h" 2
 # 31 "./tmr3.h"
 void TMR3_Initialize(void);
 # 47 "./tmr3.h"
@@ -11394,312 +11222,123 @@ void TMR3_SetInterruptHandler(void (* InterruptHandler)(void));
 extern void (*TMR3_InterruptHandler)(void);
 # 202 "./tmr3.h"
 void TMR3_DefaultInterruptHandler(void);
-# 19 "./mcc.h" 2
-
-# 1 "./tmr1.h" 1
-# 37 "./tmr1.h"
-void TMR1_Initialize(void);
-# 57 "./tmr1.h"
-void TMR1_StartTimer(void);
-# 77 "./tmr1.h"
-void TMR1_StopTimer(void);
-# 96 "./tmr1.h"
-uint16_t TMR1_ReadTimer(void);
-# 116 "./tmr1.h"
-void TMR1_WriteTimer(uint16_t timerVal);
-# 136 "./tmr1.h"
-void TMR1_Reload(void);
-# 155 "./tmr1.h"
-void TMR1_ISR(void);
-# 20 "./mcc.h" 2
-
-# 1 "./tmr2.h" 1
-# 30 "./tmr2.h"
-void TMR2_Initialize(void);
-# 46 "./tmr2.h"
-void TMR2_StartTimer(void);
-# 62 "./tmr2.h"
-void TMR2_StopTimer(void);
-# 77 "./tmr2.h"
-uint8_t TMR2_ReadTimer(void);
-# 93 "./tmr2.h"
-void TMR2_WriteTimer(uint8_t timerVal);
-# 109 "./tmr2.h"
-void TMR2_LoadPeriodRegister(uint8_t periodVal);
-# 126 "./tmr2.h"
-_Bool TMR2_HasOverflowOccured(void);
-# 21 "./mcc.h" 2
-
-# 1 "./pwm5.h" 1
-# 33 "./pwm5.h"
-void PWM5_Initialize(void);
-# 49 "./pwm5.h"
-void PWM5_LoadDutyValue(uint16_t dutyValue);
-# 22 "./mcc.h" 2
-
-# 1 "./tmr0.h" 1
-# 37 "./tmr0.h"
-void TMR0_Initialize(void);
-# 57 "./tmr0.h"
-void TMR0_StartTimer(void);
-# 77 "./tmr0.h"
-void TMR0_StopTimer(void);
-# 96 "./tmr0.h"
-uint8_t TMR0_ReadTimer(void);
-# 116 "./tmr0.h"
-void TMR0_WriteTimer(uint8_t timerVal);
-# 136 "./tmr0.h"
-void TMR0_Reload(uint8_t periodVal);
-# 155 "./tmr0.h"
-void TMR0_ISR(void);
-# 174 "./tmr0.h"
-void TMR0_CallBack(void);
-# 193 "./tmr0.h"
- void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
-# 212 "./tmr0.h"
-extern void (*TMR0_InterruptHandler)(void);
-# 231 "./tmr0.h"
-void TMR0_DefaultInterruptHandler(void);
+# 11 "tmr3.c" 2
 
 
 
 
-
-uint8_t TMR0_GetCallBackNum(void);
-# 23 "./mcc.h" 2
-
-# 1 "./ccp4.h" 1
-# 26 "./ccp4.h"
-typedef union CCPR4Reg_tag
-{
-   struct
-   {
-      uint8_t ccpr4l;
-      uint8_t ccpr4h;
-   };
-   struct
-   {
-      uint16_t ccpr4_16Bit;
-   };
-} CCP4_PERIOD_REG_T ;
-# 54 "./ccp4.h"
-void CCP4_Initialize(void);
-# 70 "./ccp4.h"
-void CCP4_SetCompareCount(uint16_t compareCount);
-# 87 "./ccp4.h"
-_Bool CCP4_OutputStatusGet(void);
-# 101 "./ccp4.h"
-void CCP4_CompareISR(void);
-# 24 "./mcc.h" 2
-
-# 1 "./ccp2.h" 1
-# 29 "./ccp2.h"
-typedef union CCPR2Reg_tag
-{
-   struct
-   {
-      uint8_t ccpr2l;
-      uint8_t ccpr2h;
-   };
-   struct
-   {
-      uint16_t ccpr2_16Bit;
-   };
-} CCP2_PERIOD_REG_T ;
-# 64 "./ccp2.h"
-void CCP2_Initialize(void);
-# 81 "./ccp2.h"
-void CCP2_CaptureISR(void);
-# 101 "./ccp2.h"
- void CCP2_SetCallBack(void (*customCallBack)(uint16_t));
-# 25 "./mcc.h" 2
-
-# 1 "./ccp3.h" 1
-# 29 "./ccp3.h"
-typedef union CCPR3Reg_tag
-{
-   struct
-   {
-      uint8_t ccpr3l;
-      uint8_t ccpr3h;
-   };
-   struct
-   {
-      uint16_t ccpr3_16Bit;
-   };
-} CCP3_PERIOD_REG_T ;
-# 64 "./ccp3.h"
-void CCP3_Initialize(void);
-# 81 "./ccp3.h"
-void CCP3_CaptureISR(void);
-# 101 "./ccp3.h"
- void CCP3_SetCallBack(void (*customCallBack)(uint16_t));
-# 26 "./mcc.h" 2
-
-# 1 "./ccp1.h" 1
-# 29 "./ccp1.h"
-typedef union CCPR1Reg_tag
-{
-   struct
-   {
-      uint8_t ccpr1l;
-      uint8_t ccpr1h;
-   };
-   struct
-   {
-      uint16_t ccpr1_16Bit;
-   };
-} CCP1_PERIOD_REG_T ;
-# 64 "./ccp1.h"
-void CCP1_Initialize(void);
-# 81 "./ccp1.h"
-void CCP1_CaptureISR(void);
-# 101 "./ccp1.h"
- void CCP1_SetCallBack(void (*customCallBack)(uint16_t));
-# 27 "./mcc.h" 2
-
-# 1 "./eusart.h" 1
-# 23 "./eusart.h"
-typedef union {
-    struct {
-        unsigned perr : 1;
-        unsigned ferr : 1;
-        unsigned oerr : 1;
-        unsigned reserved : 5;
-    };
-    uint8_t status;
-}eusart_status_t;
+volatile uint16_t timer3ReloadVal;
 
 
 
 
-extern volatile uint8_t eusartTxBufferRemaining;
-extern volatile uint8_t eusartRxCount;
-
-
-
-extern void (*EUSART_TxDefaultInterruptHandler)(void);
-extern void (*EUSART_RxDefaultInterruptHandler)(void);
-# 62 "./eusart.h"
-void EUSART_Initialize(void);
-# 87 "./eusart.h"
-_Bool EUSART_is_tx_ready(void);
-# 112 "./eusart.h"
-_Bool EUSART_is_rx_ready(void);
-# 136 "./eusart.h"
-_Bool EUSART_is_tx_done(void);
-# 157 "./eusart.h"
-eusart_status_t EUSART_get_last_status(void);
-# 178 "./eusart.h"
-uint8_t EUSART_Read(void);
-# 199 "./eusart.h"
-void EUSART_Write(uint8_t txData);
-# 221 "./eusart.h"
-void EUSART_Transmit_ISR(void);
-# 243 "./eusart.h"
-void EUSART_Receive_ISR(void);
-# 265 "./eusart.h"
-void EUSART_RxDataHandler(void);
-# 284 "./eusart.h"
-void EUSART_SetFramingErrorHandler(void (* interruptHandler)(void));
-# 303 "./eusart.h"
-void EUSART_SetOverrunErrorHandler(void (* interruptHandler)(void));
-# 322 "./eusart.h"
-void EUSART_SetErrorHandler(void (* interruptHandler)(void));
-# 343 "./eusart.h"
-void EUSART_SetTxInterruptHandler(void (* interruptHandler)(void));
-# 364 "./eusart.h"
-void EUSART_SetRxInterruptHandler(void (* interruptHandler)(void));
-# 28 "./mcc.h" 2
-# 40 "./mcc.h"
-void SYSTEM_Initialize(void);
-# 52 "./mcc.h"
-void OSCILLATOR_Initialize(void);
-# 64 "./mcc.h"
-void WDT_Initialize(void);
-# 76 "./mcc.h"
-void PMD_Initialize(void);
-# 10 "./PIC16Xpress_DevBoard.h" 2
-# 96 "./PIC16Xpress_DevBoard.h"
-typedef enum {
-    A5, A4, A3,
-    C5, C4, C3,
-    C6, C7, B7,
-    A0, A1, A2,
-    C0, C1, C2,
-    B4, B5, B6
-} PinName_t;
-# 120 "./PIC16Xpress_DevBoard.h"
-void PIC16_Init(void);
-
-
-
-uint8_t SetPin(PinName_t pin, uint8_t io);
-
-
-
-uint8_t ReadPin(PinName_t pin);
-
-
-
-uint8_t WritePin(PinName_t pin, uint8_t val);
-# 147 "./PIC16Xpress_DevBoard.h"
-void __attribute__((picinterrupt(("")))) InterruptManager (void);
-# 10 "interrupt_manager.c" 2
-
-
-
-
-
-
-void __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager (void)
+void TMR3_Initialize(void)
 {
 
-    if(PIE0bits.TMR0IE == 1 && PIR0bits.TMR0IF == 1)
+    T3GCON = 0x00;
+
+
+    TMR3H = 0x00;
+
+
+    TMR3L = 0x00;
+
+
+    PIR3bits.TMR3IF = 0;
+
+
+    timer3ReloadVal = 0x0000;
+
+
+    PIE3bits.TMR3IE = 1;
+
+
+    T3CON = 0x00;
+}
+
+
+
+void TMR3_StartTimer(void)
+{
+
+    T3CONbits.TMR3ON = 1;
+}
+
+
+
+void TMR3_StopTimer(void)
+{
+
+    T3CONbits.TMR3ON = 0;
+}
+
+
+
+uint16_t TMR3_ReadTimer(void)
+{
+    uint16_t readVal;
+    uint8_t readValHigh;
+    uint8_t readValLow;
+
+
+    readValLow = TMR3L;
+    readValHigh = TMR3H;
+
+    readVal = ((uint16_t)readValHigh << 8) | readValLow;
+
+    return readVal;
+}
+
+
+
+void TMR3_WriteTimer(uint16_t timerVal)
+{
+    if (T3CONbits.T3SYNC == 1)
     {
-        TMR0_ISR();
+
+        T3CONbits.TMR3ON = 0;
+
+
+        TMR3H = (uint8_t)(timerVal >> 8);
+        TMR3L = (uint8_t)timerVal;
+
+
+        T3CONbits.TMR3ON =1;
     }
-    else if(INTCONbits.PEIE == 1)
+    else
     {
-        if(PIE4bits.CCP4IE == 1 && PIR4bits.CCP4IF == 1)
-        {
-            CCP4_CompareISR();
-        }
-        else if(PIE3bits.TMR3IE == 1 && PIR3bits.TMR3IF == 1)
-        {
-            TMR3_ISR();
-        }
-        else if(PIE4bits.CCP1IE == 1 && PIR4bits.CCP1IF == 1)
-        {
-            CCP1_CaptureISR();
-        }
-        else if(PIE4bits.CCP3IE == 1 && PIR4bits.CCP3IF == 1)
-        {
-            CCP3_CaptureISR();
-        }
-        else if(PIE4bits.CCP2IE == 1 && PIR4bits.CCP2IF == 1)
-        {
-            CCP2_CaptureISR();
-        }
-        else if(PIE1bits.TMR1IE == 1 && PIR1bits.TMR1IF == 1)
-        {
-            TMR1_ISR();
-        }
-        else if(PIE1bits.RCIE == 1 && PIR1bits.RCIF == 1)
-        {
-            EUSART_RxDefaultInterruptHandler();
-        }
-        else if(PIE1bits.TXIE == 1 && PIR1bits.TXIF == 1)
-        {
-            EUSART_TxDefaultInterruptHandler();
-        }
 
-
-
-
+        TMR3H = (uint8_t)(timerVal >> 8);
+        TMR3L = (uint8_t)timerVal;
     }
+}
 
 
 
+void TMR3_Reload(void)
+{
+    TMR3_WriteTimer(timer3ReloadVal);
+}
 
+
+
+void TMR3_StartSinglePulseAcquisition(void)
+{
+    T3GCONbits.T3GGO_nDONE = 1;
+}
+
+
+
+uint8_t TMR3_CheckGateValueStatus(void)
+{
+    return (T3GCONbits.T3GVAL);
+}
+
+
+
+void TMR3_ISR(void)
+{
+
+    PIR3bits.TMR3IF = 0;
+    TMR3_Reload();
 }

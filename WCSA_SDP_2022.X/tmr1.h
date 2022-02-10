@@ -138,46 +138,6 @@ void TMR1_Reload(void);
 //------------------------------------------------------------------------------
 /**
   @Summary
-    Starts the single pulse acquisition in TMR1 gate operation.
-
-  @Description
-    This function starts the single pulse acquisition in TMR1 gate operation.
-    This function must be used when the TMR1 gate is enabled.
-
-  @Preconditions
-    Initialize  the TMR1 with gate enable before calling this function.
-
-  @Param
-    None
-
-  @Returns
-    None
-*/
-void TMR1_StartSinglePulseAcquisition(void);
-
-//------------------------------------------------------------------------------
-/**
-  @Summary
-    Check the current state of Timer1 gate.
-
-  @Description
-    This function reads the TMR1 gate value and return it.
-    This function must be used when the TMR1 gate is enabled.
-
-  @Preconditions
-    Initialize  the TMR1 with gate enable before calling this function.
-
-  @Param
-    None
-
-  @Returns
-    None
-*/
-uint8_t TMR1_CheckGateValueStatus(void);
-
-//------------------------------------------------------------------------------
-/**
-  @Summary
     Timer Interrupt Service Routine
 
   @Description
@@ -193,82 +153,6 @@ uint8_t TMR1_CheckGateValueStatus(void);
     None
 */
 void TMR1_ISR(void);
-
-//------------------------------------------------------------------------------
-/**
-  @Summary
-    CallBack function.
-
-  @Description
-    This routine is called by the Interrupt Manager.
-
-  @Preconditions
-    Initialize  the TMR1 module with interrupt before calling this function.
-
-  @Param
-    None
-
-  @Returns
-    None
-*/
-void TMR1_CallBack(void);
-
-//------------------------------------------------------------------------------
-/**
-  @Summary
-    Set Timer Interrupt Handler
-
-  @Description
-    This sets the function to be called during the ISR
-
-  @Preconditions
-    Initialize  the TMR1 module with interrupt before calling this.
-
-  @Param
-    Address of function to be set
-
-  @Returns
-    None
-*/
- void TMR1_SetInterruptHandler(void (* InterruptHandler)(void));
-
- //------------------------------------------------------------------------------
-/**
-  @Summary
-    Timer Interrupt Handler
-
-  @Description
-    This is a function pointer to the function that will be called during the ISR
-
-  @Preconditions
-    Initialize  the TMR1 module with interrupt before calling this isr.
-
-  @Param
-    None
-
-  @Returns
-    None
-*/
-extern void (*TMR1_InterruptHandler)(void);
-
-//------------------------------------------------------------------------------
-/**
-  @Summary
-    Default Timer Interrupt Handler
-
-  @Description
-    This is the default Interrupt Handler function
-
-  @Preconditions
-    Initialize  the TMR1 module with interrupt before calling this isr.
-
-  @Param
-    None
-
-  @Returns
-    None
-*/
-void TMR1_DefaultInterruptHandler(void);
 
 //------------------------------------------------------------------------------
 

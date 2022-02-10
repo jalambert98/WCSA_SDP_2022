@@ -1,72 +1,16 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[v F7190 `(v ~T0 @X0 0 tf1`us ]
-"22 ccp1.c
-[; ;ccp1.c: 22: static JSN_t *sameSens;
-[c E7144 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 .. ]
-[n E7144 . A5 A4 A3 C5 C4 C3 C6 C7 B7 A0 A1 A2 C0 C1 C2 B4 B5 B6  ]
-"28 ./JSN_Sensor.h
-[; ;./JSN_Sensor.h: 28: typedef struct {
-[s S979 `ui 1 `ui 1 `E7144 1 `E7144 1 ]
-[n S979 . echoHighTime distance trigPin echoPin ]
-"92
-[; ;./JSN_Sensor.h: 92: JSN_t* JSN_GetLastTrig(void);
-[v _JSN_GetLastTrig `(*S979 ~T0 @X0 0 ef ]
-"128 ./PIC16Xpress_DevBoard.h
-[; ;./PIC16Xpress_DevBoard.h: 128: uint8_t ReadPin(PinName_t pin);
-[v _ReadPin `(uc ~T0 @X0 0 ef1`E7144 ]
-"6395 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
-[v _CCP1CON `Vuc ~T0 @X0 0 e@659 ]
-"6460
-[v _CCP1CAP `Vuc ~T0 @X0 0 e@660 ]
-"6375
-[v _CCPR1H `Vuc ~T0 @X0 0 e@658 ]
-"6355
-[v _CCPR1L `Vuc ~T0 @X0 0 e@657 ]
-[v F6666 `(v ~T0 @X0 0 tf1`us ]
-"101 ./ccp1.h
-[; ;./ccp1.h: 101:  void CCP1_SetCallBack(void (*customCallBack)(uint16_t));
-[v _CCP1_SetCallBack `(v ~T0 @X0 0 ef1`*F6666 ]
-"6670 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
-[s S317 :2 `uc 1 :2 `uc 1 :2 `uc 1 :2 `uc 1 ]
-[n S317 . C1TSEL C2TSEL C3TSEL C4TSEL ]
-"6676
-[s S318 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S318 . C1TSEL0 C1TSEL1 C2TSEL0 C2TSEL1 C3TSEL0 C3TSEL1 C4TSEL0 C4TSEL1 ]
-"6669
-[u S316 `S317 1 `S318 1 ]
-[n S316 . . . ]
-"6687
-[v _CCPTMRSbits `VS316 ~T0 @X0 0 e@671 ]
-"761
-[s S47 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S47 . CCP1IF CCP2IF CCP3IF CCP4IF TMR5IF TMR5GIF CWG1IF CWG2IF ]
-"760
-[u S46 `S47 1 ]
-[n S46 . . ]
-"772
-[v _PIR4bits `VS46 ~T0 @X0 0 e@20 ]
-"1922
-[s S100 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S100 . CCP1IE CCP2IE CCP3IE CCP4IE TMR5IE TMR5GIE CWG1IE CWG2IE ]
-"1921
-[u S99 `S100 1 ]
-[n S99 . . ]
-"1933
-[v _PIE4bits `VS99 ~T0 @X0 0 e@148 ]
-"32 ./ccp1.h
-[; ;./ccp1.h: 32:    {
-[s S964 `uc 1 `uc 1 ]
-[n S964 . ccpr1l ccpr1h ]
-"37
-[; ;./ccp1.h: 37:    {
-[s S965 `us 1 ]
-[n S965 . ccpr1_16Bit ]
-"30
-[; ;./ccp1.h: 30: {
-[u S963 `S964 1 `S965 1 ]
-[n S963 CCPR1Reg_tag . . ]
-[v F7204 `(v ~T0 @X0 0 tf1`us ]
-[v F7207 `(v ~T0 @X0 0 tf1`us ]
+"49 ./pwm5.h
+[; ;./pwm5.h: 49: void PWM5_LoadDutyValue(uint16_t dutyValue);
+[v _PWM5_LoadDutyValue `(v ~T0 @X0 0 ef1`us ]
+"46 ./tmr2.h
+[; ;./tmr2.h: 46: void TMR2_StartTimer(void);
+[v _TMR2_StartTimer `(v ~T0 @X0 0 ef ]
+"62
+[; ;./tmr2.h: 62: void TMR2_StopTimer(void);
+[v _TMR2_StopTimer `(v ~T0 @X0 0 ef ]
+"93
+[; ;./tmr2.h: 93: void TMR2_WriteTimer(uint8_t timerVal);
+[v _TMR2_WriteTimer `(v ~T0 @X0 0 ef1`uc ]
 "55 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
 [; <" INDF0 equ 00h ;# ">
 "75
@@ -773,150 +717,103 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSL equ 0FEEh ;# ">
 "19652
 [; <" TOSH equ 0FEFh ;# ">
-"20 ccp1.c
-[; ;ccp1.c: 20: static void (*CCP1_CallBack)(uint16_t);
-[v _CCP1_CallBack `*F7190 ~T0 @X0 1 s ]
-"21
-[; ;ccp1.c: 21: static uint16_t ticksUp, ticksDown;
-[v _ticksUp `us ~T0 @X0 1 s ]
-[v _ticksDown `us ~T0 @X0 1 s ]
-"22
-[; ;ccp1.c: 22: static JSN_t *sameSens;
-[v _sameSens `*S979 ~T0 @X0 1 s ]
+"22 MotorControl.c
+[; ;MotorControl.c: 22: uint8_t dutyCyclePercent;
+[v _dutyCyclePercent `uc ~T0 @X0 1 e ]
 "23
-[; ;ccp1.c: 23: static JSN_t *lastTrig;
-[v _lastTrig `*S979 ~T0 @X0 1 s ]
-"29
-[; ;ccp1.c: 29: static void CCP1_DefaultCallBack(uint16_t capturedValue)
-[v _CCP1_DefaultCallBack `(v ~T0 @X0 1 sf1`us ]
+[; ;MotorControl.c: 23: uint16_t dutyCycle10bit;
+[v _dutyCycle10bit `us ~T0 @X0 1 e ]
 "30
-[; ;ccp1.c: 30: {
+[; ;MotorControl.c: 30: void MotorControl_Init(void) {
+[v _MotorControl_Init `(v ~T0 @X0 1 ef ]
 {
-[e :U _CCP1_DefaultCallBack ]
-"29
-[; ;ccp1.c: 29: static void CCP1_DefaultCallBack(uint16_t capturedValue)
-[v _capturedValue `us ~T0 @X0 1 r1 ]
-"30
-[; ;ccp1.c: 30: {
+[e :U _MotorControl_Init ]
 [f ]
 "31
-[; ;ccp1.c: 31:     lastTrig = JSN_GetLastTrig();
-[e = _lastTrig ( _JSN_GetLastTrig ..  ]
+[; ;MotorControl.c: 31:     dutyCyclePercent = 0x00;
+[e = _dutyCyclePercent -> -> 0 `i `uc ]
 "32
-[; ;ccp1.c: 32:     switch(ReadPin(lastTrig->echoPin)) {
-[e $U 982  ]
-{
+[; ;MotorControl.c: 32:     dutyCycle10bit = 0x0000;
+[e = _dutyCycle10bit -> -> 0 `i `us ]
+"33
+[; ;MotorControl.c: 33:     return;
+[e $UE 979  ]
 "34
-[; ;ccp1.c: 34:         case 1:
-[e :U 983 ]
-"35
-[; ;ccp1.c: 35:             ticksUp = capturedValue;
-[e = _ticksUp _capturedValue ]
-"36
-[; ;ccp1.c: 36:             sameSens = lastTrig;
-[e = _sameSens _lastTrig ]
-"37
-[; ;ccp1.c: 37:             break;
-[e $U 981  ]
-"39
-[; ;ccp1.c: 39:         case 0:
-[e :U 984 ]
-"40
-[; ;ccp1.c: 40:             ticksDown = capturedValue;
-[e = _ticksDown _capturedValue ]
-"43
-[; ;ccp1.c: 43:             sameSens->echoHighTime = (ticksDown - ticksUp);
-[e = . *U _sameSens 0 - -> _ticksDown `ui -> _ticksUp `ui ]
-"44
-[; ;ccp1.c: 44:             break;
-[e $U 981  ]
-"45
-[; ;ccp1.c: 45:     }
+[; ;MotorControl.c: 34: }
+[e :UE 979 ]
 }
-[e $U 981  ]
-[e :U 982 ]
-[e [\ -> ( _ReadPin (1 . *U _lastTrig 3 `i , $ -> 1 `i 983
- , $ -> 0 `i 984
- 981 ]
+"38
+[; ;MotorControl.c: 38: uint8_t MotorControl_SetIntensity(uint8_t dutyCycle) {
+[v _MotorControl_SetIntensity `(uc ~T0 @X0 1 ef1`uc ]
+{
+[e :U _MotorControl_SetIntensity ]
+[v _dutyCycle `uc ~T0 @X0 1 r1 ]
+[f ]
+"39
+[; ;MotorControl.c: 39:     if ((dutyCycle >= 0) && (dutyCycle <= 100)) {
+[e $ ! && >= -> _dutyCycle `i -> 0 `i <= -> _dutyCycle `i -> 100 `i 981  ]
+{
+"40
+[; ;MotorControl.c: 40:         dutyCyclePercent = dutyCycle;
+[e = _dutyCyclePercent _dutyCycle ]
+"41
+[; ;MotorControl.c: 41:         dutyCycle10bit = (dutyCycle*1023)/100;
+[e = _dutyCycle10bit -> / * -> _dutyCycle `i -> 1023 `i -> 100 `i `us ]
+"42
+[; ;MotorControl.c: 42:         PWM5_LoadDutyValue(dutyCycle10bit);
+[e ( _PWM5_LoadDutyValue (1 _dutyCycle10bit ]
+"43
+[; ;MotorControl.c: 43:         return 0x00;
+[e ) -> -> 0 `i `uc ]
+[e $UE 980  ]
+"44
+[; ;MotorControl.c: 44:     }
+}
+[e $U 982  ]
+"45
+[; ;MotorControl.c: 45:     else
 [e :U 981 ]
 "46
-[; ;ccp1.c: 46: }
+[; ;MotorControl.c: 46:         return 0xFF;
+[e ) -> -> 255 `i `uc ]
+[e $UE 980  ]
+[e :U 982 ]
+"47
+[; ;MotorControl.c: 47: }
 [e :UE 980 ]
 }
-"50
-[; ;ccp1.c: 50: void CCP1_Initialize(void)
-[v _CCP1_Initialize `(v ~T0 @X0 1 ef ]
 "51
-[; ;ccp1.c: 51: {
+[; ;MotorControl.c: 51: void MotorControl_On(void) {
+[v _MotorControl_On `(v ~T0 @X0 1 ef ]
 {
-[e :U _CCP1_Initialize ]
+[e :U _MotorControl_On ]
 [f ]
-"55
-[; ;ccp1.c: 55:  CCP1CON = 0x83;
-[e = _CCP1CON -> -> 131 `i `uc ]
+"52
+[; ;MotorControl.c: 52:     TMR2_StartTimer();
+[e ( _TMR2_StartTimer ..  ]
+"53
+[; ;MotorControl.c: 53:     return;
+[e $UE 983  ]
+"54
+[; ;MotorControl.c: 54: }
+[e :UE 983 ]
+}
 "58
-[; ;ccp1.c: 58:  CCP1CAP = 0x00;
-[e = _CCP1CAP -> -> 0 `i `uc ]
+[; ;MotorControl.c: 58: void MotorControl_Off(void) {
+[v _MotorControl_Off `(v ~T0 @X0 1 ef ]
+{
+[e :U _MotorControl_Off ]
+[f ]
+"59
+[; ;MotorControl.c: 59:     TMR2_StopTimer();
+[e ( _TMR2_StopTimer ..  ]
+"60
+[; ;MotorControl.c: 60:     TMR2_WriteTimer(0x00);
+[e ( _TMR2_WriteTimer (1 -> -> 0 `i `uc ]
 "61
-[; ;ccp1.c: 61:  CCPR1H = 0x00;
-[e = _CCPR1H -> -> 0 `i `uc ]
-"64
-[; ;ccp1.c: 64:  CCPR1L = 0x00;
-[e = _CCPR1L -> -> 0 `i `uc ]
-"67
-[; ;ccp1.c: 67:     CCP1_SetCallBack(CCP1_DefaultCallBack);
-[e ( _CCP1_SetCallBack (1 &U _CCP1_DefaultCallBack ]
-"70
-[; ;ccp1.c: 70:  CCPTMRSbits.C1TSEL = 0x1;
-[e = . . _CCPTMRSbits 0 0 -> -> 1 `i `uc ]
-"73
-[; ;ccp1.c: 73:     PIR4bits.CCP1IF = 0;
-[e = . . _PIR4bits 0 0 -> -> 0 `i `uc ]
-"76
-[; ;ccp1.c: 76:     PIE4bits.CCP1IE = 1;
-[e = . . _PIE4bits 0 0 -> -> 1 `i `uc ]
-"77
-[; ;ccp1.c: 77: }
-[e :UE 985 ]
-}
-"81
-[; ;ccp1.c: 81: void CCP1_CaptureISR(void)
-[v _CCP1_CaptureISR `(v ~T0 @X0 1 ef ]
-"82
-[; ;ccp1.c: 82: {
-{
-[e :U _CCP1_CaptureISR ]
-[f ]
-"83
-[; ;ccp1.c: 83:     CCP1_PERIOD_REG_T module;
-[v _module `S963 ~T0 @X0 1 a ]
-"86
-[; ;ccp1.c: 86:     PIR4bits.CCP1IF = 0;
-[e = . . _PIR4bits 0 0 -> -> 0 `i `uc ]
-"89
-[; ;ccp1.c: 89:     module.ccpr1l = CCPR1L;
-[e = . . _module 0 0 _CCPR1L ]
-"90
-[; ;ccp1.c: 90:     module.ccpr1h = CCPR1H;
-[e = . . _module 0 1 _CCPR1H ]
-"93
-[; ;ccp1.c: 93:     CCP1_CallBack(module.ccpr1_16Bit);
-[e ( *U _CCP1_CallBack (1 . . _module 1 0 ]
-"94
-[; ;ccp1.c: 94: }
-[e :UE 986 ]
-}
-"98
-[; ;ccp1.c: 98: void CCP1_SetCallBack(void (*customCallBack)(uint16_t)){
-[v _CCP1_SetCallBack `(v ~T0 @X0 1 ef1`*F7204 ]
-{
-[e :U _CCP1_SetCallBack ]
-[v _customCallBack `*F7207 ~T0 @X0 1 r1 ]
-[f ]
-"99
-[; ;ccp1.c: 99:     CCP1_CallBack = customCallBack;
-[e = _CCP1_CallBack _customCallBack ]
-"100
-[; ;ccp1.c: 100: }
-[e :UE 987 ]
+[; ;MotorControl.c: 61:     return;
+[e $UE 984  ]
+"62
+[; ;MotorControl.c: 62: }
+[e :UE 984 ]
 }

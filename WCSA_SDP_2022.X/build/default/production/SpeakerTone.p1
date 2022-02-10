@@ -1,14 +1,14 @@
 Version 4.0 HI-TECH Software Intermediate Code
 "34 SpeakerTone.c
 [; ;SpeakerTone.c: 34:     SetPin(C1, 0);
-[c E7153 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 .. ]
-[n E7153 . A5 A4 A3 C5 C4 C3 C6 C7 B7 A0 A1 A2 C0 C1 C2 B4 B5 B6  ]
+[c E7144 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 .. ]
+[n E7144 . A5 A4 A3 C5 C4 C3 C6 C7 B7 A0 A1 A2 C0 C1 C2 B4 B5 B6  ]
 "124 ./PIC16Xpress_DevBoard.h
 [; ;./PIC16Xpress_DevBoard.h: 124: uint8_t SetPin(PinName_t pin, uint8_t io);
-[v _SetPin `(uc ~T0 @X0 0 ef2`E7153`uc ]
+[v _SetPin `(uc ~T0 @X0 0 ef2`E7144`uc ]
 "132
 [; ;./PIC16Xpress_DevBoard.h: 132: uint8_t WritePin(PinName_t pin, uint8_t val);
-[v _WritePin `(uc ~T0 @X0 0 ef2`E7153`uc ]
+[v _WritePin `(uc ~T0 @X0 0 ef2`E7144`uc ]
 "68 ./SpeakerTone.h
 [; ;./SpeakerTone.h: 68: void SpeakerTone_Off(void);
 [v _SpeakerTone_Off `(v ~T0 @X0 0 ef ]
@@ -752,10 +752,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "34
 [; ;SpeakerTone.c: 34:     SetPin(C1, 0);
-[e ( _SetPin (2 , . `E7153 13 -> -> 0 `i `uc ]
+[e ( _SetPin (2 , . `E7144 13 -> -> 0 `i `uc ]
 "35
 [; ;SpeakerTone.c: 35:     WritePin(C1, 0);
-[e ( _WritePin (2 , . `E7153 13 -> -> 0 `i `uc ]
+[e ( _WritePin (2 , . `E7144 13 -> -> 0 `i `uc ]
 "36
 [; ;SpeakerTone.c: 36:     currFreq = 440;
 [e = _currFreq -> -> 440 `i `us ]
