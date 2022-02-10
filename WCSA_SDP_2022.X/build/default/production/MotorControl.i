@@ -11671,7 +11671,7 @@ void MotorControl_On(void);
 # 55 "./MotorControl.h"
 void MotorControl_Off(void);
 # 9 "MotorControl.c" 2
-# 22 "MotorControl.c"
+# 23 "MotorControl.c"
 uint8_t dutyCyclePercent;
 uint16_t dutyCycle10bit;
 
@@ -11683,6 +11683,7 @@ uint16_t dutyCycle10bit;
 void MotorControl_Init(void) {
     dutyCyclePercent = 0x00;
     dutyCycle10bit = 0x0000;
+    MotorControl_Off();
     return;
 }
 

@@ -813,25 +813,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;ccp1.c: 35:             ticksUp = capturedValue;
 [e = _ticksUp _capturedValue ]
 "36
-[; ;ccp1.c: 36:             sameSens = lastTrig;
-[e = _sameSens _lastTrig ]
-"37
-[; ;ccp1.c: 37:             break;
+[; ;ccp1.c: 36:             break;
 [e $U 981  ]
-"39
-[; ;ccp1.c: 39:         case 0:
+"38
+[; ;ccp1.c: 38:         case 0:
 [e :U 984 ]
-"40
-[; ;ccp1.c: 40:             ticksDown = capturedValue;
+"39
+[; ;ccp1.c: 39:             ticksDown = capturedValue;
 [e = _ticksDown _capturedValue ]
+"42
+[; ;ccp1.c: 42:             lastTrig->echoHighTime = (ticksDown - ticksUp);
+[e = . *U _lastTrig 0 - -> _ticksDown `ui -> _ticksUp `ui ]
 "43
-[; ;ccp1.c: 43:             sameSens->echoHighTime = (ticksDown - ticksUp);
-[e = . *U _sameSens 0 - -> _ticksDown `ui -> _ticksUp `ui ]
-"44
-[; ;ccp1.c: 44:             break;
+[; ;ccp1.c: 43:             break;
 [e $U 981  ]
-"45
-[; ;ccp1.c: 45:     }
+"44
+[; ;ccp1.c: 44:     }
 }
 [e $U 981  ]
 [e :U 982 ]
@@ -839,84 +836,84 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 0 `i 984
  981 ]
 [e :U 981 ]
-"46
-[; ;ccp1.c: 46: }
+"45
+[; ;ccp1.c: 45: }
 [e :UE 980 ]
 }
-"50
-[; ;ccp1.c: 50: void CCP1_Initialize(void)
+"49
+[; ;ccp1.c: 49: void CCP1_Initialize(void)
 [v _CCP1_Initialize `(v ~T0 @X0 1 ef ]
-"51
-[; ;ccp1.c: 51: {
+"50
+[; ;ccp1.c: 50: {
 {
 [e :U _CCP1_Initialize ]
 [f ]
-"55
-[; ;ccp1.c: 55:  CCP1CON = 0x83;
+"52
+[; ;ccp1.c: 52:  CCP1CON = 0x83;
 [e = _CCP1CON -> -> 131 `i `uc ]
-"58
-[; ;ccp1.c: 58:  CCP1CAP = 0x00;
+"55
+[; ;ccp1.c: 55:  CCP1CAP = 0x00;
 [e = _CCP1CAP -> -> 0 `i `uc ]
-"61
-[; ;ccp1.c: 61:  CCPR1H = 0x00;
+"58
+[; ;ccp1.c: 58:  CCPR1H = 0x00;
 [e = _CCPR1H -> -> 0 `i `uc ]
-"64
-[; ;ccp1.c: 64:  CCPR1L = 0x00;
+"61
+[; ;ccp1.c: 61:  CCPR1L = 0x00;
 [e = _CCPR1L -> -> 0 `i `uc ]
-"67
-[; ;ccp1.c: 67:     CCP1_SetCallBack(CCP1_DefaultCallBack);
+"64
+[; ;ccp1.c: 64:     CCP1_SetCallBack(CCP1_DefaultCallBack);
 [e ( _CCP1_SetCallBack (1 &U _CCP1_DefaultCallBack ]
-"70
-[; ;ccp1.c: 70:  CCPTMRSbits.C1TSEL = 0x1;
+"67
+[; ;ccp1.c: 67:  CCPTMRSbits.C1TSEL = 0x1;
 [e = . . _CCPTMRSbits 0 0 -> -> 1 `i `uc ]
-"73
-[; ;ccp1.c: 73:     PIR4bits.CCP1IF = 0;
+"70
+[; ;ccp1.c: 70:     PIR4bits.CCP1IF = 0;
 [e = . . _PIR4bits 0 0 -> -> 0 `i `uc ]
-"76
-[; ;ccp1.c: 76:     PIE4bits.CCP1IE = 1;
+"73
+[; ;ccp1.c: 73:     PIE4bits.CCP1IE = 1;
 [e = . . _PIE4bits 0 0 -> -> 1 `i `uc ]
-"77
-[; ;ccp1.c: 77: }
+"74
+[; ;ccp1.c: 74: }
 [e :UE 985 ]
 }
-"81
-[; ;ccp1.c: 81: void CCP1_CaptureISR(void)
+"78
+[; ;ccp1.c: 78: void CCP1_CaptureISR(void)
 [v _CCP1_CaptureISR `(v ~T0 @X0 1 ef ]
-"82
-[; ;ccp1.c: 82: {
+"79
+[; ;ccp1.c: 79: {
 {
 [e :U _CCP1_CaptureISR ]
 [f ]
-"83
-[; ;ccp1.c: 83:     CCP1_PERIOD_REG_T module;
+"80
+[; ;ccp1.c: 80:     CCP1_PERIOD_REG_T module;
 [v _module `S963 ~T0 @X0 1 a ]
-"86
-[; ;ccp1.c: 86:     PIR4bits.CCP1IF = 0;
+"83
+[; ;ccp1.c: 83:     PIR4bits.CCP1IF = 0;
 [e = . . _PIR4bits 0 0 -> -> 0 `i `uc ]
-"89
-[; ;ccp1.c: 89:     module.ccpr1l = CCPR1L;
+"86
+[; ;ccp1.c: 86:     module.ccpr1l = CCPR1L;
 [e = . . _module 0 0 _CCPR1L ]
-"90
-[; ;ccp1.c: 90:     module.ccpr1h = CCPR1H;
+"87
+[; ;ccp1.c: 87:     module.ccpr1h = CCPR1H;
 [e = . . _module 0 1 _CCPR1H ]
-"93
-[; ;ccp1.c: 93:     CCP1_CallBack(module.ccpr1_16Bit);
+"90
+[; ;ccp1.c: 90:     CCP1_CallBack(module.ccpr1_16Bit);
 [e ( *U _CCP1_CallBack (1 . . _module 1 0 ]
-"94
-[; ;ccp1.c: 94: }
+"91
+[; ;ccp1.c: 91: }
 [e :UE 986 ]
 }
-"98
-[; ;ccp1.c: 98: void CCP1_SetCallBack(void (*customCallBack)(uint16_t)){
+"95
+[; ;ccp1.c: 95: void CCP1_SetCallBack(void (*customCallBack)(uint16_t)){
 [v _CCP1_SetCallBack `(v ~T0 @X0 1 ef1`*F7204 ]
 {
 [e :U _CCP1_SetCallBack ]
 [v _customCallBack `*F7207 ~T0 @X0 1 r1 ]
 [f ]
-"99
-[; ;ccp1.c: 99:     CCP1_CallBack = customCallBack;
+"96
+[; ;ccp1.c: 96:     CCP1_CallBack = customCallBack;
 [e = _CCP1_CallBack _customCallBack ]
-"100
-[; ;ccp1.c: 100: }
+"97
+[; ;ccp1.c: 97: }
 [e :UE 987 ]
 }

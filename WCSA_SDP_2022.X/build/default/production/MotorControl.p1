@@ -1,4 +1,7 @@
 Version 4.0 HI-TECH Software Intermediate Code
+"55 ./MotorControl.h
+[; ;./MotorControl.h: 55: void MotorControl_Off(void);
+[v _MotorControl_Off `(v ~T0 @X0 0 ef ]
 "49 ./pwm5.h
 [; ;./pwm5.h: 49: void PWM5_LoadDutyValue(uint16_t dutyValue);
 [v _PWM5_LoadDutyValue `(v ~T0 @X0 0 ef1`us ]
@@ -717,103 +720,106 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSL equ 0FEEh ;# ">
 "19652
 [; <" TOSH equ 0FEFh ;# ">
-"22 MotorControl.c
-[; ;MotorControl.c: 22: uint8_t dutyCyclePercent;
+"23 MotorControl.c
+[; ;MotorControl.c: 23: uint8_t dutyCyclePercent;
 [v _dutyCyclePercent `uc ~T0 @X0 1 e ]
-"23
-[; ;MotorControl.c: 23: uint16_t dutyCycle10bit;
+"24
+[; ;MotorControl.c: 24: uint16_t dutyCycle10bit;
 [v _dutyCycle10bit `us ~T0 @X0 1 e ]
-"30
-[; ;MotorControl.c: 30: void MotorControl_Init(void) {
+"31
+[; ;MotorControl.c: 31: void MotorControl_Init(void) {
 [v _MotorControl_Init `(v ~T0 @X0 1 ef ]
 {
 [e :U _MotorControl_Init ]
 [f ]
-"31
-[; ;MotorControl.c: 31:     dutyCyclePercent = 0x00;
-[e = _dutyCyclePercent -> -> 0 `i `uc ]
 "32
-[; ;MotorControl.c: 32:     dutyCycle10bit = 0x0000;
-[e = _dutyCycle10bit -> -> 0 `i `us ]
+[; ;MotorControl.c: 32:     dutyCyclePercent = 0x00;
+[e = _dutyCyclePercent -> -> 0 `i `uc ]
 "33
-[; ;MotorControl.c: 33:     return;
-[e $UE 979  ]
+[; ;MotorControl.c: 33:     dutyCycle10bit = 0x0000;
+[e = _dutyCycle10bit -> -> 0 `i `us ]
 "34
-[; ;MotorControl.c: 34: }
+[; ;MotorControl.c: 34:     MotorControl_Off();
+[e ( _MotorControl_Off ..  ]
+"35
+[; ;MotorControl.c: 35:     return;
+[e $UE 979  ]
+"36
+[; ;MotorControl.c: 36: }
 [e :UE 979 ]
 }
-"38
-[; ;MotorControl.c: 38: uint8_t MotorControl_SetIntensity(uint8_t dutyCycle) {
+"40
+[; ;MotorControl.c: 40: uint8_t MotorControl_SetIntensity(uint8_t dutyCycle) {
 [v _MotorControl_SetIntensity `(uc ~T0 @X0 1 ef1`uc ]
 {
 [e :U _MotorControl_SetIntensity ]
 [v _dutyCycle `uc ~T0 @X0 1 r1 ]
 [f ]
-"39
-[; ;MotorControl.c: 39:     if ((dutyCycle >= 0) && (dutyCycle <= 100)) {
+"41
+[; ;MotorControl.c: 41:     if ((dutyCycle >= 0) && (dutyCycle <= 100)) {
 [e $ ! && >= -> _dutyCycle `i -> 0 `i <= -> _dutyCycle `i -> 100 `i 981  ]
 {
-"40
-[; ;MotorControl.c: 40:         dutyCyclePercent = dutyCycle;
-[e = _dutyCyclePercent _dutyCycle ]
-"41
-[; ;MotorControl.c: 41:         dutyCycle10bit = (dutyCycle*1023)/100;
-[e = _dutyCycle10bit -> / * -> _dutyCycle `i -> 1023 `i -> 100 `i `us ]
 "42
-[; ;MotorControl.c: 42:         PWM5_LoadDutyValue(dutyCycle10bit);
-[e ( _PWM5_LoadDutyValue (1 _dutyCycle10bit ]
+[; ;MotorControl.c: 42:         dutyCyclePercent = dutyCycle;
+[e = _dutyCyclePercent _dutyCycle ]
 "43
-[; ;MotorControl.c: 43:         return 0x00;
+[; ;MotorControl.c: 43:         dutyCycle10bit = (dutyCycle*1023)/100;
+[e = _dutyCycle10bit -> / * -> _dutyCycle `i -> 1023 `i -> 100 `i `us ]
+"44
+[; ;MotorControl.c: 44:         PWM5_LoadDutyValue(dutyCycle10bit);
+[e ( _PWM5_LoadDutyValue (1 _dutyCycle10bit ]
+"45
+[; ;MotorControl.c: 45:         return 0x00;
 [e ) -> -> 0 `i `uc ]
 [e $UE 980  ]
-"44
-[; ;MotorControl.c: 44:     }
+"46
+[; ;MotorControl.c: 46:     }
 }
 [e $U 982  ]
-"45
-[; ;MotorControl.c: 45:     else
+"47
+[; ;MotorControl.c: 47:     else
 [e :U 981 ]
-"46
-[; ;MotorControl.c: 46:         return 0xFF;
+"48
+[; ;MotorControl.c: 48:         return 0xFF;
 [e ) -> -> 255 `i `uc ]
 [e $UE 980  ]
 [e :U 982 ]
-"47
-[; ;MotorControl.c: 47: }
+"49
+[; ;MotorControl.c: 49: }
 [e :UE 980 ]
 }
-"51
-[; ;MotorControl.c: 51: void MotorControl_On(void) {
+"53
+[; ;MotorControl.c: 53: void MotorControl_On(void) {
 [v _MotorControl_On `(v ~T0 @X0 1 ef ]
 {
 [e :U _MotorControl_On ]
 [f ]
-"52
-[; ;MotorControl.c: 52:     TMR2_StartTimer();
-[e ( _TMR2_StartTimer ..  ]
-"53
-[; ;MotorControl.c: 53:     return;
-[e $UE 983  ]
 "54
-[; ;MotorControl.c: 54: }
+[; ;MotorControl.c: 54:     TMR2_StartTimer();
+[e ( _TMR2_StartTimer ..  ]
+"55
+[; ;MotorControl.c: 55:     return;
+[e $UE 983  ]
+"56
+[; ;MotorControl.c: 56: }
 [e :UE 983 ]
 }
-"58
-[; ;MotorControl.c: 58: void MotorControl_Off(void) {
+"60
+[; ;MotorControl.c: 60: void MotorControl_Off(void) {
 [v _MotorControl_Off `(v ~T0 @X0 1 ef ]
 {
 [e :U _MotorControl_Off ]
 [f ]
-"59
-[; ;MotorControl.c: 59:     TMR2_StopTimer();
-[e ( _TMR2_StopTimer ..  ]
-"60
-[; ;MotorControl.c: 60:     TMR2_WriteTimer(0x00);
-[e ( _TMR2_WriteTimer (1 -> -> 0 `i `uc ]
 "61
-[; ;MotorControl.c: 61:     return;
-[e $UE 984  ]
+[; ;MotorControl.c: 61:     TMR2_StopTimer();
+[e ( _TMR2_StopTimer ..  ]
 "62
-[; ;MotorControl.c: 62: }
+[; ;MotorControl.c: 62:     TMR2_WriteTimer(0x00);
+[e ( _TMR2_WriteTimer (1 -> -> 0 `i `uc ]
+"63
+[; ;MotorControl.c: 63:     return;
+[e $UE 984  ]
+"64
+[; ;MotorControl.c: 64: }
 [e :UE 984 ]
 }

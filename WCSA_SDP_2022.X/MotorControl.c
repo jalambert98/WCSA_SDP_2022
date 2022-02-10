@@ -7,7 +7,8 @@
 //------------------------------------------------------------------------------
 
 #include "MotorControl.h"
-
+#include "tmr2.h"
+#include "pwm5.h"
 
 //==============================================================================
 //-------------------------------- #DEFINES ------------------------------------
@@ -30,6 +31,7 @@ uint16_t dutyCycle10bit;
 void MotorControl_Init(void) {
     dutyCyclePercent = 0x00;
     dutyCycle10bit = 0x0000;
+    MotorControl_Off();
     return;
 }
 

@@ -11694,14 +11694,13 @@ static void CCP3_DefaultCallBack(uint16_t capturedValue)
 
         case 1:
             ticksUp = capturedValue;
-            sameSens = lastTrig;
             break;
 
         case 0:
             ticksDown = capturedValue;
 
 
-            sameSens->echoHighTime = (ticksDown - ticksUp);
+            lastTrig->echoHighTime = (ticksDown - ticksUp);
             break;
     }
 }
@@ -11710,8 +11709,6 @@ static void CCP3_DefaultCallBack(uint16_t capturedValue)
 
 void CCP3_Initialize(void)
 {
-
-
 
  CCP3CON = 0x83;
 
