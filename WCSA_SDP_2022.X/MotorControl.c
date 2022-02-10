@@ -19,25 +19,45 @@
 //---------------------------- STATIC VARIABLES --------------------------------
 //==============================================================================
 
-uint8_t MotorControl_Init(PinName_t motorPin) {
-    return 0;
-}
+uint8_t dutyCyclePercent;
+uint16_t dutyCycle10bit;
 
-//------------------------------------------------------------------------------
 
-void MotorControl_SetIntensity(uint8_t dutyCycle) {
+//==============================================================================
+//------------------------------ PUBLIC LIBRARY --------------------------------
+//==============================================================================
+
+void MotorControl_Init(void) {
+    dutyCyclePercent = 0x00;
+    dutyCycle10bit = 0x0000;
     return;
 }
 
 //------------------------------------------------------------------------------
 
-void MotorControl_SetNextPulseDuration(unsigned short duration) {
+uint8_t MotorControl_SetIntensity(uint8_t dutyCycle) {
+    if ((dutyCycle >= 0) && (dutyCycle <= 100)) {
+        dutyCyclePercent = dutyCycle;
+        dutyCycle10bit = (dutyCycle*1023)/100;
+        PWM5_LoadDutyValue(dutyCycle10bit);
+        return SUCCESS;
+    }
+    else
+        return ERROR;
+}
+
+//------------------------------------------------------------------------------
+
+void MotorControl_On(void) {
+    TMR2_StartTimer();
     return;
 }
 
 //------------------------------------------------------------------------------
 
-void MotorControl_StartPulse() {
+void MotorControl_Off(void) {
+    TMR2_StopTimer();
+    TMR2_WriteTimer(0x00);  // clear TMR2 ticks after stopping motor pulse
     return;
 }
 

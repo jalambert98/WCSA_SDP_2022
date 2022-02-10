@@ -11669,7 +11669,7 @@ uint8_t WritePin(PinName_t pin, uint8_t val);
 void __attribute__((picinterrupt(("")))) InterruptManager (void);
 # 9 "./MotorControl.h" 2
 # 28 "./MotorControl.h"
-uint8_t MotorControl_Init(PinName_t motorPin);
+void MotorControl_Init(void);
 # 37 "./MotorControl.h"
 void MotorControl_SetIntensity(uint8_t dutyCycle);
 # 46 "./MotorControl.h"
@@ -11678,14 +11678,28 @@ void MotorControl_SetNextPulseDuration(unsigned short duration);
 void MotorControl_StartPulse();
 # 9 "MotorControl.c" 2
 # 22 "MotorControl.c"
-uint8_t MotorControl_Init(PinName_t motorPin) {
-    return 0;
+uint8_t dutyCyclePercent;
+uint16_t dutyCycle10bit;
+
+
+
+
+
+
+void MotorControl_Init(void) {
+    dutyCyclePercent = 0x00;
+    dutyCycle10bit = 0x0000;
+    return;
 }
 
 
 
-void MotorControl_SetIntensity(uint8_t dutyCycle) {
-    return;
+uint8_t MotorControl_SetIntensity(uint8_t dutyCycle) {
+    if ((dutyCycle >= 0) && (dutyCycle <= 100)) {
+        return 0x00;
+    }
+    else
+        return 0xFF;
 }
 
 

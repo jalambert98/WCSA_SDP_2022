@@ -11749,19 +11749,16 @@ void FRT_IncMicros(void);
 
 
 
-
-
 int main(void) {
     PIC16_Init();
     SpeakerTone_Init();
-    SetPin(C0, 0);
-    WritePin(C0, 0);
 
     unsigned long currMilli = FRT_GetMillis();
     unsigned long prevMilli = currMilli;
     SpeakerTone_SetFrequency(262);
     uint8_t i = 0;
     SpeakerTone_On();
+
 
     while(1) {
         currMilli = FRT_GetMillis();

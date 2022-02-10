@@ -865,95 +865,89 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 985 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"89
-[; ;SpeakerTone.c: 89: int main(void) {
+"87
+[; ;SpeakerTone.c: 87: int main(void) {
 [v _main `(i ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"90
-[; ;SpeakerTone.c: 90:     PIC16_Init();
+"88
+[; ;SpeakerTone.c: 88:     PIC16_Init();
 [e ( _PIC16_Init ..  ]
-"91
-[; ;SpeakerTone.c: 91:     SpeakerTone_Init();
+"89
+[; ;SpeakerTone.c: 89:     SpeakerTone_Init();
 [e ( _SpeakerTone_Init ..  ]
-"92
-[; ;SpeakerTone.c: 92:     SetPin(C0, 0);
-[e ( _SetPin (2 , . `E7153 12 -> -> 0 `i `uc ]
-"93
-[; ;SpeakerTone.c: 93:     WritePin(C0, 0);
-[e ( _WritePin (2 , . `E7153 12 -> -> 0 `i `uc ]
-"95
-[; ;SpeakerTone.c: 95:     unsigned long currMilli = FRT_GetMillis();
+"91
+[; ;SpeakerTone.c: 91:     unsigned long currMilli = FRT_GetMillis();
 [v _currMilli `ul ~T0 @X0 1 a ]
 [e = _currMilli ( _FRT_GetMillis ..  ]
-"96
-[; ;SpeakerTone.c: 96:     unsigned long prevMilli = currMilli;
+"92
+[; ;SpeakerTone.c: 92:     unsigned long prevMilli = currMilli;
 [v _prevMilli `ul ~T0 @X0 1 a ]
 [e = _prevMilli _currMilli ]
-"97
-[; ;SpeakerTone.c: 97:     SpeakerTone_SetFrequency(262);
+"93
+[; ;SpeakerTone.c: 93:     SpeakerTone_SetFrequency(262);
 [e ( _SpeakerTone_SetFrequency (1 -> -> 262 `i `us ]
-"98
-[; ;SpeakerTone.c: 98:     uint8_t i = 0;
+"94
+[; ;SpeakerTone.c: 94:     uint8_t i = 0;
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
-"99
-[; ;SpeakerTone.c: 99:     SpeakerTone_On();
+"95
+[; ;SpeakerTone.c: 95:     SpeakerTone_On();
 [e ( _SpeakerTone_On ..  ]
-"101
-[; ;SpeakerTone.c: 101:     while(1) {
+"98
+[; ;SpeakerTone.c: 98:     while(1) {
 [e :U 988 ]
 {
-"102
-[; ;SpeakerTone.c: 102:         currMilli = FRT_GetMillis();
+"99
+[; ;SpeakerTone.c: 99:         currMilli = FRT_GetMillis();
 [e = _currMilli ( _FRT_GetMillis ..  ]
-"103
-[; ;SpeakerTone.c: 103:         if((currMilli - prevMilli) > 500) {
+"100
+[; ;SpeakerTone.c: 100:         if((currMilli - prevMilli) > 500) {
 [e $ ! > - _currMilli _prevMilli -> -> -> 500 `i `l `ul 990  ]
 {
-"104
-[; ;SpeakerTone.c: 104:             switch(i) {
+"101
+[; ;SpeakerTone.c: 101:             switch(i) {
 [e $U 992  ]
 {
-"105
-[; ;SpeakerTone.c: 105:                 case 0:
+"102
+[; ;SpeakerTone.c: 102:                 case 0:
 [e :U 993 ]
-"106
-[; ;SpeakerTone.c: 106:                     SpeakerTone_SetFrequency(262);
+"103
+[; ;SpeakerTone.c: 103:                     SpeakerTone_SetFrequency(262);
 [e ( _SpeakerTone_SetFrequency (1 -> -> 262 `i `us ]
-"107
-[; ;SpeakerTone.c: 107:                     i++;
+"104
+[; ;SpeakerTone.c: 104:                     i++;
 [e ++ _i -> -> 1 `i `uc ]
-"108
-[; ;SpeakerTone.c: 108:                     break;
+"105
+[; ;SpeakerTone.c: 105:                     break;
 [e $U 991  ]
-"109
-[; ;SpeakerTone.c: 109:                 case 1:
+"106
+[; ;SpeakerTone.c: 106:                 case 1:
 [e :U 994 ]
-"110
-[; ;SpeakerTone.c: 110:                     SpeakerTone_SetFrequency(392);
+"107
+[; ;SpeakerTone.c: 107:                     SpeakerTone_SetFrequency(392);
 [e ( _SpeakerTone_SetFrequency (1 -> -> 392 `i `us ]
-"111
-[; ;SpeakerTone.c: 111:                     i++;
+"108
+[; ;SpeakerTone.c: 108:                     i++;
 [e ++ _i -> -> 1 `i `uc ]
-"112
-[; ;SpeakerTone.c: 112:                     break;
+"109
+[; ;SpeakerTone.c: 109:                     break;
 [e $U 991  ]
-"113
-[; ;SpeakerTone.c: 113:                 case 2:
+"110
+[; ;SpeakerTone.c: 110:                 case 2:
 [e :U 995 ]
-"114
-[; ;SpeakerTone.c: 114:                     SpeakerTone_SetFrequency(523);
+"111
+[; ;SpeakerTone.c: 111:                     SpeakerTone_SetFrequency(523);
 [e ( _SpeakerTone_SetFrequency (1 -> -> 523 `i `us ]
-"115
-[; ;SpeakerTone.c: 115:                     i -=2;
+"112
+[; ;SpeakerTone.c: 112:                     i -=2;
 [e =- _i -> -> 2 `i `uc ]
-"116
-[; ;SpeakerTone.c: 116:                     break;
+"113
+[; ;SpeakerTone.c: 113:                     break;
 [e $U 991  ]
-"117
-[; ;SpeakerTone.c: 117:             }
+"114
+[; ;SpeakerTone.c: 114:             }
 }
 [e $U 991  ]
 [e :U 992 ]
@@ -962,24 +956,24 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 2 `i 995
  991 ]
 [e :U 991 ]
-"118
-[; ;SpeakerTone.c: 118:             prevMilli = currMilli;
+"115
+[; ;SpeakerTone.c: 115:             prevMilli = currMilli;
 [e = _prevMilli _currMilli ]
-"119
-[; ;SpeakerTone.c: 119:         }
+"116
+[; ;SpeakerTone.c: 116:         }
 }
 [e :U 990 ]
-"120
-[; ;SpeakerTone.c: 120:     }
+"117
+[; ;SpeakerTone.c: 117:     }
 }
 [e :U 987 ]
 [e $U 988  ]
 [e :U 989 ]
-"121
-[; ;SpeakerTone.c: 121:     return 0;
+"118
+[; ;SpeakerTone.c: 118:     return 0;
 [e ) -> 0 `i ]
 [e $UE 986  ]
-"122
-[; ;SpeakerTone.c: 122: }
+"119
+[; ;SpeakerTone.c: 119: }
 [e :UE 986 ]
 }

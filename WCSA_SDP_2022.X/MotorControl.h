@@ -21,39 +21,38 @@
 //==============================================================================
 /**
  * @funct   MotorControl_Init(motorPin)
- * @param   PinName_t motorPin
- * @return  [uint8_t] SUCCESS or ERROR
- * @brief   Initializes the motor PWM (CCP) system
+ * @param   None
+ * @return  None
+ * @brief   Initializes the motor PWM5 system
  * @author  Jack Lambert, 2022.02.07 */
-uint8_t MotorControl_Init(PinName_t motorPin);
+void MotorControl_Init(void);
 
 //------------------------------------------------------------------------------
 /**
  * @funct   MotorControl_SetIntensity(dutyCycle)
  * @param   uint8_t dutyCycle - [0, 100] % duty cycle
- * @return  None
+ * @return  uint8_t [SUCCESS or ERROR]
  * @brief   Sets the motor intensity in terms of a [0, 100]% duty cycle
  * @author  Jack Lambert, 2022.02.07 */
-void MotorControl_SetIntensity(uint8_t dutyCycle);
+uint8_t MotorControl_SetIntensity(uint8_t dutyCycle);
 
 //------------------------------------------------------------------------------
 /**
  * @funct   MotorControl_SetNextPulseDuration(duration)
- * @param   unsigned short duration
+ * @param   None
  * @return  None
- * @brief   Sets the duration (in ms) of the next vibration pulse to occur
+ * @brief   Engages TMR2
  * @author  Jack Lambert, 2022.02.07 */
-void MotorControl_SetNextPulseDuration(unsigned short duration);
+void MotorControl_On(void);
 
 //------------------------------------------------------------------------------
 /**
  * @funct   MotorControl_StartPulse()
  * @param   None
  * @return  None
- * @brief   Begins the motor PWM pulse according to the intensity & duration
- *          previously specified by the user configuration
+ * @brief   Disables TMR2
  * @author  Jack Lambert, 2022.02.07 */
-void MotorControl_StartPulse();
+void MotorControl_Off(void);
 
 //------------------------------------------------------------------------------
 

@@ -10,6 +10,7 @@
 #include <xc.h>
 #include "pwm5.h"
 
+// PWM5 output --> pinRB6
 //------------------------------------------------------------------------------
 
 void PWM5_Initialize(void) {

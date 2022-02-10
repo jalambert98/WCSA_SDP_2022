@@ -13,7 +13,6 @@
 //------------------------------------------------------------------------------
 
 volatile uint16_t timer3ReloadVal;
-void (*TMR3_InterruptHandler)(void);
 
 //------------------------------------------------------------------------------
 /* TMR3 ticks@4MHz, rollover after 16-bit range (always cleared before rollover)
@@ -37,9 +36,6 @@ void TMR3_Initialize(void)
 
     // Enabling TMR3 interrupt.
     PIE3bits.TMR3IE = 1;
-
-    // Set Default Interrupt Handler
-    TMR3_SetInterruptHandler(TMR3_DefaultInterruptHandler);
 
     // T3CKPS 1:1; T3SOSC T3CKI_enabled; T3SYNC synchronize; TMR3CS FOSC/4; TMR3ON disabled; 
     T3CON = 0x00;
@@ -130,23 +126,6 @@ void TMR3_ISR(void)
     // Clear the TMR3 interrupt flag
     PIR3bits.TMR3IF = 0;
     TMR3_Reload();
-    /*if(TMR3_InterruptHandler)
-    {
-        TMR3_InterruptHandler();
-    }*/
-}
-
-//------------------------------------------------------------------------------
-
-void TMR3_SetInterruptHandler(void (* InterruptHandler)(void)){
-    TMR3_InterruptHandler = InterruptHandler;
-}
-
-//------------------------------------------------------------------------------
-
-void TMR3_DefaultInterruptHandler(void){
-    // add your TMR3 interrupt custom code
-    // or set custom function using TMR3_SetInterruptHandler()
 }
 
 //------------------------------------------------------------------------------

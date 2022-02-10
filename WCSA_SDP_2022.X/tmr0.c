@@ -12,13 +12,12 @@
 #include "FRT.h"
 
 void (*TMR0_InterruptHandler)(void);
+static volatile uint8_t CountCallBack;
 
 //------------------------------------------------------------------------------
 
 void TMR0_Initialize(void)
 {
-    // Set TMR0 to the options selected in the User Interface
-
     // T0CS FOSC/4; T0CKPS 1:4; T0ASYNC synchronised; 
     T0CON1 = 0x42;
 
@@ -39,6 +38,7 @@ void TMR0_Initialize(void)
 
     // T0OUTPS 1:1; T0EN enabled; T016BIT 8-bit; 
     T0CON0 = 0x80;
+    CountCallBack = 0;
 }
 
 //------------------------------------------------------------------------------
@@ -89,8 +89,6 @@ void TMR0_Reload(uint8_t periodVal)
 
 void TMR0_ISR(void)
 {
-    static volatile uint16_t CountCallBack = 0;
-
     // clear the TMR0 interrupt flag
     PIR0bits.TMR0IF = 0;
     // callback function - called every 4th pass
@@ -125,6 +123,12 @@ void TMR0_SetInterruptHandler(void (* InterruptHandler)(void)){
 void TMR0_DefaultInterruptHandler(void){
     // add your TMR0 interrupt custom code
     // or set custom function using TMR0_SetInterruptHandler()
+}
+
+//------------------------------------------------------------------------------
+
+uint8_t TMR0_GetCallBackNum(void) {
+    return CountCallBack;
 }
 
 

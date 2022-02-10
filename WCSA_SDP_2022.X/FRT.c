@@ -30,7 +30,7 @@ unsigned long FRT_GetMillis() {
 //------------------------------------------------------------------------------
 
 unsigned long FRT_GetMicros() {
-    return (micros + TMR0_ReadTimer());
+    return (micros + (250*TMR0_GetCallBackNum()) + TMR0_ReadTimer());
 }
 
 //------------------------------------------------------------------------------

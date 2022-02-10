@@ -232,7 +232,9 @@ void TMR0_DefaultInterruptHandler(void);
 
 
 //------------------------------------------------------------------------------
-
+/* returns callback number 
+ * (ISR runs every 250us), but every 4th callback, FRT increments */
+uint8_t TMR0_GetCallBackNum(void);
 #endif // TMR0_H
 
 //==============================================================================

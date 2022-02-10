@@ -112,7 +112,7 @@ typedef enum {
  * @param    None
  * 
  * @return   None
- * @brief    Configures the HFINTOSC to 8MHz, disables unnecessary peripherals,
+ * @brief    Configures the HFINTOSC to 16MHz, disables unnecessary peripherals,
  *           disables interrupts & clears any existing flags
  * 
  * @author   Jack Lambert, 2022.01.25
