@@ -15,8 +15,13 @@
 volatile uint16_t timer3ReloadVal;
 
 //------------------------------------------------------------------------------
-/* TMR3 ticks@4MHz, rollover after 16-bit range (always cleared before rollover)
+/*
+ * TMR3 ticks@2MHz R
+ * Rolls over after 16-bit range (~8ms)
+ * but timer is always reset before rollover occurs
  */
+//------------------------------------------------------------------------------
+
 void TMR3_Initialize(void)
 {
     //T3GSS T3G_pin; TMR3GE disabled; T3GTM disabled; T3GPOL low; T3GGO_nDONE done; T3GSPM disabled; 

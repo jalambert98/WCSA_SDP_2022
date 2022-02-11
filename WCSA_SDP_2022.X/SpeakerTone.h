@@ -29,7 +29,10 @@
 #define TONE_A4         440
 #define TONE_Bb4        466
 #define TONE_B4         494
-#define TONE_C5         523         
+#define TONE_C5         523       
+
+#define MIN_FREQ        125
+#define MAX_FREQ        5000
 
 
 //==============================================================================
@@ -37,18 +40,18 @@
 //==============================================================================
 /**
  * @funct   SpeakerTone_Init(speakerPin)
- * @param   PinName_t speakerPin
- * @return  [uint8_t] SUCCESS or ERROR
- * @brief   Initializes the timer and for the tone system
+ * @param   None
+ * @return  None
+ * @brief   Initializes the SpeakerTone pin (C1) to 440Hz (tone disabled)
  * @author  Jack Lambert, 2022.02.07 */
 void SpeakerTone_Init(void);
 
 //------------------------------------------------------------------------------
 /**
  * @funct   SpeakerTone_SetFrequency(unsigned int NewFrequency)
- * @param   newFrequency - new frequency to set. 
+ * @param   uint16_t newFrequency - new frequency (in Hz) to set. 
  * @return  [uint8_t] SUCCESS or ERROR
- * @brief   Changes the frequency of the  system.
+ * @brief   Changes the frequency of the speakerTone playback.
  * @author  Jack Lambert, 2022.02.07 */
 uint8_t SpeakerTone_SetFrequency(uint16_t newFrequency);
 

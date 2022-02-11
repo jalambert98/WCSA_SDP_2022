@@ -1,39 +1,10 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"37 SpeakerTone.c
-[; ;SpeakerTone.c: 37:     SetPin(C1, 0);
-[c E7144 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 .. ]
-[n E7144 . A5 A4 A3 C5 C4 C3 C6 C7 B7 A0 A1 A2 C0 C1 C2 B4 B5 B6  ]
-"124 ./PIC16Xpress_DevBoard.h
-[; ;./PIC16Xpress_DevBoard.h: 124: uint8_t SetPin(PinName_t pin, uint8_t io);
-[v _SetPin `(uc ~T0 @X0 0 ef2`E7144`uc ]
-"132
-[; ;./PIC16Xpress_DevBoard.h: 132: uint8_t WritePin(PinName_t pin, uint8_t val);
-[v _WritePin `(uc ~T0 @X0 0 ef2`E7144`uc ]
-"71 ./SpeakerTone.h
-[; ;./SpeakerTone.h: 71: void SpeakerTone_Off(void);
-[v _SpeakerTone_Off `(v ~T0 @X0 0 ef ]
-"70 ./ccp4.h
-[; ;./ccp4.h: 70: void CCP4_SetCompareCount(uint16_t compareCount);
-[v _CCP4_SetCompareCount `(v ~T0 @X0 0 ef1`us ]
-"78 ./SpeakerTone.h
-[; ;./SpeakerTone.h: 78: void SpeakerTone_On(void);
-[v _SpeakerTone_On `(v ~T0 @X0 0 ef ]
-"63 ./tmr3.h
-[; ;./tmr3.h: 63: void TMR3_StopTimer(void);
-[v _TMR3_StopTimer `(v ~T0 @X0 0 ef ]
-"110
-[; ;./tmr3.h: 110: void TMR3_Reload(void);
-[v _TMR3_Reload `(v ~T0 @X0 0 ef ]
-"47
-[; ;./tmr3.h: 47: void TMR3_StartTimer(void);
-[v _TMR3_StartTimer `(v ~T0 @X0 0 ef ]
-[p mainexit ]
-"120 ./PIC16Xpress_DevBoard.h
-[; ;./PIC16Xpress_DevBoard.h: 120: void PIC16_Init(void);
-[v _PIC16_Init `(v ~T0 @X0 0 ef ]
-"45 ./FRT.h
-[; ;./FRT.h: 45: unsigned long FRT_GetMicros(void);
-[v _FRT_GetMicros `(ul ~T0 @X0 0 ef ]
+"237 ./tmr0.h
+[; ;./tmr0.h: 237: uint8_t TMR0_GetCallBackNum(void);
+[v _TMR0_GetCallBackNum `(uc ~T0 @X0 0 ef ]
+"96
+[; ;./tmr0.h: 96: uint8_t TMR0_ReadTimer(void);
+[v _TMR0_ReadTimer `(uc ~T0 @X0 0 ef ]
 "55 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
 [; <" INDF0 equ 00h ;# ">
 "75
@@ -740,267 +711,69 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSL equ 0FEEh ;# ">
 "19652
 [; <" TOSH equ 0FEFh ;# ">
-"28 SpeakerTone.c
-[; ;SpeakerTone.c: 28: uint16_t currFreq, ocCount;
-[v _currFreq `us ~T0 @X0 1 e ]
-[v _ocCount `us ~T0 @X0 1 e ]
-"35
-[; ;SpeakerTone.c: 35: void SpeakerTone_Init(void) {
-[v _SpeakerTone_Init `(v ~T0 @X0 1 ef ]
+"19 FRT.c
+[; ;FRT.c: 19: static unsigned long millis;
+[v _millis `ul ~T0 @X0 1 s ]
+"20
+[; ;FRT.c: 20: static unsigned long micros;
+[v _micros `ul ~T0 @X0 1 s ]
+"26
+[; ;FRT.c: 26: unsigned long FRT_GetMillis() {
+[v _FRT_GetMillis `(ul ~T0 @X0 1 ef ]
 {
-[e :U _SpeakerTone_Init ]
+[e :U _FRT_GetMillis ]
 [f ]
-"37
-[; ;SpeakerTone.c: 37:     SetPin(C1, 0);
-[e ( _SetPin (2 , . `E7144 13 -> -> 0 `i `uc ]
-"38
-[; ;SpeakerTone.c: 38:     WritePin(C1, 0);
-[e ( _WritePin (2 , . `E7144 13 -> -> 0 `i `uc ]
-"41
-[; ;SpeakerTone.c: 41:     currFreq = 440;
-[e = _currFreq -> -> 440 `i `us ]
-"42
-[; ;SpeakerTone.c: 42:     ocCount = 0x11C1;
-[e = _ocCount -> -> 4545 `i `us ]
-"45
-[; ;SpeakerTone.c: 45:     SpeakerTone_Off();
-[e ( _SpeakerTone_Off ..  ]
-"46
-[; ;SpeakerTone.c: 46: }
+"27
+[; ;FRT.c: 27:     return millis;
+[e ) _millis ]
+[e $UE 979  ]
+"28
+[; ;FRT.c: 28: }
 [e :UE 979 ]
 }
-"50
-[; ;SpeakerTone.c: 50: uint8_t SpeakerTone_SetFrequency(uint16_t newFrequency) {
-[v _SpeakerTone_SetFrequency `(uc ~T0 @X0 1 ef1`us ]
+"32
+[; ;FRT.c: 32: unsigned long FRT_GetMicros() {
+[v _FRT_GetMicros `(ul ~T0 @X0 1 ef ]
 {
-[e :U _SpeakerTone_SetFrequency ]
-[v _newFrequency `us ~T0 @X0 1 r1 ]
+[e :U _FRT_GetMicros ]
 [f ]
-"51
-[; ;SpeakerTone.c: 51:     if((newFrequency < 125)||(newFrequency > 5000))
-[e $ ! || < -> _newFrequency `ui -> -> 125 `i `ui > -> _newFrequency `ui -> -> 5000 `i `ui 981  ]
-"52
-[; ;SpeakerTone.c: 52:         return 0xFF;
-[e ) -> -> 255 `i `uc ]
+"33
+[; ;FRT.c: 33:     return (micros + (250*TMR0_GetCallBackNum()) + TMR0_ReadTimer());
+[e ) + + _micros -> -> * -> 250 `i -> ( _TMR0_GetCallBackNum ..  `i `l `ul -> ( _TMR0_ReadTimer ..  `ul ]
 [e $UE 980  ]
-[e $U 982  ]
-"53
-[; ;SpeakerTone.c: 53:     else {
-[e :U 981 ]
-{
-"55
-[; ;SpeakerTone.c: 55:         SpeakerTone_Off();
-[e ( _SpeakerTone_Off ..  ]
-"58
-[; ;SpeakerTone.c: 58:         currFreq = newFrequency;
-[e = _currFreq _newFrequency ]
-"59
-[; ;SpeakerTone.c: 59:         ocCount = (uint16_t)(((uint32_t)2000000)/newFrequency);
-[e = _ocCount -> / -> -> 2000000 `l `ul -> _newFrequency `ul `us ]
-"62
-[; ;SpeakerTone.c: 62:         CCP4_SetCompareCount(ocCount);
-[e ( _CCP4_SetCompareCount (1 _ocCount ]
-"65
-[; ;SpeakerTone.c: 65:         SpeakerTone_On();
-[e ( _SpeakerTone_On ..  ]
-"66
-[; ;SpeakerTone.c: 66:         return 0x00;
-[e ) -> -> 0 `i `uc ]
-[e $UE 980  ]
-"67
-[; ;SpeakerTone.c: 67:     }
-}
-[e :U 982 ]
-"68
-[; ;SpeakerTone.c: 68: }
+"34
+[; ;FRT.c: 34: }
 [e :UE 980 ]
 }
-"72
-[; ;SpeakerTone.c: 72: uint16_t SpeakerTone_GetFrequency(void) {
-[v _SpeakerTone_GetFrequency `(us ~T0 @X0 1 ef ]
+"38
+[; ;FRT.c: 38: void FRT_IncMillis(void) {
+[v _FRT_IncMillis `(v ~T0 @X0 1 ef ]
 {
-[e :U _SpeakerTone_GetFrequency ]
+[e :U _FRT_IncMillis ]
 [f ]
-"73
-[; ;SpeakerTone.c: 73:     return currFreq;
-[e ) _currFreq ]
-[e $UE 983  ]
-"74
-[; ;SpeakerTone.c: 74: }
-[e :UE 983 ]
+"39
+[; ;FRT.c: 39:     millis ++;
+[e ++ _millis -> -> -> 1 `i `l `ul ]
+"40
+[; ;FRT.c: 40:     return;
+[e $UE 981  ]
+"41
+[; ;FRT.c: 41: }
+[e :UE 981 ]
 }
-"78
-[; ;SpeakerTone.c: 78: void SpeakerTone_Off(void) {
-[v _SpeakerTone_Off `(v ~T0 @X0 1 ef ]
+"45
+[; ;FRT.c: 45: void FRT_IncMicros(void) {
+[v _FRT_IncMicros `(v ~T0 @X0 1 ef ]
 {
-[e :U _SpeakerTone_Off ]
+[e :U _FRT_IncMicros ]
 [f ]
-"79
-[; ;SpeakerTone.c: 79:     TMR3_StopTimer();
-[e ( _TMR3_StopTimer ..  ]
-"80
-[; ;SpeakerTone.c: 80:     TMR3_Reload();
-[e ( _TMR3_Reload ..  ]
-"81
-[; ;SpeakerTone.c: 81:     return;
-[e $UE 984  ]
-"82
-[; ;SpeakerTone.c: 82: }
-[e :UE 984 ]
-}
-"86
-[; ;SpeakerTone.c: 86: void SpeakerTone_On(void) {
-[v _SpeakerTone_On `(v ~T0 @X0 1 ef ]
-{
-[e :U _SpeakerTone_On ]
-[f ]
-"87
-[; ;SpeakerTone.c: 87:     TMR3_StartTimer();
-[e ( _TMR3_StartTimer ..  ]
-"88
-[; ;SpeakerTone.c: 88:     return;
-[e $UE 985  ]
-"89
-[; ;SpeakerTone.c: 89: }
-[e :UE 985 ]
-}
-[v $root$_main `(v ~T0 @X0 0 e ]
-"102
-[; ;SpeakerTone.c: 102: int main(void) {
-[v _main `(i ~T0 @X0 1 ef ]
-{
-[e :U _main ]
-[f ]
-"103
-[; ;SpeakerTone.c: 103:     PIC16_Init();
-[e ( _PIC16_Init ..  ]
-"104
-[; ;SpeakerTone.c: 104:     SpeakerTone_Init();
-[e ( _SpeakerTone_Init ..  ]
-"106
-[; ;SpeakerTone.c: 106:     unsigned long currMicro = FRT_GetMicros();
-[v _currMicro `ul ~T0 @X0 1 a ]
-[e = _currMicro ( _FRT_GetMicros ..  ]
-"107
-[; ;SpeakerTone.c: 107:     unsigned long prevMicro = currMicro;
-[v _prevMicro `ul ~T0 @X0 1 a ]
-[e = _prevMicro _currMicro ]
-"108
-[; ;SpeakerTone.c: 108:     uint8_t i = 0;
-[v _i `uc ~T0 @X0 1 a ]
-[e = _i -> -> 0 `i `uc ]
-"112
-[; ;SpeakerTone.c: 112:     while(1) {
-[e :U 988 ]
-{
-"113
-[; ;SpeakerTone.c: 113:         currMicro = FRT_GetMicros();
-[e = _currMicro ( _FRT_GetMicros ..  ]
-"114
-[; ;SpeakerTone.c: 114:         if((currMicro - prevMicro) > (unsigned long)200000) {
-[e $ ! > - _currMicro _prevMicro -> -> 200000 `l `ul 990  ]
-{
-"115
-[; ;SpeakerTone.c: 115:             switch(i) {
-[e $U 992  ]
-{
-"116
-[; ;SpeakerTone.c: 116:                 case 0:
-[e :U 993 ]
-"117
-[; ;SpeakerTone.c: 117:                     SpeakerTone_SetFrequency(262);
-[e ( _SpeakerTone_SetFrequency (1 -> -> 262 `i `us ]
-"118
-[; ;SpeakerTone.c: 118:                     SpeakerTone_On();
-[e ( _SpeakerTone_On ..  ]
-"119
-[; ;SpeakerTone.c: 119:                     i = 1;
-[e = _i -> -> 1 `i `uc ]
-"120
-[; ;SpeakerTone.c: 120:                     break;
-[e $U 991  ]
-"121
-[; ;SpeakerTone.c: 121:                 case 1:
-[e :U 994 ]
-"122
-[; ;SpeakerTone.c: 122:                     SpeakerTone_SetFrequency(523);
-[e ( _SpeakerTone_SetFrequency (1 -> -> 523 `i `us ]
-"123
-[; ;SpeakerTone.c: 123:                     i = 2;
-[e = _i -> -> 2 `i `uc ]
-"124
-[; ;SpeakerTone.c: 124:                     break;
-[e $U 991  ]
-"125
-[; ;SpeakerTone.c: 125:                 case 2:
-[e :U 995 ]
-"126
-[; ;SpeakerTone.c: 126:                     SpeakerTone_SetFrequency(349);
-[e ( _SpeakerTone_SetFrequency (1 -> -> 349 `i `us ]
-"127
-[; ;SpeakerTone.c: 127:                     i = 3;
-[e = _i -> -> 3 `i `uc ]
-"128
-[; ;SpeakerTone.c: 128:                     break;
-[e $U 991  ]
-"129
-[; ;SpeakerTone.c: 129:                 case 3:
-[e :U 996 ]
-"130
-[; ;SpeakerTone.c: 130:                     SpeakerTone_SetFrequency(392);
-[e ( _SpeakerTone_SetFrequency (1 -> -> 392 `i `us ]
-"131
-[; ;SpeakerTone.c: 131:                     i = 4;
-[e = _i -> -> 4 `i `uc ]
-"132
-[; ;SpeakerTone.c: 132:                     break;
-[e $U 991  ]
-"133
-[; ;SpeakerTone.c: 133:                 case 4:
-[e :U 997 ]
-"134
-[; ;SpeakerTone.c: 134:                     SpeakerTone_Off();
-[e ( _SpeakerTone_Off ..  ]
-"135
-[; ;SpeakerTone.c: 135:                     while((currMicro + 1000000) > FRT_GetMicros());
-[e $U 998  ]
-[e :U 999 ]
-[e :U 998 ]
-[e $ > + _currMicro -> -> 1000000 `l `ul ( _FRT_GetMicros ..  999  ]
-[e :U 1000 ]
-"136
-[; ;SpeakerTone.c: 136:                     i = 0;
-[e = _i -> -> 0 `i `uc ]
-"137
-[; ;SpeakerTone.c: 137:             }
-}
-[e $U 991  ]
-[e :U 992 ]
-[e [\ -> _i `i , $ -> 0 `i 993
- , $ -> 1 `i 994
- , $ -> 2 `i 995
- , $ -> 3 `i 996
- , $ -> 4 `i 997
- 991 ]
-[e :U 991 ]
-"138
-[; ;SpeakerTone.c: 138:             prevMicro = currMicro;
-[e = _prevMicro _currMicro ]
-"139
-[; ;SpeakerTone.c: 139:         }
-}
-[e :U 990 ]
-"140
-[; ;SpeakerTone.c: 140:     }
-}
-[e :U 987 ]
-[e $U 988  ]
-[e :U 989 ]
-"141
-[; ;SpeakerTone.c: 141:     return 0;
-[e ) -> 0 `i ]
-[e $UE 986  ]
-"142
-[; ;SpeakerTone.c: 142: }
-[e :UE 986 ]
+"46
+[; ;FRT.c: 46:     micros += 1000;
+[e =+ _micros -> -> -> 1000 `i `l `ul ]
+"47
+[; ;FRT.c: 47:     return;
+[e $UE 982  ]
+"48
+[; ;FRT.c: 48: }
+[e :UE 982 ]
 }
