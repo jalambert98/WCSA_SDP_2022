@@ -11623,8 +11623,7 @@ void PMD_Initialize(void);
 
 
 
-void SYSTEM_Initialize(void)
-{
+void SYSTEM_Initialize(void) {
     PMD_Initialize();
     PIN_MANAGER_Initialize();
     OSCILLATOR_Initialize();
@@ -11643,8 +11642,7 @@ void SYSTEM_Initialize(void)
 
 
 
-void OSCILLATOR_Initialize(void)
-{
+void OSCILLATOR_Initialize(void) {
 
     OSCCON1 = 0x00;
 
@@ -11656,23 +11654,20 @@ void OSCILLATOR_Initialize(void)
 
     OSCTUNE = 0x00;
 
-    while(PLLR == 0)
-    {
+    while (PLLR == 0) {
     }
 }
 
 
 
-void WDT_Initialize(void)
-{
+void WDT_Initialize(void) {
 
     WDTCON = 0x16;
 }
 
 
 
-void PMD_Initialize(void)
-{
+void PMD_Initialize(void) {
 
 
     PMD0 = 0x00;

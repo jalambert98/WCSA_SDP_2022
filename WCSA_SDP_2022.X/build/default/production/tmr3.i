@@ -11228,10 +11228,7 @@ void TMR3_DefaultInterruptHandler(void);
 
 
 volatile uint16_t timer3ReloadVal;
-
-
-
-
+# 25 "tmr3.c"
 void TMR3_Initialize(void)
 {
 

@@ -25,8 +25,8 @@ void TMR2_Initialize(void)
     // Clearing IF flag.
     PIR1bits.TMR2IF = 0;
 
-    // T2CKPS 1:16; T2OUTPS 1:1; TMR2ON on; 
-    T2CON = 0x06;
+    // T2CKPS 1:16; T2OUTPS 1:1; TMR2ON off; 
+    T2CON = 0x04;
 }
 
 //------------------------------------------------------------------------------

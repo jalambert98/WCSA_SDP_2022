@@ -23,6 +23,28 @@ Version 4.0 HI-TECH Software Intermediate Code
 "9294
 [; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 9294: extern volatile PWMTMRSbits_t PWMTMRSbits __attribute__((address(0x61F)));
 [v _PWMTMRSbits `VS456 ~T0 @X0 0 e@1567 ]
+"1602
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 1602:     struct {
+[s S88 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S88 . . TRISB4 TRISB5 TRISB6 TRISB7 ]
+"1601
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 1601: typedef union {
+[u S87 `S88 1 ]
+[n S87 . . ]
+"1610
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 1610: extern volatile TRISBbits_t TRISBbits __attribute__((address(0x08D)));
+[v _TRISBbits `VS87 ~T0 @X0 0 e@141 ]
+"2345
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 2345:     struct {
+[s S121 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S121 . . LATB4 LATB5 LATB6 LATB7 ]
+"2344
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 2344: typedef union {
+[u S120 `S121 1 ]
+[n S120 . . ]
+"2353
+[; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 2353: extern volatile LATBbits_t LATBbits __attribute__((address(0x10D)));
+[v _LATBbits `VS120 ~T0 @X0 0 e@269 ]
 "55 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h
 [; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 55: __asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
@@ -1100,24 +1122,30 @@ Version 4.0 HI-TECH Software Intermediate Code
 "27
 [; ;pwm5.c: 27:     PWMTMRSbits.P5TSEL = 1;
 [e = . . _PWMTMRSbits 0 0 -> -> 1 `i `uc ]
-"28
-[; ;pwm5.c: 28: }
+"30
+[; ;pwm5.c: 30:     TRISBbits.TRISB6 = 0;
+[e = . . _TRISBbits 0 3 -> -> 0 `i `uc ]
+"31
+[; ;pwm5.c: 31:     LATBbits.LATB6 = 0;
+[e = . . _LATBbits 0 3 -> -> 0 `i `uc ]
+"32
+[; ;pwm5.c: 32: }
 [e :UE 963 ]
 }
-"32
-[; ;pwm5.c: 32: void PWM5_LoadDutyValue(uint16_t dutyValue) {
+"36
+[; ;pwm5.c: 36: void PWM5_LoadDutyValue(uint16_t dutyValue) {
 [v _PWM5_LoadDutyValue `(v ~T0 @X0 1 ef1`us ]
 {
 [e :U _PWM5_LoadDutyValue ]
 [v _dutyValue `us ~T0 @X0 1 r1 ]
 [f ]
-"34
-[; ;pwm5.c: 34:     PWM5DCH = (dutyValue & 0x03FC) >> 2;
-[e = _PWM5DCH -> >> & -> _dutyValue `ui -> -> 1020 `i `ui -> 2 `i `uc ]
-"37
-[; ;pwm5.c: 37:     PWM5DCL = (dutyValue & 0x0003) << 6;
-[e = _PWM5DCL -> << & -> _dutyValue `ui -> -> 3 `i `ui -> 6 `i `uc ]
 "38
-[; ;pwm5.c: 38: }
+[; ;pwm5.c: 38:     PWM5DCH = (dutyValue & 0x03FC) >> 2;
+[e = _PWM5DCH -> >> & -> _dutyValue `ui -> -> 1020 `i `ui -> 2 `i `uc ]
+"41
+[; ;pwm5.c: 41:     PWM5DCL = (dutyValue & 0x0003) << 6;
+[e = _PWM5DCL -> << & -> _dutyValue `ui -> -> 3 `i `ui -> 6 `i `uc ]
+"42
+[; ;pwm5.c: 42: }
 [e :UE 964 ]
 }

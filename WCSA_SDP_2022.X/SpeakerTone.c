@@ -18,7 +18,7 @@
 
 #define HALF_TIMER_PERIOD   ((uint32_t)2000000) 
 
-#define SPEAKERTONE_TEST
+// #define SPEAKERTONE_TEST
 
 
 //==============================================================================
@@ -100,6 +100,7 @@ void SpeakerTone_On(void) {
 #define FREQ_CHANGE_RATE    200000  // change speakerTone freq every 100ms
 
 int main(void) {
+    // Init required libraries
     PIC16_Init();
     SpeakerTone_Init(); // speakerTone pinRC1
     
@@ -111,7 +112,7 @@ int main(void) {
      * (C->C->F->G) : (changes pitch every 200ms) */
     while(1) {
         currMicro = FRT_GetMicros();
-        if((currMicro - prevMicro) > (unsigned long)FREQ_CHANGE_RATE) {
+        if((currMicro - prevMicro) >= (unsigned long)FREQ_CHANGE_RATE) {
             switch(i) {
                 case 0:
                     SpeakerTone_SetFrequency(TONE_C4);

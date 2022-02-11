@@ -25,6 +25,10 @@ void PWM5_Initialize(void) {
 
     // Select timer [TMR2]
     PWMTMRSbits.P5TSEL = 1;
+    
+    // Set motorControl pin[RB6] as OUTPUT & init LOW
+    TRISBbits.TRISB6 = 0;
+    LATBbits.LATB6 = 0;
 }
 
 //------------------------------------------------------------------------------

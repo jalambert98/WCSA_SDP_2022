@@ -1140,143 +1140,133 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h: 19652: __asm("TOSH equ 0FEFh");
 [; <" TOSH equ 0FEFh ;# ">
 "15 mcc.c
-[; ;mcc.c: 15: void SYSTEM_Initialize(void)
+[; ;mcc.c: 15: void SYSTEM_Initialize(void) {
 [v _SYSTEM_Initialize `(v ~T0 @X0 1 ef ]
-"16
-[; ;mcc.c: 16: {
 {
 [e :U _SYSTEM_Initialize ]
 [f ]
-"17
-[; ;mcc.c: 17:     PMD_Initialize();
+"16
+[; ;mcc.c: 16:     PMD_Initialize();
 [e ( _PMD_Initialize ..  ]
-"18
-[; ;mcc.c: 18:     PIN_MANAGER_Initialize();
+"17
+[; ;mcc.c: 17:     PIN_MANAGER_Initialize();
 [e ( _PIN_MANAGER_Initialize ..  ]
-"19
-[; ;mcc.c: 19:     OSCILLATOR_Initialize();
+"18
+[; ;mcc.c: 18:     OSCILLATOR_Initialize();
 [e ( _OSCILLATOR_Initialize ..  ]
-"20
-[; ;mcc.c: 20:     WDT_Initialize();
+"19
+[; ;mcc.c: 19:     WDT_Initialize();
 [e ( _WDT_Initialize ..  ]
-"21
-[; ;mcc.c: 21:     CCP3_Initialize();
+"20
+[; ;mcc.c: 20:     CCP3_Initialize();
 [e ( _CCP3_Initialize ..  ]
-"22
-[; ;mcc.c: 22:     CCP1_Initialize();
+"21
+[; ;mcc.c: 21:     CCP1_Initialize();
 [e ( _CCP1_Initialize ..  ]
-"23
-[; ;mcc.c: 23:     TMR2_Initialize();
+"22
+[; ;mcc.c: 22:     TMR2_Initialize();
 [e ( _TMR2_Initialize ..  ]
-"24
-[; ;mcc.c: 24:     TMR0_Initialize();
+"23
+[; ;mcc.c: 23:     TMR0_Initialize();
 [e ( _TMR0_Initialize ..  ]
-"25
-[; ;mcc.c: 25:     CCP2_Initialize();
+"24
+[; ;mcc.c: 24:     CCP2_Initialize();
 [e ( _CCP2_Initialize ..  ]
-"26
-[; ;mcc.c: 26:     CCP4_Initialize();
+"25
+[; ;mcc.c: 25:     CCP4_Initialize();
 [e ( _CCP4_Initialize ..  ]
-"27
-[; ;mcc.c: 27:     TMR3_Initialize();
+"26
+[; ;mcc.c: 26:     TMR3_Initialize();
 [e ( _TMR3_Initialize ..  ]
-"28
-[; ;mcc.c: 28:     PWM5_Initialize();
+"27
+[; ;mcc.c: 27:     PWM5_Initialize();
 [e ( _PWM5_Initialize ..  ]
-"29
-[; ;mcc.c: 29:     TMR1_Initialize();
+"28
+[; ;mcc.c: 28:     TMR1_Initialize();
 [e ( _TMR1_Initialize ..  ]
-"30
-[; ;mcc.c: 30:     EUSART_Initialize();
+"29
+[; ;mcc.c: 29:     EUSART_Initialize();
 [e ( _EUSART_Initialize ..  ]
-"31
-[; ;mcc.c: 31: }
+"30
+[; ;mcc.c: 30: }
 [e :UE 979 ]
 }
-"35
-[; ;mcc.c: 35: void OSCILLATOR_Initialize(void)
+"34
+[; ;mcc.c: 34: void OSCILLATOR_Initialize(void) {
 [v _OSCILLATOR_Initialize `(v ~T0 @X0 1 ef ]
-"36
-[; ;mcc.c: 36: {
 {
 [e :U _OSCILLATOR_Initialize ]
 [f ]
-"38
-[; ;mcc.c: 38:     OSCCON1 = 0x00;
+"36
+[; ;mcc.c: 36:     OSCCON1 = 0x00;
 [e = _OSCCON1 -> -> 0 `i `uc ]
-"40
-[; ;mcc.c: 40:     OSCCON3 = 0x00;
+"38
+[; ;mcc.c: 38:     OSCCON3 = 0x00;
 [e = _OSCCON3 -> -> 0 `i `uc ]
-"42
-[; ;mcc.c: 42:     OSCEN = 0x00;
+"40
+[; ;mcc.c: 40:     OSCEN = 0x00;
 [e = _OSCEN -> -> 0 `i `uc ]
-"44
-[; ;mcc.c: 44:     OSCFRQ = 0x04;
+"42
+[; ;mcc.c: 42:     OSCFRQ = 0x04;
 [e = _OSCFRQ -> -> 4 `i `uc ]
-"46
-[; ;mcc.c: 46:     OSCTUNE = 0x00;
+"44
+[; ;mcc.c: 44:     OSCTUNE = 0x00;
 [e = _OSCTUNE -> -> 0 `i `uc ]
-"48
-[; ;mcc.c: 48:     while(PLLR == 0)
+"46
+[; ;mcc.c: 46:     while (PLLR == 0) {
 [e $U 981  ]
 [e :U 982 ]
-"49
-[; ;mcc.c: 49:     {
 {
-"50
-[; ;mcc.c: 50:     }
+"47
+[; ;mcc.c: 47:     }
 }
 [e :U 981 ]
-"48
-[; ;mcc.c: 48:     while(PLLR == 0)
+"46
+[; ;mcc.c: 46:     while (PLLR == 0) {
 [e $ == -> _PLLR `i -> 0 `i 982  ]
 [e :U 983 ]
-"51
-[; ;mcc.c: 51: }
+"48
+[; ;mcc.c: 48: }
 [e :UE 980 ]
 }
-"55
-[; ;mcc.c: 55: void WDT_Initialize(void)
+"52
+[; ;mcc.c: 52: void WDT_Initialize(void) {
 [v _WDT_Initialize `(v ~T0 @X0 1 ef ]
-"56
-[; ;mcc.c: 56: {
 {
 [e :U _WDT_Initialize ]
 [f ]
-"58
-[; ;mcc.c: 58:     WDTCON = 0x16;
+"54
+[; ;mcc.c: 54:     WDTCON = 0x16;
 [e = _WDTCON -> -> 22 `i `uc ]
-"59
-[; ;mcc.c: 59: }
+"55
+[; ;mcc.c: 55: }
 [e :UE 984 ]
 }
-"63
-[; ;mcc.c: 63: void PMD_Initialize(void)
+"59
+[; ;mcc.c: 59: void PMD_Initialize(void) {
 [v _PMD_Initialize `(v ~T0 @X0 1 ef ]
-"64
-[; ;mcc.c: 64: {
 {
 [e :U _PMD_Initialize ]
 [f ]
-"67
-[; ;mcc.c: 67:     PMD0 = 0x00;
+"62
+[; ;mcc.c: 62:     PMD0 = 0x00;
 [e = _PMD0 -> -> 0 `i `uc ]
-"68
-[; ;mcc.c: 68:     PMD1 = 0x00;
+"63
+[; ;mcc.c: 63:     PMD1 = 0x00;
 [e = _PMD1 -> -> 0 `i `uc ]
-"71
-[; ;mcc.c: 71:     PMD2 = 0x66;
+"66
+[; ;mcc.c: 66:     PMD2 = 0x66;
 [e = _PMD2 -> -> 102 `i `uc ]
-"72
-[; ;mcc.c: 72:     PMD3 = 0x00;
+"67
+[; ;mcc.c: 67:     PMD3 = 0x00;
 [e = _PMD3 -> -> 0 `i `uc ]
-"73
-[; ;mcc.c: 73:     PMD4 = 0x00;
+"68
+[; ;mcc.c: 68:     PMD4 = 0x00;
 [e = _PMD4 -> -> 0 `i `uc ]
-"76
-[; ;mcc.c: 76:     PMD5 = 0x1F;
+"71
+[; ;mcc.c: 71:     PMD5 = 0x1F;
 [e = _PMD5 -> -> 31 `i `uc ]
-"77
-[; ;mcc.c: 77: }
+"72
+[; ;mcc.c: 72: }
 [e :UE 985 ]
 }

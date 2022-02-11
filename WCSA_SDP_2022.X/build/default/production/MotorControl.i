@@ -11671,7 +11671,7 @@ void MotorControl_On(void);
 # 55 "./MotorControl.h"
 void MotorControl_Off(void);
 # 9 "MotorControl.c" 2
-# 23 "MotorControl.c"
+# 29 "MotorControl.c"
 uint8_t dutyCyclePercent;
 uint16_t dutyCycle10bit;
 
@@ -11681,8 +11681,9 @@ uint16_t dutyCycle10bit;
 
 
 void MotorControl_Init(void) {
-    dutyCyclePercent = 0x00;
-    dutyCycle10bit = 0x0000;
+
+    dutyCyclePercent = 50;
+    dutyCycle10bit = 512;
     MotorControl_Off();
     return;
 }
@@ -11690,9 +11691,17 @@ void MotorControl_Init(void) {
 
 
 uint8_t MotorControl_SetIntensity(uint8_t dutyCycle) {
+
+
     if ((dutyCycle >= 0) && (dutyCycle <= 100)) {
+
+
         dutyCyclePercent = dutyCycle;
-        dutyCycle10bit = (dutyCycle*1023)/100;
+
+
+        dutyCycle10bit = (uint16_t)(((uint32_t)dutyCycle * 1023) /
+                                                            100);
+
         PWM5_LoadDutyValue(dutyCycle10bit);
         return 0x00;
     }
@@ -11703,6 +11712,7 @@ uint8_t MotorControl_SetIntensity(uint8_t dutyCycle) {
 
 
 void MotorControl_On(void) {
+
     TMR2_StartTimer();
     return;
 }
@@ -11710,7 +11720,62 @@ void MotorControl_On(void) {
 
 
 void MotorControl_Off(void) {
+
     TMR2_StopTimer();
     TMR2_WriteTimer(0x00);
     return;
+}
+# 90 "MotorControl.c"
+# 1 "./FRT.h" 1
+# 10 "./FRT.h"
+# 1 "./PIC16Xpress_DevBoard.h" 1
+# 10 "./FRT.h" 2
+# 30 "./FRT.h"
+unsigned long FRT_GetMillis(void);
+# 45 "./FRT.h"
+unsigned long FRT_GetMicros(void);
+# 63 "./FRT.h"
+void FRT_IncMillis(void);
+# 82 "./FRT.h"
+void FRT_IncMicros(void);
+# 90 "MotorControl.c" 2
+
+
+
+
+int main(void) {
+
+    PIC16_Init();
+    MotorControl_Init();
+
+
+    uint8_t duty = 0;
+    MotorControl_SetIntensity(duty);
+    MotorControl_On();
+
+
+    unsigned long currMicro = FRT_GetMicros();
+    unsigned long prevMicro = currMicro;
+
+
+    while(1) {
+        currMicro = FRT_GetMicros();
+
+
+        if ((currMicro - prevMicro) >= 250000) {
+
+            duty += 10;
+
+            if (duty > 100) {
+                duty = 0;
+            }
+
+
+            MotorControl_SetIntensity(duty);
+            prevMicro = currMicro;
+        }
+    }
+
+    while(1);
+    return 0;
 }

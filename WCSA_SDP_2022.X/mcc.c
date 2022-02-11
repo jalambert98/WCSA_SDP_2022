@@ -12,8 +12,7 @@
 
 //------------------------------------------------------------------------------
 
-void SYSTEM_Initialize(void)
-{
+void SYSTEM_Initialize(void) {
     PMD_Initialize();
     PIN_MANAGER_Initialize();
     OSCILLATOR_Initialize();
@@ -27,13 +26,12 @@ void SYSTEM_Initialize(void)
     TMR3_Initialize();
     PWM5_Initialize();
     TMR1_Initialize();
-    EUSART_Initialize();
+    EUSART_Initialize(); 
 }
 
 //------------------------------------------------------------------------------
 
-void OSCILLATOR_Initialize(void)
-{
+void OSCILLATOR_Initialize(void) {
     // NOSC HFINTOSC with 2x PLL; NDIV 1; 
     OSCCON1 = 0x00;
     // CSWHOLD may proceed; SOSCPWR Low power; SOSCBE crystal oscillator; 
@@ -45,33 +43,30 @@ void OSCILLATOR_Initialize(void)
     // HFTUN 0; 
     OSCTUNE = 0x00;
     // Wait for PLL to stabilize
-    while(PLLR == 0)
-    {
+    while (PLLR == 0) {
     }
 }
 
 //------------------------------------------------------------------------------
 
-void WDT_Initialize(void)
-{
+void WDT_Initialize(void) {
     // WDTPS 1:65536; SWDTEN OFF; 
     WDTCON = 0x16;
 }
 
 //------------------------------------------------------------------------------
 
-void PMD_Initialize(void)
-{
+void PMD_Initialize(void) {
     /* EVERYTHING IS CURRENTLY ENABLED!! 
      * FIX THIS WHEN YOU FINISH THE PERIPHERAL LIST!! */
     PMD0 = 0x00;
     PMD1 = 0x00;
-    
+
     // DACMD DAC disabled; CMP1MD CMP1 disabled; ADCMD ADC disabled; CMP2MD CMP2 disabled; 
     PMD2 = 0x66;
     PMD3 = 0x00;
     PMD4 = 0x00;
-    
+
     // DSMMD DSM disabled; CLC3MD CLC3 disabled; CLC4MD CLC4 disabled; CLC1MD CLC1 disabled; CLC2MD CLC2 disabled; 
     PMD5 = 0x1F;
 }

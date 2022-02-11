@@ -14,6 +14,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "93
 [; ;./tmr2.h: 93: void TMR2_WriteTimer(uint8_t timerVal);
 [v _TMR2_WriteTimer `(v ~T0 @X0 0 ef1`uc ]
+[p mainexit ]
+"120 ./PIC16Xpress_DevBoard.h
+[; ;./PIC16Xpress_DevBoard.h: 120: void PIC16_Init(void);
+[v _PIC16_Init `(v ~T0 @X0 0 ef ]
+"45 ./FRT.h
+[; ;./FRT.h: 45: unsigned long FRT_GetMicros(void);
+[v _FRT_GetMicros `(ul ~T0 @X0 0 ef ]
 "55 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
 [; <" INDF0 equ 00h ;# ">
 "75
@@ -720,106 +727,192 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSL equ 0FEEh ;# ">
 "19652
 [; <" TOSH equ 0FEFh ;# ">
-"23 MotorControl.c
-[; ;MotorControl.c: 23: uint8_t dutyCyclePercent;
+"29 MotorControl.c
+[; ;MotorControl.c: 29: uint8_t dutyCyclePercent;
 [v _dutyCyclePercent `uc ~T0 @X0 1 e ]
-"24
-[; ;MotorControl.c: 24: uint16_t dutyCycle10bit;
+"30
+[; ;MotorControl.c: 30: uint16_t dutyCycle10bit;
 [v _dutyCycle10bit `us ~T0 @X0 1 e ]
-"31
-[; ;MotorControl.c: 31: void MotorControl_Init(void) {
+"37
+[; ;MotorControl.c: 37: void MotorControl_Init(void) {
 [v _MotorControl_Init `(v ~T0 @X0 1 ef ]
 {
 [e :U _MotorControl_Init ]
 [f ]
-"32
-[; ;MotorControl.c: 32:     dutyCyclePercent = 0x00;
-[e = _dutyCyclePercent -> -> 0 `i `uc ]
-"33
-[; ;MotorControl.c: 33:     dutyCycle10bit = 0x0000;
-[e = _dutyCycle10bit -> -> 0 `i `us ]
-"34
-[; ;MotorControl.c: 34:     MotorControl_Off();
+"39
+[; ;MotorControl.c: 39:     dutyCyclePercent = 50;
+[e = _dutyCyclePercent -> -> 50 `i `uc ]
+"40
+[; ;MotorControl.c: 40:     dutyCycle10bit = 512;
+[e = _dutyCycle10bit -> -> 512 `i `us ]
+"41
+[; ;MotorControl.c: 41:     MotorControl_Off();
 [e ( _MotorControl_Off ..  ]
-"35
-[; ;MotorControl.c: 35:     return;
+"42
+[; ;MotorControl.c: 42:     return;
 [e $UE 979  ]
-"36
-[; ;MotorControl.c: 36: }
+"43
+[; ;MotorControl.c: 43: }
 [e :UE 979 ]
 }
-"40
-[; ;MotorControl.c: 40: uint8_t MotorControl_SetIntensity(uint8_t dutyCycle) {
+"47
+[; ;MotorControl.c: 47: uint8_t MotorControl_SetIntensity(uint8_t dutyCycle) {
 [v _MotorControl_SetIntensity `(uc ~T0 @X0 1 ef1`uc ]
 {
 [e :U _MotorControl_SetIntensity ]
 [v _dutyCycle `uc ~T0 @X0 1 r1 ]
 [f ]
-"41
-[; ;MotorControl.c: 41:     if ((dutyCycle >= 0) && (dutyCycle <= 100)) {
+"50
+[; ;MotorControl.c: 50:     if ((dutyCycle >= 0) && (dutyCycle <= 100)) {
 [e $ ! && >= -> _dutyCycle `i -> 0 `i <= -> _dutyCycle `i -> 100 `i 981  ]
 {
-"42
-[; ;MotorControl.c: 42:         dutyCyclePercent = dutyCycle;
+"53
+[; ;MotorControl.c: 53:         dutyCyclePercent = dutyCycle;
 [e = _dutyCyclePercent _dutyCycle ]
-"43
-[; ;MotorControl.c: 43:         dutyCycle10bit = (dutyCycle*1023)/100;
-[e = _dutyCycle10bit -> / * -> _dutyCycle `i -> 1023 `i -> 100 `i `us ]
-"44
-[; ;MotorControl.c: 44:         PWM5_LoadDutyValue(dutyCycle10bit);
+"56
+[; ;MotorControl.c: 56:         dutyCycle10bit = (uint16_t)(((uint32_t)dutyCycle * 1023) /
+[e = _dutyCycle10bit -> / * -> _dutyCycle `ul -> -> -> 1023 `i `l `ul -> -> -> 100 `i `l `ul `us ]
+"59
+[; ;MotorControl.c: 59:         PWM5_LoadDutyValue(dutyCycle10bit);
 [e ( _PWM5_LoadDutyValue (1 _dutyCycle10bit ]
-"45
-[; ;MotorControl.c: 45:         return 0x00;
+"60
+[; ;MotorControl.c: 60:         return 0x00;
 [e ) -> -> 0 `i `uc ]
 [e $UE 980  ]
-"46
-[; ;MotorControl.c: 46:     }
+"61
+[; ;MotorControl.c: 61:     }
 }
 [e $U 982  ]
-"47
-[; ;MotorControl.c: 47:     else
+"62
+[; ;MotorControl.c: 62:     else
 [e :U 981 ]
-"48
-[; ;MotorControl.c: 48:         return 0xFF;
+"63
+[; ;MotorControl.c: 63:         return 0xFF;
 [e ) -> -> 255 `i `uc ]
 [e $UE 980  ]
 [e :U 982 ]
-"49
-[; ;MotorControl.c: 49: }
+"64
+[; ;MotorControl.c: 64: }
 [e :UE 980 ]
 }
-"53
-[; ;MotorControl.c: 53: void MotorControl_On(void) {
+"68
+[; ;MotorControl.c: 68: void MotorControl_On(void) {
 [v _MotorControl_On `(v ~T0 @X0 1 ef ]
 {
 [e :U _MotorControl_On ]
 [f ]
-"54
-[; ;MotorControl.c: 54:     TMR2_StartTimer();
+"70
+[; ;MotorControl.c: 70:     TMR2_StartTimer();
 [e ( _TMR2_StartTimer ..  ]
-"55
-[; ;MotorControl.c: 55:     return;
+"71
+[; ;MotorControl.c: 71:     return;
 [e $UE 983  ]
-"56
-[; ;MotorControl.c: 56: }
+"72
+[; ;MotorControl.c: 72: }
 [e :UE 983 ]
 }
-"60
-[; ;MotorControl.c: 60: void MotorControl_Off(void) {
+"76
+[; ;MotorControl.c: 76: void MotorControl_Off(void) {
 [v _MotorControl_Off `(v ~T0 @X0 1 ef ]
 {
 [e :U _MotorControl_Off ]
 [f ]
-"61
-[; ;MotorControl.c: 61:     TMR2_StopTimer();
+"78
+[; ;MotorControl.c: 78:     TMR2_StopTimer();
 [e ( _TMR2_StopTimer ..  ]
-"62
-[; ;MotorControl.c: 62:     TMR2_WriteTimer(0x00);
+"79
+[; ;MotorControl.c: 79:     TMR2_WriteTimer(0x00);
 [e ( _TMR2_WriteTimer (1 -> -> 0 `i `uc ]
-"63
-[; ;MotorControl.c: 63:     return;
+"80
+[; ;MotorControl.c: 80:     return;
 [e $UE 984  ]
-"64
-[; ;MotorControl.c: 64: }
+"81
+[; ;MotorControl.c: 81: }
 [e :UE 984 ]
+}
+[v $root$_main `(v ~T0 @X0 0 e ]
+"94
+[; ;MotorControl.c: 94: int main(void) {
+[v _main `(i ~T0 @X0 1 ef ]
+{
+[e :U _main ]
+[f ]
+"96
+[; ;MotorControl.c: 96:     PIC16_Init();
+[e ( _PIC16_Init ..  ]
+"97
+[; ;MotorControl.c: 97:     MotorControl_Init();
+[e ( _MotorControl_Init ..  ]
+"100
+[; ;MotorControl.c: 100:     uint8_t duty = 0;
+[v _duty `uc ~T0 @X0 1 a ]
+[e = _duty -> -> 0 `i `uc ]
+"101
+[; ;MotorControl.c: 101:     MotorControl_SetIntensity(duty);
+[e ( _MotorControl_SetIntensity (1 _duty ]
+"102
+[; ;MotorControl.c: 102:     MotorControl_On();
+[e ( _MotorControl_On ..  ]
+"105
+[; ;MotorControl.c: 105:     unsigned long currMicro = FRT_GetMicros();
+[v _currMicro `ul ~T0 @X0 1 a ]
+[e = _currMicro ( _FRT_GetMicros ..  ]
+"106
+[; ;MotorControl.c: 106:     unsigned long prevMicro = currMicro;
+[v _prevMicro `ul ~T0 @X0 1 a ]
+[e = _prevMicro _currMicro ]
+"109
+[; ;MotorControl.c: 109:     while(1) {
+[e :U 987 ]
+{
+"110
+[; ;MotorControl.c: 110:         currMicro = FRT_GetMicros();
+[e = _currMicro ( _FRT_GetMicros ..  ]
+"113
+[; ;MotorControl.c: 113:         if ((currMicro - prevMicro) >= 250000) {
+[e $ ! >= - _currMicro _prevMicro -> -> 250000 `l `ul 989  ]
+{
+"115
+[; ;MotorControl.c: 115:             duty += 10;
+[e =+ _duty -> -> 10 `i `uc ]
+"117
+[; ;MotorControl.c: 117:             if (duty > 100) {
+[e $ ! > -> _duty `i -> 100 `i 990  ]
+{
+"118
+[; ;MotorControl.c: 118:                 duty = 0;
+[e = _duty -> -> 0 `i `uc ]
+"119
+[; ;MotorControl.c: 119:             }
+}
+[e :U 990 ]
+"122
+[; ;MotorControl.c: 122:             MotorControl_SetIntensity(duty);
+[e ( _MotorControl_SetIntensity (1 _duty ]
+"123
+[; ;MotorControl.c: 123:             prevMicro = currMicro;
+[e = _prevMicro _currMicro ]
+"124
+[; ;MotorControl.c: 124:         }
+}
+[e :U 989 ]
+"125
+[; ;MotorControl.c: 125:     }
+}
+[e :U 986 ]
+[e $U 987  ]
+[e :U 988 ]
+"127
+[; ;MotorControl.c: 127:     while(1);
+[e :U 992 ]
+[e :U 991 ]
+[e $U 992  ]
+[e :U 993 ]
+"128
+[; ;MotorControl.c: 128:     return 0;
+[e ) -> 0 `i ]
+[e $UE 985  ]
+"129
+[; ;MotorControl.c: 129: }
+[e :UE 985 ]
 }

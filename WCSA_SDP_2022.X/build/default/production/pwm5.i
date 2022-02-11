@@ -11217,6 +11217,10 @@ void PWM5_Initialize(void) {
 
 
     PWMTMRSbits.P5TSEL = 1;
+
+
+    TRISBbits.TRISB6 = 0;
+    LATBbits.LATB6 = 0;
 }
 
 
