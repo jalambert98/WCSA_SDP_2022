@@ -30,11 +30,11 @@ void MotorControl_Init(void);
 //------------------------------------------------------------------------------
 /**
  * @funct   MotorControl_SetIntensity(dutyCycle)
- * @param   uint8_t dutyCycle - [0, 100] % duty cycle
+ * @param   uint16_t dutyCycle - [0, 1000] range duty cycle
  * @return  uint8_t [SUCCESS or ERROR]
- * @brief   Sets the motor intensity in terms of a [0, 100]% duty cycle
+ * @brief   Sets the motor intensity in terms of a [0, 100.0]% duty cycle
  * @author  Jack Lambert, 2022.02.07 */
-uint8_t MotorControl_SetIntensity(uint8_t dutyCycle);
+uint8_t MotorControl_SetIntensity(uint16_t dutyCycle);
 
 //------------------------------------------------------------------------------
 /**

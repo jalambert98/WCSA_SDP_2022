@@ -870,7 +870,7 @@ B6 17
 "25
 [v _micros micros `ul  1 s 4 micros ]
 "29 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\MotorControl.c
-[v _dutyCyclePercent dutyCyclePercent `uc  1 e 1 0 ]
+[v _dutyCyclePerMilli dutyCyclePerMilli `us  1 e 2 0 ]
 "30
 [v _dutyCycle10bit dutyCycle10bit `us  1 e 2 0 ]
 "28 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\SpeakerTone.c
@@ -888,11 +888,11 @@ B6 17
 [v _main main `(i  1 e 2 0 ]
 {
 "105
-[v main@currMicro currMicro `ul  1 a 4 39 ]
+[v main@currMicro currMicro `ul  1 a 4 36 ]
 "106
-[v main@prevMicro prevMicro `ul  1 a 4 35 ]
+[v main@prevMicro prevMicro `ul  1 a 4 32 ]
 "100
-[v main@duty duty `uc  1 a 1 43 ]
+[v main@duty duty `us  1 a 2 40 ]
 "129
 } 0
 "16 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
@@ -1032,10 +1032,7 @@ B6 17
 "47 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\MotorControl.c
 [v _MotorControl_SetIntensity MotorControl_SetIntensity `(uc  1 e 1 0 ]
 {
-[v MotorControl_SetIntensity@dutyCycle dutyCycle `uc  1 a 1 wreg ]
-[v MotorControl_SetIntensity@dutyCycle dutyCycle `uc  1 a 1 wreg ]
-"50
-[v MotorControl_SetIntensity@dutyCycle dutyCycle `uc  1 a 1 30 ]
+[v MotorControl_SetIntensity@dutyCycle dutyCycle `us  1 p 2 26 ]
 "64
 } 0
 "15 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\Umul32.c

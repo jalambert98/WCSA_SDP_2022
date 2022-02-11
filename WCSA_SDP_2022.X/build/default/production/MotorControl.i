@@ -11665,14 +11665,14 @@ void __attribute__((picinterrupt(("")))) InterruptManager (void);
 # 28 "./MotorControl.h"
 void MotorControl_Init(void);
 # 37 "./MotorControl.h"
-uint8_t MotorControl_SetIntensity(uint8_t dutyCycle);
+uint8_t MotorControl_SetIntensity(uint16_t dutyCycle);
 # 46 "./MotorControl.h"
 void MotorControl_On(void);
 # 55 "./MotorControl.h"
 void MotorControl_Off(void);
 # 9 "MotorControl.c" 2
 # 29 "MotorControl.c"
-uint8_t dutyCyclePercent;
+uint16_t dutyCyclePerMilli;
 uint16_t dutyCycle10bit;
 
 
@@ -11682,7 +11682,7 @@ uint16_t dutyCycle10bit;
 
 void MotorControl_Init(void) {
 
-    dutyCyclePercent = 50;
+    dutyCyclePerMilli = 500;
     dutyCycle10bit = 512;
     MotorControl_Off();
     return;
@@ -11690,17 +11690,17 @@ void MotorControl_Init(void) {
 
 
 
-uint8_t MotorControl_SetIntensity(uint8_t dutyCycle) {
+uint8_t MotorControl_SetIntensity(uint16_t dutyCycle) {
 
 
-    if ((dutyCycle >= 0) && (dutyCycle <= 100)) {
+    if ((dutyCycle >= 0) && (dutyCycle <= 1000)) {
 
 
-        dutyCyclePercent = dutyCycle;
+        dutyCyclePerMilli = dutyCycle;
 
 
         dutyCycle10bit = (uint16_t)(((uint32_t)dutyCycle * 1023) /
-                                                            100);
+                                                            1000);
 
         PWM5_LoadDutyValue(dutyCycle10bit);
         return 0x00;
@@ -11749,7 +11749,7 @@ int main(void) {
     MotorControl_Init();
 
 
-    uint8_t duty = 0;
+    uint16_t duty = 0;
     MotorControl_SetIntensity(duty);
     MotorControl_On();
 
@@ -11762,11 +11762,11 @@ int main(void) {
         currMicro = FRT_GetMicros();
 
 
-        if ((currMicro - prevMicro) >= 250000) {
+        if ((currMicro - prevMicro) >= 25000) {
 
             duty += 10;
 
-            if (duty > 100) {
+            if (duty > 1000) {
                 duty = 0;
             }
 

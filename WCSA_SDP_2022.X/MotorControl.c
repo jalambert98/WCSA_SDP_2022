@@ -14,10 +14,10 @@
 //-------------------------------- #DEFINES ------------------------------------
 //==============================================================================
 
-#define MAX_DC_PERCENT      100     // 100% duty cycle --> ALWAYS ON
+#define MAX_DC_PERMILLI     1000    // 100.0% duty cycle --> ALWAYS ON
 #define MAX_DC_10BIT        1023    // (1023/1023) ticks high --> ALWAYS ON
 
-#define HALF_DC_PERCENT     50      // 50% = half duty cycle
+#define HALF_DC_PERMILLI    500     // 50.0% = half duty cycle
 #define HALF_DC_10BIT       512     // (512/1023) = half duty cycle
 
 #define MOTORCONTROL_TEST
@@ -26,7 +26,7 @@
 //---------------------------- STATIC VARIABLES --------------------------------
 //==============================================================================
 
-uint8_t dutyCyclePercent;
+uint16_t dutyCyclePerMilli;
 uint16_t dutyCycle10bit;
 
 
@@ -36,7 +36,7 @@ uint16_t dutyCycle10bit;
 
 void MotorControl_Init(void) {  
     // Initialize to 50% duty cycle (TMR/PWM disabled)
-    dutyCyclePercent = HALF_DC_PERCENT;
+    dutyCyclePerMilli = HALF_DC_PERMILLI;
     dutyCycle10bit = HALF_DC_10BIT; 
     MotorControl_Off();
     return;
@@ -44,17 +44,17 @@ void MotorControl_Init(void) {
 
 //------------------------------------------------------------------------------
 
-uint8_t MotorControl_SetIntensity(uint8_t dutyCycle) {
+uint8_t MotorControl_SetIntensity(uint16_t dutyCycle) {
     
     // As long as dutyCycle is within [0, 100]%...
-    if ((dutyCycle >= 0) && (dutyCycle <= MAX_DC_PERCENT)) {
+    if ((dutyCycle >= 0) && (dutyCycle <= MAX_DC_PERMILLI)) {
         
         // Store user-assigned dutyCycle [%]
-        dutyCyclePercent = dutyCycle;
+        dutyCyclePerMilli = dutyCycle;
         
         // ...and calculate associated ratio of 10-bit range
         dutyCycle10bit = (uint16_t)(((uint32_t)dutyCycle * MAX_DC_10BIT) / 
-                                                            MAX_DC_PERCENT);
+                                                            MAX_DC_PERMILLI);
         // Then update PWMDC register with calculated value
         PWM5_LoadDutyValue(dutyCycle10bit);
         return SUCCESS;
@@ -89,7 +89,7 @@ void MotorControl_Off(void) {
 
 #include "FRT.h"
 
-#define DC_UPDATE_RATE      250000 // update duty cycle every [x]us
+#define DC_UPDATE_RATE      25000 // update duty cycle every [x]us
 
 int main(void) {
     // Init required libraries
@@ -97,7 +97,7 @@ int main(void) {
     MotorControl_Init();    // motorControl pin[RB6]
     
     // Init to 0% duty cycle & enable motor output
-    uint8_t duty = 0;
+    uint16_t duty = 0;
     MotorControl_SetIntensity(duty);
     MotorControl_On();
     
@@ -109,12 +109,12 @@ int main(void) {
     while(1) {
         currMicro = FRT_GetMicros();    // update microsecond counter
         
-        // This block runs @4Hz
+        // This block runs @40Hz
         if ((currMicro - prevMicro) >= DC_UPDATE_RATE) {
             
-            duty += 10;     // increase duty-cycle by 10%
+            duty += 10;    // increase duty-cycle by 1.0%
             
-            if (duty > MAX_DC_PERCENT) {  // reset to 0% after exceeding 100%
+            if (duty > MAX_DC_PERMILLI) { // reset to 0% after exceeding 100.0%
                 duty = 0;
             }
             

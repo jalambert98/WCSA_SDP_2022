@@ -728,8 +728,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "19652
 [; <" TOSH equ 0FEFh ;# ">
 "29 MotorControl.c
-[; ;MotorControl.c: 29: uint8_t dutyCyclePercent;
-[v _dutyCyclePercent `uc ~T0 @X0 1 e ]
+[; ;MotorControl.c: 29: uint16_t dutyCyclePerMilli;
+[v _dutyCyclePerMilli `us ~T0 @X0 1 e ]
 "30
 [; ;MotorControl.c: 30: uint16_t dutyCycle10bit;
 [v _dutyCycle10bit `us ~T0 @X0 1 e ]
@@ -740,8 +740,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _MotorControl_Init ]
 [f ]
 "39
-[; ;MotorControl.c: 39:     dutyCyclePercent = 50;
-[e = _dutyCyclePercent -> -> 50 `i `uc ]
+[; ;MotorControl.c: 39:     dutyCyclePerMilli = 500;
+[e = _dutyCyclePerMilli -> -> 500 `i `us ]
 "40
 [; ;MotorControl.c: 40:     dutyCycle10bit = 512;
 [e = _dutyCycle10bit -> -> 512 `i `us ]
@@ -756,22 +756,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 979 ]
 }
 "47
-[; ;MotorControl.c: 47: uint8_t MotorControl_SetIntensity(uint8_t dutyCycle) {
-[v _MotorControl_SetIntensity `(uc ~T0 @X0 1 ef1`uc ]
+[; ;MotorControl.c: 47: uint8_t MotorControl_SetIntensity(uint16_t dutyCycle) {
+[v _MotorControl_SetIntensity `(uc ~T0 @X0 1 ef1`us ]
 {
 [e :U _MotorControl_SetIntensity ]
-[v _dutyCycle `uc ~T0 @X0 1 r1 ]
+[v _dutyCycle `us ~T0 @X0 1 r1 ]
 [f ]
 "50
-[; ;MotorControl.c: 50:     if ((dutyCycle >= 0) && (dutyCycle <= 100)) {
-[e $ ! && >= -> _dutyCycle `i -> 0 `i <= -> _dutyCycle `i -> 100 `i 981  ]
+[; ;MotorControl.c: 50:     if ((dutyCycle >= 0) && (dutyCycle <= 1000)) {
+[e $ ! && >= -> _dutyCycle `ui -> -> 0 `i `ui <= -> _dutyCycle `ui -> -> 1000 `i `ui 981  ]
 {
 "53
-[; ;MotorControl.c: 53:         dutyCyclePercent = dutyCycle;
-[e = _dutyCyclePercent _dutyCycle ]
+[; ;MotorControl.c: 53:         dutyCyclePerMilli = dutyCycle;
+[e = _dutyCyclePerMilli _dutyCycle ]
 "56
 [; ;MotorControl.c: 56:         dutyCycle10bit = (uint16_t)(((uint32_t)dutyCycle * 1023) /
-[e = _dutyCycle10bit -> / * -> _dutyCycle `ul -> -> -> 1023 `i `l `ul -> -> -> 100 `i `l `ul `us ]
+[e = _dutyCycle10bit -> / * -> _dutyCycle `ul -> -> -> 1023 `i `l `ul -> -> -> 1000 `i `l `ul `us ]
 "59
 [; ;MotorControl.c: 59:         PWM5_LoadDutyValue(dutyCycle10bit);
 [e ( _PWM5_LoadDutyValue (1 _dutyCycle10bit ]
@@ -844,9 +844,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;MotorControl.c: 97:     MotorControl_Init();
 [e ( _MotorControl_Init ..  ]
 "100
-[; ;MotorControl.c: 100:     uint8_t duty = 0;
-[v _duty `uc ~T0 @X0 1 a ]
-[e = _duty -> -> 0 `i `uc ]
+[; ;MotorControl.c: 100:     uint16_t duty = 0;
+[v _duty `us ~T0 @X0 1 a ]
+[e = _duty -> -> 0 `i `us ]
 "101
 [; ;MotorControl.c: 101:     MotorControl_SetIntensity(duty);
 [e ( _MotorControl_SetIntensity (1 _duty ]
@@ -869,19 +869,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;MotorControl.c: 110:         currMicro = FRT_GetMicros();
 [e = _currMicro ( _FRT_GetMicros ..  ]
 "113
-[; ;MotorControl.c: 113:         if ((currMicro - prevMicro) >= 250000) {
-[e $ ! >= - _currMicro _prevMicro -> -> 250000 `l `ul 989  ]
+[; ;MotorControl.c: 113:         if ((currMicro - prevMicro) >= 25000) {
+[e $ ! >= - _currMicro _prevMicro -> -> -> 25000 `i `l `ul 989  ]
 {
 "115
 [; ;MotorControl.c: 115:             duty += 10;
-[e =+ _duty -> -> 10 `i `uc ]
+[e =+ _duty -> -> 10 `i `us ]
 "117
-[; ;MotorControl.c: 117:             if (duty > 100) {
-[e $ ! > -> _duty `i -> 100 `i 990  ]
+[; ;MotorControl.c: 117:             if (duty > 1000) {
+[e $ ! > -> _duty `ui -> -> 1000 `i `ui 990  ]
 {
 "118
 [; ;MotorControl.c: 118:                 duty = 0;
-[e = _duty -> -> 0 `i `uc ]
+[e = _duty -> -> 0 `i `us ]
 "119
 [; ;MotorControl.c: 119:             }
 }
