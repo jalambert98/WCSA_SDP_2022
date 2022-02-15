@@ -14,13 +14,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "93
 [; ;./tmr2.h: 93: void TMR2_WriteTimer(uint8_t timerVal);
 [v _TMR2_WriteTimer `(v ~T0 @X0 0 ef1`uc ]
-[p mainexit ]
-"120 ./PIC16Xpress_DevBoard.h
-[; ;./PIC16Xpress_DevBoard.h: 120: void PIC16_Init(void);
-[v _PIC16_Init `(v ~T0 @X0 0 ef ]
-"45 ./FRT.h
-[; ;./FRT.h: 45: unsigned long FRT_GetMicros(void);
-[v _FRT_GetMicros `(ul ~T0 @X0 0 ef ]
 "55 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
 [; <" INDF0 equ 00h ;# ">
 "75
@@ -829,90 +822,4 @@ Version 4.0 HI-TECH Software Intermediate Code
 "81
 [; ;MotorControl.c: 81: }
 [e :UE 984 ]
-}
-[v $root$_main `(v ~T0 @X0 0 e ]
-"94
-[; ;MotorControl.c: 94: int main(void) {
-[v _main `(i ~T0 @X0 1 ef ]
-{
-[e :U _main ]
-[f ]
-"96
-[; ;MotorControl.c: 96:     PIC16_Init();
-[e ( _PIC16_Init ..  ]
-"97
-[; ;MotorControl.c: 97:     MotorControl_Init();
-[e ( _MotorControl_Init ..  ]
-"100
-[; ;MotorControl.c: 100:     uint16_t duty = 0;
-[v _duty `us ~T0 @X0 1 a ]
-[e = _duty -> -> 0 `i `us ]
-"101
-[; ;MotorControl.c: 101:     MotorControl_SetIntensity(duty);
-[e ( _MotorControl_SetIntensity (1 _duty ]
-"102
-[; ;MotorControl.c: 102:     MotorControl_On();
-[e ( _MotorControl_On ..  ]
-"105
-[; ;MotorControl.c: 105:     unsigned long currMicro = FRT_GetMicros();
-[v _currMicro `ul ~T0 @X0 1 a ]
-[e = _currMicro ( _FRT_GetMicros ..  ]
-"106
-[; ;MotorControl.c: 106:     unsigned long prevMicro = currMicro;
-[v _prevMicro `ul ~T0 @X0 1 a ]
-[e = _prevMicro _currMicro ]
-"109
-[; ;MotorControl.c: 109:     while(1) {
-[e :U 987 ]
-{
-"110
-[; ;MotorControl.c: 110:         currMicro = FRT_GetMicros();
-[e = _currMicro ( _FRT_GetMicros ..  ]
-"113
-[; ;MotorControl.c: 113:         if ((currMicro - prevMicro) >= 25000) {
-[e $ ! >= - _currMicro _prevMicro -> -> -> 25000 `i `l `ul 989  ]
-{
-"115
-[; ;MotorControl.c: 115:             duty += 10;
-[e =+ _duty -> -> 10 `i `us ]
-"117
-[; ;MotorControl.c: 117:             if (duty > 1000) {
-[e $ ! > -> _duty `ui -> -> 1000 `i `ui 990  ]
-{
-"118
-[; ;MotorControl.c: 118:                 duty = 0;
-[e = _duty -> -> 0 `i `us ]
-"119
-[; ;MotorControl.c: 119:             }
-}
-[e :U 990 ]
-"122
-[; ;MotorControl.c: 122:             MotorControl_SetIntensity(duty);
-[e ( _MotorControl_SetIntensity (1 _duty ]
-"123
-[; ;MotorControl.c: 123:             prevMicro = currMicro;
-[e = _prevMicro _currMicro ]
-"124
-[; ;MotorControl.c: 124:         }
-}
-[e :U 989 ]
-"125
-[; ;MotorControl.c: 125:     }
-}
-[e :U 986 ]
-[e $U 987  ]
-[e :U 988 ]
-"127
-[; ;MotorControl.c: 127:     while(1);
-[e :U 992 ]
-[e :U 991 ]
-[e $U 992  ]
-[e :U 993 ]
-"128
-[; ;MotorControl.c: 128:     return 0;
-[e ) -> 0 `i ]
-[e $UE 985  ]
-"129
-[; ;MotorControl.c: 129: }
-[e :UE 985 ]
 }

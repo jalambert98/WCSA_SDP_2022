@@ -15,5 +15,4 @@ ccp4.h  \
 ccp2.h  \
 ccp3.h  \
 ccp1.h  \
-eusart.h  \
-FRT.h 
+eusart.h 

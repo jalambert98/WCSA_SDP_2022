@@ -3,7 +3,7 @@
 [d edition pro ]
 [d chip 16F18345 ]
 [d frameptr 6 ]
-"24 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\JSN_Sensor.c
+"23 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\JSN_Sensor.c
 [e E7144 . `uc
 A5 0
 A4 1
@@ -131,10 +131,28 @@ B6 17
 ]
 "5 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\__lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
+"72 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\doprnt.c
+[v _pad pad `(i  1 s 2 pad ]
+"615
+[v _utoa utoa `(i  1 s 2 utoa ]
+"692
+[v _vfpfcnvrt vfpfcnvrt `(i  1 s 2 vfpfcnvrt ]
+"1390
+[v _vfprintf vfprintf `(i  1 e 2 0 ]
+"7 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\lodiv.c
+[v ___lodiv __lodiv `(uo  1 e 8 0 ]
+"7 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\lomod.c
+[v ___lomod __lomod `(uo  1 e 8 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\nf_fputc.c
+[v _fputc fputc `(i  1 e 2 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\nf_fputs.c
+[v _fputs fputs `(i  1 e 2 0 ]
 "5 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\printf.c
 [v _printf printf `(i  1 e 2 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
+"5 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\strlen.c
+[v _strlen strlen `(ui  1 e 2 0 ]
 "15 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
 "15 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\Umul32.c
@@ -181,6 +199,8 @@ B6 17
 [v _EUSART_Read EUSART_Read `(uc  1 e 1 0 ]
 "142
 [v _EUSART_Write EUSART_Write `(v  1 e 1 0 ]
+"174
+[v _putch putch `(v  1 e 1 0 ]
 "181
 [v _EUSART_Transmit_ISR EUSART_Transmit_ISR `(v  1 e 1 0 ]
 "202
@@ -203,7 +223,9 @@ B6 17
 [v _EUSART_SetTxInterruptHandler EUSART_SetTxInterruptHandler `(v  1 e 1 0 ]
 "284
 [v _EUSART_SetRxInterruptHandler EUSART_SetRxInterruptHandler `(v  1 e 1 0 ]
-"32 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\FRT.c
+"26 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\FRT.c
+[v _FRT_GetMillis FRT_GetMillis `(ul  1 e 4 0 ]
+"32
 [v _FRT_GetMicros FRT_GetMicros `(ul  1 e 4 0 ]
 "38
 [v _FRT_IncMillis FRT_IncMillis `(v  1 e 1 0 ]
@@ -211,10 +233,18 @@ B6 17
 [v _FRT_IncMicros FRT_IncMicros `(v  1 e 1 0 ]
 "16 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\interrupt_manager.c
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]
+"32 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\JSN_Sensor.c
+[v _JSN_Sensor_Init JSN_Sensor_Init `(uc  1 e 1 0 ]
+"87
+[v _JSN_Sensor_Trig JSN_Sensor_Trig `(v  1 e 1 0 ]
+"106
+[v _JSN_Sensor_GetDistance JSN_Sensor_GetDistance `(ui  1 e 2 0 ]
 "28 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X/JSN_Sensor.h
 [s S41 . 6 `ui 1 echoHighTime 2 0 `ui 1 distance 2 2 `E7144 1 trigPin 1 4 `E7144 1 echoPin 1 5 ]
-"119 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\JSN_Sensor.c
-[v _JSN_GetLastTrig JSN_GetLastTrig `(*.1S41  1 e 1 0 ]
+"118 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\JSN_Sensor.c
+[v _JSN_GetLastTrig JSN_GetLastTrig `(*.5S41  1 e 1 0 ]
+"140
+[v _main main `(i  1 e 2 0 ]
 "15 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
 "34
@@ -223,16 +253,8 @@ B6 17
 [v _WDT_Initialize WDT_Initialize `(v  1 e 1 0 ]
 "59
 [v _PMD_Initialize PMD_Initialize `(v  1 e 1 0 ]
-"37 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\MotorControl.c
-[v _MotorControl_Init MotorControl_Init `(v  1 e 1 0 ]
-"47
-[v _MotorControl_SetIntensity MotorControl_SetIntensity `(uc  1 e 1 0 ]
-"68
-[v _MotorControl_On MotorControl_On `(v  1 e 1 0 ]
-"76
+"76 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\MotorControl.c
 [v _MotorControl_Off MotorControl_Off `(v  1 e 1 0 ]
-"94
-[v _main main `(i  1 e 2 0 ]
 "16 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
 [v _PIC16_Init PIC16_Init `(v  1 e 1 0 ]
 "41
@@ -291,15 +313,15 @@ B6 17
 [v _TMR3_Reload TMR3_Reload `(v  1 e 1 0 ]
 "129
 [v _TMR3_ISR TMR3_ISR `(v  1 e 1 0 ]
-[s S132 . 1 `uc 1 INTEDG 1 0 :1:0 
+[s S154 . 1 `uc 1 INTEDG 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
 "365 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
-[u S137 . 1 `S132 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES137  1 e 1 @11 ]
-[s S217 . 1 `uc 1 RA0 1 0 :1:0 
+[u S159 . 1 `S154 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES159  1 e 1 @11 ]
+[s S239 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
 `uc 1 RA3 1 0 :1:3 
@@ -307,18 +329,18 @@ B6 17
 `uc 1 RA5 1 0 :1:5 
 ]
 "400
-[u S224 . 1 `S217 1 . 1 0 ]
-[v _PORTAbits PORTAbits `VES224  1 e 1 @12 ]
-[s S255 . 1 `uc 1 . 1 0 :4:0 
+[u S246 . 1 `S239 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES246  1 e 1 @12 ]
+[s S277 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 RB4 1 0 :1:4 
 `uc 1 RB5 1 0 :1:5 
 `uc 1 RB6 1 0 :1:6 
 `uc 1 RB7 1 0 :1:7 
 ]
 "449
-[u S261 . 1 `S255 1 . 1 0 ]
-[v _PORTBbits PORTBbits `VES261  1 e 1 @13 ]
-[s S234 . 1 `uc 1 RC0 1 0 :1:0 
+[u S283 . 1 `S277 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES283  1 e 1 @13 ]
+[s S256 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 RC3 1 0 :1:3 
@@ -328,21 +350,21 @@ B6 17
 `uc 1 RC7 1 0 :1:7 
 ]
 "491
-[u S243 . 1 `S234 1 . 1 0 ]
-[v _PORTCbits PORTCbits `VES243  1 e 1 @14 ]
+[u S265 . 1 `S256 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES265  1 e 1 @14 ]
 "536
 [v _PIR0 PIR0 `VEuc  1 e 1 @16 ]
-[s S470 . 1 `uc 1 INTF 1 0 :1:0 
+[s S492 . 1 `uc 1 INTF 1 0 :1:0 
 `uc 1 . 1 0 :3:1 
 `uc 1 IOCIF 1 0 :1:4 
 `uc 1 TMR0IF 1 0 :1:5 
 ]
 "549
-[u S475 . 1 `S470 1 . 1 0 ]
-[v _PIR0bits PIR0bits `VES475  1 e 1 @16 ]
+[u S497 . 1 `S492 1 . 1 0 ]
+[v _PIR0bits PIR0bits `VES497  1 e 1 @16 ]
 "569
 [v _PIR1 PIR1 `VEuc  1 e 1 @17 ]
-[s S996 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[s S1018 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 BCL1IF 1 0 :1:2 
 `uc 1 SSP1IF 1 0 :1:3 
@@ -352,13 +374,13 @@ B6 17
 `uc 1 TMR1GIF 1 0 :1:7 
 ]
 "586 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h
-[u S1005 . 1 `S996 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES1005  1 e 1 @17 ]
+[u S1027 . 1 `S1018 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES1027  1 e 1 @17 ]
 "631 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
 [v _PIR2 PIR2 `VEuc  1 e 1 @18 ]
 "693
 [v _PIR3 PIR3 `VEuc  1 e 1 @19 ]
-[s S1390 . 1 `uc 1 CLC1IF 1 0 :1:0 
+[s S1412 . 1 `uc 1 CLC1IF 1 0 :1:0 
 `uc 1 CLC2IF 1 0 :1:1 
 `uc 1 CLC3IF 1 0 :1:2 
 `uc 1 CLC4IF 1 0 :1:3 
@@ -368,11 +390,11 @@ B6 17
 `uc 1 OSFIF 1 0 :1:7 
 ]
 "710
-[u S1399 . 1 `S1390 1 . 1 0 ]
-[v _PIR3bits PIR3bits `VES1399  1 e 1 @19 ]
+[u S1421 . 1 `S1412 1 . 1 0 ]
+[v _PIR3bits PIR3bits `VES1421  1 e 1 @19 ]
 "755
 [v _PIR4 PIR4 `VEuc  1 e 1 @20 ]
-[s S646 . 1 `uc 1 CCP1IF 1 0 :1:0 
+[s S668 . 1 `uc 1 CCP1IF 1 0 :1:0 
 `uc 1 CCP2IF 1 0 :1:1 
 `uc 1 CCP3IF 1 0 :1:2 
 `uc 1 CCP4IF 1 0 :1:3 
@@ -382,28 +404,28 @@ B6 17
 `uc 1 CWG2IF 1 0 :1:7 
 ]
 "772
-[u S655 . 1 `S646 1 . 1 0 ]
-[v _PIR4bits PIR4bits `VES655  1 e 1 @20 ]
+[u S677 . 1 `S668 1 . 1 0 ]
+[v _PIR4bits PIR4bits `VES677  1 e 1 @20 ]
 "817
 [v _TMR0L TMR0L `VEuc  1 e 1 @21 ]
 "955
 [v _TMR0H TMR0H `VEuc  1 e 1 @22 ]
 "1109
 [v _T0CON0 T0CON0 `VEuc  1 e 1 @23 ]
-[s S507 . 1 `uc 1 T0OUTPS 1 0 :4:0 
+[s S529 . 1 `uc 1 T0OUTPS 1 0 :4:0 
 `uc 1 T016BIT 1 0 :1:4 
 `uc 1 T0OUT 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 `uc 1 T0EN 1 0 :1:7 
 ]
 "1129
-[s S513 . 1 `uc 1 T0OUTPS0 1 0 :1:0 
+[s S535 . 1 `uc 1 T0OUTPS0 1 0 :1:0 
 `uc 1 T0OUTPS1 1 0 :1:1 
 `uc 1 T0OUTPS2 1 0 :1:2 
 `uc 1 T0OUTPS3 1 0 :1:3 
 ]
-[u S518 . 1 `S507 1 . 1 0 `S513 1 . 1 0 ]
-[v _T0CON0bits T0CON0bits `VES518  1 e 1 @23 ]
+[u S540 . 1 `S529 1 . 1 0 `S535 1 . 1 0 ]
+[v _T0CON0bits T0CON0bits `VES540  1 e 1 @23 ]
 "1174
 [v _T0CON1 T0CON1 `VEuc  1 e 1 @24 ]
 "1258 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h
@@ -412,7 +434,7 @@ B6 17
 [v _TMR1H TMR1H `VEuc  1 e 1 @26 ]
 "1298
 [v _T1CON T1CON `VEuc  1 e 1 @27 ]
-[s S1039 . 1 `uc 1 TMR1ON 1 0 :1:0 
+[s S1061 . 1 `uc 1 TMR1ON 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 T1SYNC 1 0 :1:2 
 `uc 1 T1SOSC 1 0 :1:3 
@@ -420,14 +442,14 @@ B6 17
 `uc 1 TMR1CS 1 0 :2:6 
 ]
 "1320
-[s S1046 . 1 `uc 1 . 1 0 :4:0 
+[s S1068 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 T1CKPS0 1 0 :1:4 
 `uc 1 T1CKPS1 1 0 :1:5 
 `uc 1 TMR1CS0 1 0 :1:6 
 `uc 1 TMR1CS1 1 0 :1:7 
 ]
-[u S1052 . 1 `S1039 1 . 1 0 `S1046 1 . 1 0 ]
-[v _T1CONbits T1CONbits `VES1052  1 e 1 @27 ]
+[u S1074 . 1 `S1061 1 . 1 0 `S1068 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES1074  1 e 1 @27 ]
 "1370
 [v _T1GCON T1GCON `VEuc  1 e 1 @28 ]
 "1440
@@ -436,12 +458,12 @@ B6 17
 [v _PR2 PR2 `VEuc  1 e 1 @30 ]
 "1480
 [v _T2CON T2CON `VEuc  1 e 1 @31 ]
-[s S1771 . 1 `uc 1 T2CKPS 1 0 :2:0 
+[s S1779 . 1 `uc 1 T2CKPS 1 0 :2:0 
 `uc 1 TMR2ON 1 0 :1:2 
 `uc 1 T2OUTPS 1 0 :4:3 
 ]
 "1501
-[s S1775 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+[s S1783 . 1 `uc 1 T2CKPS0 1 0 :1:0 
 `uc 1 T2CKPS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 T2OUTPS0 1 0 :1:3 
@@ -449,11 +471,11 @@ B6 17
 `uc 1 T2OUTPS2 1 0 :1:5 
 `uc 1 T2OUTPS3 1 0 :1:6 
 ]
-[u S1783 . 1 `S1771 1 . 1 0 `S1775 1 . 1 0 ]
-[v _T2CONbits T2CONbits `VES1783  1 e 1 @31 ]
+[u S1791 . 1 `S1779 1 . 1 0 `S1783 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES1791  1 e 1 @31 ]
 "1551
 [v _TRISA TRISA `VEuc  1 e 1 @140 ]
-[s S164 . 1 `uc 1 TRISA0 1 0 :1:0 
+[s S186 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -461,22 +483,22 @@ B6 17
 `uc 1 TRISA5 1 0 :1:5 
 ]
 "1566 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
-[u S171 . 1 `S164 1 . 1 0 ]
-[v _TRISAbits TRISAbits `VES171  1 e 1 @140 ]
+[u S193 . 1 `S186 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES193  1 e 1 @140 ]
 "1596 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h
 [v _TRISB TRISB `VEuc  1 e 1 @141 ]
-[s S202 . 1 `uc 1 . 1 0 :4:0 
+[s S224 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TRISB4 1 0 :1:4 
 `uc 1 TRISB5 1 0 :1:5 
 `uc 1 TRISB6 1 0 :1:6 
 `uc 1 TRISB7 1 0 :1:7 
 ]
 "1610 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
-[u S208 . 1 `S202 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES208  1 e 1 @141 ]
+[u S230 . 1 `S224 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES230  1 e 1 @141 ]
 "1635 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h
 [v _TRISC TRISC `VEuc  1 e 1 @142 ]
-[s S181 . 1 `uc 1 TRISC0 1 0 :1:0 
+[s S203 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -486,21 +508,21 @@ B6 17
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "1652 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
-[u S190 . 1 `S181 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES190  1 e 1 @142 ]
+[u S212 . 1 `S203 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES212  1 e 1 @142 ]
 "1697
 [v _PIE0 PIE0 `VEuc  1 e 1 @144 ]
-[s S483 . 1 `uc 1 INTE 1 0 :1:0 
+[s S505 . 1 `uc 1 INTE 1 0 :1:0 
 `uc 1 . 1 0 :3:1 
 `uc 1 IOCIE 1 0 :1:4 
 `uc 1 TMR0IE 1 0 :1:5 
 ]
 "1710
-[u S488 . 1 `S483 1 . 1 0 ]
-[v _PIE0bits PIE0bits `VES488  1 e 1 @144 ]
+[u S510 . 1 `S505 1 . 1 0 ]
+[v _PIE0bits PIE0bits `VES510  1 e 1 @144 ]
 "1730
 [v _PIE1 PIE1 `VEuc  1 e 1 @145 ]
-[s S1017 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[s S1039 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 BCL1IE 1 0 :1:2 
 `uc 1 SSP1IE 1 0 :1:3 
@@ -510,13 +532,13 @@ B6 17
 `uc 1 TMR1GIE 1 0 :1:7 
 ]
 "1747 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h
-[u S1026 . 1 `S1017 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES1026  1 e 1 @145 ]
+[u S1048 . 1 `S1039 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES1048  1 e 1 @145 ]
 "1792 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
 [v _PIE2 PIE2 `VEuc  1 e 1 @146 ]
 "1854
 [v _PIE3 PIE3 `VEuc  1 e 1 @147 ]
-[s S1369 . 1 `uc 1 CLC1IE 1 0 :1:0 
+[s S1391 . 1 `uc 1 CLC1IE 1 0 :1:0 
 `uc 1 CLC2IE 1 0 :1:1 
 `uc 1 CLC3IE 1 0 :1:2 
 `uc 1 CLC4IE 1 0 :1:3 
@@ -526,11 +548,11 @@ B6 17
 `uc 1 OSFIE 1 0 :1:7 
 ]
 "1871
-[u S1378 . 1 `S1369 1 . 1 0 ]
-[v _PIE3bits PIE3bits `VES1378  1 e 1 @147 ]
+[u S1400 . 1 `S1391 1 . 1 0 ]
+[v _PIE3bits PIE3bits `VES1400  1 e 1 @147 ]
 "1916
 [v _PIE4 PIE4 `VEuc  1 e 1 @148 ]
-[s S667 . 1 `uc 1 CCP1IE 1 0 :1:0 
+[s S689 . 1 `uc 1 CCP1IE 1 0 :1:0 
 `uc 1 CCP2IE 1 0 :1:1 
 `uc 1 CCP3IE 1 0 :1:2 
 `uc 1 CCP4IE 1 0 :1:3 
@@ -540,13 +562,13 @@ B6 17
 `uc 1 CWG2IE 1 0 :1:7 
 ]
 "1933
-[u S676 . 1 `S667 1 . 1 0 ]
-[v _PIE4bits PIE4bits `VES676  1 e 1 @148 ]
+[u S698 . 1 `S689 1 . 1 0 ]
+[v _PIE4bits PIE4bits `VES698  1 e 1 @148 ]
 "1978 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h
 [v _WDTCON WDTCON `VEuc  1 e 1 @151 ]
 "2294
 [v _LATA LATA `VEuc  1 e 1 @268 ]
-[s S270 . 1 `uc 1 LATA0 1 0 :1:0 
+[s S292 . 1 `uc 1 LATA0 1 0 :1:0 
 `uc 1 LATA1 1 0 :1:1 
 `uc 1 LATA2 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -554,22 +576,22 @@ B6 17
 `uc 1 LATA5 1 0 :1:5 
 ]
 "2309 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
-[u S277 . 1 `S270 1 . 1 0 ]
-[v _LATAbits LATAbits `VES277  1 e 1 @268 ]
+[u S299 . 1 `S292 1 . 1 0 ]
+[v _LATAbits LATAbits `VES299  1 e 1 @268 ]
 "2339 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h
 [v _LATB LATB `VEuc  1 e 1 @269 ]
-[s S308 . 1 `uc 1 . 1 0 :4:0 
+[s S330 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 LATB4 1 0 :1:4 
 `uc 1 LATB5 1 0 :1:5 
 `uc 1 LATB6 1 0 :1:6 
 `uc 1 LATB7 1 0 :1:7 
 ]
 "2353 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
-[u S314 . 1 `S308 1 . 1 0 ]
-[v _LATBbits LATBbits `VES314  1 e 1 @269 ]
+[u S336 . 1 `S330 1 . 1 0 ]
+[v _LATBbits LATBbits `VES336  1 e 1 @269 ]
 "2378 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h
 [v _LATC LATC `VEuc  1 e 1 @270 ]
-[s S287 . 1 `uc 1 LATC0 1 0 :1:0 
+[s S309 . 1 `uc 1 LATC0 1 0 :1:0 
 `uc 1 LATC1 1 0 :1:1 
 `uc 1 LATC2 1 0 :1:2 
 `uc 1 LATC3 1 0 :1:3 
@@ -579,8 +601,8 @@ B6 17
 `uc 1 LATC7 1 0 :1:7 
 ]
 "2395 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
-[u S296 . 1 `S287 1 . 1 0 ]
-[v _LATCbits LATCbits `VES296  1 e 1 @270 ]
+[u S318 . 1 `S309 1 . 1 0 ]
+[v _LATCbits LATCbits `VES318  1 e 1 @270 ]
 "2933 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h
 [v _ANSELA ANSELA `VEuc  1 e 1 @396 ]
 "2978
@@ -597,7 +619,7 @@ B6 17
 [v _SP1BRGH SP1BRGH `VEuc  1 e 1 @412 ]
 "3339
 [v _RC1STA RC1STA `VEuc  1 e 1 @413 ]
-[s S1206 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S1228 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -607,11 +629,11 @@ B6 17
 `uc 1 SPEN 1 0 :1:7 
 ]
 "3365
-[u S1215 . 1 `S1206 1 . 1 0 ]
-[v _RC1STAbits RC1STAbits `VES1215  1 e 1 @413 ]
+[u S1237 . 1 `S1228 1 . 1 0 ]
+[v _RC1STAbits RC1STAbits `VES1237  1 e 1 @413 ]
 "3519
 [v _TX1STA TX1STA `VEuc  1 e 1 @414 ]
-[s S1184 . 1 `uc 1 TX9D 1 0 :1:0 
+[s S1206 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -621,8 +643,8 @@ B6 17
 `uc 1 CSRC 1 0 :1:7 
 ]
 "3545
-[u S1193 . 1 `S1184 1 . 1 0 ]
-[v _TX1STAbits TX1STAbits `VES1193  1 e 1 @414 ]
+[u S1215 . 1 `S1206 1 . 1 0 ]
+[v _TX1STAbits TX1STAbits `VES1215  1 e 1 @414 ]
 "3699
 [v _BAUD1CON BAUD1CON `VEuc  1 e 1 @415 ]
 "3945
@@ -653,13 +675,13 @@ B6 17
 [v _CCP2CON CCP2CON `VEuc  1 e 1 @663 ]
 "6618
 [v _CCP2CAP CCP2CAP `VEuc  1 e 1 @664 ]
-[s S614 . 1 `uc 1 C1TSEL 1 0 :2:0 
+[s S636 . 1 `uc 1 C1TSEL 1 0 :2:0 
 `uc 1 C2TSEL 1 0 :2:2 
 `uc 1 C3TSEL 1 0 :2:4 
 `uc 1 C4TSEL 1 0 :2:6 
 ]
 "6687
-[s S619 . 1 `uc 1 C1TSEL0 1 0 :1:0 
+[s S641 . 1 `uc 1 C1TSEL0 1 0 :1:0 
 `uc 1 C1TSEL1 1 0 :1:1 
 `uc 1 C2TSEL0 1 0 :1:2 
 `uc 1 C2TSEL1 1 0 :1:3 
@@ -668,8 +690,8 @@ B6 17
 `uc 1 C4TSEL0 1 0 :1:6 
 `uc 1 C4TSEL1 1 0 :1:7 
 ]
-[u S628 . 1 `S614 1 . 1 0 `S619 1 . 1 0 ]
-[v _CCPTMRSbits CCPTMRSbits `VES628  1 e 1 @671 ]
+[u S650 . 1 `S636 1 . 1 0 `S641 1 . 1 0 ]
+[v _CCPTMRSbits CCPTMRSbits `VES650  1 e 1 @671 ]
 "6752 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h
 [v _SLRCONA SLRCONA `VEuc  1 e 1 @780 ]
 "6797
@@ -690,20 +712,20 @@ B6 17
 [v _CCPR4H CCPR4H `VEuc  1 e 1 @790 ]
 "7103
 [v _CCP4CON CCP4CON `VEuc  1 e 1 @791 ]
-[s S1665 . 1 `uc 1 CCP4MODE 1 0 :4:0 
+[s S1673 . 1 `uc 1 CCP4MODE 1 0 :4:0 
 `uc 1 CCP4FMT 1 0 :1:4 
 `uc 1 CCP4OUT 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 `uc 1 CCP4EN 1 0 :1:7 
 ]
 "7123
-[s S1671 . 1 `uc 1 CCP4MODE0 1 0 :1:0 
+[s S1679 . 1 `uc 1 CCP4MODE0 1 0 :1:0 
 `uc 1 CCP4MODE1 1 0 :1:1 
 `uc 1 CCP4MODE2 1 0 :1:2 
 `uc 1 CCP4MODE3 1 0 :1:3 
 ]
-[u S1676 . 1 `S1665 1 . 1 0 `S1671 1 . 1 0 ]
-[v _CCP4CONbits CCP4CONbits `VES1676  1 e 1 @791 ]
+[u S1684 . 1 `S1673 1 . 1 0 `S1679 1 . 1 0 ]
+[v _CCP4CONbits CCP4CONbits `VES1684  1 e 1 @791 ]
 "7214 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\pic16f18345.h
 [v _INLVLA INLVLA `VEuc  1 e 1 @908 ]
 "7264
@@ -716,7 +738,7 @@ B6 17
 [v _TMR3H TMR3H `VEuc  1 e 1 @1042 ]
 "8134
 [v _T3CON T3CON `VEuc  1 e 1 @1043 ]
-[s S1841 . 1 `uc 1 TMR3ON 1 0 :1:0 
+[s S1849 . 1 `uc 1 TMR3ON 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 T3SYNC 1 0 :1:2 
 `uc 1 T3SOSC 1 0 :1:3 
@@ -724,17 +746,17 @@ B6 17
 `uc 1 TMR3CS 1 0 :2:6 
 ]
 "8156
-[s S1848 . 1 `uc 1 . 1 0 :4:0 
+[s S1856 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 T3CKPS0 1 0 :1:4 
 `uc 1 T3CKPS1 1 0 :1:5 
 `uc 1 TMR3CS0 1 0 :1:6 
 `uc 1 TMR3CS1 1 0 :1:7 
 ]
-[u S1854 . 1 `S1841 1 . 1 0 `S1848 1 . 1 0 ]
-[v _T3CONbits T3CONbits `VES1854  1 e 1 @1043 ]
+[u S1862 . 1 `S1849 1 . 1 0 `S1856 1 . 1 0 ]
+[v _T3CONbits T3CONbits `VES1862  1 e 1 @1043 ]
 "8206
 [v _T3GCON T3GCON `VEuc  1 e 1 @1044 ]
-[s S1871 . 1 `uc 1 T3GSS 1 0 :2:0 
+[s S1879 . 1 `uc 1 T3GSS 1 0 :2:0 
 `uc 1 T3GVAL 1 0 :1:2 
 `uc 1 T3GGO_nDONE 1 0 :1:3 
 `uc 1 T3GSPM 1 0 :1:4 
@@ -743,28 +765,28 @@ B6 17
 `uc 1 TMR3GE 1 0 :1:7 
 ]
 "8226
-[s S1879 . 1 `uc 1 T3GSS0 1 0 :1:0 
+[s S1887 . 1 `uc 1 T3GSS0 1 0 :1:0 
 `uc 1 T3GSS1 1 0 :1:1 
 ]
-[u S1882 . 1 `S1871 1 . 1 0 `S1879 1 . 1 0 ]
-[v _T3GCONbits T3GCONbits `VES1882  1 e 1 @1044 ]
+[u S1890 . 1 `S1879 1 . 1 0 `S1887 1 . 1 0 ]
+[v _T3GCONbits T3GCONbits `VES1890  1 e 1 @1044 ]
 "8933
 [v _PWM5DCL PWM5DCL `VEuc  1 e 1 @1559 ]
 "8969
 [v _PWM5DCH PWM5DCH `VEuc  1 e 1 @1560 ]
 "9039
 [v _PWM5CON PWM5CON `VEuc  1 e 1 @1561 ]
-[s S1713 . 1 `uc 1 P5TSEL 1 0 :2:0 
+[s S1721 . 1 `uc 1 P5TSEL 1 0 :2:0 
 `uc 1 P6TSEL 1 0 :2:2 
 ]
 "9294
-[s S1716 . 1 `uc 1 P5TSEL0 1 0 :1:0 
+[s S1724 . 1 `uc 1 P5TSEL0 1 0 :1:0 
 `uc 1 P5TSEL1 1 0 :1:1 
 `uc 1 P6TSEL0 1 0 :1:2 
 `uc 1 P6TSEL1 1 0 :1:3 
 ]
-[u S1721 . 1 `S1713 1 . 1 0 `S1716 1 . 1 0 ]
-[v _PWMTMRSbits PWMTMRSbits `VES1721  1 e 1 @1567 ]
+[u S1729 . 1 `S1721 1 . 1 0 `S1724 1 . 1 0 ]
+[v _PWMTMRSbits PWMTMRSbits `VES1729  1 e 1 @1567 ]
 "12137
 [v _PMD0 PMD0 `VEuc  1 e 1 @2321 ]
 "12182
@@ -803,6 +825,14 @@ B6 17
 [v _RC4PPS RC4PPS `VEuc  1 e 1 @3748 ]
 "22290
 [v _PLLR PLLR `VEb  1 e 0 @18656 ]
+"55 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\doprnt.c
+[v _flags flags `i  1 s 2 flags ]
+[v _prec prec `i  1 s 2 prec ]
+[v _width width `i  1 s 2 width ]
+"66
+[v _dbuf dbuf `[32]uc  1 s 32 dbuf ]
+"69
+[v _nout nout `i  1 s 2 nout ]
 "20 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\ccp1.c
 [v _CCP1_CallBack CCP1_CallBack `*.37(v  1 s 2 CCP1_CallBack ]
 "21
@@ -810,21 +840,21 @@ B6 17
 [v _ticksDown ticksDown `us  1 s 2 ticksDown ]
 [s S41 . 6 `ui 1 echoHighTime 2 0 `ui 1 distance 2 2 `E7144 1 trigPin 1 4 `E7144 1 echoPin 1 5 ]
 "23
-[v _lastTrig@ccp1$F706 lastTrig `*.1S41  1 s 1 lastTrig ]
+[v _lastTrig@ccp1$F728 lastTrig `*.5S41  1 s 1 lastTrig ]
 "20 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\ccp2.c
 [v _CCP2_CallBack CCP2_CallBack `*.37(v  1 s 2 CCP2_CallBack ]
 "21
-[v _ticksUp@ccp2$F845 ticksUp `us  1 s 2 ticksUp ]
-[v _ticksDown@ccp2$F846 ticksDown `us  1 s 2 ticksDown ]
+[v _ticksUp@ccp2$F867 ticksUp `us  1 s 2 ticksUp ]
+[v _ticksDown@ccp2$F868 ticksDown `us  1 s 2 ticksDown ]
 "23
-[v _lastTrig@ccp2$F848 lastTrig `*.1S41  1 s 1 lastTrig ]
+[v _lastTrig@ccp2$F870 lastTrig `*.5S41  1 s 1 lastTrig ]
 "20 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\ccp3.c
 [v _CCP3_CallBack CCP3_CallBack `*.37(v  1 s 2 CCP3_CallBack ]
 "21
-[v _ticksUp@ccp3$F966 ticksUp `us  1 s 2 ticksUp ]
-[v _ticksDown@ccp3$F967 ticksDown `us  1 s 2 ticksDown ]
+[v _ticksUp@ccp3$F988 ticksUp `us  1 s 2 ticksUp ]
+[v _ticksDown@ccp3$F989 ticksDown `us  1 s 2 ticksDown ]
 "23
-[v _lastTrig@ccp3$F969 lastTrig `*.1S41  1 s 1 lastTrig ]
+[v _lastTrig@ccp3$F991 lastTrig `*.5S41  1 s 1 lastTrig ]
 "18 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\eusart.c
 [v _eusartTxHead eusartTxHead `VEuc  1 e 1 0 ]
 "19
@@ -839,18 +869,18 @@ B6 17
 [v _eusartRxTail eusartRxTail `VEuc  1 e 1 0 ]
 "25
 [v _eusartRxBuffer eusartRxBuffer `VE[8]uc  1 e 8 0 ]
-[s S1104 . 1 `uc 1 perr 1 0 :1:0 
+[s S1126 . 1 `uc 1 perr 1 0 :1:0 
 `uc 1 ferr 1 0 :1:1 
 `uc 1 oerr 1 0 :1:2 
 `uc 1 reserved 1 0 :5:3 
 ]
 "26
-[u S1109 . 1 `S1104 1 . 1 0 `uc 1 status 1 0 ]
-[v _eusartRxStatusBuffer eusartRxStatusBuffer `VE[8]S1109  1 e 8 0 ]
+[u S1131 . 1 `S1126 1 . 1 0 `uc 1 status 1 0 ]
+[v _eusartRxStatusBuffer eusartRxStatusBuffer `VE[8]S1131  1 e 8 0 ]
 "27
 [v _eusartRxCount eusartRxCount `VEuc  1 e 1 0 ]
 "28
-[v _eusartRxLastError eusartRxLastError `VES1109  1 e 1 0 ]
+[v _eusartRxLastError eusartRxLastError `VES1131  1 e 1 0 ]
 "32
 [v _EUSART_TxDefaultInterruptHandler EUSART_TxDefaultInterruptHandler `*.37(v  1 e 2 0 ]
 "33
@@ -864,11 +894,15 @@ B6 17
 "19 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\FRT.c
 [v _millis millis `ul  1 s 4 millis ]
 "20
-[v _micros@FRT$F1508 micros `ul  1 s 4 micros ]
-"24 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\JSN_Sensor.c
-[v _lastTrig lastTrig `*.1S41  1 s 1 lastTrig ]
-"25
+[v _micros@FRT$F1530 micros `ul  1 s 4 micros ]
+"23 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\JSN_Sensor.c
+[v _lastTrig lastTrig `*.5S41  1 s 1 lastTrig ]
+"24
 [v _micros micros `ul  1 s 4 micros ]
+"25
+[v _Sens1 Sens1 `S41  1 s 6 Sens1 ]
+[v _Sens2 Sens2 `S41  1 s 6 Sens2 ]
+[v _Sens3 Sens3 `S41  1 s 6 Sens3 ]
 "29 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\MotorControl.c
 [v _dutyCyclePerMilli dutyCyclePerMilli `us  1 e 2 0 ]
 "30
@@ -884,16 +918,16 @@ B6 17
 [v _timer1ReloadVal timer1ReloadVal `VEus  1 e 2 0 ]
 "15 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr3.c
 [v _timer3ReloadVal timer3ReloadVal `VEus  1 e 2 0 ]
-"94 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\MotorControl.c
+"140 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\JSN_Sensor.c
 [v _main main `(i  1 e 2 0 ]
 {
-"105
-[v main@currMicro currMicro `ul  1 a 4 36 ]
-"106
-[v main@prevMicro prevMicro `ul  1 a 4 32 ]
-"100
-[v main@duty duty `us  1 a 2 40 ]
-"129
+"156
+[v main@currMilli currMilli `ul  1 a 4 16 ]
+"157
+[v main@prevMilli prevMilli `ul  1 a 4 11 ]
+"158
+[v main@nextSens nextSens `uc  1 a 1 15 ]
+"211
 } 0
 "16 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
 [v _PIC16_Init PIC16_Init `(v  1 e 1 0 ]
@@ -1029,73 +1063,14 @@ B6 17
 [v CCP1_SetCallBack@customCallBack customCallBack `*.37(v  1 p 2 0 ]
 "97
 } 0
-"47 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\MotorControl.c
-[v _MotorControl_SetIntensity MotorControl_SetIntensity `(uc  1 e 1 0 ]
+"87 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\JSN_Sensor.c
+[v _JSN_Sensor_Trig JSN_Sensor_Trig `(v  1 e 1 0 ]
 {
-[v MotorControl_SetIntensity@dutyCycle dutyCycle `us  1 p 2 26 ]
-"64
-} 0
-"15 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\Umul32.c
-[v ___lmul __lmul `(ul  1 e 4 0 ]
-{
-"17
-[v ___lmul@product product `ul  1 a 4 8 ]
-"15
-[v ___lmul@multiplier multiplier `ul  1 p 4 0 ]
-[v ___lmul@multiplicand multiplicand `ul  1 p 4 4 ]
-"129
-} 0
-"5 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\__lldiv.c
-[v ___lldiv __lldiv `(ul  1 e 4 0 ]
-{
-"10
-[v ___lldiv@quotient quotient `ul  1 a 4 21 ]
-"11
-[v ___lldiv@counter counter `uc  1 a 1 25 ]
-"5
-[v ___lldiv@divisor divisor `ul  1 p 4 12 ]
-[v ___lldiv@dividend dividend `ul  1 p 4 16 ]
-"30
-} 0
-"36 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\pwm5.c
-[v _PWM5_LoadDutyValue PWM5_LoadDutyValue `(v  1 e 1 0 ]
-{
-[v PWM5_LoadDutyValue@dutyValue dutyValue `us  1 p 2 0 ]
-"42
-} 0
-"68 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\MotorControl.c
-[v _MotorControl_On MotorControl_On `(v  1 e 1 0 ]
-{
-"72
-} 0
-"34 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr2.c
-[v _TMR2_StartTimer TMR2_StartTimer `(v  1 e 1 0 ]
-{
-"38
-} 0
-"37 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\MotorControl.c
-[v _MotorControl_Init MotorControl_Init `(v  1 e 1 0 ]
-{
-"43
-} 0
-"76
-[v _MotorControl_Off MotorControl_Off `(v  1 e 1 0 ]
-{
-"81
-} 0
-"61 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr2.c
-[v _TMR2_WriteTimer TMR2_WriteTimer `(v  1 e 1 0 ]
-{
-[v TMR2_WriteTimer@timerVal timerVal `uc  1 a 1 wreg ]
-[v TMR2_WriteTimer@timerVal timerVal `uc  1 a 1 wreg ]
-"64
-[v TMR2_WriteTimer@timerVal timerVal `uc  1 a 1 0 ]
-"65
-} 0
-"42
-[v _TMR2_StopTimer TMR2_StopTimer `(v  1 e 1 0 ]
-{
-"46
+[s S41 . 6 `ui 1 echoHighTime 2 0 `ui 1 distance 2 2 `E7144 1 trigPin 1 4 `E7144 1 echoPin 1 5 ]
+[v JSN_Sensor_Trig@Sensor Sensor `*.5S41  1 a 1 wreg ]
+[v JSN_Sensor_Trig@Sensor Sensor `*.5S41  1 a 1 wreg ]
+[v JSN_Sensor_Trig@Sensor Sensor `*.5S41  1 a 1 28 ]
+"102
 } 0
 "32 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\FRT.c
 [v _FRT_GetMicros FRT_GetMicros `(ul  1 e 4 0 ]
@@ -1123,6 +1098,227 @@ B6 17
 [v _TMR0_GetCallBackNum TMR0_GetCallBackNum `(uc  1 e 1 0 ]
 {
 "132
+} 0
+"32 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\JSN_Sensor.c
+[v _JSN_Sensor_Init JSN_Sensor_Init `(uc  1 e 1 0 ]
+{
+[s S41 . 6 `ui 1 echoHighTime 2 0 `ui 1 distance 2 2 `E7144 1 trigPin 1 4 `E7144 1 echoPin 1 5 ]
+[v JSN_Sensor_Init@Sensor Sensor `*.5S41  1 a 1 wreg ]
+[v JSN_Sensor_Init@Sensor Sensor `*.5S41  1 a 1 wreg ]
+[v JSN_Sensor_Init@trigPin trigPin `E7144  1 p 1 2 ]
+[v JSN_Sensor_Init@echoPin echoPin `E7144  1 p 1 3 ]
+[v JSN_Sensor_Init@Sensor Sensor `*.5S41  1 a 1 6 ]
+"83
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\printf.c
+[v _printf printf `(i  1 e 2 0 ]
+{
+"8
+[v printf@ap ap `[1]*.4v  1 a 1 1 ]
+"5
+[v printf@fmt fmt `*.25DCuc  1 p 2 76 ]
+"13
+} 0
+"1390 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\doprnt.c
+[v _vfprintf vfprintf `(i  1 e 2 0 ]
+{
+[s S2398 _IO_FILE 0 ]
+[v vfprintf@fp fp `*.1S2398  1 a 1 wreg ]
+"1393
+[v vfprintf@cfmt cfmt `*.25uc  1 a 2 74 ]
+"1390
+[v vfprintf@fp fp `*.1S2398  1 a 1 wreg ]
+[v vfprintf@fmt fmt `*.25DCuc  1 p 2 68 ]
+[v vfprintf@ap ap `*.4*.4v  1 p 1 70 ]
+"1395
+"1390
+[v vfprintf@fp fp `*.1S2398  1 a 1 73 ]
+"1404
+} 0
+"692
+[v _vfpfcnvrt vfpfcnvrt `(i  1 s 2 vfpfcnvrt ]
+{
+[s S2398 _IO_FILE 0 ]
+[v vfpfcnvrt@fp fp `*.1S2398  1 a 1 wreg ]
+"697
+[v vfpfcnvrt@llu llu `uo  1 a 8 59 ]
+"692
+[v vfpfcnvrt@fp fp `*.1S2398  1 a 1 wreg ]
+[v vfpfcnvrt@fmt fmt `*.4*.25uc  1 p 1 52 ]
+[v vfpfcnvrt@ap ap `*.4*.4v  1 p 1 53 ]
+"702
+"692
+[v vfpfcnvrt@fp fp `*.1S2398  1 a 1 67 ]
+"1387
+} 0
+"615
+[v _utoa utoa `(i  1 s 2 utoa ]
+{
+[s S2398 _IO_FILE 0 ]
+[v utoa@fp fp `*.1S2398  1 a 1 wreg ]
+"618
+[v utoa@n n `uo  1 a 8 42 ]
+"617
+[v utoa@i i `i  1 a 2 50 ]
+[v utoa@w w `i  1 a 2 40 ]
+[v utoa@p p `i  1 a 2 37 ]
+"615
+[v utoa@fp fp `*.1S2398  1 a 1 wreg ]
+[v utoa@d d `uo  1 p 8 28 ]
+"621
+"615
+[v utoa@fp fp `*.1S2398  1 a 1 39 ]
+"641
+} 0
+"72
+[v _pad pad `(i  1 s 2 pad ]
+{
+[s S2398 _IO_FILE 0 ]
+[v pad@fp fp `*.1S2398  1 a 1 wreg ]
+"74
+[v pad@w w `i  1 a 2 25 ]
+[v pad@i i `i  1 a 2 23 ]
+"72
+[v pad@fp fp `*.1S2398  1 a 1 wreg ]
+[v pad@buf buf `*.5uc  1 p 1 19 ]
+[v pad@p p `i  1 p 2 20 ]
+"77
+"72
+[v pad@fp fp `*.1S2398  1 a 1 27 ]
+"95
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\strlen.c
+[v _strlen strlen `(ui  1 e 2 0 ]
+{
+[v strlen@s s `*.5DCuc  1 a 1 wreg ]
+"7
+[v strlen@a a `*.5DCuc  1 a 1 3 ]
+"5
+[v strlen@s s `*.5DCuc  1 a 1 wreg ]
+"7
+[v strlen@s s `*.5DCuc  1 a 1 4 ]
+"12
+} 0
+"8 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\nf_fputs.c
+[v _fputs fputs `(i  1 e 2 0 ]
+{
+[v fputs@s s `*.5DCuc  1 a 1 wreg ]
+"11
+[v fputs@i i `i  1 a 2 16 ]
+"10
+[v fputs@c c `uc  1 a 1 15 ]
+"8
+[v fputs@s s `*.5DCuc  1 a 1 wreg ]
+[u S2376 . 2 `*.1uc 1 buffer 2 0 `*.1DCuc 1 source 2 0 ]
+[s S2379 _IO_FILE 10 `S2376 1 . 2 0 `i 1 count 2 2 `[2]uc 1 ungetbuf 2 4 `i 1 ungetcnt 2 6 `i 1 limit 2 8 ]
+[v fputs@fp fp `*.1S2379  1 p 1 11 ]
+"13
+[v fputs@s s `*.5DCuc  1 a 1 18 ]
+"19
+} 0
+"8 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\nf_fputc.c
+[v _fputc fputc `(i  1 e 2 0 ]
+{
+[v fputc@c c `i  1 p 2 3 ]
+[u S2376 . 2 `*.1uc 1 buffer 2 0 `*.1DCuc 1 source 2 0 ]
+[s S2379 _IO_FILE 10 `S2376 1 . 2 0 `i 1 count 2 2 `[2]uc 1 ungetbuf 2 4 `i 1 ungetcnt 2 6 `i 1 limit 2 8 ]
+[v fputc@fp fp `*.1S2379  1 p 1 5 ]
+"24
+} 0
+"174 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\eusart.c
+[v _putch putch `(v  1 e 1 0 ]
+{
+[v putch@txData txData `uc  1 a 1 wreg ]
+[v putch@txData txData `uc  1 a 1 wreg ]
+"176
+[v putch@txData txData `uc  1 a 1 2 ]
+"177
+} 0
+"142
+[v _EUSART_Write EUSART_Write `(v  1 e 1 0 ]
+{
+[v EUSART_Write@txData txData `uc  1 a 1 wreg ]
+[v EUSART_Write@txData txData `uc  1 a 1 wreg ]
+[v EUSART_Write@txData txData `uc  1 a 1 1 ]
+"163
+} 0
+"7 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\lomod.c
+[v ___lomod __lomod `(uo  1 e 8 0 ]
+{
+"12
+[v ___lomod@counter counter `uc  1 a 1 17 ]
+"7
+[v ___lomod@divisor divisor `uo  1 p 8 0 ]
+[v ___lomod@dividend dividend `uo  1 p 8 8 ]
+"27
+} 0
+"7 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\lodiv.c
+[v ___lodiv __lodiv `(uo  1 e 8 0 ]
+{
+"12
+[v ___lodiv@quotient quotient `uo  1 a 8 17 ]
+"13
+[v ___lodiv@counter counter `uc  1 a 1 25 ]
+"7
+[v ___lodiv@divisor divisor `uo  1 p 8 0 ]
+[v ___lodiv@dividend dividend `uo  1 p 8 8 ]
+"32
+} 0
+"148 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
+[v _WritePin WritePin `(uc  1 e 1 0 ]
+{
+[v WritePin@pin pin `E7144  1 a 1 wreg ]
+[v WritePin@pin pin `E7144  1 a 1 wreg ]
+[v WritePin@val val `uc  1 p 1 0 ]
+[v WritePin@pin pin `E7144  1 a 1 3 ]
+"206
+} 0
+"41
+[v _SetPin SetPin `(uc  1 e 1 0 ]
+{
+[v SetPin@pin pin `E7144  1 a 1 wreg ]
+[v SetPin@pin pin `E7144  1 a 1 wreg ]
+[v SetPin@io io `uc  1 p 1 0 ]
+[v SetPin@pin pin `E7144  1 a 1 3 ]
+"99
+} 0
+"106 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\JSN_Sensor.c
+[v _JSN_Sensor_GetDistance JSN_Sensor_GetDistance `(ui  1 e 2 0 ]
+{
+[s S41 . 6 `ui 1 echoHighTime 2 0 `ui 1 distance 2 2 `E7144 1 trigPin 1 4 `E7144 1 echoPin 1 5 ]
+[v JSN_Sensor_GetDistance@Sensor Sensor `*.5S41  1 a 1 wreg ]
+[v JSN_Sensor_GetDistance@Sensor Sensor `*.5S41  1 a 1 wreg ]
+"111
+"106
+[v JSN_Sensor_GetDistance@Sensor Sensor `*.5S41  1 a 1 30 ]
+"114
+} 0
+"15 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+{
+"17
+[v ___lmul@product product `ul  1 a 4 8 ]
+"15
+[v ___lmul@multiplier multiplier `ul  1 p 4 0 ]
+[v ___lmul@multiplicand multiplicand `ul  1 p 4 4 ]
+"129
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\__lldiv.c
+[v ___lldiv __lldiv `(ul  1 e 4 0 ]
+{
+"10
+[v ___lldiv@quotient quotient `ul  1 a 4 21 ]
+"11
+[v ___lldiv@counter counter `uc  1 a 1 25 ]
+"5
+[v ___lldiv@divisor divisor `ul  1 p 4 12 ]
+[v ___lldiv@dividend dividend `ul  1 p 4 16 ]
+"30
+} 0
+"26 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\FRT.c
+[v _FRT_GetMillis FRT_GetMillis `(ul  1 e 4 0 ]
+{
+"28
 } 0
 "16 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\interrupt_manager.c
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]
@@ -1213,11 +1409,11 @@ B6 17
 "78 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\ccp3.c
 [v _CCP3_CaptureISR CCP3_CaptureISR `(v  1 e 1 0 ]
 {
-[s S951 . 2 `uc 1 ccpr3l 1 0 `uc 1 ccpr3h 1 1 ]
+[s S973 . 2 `uc 1 ccpr3l 1 0 `uc 1 ccpr3h 1 1 ]
 "80
-[s S954 . 2 `us 1 ccpr3_16Bit 2 0 ]
-[u S956 CCPR3Reg_tag 2 `S951 1 . 2 0 `S954 1 . 2 0 ]
-[v CCP3_CaptureISR@module module `S956  1 a 2 8 ]
+[s S976 . 2 `us 1 ccpr3_16Bit 2 0 ]
+[u S978 CCPR3Reg_tag 2 `S973 1 . 2 0 `S976 1 . 2 0 ]
+[v CCP3_CaptureISR@module module `S978  1 a 2 8 ]
 "91
 } 0
 "29
@@ -1229,11 +1425,11 @@ B6 17
 "78 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\ccp2.c
 [v _CCP2_CaptureISR CCP2_CaptureISR `(v  1 e 1 0 ]
 {
-[s S830 . 2 `uc 1 ccpr2l 1 0 `uc 1 ccpr2h 1 1 ]
+[s S852 . 2 `uc 1 ccpr2l 1 0 `uc 1 ccpr2h 1 1 ]
 "80
-[s S833 . 2 `us 1 ccpr2_16Bit 2 0 ]
-[u S835 CCPR2Reg_tag 2 `S830 1 . 2 0 `S833 1 . 2 0 ]
-[v CCP2_CaptureISR@module module `S835  1 a 2 8 ]
+[s S855 . 2 `us 1 ccpr2_16Bit 2 0 ]
+[u S857 CCPR2Reg_tag 2 `S852 1 . 2 0 `S855 1 . 2 0 ]
+[v CCP2_CaptureISR@module module `S857  1 a 2 8 ]
 "91
 } 0
 "29
@@ -1245,11 +1441,11 @@ B6 17
 "78 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\ccp1.c
 [v _CCP1_CaptureISR CCP1_CaptureISR `(v  1 e 1 0 ]
 {
-[s S688 . 2 `uc 1 ccpr1l 1 0 `uc 1 ccpr1h 1 1 ]
+[s S710 . 2 `uc 1 ccpr1l 1 0 `uc 1 ccpr1h 1 1 ]
 "80
-[s S691 . 2 `us 1 ccpr1_16Bit 2 0 ]
-[u S693 CCPR1Reg_tag 2 `S688 1 . 2 0 `S691 1 . 2 0 ]
-[v CCP1_CaptureISR@module module `S693  1 a 2 8 ]
+[s S713 . 2 `us 1 ccpr1_16Bit 2 0 ]
+[u S715 CCPR1Reg_tag 2 `S710 1 . 2 0 `S713 1 . 2 0 ]
+[v CCP1_CaptureISR@module module `S715  1 a 2 8 ]
 "91
 } 0
 "29
@@ -1268,8 +1464,8 @@ B6 17
 } 0
 "28 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X/JSN_Sensor.h
 [s S41 . 6 `ui 1 echoHighTime 2 0 `ui 1 distance 2 2 `E7144 1 trigPin 1 4 `E7144 1 echoPin 1 5 ]
-"119 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\JSN_Sensor.c
-[v _JSN_GetLastTrig JSN_GetLastTrig `(*.1S41  1 e 1 0 ]
+"118 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\JSN_Sensor.c
+[v _JSN_GetLastTrig JSN_GetLastTrig `(*.5S41  1 e 1 0 ]
 {
-"121
+"120
 } 0

@@ -11683,7 +11683,7 @@ void FRT_IncMillis(void);
 # 82 "./FRT.h"
 void FRT_IncMicros(void);
 # 12 "JSN_Sensor.c" 2
-# 24 "JSN_Sensor.c"
+# 23 "JSN_Sensor.c"
 static JSN_t *lastTrig;
 static unsigned long micros;
 static JSN_t Sens1, Sens2, Sens3;
@@ -11781,4 +11781,77 @@ unsigned int JSN_Sensor_GetDistance(JSN_t *Sensor) {
 
 JSN_t* JSN_GetLastTrig(void) {
     return lastTrig;
+}
+# 140 "JSN_Sensor.c"
+int main(void) {
+
+    PIC16_Init();
+
+
+
+
+
+    if (JSN_Sensor_Init(&Sens1, C6, C5) == 0xFF)
+        while (1);
+    if (JSN_Sensor_Init(&Sens2, A1, C3) == 0xFF)
+        while (1);
+    if (JSN_Sensor_Init(&Sens3, B7, A2) == 0xFF)
+        while (1);
+
+
+    unsigned long currMilli = 0;
+    unsigned long prevMilli = 0;
+    uint8_t nextSens = 1;
+
+
+    SetPin(C0, 0);
+    WritePin(C0, 0);
+
+    JSN_Sensor_Trig(&Sens3);
+    currMilli = FRT_GetMillis();
+    prevMilli = currMilli;
+
+    while (1) {
+
+        currMilli = FRT_GetMillis();
+
+
+        if ((currMilli - prevMilli) >= 50) {
+
+
+
+
+            switch (nextSens) {
+                case 1:
+
+                    JSN_Sensor_Trig(&Sens1);
+                    printf("%u", JSN_Sensor_GetDistance(&Sens3));
+                    nextSens = 2;
+                    break;
+                case 2:
+
+                    JSN_Sensor_Trig(&Sens2);
+                    printf("%u", JSN_Sensor_GetDistance(&Sens1));
+                    nextSens = 3;
+                    break;
+                case 3:
+
+                    JSN_Sensor_Trig(&Sens3);
+                    printf("%u", JSN_Sensor_GetDistance(&Sens2));
+                    nextSens = 1;
+            }
+
+
+            if ((Sens1.distance < 500) || (Sens2.distance < 500)) {
+                WritePin(C0, 1);
+            } else {
+                WritePin(C0, 0);
+            }
+
+
+            prevMilli = currMilli;
+        }
+    }
+
+    return 0;
 }

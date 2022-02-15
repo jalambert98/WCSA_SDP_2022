@@ -20,7 +20,7 @@
 #define HALF_DC_PERMILLI    500     // 50.0% = half duty cycle
 #define HALF_DC_10BIT       512     // (512/1023) = half duty cycle
 
-#define MOTORCONTROL_TEST
+// #define MOTORCONTROL_TEST
 
 //==============================================================================
 //---------------------------- STATIC VARIABLES --------------------------------
@@ -89,7 +89,7 @@ void MotorControl_Off(void) {
 
 #include "FRT.h"
 
-#define DC_UPDATE_RATE      25000 // update duty cycle every [x]us
+#define DC_UPDATE_RATE      25000   // update duty cycle every 25ms (40Hz)
 
 int main(void) {
     // Init required libraries
