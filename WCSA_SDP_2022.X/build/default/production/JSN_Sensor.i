@@ -11782,21 +11782,27 @@ unsigned int JSN_Sensor_GetDistance(JSN_t *Sensor) {
 JSN_t* JSN_GetLastTrig(void) {
     return lastTrig;
 }
-# 140 "JSN_Sensor.c"
+# 142 "JSN_Sensor.c"
 int main(void) {
 
     PIC16_Init();
+    uint8_t numSens = 3;
 
 
 
 
 
-    if (JSN_Sensor_Init(&Sens1, C6, C5) == 0xFF)
-        while (1);
-    if (JSN_Sensor_Init(&Sens2, A1, C3) == 0xFF)
-        while (1);
-    if (JSN_Sensor_Init(&Sens3, B7, A2) == 0xFF)
-        while (1);
+    switch (numSens) {
+        case 3:
+            if (JSN_Sensor_Init(&Sens3, B7, A2) == 0xFF)
+                while (1);
+        case 2:
+            if (JSN_Sensor_Init(&Sens2, A1, C3) == 0xFF)
+                while (1);
+        case 1:
+            if (JSN_Sensor_Init(&Sens1, C6, C5) == 0xFF)
+                while (1);
+    }
 
 
     unsigned long currMilli = 0;

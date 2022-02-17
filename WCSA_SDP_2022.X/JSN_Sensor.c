@@ -137,20 +137,28 @@ JSN_t* JSN_GetLastTrig(void) {
 #define SAMPLE_PERIOD       50  // Sensor reading occus every [x]ms
 #define MIN_DIST_LED        500 // Turn LED on if object within [x]mm of sensor
 
+#define NUM_SENSORS         3
+
 int main(void) {
     // Initialize required libraries
     PIC16_Init();
+    uint8_t numSens = NUM_SENSORS;
 
     /*
      * If invalid trig/echoPin, Init() function will print error statement
      * & this conditional statement will halt further program execution
      */
-    if (JSN_Sensor_Init(&Sens1, TRIG1, ECHO1) == ERROR)
-        while (1);
-    if (JSN_Sensor_Init(&Sens2, TRIG2, ECHO2) == ERROR)
-        while (1);
-    if (JSN_Sensor_Init(&Sens3, TRIG3, ECHO3) == ERROR)
-        while (1);
+    switch (numSens) {
+        case 3:
+            if (JSN_Sensor_Init(&Sens3, TRIG3, ECHO3) == ERROR)
+                while (1);
+        case 2:
+            if (JSN_Sensor_Init(&Sens2, TRIG2, ECHO2) == ERROR)
+                while (1);
+        case 1:
+            if (JSN_Sensor_Init(&Sens1, TRIG1, ECHO1) == ERROR)
+                while (1);
+    }
 
     // Initialize function variables
     unsigned long currMilli = 0;
