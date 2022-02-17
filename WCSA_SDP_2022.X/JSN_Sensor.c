@@ -147,7 +147,7 @@ JSN_t* JSN_GetLastTrig(void) {
 int main(void) {
     // Initialize required libraries
     PIC16_Init();
-    uint8_t numSens = NUM_SENSORS;
+    const uint8_t numSens = NUM_SENSORS;
 
     /*
      * If invalid trig/echoPin, Init() function will print error statement
@@ -170,7 +170,7 @@ int main(void) {
     // Initialize function variables
     unsigned long currMilli = 0;
     unsigned long prevMilli = 0;
-    const uint8_t nextSens = 1;
+    uint8_t nextSens = 1;
 
     // Initialize LED as OUTPUT LOW
     SetPin(C0, OUTPUT);
