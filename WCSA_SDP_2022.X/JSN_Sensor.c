@@ -138,19 +138,19 @@ JSN_t* JSN_GetLastTrig(void) {
 
 // Thresholds for timing + distance measurements
 #define SAMPLE_PERIOD       50  // Sensor reading occus every [x]ms
-#define MIN_DIST_LED        500 // Turn LED on if object within [x]mm of sensor
+#define MIN_DIST_LED        400 // Turn LED on if object within [x]mm of sensor
 
 // Modularize number of sensors currently in use (inside test harness)
 #define NUM_SENSORS         3
 
-
+//--- SENSOR TESTING MAIN APPLICATION ---//
 int main(void) {
     // Initialize required libraries
     PIC16_Init();
-    const uint8_t numSens = NUM_SENSORS;
+    uint8_t numSens = NUM_SENSORS;
 
     /*
-     * If invalid trig/echoPin, Init() function will print error statement
+     * If invalid trig/echoPin, JSN_Sensor_Init() will print error statement
      * & this conditional statement will halt further program execution
      * 
      * NOTE: "break;" statements have purposely been omitted from switch cases
@@ -192,45 +192,52 @@ int main(void) {
              */
             switch (nextSens) {
                 case 1:
-                    // Trigger a reading from Sens1 & print distance on TXpin
+                    // Trigger a reading from Sens1
                     JSN_Sensor_Trig(&Sens1);
-                    printf("%u", JSN_Sensor_GetDistance(&Sens3));
-                    
+                    // print Sens3 distance on TXpin
+                    printf("S3 %u", JSN_Sensor_GetDistance(&Sens3));
+
                     // Update nextSens based on numSens
                     if (numSens > 1)
                         nextSens = 2;
                     else
                         nextSens = 1;
-                    
+
                     break;
-                    
+
                 case 2:
-                    // Trigger a reading from Sens1 & print distance on TXpin
+                    // Trigger a reading from Sens2
                     JSN_Sensor_Trig(&Sens2);
-                    printf("%u", JSN_Sensor_GetDistance(&Sens1));
-                    
+                    // print Sens1 distance on TXpin
+                    printf("S1 %u", JSN_Sensor_GetDistance(&Sens1));
+
                     // Update nextSens based on numSens
                     if (numSens > 2)
                         nextSens = 3;
                     else
                         nextSens = 1;
-                    
+
                     break;
+
                 case 3:
                     // Trigger a reading from Sens3
                     JSN_Sensor_Trig(&Sens3);
-                    printf("%u", JSN_Sensor_GetDistance(&Sens2));
-                    
+                    // print Sens2 distance on TXpin
+                    printf("S2 %u", JSN_Sensor_GetDistance(&Sens2));
+
                     // Always trigger Sens1 next, after Sens3
                     nextSens = 1;
-                    
+
                     break;
             }
 
-            // Turn on LED if either sensor sees object within MIN_DIST_LED [mm]
-            if ((Sens1.distance < MIN_DIST_LED) || (Sens2.distance < MIN_DIST_LED)) {
+            // Turn on LED if any sensor sees object within MIN_DIST_LED [mm]
+            if ((Sens1.distance < MIN_DIST_LED) ||
+                    (Sens2.distance < MIN_DIST_LED) ||
+                    (Sens3.distance < MIN_DIST_LED)) {
                 WritePin(C0, HIGH);
-            } else {
+            }
+            else {
                 WritePin(C0, LOW);
             }
 

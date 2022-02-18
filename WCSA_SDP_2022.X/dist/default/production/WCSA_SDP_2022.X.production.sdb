@@ -243,7 +243,7 @@ B6 17
 [s S41 . 6 `ui 1 echoHighTime 2 0 `ui 1 distance 2 2 `E7144 1 trigPin 1 4 `E7144 1 echoPin 1 5 ]
 "118 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\JSN_Sensor.c
 [v _JSN_GetLastTrig JSN_GetLastTrig `(*.5S41  1 e 1 0 ]
-"142
+"147
 [v _main main `(i  1 e 2 0 ]
 "15 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
@@ -918,16 +918,18 @@ B6 17
 [v _timer1ReloadVal timer1ReloadVal `VEus  1 e 2 0 ]
 "15 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\tmr3.c
 [v _timer3ReloadVal timer3ReloadVal `VEus  1 e 2 0 ]
-"142 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\JSN_Sensor.c
+"147 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\JSN_Sensor.c
 [v _main main `(i  1 e 2 0 ]
 {
-"164
-[v main@currMilli currMilli `ul  1 a 4 16 ]
-"165
+"171
+[v main@currMilli currMilli `ul  1 a 4 17 ]
+"172
 [v main@prevMilli prevMilli `ul  1 a 4 11 ]
-"166
+"150
+[v main@numSens numSens `uc  1 a 1 16 ]
+"173
 [v main@nextSens nextSens `uc  1 a 1 15 ]
-"219
+"250
 } 0
 "16 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\PIC16Xpress_DevBoard.c
 [v _PIC16_Init PIC16_Init `(v  1 e 1 0 ]

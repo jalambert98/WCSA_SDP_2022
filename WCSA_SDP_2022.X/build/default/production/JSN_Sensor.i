@@ -11782,11 +11782,13 @@ unsigned int JSN_Sensor_GetDistance(JSN_t *Sensor) {
 JSN_t* JSN_GetLastTrig(void) {
     return lastTrig;
 }
-# 142 "JSN_Sensor.c"
+# 147 "JSN_Sensor.c"
 int main(void) {
 
     PIC16_Init();
     uint8_t numSens = 3;
+
+
 
 
 
@@ -11831,26 +11833,50 @@ int main(void) {
                 case 1:
 
                     JSN_Sensor_Trig(&Sens1);
-                    printf("%u", JSN_Sensor_GetDistance(&Sens3));
-                    nextSens = 2;
+
+                    printf("S3 %u", JSN_Sensor_GetDistance(&Sens3));
+
+
+                    if (numSens > 1)
+                        nextSens = 2;
+                    else
+                        nextSens = 1;
+
                     break;
+
                 case 2:
 
                     JSN_Sensor_Trig(&Sens2);
-                    printf("%u", JSN_Sensor_GetDistance(&Sens1));
-                    nextSens = 3;
+
+                    printf("S1 %u", JSN_Sensor_GetDistance(&Sens1));
+
+
+                    if (numSens > 2)
+                        nextSens = 3;
+                    else
+                        nextSens = 1;
+
                     break;
+
                 case 3:
 
                     JSN_Sensor_Trig(&Sens3);
-                    printf("%u", JSN_Sensor_GetDistance(&Sens2));
+
+                    printf("S2 %u", JSN_Sensor_GetDistance(&Sens2));
+
+
                     nextSens = 1;
+
+                    break;
             }
 
 
-            if ((Sens1.distance < 500) || (Sens2.distance < 500)) {
+            if ((Sens1.distance < 400) ||
+                    (Sens2.distance < 400) ||
+                    (Sens3.distance < 400)) {
                 WritePin(C0, 1);
-            } else {
+            }
+            else {
                 WritePin(C0, 0);
             }
 
