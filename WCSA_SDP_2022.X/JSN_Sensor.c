@@ -2,7 +2,7 @@
  * File:    JSN_Sensor.c
  * Author:  Jack Lambert     <joalambe@ucsc.edu>
  * Project: WCSA_SDP_2022
- * Kenan Gedik ahsdlfjasdlfjasdjflksadjflkjsdaklfjdas
+ * Kenan Gedik and Evan
  * Created on January 24, 2022, 10:29 PM
  */
 //------------------------------------------------------------------------------
