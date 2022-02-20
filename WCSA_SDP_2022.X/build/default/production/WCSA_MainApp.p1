@@ -1,72 +1,40 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[v F7192 `(v ~T0 @X0 0 tf1`us ]
-"22 ccp1.c
-[; ;ccp1.c: 22: static JSN_t *sameSens;
+[p mainexit ]
+"120 ./PIC16Xpress_DevBoard.h
+[; ;./PIC16Xpress_DevBoard.h: 120: void PIC16_Init(void);
+[v _PIC16_Init `(v ~T0 @X0 0 ef ]
+"43 WCSA_MainApp.c
+[; ;WCSA_MainApp.c: 43:     JSN_Sensor_Init(JSN_SensorGetPtr(1), C6, C5);
 [c E7144 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 .. ]
 [n E7144 . A5 A4 A3 C5 C4 C3 C6 C7 B7 A0 A1 A2 C0 C1 C2 B4 B5 B6  ]
 "28 ./JSN_Sensor.h
 [; ;./JSN_Sensor.h: 28: typedef struct {
 [s S979 `ui 1 `ui 1 `E7144 1 `E7144 1 ]
 [n S979 . echoHighTime distance trigPin echoPin ]
-"92
-[; ;./JSN_Sensor.h: 92: JSN_t* JSN_GetLastTrig(void);
-[v _JSN_GetLastTrig `(*S979 ~T0 @X0 0 ef ]
-"128 ./PIC16Xpress_DevBoard.h
-[; ;./PIC16Xpress_DevBoard.h: 128: uint8_t ReadPin(PinName_t pin);
-[v _ReadPin `(uc ~T0 @X0 0 ef1`E7144 ]
-"6395 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
-[v _CCP1CON `Vuc ~T0 @X0 0 e@659 ]
-"6460
-[v _CCP1CAP `Vuc ~T0 @X0 0 e@660 ]
-"6375
-[v _CCPR1H `Vuc ~T0 @X0 0 e@658 ]
-"6355
-[v _CCPR1L `Vuc ~T0 @X0 0 e@657 ]
-[v F6666 `(v ~T0 @X0 0 tf1`us ]
-"101 ./ccp1.h
-[; ;./ccp1.h: 101:  void CCP1_SetCallBack(void (*customCallBack)(uint16_t));
-[v _CCP1_SetCallBack `(v ~T0 @X0 0 ef1`*F6666 ]
-"6670 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
-[s S317 :2 `uc 1 :2 `uc 1 :2 `uc 1 :2 `uc 1 ]
-[n S317 . C1TSEL C2TSEL C3TSEL C4TSEL ]
-"6676
-[s S318 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S318 . C1TSEL0 C1TSEL1 C2TSEL0 C2TSEL1 C3TSEL0 C3TSEL1 C4TSEL0 C4TSEL1 ]
-"6669
-[u S316 `S317 1 `S318 1 ]
-[n S316 . . . ]
-"6687
-[v _CCPTMRSbits `VS316 ~T0 @X0 0 e@671 ]
-"761
-[s S47 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S47 . CCP1IF CCP2IF CCP3IF CCP4IF TMR5IF TMR5GIF CWG1IF CWG2IF ]
-"760
-[u S46 `S47 1 ]
-[n S46 . . ]
-"772
-[v _PIR4bits `VS46 ~T0 @X0 0 e@20 ]
-"1922
-[s S100 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S100 . CCP1IE CCP2IE CCP3IE CCP4IE TMR5IE TMR5GIE CWG1IE CWG2IE ]
-"1921
-[u S99 `S100 1 ]
-[n S99 . . ]
-"1933
-[v _PIE4bits `VS99 ~T0 @X0 0 e@148 ]
-"32 ./ccp1.h
-[; ;./ccp1.h: 32:    {
-[s S964 `uc 1 `uc 1 ]
-[n S964 . ccpr1l ccpr1h ]
-"37
-[; ;./ccp1.h: 37:    {
-[s S965 `us 1 ]
-[n S965 . ccpr1_16Bit ]
-"30
-[; ;./ccp1.h: 30: {
-[u S963 `S964 1 `S965 1 ]
-[n S963 CCPR1Reg_tag . . ]
-[v F7206 `(v ~T0 @X0 0 tf1`us ]
-[v F7209 `(v ~T0 @X0 0 tf1`us ]
+"57
+[; ;./JSN_Sensor.h: 57: uint8_t JSN_Sensor_Init(JSN_t *Sensor, PinName_t trigPin, PinName_t echoPin);
+[v _JSN_Sensor_Init `(uc ~T0 @X0 0 ef3`*S979`E7144`E7144 ]
+"96
+[; ;./JSN_Sensor.h: 96: JSN_t* JSN_SensorGetPtr(uint8_t sensNum);
+[v _JSN_SensorGetPtr `(*S979 ~T0 @X0 0 ef1`uc ]
+"47 ./SpeakerTone.h
+[; ;./SpeakerTone.h: 47: void SpeakerTone_Init(void);
+[v _SpeakerTone_Init `(v ~T0 @X0 0 ef ]
+"28 ./MotorControl.h
+[; ;./MotorControl.h: 28: void MotorControl_Init(void);
+[v _MotorControl_Init `(v ~T0 @X0 0 ef ]
+"72 ./JSN_Sensor.h
+[; ;./JSN_Sensor.h: 72: void JSN_Sensor_Trig(JSN_t *Sensor);
+[v _JSN_Sensor_Trig `(v ~T0 @X0 0 ef1`*S979 ]
+"30 ./FRT.h
+[; ;./FRT.h: 30: unsigned long FRT_GetMillis(void);
+[v _FRT_GetMillis `(ul ~T0 @X0 0 ef ]
+"88 ./JSN_Sensor.h
+[; ;./JSN_Sensor.h: 88: unsigned int JSN_Sensor_GetDistance(JSN_t *Sensor);
+[v _JSN_Sensor_GetDistance `(ui ~T0 @X0 0 ef1`*S979 ]
+"105 C:\Program Files\Microchip\xc8\v2.35\pic\include\c99\stdio.h
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\c99\stdio.h: 105: int printf(const char *restrict, ...);
+[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
 "55 C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\pic\include\proc\PIC16F18345.h
 [; <" INDF0 equ 00h ;# ">
 "75
@@ -773,147 +741,99 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSL equ 0FEEh ;# ">
 "19652
 [; <" TOSH equ 0FEFh ;# ">
-"20 ccp1.c
-[; ;ccp1.c: 20: static void (*CCP1_CallBack)(uint16_t);
-[v _CCP1_CallBack `*F7192 ~T0 @X0 1 s ]
-"21
-[; ;ccp1.c: 21: static uint16_t ticksUp, ticksDown;
-[v _ticksUp `us ~T0 @X0 1 s ]
-[v _ticksDown `us ~T0 @X0 1 s ]
-"22
-[; ;ccp1.c: 22: static JSN_t *sameSens;
-[v _sameSens `*S979 ~T0 @X0 1 s ]
-"23
-[; ;ccp1.c: 23: static JSN_t *lastTrig;
-[v _lastTrig `*S979 ~T0 @X0 1 s ]
-"29
-[; ;ccp1.c: 29: static void CCP1_DefaultCallBack(uint16_t capturedValue)
-[v _CCP1_DefaultCallBack `(v ~T0 @X0 1 sf1`us ]
-"30
-[; ;ccp1.c: 30: {
+[v $root$_main `(v ~T0 @X0 0 e ]
+"40 WCSA_MainApp.c
+[; ;WCSA_MainApp.c: 40: int main(void) {
+[v _main `(i ~T0 @X0 1 ef ]
 {
-[e :U _CCP1_DefaultCallBack ]
-"29
-[; ;ccp1.c: 29: static void CCP1_DefaultCallBack(uint16_t capturedValue)
-[v _capturedValue `us ~T0 @X0 1 r1 ]
-"30
-[; ;ccp1.c: 30: {
+[e :U _main ]
 [f ]
-"31
-[; ;ccp1.c: 31:     lastTrig = JSN_GetLastTrig();
-[e = _lastTrig ( _JSN_GetLastTrig ..  ]
-"32
-[; ;ccp1.c: 32:     switch(ReadPin(lastTrig->echoPin)) {
-[e $U 982  ]
-{
-"34
-[; ;ccp1.c: 34:         case 1:
-[e :U 983 ]
-"35
-[; ;ccp1.c: 35:             ticksUp = capturedValue;
-[e = _ticksUp _capturedValue ]
-"36
-[; ;ccp1.c: 36:             break;
-[e $U 981  ]
-"38
-[; ;ccp1.c: 38:         case 0:
-[e :U 984 ]
-"39
-[; ;ccp1.c: 39:             ticksDown = capturedValue;
-[e = _ticksDown _capturedValue ]
 "42
-[; ;ccp1.c: 42:             lastTrig->echoHighTime = (ticksDown - ticksUp);
-[e = . *U _lastTrig 0 - -> _ticksDown `ui -> _ticksUp `ui ]
+[; ;WCSA_MainApp.c: 42:     PIC16_Init();
+[e ( _PIC16_Init ..  ]
 "43
-[; ;ccp1.c: 43:             break;
-[e $U 981  ]
+[; ;WCSA_MainApp.c: 43:     JSN_Sensor_Init(JSN_SensorGetPtr(1), C6, C5);
+[e ( _JSN_Sensor_Init (3 , , ( _JSN_SensorGetPtr (1 -> -> 1 `i `uc . `E7144 6 . `E7144 3 ]
 "44
-[; ;ccp1.c: 44:     }
-}
-[e $U 981  ]
-[e :U 982 ]
-[e [\ -> ( _ReadPin (1 . *U _lastTrig 3 `i , $ -> 1 `i 983
- , $ -> 0 `i 984
- 981 ]
-[e :U 981 ]
+[; ;WCSA_MainApp.c: 44:     SpeakerTone_Init();
+[e ( _SpeakerTone_Init ..  ]
 "45
-[; ;ccp1.c: 45: }
+[; ;WCSA_MainApp.c: 45:     MotorControl_Init();
+[e ( _MotorControl_Init ..  ]
+"53
+[; ;WCSA_MainApp.c: 53:     unsigned long currMilli = 0;
+[v _currMilli `ul ~T0 @X0 1 a ]
+[e = _currMilli -> -> -> 0 `i `l `ul ]
+"54
+[; ;WCSA_MainApp.c: 54:     unsigned long prevMilli = 0;
+[v _prevMilli `ul ~T0 @X0 1 a ]
+[e = _prevMilli -> -> -> 0 `i `l `ul ]
+"55
+[; ;WCSA_MainApp.c: 55:     unsigned int distance = 0;
+[v _distance `ui ~T0 @X0 1 a ]
+[e = _distance -> -> 0 `i `ui ]
+"58
+[; ;WCSA_MainApp.c: 58:     JSN_Sensor_Trig(JSN_SensorGetPtr(1));
+[e ( _JSN_Sensor_Trig (1 ( _JSN_SensorGetPtr (1 -> -> 1 `i `uc ]
+"59
+[; ;WCSA_MainApp.c: 59:     currMilli = FRT_GetMillis();
+[e = _currMilli ( _FRT_GetMillis ..  ]
+"60
+[; ;WCSA_MainApp.c: 60:     prevMilli = currMilli;
+[e = _prevMilli _currMilli ]
+"62
+[; ;WCSA_MainApp.c: 62:     while (1) {
+[e :U 982 ]
+{
+"64
+[; ;WCSA_MainApp.c: 64:         currMilli = FRT_GetMillis();
+[e = _currMilli ( _FRT_GetMillis ..  ]
+"67
+[; ;WCSA_MainApp.c: 67:         if ((currMilli - prevMilli) >= 50) {
+[e $ ! >= - _currMilli _prevMilli -> -> -> 50 `i `l `ul 984  ]
+{
+"68
+[; ;WCSA_MainApp.c: 68:             distance = JSN_Sensor_GetDistance(JSN_SensorGetPtr(1));
+[e = _distance ( _JSN_Sensor_GetDistance (1 ( _JSN_SensorGetPtr (1 -> -> 1 `i `uc ]
+"69
+[; ;WCSA_MainApp.c: 69:             printf("%u", distance);
+[e ( _printf , (. :s 1C _distance ]
+"72
+[; ;WCSA_MainApp.c: 72:             if (distance < 400) {
+[e $ ! < _distance -> -> 400 `i `ui 985  ]
+{
+"74
+[; ;WCSA_MainApp.c: 74:             }
+}
+[e $U 986  ]
+"75
+[; ;WCSA_MainApp.c: 75:             else {
+[e :U 985 ]
+{
+"77
+[; ;WCSA_MainApp.c: 77:             }
+}
+[e :U 986 ]
+"80
+[; ;WCSA_MainApp.c: 80:             prevMilli = currMilli;
+[e = _prevMilli _currMilli ]
+"81
+[; ;WCSA_MainApp.c: 81:         }
+}
+[e :U 984 ]
+"82
+[; ;WCSA_MainApp.c: 82:     }
+}
+[e :U 981 ]
+[e $U 982  ]
+[e :U 983 ]
+"84
+[; ;WCSA_MainApp.c: 84:     return 0;
+[e ) -> 0 `i ]
+[e $UE 980  ]
+"85
+[; ;WCSA_MainApp.c: 85: }
 [e :UE 980 ]
 }
-"49
-[; ;ccp1.c: 49: void CCP1_Initialize(void)
-[v _CCP1_Initialize `(v ~T0 @X0 1 ef ]
-"50
-[; ;ccp1.c: 50: {
-{
-[e :U _CCP1_Initialize ]
-[f ]
-"52
-[; ;ccp1.c: 52:  CCP1CON = 0x83;
-[e = _CCP1CON -> -> 131 `i `uc ]
-"55
-[; ;ccp1.c: 55:  CCP1CAP = 0x00;
-[e = _CCP1CAP -> -> 0 `i `uc ]
-"58
-[; ;ccp1.c: 58:  CCPR1H = 0x00;
-[e = _CCPR1H -> -> 0 `i `uc ]
-"61
-[; ;ccp1.c: 61:  CCPR1L = 0x00;
-[e = _CCPR1L -> -> 0 `i `uc ]
-"64
-[; ;ccp1.c: 64:     CCP1_SetCallBack(CCP1_DefaultCallBack);
-[e ( _CCP1_SetCallBack (1 &U _CCP1_DefaultCallBack ]
-"67
-[; ;ccp1.c: 67:  CCPTMRSbits.C1TSEL = 0x1;
-[e = . . _CCPTMRSbits 0 0 -> -> 1 `i `uc ]
-"70
-[; ;ccp1.c: 70:     PIR4bits.CCP1IF = 0;
-[e = . . _PIR4bits 0 0 -> -> 0 `i `uc ]
-"73
-[; ;ccp1.c: 73:     PIE4bits.CCP1IE = 1;
-[e = . . _PIE4bits 0 0 -> -> 1 `i `uc ]
-"74
-[; ;ccp1.c: 74: }
-[e :UE 985 ]
-}
-"78
-[; ;ccp1.c: 78: void CCP1_CaptureISR(void)
-[v _CCP1_CaptureISR `(v ~T0 @X0 1 ef ]
-"79
-[; ;ccp1.c: 79: {
-{
-[e :U _CCP1_CaptureISR ]
-[f ]
-"80
-[; ;ccp1.c: 80:     CCP1_PERIOD_REG_T module;
-[v _module `S963 ~T0 @X0 1 a ]
-"83
-[; ;ccp1.c: 83:     PIR4bits.CCP1IF = 0;
-[e = . . _PIR4bits 0 0 -> -> 0 `i `uc ]
-"86
-[; ;ccp1.c: 86:     module.ccpr1l = CCPR1L;
-[e = . . _module 0 0 _CCPR1L ]
-"87
-[; ;ccp1.c: 87:     module.ccpr1h = CCPR1H;
-[e = . . _module 0 1 _CCPR1H ]
-"90
-[; ;ccp1.c: 90:     CCP1_CallBack(module.ccpr1_16Bit);
-[e ( *U _CCP1_CallBack (1 . . _module 1 0 ]
-"91
-[; ;ccp1.c: 91: }
-[e :UE 986 ]
-}
-"95
-[; ;ccp1.c: 95: void CCP1_SetCallBack(void (*customCallBack)(uint16_t)){
-[v _CCP1_SetCallBack `(v ~T0 @X0 1 ef1`*F7206 ]
-{
-[e :U _CCP1_SetCallBack ]
-[v _customCallBack `*F7209 ~T0 @X0 1 r1 ]
-[f ]
-"96
-[; ;ccp1.c: 96:     CCP1_CallBack = customCallBack;
-[e = _CCP1_CallBack _customCallBack ]
-"97
-[; ;ccp1.c: 97: }
-[e :UE 987 ]
-}
+[p f _printf 8389632 ]
+[a 1C 37 117 0 ]

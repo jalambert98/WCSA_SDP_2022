@@ -50,6 +50,7 @@
       <itemPath>pwm5.c</itemPath>
       <itemPath>tmr2.c</itemPath>
       <itemPath>tmr3.c</itemPath>
+      <itemPath>WCSA_MainApp.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
