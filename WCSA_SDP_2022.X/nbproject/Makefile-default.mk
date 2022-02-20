@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=JSN_Sensor.c PIC16Xpress_DevBoard.c device_config.c mcc.c tmr0.c ccp1.c ccp2.c ccp3.c tmr1.c eusart.c interrupt_manager.c pin_manager.c FRT.c SpeakerTone.c MotorControl.c ccp4.c pwm5.c tmr2.c tmr3.c
+SOURCEFILES_QUOTED_IF_SPACED=JSN_Sensor.c PIC16Xpress_DevBoard.c device_config.c mcc.c tmr0.c ccp1.c ccp2.c ccp3.c tmr1.c eusart.c interrupt_manager.c pin_manager.c FRT.c SpeakerTone.c MotorControl.c ccp4.c pwm5.c tmr2.c tmr3.c WCSA_MainApp.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/JSN_Sensor.p1 ${OBJECTDIR}/PIC16Xpress_DevBoard.p1 ${OBJECTDIR}/device_config.p1 ${OBJECTDIR}/mcc.p1 ${OBJECTDIR}/tmr0.p1 ${OBJECTDIR}/ccp1.p1 ${OBJECTDIR}/ccp2.p1 ${OBJECTDIR}/ccp3.p1 ${OBJECTDIR}/tmr1.p1 ${OBJECTDIR}/eusart.p1 ${OBJECTDIR}/interrupt_manager.p1 ${OBJECTDIR}/pin_manager.p1 ${OBJECTDIR}/FRT.p1 ${OBJECTDIR}/SpeakerTone.p1 ${OBJECTDIR}/MotorControl.p1 ${OBJECTDIR}/ccp4.p1 ${OBJECTDIR}/pwm5.p1 ${OBJECTDIR}/tmr2.p1 ${OBJECTDIR}/tmr3.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/JSN_Sensor.p1.d ${OBJECTDIR}/PIC16Xpress_DevBoard.p1.d ${OBJECTDIR}/device_config.p1.d ${OBJECTDIR}/mcc.p1.d ${OBJECTDIR}/tmr0.p1.d ${OBJECTDIR}/ccp1.p1.d ${OBJECTDIR}/ccp2.p1.d ${OBJECTDIR}/ccp3.p1.d ${OBJECTDIR}/tmr1.p1.d ${OBJECTDIR}/eusart.p1.d ${OBJECTDIR}/interrupt_manager.p1.d ${OBJECTDIR}/pin_manager.p1.d ${OBJECTDIR}/FRT.p1.d ${OBJECTDIR}/SpeakerTone.p1.d ${OBJECTDIR}/MotorControl.p1.d ${OBJECTDIR}/ccp4.p1.d ${OBJECTDIR}/pwm5.p1.d ${OBJECTDIR}/tmr2.p1.d ${OBJECTDIR}/tmr3.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/JSN_Sensor.p1 ${OBJECTDIR}/PIC16Xpress_DevBoard.p1 ${OBJECTDIR}/device_config.p1 ${OBJECTDIR}/mcc.p1 ${OBJECTDIR}/tmr0.p1 ${OBJECTDIR}/ccp1.p1 ${OBJECTDIR}/ccp2.p1 ${OBJECTDIR}/ccp3.p1 ${OBJECTDIR}/tmr1.p1 ${OBJECTDIR}/eusart.p1 ${OBJECTDIR}/interrupt_manager.p1 ${OBJECTDIR}/pin_manager.p1 ${OBJECTDIR}/FRT.p1 ${OBJECTDIR}/SpeakerTone.p1 ${OBJECTDIR}/MotorControl.p1 ${OBJECTDIR}/ccp4.p1 ${OBJECTDIR}/pwm5.p1 ${OBJECTDIR}/tmr2.p1 ${OBJECTDIR}/tmr3.p1 ${OBJECTDIR}/WCSA_MainApp.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/JSN_Sensor.p1.d ${OBJECTDIR}/PIC16Xpress_DevBoard.p1.d ${OBJECTDIR}/device_config.p1.d ${OBJECTDIR}/mcc.p1.d ${OBJECTDIR}/tmr0.p1.d ${OBJECTDIR}/ccp1.p1.d ${OBJECTDIR}/ccp2.p1.d ${OBJECTDIR}/ccp3.p1.d ${OBJECTDIR}/tmr1.p1.d ${OBJECTDIR}/eusart.p1.d ${OBJECTDIR}/interrupt_manager.p1.d ${OBJECTDIR}/pin_manager.p1.d ${OBJECTDIR}/FRT.p1.d ${OBJECTDIR}/SpeakerTone.p1.d ${OBJECTDIR}/MotorControl.p1.d ${OBJECTDIR}/ccp4.p1.d ${OBJECTDIR}/pwm5.p1.d ${OBJECTDIR}/tmr2.p1.d ${OBJECTDIR}/tmr3.p1.d ${OBJECTDIR}/WCSA_MainApp.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/JSN_Sensor.p1 ${OBJECTDIR}/PIC16Xpress_DevBoard.p1 ${OBJECTDIR}/device_config.p1 ${OBJECTDIR}/mcc.p1 ${OBJECTDIR}/tmr0.p1 ${OBJECTDIR}/ccp1.p1 ${OBJECTDIR}/ccp2.p1 ${OBJECTDIR}/ccp3.p1 ${OBJECTDIR}/tmr1.p1 ${OBJECTDIR}/eusart.p1 ${OBJECTDIR}/interrupt_manager.p1 ${OBJECTDIR}/pin_manager.p1 ${OBJECTDIR}/FRT.p1 ${OBJECTDIR}/SpeakerTone.p1 ${OBJECTDIR}/MotorControl.p1 ${OBJECTDIR}/ccp4.p1 ${OBJECTDIR}/pwm5.p1 ${OBJECTDIR}/tmr2.p1 ${OBJECTDIR}/tmr3.p1
+OBJECTFILES=${OBJECTDIR}/JSN_Sensor.p1 ${OBJECTDIR}/PIC16Xpress_DevBoard.p1 ${OBJECTDIR}/device_config.p1 ${OBJECTDIR}/mcc.p1 ${OBJECTDIR}/tmr0.p1 ${OBJECTDIR}/ccp1.p1 ${OBJECTDIR}/ccp2.p1 ${OBJECTDIR}/ccp3.p1 ${OBJECTDIR}/tmr1.p1 ${OBJECTDIR}/eusart.p1 ${OBJECTDIR}/interrupt_manager.p1 ${OBJECTDIR}/pin_manager.p1 ${OBJECTDIR}/FRT.p1 ${OBJECTDIR}/SpeakerTone.p1 ${OBJECTDIR}/MotorControl.p1 ${OBJECTDIR}/ccp4.p1 ${OBJECTDIR}/pwm5.p1 ${OBJECTDIR}/tmr2.p1 ${OBJECTDIR}/tmr3.p1 ${OBJECTDIR}/WCSA_MainApp.p1
 
 # Source Files
-SOURCEFILES=JSN_Sensor.c PIC16Xpress_DevBoard.c device_config.c mcc.c tmr0.c ccp1.c ccp2.c ccp3.c tmr1.c eusart.c interrupt_manager.c pin_manager.c FRT.c SpeakerTone.c MotorControl.c ccp4.c pwm5.c tmr2.c tmr3.c
+SOURCEFILES=JSN_Sensor.c PIC16Xpress_DevBoard.c device_config.c mcc.c tmr0.c ccp1.c ccp2.c ccp3.c tmr1.c eusart.c interrupt_manager.c pin_manager.c FRT.c SpeakerTone.c MotorControl.c ccp4.c pwm5.c tmr2.c tmr3.c WCSA_MainApp.c
 
 
 
@@ -246,6 +246,14 @@ ${OBJECTDIR}/tmr3.p1: tmr3.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/tmr3.d ${OBJECTDIR}/tmr3.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/tmr3.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/WCSA_MainApp.p1: WCSA_MainApp.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/WCSA_MainApp.p1.d 
+	@${RM} ${OBJECTDIR}/WCSA_MainApp.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=none   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/WCSA_MainApp.p1 WCSA_MainApp.c 
+	@-${MV} ${OBJECTDIR}/WCSA_MainApp.d ${OBJECTDIR}/WCSA_MainApp.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/WCSA_MainApp.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 else
 ${OBJECTDIR}/JSN_Sensor.p1: JSN_Sensor.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
@@ -398,6 +406,14 @@ ${OBJECTDIR}/tmr3.p1: tmr3.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/tmr3.p1 tmr3.c 
 	@-${MV} ${OBJECTDIR}/tmr3.d ${OBJECTDIR}/tmr3.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/tmr3.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/WCSA_MainApp.p1: WCSA_MainApp.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/WCSA_MainApp.p1.d 
+	@${RM} ${OBJECTDIR}/WCSA_MainApp.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/WCSA_MainApp.p1 WCSA_MainApp.c 
+	@-${MV} ${OBJECTDIR}/WCSA_MainApp.d ${OBJECTDIR}/WCSA_MainApp.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/WCSA_MainApp.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

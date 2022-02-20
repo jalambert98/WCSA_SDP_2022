@@ -11671,6 +11671,10 @@ unsigned int JSN_Sensor_GetDistance(JSN_t *Sensor);
 
 
 JSN_t* JSN_GetLastTrig(void);
+
+
+
+JSN_t* JSN_SensorGetPtr(uint8_t sensNum);
 # 14 "ccp3.c" 2
 
 

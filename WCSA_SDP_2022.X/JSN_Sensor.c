@@ -14,7 +14,7 @@
 #include "ccp1.h"
 #include <stdio.h>
 
-#define JSN_SENSOR_TEST       // toggle comment to enable/disable test harness
+// #define JSN_SENSOR_TEST       // toggle comment to enable/disable test harness
 
 //==============================================================================
 //---------------------------- STATICS VARIABLES -------------------------------
@@ -117,6 +117,21 @@ unsigned int JSN_Sensor_GetDistance(JSN_t *Sensor) {
 
 JSN_t* JSN_GetLastTrig(void) {
     return lastTrig;
+}
+
+//------------------------------------------------------------------------------
+
+JSN_t* JSN_SensorGetPtr(uint8_t sensNum) {
+    switch(sensNum) {
+        case 1:
+            return &Sens1;
+        case 2:
+            return &Sens2;
+        case 3:
+            return &Sens3;
+        default:
+            return ERROR;
+    }
 }
 
 

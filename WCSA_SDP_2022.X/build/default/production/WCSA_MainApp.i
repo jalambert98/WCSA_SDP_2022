@@ -1,4 +1,4 @@
-# 1 "ccp2.c"
+# 1 "WCSA_MainApp.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,10 +6,12 @@
 # 1 "<built-in>" 2
 # 1 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "ccp2.c" 2
-# 12 "ccp2.c"
-# 1 "./ccp2.h" 1
-# 13 "./ccp2.h"
+# 1 "WCSA_MainApp.c" 2
+# 10 "WCSA_MainApp.c"
+# 1 "./PIC16Xpress_DevBoard.h" 1
+# 10 "./PIC16Xpress_DevBoard.h"
+# 1 "./mcc.h" 1
+# 12 "./mcc.h"
 # 1 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -11194,36 +11196,8 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "C:/Users/Jack/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.10.174/xc8\\pic\\include\\xc.h" 2 3
-# 13 "./ccp2.h" 2
+# 12 "./mcc.h" 2
 
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdbool.h" 1 3
-# 15 "./ccp2.h" 2
-# 29 "./ccp2.h"
-typedef union CCPR2Reg_tag
-{
-   struct
-   {
-      uint8_t ccpr2l;
-      uint8_t ccpr2h;
-   };
-   struct
-   {
-      uint16_t ccpr2_16Bit;
-   };
-} CCP2_PERIOD_REG_T ;
-# 64 "./ccp2.h"
-void CCP2_Initialize(void);
-# 81 "./ccp2.h"
-void CCP2_CaptureISR(void);
-# 101 "./ccp2.h"
- void CCP2_SetCallBack(void (*customCallBack)(uint16_t));
-# 12 "ccp2.c" 2
-
-# 1 "./PIC16Xpress_DevBoard.h" 1
-# 10 "./PIC16Xpress_DevBoard.h"
-# 1 "./mcc.h" 1
-# 13 "./mcc.h"
 # 1 "./device_config.h" 1
 # 13 "./mcc.h" 2
 
@@ -11235,6 +11209,8 @@ void PIN_MANAGER_IOC(void);
 # 14 "./mcc.h" 2
 
 
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\stdbool.h" 1 3
+# 16 "./mcc.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c99\\conio.h" 1 3
 
@@ -11516,6 +11492,27 @@ _Bool CCP4_OutputStatusGet(void);
 void CCP4_CompareISR(void);
 # 24 "./mcc.h" 2
 
+# 1 "./ccp2.h" 1
+# 29 "./ccp2.h"
+typedef union CCPR2Reg_tag
+{
+   struct
+   {
+      uint8_t ccpr2l;
+      uint8_t ccpr2h;
+   };
+   struct
+   {
+      uint16_t ccpr2_16Bit;
+   };
+} CCP2_PERIOD_REG_T ;
+# 64 "./ccp2.h"
+void CCP2_Initialize(void);
+# 81 "./ccp2.h"
+void CCP2_CaptureISR(void);
+# 101 "./ccp2.h"
+ void CCP2_SetCallBack(void (*customCallBack)(uint16_t));
+# 25 "./mcc.h" 2
 
 # 1 "./ccp3.h" 1
 # 29 "./ccp3.h"
@@ -11648,7 +11645,21 @@ uint8_t ReadPin(PinName_t pin);
 uint8_t WritePin(PinName_t pin, uint8_t val);
 # 147 "./PIC16Xpress_DevBoard.h"
 void __attribute__((picinterrupt(("")))) InterruptManager (void);
-# 13 "ccp2.c" 2
+# 10 "WCSA_MainApp.c" 2
+
+# 1 "./FRT.h" 1
+# 10 "./FRT.h"
+# 1 "./PIC16Xpress_DevBoard.h" 1
+# 10 "./FRT.h" 2
+# 30 "./FRT.h"
+unsigned long FRT_GetMillis(void);
+# 45 "./FRT.h"
+unsigned long FRT_GetMicros(void);
+# 63 "./FRT.h"
+void FRT_IncMillis(void);
+# 82 "./FRT.h"
+void FRT_IncMicros(void);
+# 11 "WCSA_MainApp.c" 2
 
 # 1 "./JSN_Sensor.h" 1
 # 10 "./JSN_Sensor.h"
@@ -11675,88 +11686,101 @@ JSN_t* JSN_GetLastTrig(void);
 
 
 JSN_t* JSN_SensorGetPtr(uint8_t sensNum);
-# 14 "ccp2.c" 2
+# 12 "WCSA_MainApp.c" 2
+
+# 1 "./SpeakerTone.h" 1
+# 47 "./SpeakerTone.h"
+void SpeakerTone_Init(void);
+# 56 "./SpeakerTone.h"
+uint8_t SpeakerTone_SetFrequency(uint16_t newFrequency);
 
 
 
 
 
 
-static void (*CCP2_CallBack)(uint16_t);
-static uint16_t ticksUp, ticksDown;
-static JSN_t *sameSens;
-static JSN_t *lastTrig;
+
+uint16_t SpeakerTone_GetFrequency(void);
 
 
 
 
 
-static void CCP2_DefaultCallBack(uint16_t capturedValue)
-{
-    lastTrig = JSN_GetLastTrig();
-    switch(ReadPin(lastTrig->echoPin)) {
 
-        case 1:
-            ticksUp = capturedValue;
-            break;
-
-        case 0:
-            ticksDown = capturedValue;
+void SpeakerTone_Off(void);
 
 
-            lastTrig->echoHighTime = (ticksDown - ticksUp);
-            break;
+
+
+
+
+void SpeakerTone_On(void);
+# 13 "WCSA_MainApp.c" 2
+
+# 1 "./MotorControl.h" 1
+
+
+
+
+
+
+
+
+# 1 "./PIC16Xpress_DevBoard.h" 1
+# 9 "./MotorControl.h" 2
+# 28 "./MotorControl.h"
+void MotorControl_Init(void);
+# 37 "./MotorControl.h"
+uint8_t MotorControl_SetIntensity(uint16_t dutyCycle);
+# 46 "./MotorControl.h"
+void MotorControl_On(void);
+# 55 "./MotorControl.h"
+void MotorControl_Off(void);
+# 14 "WCSA_MainApp.c" 2
+# 40 "WCSA_MainApp.c"
+int main(void) {
+
+    PIC16_Init();
+    JSN_Sensor_Init(JSN_SensorGetPtr(1), C6, C5);
+    SpeakerTone_Init();
+    MotorControl_Init();
+
+
+
+
+
+
+
+    unsigned long currMilli = 0;
+    unsigned long prevMilli = 0;
+    unsigned int distance = 0;
+
+
+    JSN_Sensor_Trig(JSN_SensorGetPtr(1));
+    currMilli = FRT_GetMillis();
+    prevMilli = currMilli;
+
+    while (1) {
+
+        currMilli = FRT_GetMillis();
+
+
+        if ((currMilli - prevMilli) >= 50) {
+            distance = JSN_Sensor_GetDistance(JSN_SensorGetPtr(1));
+            printf("%u", distance);
+
+
+            if (distance < 400) {
+
+            }
+            else {
+
+            }
+
+
+            prevMilli = currMilli;
+        }
     }
-}
 
-
-
-void CCP2_Initialize(void)
-{
-
- CCP2CON = 0x83;
-
-
- CCP2CAP = 0x00;
-
-
- CCPR2H = 0x00;
-
-
- CCPR2L = 0x00;
-
-
-    CCP2_SetCallBack(CCP2_DefaultCallBack);
-
-
- CCPTMRSbits.C2TSEL = 0x1;
-
-
-    PIR4bits.CCP2IF = 0;
-
-
-    PIE4bits.CCP2IE = 1;
-}
-
-
-
-void CCP2_CaptureISR(void)
-{
-    CCP2_PERIOD_REG_T module;
-
-
-    PIR4bits.CCP2IF = 0;
-
-
-    module.ccpr2l = CCPR2L;
-    module.ccpr2h = CCPR2H;
-
-
-    CCP2_CallBack(module.ccpr2_16Bit);
-}
-
-
-
-void CCP2_SetCallBack(void (*customCallBack)(uint16_t)){
-    CCP2_CallBack = customCallBack;
+    return 0;
 }

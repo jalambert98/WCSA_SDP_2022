@@ -11665,6 +11665,10 @@ unsigned int JSN_Sensor_GetDistance(JSN_t *Sensor);
 
 
 JSN_t* JSN_GetLastTrig(void);
+
+
+
+JSN_t* JSN_SensorGetPtr(uint8_t sensNum);
 # 10 "JSN_Sensor.c" 2
 
 # 1 "./PIC16Xpress_DevBoard.h" 1
@@ -11782,108 +11786,18 @@ unsigned int JSN_Sensor_GetDistance(JSN_t *Sensor) {
 JSN_t* JSN_GetLastTrig(void) {
     return lastTrig;
 }
-# 147 "JSN_Sensor.c"
-int main(void) {
-
-    PIC16_Init();
-    uint8_t numSens = 3;
 
 
 
-
-
-
-
-    switch (numSens) {
-        case 3:
-            if (JSN_Sensor_Init(&Sens3, B7, A2) == 0xFF)
-                while (1);
-        case 2:
-            if (JSN_Sensor_Init(&Sens2, A1, C3) == 0xFF)
-                while (1);
+JSN_t* JSN_SensorGetPtr(uint8_t sensNum) {
+    switch(sensNum) {
         case 1:
-            if (JSN_Sensor_Init(&Sens1, C6, C5) == 0xFF)
-                while (1);
+            return &Sens1;
+        case 2:
+            return &Sens2;
+        case 3:
+            return &Sens3;
+        default:
+            return 0xFF;
     }
-
-
-    unsigned long currMilli = 0;
-    unsigned long prevMilli = 0;
-    uint8_t nextSens = 1;
-
-
-    SetPin(C0, 0);
-    WritePin(C0, 0);
-
-    JSN_Sensor_Trig(&Sens3);
-    currMilli = FRT_GetMillis();
-    prevMilli = currMilli;
-
-    while (1) {
-
-        currMilli = FRT_GetMillis();
-
-
-        if ((currMilli - prevMilli) >= 50) {
-
-
-
-
-            switch (nextSens) {
-                case 1:
-
-                    JSN_Sensor_Trig(&Sens1);
-
-                    printf("S3 %u", JSN_Sensor_GetDistance(&Sens3));
-
-
-                    if (numSens > 1)
-                        nextSens = 2;
-                    else
-                        nextSens = 1;
-
-                    break;
-
-                case 2:
-
-                    JSN_Sensor_Trig(&Sens2);
-
-                    printf("S1 %u", JSN_Sensor_GetDistance(&Sens1));
-
-
-                    if (numSens > 2)
-                        nextSens = 3;
-                    else
-                        nextSens = 1;
-
-                    break;
-
-                case 3:
-
-                    JSN_Sensor_Trig(&Sens3);
-
-                    printf("S2 %u", JSN_Sensor_GetDistance(&Sens2));
-
-
-                    nextSens = 1;
-
-                    break;
-            }
-
-
-            if ((Sens1.distance < 400) ||
-                    (Sens2.distance < 400) ||
-                    (Sens3.distance < 400)) {
-                WritePin(C0, 1);
-            }
-            else {
-                WritePin(C0, 0);
-            }
-
-
-            prevMilli = currMilli;
-        }
-    }
-
-    return 0;
 }
