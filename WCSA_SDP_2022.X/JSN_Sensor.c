@@ -4,9 +4,9 @@
  * Project: WCSA_SDP_2022
  * 
  * Created on January 24, 2022, 10:29 PM
- */
+ */ 
 //------------------------------------------------------------------------------
-
+// Editor: Evan Mayhew
 #include "JSN_Sensor.h"
 #include "PIC16Xpress_DevBoard.h"
 #include "FRT.h"
