@@ -1,6 +1,6 @@
 /* 
  * File:    WCSA_MainApp.c
- * Author:  
+ * Author:  Jack Lambert <joalambe@ucsc.edu> & Evan Mayhew <emayhew@ucsc.edu>
  * Project: WCSA_SDP_2022
  * 
  * Created on 02/20/2022 @2:45PM
@@ -25,15 +25,15 @@
 #define ECHO3               A2
 
 // Thresholds for timing + distance measurements
-#define SAMPLE_PERIOD       50  // Sensor reading occus every [x]ms
-#define WARNING_DISTANCE    400
+#define SAMPLE_PERIOD       40  // Sensor reading occus every [x]ms
+#define WARNING_DISTANCE    500
 
-// Modularize number of sensors currently in use (inside test harness)
-#define SINGLE_SENS_CONFIG
-// #define TRI_SENS_CONFIG
+// Modularize number of sensors currently in use
+// #define SINGLE_SENS_CONFIG
+#define TRI_SENS_CONFIG
 
 
-//--- SINGLE-SENSOR TESTING MAIN APPLICATION ---//
+//----------- SINGLE-SENSOR TESTING MAIN APPLICATION -----------//
 
 #ifdef SINGLE_SENS_CONFIG
 
@@ -56,6 +56,10 @@ int main(void) {
     currMilli = FRT_GetMillis(); // initial timer reading
     prevMilli = currMilli;
 
+    
+    //==========================================//
+    //-------------- PRIMARY LOOP --------------//
+    //==========================================//
     while (1) {
         // Continuously update free running timer (milliseconds)
         currMilli = FRT_GetMillis();
@@ -83,48 +87,47 @@ int main(void) {
 }
 #endif
 
-//--- TRI-SENSOR TESTING MAIN APPLICATION ---//
+
+//----------- TRI-SENSOR TESTING MAIN APPLICATION -----------//
 
 #ifdef TRI_SENS_CONFIG
+
 int main(void) {
     // Initialize required libraries
     PIC16_Init();
-    JSN_Sensor_Init(JSN_SensorGetPtr(1), TRIG1, ECHO1);
-    SpeakerTone_Init();
-    MotorControl_Init();
+    JSN_Sensor_Init();
+    // SpeakerTone_Init();
+    // MotorControl_Init();
     
     printf("==== WCSA_MainApp.c ====\n");
     printf("//   TRI_SENS_CONFIG   //\n");
+
+    unsigned int s1Dist = 0;
+    unsigned int s2Dist = 0;    
+    unsigned int s3Dist = 0;
     
-    uint8_t numSens = 3;
-    uint8_t S3_Dist = 0;
-    uint8_t S2_Dist = 0;
-    uint8_t S1_Dist = 0;
-    uint8_t x_pos = 0;
-    uint8_t y_pos = 0;
-    uint8_t z_pos = 0;
-    
-    switch (numSens) {
-        case 3:
-            if (JSN_Sensor_Init(JSN_SensorGetPtr(3), TRIG3, ECHO3) == ERROR)
-                while (1);
-        case 2:
-            if (JSN_Sensor_Init(JSN_SensorGetPtr(2), TRIG2, ECHO2) == ERROR)
-                while (1);
-        case 1:
-            if (JSN_Sensor_Init(JSN_SensorGetPtr(1), TRIG1, ECHO1) == ERROR)
-                while (1);
-    }
-    
-    // Initialize function variables
+    /*
+     * uint8_t xPos = 0;
+     * uint8_t yPos = 0;
+     * uint8_t zPos = 0;
+     */
+
+    // Initialize timer variables
     unsigned long currMilli = 0;
     unsigned long prevMilli = 0;
+    
+    // TRIG Sens3 first, then continue as: [1,2,3,1,2,3,...]
     uint8_t nextSens = 1;
-
-    JSN_Sensor_Trig(JSN_SensorGetPtr(3));
+    JSN_Sensor_Trig(3);
+    
+    // Current timer reading (fresh)
     currMilli = FRT_GetMillis(); // initial timer reading
     prevMilli = currMilli;
     
+    
+    //==========================================//
+    //-------------- PRIMARY LOOP --------------//
+    //==========================================//
     while (1) {
         // Continuously update free running timer (milliseconds)
         currMilli = FRT_GetMillis();
@@ -138,44 +141,33 @@ int main(void) {
             switch (nextSens) {
                 case 1:
                     // Trigger a reading from Sens1
-                    JSN_Sensor_Trig(JSN_SensorGetPtr(1));
+                    JSN_Sensor_Trig(1);
                     // print Sens3 distance on TXpin
-                    S3_Dist = JSN_Sensor_GetDistance(JSN_SensorGetPtr(3));
-                    printf("S3 %u", S3_Dist);
+                    s3Dist = JSN_Sensor_GetDistance(3);
+                    printf("S3=%u\n", s3ist);
 
-                    // Update nextSens based on numSens
-                    if (numSens > 1)
-                        nextSens = 2;
-                    else
-                        nextSens = 1;
-
+                    nextSens = 2;
                     break;
 
                 case 2:
                     // Trigger a reading from Sens2
-                    JSN_Sensor_Trig(JSN_SensorGetPtr(2));
+                    JSN_Sensor_Trig(2);
                     // print Sens1 distance on TXpin
-                    S1_Dist = JSN_Sensor_GetDistance(JSN_SensorGetPtr(1));
-                    printf("S1 %u", JSN_Sensor_GetDistance(S1_Dist));
+                    s1Dist = JSN_Sensor_GetDistance(1);
+                    printf("S1=%u\n", s1Dist);
 
-                    // Update nextSens based on numSens
-                    if (numSens > 2)
-                        nextSens = 3;
-                    else
-                        nextSens = 1;
-
+                    nextSens = 3;
                     break;
 
                 case 3:
                     // Trigger a reading from Sens3
-                    JSN_Sensor_Trig(JSN_SensorGetPtr(3));
+                    JSN_Sensor_Trig(3);
+                    
                     // print Sens2 distance on TXpin
-                    S2_Dist = JSN_Sensor_GetDistance(JSN_SensorGetPtr(2));
-                    printf("S2 %u", JSN_Sensor_GetDistance(S2_Dist));
+                    s2Dist = JSN_Sensor_GetDistance(2);
+                    printf("S2=%u\n", s2Dist);
 
-                    // Always trigger Sens1 next, after Sens3
                     nextSens = 1;
-
                     break;
             }
 
@@ -191,5 +183,10 @@ int main(void) {
     return 0;
 }
 
+//------------------------------------------------------------------------------
 
 #endif
+
+//==============================================================================
+//--------------------------------END OF FILE-----------------------------------
+//==============================================================================

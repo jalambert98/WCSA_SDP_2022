@@ -18,7 +18,7 @@
 
 #define HALF_TIMER_PERIOD   ((uint32_t)2000000) 
 
-#define SPEAKERTONE_TEST
+// #define SPEAKERTONE_TEST
 
 
 //==============================================================================

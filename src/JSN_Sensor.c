@@ -102,9 +102,7 @@ void JSN_Sensor_Trig(uint8_t sensNum) {
 
 //------------------------------------------------------------------------------
 
-unsigned int JSN_Sensor_GetDistance(uint8_t sensNum) {
-    JSN_t *sensPtr;
-    
+unsigned int JSN_Sensor_GetDistance(uint8_t sensNum) {    
     switch (sensNum) {
         case 1:
             sensPtr = &Sens1;
