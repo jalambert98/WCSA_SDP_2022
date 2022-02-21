@@ -29,8 +29,8 @@
 #define WARNING_DISTANCE    400
 
 // Modularize number of sensors currently in use (inside test harness)
-//#define SINGLE_SENS_CONFIG
-#define TRI_SENS_CONFIG
+#define SINGLE_SENS_CONFIG
+// #define TRI_SENS_CONFIG
 
 
 //--- SINGLE-SENSOR TESTING MAIN APPLICATION ---//
@@ -40,22 +40,19 @@
 int main(void) {
     // Initialize required libraries
     PIC16_Init();
-    JSN_Sensor_Init(JSN_SensorGetPtr(1), TRIG1, ECHO1);
-    SpeakerTone_Init();
-    MotorControl_Init();
-    /*
-     * If invalid trig/echoPin, JSN_Sensor_Init() will print error statement
-     * & this conditional statement will halt further program execution
-     */
-    
+    JSN_Sensor_Init();
+    SpeakerTone_Init();    
 
+    printf("==== WCSA_MainApp.c ====\n");
+    printf("// SINGLE_SENS_CONFIG //\n");
+    
     // Initialize function variables
     unsigned long currMilli = 0;
     unsigned long prevMilli = 0;
     unsigned int distance = 0;
 
     // Send initial TRIG signal so that reading is ready
-    JSN_Sensor_Trig(JSN_SensorGetPtr(1));
+    JSN_Sensor_Trig(1);
     currMilli = FRT_GetMillis(); // initial timer reading
     prevMilli = currMilli;
 
@@ -65,7 +62,8 @@ int main(void) {
 
         // Trigger a sensor reading every SAMPLE_PERIOD milliseconds
         if ((currMilli - prevMilli) >= SAMPLE_PERIOD) {
-            distance = JSN_Sensor_GetDistance(JSN_SensorGetPtr(1));
+            distance = JSN_Sensor_GetDistance(1);
+            JSN_Sensor_Trig(1);
             printf("%u", distance);
 
             // Turn on LED if any sensor sees object within MIN_DIST_LED [mm]
@@ -94,6 +92,10 @@ int main(void) {
     JSN_Sensor_Init(JSN_SensorGetPtr(1), TRIG1, ECHO1);
     SpeakerTone_Init();
     MotorControl_Init();
+    
+    printf("==== WCSA_MainApp.c ====\n");
+    printf("//   TRI_SENS_CONFIG   //\n");
+    
     uint8_t numSens = 3;
     uint8_t S3_Dist = 0;
     uint8_t S2_Dist = 0;

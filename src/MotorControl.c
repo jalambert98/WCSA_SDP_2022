@@ -26,8 +26,8 @@
 //---------------------------- STATIC VARIABLES --------------------------------
 //==============================================================================
 
-uint16_t dutyCyclePerMilli;
-uint16_t dutyCycle10bit;
+static short dutyCyclePerMilli;
+static uint16_t dutyCycle10bit;
 
 
 //==============================================================================
@@ -44,7 +44,7 @@ void MotorControl_Init(void) {
 
 //------------------------------------------------------------------------------
 
-uint8_t MotorControl_SetIntensity(uint16_t dutyCycle) {
+uint8_t MotorControl_SetIntensity(short dutyCycle) {
     
     // As long as dutyCycle is within [0, 1000]...
     if ((dutyCycle >= 0) && (dutyCycle <= MAX_DC_PERMILLI)) {

@@ -39,14 +39,12 @@ typedef struct {
 /**
  * @funct    JSN_Sensor_Init(*Sensor, trigPin, echoPin)
  * 
- * @param    JSN_t *Sensor      - A pointer to the JSN_t instance to initialize
- *           PinName_t trigPin  - Pin name to assign to TRIG pin
- *           PinName_t echoPin  - Pin name to assign to ECHO pin
+ * @param    None
  * 
- * @return   uint8_t [SUCCESS or ERROR]
+ * @return   None
  * 
- * @brief    Initializes a JSN_t struct by accepting a pointer to the sensor,
- *           clearing its echoHighTime & distance variables, setting its
+ * @brief    Initializes all JSN_t structs by:
+ *           clearing the echoHighTime & distance variables, setting the
  *           trigPin & echoPin variables, and properly initializing the pins
  *           as inputs/outputs.
  * NOTE:     echoPin MUST BE one of the following: [RA2, RA4, RC3, RC5] & 
@@ -54,13 +52,13 @@ typedef struct {
  * 
  * @author   Jack Lambert, 2022.01.25
  **/
-uint8_t JSN_Sensor_Init(JSN_t *Sensor, PinName_t trigPin, PinName_t echoPin);
+void JSN_Sensor_Init(void);
 
 //------------------------------------------------------------------------------
 /**
  * @funct    JSN_Sensor_Trig(*Sensor)
  * 
- * @param    JSN_t *Sensor  - Pointer to JSN sensor
+ * @param    uint8_t sensNum
  * 
  * @return   None
  * 
@@ -69,13 +67,13 @@ uint8_t JSN_Sensor_Init(JSN_t *Sensor, PinName_t trigPin, PinName_t echoPin);
  * 
  * @author   Jack Lambert, 2022.01.25
  **/
-void JSN_Sensor_Trig(JSN_t *Sensor);
+void JSN_Sensor_Trig(uint8_t sensNum);
 
 //------------------------------------------------------------------------------
 /**
  * @funct    GetDistance(*Sensor)
  * 
- * @param    JSN_t *Sensor  - Pointer to JSN sensor
+ * @param    uint8_t sensNum
  * 
  * @return   unsigned int dist  :  distance reading (in mm) last measured by the 
  *                                 instance of the JSN sensor
@@ -85,15 +83,11 @@ void JSN_Sensor_Trig(JSN_t *Sensor);
  * 
  * @author   Jack Lambert, 2022.01.25
  **/
-unsigned int JSN_Sensor_GetDistance(JSN_t *Sensor);
+unsigned int JSN_Sensor_GetDistance(uint8_t sensNum);
 
 //------------------------------------------------------------------------------
 
 JSN_t* JSN_GetLastTrig(void);
-
-//------------------------------------------------------------------------------
-
-JSN_t* JSN_SensorGetPtr(uint8_t sensNum);
 
 //------------------------------------------------------------------------------
 

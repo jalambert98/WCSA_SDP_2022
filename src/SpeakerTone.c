@@ -39,7 +39,7 @@ void SpeakerTone_Init(void) {
     
     // Default tone/ocCount pair corresponds to 440Hz
     currFreq = DEFAULT_TONE;
-    ocCount = DEFAULT_OCCOUNT;
+    SpeakerTone_SetFrequency(currFreq);
     
     // Default to speaker off. Must be enabled in software.
     SpeakerTone_Off();

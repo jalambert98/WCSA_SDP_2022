@@ -4,15 +4,26 @@
  * Project: WCSA_SDP_2022
  * 
  * Created on January 24, 2022, 10:29 PM
- */ 
+ */
 //------------------------------------------------------------------------------
-// Editor: Evan Mayhew
+
 #include "JSN_Sensor.h"
 #include "PIC16Xpress_DevBoard.h"
 #include "FRT.h"
 #include "tmr1.h"
 #include "ccp1.h"
 #include <stdio.h>
+
+//------------------------------------------------------------------------------
+
+#define TRIG1               C6
+#define ECHO1               C5
+
+#define TRIG2               A1
+#define ECHO2               C3
+
+#define TRIG3               B7
+#define ECHO3               A2
 
 // #define JSN_SENSOR_TEST       // toggle comment to enable/disable test harness
 
@@ -21,6 +32,7 @@
 //==============================================================================
 
 static JSN_t *lastTrig; // pointer to sensor which last sent TRIG signal
+static JSN_t *sensPtr;  // a "cursor" for the currently selected sensor
 static unsigned long micros;
 static JSN_t Sens1, Sens2, Sens3;
 
@@ -29,109 +41,99 @@ static JSN_t Sens1, Sens2, Sens3;
 //------------------------------ PUBLIC LIBRARY --------------------------------
 //==============================================================================
 
-uint8_t JSN_Sensor_Init(JSN_t *Sensor, PinName_t trigPin, PinName_t echoPin) {
-    /*
-     * Need to move JSN_Sensor_Init() calls into this function once
-     * MCU pin config is finalized
-     */
-
-    // Set echoPin as INPUT if it is one of the following: [A2,A4,C3,C5]
-    switch (echoPin) {
-        case A2:
-        case A4:
-        case C3:
-        case C5:
-            SetPin(echoPin, INPUT);
-            break;
-        default:
-            printf("ERROR: Invalid echoPin (must be [A2, A4, C3, C5])");
-            return ERROR;
-    }
-
-    // set trigPin as OUTPUT & initialize low
-    switch (trigPin) {
-        case A5:
-        case C4:
-        case C6:
-        case C7:
-        case B7:
-        case B6:
-        case B5:
-        case B4:
-        case C2:
-        case C1:
-        case C0:
-        case A1:
-        case A0:
-            SetPin(trigPin, OUTPUT);
-            WritePin(trigPin, LOW);
-            break;
-        default:
-            printf("ERROR: Invalid trigPin (must NOT be [A2, A3, A4, C3, C5])");
-            return ERROR;
-    }
-
+void JSN_Sensor_Init(void) {
     // Initialize JSN_t instance variables
-    Sensor->distance = 0;
-    Sensor->echoHighTime = 0;
-    Sensor->echoPin = echoPin;
-    Sensor->trigPin = trigPin;
+    Sens1.distance = 0;
+    Sens1.echoHighTime = 0;
+    Sens1.echoPin = ECHO1;
+    Sens1.trigPin = TRIG1;
+    SetPin(ECHO1, INPUT);
+    SetPin(TRIG1, OUTPUT);
+    WritePin(TRIG1, LOW);
 
-    lastTrig = Sensor; // default lastTrig to last initialized
+    Sens2.distance = 0;
+    Sens2.echoHighTime = 0;
+    Sens2.echoPin = ECHO2;
+    Sens2.trigPin = TRIG2;
+    SetPin(ECHO2, INPUT);
+    SetPin(TRIG2, OUTPUT);
+    WritePin(TRIG2, LOW);
 
-    return SUCCESS;
-}
+    Sens3.distance = 0;
+    Sens3.echoHighTime = 0;
+    Sens3.echoPin = ECHO3;
+    Sens3.trigPin = TRIG3;
+    SetPin(ECHO3, INPUT);
+    SetPin(TRIG3, OUTPUT);
+    WritePin(TRIG3, LOW);
 
-//------------------------------------------------------------------------------
-
-void JSN_Sensor_Trig(JSN_t *Sensor) {
-    micros = FRT_GetMicros();
-
-    // Raise TRIG pin HIGH
-    WritePin(Sensor->trigPin, HIGH);
-
-    // Block further instruction for defined TRIG pulse width duration
-    while ((FRT_GetMicros() - micros) < TRIG_PULSE_WIDTH);
-
-    // Lower TRIG pin after pulse duration elapsed
-    WritePin(Sensor->trigPin, LOW);
-
-    // Indicate that this Sensor was last to send TRIG pulse
-    lastTrig = Sensor;
+    lastTrig = &Sens3; // default lastTrig to last initialized
     return;
 }
 
 //------------------------------------------------------------------------------
 
-unsigned int JSN_Sensor_GetDistance(JSN_t *Sensor) {
+void JSN_Sensor_Trig(uint8_t sensNum) {
+    micros = FRT_GetMicros();
+
+    // Raise TRIG pin HIGH for TRIG_PULSE_WIDTH microseconds
+    switch (sensNum) {
+        case 1:
+            sensPtr = &Sens1;
+            break;
+        case 2:
+            sensPtr = &Sens2;
+            break;
+        case 3:
+            sensPtr = &Sens3;
+            break;
+        default:
+            printf("ERROR: Can only TRIG Sens[1,2,3]");
+            break;
+    }
+    
+    WritePin(sensPtr->trigPin, HIGH);
+    while ((FRT_GetMicros() - micros) < TRIG_PULSE_WIDTH);
+    WritePin(sensPtr->trigPin, LOW);
+    lastTrig = sensPtr;
+    
+    return;
+}
+
+//------------------------------------------------------------------------------
+
+unsigned int JSN_Sensor_GetDistance(uint8_t sensNum) {
+    JSN_t *sensPtr;
+    
+    switch (sensNum) {
+        case 1:
+            sensPtr = &Sens1;
+            break;
+        case 2:
+            sensPtr = &Sens2;
+            break;
+        case 3:
+            sensPtr = &Sens3;
+            break;
+        default:
+            printf("ERROR: Can only TRIG Sens[1,2,3]");
+            break;
+    }
+    
     /*
      * This type-casting looks really stupid, but it's 100% necessary,
      * so DON'T TOUCH IT!! (echoHighTime needs to be cast as a 32-bit variable)
      */
-    Sensor->distance = (unsigned int) (((uint32_t) Sensor->echoHighTime *
+
+    sensPtr->distance = (unsigned int) (((uint32_t) sensPtr->echoHighTime *
             US_WAVE_SPEED) / (MICROS_PER_MILLI << 1));
-    return Sensor->distance;
+    return sensPtr->distance;
 }
 
 //------------------------------------------------------------------------------
 
 JSN_t* JSN_GetLastTrig(void) {
     return lastTrig;
-}
-
-//------------------------------------------------------------------------------
-
-JSN_t* JSN_SensorGetPtr(uint8_t sensNum) {
-    switch(sensNum) {
-        case 1:
-            return &Sens1;
-        case 2:
-            return &Sens2;
-        case 3:
-            return &Sens3;
-        default:
-            return 0x0000;
-    }
 }
 
 
@@ -142,14 +144,7 @@ JSN_t* JSN_SensorGetPtr(uint8_t sensNum) {
 #ifdef JSN_SENSOR_TEST
 
 // DevBoard pin designators for test harness execution
-#define TRIG1               C6
-#define ECHO1               C5
 
-#define TRIG2               A1
-#define ECHO2               C3
-
-#define TRIG3               B7
-#define ECHO3               A2
 
 // Thresholds for timing + distance measurements
 #define SAMPLE_PERIOD       50  // Sensor reading occus every [x]ms
@@ -159,11 +154,15 @@ JSN_t* JSN_SensorGetPtr(uint8_t sensNum) {
 #define NUM_SENSORS         3
 
 //--- SENSOR TESTING MAIN APPLICATION ---//
+
 int main(void) {
     // Initialize required libraries
     PIC16_Init();
     uint8_t numSens = NUM_SENSORS;
 
+    printf("==== WCSA_MainApp.c ====\n");
+    printf("// JSN_SENSOR_TEST: %d //\n", numSens);
+    
     /*
      * If invalid trig/echoPin, JSN_Sensor_Init() will print error statement
      * & this conditional statement will halt further program execution
@@ -251,8 +250,7 @@ int main(void) {
                     (Sens2.distance < MIN_DIST_LED) ||
                     (Sens3.distance < MIN_DIST_LED)) {
                 WritePin(C0, HIGH);
-            }
-            else {
+            } else {
                 WritePin(C0, LOW);
             }
 
