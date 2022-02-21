@@ -994,8 +994,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;JSN_Sensor.c: 132:         default:
 [e :U 1016 ]
 "133
-[; ;JSN_Sensor.c: 133:             return 0xFF;
-[e ) -> -> 255 `i `*S979 ]
+[; ;JSN_Sensor.c: 133:             return 0x0000;
+[e ) -> -> 0 `i `*S979 ]
 [e $UE 1010  ]
 "134
 [; ;JSN_Sensor.c: 134:     }

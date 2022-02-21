@@ -46,7 +46,7 @@ void MotorControl_Init(void) {
 
 uint8_t MotorControl_SetIntensity(uint16_t dutyCycle) {
     
-    // As long as dutyCycle is within [0, 100]%...
+    // As long as dutyCycle is within [0, 1000]...
     if ((dutyCycle >= 0) && (dutyCycle <= MAX_DC_PERMILLI)) {
         
         // Store user-assigned dutyCycle [%]

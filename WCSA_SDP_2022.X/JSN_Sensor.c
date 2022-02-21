@@ -130,7 +130,7 @@ JSN_t* JSN_SensorGetPtr(uint8_t sensNum) {
         case 3:
             return &Sens3;
         default:
-            return ERROR;
+            return 0x0000;
     }
 }
 

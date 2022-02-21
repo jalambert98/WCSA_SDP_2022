@@ -263,11 +263,11 @@ B6 17
 "28 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X/JSN_Sensor.h
 [s S41 . 6 `ui 1 echoHighTime 2 0 `ui 1 distance 2 2 `E7144 1 trigPin 1 4 `E7144 1 echoPin 1 5 ]
 "118 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\JSN_Sensor.c
-[v _JSN_GetLastTrig JSN_GetLastTrig `(*.39S41  1 e 1 0 ]
+[v _JSN_GetLastTrig JSN_GetLastTrig `(*.5S41  1 e 1 0 ]
 "28 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X/JSN_Sensor.h
 [s S41 . 6 `ui 1 echoHighTime 2 0 `ui 1 distance 2 2 `E7144 1 trigPin 1 4 `E7144 1 echoPin 1 5 ]
 "124 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\JSN_Sensor.c
-[v _JSN_SensorGetPtr JSN_SensorGetPtr `(*.39S41  1 e 1 0 ]
+[v _JSN_SensorGetPtr JSN_SensorGetPtr `(*.5S41  1 e 1 0 ]
 "15 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
 "34
@@ -871,21 +871,21 @@ B6 17
 [v _ticksDown ticksDown `us  1 s 2 ticksDown ]
 [s S41 . 6 `ui 1 echoHighTime 2 0 `ui 1 distance 2 2 `E7144 1 trigPin 1 4 `E7144 1 echoPin 1 5 ]
 "23
-[v _lastTrig@ccp1$F716 lastTrig `*.39S41  1 s 2 lastTrig ]
+[v _lastTrig@ccp1$F716 lastTrig `*.5S41  1 s 1 lastTrig ]
 "20 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\ccp2.c
 [v _CCP2_CallBack CCP2_CallBack `*.37(v  1 s 2 CCP2_CallBack ]
 "21
 [v _ticksUp@ccp2$F855 ticksUp `us  1 s 2 ticksUp ]
 [v _ticksDown@ccp2$F856 ticksDown `us  1 s 2 ticksDown ]
 "23
-[v _lastTrig@ccp2$F858 lastTrig `*.39S41  1 s 2 lastTrig ]
+[v _lastTrig@ccp2$F858 lastTrig `*.5S41  1 s 1 lastTrig ]
 "20 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\ccp3.c
 [v _CCP3_CallBack CCP3_CallBack `*.37(v  1 s 2 CCP3_CallBack ]
 "21
 [v _ticksUp@ccp3$F976 ticksUp `us  1 s 2 ticksUp ]
 [v _ticksDown@ccp3$F977 ticksDown `us  1 s 2 ticksDown ]
 "23
-[v _lastTrig@ccp3$F979 lastTrig `*.39S41  1 s 2 lastTrig ]
+[v _lastTrig@ccp3$F979 lastTrig `*.5S41  1 s 1 lastTrig ]
 "18 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\eusart.c
 [v _eusartTxHead eusartTxHead `VEuc  1 e 1 0 ]
 "19
@@ -927,7 +927,7 @@ B6 17
 "20
 [v _micros@FRT$F1518 micros `ul  1 s 4 micros ]
 "23 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\JSN_Sensor.c
-[v _lastTrig lastTrig `*.39S41  1 s 2 lastTrig ]
+[v _lastTrig lastTrig `*.5S41  1 s 1 lastTrig ]
 "24
 [v _micros micros `ul  1 s 4 micros ]
 "25
@@ -953,11 +953,11 @@ B6 17
 [v _main main `(i  1 e 2 0 ]
 {
 "53
-[v main@currMilli currMilli `ul  1 a 4 18 ]
+[v main@currMilli currMilli `ul  1 a 4 17 ]
 "54
-[v main@prevMilli prevMilli `ul  1 a 4 12 ]
+[v main@prevMilli prevMilli `ul  1 a 4 11 ]
 "55
-[v main@distance distance `ui  1 a 2 16 ]
+[v main@distance distance `ui  1 a 2 15 ]
 "85
 } 0
 "35 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\SpeakerTone.c
@@ -1148,7 +1148,9 @@ B6 17
 [v _JSN_Sensor_Trig JSN_Sensor_Trig `(v  1 e 1 0 ]
 {
 [s S41 . 6 `ui 1 echoHighTime 2 0 `ui 1 distance 2 2 `E7144 1 trigPin 1 4 `E7144 1 echoPin 1 5 ]
-[v JSN_Sensor_Trig@Sensor Sensor `*.39S41  1 p 2 24 ]
+[v JSN_Sensor_Trig@Sensor Sensor `*.5S41  1 a 1 wreg ]
+[v JSN_Sensor_Trig@Sensor Sensor `*.5S41  1 a 1 wreg ]
+[v JSN_Sensor_Trig@Sensor Sensor `*.5S41  1 a 1 28 ]
 "102
 } 0
 "32 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\FRT.c
@@ -1182,9 +1184,11 @@ B6 17
 [v _JSN_Sensor_Init JSN_Sensor_Init `(uc  1 e 1 0 ]
 {
 [s S41 . 6 `ui 1 echoHighTime 2 0 `ui 1 distance 2 2 `E7144 1 trigPin 1 4 `E7144 1 echoPin 1 5 ]
-[v JSN_Sensor_Init@Sensor Sensor `*.39S41  1 p 2 2 ]
-[v JSN_Sensor_Init@trigPin trigPin `E7144  1 p 1 4 ]
-[v JSN_Sensor_Init@echoPin echoPin `E7144  1 p 1 5 ]
+[v JSN_Sensor_Init@Sensor Sensor `*.5S41  1 a 1 wreg ]
+[v JSN_Sensor_Init@Sensor Sensor `*.5S41  1 a 1 wreg ]
+[v JSN_Sensor_Init@trigPin trigPin `E7144  1 p 1 2 ]
+[v JSN_Sensor_Init@echoPin echoPin `E7144  1 p 1 3 ]
+[v JSN_Sensor_Init@Sensor Sensor `*.5S41  1 a 1 6 ]
 "83
 } 0
 "5 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\printf.c
@@ -1199,40 +1203,40 @@ B6 17
 "1390 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\doprnt.c
 [v _vfprintf vfprintf `(i  1 e 2 0 ]
 {
-[s S2435 _IO_FILE 0 ]
-[v vfprintf@fp fp `*.1S2435  1 a 1 wreg ]
+[s S2434 _IO_FILE 0 ]
+[v vfprintf@fp fp `*.1S2434  1 a 1 wreg ]
 "1393
 [v vfprintf@cfmt cfmt `*.25uc  1 a 2 74 ]
 "1390
-[v vfprintf@fp fp `*.1S2435  1 a 1 wreg ]
+[v vfprintf@fp fp `*.1S2434  1 a 1 wreg ]
 [v vfprintf@fmt fmt `*.25DCuc  1 p 2 68 ]
 [v vfprintf@ap ap `*.4*.4v  1 p 1 70 ]
 "1395
 "1390
-[v vfprintf@fp fp `*.1S2435  1 a 1 73 ]
+[v vfprintf@fp fp `*.1S2434  1 a 1 73 ]
 "1404
 } 0
 "692
 [v _vfpfcnvrt vfpfcnvrt `(i  1 s 2 vfpfcnvrt ]
 {
-[s S2435 _IO_FILE 0 ]
-[v vfpfcnvrt@fp fp `*.1S2435  1 a 1 wreg ]
+[s S2434 _IO_FILE 0 ]
+[v vfpfcnvrt@fp fp `*.1S2434  1 a 1 wreg ]
 "697
 [v vfpfcnvrt@llu llu `uo  1 a 8 59 ]
 "692
-[v vfpfcnvrt@fp fp `*.1S2435  1 a 1 wreg ]
+[v vfpfcnvrt@fp fp `*.1S2434  1 a 1 wreg ]
 [v vfpfcnvrt@fmt fmt `*.4*.25uc  1 p 1 52 ]
 [v vfpfcnvrt@ap ap `*.4*.4v  1 p 1 53 ]
 "702
 "692
-[v vfpfcnvrt@fp fp `*.1S2435  1 a 1 67 ]
+[v vfpfcnvrt@fp fp `*.1S2434  1 a 1 67 ]
 "1387
 } 0
 "615
 [v _utoa utoa `(i  1 s 2 utoa ]
 {
-[s S2435 _IO_FILE 0 ]
-[v utoa@fp fp `*.1S2435  1 a 1 wreg ]
+[s S2434 _IO_FILE 0 ]
+[v utoa@fp fp `*.1S2434  1 a 1 wreg ]
 "618
 [v utoa@n n `uo  1 a 8 42 ]
 "617
@@ -1240,28 +1244,28 @@ B6 17
 [v utoa@w w `i  1 a 2 40 ]
 [v utoa@p p `i  1 a 2 37 ]
 "615
-[v utoa@fp fp `*.1S2435  1 a 1 wreg ]
+[v utoa@fp fp `*.1S2434  1 a 1 wreg ]
 [v utoa@d d `uo  1 p 8 28 ]
 "621
 "615
-[v utoa@fp fp `*.1S2435  1 a 1 39 ]
+[v utoa@fp fp `*.1S2434  1 a 1 39 ]
 "641
 } 0
 "72
 [v _pad pad `(i  1 s 2 pad ]
 {
-[s S2435 _IO_FILE 0 ]
-[v pad@fp fp `*.1S2435  1 a 1 wreg ]
+[s S2434 _IO_FILE 0 ]
+[v pad@fp fp `*.1S2434  1 a 1 wreg ]
 "74
 [v pad@w w `i  1 a 2 25 ]
 [v pad@i i `i  1 a 2 23 ]
 "72
-[v pad@fp fp `*.1S2435  1 a 1 wreg ]
+[v pad@fp fp `*.1S2434  1 a 1 wreg ]
 [v pad@buf buf `*.5uc  1 p 1 19 ]
 [v pad@p p `i  1 p 2 20 ]
 "77
 "72
-[v pad@fp fp `*.1S2435  1 a 1 27 ]
+[v pad@fp fp `*.1S2434  1 a 1 27 ]
 "95
 } 0
 "5 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\strlen.c
@@ -1363,7 +1367,11 @@ B6 17
 [v _JSN_Sensor_GetDistance JSN_Sensor_GetDistance `(ui  1 e 2 0 ]
 {
 [s S41 . 6 `ui 1 echoHighTime 2 0 `ui 1 distance 2 2 `E7144 1 trigPin 1 4 `E7144 1 echoPin 1 5 ]
-[v JSN_Sensor_GetDistance@Sensor Sensor `*.39S41  1 p 2 26 ]
+[v JSN_Sensor_GetDistance@Sensor Sensor `*.5S41  1 a 1 wreg ]
+[v JSN_Sensor_GetDistance@Sensor Sensor `*.5S41  1 a 1 wreg ]
+"111
+"106
+[v JSN_Sensor_GetDistance@Sensor Sensor `*.5S41  1 a 1 30 ]
 "114
 } 0
 "15 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\Umul32.c
@@ -1391,7 +1399,7 @@ B6 17
 "28 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X/JSN_Sensor.h
 [s S41 . 6 `ui 1 echoHighTime 2 0 `ui 1 distance 2 2 `E7144 1 trigPin 1 4 `E7144 1 echoPin 1 5 ]
 "124 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\JSN_Sensor.c
-[v _JSN_SensorGetPtr JSN_SensorGetPtr `(*.39S41  1 e 1 0 ]
+[v _JSN_SensorGetPtr JSN_SensorGetPtr `(*.5S41  1 e 1 0 ]
 {
 [v JSN_SensorGetPtr@sensNum sensNum `uc  1 a 1 wreg ]
 [v JSN_SensorGetPtr@sensNum sensNum `uc  1 a 1 wreg ]
@@ -1548,7 +1556,7 @@ B6 17
 "28 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X/JSN_Sensor.h
 [s S41 . 6 `ui 1 echoHighTime 2 0 `ui 1 distance 2 2 `E7144 1 trigPin 1 4 `E7144 1 echoPin 1 5 ]
 "118 C:\Users\Jack\MPLABXProjects\WCSA_SDP_2022\WCSA_SDP_2022.X\JSN_Sensor.c
-[v _JSN_GetLastTrig JSN_GetLastTrig `(*.39S41  1 e 1 0 ]
+[v _JSN_GetLastTrig JSN_GetLastTrig `(*.5S41  1 e 1 0 ]
 {
 "120
 } 0
