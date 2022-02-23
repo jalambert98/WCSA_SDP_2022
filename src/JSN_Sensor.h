@@ -20,6 +20,8 @@
 #define TRIG_PULSE_WIDTH    11      // > 10us minimum pulse width
 #define MICROS_PER_MILLI    1000
 
+#define SINGLE_SENS_CONFIG  0
+#define TRI_SENS_CONFIG     1
 
 //==============================================================================
 //-------------------------------- TYPEDEFS ------------------------------------
@@ -39,7 +41,7 @@ typedef struct {
 /**
  * @funct    JSN_Sensor_Init(*Sensor, trigPin, echoPin)
  * 
- * @param    None
+ * @param    uint8_t sensConfig: SINGLE_SENS_CONFIG or TRI_SENS_CONFIG
  * 
  * @return   None
  * 
@@ -52,7 +54,7 @@ typedef struct {
  * 
  * @author   Jack Lambert, 2022.01.25
  **/
-void JSN_Sensor_Init(void);
+void JSN_Sensor_Init(uint8_t sensConfig);
 
 //------------------------------------------------------------------------------
 /**

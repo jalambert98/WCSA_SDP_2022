@@ -25,22 +25,22 @@
 #define ECHO3               A2
 
 // Thresholds for timing + distance measurements
-#define SAMPLE_PERIOD       40  // Sensor reading occus every [x]ms
-#define WARNING_DISTANCE    500
+#define SAMPLE_PERIOD       50  // Sensor reading occus every [x]ms
+#define WARNING_DISTANCE    400
 
 // Modularize number of sensors currently in use
-// #define SINGLE_SENS_CONFIG
-#define TRI_SENS_CONFIG
+#define SINGLE_SENS_TEST
+// #define TRI_SENS_TEST
 
 
 //----------- SINGLE-SENSOR TESTING MAIN APPLICATION -----------//
 
-#ifdef SINGLE_SENS_CONFIG
+#ifdef SINGLE_SENS_TEST
 
 int main(void) {
     // Initialize required libraries
     PIC16_Init();
-    JSN_Sensor_Init();
+    JSN_Sensor_Init(SINGLE_SENS_CONFIG);
     SpeakerTone_Init();    
 
     printf("==== WCSA_MainApp.c ====\n");
@@ -68,7 +68,7 @@ int main(void) {
         if ((currMilli - prevMilli) >= SAMPLE_PERIOD) {
             distance = JSN_Sensor_GetDistance(1);
             JSN_Sensor_Trig(1);
-            printf("%u", distance);
+            printf("%u\n", distance);
 
             // Turn on LED if any sensor sees object within MIN_DIST_LED [mm]
             if (distance < WARNING_DISTANCE) {
@@ -90,12 +90,12 @@ int main(void) {
 
 //----------- TRI-SENSOR TESTING MAIN APPLICATION -----------//
 
-#ifdef TRI_SENS_CONFIG
+#ifdef TRI_SENS_TEST
 
 int main(void) {
     // Initialize required libraries
     PIC16_Init();
-    JSN_Sensor_Init();
+    JSN_Sensor_Init(TRI_SENS_CONFIG);
     // SpeakerTone_Init();
     // MotorControl_Init();
     
@@ -144,7 +144,7 @@ int main(void) {
                     JSN_Sensor_Trig(1);
                     // print Sens3 distance on TXpin
                     s3Dist = JSN_Sensor_GetDistance(3);
-                    printf("S3=%u\n", s3ist);
+                    printf("S3=%u\n", s3Dist);
 
                     nextSens = 2;
                     break;
