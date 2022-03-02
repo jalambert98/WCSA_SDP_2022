@@ -26,7 +26,8 @@
 
 // Thresholds for timing + distance measurements
 #define SAMPLE_PERIOD       50  // Sensor reading occus every [x]ms
-#define WARNING_DISTANCE    400
+#define WARNING_DISTANCE    1500
+#define MIN_FEEDBACK_TIME   500
 
 // Modularize number of sensors currently in use
 #define SINGLE_SENS_TEST
@@ -50,6 +51,7 @@ int main(void) {
     unsigned long currMilli = 0;
     unsigned long prevMilli = 0;
     unsigned int distance = 0;
+    unsigned long speakerOnTime = 0;
 
     // Send initial TRIG signal so that reading is ready
     JSN_Sensor_Trig(1);
@@ -73,8 +75,13 @@ int main(void) {
             // Turn on LED if any sensor sees object within MIN_DIST_LED [mm]
             if (distance < WARNING_DISTANCE) {
                 SpeakerTone_On();
+                speakerOnTime = currMilli;
             }
-            else {
+            /*
+             * This part isn't working yet!! (Speaker should always remain on
+             * for at least MIN_FEEDBACK_TIME, but for some reason it doesn't??)
+             */
+            else if ((currMilli - speakerOnTime) > MIN_FEEDBACK_TIME) {
                 SpeakerTone_Off();
             }
 
