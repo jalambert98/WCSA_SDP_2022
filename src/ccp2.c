@@ -3,6 +3,9 @@
  * Author:  Jack Lambert     <joalambe@ucsc.edu>
  * Project: WCSA_SDP_2022
  *
+ * NOTE: Generated originally by Microchip Code Configurator (MCC) and then
+ *       further modified by Jack Lambert
+ * 
  * Created on January 26, 2022, 12:20 PM
  */
 //------------------------------------------------------------------------------
@@ -29,7 +32,7 @@ static JSN_t *lastTrig;
 static void CCP2_DefaultCallBack(uint16_t capturedValue)
 {
     lastTrig = JSN_GetLastTrig();
-    switch(ReadPin(lastTrig->echoPin)) {
+    switch(PIC16_ReadPin(lastTrig->echoPin)) {
         // If pin RC5 is high on this ISR, store ticks
         case HIGH:
             ticksUp = capturedValue;
@@ -48,7 +51,7 @@ static void CCP2_DefaultCallBack(uint16_t capturedValue)
 
 void CCP2_Initialize(void)
 {	
-	// CCP2MODE Every edge; CCP2EN enabled; CCP2FMT right_aligned; 
+    // CCP2MODE Every edge; CCP2EN enabled; CCP2FMT right_aligned; 
 	CCP2CON = 0x83;    
 	
 	// CCP2CTS0 CCP2 pin; 

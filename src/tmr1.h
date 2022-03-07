@@ -135,24 +135,6 @@ void TMR1_WriteTimer(uint16_t timerVal);
 */
 void TMR1_Reload(void);
 
-//------------------------------------------------------------------------------
-/**
-  @Summary
-    Timer Interrupt Service Routine
-
-  @Description
-    Timer Interrupt Service Routine is called by the Interrupt Manager.
-
-  @Preconditions
-    Initialize  the TMR1 module with interrupt before calling this ISR.
-
-  @Param
-    None
-
-  @Returns
-    None
-*/
-void TMR1_ISR(void);
 
 //------------------------------------------------------------------------------
 

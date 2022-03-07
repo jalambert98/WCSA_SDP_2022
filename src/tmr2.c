@@ -3,6 +3,9 @@
  * Author:  Jack Lambert     <joalambe@ucsc.edu>
  * Project: WCSA_SDP_2022
  *
+ * NOTE: Generated originally by Microchip Code Configurator (MCC) and then
+ *       further modified by Jack Lambert
+ * 
  * Created on February 8, 2022, 2:15 PM
  */
 //------------------------------------------------------------------------------
@@ -26,7 +29,7 @@ void TMR2_Initialize(void)
     PIR1bits.TMR2IF = 0;
 
     // T2CKPS 1:16; T2OUTPS 1:1; TMR2ON off; 
-    T2CON = 0x04;
+    T2CON = 0x02;
 }
 
 //------------------------------------------------------------------------------

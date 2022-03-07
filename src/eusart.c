@@ -3,6 +3,9 @@
  * Author:  Jack Lambert     <joalambe@ucsc.edu>
  * Project: WCSA_SDP_2022
  *
+ * NOTE: Generated originally by Microchip Code Configurator (MCC) and then
+ *       further modified by Jack Lambert
+ * 
  * Created on January 27, 2022, 6:09 PM
  */
 //------------------------------------------------------------------------------

@@ -141,65 +141,6 @@ void TMR3_StartSinglePulseAcquisition(void);
  */
 uint8_t TMR3_CheckGateValueStatus(void);
 
-//------------------------------------------------------------------------------
-/**
-  @Summary
-    Timer Interrupt Service Routine
-  @Description
-    Timer Interrupt Service Routine is called by the Interrupt Manager.
-  @Preconditions
-    Initialize  the TMR3 module with interrupt before calling this ISR.
-  @Param
-    None
-  @Returns
-    None
- */
-void TMR3_ISR(void);
-
-//------------------------------------------------------------------------------
-/**
-  @Summary
-    Set Timer Interrupt Handler
-  @Description
-    This sets the function to be called during the ISR
-  @Preconditions
-    Initialize  the TMR3 module with interrupt before calling this.
-  @Param
-    Address of function to be set
-  @Returns
-    None
- */
-void TMR3_SetInterruptHandler(void (* InterruptHandler)(void));
-
-//------------------------------------------------------------------------------
-/**
-  @Summary
-    Timer Interrupt Handler
-  @Description
-    This is a function pointer to the function that will be called during the ISR
-  @Preconditions
-    Initialize  the TMR3 module with interrupt before calling this isr.
-  @Param
-    None
-  @Returns
-    None
- */
-extern void (*TMR3_InterruptHandler)(void);
-
-//------------------------------------------------------------------------------
-/**
-  @Summary
-    Default Timer Interrupt Handler
-  @Description
-    This is the default Interrupt Handler function
-  @Preconditions
-    Initialize  the TMR3 module with interrupt before calling this isr.
-  @Param
-    None
-  @Returns
-    None
- */
-void TMR3_DefaultInterruptHandler(void);
 
 //------------------------------------------------------------------------------
 

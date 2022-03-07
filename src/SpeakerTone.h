@@ -42,7 +42,7 @@
  * @funct   SpeakerTone_Init(speakerPin)
  * @param   None
  * @return  None
- * @brief   Initializes the SpeakerTone pin (C1) to 440Hz (tone disabled)
+ * @brief   Initializes the SpeakerTone pin [RA4] to 440Hz (tone disabled)
  * @author  Jack Lambert, 2022.02.07 */
 void SpeakerTone_Init(void);
 

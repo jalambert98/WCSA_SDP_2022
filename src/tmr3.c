@@ -3,6 +3,9 @@
  * Author:  Jack Lambert     <joalambe@ucsc.edu>
  * Project: WCSA_SDP_2022
  *
+ * NOTE: Generated originally by Microchip Code Configurator (MCC) and then
+ *       further modified by Jack Lambert
+ * 
  * Created on February 8, 2022, 2:15 PM
  */
 //------------------------------------------------------------------------------
@@ -27,20 +30,17 @@ void TMR3_Initialize(void)
     //T3GSS T3G_pin; TMR3GE disabled; T3GTM disabled; T3GPOL low; T3GGO_nDONE done; T3GSPM disabled; 
     T3GCON = 0x00;
 
-    //TMR3H 6; 
+    //TMR3H 0; 
     TMR3H = 0x00;
 
     //TMR3L 0; 
     TMR3L = 0x00;
 
-    // Clearing IF flag before enabling the interrupt.
+    // Clearing IF flag.
     PIR3bits.TMR3IF = 0;
-
+	
     // Load the TMR value to reload variable
-    timer3ReloadVal = 0x0000;
-
-    // Enabling TMR3 interrupt.
-    PIE3bits.TMR3IE = 1;
+    timer3ReloadVal=(uint16_t)((TMR3H << 8) | TMR3L);
 
     // T3CKPS 1:1; T3SOSC T3CKI_enabled; T3SYNC synchronize; TMR3CS FOSC/4; TMR3ON disabled; 
     T3CON = 0x00;
@@ -124,14 +124,6 @@ uint8_t TMR3_CheckGateValueStatus(void)
     return (T3GCONbits.T3GVAL);
 }
 
-//------------------------------------------------------------------------------
-
-void TMR3_ISR(void)
-{
-    // Clear the TMR3 interrupt flag
-    PIR3bits.TMR3IF = 0;
-    TMR3_Reload();
-}
 
 //------------------------------------------------------------------------------
 /**

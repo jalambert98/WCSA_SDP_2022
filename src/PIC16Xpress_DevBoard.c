@@ -13,32 +13,16 @@
 //------------------------------ PUBLIC LIBRARY --------------------------------
 //==============================================================================
 
-void PIC16_Init(void) {
-    // Manually disable all peripheral interrupts
-    PIE0 = 0x00;
-    PIE1 = 0x00;
-    PIE2 = 0x00;
-    PIE3 = 0x00;
-    PIE4 = 0x00;
+uint8_t PIC16_SetPin(PinName_t pin, uint8_t io) {
+    // 
+    switch(io) {
+        case INPUT:
+        case OUTPUT:
+            break;
+        default:
+            return ERROR;
+    }
     
-    // Manually clear any existing interrupt flags
-    PIR0 = 0x00;
-    PIR1 = 0x00;
-    PIR2 = 0x00;
-    PIR3 = 0x00;
-    PIR4 = 0x00;
-    
-    // Initialize CPU clk + Peripherals
-    SYSTEM_Initialize();
-    
-    // Enable global + peripheral interrupts
-    INTERRUPT_PeripheralInterruptEnable();
-    INTERRUPT_GlobalInterruptEnable();
-}
-
-//------------------------------------------------------------------------------
-
-uint8_t SetPin(PinName_t pin, uint8_t io) {
     switch(pin) {
         case A5:
             SET_A5() = io;
@@ -100,7 +84,7 @@ uint8_t SetPin(PinName_t pin, uint8_t io) {
 
 //------------------------------------------------------------------------------
 
-uint8_t ReadPin(PinName_t pin) {
+uint8_t PIC16_ReadPin(PinName_t pin) {
     switch(pin) {
         case A5:
             return READ_A5();
@@ -145,7 +129,15 @@ uint8_t ReadPin(PinName_t pin) {
 
 //------------------------------------------------------------------------------
 
-uint8_t WritePin(PinName_t pin, uint8_t val) {
+uint8_t PIC16_WritePin(PinName_t pin, uint8_t val) {
+    switch(val) {
+        case HIGH:
+        case LOW:
+            break;
+        default:
+            return ERROR;
+    }
+    
     switch(pin) {
         case A5:
             WRITE_A5() = val;

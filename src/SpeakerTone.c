@@ -6,6 +6,7 @@
  * Created on February 7, 2022, 9:30 PM
  */
 //------------------------------------------------------------------------------
+// Speaker Output Pin = [RA4]
 
 #include "PIC16Xpress_DevBoard.h"
 #include "SpeakerTone.h"
@@ -25,7 +26,8 @@
 //---------------------------- STATIC VARIABLES --------------------------------
 //==============================================================================
 
-uint16_t currFreq, ocCount;
+static uint16_t currFreq, ocCount;
+static uint8_t speakerOn;
 
 
 //==============================================================================
@@ -33,36 +35,44 @@ uint16_t currFreq, ocCount;
 //==============================================================================
 
 void SpeakerTone_Init(void) {
-    // speakerTone pin is OUTPUT (init LOW)
-    SetPin(C1, OUTPUT);
-    WritePin(C1, LOW);
+    // Initialize required libraries
+    TMR3_Initialize();
+    CCP4_Initialize();
     
+    // speakerTone pin is OUTPUT (init LOW)
+    PIC16_SetPin(A4, OUTPUT);
+    PIC16_WritePin(A4, LOW);
+
     // Default tone/ocCount pair corresponds to 440Hz
     currFreq = DEFAULT_TONE;
     SpeakerTone_SetFrequency(currFreq);
-    
+
     // Default to speaker off. Must be enabled in software.
+    speakerOn = FALSE;
     SpeakerTone_Off();
 }
 
 //------------------------------------------------------------------------------
 
 uint8_t SpeakerTone_SetFrequency(uint16_t newFrequency) {
-    if((newFrequency < MIN_FREQ)||(newFrequency > MAX_FREQ))
+    if ((newFrequency < MIN_FREQ) || (newFrequency > MAX_FREQ)) {
         return ERROR;
-    else {
+    } else {
         // Disable speaker before changing freq during operation
         SpeakerTone_Off();
-        
+
         // Store user-assigned frequency & calculate required ocCount
         currFreq = newFrequency;
-        ocCount = (uint16_t)(HALF_TIMER_PERIOD/newFrequency);
-        
+        ocCount = (uint16_t) (HALF_TIMER_PERIOD / newFrequency);
+
         // Update output compare match value
         CCP4_SetCompareCount(ocCount);
-        
-        // Enable speaker tone after freq properly updated
-        SpeakerTone_On();
+
+        if (speakerOn == TRUE) {
+            /*   Re-enable speaker tone if it was   */
+            /*   already ON before function-call    */
+            SpeakerTone_On();
+        }
         return SUCCESS;
     }
 }
@@ -70,21 +80,23 @@ uint8_t SpeakerTone_SetFrequency(uint16_t newFrequency) {
 //------------------------------------------------------------------------------
 
 uint16_t SpeakerTone_GetFrequency(void) {
-    return currFreq;  // return frequency last assigned by user (440Hz if N/A)
+    return currFreq; // return frequency last assigned by user (440Hz if N/A)
 }
 
 //------------------------------------------------------------------------------
 
 void SpeakerTone_Off(void) {
-    TMR3_StopTimer();   // pause TMR3 ticks
-    TMR3_Reload();      // clear TMR3 register
+    speakerOn = FALSE;
+    TMR3_StopTimer(); // pause TMR3 ticks
+    TMR3_Reload(); // clear TMR3 register
     return;
 }
 
 //------------------------------------------------------------------------------
 
 void SpeakerTone_On(void) {
-    TMR3_StartTimer();  // resume TMR3 ticks
+    speakerOn = TRUE;
+    TMR3_StartTimer(); // resume TMR3 ticks
     return;
 }
 
@@ -97,28 +109,27 @@ void SpeakerTone_On(void) {
 
 #include "FRT.h"
 
-#define FREQ_CHANGE_RATE    200000  // change speakerTone freq every 100ms
+#define FREQ_CHANGE_RATE    200000  // change speakerTone freq every 200ms
 
 int main(void) {
     // Init required libraries
-    PIC16_Init();
-    SpeakerTone_Init(); // speakerTone pinRC1
-    
+    PIC16_Init(LIDAR_CONFIG);
+    SpeakerTone_Init(); // speakerTone pinRA4
     unsigned long currMicro = FRT_GetMicros();
     unsigned long prevMicro = currMicro;
     uint8_t i = 0;
-
+    
     /* Plays back Windows theme 
      * (C->C->F->G) : (changes pitch every 200ms) */
-    while(1) {
+    while (1) {
         currMicro = FRT_GetMicros();
-        if((currMicro - prevMicro) >= (unsigned long)FREQ_CHANGE_RATE) {
-            switch(i) {
+        if ((currMicro - prevMicro) >= (unsigned long) FREQ_CHANGE_RATE) {        
+            switch (i) {    
                 case 0:
                     SpeakerTone_SetFrequency(TONE_C4);
                     SpeakerTone_On();
                     i = 1;
-                    break;
+                    break;   
                 case 1:
                     SpeakerTone_SetFrequency(TONE_C5);
                     i = 2;
@@ -133,7 +144,7 @@ int main(void) {
                     break;
                 case 4:
                     SpeakerTone_Off();
-                    while((currMicro + 1000000) > FRT_GetMicros());
+                    while ((currMicro + 1000000) > FRT_GetMicros());
                     i = 0;
             }
             prevMicro = currMicro;

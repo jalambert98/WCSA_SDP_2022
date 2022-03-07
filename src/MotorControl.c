@@ -5,6 +5,7 @@
  * Created on February 8, 2022, 12:25 AM
  */
 //------------------------------------------------------------------------------
+// [PWM5] output --> Pin[RB6]
 
 #include "MotorControl.h"
 #include "tmr2.h"
@@ -26,7 +27,7 @@
 //---------------------------- STATIC VARIABLES --------------------------------
 //==============================================================================
 
-static short dutyCyclePerMilli;
+static uint16_t dutyCyclePerMilli;
 static uint16_t dutyCycle10bit;
 
 
@@ -35,6 +36,10 @@ static uint16_t dutyCycle10bit;
 //==============================================================================
 
 void MotorControl_Init(void) {  
+    // Initialize required libraries
+    TMR2_Initialize();
+    PWM5_Initialize();
+    
     // Initialize to 50% duty cycle (TMR/PWM disabled)
     dutyCyclePerMilli = HALF_DC_PERMILLI;
     dutyCycle10bit = HALF_DC_10BIT; 
@@ -44,10 +49,10 @@ void MotorControl_Init(void) {
 
 //------------------------------------------------------------------------------
 
-uint8_t MotorControl_SetIntensity(short dutyCycle) {
+uint8_t MotorControl_SetIntensity(uint16_t dutyCycle) {
     
     // As long as dutyCycle is within [0, 1000]...
-    if ((dutyCycle >= 0) && (dutyCycle <= MAX_DC_PERMILLI)) {
+    if (dutyCycle <= MAX_DC_PERMILLI) {
         
         // Store user-assigned dutyCycle [%]
         dutyCyclePerMilli = dutyCycle;
@@ -93,7 +98,7 @@ void MotorControl_Off(void) {
 
 int main(void) {
     // Init required libraries
-    PIC16_Init();
+    PIC16_Init(LIDAR_CONFIG);
     MotorControl_Init();    // motorControl pin[RB6]
     
     // Init to 0% duty cycle & enable motor output

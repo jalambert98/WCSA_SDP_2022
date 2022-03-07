@@ -30,9 +30,21 @@
 #define MIN_FEEDBACK_TIME   500
 
 // Modularize number of sensors currently in use
-#define SINGLE_SENS_TEST
+// #define SINGLE_SENS_TEST
 // #define TRI_SENS_TEST
 
+// #define DEBUG_RANDOM_TEST
+
+//--------------------------------------------------------------//
+#ifdef DEBUG_RANDOM_TEST
+
+int main(void) {
+    PIC16_Init();
+    while(1);
+    return 0;
+}
+
+#endif
 
 //----------- SINGLE-SENSOR TESTING MAIN APPLICATION -----------//
 
@@ -40,7 +52,7 @@
 
 int main(void) {
     // Initialize required libraries
-    PIC16_Init();
+    PIC16_Init(JSN_CONFIG_1);
     JSN_Sensor_Init(SINGLE_SENS_CONFIG);
     SpeakerTone_Init();    
 
@@ -101,7 +113,7 @@ int main(void) {
 
 int main(void) {
     // Initialize required libraries
-    PIC16_Init();
+    PIC16_Init(JSN_CONFIG_3);
     JSN_Sensor_Init(TRI_SENS_CONFIG);
     // SpeakerTone_Init();
     // MotorControl_Init();

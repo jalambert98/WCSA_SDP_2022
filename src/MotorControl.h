@@ -23,7 +23,7 @@
  * @funct   MotorControl_Init(motorPin)
  * @param   None
  * @return  None
- * @brief   Initializes the motor PWM5 system
+ * @brief   Initializes the motor PWM5 system (Pin RB6)
  * @author  Jack Lambert, 2022.02.07 */
 void MotorControl_Init(void);
 
@@ -34,7 +34,7 @@ void MotorControl_Init(void);
  * @return  uint8_t [SUCCESS or ERROR]
  * @brief   Sets the motor intensity in terms of a [0, 100.0]% duty cycle
  * @author  Jack Lambert, 2022.02.07 */
-uint8_t MotorControl_SetIntensity(short dutyCycle);
+uint8_t MotorControl_SetIntensity(uint16_t dutyCycle);
 
 //------------------------------------------------------------------------------
 /**

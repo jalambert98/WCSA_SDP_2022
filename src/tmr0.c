@@ -3,6 +3,9 @@
  * Author:  Jack Lambert     <joalambe@ucsc.edu>
  * Project: WCSA_SDP_2022
  *
+ * NOTE: Generated originally by Microchip Code Configurator (MCC) and then
+ *       further modified by Jack Lambert
+ * 
  * Created on January 26, 2022, 10:52 PM
  */
 //------------------------------------------------------------------------------
@@ -38,6 +41,7 @@ void TMR0_Initialize(void)
 
     // T0OUTPS 1:1; T0EN enabled; T016BIT 8-bit; 
     T0CON0 = 0x80;
+    
     CountCallBack = 0;
 }
 
@@ -91,6 +95,7 @@ void TMR0_ISR(void)
 {
     // clear the TMR0 interrupt flag
     PIR0bits.TMR0IF = 0;
+    
     // callback function - called every 4th pass
     if (++CountCallBack >= TMR0_INTERRUPT_TICKER_FACTOR)
     {
@@ -100,8 +105,6 @@ void TMR0_ISR(void)
         // reset ticker counter
         CountCallBack = 0;
     }
-
-    // add your TMR0 interrupt custom code
 }
 
 //------------------------------------------------------------------------------

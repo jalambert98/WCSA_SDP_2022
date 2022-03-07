@@ -3,11 +3,14 @@
  * Author:  Jack Lambert     <joalambe@ucsc.edu>
  * Project: WCSA_SDP_2022
  *
+ * NOTE: Generated originally by Microchip Code Configurator (MCC) and then
+ *       further modified by Jack Lambert
+ * 
  * Created on February 8, 2022, 2:15 PM
  */
 //------------------------------------------------------------------------------
 
-// [CCP4 = pinRC1 (SpeakerTone output)], [TMR3 ticks @4MHz & rolls over after 16-bit range]
+// [CCP4 = pinRA4 (SpeakerTone output)], [TMR3 ticks @4MHz & rolls over after 16-bit range]
 
 #include <xc.h>
 #include "ccp4.h"
@@ -20,9 +23,11 @@ void CCP4_Initialize(void)
 	// CCP4MODE Toggle_cleartmr; CCP4OUT 0; CCP4EN enabled; CCP4FMT right_aligned; 
 	CCP4CON = 0x81;    
 	
-    // Initialize OC value to Default 440Hz speakerTone
-	CCPR4H = 0x11;     
-	CCPR4L = 0xC1;    
+	// CCPR4H 0; 
+	CCPR4H = 0x00;    
+	
+	// CCPR4L 0; 
+	CCPR4L = 0x00;    
 
 	// Selecting Timer 3
 	CCPTMRSbits.C4TSEL = 0x2;

@@ -33,6 +33,9 @@
 #define SUCCESS             0x00
 #define ERROR               0xFF
 
+#define TRUE                1
+#define FALSE               0
+
 // General pin manipulation
 #define SET_A0()            TRISAbits.TRISA0
 #define SET_A1()            TRISAbits.TRISA1
@@ -106,46 +109,18 @@ typedef enum {
 //==============================================================================
 //------------------------------ PUBLIC LIBRARY --------------------------------
 //==============================================================================
-/**
- * @funct    PIC16_Init()
- * 
- * @param    None
- * 
- * @return   None
- * @brief    Configures the HFINTOSC to 16MHz, disables unnecessary peripherals,
- *           disables interrupts & clears any existing flags
- * 
- * @author   Jack Lambert, 2022.01.25
- **/
-void PIC16_Init(void);
+
+uint8_t PIC16_SetPin(PinName_t pin, uint8_t io);
 
 //------------------------------------------------------------------------------
 
-uint8_t SetPin(PinName_t pin, uint8_t io);
+uint8_t PIC16_ReadPin(PinName_t pin);
 
 //------------------------------------------------------------------------------
 
-uint8_t ReadPin(PinName_t pin);
+uint8_t PIC16_WritePin(PinName_t pin, uint8_t val);
 
 //------------------------------------------------------------------------------
-
-uint8_t WritePin(PinName_t pin, uint8_t val);
-
-//------------------------------------------------------------------------------
-/**
- * @funct    __interrupt() ISR()
- * 
- * @param    None
- * 
- * @return   None
- * 
- * @brief    Checks the existing interrupt flags, runs the associated ISR for
- *           any PIRx bits set high, and then clears the flags.
- * 
- * @author   Jack Lambert, 2022.01.25
- **/
-void __interrupt() InterruptManager (void);
-
 
 #endif	/* PIC16XPRESS_DEVBOARD_H */
 
