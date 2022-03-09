@@ -1,3 +1,10 @@
+"""
+File:   textSeparation.py
+
+Originally written by Cody Lambert
+Further modified by Jack Lambert
+"""
+
 my_dict = {'r1': [], 'r2': [], 'r3': []}
 
 def file_manipulation(file):
