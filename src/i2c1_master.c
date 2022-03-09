@@ -11,6 +11,7 @@
 //------------------------------------------------------------------------------
 
 #include "i2c1_master.h"
+#include "PIC16Xpress_DevBoard.h"
 #include <xc.h>
 
 
@@ -152,6 +153,15 @@ i2c1_status_t I2C1_Status = {0};
 
 void I2C1_Initialize()
 {
+    TRISBbits.TRISB6 = INPUT;
+    TRISBbits.TRISB4 = INPUT;
+    
+    // Peripheral pin config [PPS] Config
+    RB6PPS = 0x18;          //RB6->MSSP:SCL1;
+    SSP1CLKPPS = 0x0E;      //RB6->MMSP:SCL1;
+    RB4PPS = 0x19;          //RB4->MSSP1:SDA1;
+    SSP1DATPPS = 0x0C;      //RB4->MSSP1:SDA1;
+    
     SSP1STAT = 0x00;
     SSP1CON1 = 0x28;
     SSP1CON2 = 0x00;

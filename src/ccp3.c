@@ -51,6 +51,11 @@ static void CCP3_DefaultCallBack(uint16_t capturedValue)
 
 void CCP3_Initialize(void)
 {	
+    TRISAbits.TRISA2 = INPUT;
+    
+    // Peripheral pin select [PPS] module config
+    CCP3PPS = 0x02;         //RA2->CCP3:CCP3; 
+    
     // CCP3MODE Every edge; CCP3EN enabled; CCP3FMT right_aligned; 
 	CCP3CON = 0x83;    
 	

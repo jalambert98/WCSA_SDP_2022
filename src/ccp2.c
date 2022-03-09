@@ -51,6 +51,11 @@ static void CCP2_DefaultCallBack(uint16_t capturedValue)
 
 void CCP2_Initialize(void)
 {	
+    TRISCbits.TRISC3 = INPUT;
+    
+    // Peripheral pin select [PPS] module config
+    CCP2PPS = 0x13;         //RC3->CCP2:CCP2; 
+    
     // CCP2MODE Every edge; CCP2EN enabled; CCP2FMT right_aligned; 
 	CCP2CON = 0x83;    
 	

@@ -5,12 +5,12 @@
  * Created on February 8, 2022, 12:25 AM
  */
 //------------------------------------------------------------------------------
-// [PWM5] output --> Pin[RB6]
 
 #include "MotorControl.h"
 #include "tmr2.h"
 #include "pwm5.h"
 
+// [PWM5] output --> Pin[RC1]
 //==============================================================================
 //-------------------------------- #DEFINES ------------------------------------
 //==============================================================================
@@ -98,8 +98,11 @@ void MotorControl_Off(void) {
 
 int main(void) {
     // Init required libraries
-    PIC16_Init(LIDAR_CONFIG);
+    PIC16_Init();
     MotorControl_Init();    // motorControl pin[RB6]
+    
+    printf("//=== MotorControl.c ===//\n");
+    printf("MOTORCONTROL_TEST last compiled on %s at %s\n", __DATE__, __TIME__);
     
     // Init to 0% duty cycle & enable motor output
     uint16_t duty = 0;

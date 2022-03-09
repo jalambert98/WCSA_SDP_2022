@@ -34,12 +34,12 @@ void PIC16_Init(void)
     PIR4 = 0x00;
     
     // Init individual libraries
-    PMD_Initialize();
-    PIN_MANAGER_Initialize();
-    OSCILLATOR_Initialize();
-    WDT_Initialize();
-    TMR0_Initialize();
-    EUSART_Initialize();
+    PMD_Initialize();           // disables unnecessary peripherals
+    PIN_MANAGER_Initialize();   // default IO state: TRISx = INPUT, LATx = LOW
+    OSCILLATOR_Initialize();    // Instruction clk [Fosc/4] = 4MHz
+    WDT_Initialize();           // WDT is disabled - still needs setup
+    TMR0_Initialize();          // Linked to FRT module (getMillis + Micros)
+    EUSART_Initialize();        // EUSART (for Lidar + Debugging)
     
     // Enable global + peripheral interrupts
     INTERRUPT_PeripheralInterruptEnable();

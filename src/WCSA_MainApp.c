@@ -30,7 +30,7 @@
 #define MIN_FEEDBACK_TIME   500
 
 // Modularize number of sensors currently in use
-// #define SINGLE_SENS_TEST
+#define SINGLE_SENS_TEST
 // #define TRI_SENS_TEST
 
 // #define DEBUG_RANDOM_TEST
@@ -40,6 +40,10 @@
 
 int main(void) {
     PIC16_Init();
+    printf("//=== WCSA_MainApp.c ===//\n");
+    printf("DEBUG_RANDOM_TEST - Last compiled on %s at %s\n", __DATE__, __TIME__);
+    PIC16_SetPin(B6, LOW);
+    PIC16_SetPin(B7, HIGH);
     while(1);
     return 0;
 }
@@ -52,12 +56,12 @@ int main(void) {
 
 int main(void) {
     // Initialize required libraries
-    PIC16_Init(JSN_CONFIG_1);
+    PIC16_Init();
     JSN_Sensor_Init(SINGLE_SENS_CONFIG);
     SpeakerTone_Init();    
 
     printf("==== WCSA_MainApp.c ====\n");
-    printf("// SINGLE_SENS_CONFIG //\n");
+    printf("SINGLE_SENS_CONFIG last compiled on %s at %s\n", __DATE__, __TIME__);
     
     // Initialize function variables
     unsigned long currMilli = 0;
@@ -82,7 +86,7 @@ int main(void) {
         if ((currMilli - prevMilli) >= SAMPLE_PERIOD) {
             distance = JSN_Sensor_GetDistance(1);
             JSN_Sensor_Trig(1);
-            printf("%u\n", distance);
+            printf("S1 = %umm\n", distance);
 
             // Turn on LED if any sensor sees object within MIN_DIST_LED [mm]
             if (distance < WARNING_DISTANCE) {
@@ -113,13 +117,13 @@ int main(void) {
 
 int main(void) {
     // Initialize required libraries
-    PIC16_Init(JSN_CONFIG_3);
+    PIC16_Init();
     JSN_Sensor_Init(TRI_SENS_CONFIG);
     // SpeakerTone_Init();
     // MotorControl_Init();
     
     printf("==== WCSA_MainApp.c ====\n");
-    printf("//   TRI_SENS_CONFIG   //\n");
+    printf("TRI_SENS_CONFIG last compiled on %s at %s\n", __DATE__, __TIME__);
 
     unsigned int s1Dist = 0;
     unsigned int s2Dist = 0;    

@@ -6,13 +6,13 @@
  * Created on February 7, 2022, 9:30 PM
  */
 //------------------------------------------------------------------------------
-// Speaker Output Pin = [RA4]
 
 #include "PIC16Xpress_DevBoard.h"
 #include "SpeakerTone.h"
 #include "ccp4.h"
 #include "tmr3.h"
 
+// Speaker Output Pin = [RA4]
 //==============================================================================
 //-------------------------------- #DEFINES ------------------------------------
 //==============================================================================
@@ -27,7 +27,6 @@
 //==============================================================================
 
 static uint16_t currFreq, ocCount;
-static uint8_t speakerOn;
 
 
 //==============================================================================
@@ -48,7 +47,6 @@ void SpeakerTone_Init(void) {
     SpeakerTone_SetFrequency(currFreq);
 
     // Default to speaker off. Must be enabled in software.
-    speakerOn = FALSE;
     SpeakerTone_Off();
 }
 
@@ -67,12 +65,7 @@ uint8_t SpeakerTone_SetFrequency(uint16_t newFrequency) {
 
         // Update output compare match value
         CCP4_SetCompareCount(ocCount);
-
-        if (speakerOn == TRUE) {
-            /*   Re-enable speaker tone if it was   */
-            /*   already ON before function-call    */
-            SpeakerTone_On();
-        }
+        SpeakerTone_On();
         return SUCCESS;
     }
 }
@@ -86,7 +79,6 @@ uint16_t SpeakerTone_GetFrequency(void) {
 //------------------------------------------------------------------------------
 
 void SpeakerTone_Off(void) {
-    speakerOn = FALSE;
     TMR3_StopTimer(); // pause TMR3 ticks
     TMR3_Reload(); // clear TMR3 register
     return;
@@ -95,7 +87,6 @@ void SpeakerTone_Off(void) {
 //------------------------------------------------------------------------------
 
 void SpeakerTone_On(void) {
-    speakerOn = TRUE;
     TMR3_StartTimer(); // resume TMR3 ticks
     return;
 }
@@ -109,21 +100,24 @@ void SpeakerTone_On(void) {
 
 #include "FRT.h"
 
-#define FREQ_CHANGE_RATE    200000  // change speakerTone freq every 200ms
+#define FREQ_CHANGE_RATE    200 // change speakerTone freq every 200ms
 
 int main(void) {
     // Init required libraries
-    PIC16_Init(LIDAR_CONFIG);
+    PIC16_Init();
     SpeakerTone_Init(); // speakerTone pinRA4
-    unsigned long currMicro = FRT_GetMicros();
-    unsigned long prevMicro = currMicro;
+    
+    printf("//=== SpeakerTone.c ===//\n");
+    printf("SPEAKERTONE_TEST last compiled on %s at %s\n", __DATE__, __TIME__);
+    unsigned long currMilli = FRT_GetMillis();
+    unsigned long prevMilli = currMilli;
     uint8_t i = 0;
     
     /* Plays back Windows theme 
      * (C->C->F->G) : (changes pitch every 200ms) */
     while (1) {
-        currMicro = FRT_GetMicros();
-        if ((currMicro - prevMicro) >= (unsigned long) FREQ_CHANGE_RATE) {        
+        currMilli = FRT_GetMillis();
+        if ((currMilli - prevMilli) >= FREQ_CHANGE_RATE) {        
             switch (i) {    
                 case 0:
                     SpeakerTone_SetFrequency(TONE_C4);
@@ -144,10 +138,10 @@ int main(void) {
                     break;
                 case 4:
                     SpeakerTone_Off();
-                    while ((currMicro + 1000000) > FRT_GetMicros());
+                    while ((currMilli + 1000) > FRT_GetMillis());
                     i = 0;
             }
-            prevMicro = currMicro;
+            prevMilli = currMilli;
         }
     }
     return 0;

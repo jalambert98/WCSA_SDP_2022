@@ -49,6 +49,11 @@ static void CCP1_DefaultCallBack(uint16_t capturedValue) {
 //------------------------------------------------------------------------------
 
 void CCP1_Initialize(void) {
+    TRISCbits.TRISC5 = INPUT;
+    
+    // Peripheral Pin Select [PPS] Config
+    CCP1PPS = 0x15;         //RC5->CCP1:CCP1; 
+    
     // CCP1MODE Every edge; CCP1EN enabled; CCP1FMT right_aligned; 
 	CCP1CON = 0x83;    
 	

@@ -30,7 +30,7 @@
 #define TRIG3               B7
 #define ECHO3               A2
 
-#define JSN_SENSOR_TEST       // toggle comment to enable/disable test harness
+// #define JSN_SENSOR_TEST       // toggle comment to enable/disable test harness
 
 //==============================================================================
 //---------------------------- STATICS VARIABLES -------------------------------
@@ -183,8 +183,8 @@ int main(void) {
     JSN_Sensor_Init(SENS_CONFIG);
     uint8_t sensConfig = SENS_CONFIG;
 
-    printf("==== JSN_Sensor.c ====\n");
-    printf("// JSN_SENSOR_TEST //\n");
+    printf("//=== JSN_Sensor.c ===//\n");
+    printf("JSN_SENSOR_TEST last compiled on %s at %s\n", __DATE__, __TIME__);
 
     // Initialize function variables
     unsigned long currMilli = 0;

@@ -11,6 +11,7 @@
 //------------------------------------------------------------------------------
 
 #include "eusart.h"
+#include "PIC16Xpress_DevBoard.h"
 
 #define EUSART_TX_BUFFER_SIZE 8
 #define EUSART_RX_BUFFER_SIZE 8
@@ -47,6 +48,15 @@ void EUSART_DefaultErrorHandler(void);
 
 void EUSART_Initialize(void)
 {
+    // GPIO pin config
+    TRISBbits.TRISB5 = INPUT;
+    TRISCbits.TRISC5 = OUTPUT;
+    LATCbits.LATC5 = HIGH;
+    
+    // Peripheral Pin Select [PPS] Config
+    RXPPS = 0x0D;           //RB5->EUSART:RX; 
+    RC4PPS = 0x14;          //RC4->EUSART:TX;
+    
     // disable interrupts before changing states
     PIE1bits.RCIE = 0;
     EUSART_SetRxInterruptHandler(EUSART_Receive_ISR);
@@ -63,13 +73,11 @@ void EUSART_Initialize(void)
     // TX9 8-bit; TX9D 0; SENDB sync_break_complete; TXEN enabled; SYNC asynchronous; BRGH hi_speed; CSRC slave; 
     TX1STA = 0x24;
 
-    // SP1BRGL 160; 
-    SP1BRGL = 0xA0;
+    // Set BRG to produce 115200 baud-rate
+    SP1BRGH = 0x00;
+    SP1BRGL = 0x22;
 
-    // SP1BRGH 1; 
-    SP1BRGH = 0x01;
-
-
+    
     EUSART_SetFramingErrorHandler(EUSART_DefaultFramingErrorHandler);
     EUSART_SetOverrunErrorHandler(EUSART_DefaultOverrunErrorHandler);
     EUSART_SetErrorHandler(EUSART_DefaultErrorHandler);

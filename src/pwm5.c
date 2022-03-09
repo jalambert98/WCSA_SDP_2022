@@ -12,11 +12,18 @@
 
 #include <xc.h>
 #include "pwm5.h"
+#include "PIC16Xpress_DevBoard.h"
 
-// PWM5 output --> pinRB6
+// PWM5 output --> pinRC1
 //------------------------------------------------------------------------------
 
 void PWM5_Initialize(void) {
+    TRISCbits.TRISC1 = OUTPUT;
+    LATCbits.LATC1 = LOW;
+    
+    // Peripheral pin select [PPS] module config
+    RC1PPS = 0x02;          //RC1->PWM5:PWM5; 
+    
     // PWM5POL active_hi; PWM5EN enabled; 
     PWM5CON = 0x80;   
 

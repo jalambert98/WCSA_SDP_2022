@@ -20,6 +20,12 @@
 
 void CCP4_Initialize(void)
 {
+    TRISAbits.TRISA4 = OUTPUT;
+    LATAbits.LATA4 = LOW;
+    
+    // Peripheral pin select [PPS] module config
+    RA4PPS = 0x0F;          //RA4->CCP4:CCP4; 
+    
 	// CCP4MODE Toggle_cleartmr; CCP4OUT 0; CCP4EN enabled; CCP4FMT right_aligned; 
 	CCP4CON = 0x81;    
 	
