@@ -57,12 +57,13 @@ void EUSART_Initialize(void)
     RXPPS = 0x0D;           //RB5->EUSART:RX; 
     RC4PPS = 0x14;          //RC4->EUSART:TX;
     
+    
     // disable interrupts before changing states
     PIE1bits.RCIE = 0;
     EUSART_SetRxInterruptHandler(EUSART_Receive_ISR);
     PIE1bits.TXIE = 0;
     EUSART_SetTxInterruptHandler(EUSART_Transmit_ISR);
-    // Set the EUSART module to the options selected in the user interface.
+    
 
     // ABDOVF no_overflow; SCKP Non-Inverted; BRG16 16bit_generator; WUE disabled; ABDEN disabled; 
     BAUD1CON = 0x08;

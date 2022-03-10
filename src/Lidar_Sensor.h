@@ -19,7 +19,7 @@
 //------------------------------------------------------------------------------
 
 typedef struct {
-    uint8_t msg[9];
+    uint8_t data[9];
     uint16_t distance;
     uint16_t strength;
     uint16_t temp;
@@ -28,7 +28,27 @@ typedef struct {
 
 //------------------------------------------------------------------------------
 
-uint8_t Lidar_Checksum(void);
+typedef enum {
+    IDLE,
+    W4_HEADER_2,
+    W4_DIST_L,
+    W4_DIST_H,
+    W4_STRENGTH_L,
+    W4_STRENGTH_H,
+    W4_TEMP_L,
+    W4_TEMP_H,
+    W4_CHECKSUM       
+} Lidar_StateRX_t;
+
+//------------------------------------------------------------------------------
+
+uint8_t Lidar_Sensor_CalcChecksum(void);
+
+//------------------------------------------------------------------------------
+
+void Lidar_Sensor_RXSM(uint8_t ch);
+
+//------------------------------------------------------------------------------
 
 #endif	/* LIDAR_SENSOR_H */
 
