@@ -102,7 +102,7 @@ int main(void) {
     MotorControl_Init();    // motorControl pin[RB6]
     
     printf("//=== MotorControl.c ===//\n");
-    printf("MOTORCONTROL_TEST last compiled on %s at %s\n", __DATE__, __TIME__);
+    printf("MOTORCONTROL_TEST - Last compiled on %s at %s\n", __DATE__, __TIME__);
     
     // Init to 0% duty cycle & enable motor output
     uint16_t duty = 0;

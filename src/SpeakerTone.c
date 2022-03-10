@@ -108,7 +108,7 @@ int main(void) {
     SpeakerTone_Init(); // speakerTone pinRA4
     
     printf("//=== SpeakerTone.c ===//\n");
-    printf("SPEAKERTONE_TEST last compiled on %s at %s\n", __DATE__, __TIME__);
+    printf("SPEAKERTONE_TEST - Last compiled on %s at %s\n", __DATE__, __TIME__);
     unsigned long currMilli = FRT_GetMillis();
     unsigned long prevMilli = currMilli;
     uint8_t i = 0;

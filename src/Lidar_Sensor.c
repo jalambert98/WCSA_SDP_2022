@@ -8,12 +8,18 @@
 //------------------------------------------------------------------------------
 
 #include "Lidar_Sensor.h"
+#include "FRT.h"
 #include "PIC16Xpress_DevBoard.h"
 
+#define LIDAR_SENSOR_TEST
+
+
+//------------------------------------------------------------------------------
 
 static Lidar_MsgRX_t currMsg;
 static Lidar_StateRX_t currState;
 static uint8_t msgIndex;
+
 
 //------------------------------------------------------------------------------
 
@@ -133,3 +139,37 @@ void Lidar_Sensor_RXSM(uint8_t ch) {
 }
 
 //------------------------------------------------------------------------------
+
+Lidar_MsgRX_t* Lidar_Sensor_GetCurrMsg(void) {
+    return &currMsg;
+}
+
+//------------------------------------------------------------------------------
+
+#ifdef LIDAR_SENSOR_TEST
+
+#define SAMPLE_RATE         20  // 20ms --> 50Hz
+
+int main(void) {
+    PIC16_Init();
+    Lidar_Sensor_Init();
+    printf("//=== Lidar_Sensor.c ===//\n");
+    printf("LIDAR_SENSOR_TEST - Last compiled on %s at %s\n", __DATE__, __TIME__);
+    
+    unsigned long currMilli = FRT_GetMillis();
+    unsigned long prevMilli = currMilli;
+    
+    while(1) {
+        currMilli = FRT_GetMillis();
+        if((currMilli - prevMilli) >= SAMPLE_RATE) {
+            printf("Dist = %u[cm]\n", Lidar_Sensor_GetCurrMsg()->distance);
+            printf("Strength = %u\n", Lidar_Sensor_GetCurrMsg()->strength);
+            printf("Temp = %u[degC]\n", Lidar_Sensor_GetCurrMsg()->temp);
+        }
+    }
+    
+    while(1);
+    return 0;
+}
+
+#endif

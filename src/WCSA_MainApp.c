@@ -30,7 +30,7 @@
 #define MIN_FEEDBACK_TIME   500
 
 // Modularize number of sensors currently in use
-#define SINGLE_SENS_TEST
+// #define SINGLE_SENS_TEST
 // #define TRI_SENS_TEST
 
 // #define DEBUG_RANDOM_TEST
@@ -61,7 +61,7 @@ int main(void) {
     SpeakerTone_Init();    
 
     printf("==== WCSA_MainApp.c ====\n");
-    printf("SINGLE_SENS_CONFIG last compiled on %s at %s\n", __DATE__, __TIME__);
+    printf("SINGLE_SENS_CONFIG - Last compiled on %s at %s\n", __DATE__, __TIME__);
     
     // Initialize function variables
     unsigned long currMilli = 0;
@@ -123,7 +123,7 @@ int main(void) {
     // MotorControl_Init();
     
     printf("==== WCSA_MainApp.c ====\n");
-    printf("TRI_SENS_CONFIG last compiled on %s at %s\n", __DATE__, __TIME__);
+    printf("TRI_SENS_CONFIG - Last compiled on %s at %s\n", __DATE__, __TIME__);
 
     unsigned int s1Dist = 0;
     unsigned int s2Dist = 0;    

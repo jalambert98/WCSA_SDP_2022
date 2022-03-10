@@ -184,7 +184,7 @@ int main(void) {
     uint8_t sensConfig = SENS_CONFIG;
 
     printf("//=== JSN_Sensor.c ===//\n");
-    printf("JSN_SENSOR_TEST last compiled on %s at %s\n", __DATE__, __TIME__);
+    printf("JSN_SENSOR_TEST: Last compiled on %s at %s\n", __DATE__, __TIME__);
 
     // Initialize function variables
     unsigned long currMilli = 0;
