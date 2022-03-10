@@ -12,6 +12,7 @@
 
 #include "PIC16Xpress_DevBoard.h"
 #include "interrupt_manager.h"
+#include "Lidar_Sensor.h"
 #include "tmr0.h"
 #include "eusart.h"
 #include "i2c1_master.h"
@@ -34,7 +35,7 @@ void __interrupt() INTERRUPT_InterruptManager (void)
         if(PIE1bits.RCIE == 1 && PIR1bits.RCIF == 1)
         {
             EUSART_RxDefaultInterruptHandler();
-            EUSART_Read();
+            Lidar_Sensor_RXSM(EUSART_Read());
         } 
         else if(PIE1bits.TXIE == 1 && PIR1bits.TXIF == 1)
         {
