@@ -15,11 +15,21 @@
 
 #define LIDAR_TX_HEAD           0x5A
 #define LIDAR_RX_FRAMEHEADER    0x59
+#define LIDAR_RX_MSG_LEN        9
+
+#define INDEX_DIST_L            2
+#define INDEX_DIST_H            3
+#define INDEX_STRENGTH_L        4
+#define INDEX_STRENGTH_H        5
+#define INDEX_TEMP_L            6
+#define INDEX_TEMP_H            7
+
+#define BYTE_SIZE               8
 
 //------------------------------------------------------------------------------
 
 typedef struct {
-    uint8_t data[9];
+    uint8_t data[LIDAR_RX_MSG_LEN];
     uint16_t distance;
     uint16_t strength;
     uint16_t temp;
@@ -46,7 +56,7 @@ void Lidar_Sensor_Init(void);
 
 //------------------------------------------------------------------------------
 
-uint8_t Lidar_Sensor_CalcChecksum(void);
+void Lidar_Sensor_UpdateChecksum(void);
 
 //------------------------------------------------------------------------------
 
