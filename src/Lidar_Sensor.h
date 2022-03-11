@@ -13,9 +13,21 @@
 #ifndef LIDAR_SENSOR_H
 #define	LIDAR_SENSOR_H
 
+
 #define LIDAR_TX_HEAD           0x5A
 #define LIDAR_RX_FRAMEHEADER    0x59
 #define LIDAR_RX_MSG_LEN        9
+
+#define FRAMERATE_MSG_LEN       0x06
+#define FRAMERATE_MSG_ID        0x03
+
+#define TRIG_MSG_LEN            0x04
+#define TRIG_MSG_ID             0x04
+#define TRIG_MSG_CKSUM          0x62
+
+#define SAVESET_MSG_LEN         0x04
+#define SAVESET_MSG_ID          0x11
+#define SAVESET_MSG_CKSUM       0x6F
 
 #define INDEX_DIST_L            2
 #define INDEX_DIST_H            3
@@ -65,6 +77,18 @@ void Lidar_Sensor_RXSM(uint8_t ch);
 //------------------------------------------------------------------------------
 
 Lidar_MsgRX_t* Lidar_Sensor_GetCurrMsg(void);
+
+//------------------------------------------------------------------------------
+
+void Lidar_Sensor_SetFrameRate(uint16_t frameRate);
+
+//------------------------------------------------------------------------------
+
+void Lidar_Sensor_Trig(void);
+
+//------------------------------------------------------------------------------
+
+void Lidar_Sensor_SaveSettings(void);
 
 //------------------------------------------------------------------------------
 
