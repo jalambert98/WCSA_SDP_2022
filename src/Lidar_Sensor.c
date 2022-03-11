@@ -212,16 +212,26 @@ void Lidar_Sensor_SaveSettings(void) {
 
 #ifdef LIDAR_SENSOR_TEST
 
+//===============================//
+// #define LIDAR_AUTO_READ_TEST
+#define LIDAR_MANUAL_READ_TEST
+// #define LIDAR_TX_UPDATE
+//===============================//
+
+#ifdef LIDAR_AUTO_READ_TEST
 #define SAMPLE_RATE         10  // 10ms --> 100Hz
 
+/*
+ * Assumes that:
+ * Lidar_Sensor_SetFrameRate(fr) 
+ * has already been called for (fr > 0)
+ */
 int main(void) {
     PIC16_Init();
     Lidar_Sensor_Init();
     
     printf("//=== Lidar_Sensor.c ===//\n");
-    printf("LIDAR_SENSOR_TEST - Last compiled on %s at %s\n", __DATE__, __TIME__);
-
-    Lidar_Sensor_SetFrameRate(100);
+    printf("LIDAR_AUTO_READ_TEST - Last compiled on %s at %s\n\n", __DATE__, __TIME__);
     
     unsigned long currMilli = FRT_GetMillis();
     unsigned long prevMilli = currMilli;
@@ -244,11 +254,49 @@ int main(void) {
 
 #endif
 
-// #define LIDAR_TX_UPDATE
+
+
+#ifdef LIDAR_MANUAL_READ_TEST
+#define SAMPLE_RATE         10  // 10ms --> 100Hz
+
+/*
+ * Assumes that: Lidar_Sensor_SetFrameRate(0)
+ * has already been called (manual trigger mode)
+ */
+int main(void) {
+    PIC16_Init();
+    Lidar_Sensor_Init();
+    
+    printf("//=== Lidar_Sensor.c ===//\n");
+    printf("LIDAR_MANUAL_READ_TEST - Last compiled on %s at %s\n\n", __DATE__, __TIME__);
+    
+    Lidar_Sensor_Trig();
+    unsigned long currMilli = FRT_GetMillis();
+    unsigned long prevMilli = currMilli;
+
+    while (1) {
+        currMilli = FRT_GetMillis();
+        if ((currMilli - prevMilli) >= SAMPLE_RATE) {
+            /*
+            printf("Dist     = %ucm\n", Lidar_Sensor_GetCurrMsg()->distance);
+            printf("Strength = %u\n", Lidar_Sensor_GetCurrMsg()->strength);
+            printf("Temp     = %u\n\n", Lidar_Sensor_GetCurrMsg()->temp);
+             */
+            
+            printf("%u\n", Lidar_Sensor_GetCurrMsg()->distance);
+            
+            Lidar_Sensor_Trig();
+            prevMilli = currMilli;
+        }
+    }
+}
+#endif
+
+
 
 #ifdef LIDAR_TX_UPDATE
 
-#define SAMPLE_RATE         1000
+#define SAMPLE_RATE         20  // 20ms --> 50Hz
 
 int main(void) {
     PIC16_Init();
@@ -265,11 +313,12 @@ int main(void) {
             Lidar_Sensor_Trig();
             prevMilli = currMilli;
         }
-        
     }
-    
-    while(1);
     return 0;
 }
+
+#endif
+
+
 
 #endif
