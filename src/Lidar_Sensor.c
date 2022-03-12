@@ -12,7 +12,7 @@
 #include "eusart.h"
 #include "PIC16Xpress_DevBoard.h"
 
-#define LIDAR_SENSOR_TEST
+// #define LIDAR_SENSOR_TEST
 
 
 //------------------------------------------------------------------------------
@@ -141,8 +141,20 @@ void Lidar_Sensor_RXSM(uint8_t ch) {
 
 //------------------------------------------------------------------------------
 
-Lidar_MsgRX_t* Lidar_Sensor_GetCurrMsg(void) {
-    return &currMsg;
+uint16_t Lidar_Sensor_GetDistance(void) {
+    return currMsg.distance;
+}
+
+//------------------------------------------------------------------------------
+
+uint16_t Lidar_Sensor_GetStrength(void) {
+    return currMsg.strength;
+}
+
+//------------------------------------------------------------------------------
+
+uint16_t Lidar_Sensor_GetTemp(void) {
+    return currMsg.temp;
 }
 
 //------------------------------------------------------------------------------
@@ -195,6 +207,44 @@ void Lidar_Sensor_Trig(void) {
 
 //------------------------------------------------------------------------------
 
+void Lidar_Sensor_SetOutput_cm(void) {
+    // Assemble message
+    uint8_t msg[SETOUT_MSG_LEN] = {LIDAR_TX_HEAD,
+                                   SETOUT_MSG_LEN,
+                                   SETOUT_MSG_ID,
+                                   SETOUT_CM_DATA,
+                                   SETOUT_CM_CKSUM};
+    // Send message
+    uint8_t i;
+    for (i = 0; i < SETOUT_MSG_LEN; i++) {
+        EUSART_Write(msg[i]);
+    }
+    
+    // Save new settings
+    Lidar_Sensor_SaveSettings();
+}
+
+//------------------------------------------------------------------------------
+
+void Lidar_Sensor_SetOutput_mm(void) {
+    // Assemble message
+    uint8_t msg[SETOUT_MSG_LEN] = {LIDAR_TX_HEAD,
+                                   SETOUT_MSG_LEN,
+                                   SETOUT_MSG_ID,
+                                   SETOUT_MM_DATA,
+                                   SETOUT_MM_CKSUM};
+    // Send message
+    uint8_t i;
+    for (i = 0; i < SETOUT_MSG_LEN; i++) {
+        EUSART_Write(msg[i]);
+    }
+    
+    // Save new settings
+    Lidar_Sensor_SaveSettings();
+}
+
+//------------------------------------------------------------------------------
+
 void Lidar_Sensor_SaveSettings(void) {
     // Assemble message
     uint8_t msg[SAVESET_MSG_LEN] = {LIDAR_TX_HEAD, 
@@ -240,11 +290,11 @@ int main(void) {
         currMilli = FRT_GetMillis();
         if ((currMilli - prevMilli) >= SAMPLE_RATE) {
             
-            printf("Dist = %u[cm]\n", Lidar_Sensor_GetCurrMsg()->distance);
-            printf("Strength = %u\n", Lidar_Sensor_GetCurrMsg()->strength);
-            printf("Temp = %u[degC]\n\n", Lidar_Sensor_GetCurrMsg()->temp);
+            printf("Dist = %u[cm]\n", Lidar_Sensor_GetDistance());
+            printf("Strength = %u\n", Lidar_Sensor_GetStrength());
+            printf("Temp = %u[degC]\n\n", Lidar_Sensor_GetTemp());
             
-            //printf("%u\n", Lidar_Sensor_GetCurrMsg()->distance);
+            //printf("%u\n", Lidar_Sensor_GetDistance());
         }
     }
 
@@ -255,9 +305,8 @@ int main(void) {
 #endif
 
 
-
 #ifdef LIDAR_MANUAL_READ_TEST
-#define SAMPLE_RATE         10  // 10ms --> 100Hz
+#define SAMPLE_RATE         10000  // 10000us --> 100Hz
 
 /*
  * Assumes that: Lidar_Sensor_SetFrameRate(0)
@@ -271,54 +320,41 @@ int main(void) {
     printf("LIDAR_MANUAL_READ_TEST - Last compiled on %s at %s\n\n", __DATE__, __TIME__);
     
     Lidar_Sensor_Trig();
-    unsigned long currMilli = FRT_GetMillis();
-    unsigned long prevMilli = currMilli;
+    unsigned long currMicro = FRT_GetMicros();
+    unsigned long prevMicro = currMicro;
 
     while (1) {
-        currMilli = FRT_GetMillis();
-        if ((currMilli - prevMilli) >= SAMPLE_RATE) {
+        currMicro = FRT_GetMicros();
+        if ((currMicro - prevMicro) >= SAMPLE_RATE) {
             /*
-            printf("Dist     = %ucm\n", Lidar_Sensor_GetCurrMsg()->distance);
-            printf("Strength = %u\n", Lidar_Sensor_GetCurrMsg()->strength);
-            printf("Temp     = %u\n\n", Lidar_Sensor_GetCurrMsg()->temp);
+            printf("Dist     = %ucm\n", Lidar_Sensor_GetDistance());
+            printf("Strength = %u\n", Lidar_Sensor_GetStrength());
+            printf("Temp     = %u\n\n", Lidar_Sensor_GetTemp());
              */
             
-            printf("%u\n", Lidar_Sensor_GetCurrMsg()->distance);
+            printf("%u\n", Lidar_Sensor_GetDistance());
             
             Lidar_Sensor_Trig();
-            prevMilli = currMilli;
+            prevMicro = currMicro;
         }
     }
 }
 #endif
 
 
-
 #ifdef LIDAR_TX_UPDATE
-
-#define SAMPLE_RATE         20  // 20ms --> 50Hz
 
 int main(void) {
     PIC16_Init();
     Lidar_Sensor_Init();
     Lidar_Sensor_SetFrameRate(0);
+    Lidar_Sensor_SetOutput_mm();
     
-    unsigned long currMilli = FRT_GetMillis();
-    unsigned long prevMilli = currMilli;
-    
-    while(1) {
-        currMilli = FRT_GetMillis();
-        
-        if((currMilli - prevMilli) >= SAMPLE_RATE) {
-            Lidar_Sensor_Trig();
-            prevMilli = currMilli;
-        }
-    }
+    while(1);
     return 0;
 }
 
 #endif
-
 
 
 #endif

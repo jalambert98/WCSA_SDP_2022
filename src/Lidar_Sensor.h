@@ -25,6 +25,13 @@
 #define TRIG_MSG_ID             0x04
 #define TRIG_MSG_CKSUM          0x62
 
+#define SETOUT_MSG_LEN          0x05
+#define SETOUT_MSG_ID           0x05
+#define SETOUT_CM_DATA          0x01
+#define SETOUT_MM_DATA          0x06
+#define SETOUT_CM_CKSUM         0x65
+#define SETOUT_MM_CKSUM         0x6A
+
 #define SAVESET_MSG_LEN         0x04
 #define SAVESET_MSG_ID          0x11
 #define SAVESET_MSG_CKSUM       0x6F
@@ -76,7 +83,15 @@ void Lidar_Sensor_RXSM(uint8_t ch);
 
 //------------------------------------------------------------------------------
 
-Lidar_MsgRX_t* Lidar_Sensor_GetCurrMsg(void);
+uint16_t Lidar_Sensor_GetDistance(void);
+
+//------------------------------------------------------------------------------
+
+uint16_t Lidar_Sensor_GetStrength(void);
+
+//------------------------------------------------------------------------------
+
+uint16_t Lidar_Sensor_GetTemp(void);
 
 //------------------------------------------------------------------------------
 
@@ -85,6 +100,14 @@ void Lidar_Sensor_SetFrameRate(uint16_t frameRate);
 //------------------------------------------------------------------------------
 
 void Lidar_Sensor_Trig(void);
+
+//------------------------------------------------------------------------------
+
+void Lidar_Sensor_SetOutput_cm(void);
+
+//------------------------------------------------------------------------------
+
+void Lidar_Sensor_SetOutput_mm(void);
 
 //------------------------------------------------------------------------------
 

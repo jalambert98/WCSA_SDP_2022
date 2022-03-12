@@ -1,5 +1,5 @@
 /* 
- * File:    WCSA_MainApp.c
+ * File:    WCSA_JSN_MainApp.c
  * Author:  Jack Lambert <joalambe@ucsc.edu> & Evan Mayhew <emayhew@ucsc.edu>
  * Project: WCSA_SDP_2022
  * 
@@ -33,22 +33,7 @@
 // #define SINGLE_SENS_TEST
 // #define TRI_SENS_TEST
 
-// #define DEBUG_RANDOM_TEST
-
-//--------------------------------------------------------------//
-#ifdef DEBUG_RANDOM_TEST
-
-int main(void) {
-    PIC16_Init();
-    printf("//=== WCSA_MainApp.c ===//\n");
-    printf("DEBUG_RANDOM_TEST - Last compiled on %s at %s\n", __DATE__, __TIME__);
-    PIC16_SetPin(B6, LOW);
-    PIC16_SetPin(B7, HIGH);
-    while(1);
-    return 0;
-}
-
-#endif
+//------------------------------------------------------------------------------
 
 //----------- SINGLE-SENSOR TESTING MAIN APPLICATION -----------//
 
