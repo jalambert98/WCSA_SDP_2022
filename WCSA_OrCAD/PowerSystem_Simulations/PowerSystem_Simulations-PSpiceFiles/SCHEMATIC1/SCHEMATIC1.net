@@ -6,14 +6,14 @@ X_D1         N35320 N35312 awb1n4001 PARAMS:
 R_R4         N35320 N35162  100k TC=0,0 
 R_R2         N35200 N35116  100k TC=0,0 
 V_V2         N35460 0  
-+PULSE 0 5 100m 100n 100n 400m 2
++PULSE 0 5 50m 100n 100n 50m 200m
 C_C18         N35200 N35116  100n  TC=0,0 
 C_C1         N35312 N35200  100n  TC=0,0 
 S_U2         N35320 0 N35632 0 _U2
 .MODEL      _U2 VSWITCH Roff=1000000000 Ron=0.01 VH=0 VT=2.5VDC TD=0
 M_M1         N35162 N35200 N35116 N35116 Mbreakp           
 V_V3         N35632 0  
-+PULSE 5 0 300m 300n 300n 2 4
++PULSE 5 0 75m 300n 300n 200m 400m
 R_R1         N35312 N35116  10k TC=0,0 
 M_M2         N35200 N35300 0 0 MbreakN           
 R_R3         N35300 N35320  300k TC=0,0 
@@ -35,6 +35,6 @@ C_C25         0 N44923  100n  TC=0,0
 L_L4         N37931 N44923  1uH  
 R_Rlidar         N44923 0  1k TC=0,0 
 V_V6         N37893 0  
-+PULSE 0 3.9 30m 300n 300n 100m 400m
++PULSE 0 3.9 75m 300n 300n 200m 400m
 ** Floating/unmodeled pin fixups **
 R__UC0001   N37799  0   {1/GMIN}

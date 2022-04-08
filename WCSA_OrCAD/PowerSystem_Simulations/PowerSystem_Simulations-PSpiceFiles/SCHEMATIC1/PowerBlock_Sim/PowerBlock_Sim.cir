@@ -1,4 +1,4 @@
-** Profile: "SCHEMATIC1-PowerBlock_Sim"  [ C:\Users\student\OrCAD_PCB\WCSA\PowerSystem_Simulations\powersystem_simulations-pspicefiles\schematic1\powerblock_sim.sim ] 
+** Profile: "SCHEMATIC1-PowerBlock_Sim"  [ C:\Users\student\OrCAD_PCB\WCSA_OrCAD\PowerSystem_Simulations\powersystem_simulations-pspicefiles\schematic1\powerblock_sim.sim ] 
 
 ** Creating circuit file "PowerBlock_Sim.cir" 
 ** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
@@ -15,9 +15,9 @@
 *Analysis directives: 
 .TRAN 1e-03 500m 0 50m 
 .OPTIONS ADVCONV
-.AUTOCONVERGE ITL1=1000 ITL2=1000 ITL4=1000 RELTOL=0.05 ABSTOL=1.0E-6 VNTOL=.001 PIVTOL=1.0E-10 
-.PROBE64 N([N35162])
 .PROBE64 N([N35320])
+.PROBE64 N([N35162])
+.PROBE64 N([N35460])
 .PROBE64 N([N44923])
 .INC "..\SCHEMATIC1.net" 
 

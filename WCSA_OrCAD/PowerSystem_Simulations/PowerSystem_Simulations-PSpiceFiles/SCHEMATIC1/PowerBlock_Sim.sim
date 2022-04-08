@@ -110,13 +110,13 @@ SaveFile 0 ""
 @End Analysis
 @Analysis: 11 1
 + 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 
-+ 1 1 1 1 1 1 1 1 1
++ 0 0 0 0 0 0 0 0 0
 @End Analysis
 @Analysis: 12 0
 +8947776 0 1
 @End Analysis
 @Analysis: 13 1
-+0 1 1 0
++1 1 1 0
 @End Analysis
 @Analysis: 14 1
 +1 1 1 "*" 

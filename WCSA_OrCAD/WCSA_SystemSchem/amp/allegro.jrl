@@ -1,0 +1,47 @@
+\t (00:00:03) allegro 17.4 S013 Windows SPB 64-bit Edition
+\t (00:00:03)     Journal start - Fri Apr  8 12:11:50 2022
+\t (00:00:03)         Host=DESKTOP-1414A5L User=student Pid=29040 CPUs=8
+\t (00:00:03) CmdLine= c:\cadence\spb_17.4\tools\bin\allegro.exe C:\Users\student\OrCAD_PCB\WCSA_OrCAD\WCSA_SystemSchem\amp\LM4667MM(AMP).dra
+\t (00:00:03) 
+   (00:00:03) Loading axlcore.cxt 
+\t (00:00:06) Starting new design...
+\i (00:00:06) QtSignal SPBFoldDockArea FoldAreaTabWidget currentChanged "LM4667MM(AMP)"
+\i (00:00:06) trapsize 1358
+\i (00:00:06) trapsize 1431
+\i (00:00:06) trapsize 1358
+\i (00:00:07) trapsize 2576
+\i (00:00:07) trapsize 1543
+\i (00:00:07) trapsize 1473
+\i (00:00:08) generaledit 
+\i (00:00:09) zoom out 1 
+\i (00:00:09) setwindow pcb
+\i (00:00:09) zoom out 15880.4 7601.4
+\i (00:00:09) trapsize 1473
+\i (00:00:09) zoom out 1 
+\i (00:00:09) setwindow pcb
+\i (00:00:09) zoom out 15880.4 7601.4
+\i (00:00:09) trapsize 1473
+\i (00:00:09) zoom out 1 
+\i (00:00:09) setwindow pcb
+\i (00:00:09) zoom out 15821.5 8131.7
+\i (00:00:09) trapsize 1473
+\i (00:00:09) zoom out 1 
+\i (00:00:09) setwindow pcb
+\i (00:00:09) zoom out 15821.5 8131.7
+\i (00:00:09) trapsize 1473
+\i (00:00:09) zoom in 1 
+\i (00:00:09) setwindow pcb
+\i (00:00:09) zoom in 15792.0 8279.0
+\i (00:00:09) trapsize 737
+\i (00:00:10) zoom in 1 
+\i (00:00:10) setwindow pcb
+\i (00:00:10) zoom in 10231.4 8234.8
+\i (00:00:10) trapsize 368
+\i (00:00:10) zoom in 1 
+\i (00:00:10) setwindow pcb
+\i (00:00:10) zoom in 10135.6 8212.8
+\i (00:00:10) trapsize 184
+\i (00:00:10) exit 
+\e (00:00:10) Do you want to save the changes you made to LM4667MM(AMP).dra?
+\i (00:00:12) fillin no 
+\t (00:00:12)     Journal end - Fri Apr  8 12:11:59 2022

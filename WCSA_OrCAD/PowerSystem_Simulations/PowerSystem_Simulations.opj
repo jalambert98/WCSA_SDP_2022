@@ -1,6 +1,6 @@
 (ExpressProject "PowerSystem_Simulations"
   (ProjectVersion "19981106")
-  (SoftwareVersion "17.4-2019 S013 (3906575)  [12/6/2020]-[04/07/22]")
+  (SoftwareVersion "17.4-2019 S013 (3906575)  [12/6/2020]-[04/08/22]")
   (ProjectType "Analog or A/D Mixed Mode")
   (Folder "Design Resources"
     (Folder "Library")
@@ -80,19 +80,21 @@
          ".\powersystem_simulations-pspicefiles\schematic1\powerblock_sim.sim"
         (DisplayName "SCHEMATIC1-PowerBlock_Sim")
         (Type "PSpice Profile")))
-    (Folder "Stimulus Files")
-    (Folder "Include Files")
+    (Folder "Stimulus Files"
+      (Sort User))
+    (Folder "Include Files"
+      (Sort User))
     (Folder "Model Libraries"
+      (Sort User)
       (File ".\powersystem_simulations-pspicefiles\powersystem_simulations.lib"
+        (Type "PSpiceLibrary")
         (DisplayName
-           ".\powersystem_simulations-pspicefiles\powersystem_simulations.lib")
-        (Type "PSpiceLibrary"))
+           ".\powersystem_simulations-pspicefiles\powersystem_simulations.lib"))
       (File
          ".\powersystem_simulations-pspicefiles\schematic1\powerblock_sim\sllm359\mc33063a-q1_pspice_trans\mc33063a-q1_trans.lib"
+        (Type "PSpiceLibrary")
         (DisplayName
-           ".\powersystem_simulations-pspicefiles\schematic1\powerblock_sim\sllm359\mc33063a-q1_pspice_trans\mc33063a-q1_trans.lib")
-        (Type "PSpiceLibrary"))
-      (Sort User)))
+           ".\powersystem_simulations-pspicefiles\schematic1\powerblock_sim\sllm359\mc33063a-q1_pspice_trans\mc33063a-q1_trans.lib"))))
   (DefaultLibraryBrowseDirectory "library\PSpice")
   (Folder "Logs")
   (PartMRUSelector
@@ -132,39 +134,28 @@
     (FileView
       (Path "Design Resources")
       (Path "Design Resources"
-         "C:\Users\student\OrCAD_PCB\WCSA\PowerSystem_Simulations\powersystem_simulations.dsn")
+         "C:\Users\student\OrCAD_PCB\WCSA_OrCAD\PowerSystem_Simulations\powersystem_simulations.dsn")
       (Path "Design Resources"
-         "C:\Users\student\OrCAD_PCB\WCSA\PowerSystem_Simulations\powersystem_simulations.dsn"
+         "C:\Users\student\OrCAD_PCB\WCSA_OrCAD\PowerSystem_Simulations\powersystem_simulations.dsn"
          "SCHEMATIC1")
       (Path "Outputs")
       (Select "Design Resources"
-         "C:\Users\student\OrCAD_PCB\WCSA\PowerSystem_Simulations\powersystem_simulations.dsn"
-         "SCHEMATIC1" "1 - Revision History"))
+         "C:\Users\student\OrCAD_PCB\WCSA_OrCAD\PowerSystem_Simulations\powersystem_simulations.dsn"
+         "SCHEMATIC1" "2 - Power Block Simulation"))
     (HierarchyView)
     (Doc
       (Type "COrCapturePMDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 -1 -1 0 141 0 551"))
+        (Placement "44 0 1 -1 -1 -1 -1 0 200 0 372"))
       (Tab 0))
     (Doc
       (Type "COrSchematicDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 5 24 5 1093 24 569")
-        (Scroll "-133 -4")
+        (Placement "44 0 1 -1 -1 -1 -1 5 1034 24 413")
+        (Scroll "-103 0")
         (Zoom "52")
         (Occurrence "/"))
       (Path
-         "C:\USERS\STUDENT\ORCAD_PCB\WCSA\POWERSYSTEM_SIMULATIONS\POWERSYSTEM_SIMULATIONS.DSN")
+         "C:\USERS\STUDENT\ORCAD_PCB\WCSA_ORCAD\POWERSYSTEM_SIMULATIONS\POWERSYSTEM_SIMULATIONS.DSN")
       (Schematic "SCHEMATIC1")
-      (Page "2 - Power Block Simulation"))
-    (Doc
-      (Type "COrSchematicDoc")
-      (Frame
-        (Placement "44 0 1 -1 -1 -1 -1 5 1093 24 569")
-        (Scroll "-43 30")
-        (Zoom "100")
-        (Occurrence "/"))
-      (Path
-         "C:\USERS\STUDENT\ORCAD_PCB\WCSA\POWERSYSTEM_SIMULATIONS\POWERSYSTEM_SIMULATIONS.DSN")
-      (Schematic "SCHEMATIC1")
-      (Page "1 - Revision History"))))
+      (Page "2 - Power Block Simulation"))))
