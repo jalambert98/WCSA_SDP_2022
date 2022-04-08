@@ -1,0 +1,84 @@
+\t (00:00:03) allegro 17.2 S051 Windows SPB 64-bit Edition
+\t (00:00:03)     Journal start - Sun Mar 13 16:11:56 2022
+\t (00:00:03)         Host=EVAN-PC User=Evan Mayhew Pid=28528 CPUs=4
+\t (00:00:03) CmdLine= c:\cadence\spb_17.2\tools\bin\allegro.exe C:\Users\Evan Mayhew\Desktop\129b footprints\buckbstreg\D8.dra
+\t (00:00:03) 
+   (00:00:03) Loading axlcore.cxt 
+\t (00:00:03) Opening existing design...
+\i (00:00:03) QtSignal SPBFoldDockArea FoldAreaTabWidget currentChanged D8
+\d (00:00:03) Design opened: C:/Users/Evan Mayhew/Desktop/129b footprints/buckbstreg/D8.dra
+\i (00:00:03) trapsize 2743
+\i (00:00:03) trapsize 2819
+\i (00:00:03) trapsize 2743
+\i (00:00:03) trapsize 2833
+\i (00:00:04) generaledit 
+\i (00:00:05) zoom out 0.100000 
+\i (00:00:05) setwindow pcb
+\i (00:00:05) zoom out 39.785 15.306 0.1
+\i (00:00:05) trapsize 3116
+\i (00:00:10) drag_start grid -28.144 2.219
+\i (00:00:10) move 
+\t (00:00:10) last pick:  0.000 -25.000
+\t (00:00:10) Pick new location for the element(s).
+\i (00:00:11) drag_stop grid 521.528 168.617
+\i (00:00:11) generaledit 
+\i (00:00:12) zoom out 0.100000 
+\i (00:00:12) setwindow pcb
+\i (00:00:12) zoom out 156.327 43.351 0.1
+\i (00:00:12) trapsize 3428
+\i (00:00:12) zoom out 0.100000 
+\i (00:00:12) setwindow pcb
+\i (00:00:12) zoom out 61.038 25.528 0.1
+\i (00:00:12) trapsize 3770
+\i (00:00:12) zoom out 0.100000 
+\i (00:00:12) setwindow pcb
+\i (00:00:12) zoom out 61.038 25.527 0.1
+\i (00:00:12) trapsize 4147
+\i (00:00:12) drag_start grid 32.835 3.962
+\i (00:00:12) move 
+\t (00:00:13) last pick:  0.000 -25.000
+\t (00:00:13) Pick new location for the element(s).
+\i (00:00:16) drag_stop grid 211.177 -122.951
+\i (00:00:16) generaledit 
+\i (00:00:16) drag_start grid 10.439 -9.310
+\i (00:00:16) move 
+\t (00:00:16) last pick:  0.000 -25.000
+\t (00:00:16) Pick new location for the element(s).
+\i (00:00:17) drag_stop grid 181.315 -91.430
+\i (00:00:17) generaledit 
+\i (00:00:17) drag_start grid -54.262 -15.117
+\i (00:00:17) move 
+\t (00:00:18) last pick:  0.000 -25.000
+\t (00:00:18) Pick new location for the element(s).
+\i (00:00:18) drag_stop grid -173.709 -127.098
+\i (00:00:18) generaledit 
+\i (00:00:19) drag_start grid 3.803 -19.264
+\i (00:00:19) move 
+\t (00:00:19) last pick:  0.000 -25.000
+\t (00:00:19) Pick new location for the element(s).
+\i (00:00:19) drag_stop grid 530.532 217.142
+\i (00:00:19) generaledit 
+\i (00:00:20) drag_start grid -16.934 -26.730
+\i (00:00:20) move 
+\t (00:00:20) last pick:  0.000 -25.000
+\t (00:00:20) Pick new location for the element(s).
+\i (00:00:20) drag_stop grid 521.407 206.358
+\i (00:00:20) generaledit 
+\i (00:00:21) drag_start grid 0.485 7.280
+\i (00:00:21) move 
+\t (00:00:21) last pick:  0.000 -25.000
+\t (00:00:21) Pick new location for the element(s).
+\i (00:00:21) drag_stop grid 512.283 221.289
+\i (00:00:21) generaledit 
+\i (00:00:22) drag_start grid 34.494 13.916
+\i (00:00:22) drag_stop 31.176 17.234
+\i (00:00:23) pick grid 0.485 178.985
+\t (00:00:23) last pick:  0.000 200.000
+\i (00:00:23) zoom out 0.100000 
+\i (00:00:23) setwindow pcb
+\i (00:00:23) zoom out -17.764 -117.974 0.1
+\i (00:00:23) trapsize 4562
+\i (00:20:14) exit 
+\e (00:20:14) Do you want to save the changes you made to D8.dra?
+\i (00:20:15) fillin no 
+\t (00:20:15)     Journal end - Sun Mar 13 16:32:08 2022

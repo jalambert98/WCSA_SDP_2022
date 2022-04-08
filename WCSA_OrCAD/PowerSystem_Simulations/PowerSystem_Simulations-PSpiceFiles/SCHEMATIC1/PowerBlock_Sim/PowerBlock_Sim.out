@@ -1,0 +1,338 @@
+
+**** 04/07/22 19:35:04 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-PowerBlock_Sim"  [ C:\Users\student\OrCAD_PCB\WCSA\PowerSystem_Simulations\powersystem_simulations-pspicefil
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "PowerBlock_Sim.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+.LIB "../../../powersystem_simulations-pspicefiles/powersystem_simulations.lib" 
+.LIB "../../../powersystem_simulations-pspicefiles/schematic1/powerblock_sim/sllm359/mc33063a-q1_pspice_trans/mc33063a-q1_trans.lib"
++ "" 
+* From [PSPICE NETLIST] section of C:\Users\student\AppData\Roaming\SPB_Data\cdssetup\OrCAD_PSpice\17.4.0\PSpice.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN 1e-03 500m 0 50m 
+.OPTIONS ADVCONV
+.AUTOCONVERGE ITL1=1000 ITL2=1000 ITL4=1000 RELTOL=0.05 ABSTOL=1.0E-6 VNTOL=.001 PIVTOL=1.0E-10 
+.PROBE64 N([N35162])
+.PROBE64 N([N35320])
+.PROBE64 N([N44923])
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source POWERSYSTEM_SIMULATIONS
+S_U5         N35312 0 N35460 0 _U5
+.MODEL      _U5 VSWITCH Roff=100000000 Ron=0.01 VH=0 VT=2.5VDC TD=0
+C_C19         N35300 N35162  10u  TC=0,0 
+X_D1         N35320 N35312 awb1n4001 PARAMS:                
+R_R4         N35320 N35162  100k TC=0,0 
+R_R2         N35200 N35116  100k TC=0,0 
+V_V2         N35460 0  
++PULSE 0 5 100m 100n 100n 400m 2
+C_C18         N35200 N35116  100n  TC=0,0 
+C_C1         N35312 N35200  100n  TC=0,0 
+S_U2         N35320 0 N35632 0 _U2
+.MODEL      _U2 VSWITCH Roff=1000000000 Ron=0.01 VH=0 VT=2.5VDC TD=0
+M_M1         N35162 N35200 N35116 N35116 Mbreakp           
+V_V3         N35632 0  
++PULSE 5 0 300m 300n 300n 2 4
+R_R1         N35312 N35116  10k TC=0,0 
+M_M2         N35200 N35300 0 0 MbreakN           
+R_R3         N35300 N35320  300k TC=0,0 
+R_R9         N37973 0  1.2k TC=0,0 
+R_Rsc2         N37799 N37893  0.22 TC=0,0 
+C_C12         0 N37931  330u  TC=0,0 
+X_D3         N37819 N37931 awb1n5819 PARAMS:                
+R_R8         N37973 N37931  3.6k TC=0,0 
+R_R7         N49005 N37799  180 TC=0,0 
+C_C10         0 N37893  100u  TC=0,0 
+C_C11         N44823 0  1.5n  TC=0,0 
+L_L3         N37799 N37819  170u  
+V_V4         N35116 0 4.1Vdc
+C_C22         0 N37893  100n  TC=0,0 
+C_C23         0 N35116  10u  TC=0,0 
+X_U6          N37973 N49005 0 N37799 N37819 0 N44823 N37893 MC33063A-Q1_TRANS
+C_C24         0 N44923  100u  TC=0,0 
+C_C25         0 N44923  100n  TC=0,0 
+L_L4         N37931 N44923  1uH  
+R_Rlidar         N44923 0  1k TC=0,0 
+V_V6         N37893 0  
++PULSE 0 3.9 30m 300n 300n 100m 400m
+** Floating/unmodeled pin fixups **
+R__UC0001   N37799  0   {1/GMIN}
+
+**** RESUMING PowerBlock_Sim.cir ****
+.END
+
+**** 04/07/22 19:35:04 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-PowerBlock_Sim"  [ C:\Users\student\OrCAD_PCB\WCSA\PowerSystem_Simulations\powersystem_simulations-pspicefil
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_D1.model22    X_D3.model22    D_D1            
+          IS  149.000000E-09  253.000000E-06    1.000000E-15 
+           N    2.21            1.8              .01         
+          BV  100              44                            
+         IBV    1               2                            
+          RS     .03             .065            .01         
+          TT    1.440000E-06                    1.000000E-12 
+         CJO   23.130000E-12  160.000000E-12                 
+          VJ     .5              .8                          
+           M     .421                                        
+          EG    1.11             .69                         
+         XTI                    2                            
+
+
+               X_U6.X_U629.d_d1 
+          IS    1.000000E-15 
+           N     .1          
+          RS     .05         
+          TT   10.000000E-12 
+
+
+               X_U6.X_U634.d_d1 
+          IS    1.000000E-15 
+           N     .1          
+          RS     .05         
+          TT   10.000000E-12 
+
+
+**** 04/07/22 19:35:04 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-PowerBlock_Sim"  [ C:\Users\student\OrCAD_PCB\WCSA\PowerSystem_Simulations\powersystem_simulations-pspicefil
+
+
+ ****     BJT MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               QbreakN2        QbreakN1        
+               NPN             NPN             
+       LEVEL    1               1            
+          IS  100.000000E-18  100.000000E-18 
+          BF   50              50            
+          NF    1               1            
+          BR    1               1            
+          NR    1               1            
+         ISS    0               0            
+          RE    0                .125        
+          RC    0                .125        
+         CJE    0               0            
+         VJE     .75             .75         
+         CJC    0               0            
+         VJC     .75             .75         
+         MJC     .33             .33         
+        XCJC    1               1            
+         CJS    0               0            
+         VJS     .75             .75         
+          TF                   10.000000E-09 
+          KF    0               0            
+          AF    1               1            
+          CN    2.42            2.42         
+           D     .87             .87         
+
+
+**** 04/07/22 19:35:04 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-PowerBlock_Sim"  [ C:\Users\student\OrCAD_PCB\WCSA\PowerSystem_Simulations\powersystem_simulations-pspicefil
+
+
+ ****     MOSFET MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               Mbreakp         MbreakN         
+               PMOS            NMOS            
+       LEVEL    1               1            
+           L  100.000000E-06  100.000000E-06 
+           W  100.000000E-06  100.000000E-06 
+         VTO    0               0            
+          KP   20.000000E-06   20.000000E-06 
+       GAMMA    0               0            
+         PHI     .6              .6          
+      LAMBDA    0               0            
+          IS   10.000000E-15   10.000000E-15 
+          JS    0               0            
+          PB     .8              .8          
+        PBSW     .8              .8          
+          CJ    0               0            
+        CJSW    0               0            
+        CGSO    0               0            
+        CGDO    0               0            
+        CGBO    0               0            
+         TOX    0               0            
+          XJ    0               0            
+       UCRIT   10.000000E+03   10.000000E+03 
+      DIOMOD    1               1            
+         VFB    0               0            
+        LETA    0               0            
+        WETA    0               0            
+          U0    0               0            
+        TEMP    0               0            
+         VDD    5               5            
+       XPART    0               0            
+
+
+**** 04/07/22 19:35:04 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-PowerBlock_Sim"  [ C:\Users\student\OrCAD_PCB\WCSA\PowerSystem_Simulations\powersystem_simulations-pspicefil
+
+
+ ****     Voltage Controlled Switch MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               _U5             _U2             
+         RON     .01             .01         
+        ROFF  100.000000E+06    1.000000E+09 
+          VT    2.5             2.5          
+          VH    0               0            
+          TD    0               0            
+
+
+**** 04/07/22 19:35:04 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-PowerBlock_Sim"  [ C:\Users\student\OrCAD_PCB\WCSA\PowerSystem_Simulations\powersystem_simulations-pspicefil
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(N35116)    4.1000 (N35162) 412.5E-09 (N35200)    4.1000 (N35300) 1.490E-09     
+
+(N35312)    4.0981 (N35320) 1.490E-09 (N35460)    0.0000 (N35632)    5.0000     
+
+(N37799)-444.0E-24 (N37819)-444.0E-24 (N37893)    0.0000 (N37931) 1.670E-18     
+
+(N37973) 417.6E-21 (N44823)    2.0105 (N44923) 1.670E-18 (N49005)-454.3E-24     
+
+(X_U6.CL)    -.0108                   (X_U6.CT)    2.0105                       
+
+(X_U6.CLK)    1.0000                  (X_U6.NCL) 36.40E-06                      
+
+(X_U6.ICHG) 36.40E-06                 (X_U6.DISCHG)    0.0000                   
+
+(X_U6.ISENSE) 444.0E-24               (X_U6.CII_INT) 417.6E-21                  
+
+(X_U6.N16735791)    1.0000            (X_U6.N16737156)    1.0000                
+
+(X_U6.N16737225)    0.0000            (X_U6.N16747431)     .7500                
+
+(X_U6.N16747437)    1.2500            (X_U6.N16747467)    1.0000                
+
+(X_U6.N16747655)    3.0000            (X_U6.N16755723)    0.0000                
+
+(X_U6.N16821920)    0.0000            (X_U6.N16879264) 5.677E-24                
+
+(X_U6.N16888275)    0.0000            (X_U6.N16933723)    1.2500                
+
+(X_U6.N16937785)    0.0000            (X_U6.N16945867)    0.0000                
+
+(X_U6.N16946331)    0.0000            (X_U6.X_U3.Yint)    0.0000                
+
+(X_U6.X_U5.Yint)    1.0000            (X_U6.X_U629.my5)    1.0000               
+
+(X_U6.X_U629.qbr)    1.0000           (X_U6.X_U629.qqq)    -.0100               
+
+(X_U6.X_U634.my5)    1.0000           (X_U6.X_U634.qbr)    1.0000               
+
+(X_U6.X_U634.qqq)    -.0100           (X_U6.X_U629.qint)    -.0100              
+
+(X_U6.X_U630.YINT)    0.0000          (X_U6.X_U634.qint)    -.0100              
+
+(X_U6.X_U635.YINT)    0.0000          (X_U6.X_U637.Yint)    1.0000              
+
+(X_U6.X_U629.myvss)    0.0000         (X_U6.X_U629.qqqd1)    0.0000             
+
+(X_U6.X_U634.myvss)    0.0000         (X_U6.X_U634.qqqd1)    0.0000             
+
+(X_U6.X_U629.x3.YINT)    0.0000       (X_U6.X_U634.x3.YINT)    0.0000       
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V2         0.000E+00
+    V_V3        -5.000E-12
+    V_V4        -1.900E-07
+    V_V6        -2.018E-21
+    X_U6.V_V9   -1.980E-12
+    X_U6.V_V5    0.000E+00
+    X_U6.V_V7    0.000E+00
+    X_U6.V_V8    0.000E+00
+    X_U6.X_U629.v1  -1.011E-12
+    X_U6.X_U629.v2  -5.677E-14
+    X_U6.X_U634.v1  -1.011E-12
+    X_U6.X_U634.v2  -5.677E-14
+
+    TOTAL POWER DISSIPATION   7.79E-07  WATTS
+
+
+**** Interrupt ****
+**** Param: RUNFOR = 1
+
+**** Interrupt ****
+**** Param: RUNFOR = 1
+
+          JOB ABORTED
+
+**** 04/07/22 19:35:04 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-PowerBlock_Sim"  [ C:\Users\student\OrCAD_PCB\WCSA\PowerSystem_Simulations\powersystem_simulations-pspicefil
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  License check-out time            =        9.78
+  Total job time (using Solver 1)   =     2779.92
+

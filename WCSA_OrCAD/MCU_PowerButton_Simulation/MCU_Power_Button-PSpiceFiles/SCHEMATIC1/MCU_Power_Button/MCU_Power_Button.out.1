@@ -1,0 +1,338 @@
+
+**** 04/06/22 11:17:02 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-MCU_Power_Button"  [ c:\users\student\orcad_pcb\mcu_power_button-pspicefiles\schematic1\mcu_power_button.sim
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "MCU_Power_Button.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\Users\student\AppData\Roaming\SPB_Data\cdssetup\OrCAD_PSpice\17.4.0\PSpice.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 20 0 1e-03 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source MCU_POWER_BUTTON
+V_V1         N00083 0 3.7VDC
+R_R1         N00123 N00083  10k TC=0,0 
+R_R2         N00130 N00083  100k TC=0,0 
+C_C1         N00123 N00130  1u  TC=0,0 
+C_C2         N00130 N00083  100n  TC=0,0 
+C_C3         N00814 N00807  10u  TC=0,0 
+R_R3         N00814 N00885  300k TC=0,0 
+R_R4         N00885 N00807  100k TC=0,0 
+S_U1         N00123 0 N01793 0 _U1
+.MODEL      _U1 VSWITCH Roff=100000000 Ron=0.01 VH=0 VT=2VDC TD=0
+V_V2         N01793 0  
++PULSE 0 3.7 1 0 0 1 5
+D_D1         N00885 N00123 Dbreak 
+X_M1         N00130 N00814 0 N00807 N00130 N00083 IRF7507
+
+**** RESUMING MCU_Power_Button.cir ****
+.END
+
+**** 04/06/22 11:17:02 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-MCU_Power_Button"  [ c:\users\student\orcad_pcb\mcu_power_button-pspicefiles\schematic1\mcu_power_button.sim
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               Dbreak          X_M1.x1.MD      X_M1.x1.MD1     X_M1.x1.MD2     
+          IS   10.000000E-15    5.385870E-09    0             100.000000E-12 
+           N                    1.5            50                            
+          BV                   20                                            
+         IBV                  250.000000E-06                                 
+          RS     .1              .055852                        3.000000E-06 
+         CJO  100.000000E-15  159.619000E-12  343.163000E-12                 
+          VJ                    4.90845          .696923                     
+           M                     .604275         .588455                     
+          FC                                   10.000000E-09                 
+          EG                    1                                            
+         XTI                    1                                            
+
+
+               X_M1.x1.MD3     X_M1.x2.MD      X_M1.x2.MD1     X_M1.x2.MD2     
+          IS  100.000000E-12    1.744150E-09    0             100.000000E-12 
+           N                    1.5            50                .400462     
+          BV                   20                                            
+         IBV                  250.000000E-06                                 
+          RS                     .035907                        3.000000E-06 
+          TT                  100.000000E-09                                 
+         CJO                  219.368000E-12  361.738000E-12                 
+          VJ                     .5              .5                          
+           M                     .355581         .519086                     
+          FC                     .1            10.000000E-09                 
+          EG                    1.2                                          
+         XTI                    1                                            
+
+
+               X_M1.x2.MD3     
+          IS  100.000000E-12 
+           N     .400462     
+
+
+**** 04/06/22 11:17:02 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-MCU_Power_Button"  [ c:\users\student\orcad_pcb\mcu_power_button-pspicefiles\schematic1\mcu_power_button.sim
+
+
+ ****     MOSFET MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_M1.x1.MM      X_M1.x2.MM      
+               NMOS            PMOS            
+       LEVEL    1               1            
+           L  100.000000E-06  100.000000E-06 
+           W  100.000000E-06  100.000000E-06 
+         VTO    1.4195         -1.3699       
+          KP   10.6324          2.56413      
+       GAMMA    0               0            
+         PHI     .6              .6          
+      LAMBDA    5.306350E-03    0            
+          IS    0               0            
+          JS    0               0            
+          PB     .8              .8          
+        PBSW     .8              .8          
+          CJ    0               0            
+        CJSW    0               0            
+        CGSO    2.164670E-06    1.788890E-06 
+        CGDO   15.176400E-09    8.171700E-09 
+        CGBO    0               0            
+         TOX    0               0            
+          XJ    0               0            
+       UCRIT   10.000000E+03   10.000000E+03 
+      DIOMOD    1               1            
+         VFB    0               0            
+        LETA    0               0            
+        WETA    0               0            
+          U0    0               0            
+        TEMP    0               0            
+         VDD    5               5            
+       XPART    0               0            
+
+
+**** 04/06/22 11:17:02 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-MCU_Power_Button"  [ c:\users\student\orcad_pcb\mcu_power_button-pspicefiles\schematic1\mcu_power_button.sim
+
+
+ ****     Voltage Controlled Switch MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               _U1             
+         RON     .01         
+        ROFF  100.000000E+06 
+          VT    2            
+          VH    0            
+          TD    0            
+
+
+**** 04/06/22 11:17:02 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-MCU_Power_Button"  [ c:\users\student\orcad_pcb\mcu_power_button-pspicefiles\schematic1\mcu_power_button.sim
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(N00083)    3.7000 (N00123)    3.6996 (N00130) 2.515E-06 (N00807)    3.7000     
+
+(N00814)    3.7000 (N00885)    3.7000 (N01793)    0.0000 (X_M1.x1.4)    0.0000  
+
+(X_M1.x1.5)    -.6246                 (X_M1.x1.6)    -.6246                     
+
+(X_M1.x1.7)    3.7000                 (X_M1.x1.8) 885.2E-09                     
+
+(X_M1.x1.9) 2.411E-06                 (X_M1.x2.4)    0.0000                     
+
+(X_M1.x2.5)     .2513                 (X_M1.x2.6)     .2513                     
+
+(X_M1.x2.7) 2.515E-06                 (X_M1.x2.8)    3.7000                     
+
+(X_M1.x2.9)    3.7000                 (X_M1.x1.10)   -3.7000                    
+
+(X_M1.x1.11)    -.6246                (X_M1.x2.10)    3.7000                    
+
+(X_M1.x2.11)     .2513                
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1        -3.704E-05
+    V_V2         0.000E+00
+    X_M1.x1.VFI2  -6.246E-13
+    X_M1.x1.VFI1   0.000E+00
+    X_M1.x2.VFI2   2.513E-13
+    X_M1.x2.VFI1   0.000E+00
+
+    TOTAL POWER DISSIPATION   1.37E-04  WATTS
+
+Reducing minimum delta to make the circuit converge.
+Reducing minimum delta to make the circuit converge.
+Reducing minimum delta to make the circuit converge.
+Reducing minimum delta to make the circuit converge.
+Reducing minimum delta to make the circuit converge.
+Reducing minimum delta to make the circuit converge.
+Reducing minimum delta to make the circuit converge.
+Reducing minimum delta to make the circuit converge.
+
+ERROR(ORPSIM-15138): Convergence problem in Transient Analysis at Time =  2.001.
+         Time step =  758.9E-21, minimum allowable step size =  1.000E-18
+
+  These supply currents failed to converge:
+
+    I(V_V1)                   =  -574.48uA  \   -50.86uA
+    I(X_M1.x1.VFI2)           =   -6.728nA  \    6.747nA
+    I(X_M1.x2.VFI2)           =  -954.10pA  \   -1.815nA
+    I(X_M1.x2.VFI1)           =  -533.85nA  \  -631.62nA
+
+  These devices failed to converge:
+    X_M1.x1.D1 X_M1.x1.D2 X_M1.x2.D2 
+
+
+
+  Last node voltages tried were:
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(N00083)    3.7000 (N00123) 4.223E-06 (N00130) 3.571E-06 (N00807)    3.7000     
+
+(N00814)    2.8126 (N00885)     .5711 (N01793)    2.0000 (X_M1.x1.4)    0.0000  
+
+(X_M1.x1.5)    -.6159                 (X_M1.x1.6)    -.6159                     
+
+(X_M1.x1.7)    2.8126                 (X_M1.x1.8) 910.9E-09                     
+
+(X_M1.x1.9) 3.460E-06                 (X_M1.x2.4)    0.0000                     
+
+(X_M1.x2.5)     .2513                 (X_M1.x2.6)     .2513                     
+
+(X_M1.x2.7) 3.260E-06                 (X_M1.x2.8)    3.7000                     
+
+(X_M1.x2.9)    3.7000                 (X_M1.x1.10)   -2.8126                    
+
+(X_M1.x1.11)    -.6159                (X_M1.x2.10)    3.7000                    
+
+(X_M1.x2.11)     .2513                
+
+
+**** Interrupt ****
+**** Param: RELTOL = 0.001
+**** Param: ABSTOL = 1e-12
+**** Param: VNTOL = 1e-06
+**** Param: GMIN = 1e-12
+**** Param: TSTOP = 20
+**** Param: TMAX = 0.001
+**** Param: ITL1 = 150
+**** Param: ITL2 = 20
+**** Param: ITL4 = 100
+**** Param: AutoConverge = 0
+**** Param: AutoConverge.ITL1 = 1000
+**** Param: AutoConverge.ITL2 = 1000
+**** Param: AutoConverge.ITL4 = 1000
+**** Param: AutoConverge.RELTOL = 0.05
+**** Param: AutoConverge.ABSTOL = 0.001
+**** Param: AutoConverge.VNTOL = 0.001
+**** Param: AutoConverge.PIVTOL = 1e-10
+**** Param: ADVCONV = 1
+**** Param: Current_Simulation = 3
+**** Param: METHOD = 0
+**** Param: TRTOL = 7
+**** Param: STEPGMIN = 0
+**** Param: GMINSTEPS = 0
+**** Param: ITL6 = 0
+**** Param: NOSTEPDEP = 0
+**** Param: PTRANSTEP = 0
+**** Param: GMINSRC = 0
+**** Param: PSEUDOTRAN = 0
+**** Param: NOSTEPSRC = 0
+
+ERROR(ORPSIM-15138): Convergence problem in Transient Analysis at Time =  2.001.
+         Time step =  189.7E-21, minimum allowable step size =  1.000E-18
+
+  These supply currents failed to converge:
+
+    I(V_V1)                   =   816.52uA  \   -50.86uA
+    I(X_M1.x1.VFI2)           =    37.30nA  \    6.747nA
+    I(X_M1.x1.VFI1)           =   758.59nA  \   759.74nA
+    I(X_M1.x2.VFI2)           =   -6.171nA  \   -1.815nA
+    I(X_M1.x2.VFI1)           =   101.18nA  \  -631.62nA
+
+  These devices failed to converge:
+    X_M1.x1.D1 X_M1.x1.D2 X_M1.x2.D2 
+
+
+
+  Last node voltages tried were:
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(N00083)    3.7000 (N00123) 4.223E-06 (N00130) 3.571E-06 (N00807)    3.7000     
+
+(N00814)    2.8126 (N00885)     .5711 (N01793)    2.0000 (X_M1.x1.4)    0.0000  
+
+(X_M1.x1.5)    -.6159                 (X_M1.x1.6)    -.6159                     
+
+(X_M1.x1.7)    2.8126                 (X_M1.x1.8) 918.3E-09                     
+
+(X_M1.x1.9) 3.468E-06                 (X_M1.x2.4)    0.0000                     
+
+(X_M1.x2.5)     .2513                 (X_M1.x2.6)     .2513                     
+
+(X_M1.x2.7) 3.308E-06                 (X_M1.x2.8)    3.7000                     
+
+(X_M1.x2.9)    3.7000                 (X_M1.x1.10)   -2.8126                    
+
+(X_M1.x1.11)    -.6159                (X_M1.x2.10)    3.7000                    
+
+(X_M1.x2.11)     .2513                
+
+
+**** Interrupt ****

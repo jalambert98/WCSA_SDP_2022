@@ -5,11 +5,11 @@ close all;
 JSN_dist = readmatrix('C:\Users\student\Desktop\JSN_readings.txt');
 Lidar_dist = readmatrix('C:\Users\student\Desktop\Lidar_readings.txt');
 
-Lidar_deltaT = 10e-3;
-JSN_deltaT = 50e-3;
+Lidar_dT = 10e-3;
+JSN_dT = 50e-3;
 
-JSN_t = 0:JSN_deltaT:(JSN_deltaT*(length(JSN_dist) - 1));
-Lidar_t = 0:Lidar_deltaT:(Lidar_deltaT*(length(Lidar_dist) - 1));
+JSN_t = 0:JSN_dT:(JSN_dT*(length(JSN_dist) - 1));
+Lidar_t = 0:Lidar_dT:(Lidar_dT*(length(Lidar_dist) - 1));
 
 figure(1)
 subplot(211)

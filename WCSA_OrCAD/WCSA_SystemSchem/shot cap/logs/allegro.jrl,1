@@ -1,0 +1,74 @@
+\t (00:00:03) allegro 17.2 S051 Windows SPB 64-bit Edition
+\t (00:00:03)     Journal start - Sun Mar 13 16:13:04 2022
+\t (00:00:03)         Host=EVAN-PC User=Evan Mayhew Pid=33720 CPUs=4
+\t (00:00:03) CmdLine= C:\Cadence\SPB_17.2\tools\bin\allegro.exe -s builder.scr.txt
+\t (00:00:03) 
+   (00:00:03) Loading axlcore.cxt 
+\t (00:00:04) Starting new design...
+\i (00:00:04) trapsize 29310
+\i (00:00:04) replay builder.scr.txt 
+\i (00:00:04) skill 'load "C:/Users/Evan Mayhew/Desktop/129b footprints/shot cap/builder.ile" ' 
+   (00:00:05) t
+\i (00:00:05) skill 'changeWorkingDir "C:/Users/Evan Mayhew/Desktop/129b footprints/shot cap" ' 
+   (00:00:05) t
+\i (00:00:05) skill 'LB_createFootprint "C:/Users/Evan Mayhew/Desktop/129b footprints/shot cap/DO-204AL_VIS.xml" ' 
+\t (00:00:05) Reading Footprint XML
+\t (00:00:05) Creating padstacks
+\t (00:00:05) Starting new design...
+\i (00:00:06) trapsize 806
+\i (00:00:06) trapsize 828
+\i (00:00:07) trapsize 836
+\i (00:00:07) trapsize 806
+\i (00:00:07) trapsize 1177
+\i (00:00:07) trapsize 1177
+\i (00:00:07) trapsize 117729
+\t (00:00:07) Performing DRC...
+\t (00:00:07) Multithreaded DRC update (4 threads).
+\t (00:00:07) No DRC errors detected.
+\t (00:00:07) Starting new design...
+\i (00:00:08) trapsize 80583
+\i (00:00:08) trapsize 82808
+\i (00:00:08) trapsize 83599
+\i (00:00:08) trapsize 80583
+\i (00:00:08) trapsize 117729
+\i (00:00:08) trapsize 117729
+\t (00:00:08) Opening Design "DO-204AL_VIS.dra"
+\t (00:00:08) Starting new design...
+\i (00:00:08) trapsize 80583
+\i (00:00:08) trapsize 82808
+\i (00:00:08) trapsize 80583
+\i (00:00:08) trapsize 117729
+\i (00:00:09) trapsize 117729
+\i (00:00:09) trapsize 25370
+\t (00:00:09) Creating TextBlocks
+\t (00:00:09) Creating Shapes on Package layers
+\t (00:00:09) Creating Pins
+\e (00:00:09) ERROR(SPMHA1-161): Cannot open the design because of database problems. Run the dbdoctor command on the design and try to open again.
+\e (00:00:09) ERROR(SPMHA1-161): Cannot open the design because of database problems. Run the dbdoctor command on the design and try to open again.
+\t (00:00:09) Creating Vias
+\i (00:00:27) fillin no 
+\t (00:00:27) Symbol Created
+\i (00:00:27) trapsize 2394
+   (00:00:27) Loading cmds.cxt 
+   (00:00:27) Loading skillExt.cxt 
+\t (00:00:27) Opening existing design...
+\i (00:00:27) trapsize 2394
+\i (00:00:27) trapsize 2461
+\i (00:00:27) trapsize 2394
+\i (00:00:27) trapsize 2394
+\d (00:00:28) Design opened: C:/Users/Evan Mayhew/Desktop/129b footprints/shot cap/DO-204AL_VIS.dra
+\t (00:00:28) Symbol Saved
+   (00:00:28) t
+\i (00:00:28) scriptmode +i +n 
+\i (00:00:28) step pkg map 
+\i (00:00:28) setwindow form.pkgmap3d 
+\i (00:00:28) FORM pkgmap3d stplist DO-204AL_VIS.step 
+\i (00:00:29) FORM pkgmap3d rotation_x 0 
+\i (00:00:29) FORM pkgmap3d save_current 
+\i (00:00:29) FORM pkgmap3d done 
+\i (00:00:29) setwindow pcb 
+\i (00:00:29) save 
+\i (00:00:29) fillin yes 
+\t (00:00:34) Symbol 'do-204al_vis.psm' created.
+\i (00:00:34) exit 
+\t (00:00:34)     Journal end - Sun Mar 13 16:13:35 2022

@@ -1,0 +1,50 @@
+\t (00:00:02) allegro 17.2 S051 Windows SPB 64-bit Edition
+\t (00:00:02)     Journal start - Sun Mar 13 16:14:34 2022
+\t (00:00:02)         Host=EVAN-PC User=Evan Mayhew Pid=18312 CPUs=4
+\t (00:00:02) CmdLine= c:\cadence\spb_17.2\tools\bin\allegro.exe C:\Users\Evan Mayhew\Desktop\129b footprints\1206 res\1206RES.dra
+\t (00:00:02) 
+   (00:00:02) Loading axlcore.cxt 
+\t (00:00:02) Opening existing design...
+\i (00:00:04) fillin yes 
+\i (00:00:04) QtSignal SPBFoldDockArea FoldAreaTabWidget currentChanged 1206RES
+\d (00:00:04) Design opened: C:/Users/Evan Mayhew/Desktop/129b footprints/1206 res/1206RES.dra
+\i (00:00:04) trapsize 2192
+\i (00:00:04) trapsize 2316
+\i (00:00:04) trapsize 2455
+\i (00:00:04) trapsize 2316
+\i (00:00:04) trapsize 2316
+\i (00:00:05) generaledit 
+\i (00:00:06) zoom in 0.100000 
+\i (00:00:06) setwindow pcb
+\i (00:00:06) zoom in -2.0307 -1.0358 0.1
+\i (00:00:06) trapsize 2106
+\i (00:00:06) zoom in 0.100000 
+\i (00:00:06) setwindow pcb
+\i (00:00:06) zoom in -1.0663 -1.3726 0.1
+\i (00:00:06) trapsize 1914
+\i (00:00:06) zoom in 0.100000 
+\i (00:00:06) setwindow pcb
+\i (00:00:06) zoom in -1.8665 -1.5257 0.1
+\i (00:00:06) trapsize 1740
+\i (00:00:06) zoom in 0.100000 
+\i (00:00:06) setwindow pcb
+\i (00:00:06) zoom in -0.0311 -1.8041 0.1
+\i (00:00:06) trapsize 1582
+\i (00:00:06) zoom in 0.100000 
+\i (00:00:06) setwindow pcb
+\i (00:00:06) zoom in 1.8040 -2.4051 0.1
+\i (00:00:06) trapsize 1438
+\i (00:00:07) zoom in 0.100000 
+\i (00:00:07) setwindow pcb
+\i (00:00:07) zoom in 4.6803 -0.7369 0.1
+\i (00:00:07) trapsize 1307
+\i (00:00:07) zoom in 0.100000 
+\i (00:00:07) setwindow pcb
+\i (00:00:07) zoom in 4.2881 -0.7369 0.1
+\i (00:00:07) trapsize 1189
+\i (00:00:07) zoom in 0.100000 
+\i (00:00:07) setwindow pcb
+\i (00:00:07) zoom in 1.4355 2.3296 0.1
+\i (00:00:07) trapsize 1080
+\i (00:17:33) exit 
+\t (00:17:34)     Journal end - Sun Mar 13 16:32:05 2022

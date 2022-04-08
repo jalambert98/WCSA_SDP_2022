@@ -1,0 +1,83 @@
+
+**** 04/07/22 15:42:01 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-PowerBlock_Sim"  [ C:\Users\student\OrCAD_PCB\WCSA\PowerSystem_Simulations\PowerSystem_Simulations-PSpiceFil
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "PowerBlock_Sim.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+.LIB "../../../powersystem_simulations-pspicefiles/powersystem_simulations.lib" 
+.LIB "../../../powersystem_simulations-pspicefiles/schematic1/powerblock_sim/sllm359/mc33063a-q1_pspice_trans/mc33063a-q1_trans.lib"
++ "" 
+* From [PSPICE NETLIST] section of C:\Users\student\AppData\Roaming\SPB_Data\cdssetup\OrCAD_PSpice\17.4.0\PSpice.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN 1e-03 5 0 SKIPBP 
+.OPTIONS ADVCONV
+.AUTOCONVERGE ITL1=1000 ITL2=1000 ITL4=1000 RELTOL=0.05 ABSTOL=1.0E-6 VNTOL=.001 PIVTOL=1.0E-10 
+.PROBE N([N35320])
+.PROBE N([N35162])
+.PROBE N([N35312])
+.PROBE N(L4:2)
+------------$
+ERROR(ORPSIM-16296): Invalid Expression: Specify either current(I) or voltage(V).
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source POWERSYSTEM_SIMULATIONS
+S_U5         N35312 0 N35460 0 _U5
+.MODEL      _U5 VSWITCH Roff=100000000 Ron=0.01 VH=0 VT=2.5VDC TD=0
+C_C19         N35300 N35162  10u  TC=0,0 
+X_D1         N35320 N35312 awb1n4001 PARAMS:                
+R_R4         N35320 N35162  100k TC=0,0 
+R_R2         N35200 N35116  100k TC=0,0 
+V_V2         N35460 0  
++PULSE 0 5 100m 100n 100n 400m 2
+C_C18         N35200 N35116  100n  TC=0,0 
+C_C1         N35312 N35200  100n  TC=0,0 
+S_U2         N35320 0 N35632 0 _U2
+.MODEL      _U2 VSWITCH Roff=1000000000 Ron=0.01 VH=0 VT=2.5VDC TD=0
+M_M1         N35162 N35200 N35116 N35116 Mbreakp           
+V_V3         N35632 0  
++PULSE 5 0 300m 300n 300n 2 4
+R_R1         N35312 N35116  10k TC=0,0 
+M_M2         N35200 N35300 0 0 MbreakN           
+R_R3         N35300 N35320  300k TC=0,0 
+R_R9         N37973 0  1.2k TC=0,0 
+R_Rsc2         N37799 N37893  0.22 TC=0,0 
+C_C12         0 N37931  330uF  TC=0,0 
+X_D3         N37819 N37931 awb1n5819 PARAMS:                
+R_R8         N37973 N37931  3.6k TC=0,0 
+R_R7         N49005 N37799  180 TC=0,0 
+C_C10         0 N37893  100u  TC=0,0 
+C_C11         N44823 0  1.5n  TC=0,0 
+L_L3         N37799 N37819  170uH  
+V_V4         N35116 0 4.1Vdc
+C_C22         0 N37893  100n  TC=0,0 
+R_Rlidar         0 N37931  1k TC=0,0 
+C_C23         0 N35116  10u  TC=0,0 
+X_U6          N37973 N49005 0 N37799 N37819 0 N44823 N37893 MC33063A-Q1_TRANS
+V_V5         N37893 0  
++PULSE 0 4.1 300m 0 0 2 4
+C_C24         0 N37931  100n  TC=0,0 
+** Floating/unmodeled pin fixups **
+R__UC0001   N37799  0   {1/GMIN}
+
+**** RESUMING PowerBlock_Sim.cir ****
+.END
+

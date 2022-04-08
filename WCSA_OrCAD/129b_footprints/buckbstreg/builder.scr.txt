@@ -1,0 +1,36 @@
+skill load "C:/Users/Evan Mayhew/Desktop/129b footprints/buckbstreg/builder.ile" 
+skill changeWorkingDir "C:/Users/Evan Mayhew/Desktop/129b footprints/buckbstreg" 
+skill LB_createFootprint "C:/Users/Evan Mayhew/Desktop/129b footprints/buckbstreg/D8-L.xml" 
+scriptmode +i +n 
+step pkg map 
+setwindow form.pkgmap3d 
+FORM pkgmap3d stplist D8.step 
+FORM pkgmap3d rotation_x 0 
+FORM pkgmap3d save_current 
+FORM pkgmap3d done 
+setwindow pcb 
+save  
+fillin yes 
+skill LB_createFootprint "C:/Users/Evan Mayhew/Desktop/129b footprints/buckbstreg/D8-M.xml" 
+scriptmode +i +n 
+step pkg map 
+setwindow form.pkgmap3d 
+FORM pkgmap3d stplist D8.step 
+FORM pkgmap3d rotation_x 0 
+FORM pkgmap3d save_current 
+FORM pkgmap3d done 
+setwindow pcb 
+save  
+fillin yes 
+skill LB_createFootprint "C:/Users/Evan Mayhew/Desktop/129b footprints/buckbstreg/D8.xml" 
+scriptmode +i +n 
+step pkg map 
+setwindow form.pkgmap3d 
+FORM pkgmap3d stplist D8.step 
+FORM pkgmap3d rotation_x 0 
+FORM pkgmap3d save_current 
+FORM pkgmap3d done 
+setwindow pcb 
+save  
+fillin yes 
+exit 

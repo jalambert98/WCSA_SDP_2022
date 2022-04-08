@@ -1,0 +1,5 @@
+* PSpice Model Editor - Version 17.4.0
+
+*$
+.model Mbreakp PMOS
+*$

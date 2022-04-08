@@ -1,0 +1,14 @@
+skill load "C:/Users/Evan Mayhew/Desktop/129b footprints/shot cap/builder.ile" 
+skill changeWorkingDir "C:/Users/Evan Mayhew/Desktop/129b footprints/shot cap" 
+skill LB_createFootprint "C:/Users/Evan Mayhew/Desktop/129b footprints/shot cap/DO-204AL_VIS.xml" 
+scriptmode +i +n 
+step pkg map 
+setwindow form.pkgmap3d 
+FORM pkgmap3d stplist DO-204AL_VIS.step 
+FORM pkgmap3d rotation_x 0 
+FORM pkgmap3d save_current 
+FORM pkgmap3d done 
+setwindow pcb 
+save  
+fillin yes 
+exit 

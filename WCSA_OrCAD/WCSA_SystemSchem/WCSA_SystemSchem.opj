@@ -1,0 +1,88 @@
+(ExpressProject "WCSA_SystemSchem"
+  (ProjectVersion "19981106")
+  (SoftwareVersion "17.4-2019 S013 (3906575)  [12/6/2020]-[04/07/22]")
+  (ProjectType "PCB")
+  (Folder "Design Resources"
+    (Folder "Library")
+    ("Allegro Netlist Directory" "allegro")
+    (DOCKED "TRUE")
+    (DOCKING_POSITION "59420")
+    (NoModify)
+    (File ".\wcsa_systemschem.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x")
+    (Display_Online_DRC_Results "FALSE"))
+  (Folder "Layout")
+  (Folder "Outputs")
+  (Folder "Referenced Projects")
+  (Folder "PSpice Resources"
+    (Folder "Simulation Profiles")
+    (Folder "Model Libraries"
+      (Sort User))
+    (Folder "Stimulus Files"
+      (Sort User))
+    (Folder "Include Files"
+      (Sort User)))
+  (Folder "Logs")
+  (PartMRUSelector
+    ("SW PUSHBUTTON-SPST"
+      (FullPartName "SW PUSHBUTTON-SPST.Normal")
+      (LibraryName "C:\CADENCE\SPB_17.4\TOOLS\CAPTURE\LIBRARY\DISCRETE.OLB")
+      (DeviceIndex "0"))
+    (OFFPAGELEFT-R
+      (LibraryName "C:\CADENCE\SPB_17.4\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    (OFFPAGELEFT-L
+      (LibraryName "C:\CADENCE\SPB_17.4\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    (RC1206JR-0713RL
+      (FullPartName "RC1206JR-0713RL.Normal")
+      (LibraryName
+         "C:\USERS\STUDENT\ORCAD_PCB\WCSA_SYSTEMSCHEM\1206 RES\RC1206JR-0713RL.OLB")
+      (DeviceIndex "0"))
+    (C1206C241MGGACAUTO7210
+      (FullPartName "C1206C241MGGACAUTO7210.Normal")
+      (LibraryName
+         "C:\USERS\STUDENT\ORCAD_PCB\WCSA_SYSTEMSCHEM\C1206C241MGGACAUTO7210\C1206C241MGGACAUTO7210.OLB")
+      (DeviceIndex "0"))
+    (CAPACITOR
+      (FullPartName "CAPACITOR.Normal")
+      (LibraryName "C:\CADENCE\SPB_17.4\TOOLS\CAPTURE\LIBRARY\DISCRETE.OLB")
+      (DeviceIndex "0"))
+    (DIP-20
+      (FullPartName "DIP-20.Normal")
+      (LibraryName
+         "C:\USERS\STUDENT\ORCAD_PCB\WCSA_SYSTEMSCHEM\PDIP20 SOCKET FOOTPRINT\DIP-20.OLB")
+      (DeviceIndex "0"))
+    (RESISTOR
+      (FullPartName "RESISTOR.Normal")
+      (LibraryName "C:\CADENCE\SPB_17.4\TOOLS\CAPTURE\LIBRARY\DISCRETE.OLB")
+      (DeviceIndex "0")))
+  (LastUsedLibraryBrowseDirectory
+     "C:\Users\student\OrCAD_PCB\WCSA_SystemSchem\1206 res")
+  (MPSSessionName "student")
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources" ".\wcsa_systemschem.dsn")
+      (Path "Design Resources" ".\wcsa_systemschem.dsn" "SCHEMATIC1")
+      (Select "Design Resources" ".\wcsa_systemschem.dsn" "SCHEMATIC1"
+         "3 - Power"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -1 -1 0 200 0 446"))
+      (Tab 0))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -1 -1 5 1034 24 487")
+        (Scroll "-13 0")
+        (Zoom "100")
+        (Occurrence "/"))
+      (Path
+         "C:\USERS\STUDENT\ORCAD_PCB\WCSA\WCSA_SYSTEMSCHEM\WCSA_SYSTEMSCHEM.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "1 - Revision History"))))

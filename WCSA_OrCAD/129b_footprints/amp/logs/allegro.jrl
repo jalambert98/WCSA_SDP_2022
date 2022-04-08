@@ -1,0 +1,68 @@
+\t (00:00:03) allegro 17.2 S051 Windows SPB 64-bit Edition
+\t (00:00:03)     Journal start - Sun Mar 13 16:17:09 2022
+\t (00:00:03)         Host=EVAN-PC User=Evan Mayhew Pid=33112 CPUs=4
+\t (00:00:03) CmdLine= c:\cadence\spb_17.2\tools\bin\allegro.exe C:\Users\Evan Mayhew\Desktop\129b footprints\amp\MUB10A.dra
+\t (00:00:03) 
+   (00:00:03) Loading axlcore.cxt 
+\t (00:00:03) Opening existing design...
+\i (00:00:03) QtSignal SPBFoldDockArea FoldAreaTabWidget currentChanged MUB10A
+\d (00:00:03) Design opened: C:/Users/Evan Mayhew/Desktop/129b footprints/amp/MUB10A.dra
+\i (00:00:03) trapsize 1949
+\i (00:00:03) trapsize 2002
+\i (00:00:03) trapsize 1949
+\i (00:00:04) trapsize 2012
+\i (00:00:04) generaledit 
+\i (00:00:07) zoom out 0.100000 
+\i (00:00:07) setwindow pcb
+\i (00:00:07) zoom out -41.753 20.648 0.1
+\i (00:00:07) trapsize 2213
+\i (00:00:07) zoom out 0.100000 
+\i (00:00:07) setwindow pcb
+\i (00:00:07) zoom out -41.752 20.649 0.1
+\i (00:00:07) trapsize 2435
+\i (00:00:11) drag_start grid -7.178 -13.925
+\i (00:00:11) move 
+\t (00:00:12) last pick:  0.000 -25.000
+\t (00:00:12) Pick new location for the element(s).
+\i (00:00:12) drag_stop grid 290.354 106.354
+\i (00:00:12) generaledit 
+\i (00:00:12) drag_start grid 8.404 -4.186
+\i (00:00:12) move 
+\t (00:00:12) last pick:  0.000 -25.000
+\t (00:00:12) Pick new location for the element(s).
+\i (00:00:13) drag_stop grid 306.424 126.320
+\i (00:00:13) generaledit 
+\i (00:00:13) drag_start grid -42.239 -14.412
+\i (00:00:13) move 
+\t (00:00:13) last pick:  0.000 -25.000
+\t (00:00:13) Pick new location for the element(s).
+\i (00:00:14) drag_stop grid 287.920 120.476
+\i (00:00:14) generaledit 
+\i (00:00:14) drag_start grid -13.022 -5.646
+\i (00:00:14) move 
+\t (00:00:14) last pick:  0.000 -25.000
+\t (00:00:14) Pick new location for the element(s).
+\i (00:00:15) drag_stop grid 317.137 122.911
+\i (00:00:15) generaledit 
+\i (00:00:15) drag_start grid -3.770 -9.542
+\i (00:00:15) move 
+\t (00:00:15) last pick:  0.000 -25.000
+\t (00:00:15) Pick new location for the element(s).
+\i (00:00:16) drag_stop grid 308.372 117.554
+\i (00:00:16) generaledit 
+\i (00:00:16) drag_start grid -4.256 -11.977
+\i (00:00:16) move 
+\t (00:00:17) last pick:  0.000 -25.000
+\t (00:00:17) Pick new location for the element(s).
+\i (00:00:17) drag_stop grid 282.563 116.094
+\i (00:00:17) generaledit 
+\i (00:00:17) drag_start grid 1.587 -10.029
+\i (00:00:17) move 
+\t (00:00:18) last pick:  0.000 -25.000
+\t (00:00:18) Pick new location for the element(s).
+\i (00:00:18) drag_stop grid 324.442 118.528
+\i (00:00:18) generaledit 
+\i (00:14:42) exit 
+\e (00:14:42) Do you want to save the changes you made to MUB10A.dra?
+\i (00:14:47) fillin no 
+\t (00:14:47)     Journal end - Sun Mar 13 16:31:52 2022

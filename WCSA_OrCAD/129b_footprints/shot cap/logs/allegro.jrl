@@ -1,0 +1,196 @@
+\t (00:00:04) allegro 17.2 S051 Windows SPB 64-bit Edition
+\t (00:00:04)     Journal start - Sun Mar 13 16:13:47 2022
+\t (00:00:04)         Host=EVAN-PC User=Evan Mayhew Pid=21584 CPUs=4
+\t (00:00:04) CmdLine= c:\cadence\spb_17.2\tools\bin\allegro.exe C:\Users\Evan Mayhew\Desktop\129b footprints\shot cap\DO-204AL_VIS.dra
+\t (00:00:04) 
+   (00:00:04) Loading axlcore.cxt 
+\t (00:00:05) Opening existing design...
+\i (00:00:05) QtSignal SPBFoldDockArea FoldAreaTabWidget currentChanged DO-204AL_VIS
+\d (00:00:05) Design opened: C:/Users/Evan Mayhew/Desktop/129b footprints/shot cap/DO-204AL_VIS.dra
+\i (00:00:05) trapsize 2394
+\i (00:00:05) trapsize 2461
+\i (00:00:05) trapsize 2394
+\i (00:00:05) trapsize 2394
+\i (00:00:06) generaledit 
+\i (00:00:09) prepopup 54.183 35.420
+\i (00:00:09) pick grid 39.816 145.566
+\t (00:00:09) last pick:  0.000 100.000
+\i (00:00:09) zoom out 0.100000 
+\i (00:00:09) setwindow pcb
+\i (00:00:09) zoom out 261.545 113.001 0.1
+\i (00:00:09) trapsize 2634
+\i (00:00:09) zoom out 0.100000 
+\i (00:00:09) setwindow pcb
+\i (00:00:09) zoom out 261.545 113.001 0.1
+\i (00:00:09) trapsize 2897
+\i (00:00:09) zoom out 0.100000 
+\i (00:00:09) setwindow pcb
+\i (00:00:09) zoom out 260.966 111.842 0.1
+\i (00:00:09) trapsize 3187
+\i (00:00:10) drag_start grid 225.909 -5.440
+\i (00:00:10) move 
+\t (00:00:10) last pick:  238.000 -25.000
+\t (00:00:10) Pick new location for the element(s).
+\i (00:00:13) drag_stop grid -119.566 177.496
+\i (00:00:13) generaledit 
+\i (00:00:14) drag_start grid 196.589 1.571
+\i (00:00:14) move 
+\t (00:00:14) last pick:  238.000 -25.000
+\t (00:00:14) Pick new location for the element(s).
+\i (00:00:15) drag_stop grid 478.961 -81.929
+\i (00:00:15) generaledit 
+\i (00:00:16) drag_start grid 254.593 -15.001
+\i (00:00:16) move 
+\t (00:00:16) last pick:  238.000 -25.000
+\t (00:00:16) Pick new location for the element(s).
+\i (00:00:17) drag_stop grid -70.486 198.531
+\i (00:00:17) generaledit 
+\i (00:00:18) drag_start grid 222.085 -0.978
+\i (00:00:18) move 
+\t (00:00:18) last pick:  238.000 -25.000
+\t (00:00:18) Pick new location for the element(s).
+\i (00:00:18) roam y 16
+\i (00:00:18) roam y 16
+\i (00:00:18) roam y 16
+\i (00:00:18) roam y 16
+\i (00:00:18) roam y 16
+\i (00:00:18) roam y 16
+\i (00:00:18) roam y 16
+\i (00:00:18) roam y 16
+\i (00:00:18) roam y 16
+\i (00:00:18) roam y 16
+\i (00:00:18) roam y 16
+\i (00:00:18) roam y 16
+\i (00:00:18) roam y 16
+\i (00:00:18) roam y 16
+\i (00:00:18) roam y 16
+\i (00:00:18) roam y 16
+\i (00:00:18) roam y 16
+\i (00:00:19) drag_stop grid -17.581 -116.926
+\i (00:00:19) generaledit 
+\i (00:00:19) zoom in 0.100000 
+\i (00:00:19) setwindow pcb
+\i (00:00:19) zoom in -20.131 -125.212 0.1
+\i (00:00:19) trapsize 2897
+\i (00:00:19) zoom in 0.100000 
+\i (00:00:19) setwindow pcb
+\i (00:00:19) zoom in -6.802 -135.642 0.1
+\i (00:00:19) trapsize 2634
+\i (00:00:19) zoom in 0.100000 
+\i (00:00:19) setwindow pcb
+\i (00:00:19) zoom in 7.422 -143.016 0.1
+\i (00:00:19) trapsize 2394
+\i (00:00:19) zoom in 0.100000 
+\i (00:00:19) setwindow pcb
+\i (00:00:19) zoom in 23.225 -152.594 0.1
+\i (00:00:19) trapsize 2177
+\i (00:00:20) zoom out 0.100000 
+\i (00:00:20) setwindow pcb
+\i (00:00:20) zoom out 18.872 -154.770 0.1
+\i (00:00:20) trapsize 2394
+\i (00:00:20) zoom out 0.100000 
+\i (00:00:20) setwindow pcb
+\i (00:00:20) zoom out 15.041 -153.812 0.1
+\i (00:00:20) trapsize 2634
+\i (00:00:20) zoom out 0.100000 
+\i (00:00:20) setwindow pcb
+\i (00:00:20) zoom out 10.300 -153.811 0.1
+\i (00:00:20) trapsize 2897
+\i (00:00:20) zoom out 0.100000 
+\i (00:00:20) setwindow pcb
+\i (00:00:20) zoom out 9.140 -154.391 0.1
+\i (00:00:20) trapsize 3187
+\i (00:00:20) zoom out 0.100000 
+\i (00:00:20) setwindow pcb
+\i (00:00:20) zoom out 25.712 -112.959 0.1
+\i (00:00:20) trapsize 3506
+\i (00:00:20) zoom out 0.100000 
+\i (00:00:20) setwindow pcb
+\i (00:00:20) zoom out 44.643 -100.338 0.1
+\i (00:00:20) trapsize 3856
+\i (00:00:20) zoom in 0.100000 
+\i (00:00:20) setwindow pcb
+\i (00:00:20) zoom in 105.574 -52.519 0.1
+\i (00:00:20) trapsize 3506
+\i (00:00:20) zoom in 0.100000 
+\i (00:00:20) setwindow pcb
+\i (00:00:20) zoom in 115.390 -57.427 0.1
+\i (00:00:20) trapsize 3187
+\i (00:00:20) zoom in 0.100000 
+\i (00:00:20) setwindow pcb
+\i (00:00:20) zoom in 121.764 -74.637 0.1
+\i (00:00:20) trapsize 2897
+\i (00:00:21) zoom out 0.100000 
+\i (00:00:21) setwindow pcb
+\i (00:00:21) zoom out 119.446 -72.897 0.1
+\i (00:00:21) trapsize 3187
+\i (00:00:21) zoom out 0.100000 
+\i (00:00:21) setwindow pcb
+\i (00:00:21) zoom out 111.797 -68.434 0.1
+\i (00:00:21) trapsize 3506
+\i (00:00:21) zoom out 0.100000 
+\i (00:00:21) setwindow pcb
+\i (00:00:21) zoom out 79.543 -39.687 0.1
+\i (00:00:21) trapsize 3856
+\i (00:00:21) zoom in 0.100000 
+\i (00:00:21) setwindow pcb
+\i (00:00:21) zoom in 25.555 -11.921 0.1
+\i (00:00:21) trapsize 3506
+\i (00:00:21) zoom in 0.100000 
+\i (00:00:21) setwindow pcb
+\i (00:00:21) zoom in 19.946 -11.220 0.1
+\i (00:00:21) trapsize 3187
+\i (00:00:21) zoom in 0.100000 
+\i (00:00:21) setwindow pcb
+\i (00:00:21) zoom in 16.759 -11.220 0.1
+\i (00:00:21) trapsize 2897
+\i (00:00:21) zoom in 0.100000 
+\i (00:00:21) setwindow pcb
+\i (00:00:21) zoom in 16.179 -11.219 0.1
+\i (00:00:21) trapsize 2634
+\i (00:00:21) zoom out 0.100000 
+\i (00:00:21) setwindow pcb
+\i (00:00:21) zoom out 24.608 -11.218 0.1
+\i (00:00:21) trapsize 2897
+\i (00:00:21) zoom out 0.100000 
+\i (00:00:21) setwindow pcb
+\i (00:00:21) zoom out 18.813 -12.956 0.1
+\i (00:00:21) trapsize 3187
+\i (00:00:22) roam y -96 
+\i (00:00:22) roam y -96
+\i (00:00:23) roam y -96 
+\i (00:00:23) roam y -96
+\i (00:00:23) drag_start grid 255.291 -24.510
+\i (00:00:23) move 
+\t (00:00:24) last pick:  238.000 -25.000
+\t (00:00:24) Pick new location for the element(s).
+\i (00:00:24) drag_stop grid -101.019 203.681
+\i (00:00:24) generaledit 
+\i (00:00:24) drag_start grid 243.818 -8.575
+\i (00:00:24) move 
+\t (00:00:25) last pick:  238.000 -25.000
+\t (00:00:25) Pick new location for the element(s).
+\i (00:00:25) drag_stop grid -108.031 201.769
+\i (00:00:25) generaledit 
+\i (00:00:25) drag_start grid 241.268 -7.938
+\i (00:00:25) move 
+\t (00:00:26) last pick:  238.000 -25.000
+\t (00:00:26) Pick new location for the element(s).
+\i (00:00:26) drag_stop grid -89.546 190.296
+\i (00:00:26) generaledit 
+\i (00:00:26) drag_start grid 40.485 -94.625
+\i (00:00:26) move 
+\t (00:00:27) last pick:  0.000 -100.000
+\t (00:00:27) Pick new location for the element(s).
+\i (00:00:27) drag_stop grid -108.668 203.681
+\i (00:00:27) generaledit 
+\i (00:00:28) drag_start grid 458.624 -85.701
+\i (00:00:28) move 
+\t (00:00:28) last pick:  500.000 -100.000
+\t (00:00:28) Pick new location for the element(s).
+\i (00:00:28) drag_stop grid -103.569 188.383
+\i (00:00:28) generaledit 
+\i (00:18:12) exit 
+\e (00:18:12) Do you want to save the changes you made to DO-204AL_VIS.dra?
+\i (00:18:21) fillin no 
+\t (00:18:21)     Journal end - Sun Mar 13 16:32:04 2022
