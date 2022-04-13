@@ -1,4 +1,4 @@
-** Profile: "SCHEMATIC1-MCU_Power_Button"  [ c:\users\student\orcad_pcb\mcu_powerbutton\mcu_power_button-pspicefiles\schematic1\mcu_power_button.sim ] 
+** Profile: "SCHEMATIC1-MCU_Power_Button"  [ c:\users\student\orcad_pcb\wcsa_orcad\mcu_powerbutton_simulation\mcu_power_button-pspicefiles\schematic1\mcu_power_button.sim ] 
 
 ** Creating circuit file "MCU_Power_Button.cir" 
 ** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
@@ -11,9 +11,9 @@
 .lib "nom.lib" 
 
 *Analysis directives: 
-.TRAN  0 45 0 1e-03 
+.TRAN  0 60 0 1m 
 .OPTIONS ADVCONV
-.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.PROBE64 V(*) I(*) W(*) D(*) NOISE(*) 
 .INC "..\SCHEMATIC1.net" 
 
 
