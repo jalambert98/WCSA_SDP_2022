@@ -1,0 +1,19 @@
+\t (00:00:00) allegro 17.4 S013 Windows SPB 64-bit Edition
+\t (00:00:00)     Journal start - Wed Apr 13 20:26:55 2022
+\t (00:00:00)         Host=DESKTOP-1414A5L User=student Pid=21540 CPUs=8
+\t (00:00:00) CmdLine= c:\cadence\spb_17.4\tools\bin\allegro.exe C:\Users\student\OrCAD_PCB\WCSA_OrCAD\WCSA_SystemSchem\Footprints\SAMTEC_MTSW-101-08-S-D-315.dra
+\t (00:00:00) 
+   (00:00:00) Loading axlcore.cxt 
+\t (00:00:00) Opening existing design...
+\i (00:00:02) fillin yes 
+\i (00:00:02) QtSignal SPBFoldDockArea FoldAreaTabWidget currentChanged "SAMTEC_MTSW-101-08-S-D-315"
+\d (00:00:02) Design opened: C:/Users/student/OrCAD_PCB/WCSA_OrCAD/WCSA_SystemSchem/Footprints/SAMTEC_MTSW-101-08-S-D-315.dra
+\i (00:00:02) trapsize 4735
+\i (00:00:02) trapsize 5078
+\i (00:00:02) trapsize 4920
+\i (00:00:02) trapsize 5078
+\i (00:00:02) trapsize 4735
+\i (00:00:02) trapsize 4735
+\i (00:00:02) generaledit 
+\i (00:00:03) exit 
+\t (00:00:04)     Journal end - Wed Apr 13 20:26:59 2022

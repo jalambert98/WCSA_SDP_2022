@@ -1,6 +1,6 @@
 (ExpressProject "PowerSystem_Simulations"
   (ProjectVersion "19981106")
-  (SoftwareVersion "17.4-2019 S013 (3906575)  [12/6/2020]-[04/08/22]")
+  (SoftwareVersion "17.4-2019 S013 (3906575)  [12/6/2020]-[04/13/22]")
   (ProjectType "Analog or A/D Mixed Mode")
   (Folder "Design Resources"
     (Folder "Library")
@@ -14,7 +14,7 @@
     (CompileFileAddedOrDeleted "x")
     (PSPICE_Regenerate_Netlist_Flag "FALSE")
     (DRC_Scope "0")
-    (DRC_Action "1")
+    (DRC_Action "0")
     (DRC_Create_Warnings "TRUE")
     (DRC_View_Output "TRUE")
     (DRC_View_Output_Type "2")
@@ -98,6 +98,20 @@
   (DefaultLibraryBrowseDirectory "library\PSpice")
   (Folder "Logs")
   (PartMRUSelector
+    (Dbreak
+      (FullPartName "Dbreak.Normal")
+      (LibraryName
+         "C:\CADENCE\SPB_17.4\TOOLS\CAPTURE\LIBRARY\PSPICE\BREAKOUT.OLB")
+      (DeviceIndex "0"))
+    (1N5819
+      (FullPartName "1N5819.Normal")
+      (LibraryName
+         "C:\CADENCE\SPB_17.4\TOOLS\CAPTURE\LIBRARY\PSPICE\ADVANLS\DI.OLB")
+      (DeviceIndex "0"))
+    (IRF7317
+      (FullPartName "IRF7317.Normal")
+      (LibraryName "C:\CADENCE\SPB_17.4\TOOLS\CAPTURE\LIBRARY\PSPICE\IRF.OLB")
+      (DeviceIndex "0"))
     (VDC
       (FullPartName "VDC.Normal")
       (LibraryName
@@ -140,20 +154,19 @@
          "SCHEMATIC1")
       (Path "Outputs")
       (Select "Design Resources"
-         "C:\Users\student\OrCAD_PCB\WCSA_OrCAD\PowerSystem_Simulations\powersystem_simulations.dsn"
-         "SCHEMATIC1" "2 - Power Block Simulation"))
+         "C:\Users\student\OrCAD_PCB\WCSA_OrCAD\PowerSystem_Simulations\powersystem_simulations.dsn"))
     (HierarchyView)
     (Doc
       (Type "COrCapturePMDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 -1 -1 0 200 0 372"))
+        (Placement "44 0 1 -1 -1 -1 -1 0 200 0 307"))
       (Tab 0))
     (Doc
       (Type "COrSchematicDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 -1 -1 5 1034 24 413")
-        (Scroll "-103 0")
-        (Zoom "52")
+        (Placement "44 0 1 -1 -1 -1 -1 5 1034 24 348")
+        (Scroll "330 25")
+        (Zoom "88")
         (Occurrence "/"))
       (Path
          "C:\USERS\STUDENT\ORCAD_PCB\WCSA_ORCAD\POWERSYSTEM_SIMULATIONS\POWERSYSTEM_SIMULATIONS.DSN")

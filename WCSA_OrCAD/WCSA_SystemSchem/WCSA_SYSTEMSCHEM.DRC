@@ -1,4 +1,4 @@
-Date and Time : 04/08/22 12:22:58
+Date and Time : 04/13/22 20:46:41
 
 --------------------------------------------------
 Checking Schematic: SCHEMATIC1
@@ -6,16 +6,44 @@ Checking Schematic: SCHEMATIC1
 Checking Electrical Rules 
 
 Checking For Single Node Nets
-WARNING(ORCAP-1600): Net has fewer than two connections RB5-RX 
-                    SCHEMATIC1, 2 - MCU Comms  (6.00, 2.00) 
-WARNING(ORCAP-1600): Net has fewer than two connections RA4-CCP4 
-                    SCHEMATIC1, 2 - MCU Comms  (4.60, 1.40) 
-WARNING(ORCAP-1600): Net has fewer than two connections RC4-TX 
-                    SCHEMATIC1, 2 - MCU Comms  (4.60, 1.70) 
-WARNING(ORCAP-1600): Net has fewer than two connections RC1-PWM5 
-                    SCHEMATIC1, 2 - MCU Comms  (6.00, 1.70) 
 
 Checking For Unconnected Bus Nets
+
+Checking Off-Page Connections
+
+Checking Pin to Port Connections
+
+Reporting Net Names
+    RB7-SPKR_SD
+    RC6-SPKR_G
+    N102392
+    N102677
+    N102956
+    N102963
+    N12244
+    RC1-PWM5
+    RC4-TX
+    RA2-CCP3
+    RB5-RX
+    VDD
+    RA4-CCP4
+    N12286
+    N121987
+    N12112
+    N11607
+    +5V
+    N12132
+    N14206
+    VCHG
+    VBAT
+    GND
+    N92811
+    N99325
+    N99590
+    N88847
+    N88985
+    N88807
+    N99769
 
 Checking Physical Rules 
 

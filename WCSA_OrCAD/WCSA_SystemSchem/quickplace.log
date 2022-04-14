@@ -1,0 +1,47 @@
+(---------------------------------------------------------------------)
+(                                                                     )
+(    QUICKPLACE LOG                                                   )
+(                                                                     )
+(    Drawing          : WCSA_SystemSchem.brd                          )
+(    Software Version : 17.4S013                                      )
+(    Date/Time        : Wed Apr 13 20:27:05 2022                      )
+(                                                                     )
+(---------------------------------------------------------------------)
+
+
+State: Placing on layer TOP
+
+ERROR:   Could not find symbol:  U1 / DIP-20_1_DIP-20-SOCKET_PIC16F18345 / DIP-20-SOCKET
+
+
+Placed 0 of 1 applicable (48 total) symbols.
+
+-----------------------------------------------------------------------
+
+State: Placing on layer TOP
+
+ERROR:   Could not find symbol:  U1 / DIP-20_1_DIP-20-SOCKET_PIC16F18345 / DIP-20-SOCKET
+
+
+Placed 0 of 1 applicable (48 total) symbols.
+
+-----------------------------------------------------------------------
+
+State: Placing on layer TOP
+
+ERROR:   Could not find symbol:  U1 / DIP-20_1_DIP-20-SOCKET_PIC16F18345 / DIP-20-SOCKET
+
+
+Placed 0 of 1 applicable (48 total) symbols.
+
+-----------------------------------------------------------------------
+
+State: Placing on layer TOP
+
+ERROR:   Could not find symbol:  U1 / DIP-20_1_DIP-20-SOCKET_PIC16F18345 / DIP-20-SOCKET
+
+
+Placed 0 of 1 applicable (48 total) symbols.
+
+-----------------------------------------------------------------------
+

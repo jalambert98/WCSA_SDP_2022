@@ -1,6 +1,6 @@
 (ExpressProject "WCSA_SystemSchem"
   (ProjectVersion "19981106")
-  (SoftwareVersion "17.4-2019 S013 (3906575)  [12/6/2020]-[04/08/22]")
+  (SoftwareVersion "17.4-2019 S013 (3906575)  [12/6/2020]-[04/13/22]")
   (ProjectType "PCB")
   (Folder "Design Resources"
     (Folder "Library")
@@ -24,8 +24,8 @@
     (DRC_Check_Single_Node_Nets "TRUE")
     (DRC_Check_No_Driving_Source "TRUE")
     (DRC_Check_Duplicate_NetNames "TRUE")
-    (DRC_Check_Off-Page_Connectors "FALSE")
-    (DRC_Check_Ports "FALSE")
+    (DRC_Check_Off-Page_Connectors "TRUE")
+    (DRC_Check_Ports "TRUE")
     (DRC_Check_Unconnected_Nets "TRUE")
     (DRC_Check_Floating_Pins "TRUE")
     (DRC_SDT_Compatibility "FALSE")
@@ -37,7 +37,7 @@
     (DRC_Check_Unconnected_Nets_Online "FALSE")
     (DRC_Check_Floating_Pins_Online "FALSE")
     (DRC_Run_Electrical_Reports "TRUE")
-    (DRC_Report_Netnames "FALSE")
+    (DRC_Report_Netnames "TRUE")
     (DRC_Report_Off-grid_Objects "FALSE")
     (DRC_Report_Ports_and_Off-page_Connectors "FALSE")
     (DRC_Check_for_Misleading_TAP "FALSE")
@@ -66,11 +66,35 @@
     (DRC_Identical_References "TRUE")
     (DRC_Run_Custom_Rules "FALSE")
     (DRC_Report_File
-       "C:\USERS\STUDENT\ORCAD_PCB\WCSA_ORCAD\WCSA_SYSTEMSCHEM\WCSA_SYSTEMSCHEM.DRC"))
+       "C:\USERS\STUDENT\ORCAD_PCB\WCSA_ORCAD\WCSA_SYSTEMSCHEM\WCSA_SYSTEMSCHEM.DRC")
+    (Netlist_TAB "0")
+    ("Create Allegro Netlist" "TRUE")
+    ("View Allegro Netlist Files" "TRUE")
+    ("Allegro Netlist Create DCF File" "FALSE")
+    ("Update Allegro Board" "FALSE")
+    ("Allegro Netlist Output Board File" "allegro\WCSA_SYSTEMSCHEM.brd")
+    ("Allegro Netlist Remove Etch" "FALSE")
+    ("Allegro Netlist Place Changed Component" "ALWAYS_REPLACE")
+    ("Allegro Netlist Open Board in Allegro" "ALLEGRO")
+    ("Allegro Setup Backup Versions" "3")
+    ("Allegro Setup Ignore Constraints" "FALSE")
+    ("Allegro Setup Part Type Length" "255")
+    ("Allegro Netlist Combine Property String" "PCB Footprint")
+    ("Allegro Netlist Ignore Fixed Property" "FALSE")
+    ("Allegro Netlist User Defined Property" "FALSE"))
   (Folder "Layout")
   (Folder "Outputs"
     (File ".\wcsa_systemschem.drc"
-      (Type "Report")))
+      (Type "Report"))
+    (File ".\allegro\pstxnet.dat"
+      (Type "Report")
+      (DisplayName "pstxnet.dat"))
+    (File ".\allegro\pstxprt.dat"
+      (Type "Report")
+      (DisplayName "pstxprt.dat"))
+    (File ".\allegro\pstchip.dat"
+      (Type "Report")
+      (DisplayName "pstchip.dat")))
   (Folder "Referenced Projects")
   (Folder "PSpice Resources"
     (Folder "Simulation Profiles")
@@ -82,15 +106,48 @@
       (Sort User)))
   (Folder "Logs")
   (PartMRUSelector
-    ("SW PUSHBUTTON-SPST"
-      (FullPartName "SW PUSHBUTTON-SPST.Normal")
-      (LibraryName "C:\CADENCE\SPB_17.4\TOOLS\CAPTURE\LIBRARY\DISCRETE.OLB")
+    (OFFPAGELEFT-L
+      (LibraryName "C:\CADENCE\SPB_17.4\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
       (DeviceIndex "0"))
     (OFFPAGELEFT-R
       (LibraryName "C:\CADENCE\SPB_17.4\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
       (DeviceIndex "0"))
-    (OFFPAGELEFT-L
+    (GND
       (LibraryName "C:\CADENCE\SPB_17.4\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    (POT
+      (FullPartName "POT.Normal")
+      (LibraryName "C:\CADENCE\SPB_17.4\TOOLS\CAPTURE\LIBRARY\DISCRETE.OLB")
+      (DeviceIndex "0"))
+    (DIPSOC-5x2_2
+      (FullPartName "DIPSOC-5x2_2.Normal")
+      (LibraryName
+         "C:\USERS\STUDENT\ORCAD_PCB\WCSA_ORCAD\WCSA_SYSTEMSCHEM\WCSA_SYSTEMSCHEM.DSN")
+      (DeviceIndex "0"))
+    (SIPSOC-3
+      (FullPartName "SIPSOC-3.Normal")
+      (LibraryName "C:\CADENCE\SPB_17.4\TOOLS\CAPTURE\LIBRARY\MECHANICAL.OLB")
+      (DeviceIndex "0"))
+    (0
+      (LibraryName
+         "C:\CADENCE\SPB_17.4\TOOLS\CAPTURE\LIBRARY\PSPICE\SOURCE.OLB")
+      (DeviceIndex "0"))
+    (SIPSOC-4
+      (FullPartName "SIPSOC-4.Normal")
+      (LibraryName "C:\CADENCE\SPB_17.4\TOOLS\CAPTURE\LIBRARY\MECHANICAL.OLB")
+      (DeviceIndex "0"))
+    (1N5819
+      (FullPartName "1N5819.Normal")
+      (LibraryName
+         "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\PSPICE\ADVANLS\DI.OLB")
+      (DeviceIndex "0"))
+    (DIPSOC-5x2
+      (FullPartName "DIPSOC-5x2.Normal")
+      (LibraryName "C:\CADENCE\SPB_17.4\TOOLS\CAPTURE\LIBRARY\MECHANICAL.OLB")
+      (DeviceIndex "0"))
+    ("SW PUSHBUTTON-SPST"
+      (FullPartName "SW PUSHBUTTON-SPST.Normal")
+      (LibraryName "C:\CADENCE\SPB_17.4\TOOLS\CAPTURE\LIBRARY\DISCRETE.OLB")
       (DeviceIndex "0"))
     (RC1206JR-0713RL
       (FullPartName "RC1206JR-0713RL.Normal")
@@ -121,23 +178,43 @@
   (GlobalState
     (FileView
       (Path "Design Resources")
-      (Path "Design Resources" ".\wcsa_systemschem.dsn")
-      (Path "Design Resources" ".\wcsa_systemschem.dsn" "SCHEMATIC1")
-      (Path "Outputs")
-      (Select "Design Resources" ".\wcsa_systemschem.dsn" "SCHEMATIC1"
-         "3 - Power"))
-    (HierarchyView)
+      (Path "Design Resources"
+         "c:\users\student\orcad_pcb\wcsa_orcad\wcsa_systemschem\wcsa_systemschem.dsn")
+      (Path "Design Resources"
+         "c:\users\student\orcad_pcb\wcsa_orcad\wcsa_systemschem\wcsa_systemschem.dsn"
+         "SCHEMATIC1")
+      (Path "Outputs"))
+    (HierarchyView
+      (Path "SCHEMATIC1"))
     (Doc
       (Type "COrCapturePMDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 -1 -1 0 200 0 396"))
+        (Placement "44 0 1 -1 -1 -1 -1 0 200 0 416"))
       (Tab 0))
+    (Doc
+      (Type "TextFile")
+      (Frame
+        (Placement "44 0 1 -1 -1 -1 -1 5 1034 24 434"))
+      (Path
+         "C:\USERS\STUDENT\ORCAD_PCB\WCSA_ORCAD\WCSA_SYSTEMSCHEM\allegro\pstxprt.dat")
+      (Scroll "0"))
     (Doc
       (Type "COrSchematicDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 5 24 5 1034 24 414")
-        (Scroll "-13 260")
-        (Zoom "100")
+        (Placement "44 0 1 -1 -1 5 24 5 1034 24 434")
+        (Scroll "-52 234")
+        (Zoom "92")
+        (Occurrence "/"))
+      (Path
+         "C:\USERS\STUDENT\ORCAD_PCB\WCSA_ORCAD\WCSA_SYSTEMSCHEM\WCSA_SYSTEMSCHEM.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "2 - MCU Comms"))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 5 24 5 1034 24 434")
+        (Scroll "-227 0")
+        (Zoom "56")
         (Occurrence "/"))
       (Path
          "C:\USERS\STUDENT\ORCAD_PCB\WCSA_ORCAD\WCSA_SYSTEMSCHEM\WCSA_SYSTEMSCHEM.DSN")
@@ -146,11 +223,12 @@
     (Doc
       (Type "COrSchematicDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 -1 -1 5 1034 24 414")
+        (Placement "44 0 1 -1 -1 -1 -1 5 1034 24 434")
         (Scroll "-13 0")
         (Zoom "100")
         (Occurrence "/"))
       (Path
          "C:\USERS\STUDENT\ORCAD_PCB\WCSA_ORCAD\WCSA_SYSTEMSCHEM\WCSA_SYSTEMSCHEM.DSN")
       (Schematic "SCHEMATIC1")
-      (Page "2 - MCU Comms"))))
+      (Page "1 - Revision History")))
+  (ISPCBBASICLICENSE "false"))

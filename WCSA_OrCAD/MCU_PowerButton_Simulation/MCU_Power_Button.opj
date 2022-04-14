@@ -1,6 +1,6 @@
 (ExpressProject "MCU_Power_Button"
   (ProjectVersion "19981106")
-  (SoftwareVersion "17.4-2019 S013 (3906575)  [12/6/2020]-[04/12/22]")
+  (SoftwareVersion "17.4-2019 S013 (3906575)  [12/6/2020]-[04/13/22]")
   (ProjectType "PCB")
   (Folder "Design Resources"
     (Folder "Library")
@@ -39,6 +39,14 @@
       (Type "PSpiceLibrary")))
   (Folder "Logs")
   (PartMRUSelector
+    (ZXMD63N02X/ZTX
+      (FullPartName "ZXMD63N02X/ZTX.Normal")
+      (LibraryName "C:\CADENCE\SPB_17.4\TOOLS\CAPTURE\LIBRARY\PSPICE\ZETEX.OLB")
+      (DeviceIndex "0"))
+    (ZXMD63P02X/ZTX
+      (FullPartName "ZXMD63P02X/ZTX.Normal")
+      (LibraryName "C:\CADENCE\SPB_17.4\TOOLS\CAPTURE\LIBRARY\PSPICE\ZETEX.OLB")
+      (DeviceIndex "0"))
     (C
       (FullPartName "C.Normal")
       (LibraryName
@@ -48,6 +56,11 @@
       (FullPartName "R.Normal")
       (LibraryName
          "C:\CADENCE\SPB_17.4\TOOLS\CAPTURE\LIBRARY\PSPICE\ANALOG.OLB")
+      (DeviceIndex "0"))
+    (Dbreak
+      (FullPartName "Dbreak.Normal")
+      (LibraryName
+         "C:\CADENCE\SPB_17.4\TOOLS\CAPTURE\LIBRARY\PSPICE\BREAKOUT.OLB")
       (DeviceIndex "0"))
     (Si3588DV
       (FullPartName "Si3588DV.Normal")
@@ -98,11 +111,6 @@
       (FullPartName "IRF7507.Normal")
       (LibraryName "C:\CADENCE\SPB_17.4\TOOLS\CAPTURE\LIBRARY\PSPICE\IRF.OLB")
       (DeviceIndex "0"))
-    (Dbreak
-      (FullPartName "Dbreak.Normal")
-      (LibraryName
-         "C:\CADENCE\SPB_17.4\TOOLS\CAPTURE\LIBRARY\PSPICE\BREAKOUT.OLB")
-      (DeviceIndex "0"))
     (VPULSE
       (FullPartName "VPULSE.Normal")
       (LibraryName
@@ -126,16 +134,29 @@
   (GlobalState
     (FileView
       (Path "Design Resources")
-      (Path "Design Resources" ".\mcu_power_button.dsn")
-      (Path "Design Resources" ".\mcu_power_button.dsn" "SCHEMATIC1")
+      (Path "Design Resources"
+         "C:\USERS\STUDENT\ORCAD_PCB\WCSA_ORCAD\MCU_POWERBUTTON_SIMULATION\mcu_power_button.dsn")
+      (Path "Design Resources"
+         "C:\USERS\STUDENT\ORCAD_PCB\WCSA_ORCAD\MCU_POWERBUTTON_SIMULATION\mcu_power_button.dsn"
+         "SCHEMATIC1")
       (Path "Outputs")
-      (Path "PSpice Resources")
-      (Path "PSpice Resources" "Model Libraries")
-      (Path "PSpice Resources" "Simulation Profiles")
-      (Select "Design Resources" ".\mcu_power_button.dsn"))
+      (Select "Design Resources"
+         "C:\USERS\STUDENT\ORCAD_PCB\WCSA_ORCAD\MCU_POWERBUTTON_SIMULATION\mcu_power_button.dsn"
+         "SCHEMATIC1" "1 - SingleGPIO - DualFET Latch"))
     (HierarchyView)
     (Doc
       (Type "COrCapturePMDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 -1 -1 0 200 0 469"))
-      (Tab 0))))
+        (Placement "44 0 1 -1 -1 -1 -1 0 144 0 469"))
+      (Tab 0))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -1 -1 5 1090 24 487")
+        (Scroll "-41 115")
+        (Zoom "100")
+        (Occurrence "/"))
+      (Path
+         "C:\USERS\STUDENT\ORCAD_PCB\WCSA_ORCAD\MCU_POWERBUTTON_SIMULATION\MCU_POWER_BUTTON.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "1 - SingleGPIO - DualFET Latch"))))
