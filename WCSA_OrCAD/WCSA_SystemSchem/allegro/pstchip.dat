@@ -1,5 +1,5 @@
 FILE_TYPE=LIBRARY_PARTS;
-{ Using PSTWRITER 17.4.0 d001Apr-13-2022 at 20:46:55}
+{ Using PSTWRITER 17.4.0 d001Apr-14-2022 at 16:06:50}
 primitive 'C1206C241MGGACAUTO7210_2_CAPC3216X110N_100N';
   pin
     '1':
@@ -105,7 +105,7 @@ primitive 'C1206C241MGGACAUTO7210_2_CAPC3216X110N_330U';
     VALUE='330u';
   end_body;
 end_primitive;
-primitive '1N5819_DO15_1N5819';
+primitive '1N5819_DIOSC190X340X116-2N_1N5819';
   pin
     'CAT':
       PIN_NUMBER='(1)';
@@ -116,11 +116,11 @@ primitive '1N5819_DO15_1N5819';
   end_pin;
   body
     PART_NAME='1N5819';
-    JEDEC_TYPE='DO15';
+    JEDEC_TYPE='DIOSC190X340X116-2N';
     VALUE='1N5819';
   end_body;
 end_primitive;
-primitive '1N5819_DO15_1N4001';
+primitive '1N5819_DIOSC190X340X116-2N_1N4001';
   pin
     'CAT':
       PIN_NUMBER='(1)';
@@ -131,11 +131,11 @@ primitive '1N5819_DO15_1N4001';
   end_pin;
   body
     PART_NAME='1N5819';
-    JEDEC_TYPE='DO15';
+    JEDEC_TYPE='DIOSC190X340X116-2N';
     VALUE='1N4001';
   end_body;
 end_primitive;
-primitive 'JUMP2_1_SAMTEC_MTSW-101-08-S-D-315_JUMP2';
+primitive 'JUMP2_0_SAMTEC_MTSW-101-08-S-D-315_JUMP2';
   pin
     'PIN1':
       PIN_NUMBER='(1)';
@@ -145,12 +145,30 @@ primitive 'JUMP2_1_SAMTEC_MTSW-101-08-S-D-315_JUMP2';
       PINUSE='UNSPEC';
   end_pin;
   body
-    PART_NAME='Jump2_1';
+    PART_NAME='Jump2_0';
     JEDEC_TYPE='SAMTEC_MTSW-101-08-S-D-315';
     VALUE='Jump2';
   end_body;
 end_primitive;
-primitive 'SIPSOC-4_MOLEX_530470410_LIDAR HEADER';
+primitive 'SIPSOC-3_1_SAMTEC_TSW-101-24-G-T_SIPSOC-3';
+  pin
+    '1':
+      PIN_NUMBER='(1)';
+      PINUSE='UNSPEC';
+    '2':
+      PIN_NUMBER='(2)';
+      PINUSE='UNSPEC';
+    '3':
+      PIN_NUMBER='(3)';
+      PINUSE='UNSPEC';
+  end_pin;
+  body
+    PART_NAME='SIPSOC-3_1';
+    JEDEC_TYPE='SAMTEC_TSW-101-24-G-T';
+    VALUE='SIPSOC-3';
+  end_body;
+end_primitive;
+primitive 'SIPSOC-4_0_MOLEX_530470410_LIDAR HEADER';
   pin
     '1':
       PIN_NUMBER='(1)';
@@ -166,12 +184,12 @@ primitive 'SIPSOC-4_MOLEX_530470410_LIDAR HEADER';
       PINUSE='UNSPEC';
   end_pin;
   body
-    PART_NAME='SIPSOC-4';
+    PART_NAME='SIPSOC-4_0';
     JEDEC_TYPE='MOLEX_530470410';
     VALUE='LiDAR Header';
   end_body;
 end_primitive;
-primitive 'SIPSOC-3_SAMTEC_TSW-101-24-G-T_SIPSOC-3';
+primitive 'L_INDC3216X95N_170UH';
   pin
     '1':
       PIN_NUMBER='(1)';
@@ -179,44 +197,71 @@ primitive 'SIPSOC-3_SAMTEC_TSW-101-24-G-T_SIPSOC-3';
     '2':
       PIN_NUMBER='(2)';
       PINUSE='UNSPEC';
-    '3':
+  end_pin;
+  body
+    PART_NAME='L';
+    JEDEC_TYPE='INDC3216X95N';
+    VALUE='170uH';
+  end_body;
+end_primitive;
+primitive 'L_INDC3216X95N_1UH';
+  pin
+    '1':
+      PIN_NUMBER='(1)';
+      PINUSE='UNSPEC';
+    '2':
+      PIN_NUMBER='(2)';
+      PINUSE='UNSPEC';
+  end_pin;
+  body
+    PART_NAME='L';
+    JEDEC_TYPE='INDC3216X95N';
+    VALUE='1uH';
+  end_body;
+end_primitive;
+primitive 'DIPSOC-3X2_1_ZXM62P02E6TA_DIO_ZXMD63P02X/ZTX';
+  pin
+    'D1':
+      PIN_NUMBER='(1)';
+      PINUSE='UNSPEC';
+    'D2':
+      PIN_NUMBER='(2)';
+      PINUSE='UNSPEC';
+    'G':
+      PIN_NUMBER='(3)';
+      PINUSE='UNSPEC';
+    'S':
+      PIN_NUMBER='(4)';
+      PINUSE='UNSPEC';
+    'D3':
+      PIN_NUMBER='(5)';
+      PINUSE='UNSPEC';
+    'D4':
+      PIN_NUMBER='(6)';
+      PINUSE='UNSPEC';
+  end_pin;
+  body
+    PART_NAME='DIPSOC-3x2_1';
+    JEDEC_TYPE='ZXM62P02E6TA_DIO';
+    VALUE='ZXMD63P02X/ZTX';
+  end_body;
+end_primitive;
+primitive 'ZXMD63N02X/ZTX_SOT23_2P9X1P3_DIO_ZXMD63N02X/ZTX';
+  pin
+    'S':
+      PIN_NUMBER='(1)';
+      INPUT_LOAD='(*)';
+    'G':
+      PIN_NUMBER='(2)';
+      PINUSE='UNSPEC';
+    'D':
       PIN_NUMBER='(3)';
       PINUSE='UNSPEC';
   end_pin;
   body
-    PART_NAME='SIPSOC-3';
-    JEDEC_TYPE='SAMTEC_TSW-101-24-G-T';
-    VALUE='SIPSOC-3';
-  end_body;
-end_primitive;
-primitive 'L_DISC350X175LS200X100034_170UH';
-  pin
-    '1':
-      PIN_NUMBER='(1)';
-      PINUSE='UNSPEC';
-    '2':
-      PIN_NUMBER='(2)';
-      PINUSE='UNSPEC';
-  end_pin;
-  body
-    PART_NAME='L';
-    JEDEC_TYPE='DISC350x175LS200x100034';
-    VALUE='170uH';
-  end_body;
-end_primitive;
-primitive 'L_DISC350X175LS200X100034_1UH';
-  pin
-    '1':
-      PIN_NUMBER='(1)';
-      PINUSE='UNSPEC';
-    '2':
-      PIN_NUMBER='(2)';
-      PINUSE='UNSPEC';
-  end_pin;
-  body
-    PART_NAME='L';
-    JEDEC_TYPE='DISC350x175LS200x100034';
-    VALUE='1uH';
+    PART_NAME='ZXMD63N02X/ZTX';
+    JEDEC_TYPE='SOT23_2P9X1P3_DIO';
+    VALUE='ZXMD63N02X/ZTX';
   end_body;
 end_primitive;
 primitive 'RC1206JR-0713RL_RESC3116X65N_10K';
@@ -492,7 +537,7 @@ primitive 'DIP-20_1_DIP-20-SOCKET_PIC16F18345';
     VALUE='PIC16F18345';
   end_body;
 end_primitive;
-primitive 'DIPSOC-5X2_2_MCP73833T_MCP7388T';
+primitive 'DIPSOC-5X2_2_SOP50P490X110-10N_MCP7388T';
   pin
     'VDD1':
       PIN_NUMBER='(1)';
@@ -527,11 +572,11 @@ primitive 'DIPSOC-5X2_2_MCP73833T_MCP7388T';
   end_pin;
   body
     PART_NAME='DIPSOC-5x2_2';
-    JEDEC_TYPE='MCP73833T';
+    JEDEC_TYPE='SOP50P490X110-10N';
     VALUE='MCP7388T';
   end_body;
 end_primitive;
-primitive 'MC3X063A_8_MC3X063A_MC3X063A';
+primitive 'MC3X063A_8_SOIC127P599X175-8N_MC3X063A';
   pin
     'SWITCH COLLECTOR':
       PIN_NUMBER='(1)';
@@ -560,44 +605,8 @@ primitive 'MC3X063A_8_MC3X063A_MC3X063A';
   end_pin;
   body
     PART_NAME='MC3x063A_8';
-    JEDEC_TYPE='MC3x063A';
+    JEDEC_TYPE='SOIC127P599X175-8N';
     VALUE='MC3x063A';
-  end_body;
-end_primitive;
-primitive 'ZXMD63P02X/ZTX_ZXM62P02E6TA_DIO_ZXMD63P02X/ZTX';
-  pin
-    'S':
-      PIN_NUMBER='(1)';
-      INPUT_LOAD='(*)';
-    'G':
-      PIN_NUMBER='(2)';
-      PINUSE='UNSPEC';
-    'D':
-      PIN_NUMBER='(3)';
-      PINUSE='UNSPEC';
-  end_pin;
-  body
-    PART_NAME='ZXMD63P02X/ZTX';
-    JEDEC_TYPE='ZXM62P02E6TA_DIO';
-    VALUE='ZXMD63P02X/ZTX';
-  end_body;
-end_primitive;
-primitive 'ZXMD63N02X/ZTX_SOT23_2P9X1P3_DIO_ZXMD63N02X/ZTX';
-  pin
-    'S':
-      PIN_NUMBER='(1)';
-      INPUT_LOAD='(*)';
-    'G':
-      PIN_NUMBER='(2)';
-      PINUSE='UNSPEC';
-    'D':
-      PIN_NUMBER='(3)';
-      PINUSE='UNSPEC';
-  end_pin;
-  body
-    PART_NAME='ZXMD63N02X/ZTX';
-    JEDEC_TYPE='SOT23_2P9X1P3_DIO';
-    VALUE='ZXMD63N02X/ZTX';
   end_body;
 end_primitive;
 primitive 'DIPSOC-5X2_3_MUB10A_LM4667';

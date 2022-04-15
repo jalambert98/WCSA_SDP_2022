@@ -1,7 +1,0 @@
-STATUS: PSpice Model Import Wizard for "Capture" (17.4.0.d001)
-STATUS:  
-   INFO: OLB driven flow
-   INFO: Input File: C:\USERS\STUDENT\ORCAD_PCB\WCSA_ORCAD\MCU_POWERBUTTON_SIMULATION\MCU_POWER_BUTTON20.olb
-   INFO: Symbol Name: MC34063A_0
-  ERROR: Symbol "MC34063A_0" not found in symbol library "C:\USERS\STUDENT\ORCAD_PCB\WCSA_ORCAD\MCU_POWERBUTTON_SIMULATION\MCU_POWER_BUTTON20.olb".
-STATUS: 1 Error messages, 0 Warning messages

@@ -1,19 +1,39 @@
 \t (00:00:00) allegro 17.4 S013 Windows SPB 64-bit Edition
-\t (00:00:00)     Journal start - Wed Apr 13 20:26:55 2022
-\t (00:00:00)         Host=DESKTOP-1414A5L User=student Pid=21540 CPUs=8
-\t (00:00:00) CmdLine= c:\cadence\spb_17.4\tools\bin\allegro.exe C:\Users\student\OrCAD_PCB\WCSA_OrCAD\WCSA_SystemSchem\Footprints\SAMTEC_MTSW-101-08-S-D-315.dra
+\t (00:00:00)     Journal start - Thu Apr 14 15:08:45 2022
+\t (00:00:00)         Host=DESKTOP-1414A5L User=student Pid=15408 CPUs=8
+\t (00:00:00) CmdLine= c:\cadence\spb_17.4\tools\bin\allegro.exe C:\Users\student\OrCAD_PCB\WCSA_OrCAD\WCSA_SystemSchem\Footprints\MUB10A.dra
 \t (00:00:00) 
    (00:00:00) Loading axlcore.cxt 
 \t (00:00:00) Opening existing design...
-\i (00:00:02) fillin yes 
-\i (00:00:02) QtSignal SPBFoldDockArea FoldAreaTabWidget currentChanged "SAMTEC_MTSW-101-08-S-D-315"
-\d (00:00:02) Design opened: C:/Users/student/OrCAD_PCB/WCSA_OrCAD/WCSA_SystemSchem/Footprints/SAMTEC_MTSW-101-08-S-D-315.dra
-\i (00:00:02) trapsize 4735
-\i (00:00:02) trapsize 5078
-\i (00:00:02) trapsize 4920
-\i (00:00:02) trapsize 5078
-\i (00:00:02) trapsize 4735
-\i (00:00:02) trapsize 4735
-\i (00:00:02) generaledit 
-\i (00:00:03) exit 
-\t (00:00:04)     Journal end - Wed Apr 13 20:26:59 2022
+\i (00:00:00) QtSignal SPBFoldDockArea FoldAreaTabWidget currentChanged MUB10A
+\d (00:00:00) Design opened: C:/Users/student/OrCAD_PCB/WCSA_OrCAD/WCSA_SystemSchem/Footprints/MUB10A.dra
+\i (00:00:00) trapsize 3285
+\i (00:00:00) trapsize 3459
+\i (00:00:00) trapsize 3285
+\i (00:00:00) trapsize 5556
+\i (00:00:00) trapsize 5556
+\i (00:00:01) trapsize 2710
+\i (00:00:01) generaledit 
+\i (00:00:02) zoom in 1 
+\i (00:00:02) setwindow pcb
+\i (00:00:02) zoom in -81.494 50.884
+\i (00:00:02) trapsize 1355
+\i (00:00:06) zoom out 1 
+\i (00:00:06) setwindow pcb
+\i (00:00:06) zoom out -147.612 40.045
+\i (00:00:06) trapsize 2710
+\i (00:00:08) create symbol 
+\i (00:00:11) fillin "mub10a.psm"
+\t (00:00:11) Creating package symbol 'C:/Users/student/OrCAD_PCB/WCSA_OrCAD/WCSA_SystemSchem/Footprints/mub10a.psm'.
+\t (00:00:11) Starting Create symbol...
+\i (00:00:11) generaledit 
+\i (00:00:14) create device 
+\i (00:00:17) setwindow form.crdevice
+\i (00:00:17) FORM crdevice done  
+\t (00:00:17) Device file "MUB10A.txt" created.
+
+   (00:00:17) Loading cmds.cxt 
+\i (00:00:17) setwindow pcb
+\i (00:00:17) generaledit 
+\i (00:00:20) exit 
+\t (00:00:20)     Journal end - Thu Apr 14 15:09:05 2022

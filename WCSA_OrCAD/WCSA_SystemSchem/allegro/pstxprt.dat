@@ -1,5 +1,5 @@
 FILE_TYPE = EXPANDEDPARTLIST;
-{ Using PSTWRITER 17.4.0 d001Apr-13-2022 at 20:46:55 }
+{ Using PSTWRITER 17.4.0 d001Apr-14-2022 at 16:06:50 }
 DIRECTIVES
  PST_VERSION='PST_HDL_CENTRIC_VERSION_0';
  ROOT_DRAWING='WCSA_SYSTEMSCHEM';
@@ -158,7 +158,7 @@ SECTION_NUMBER 1
  SECTION='';
 
 PART_NAME
- D3 '1N5819_DO15_1N5819':;
+ D3 '1N5819_DIOSC190X340X116-2N_1N5819':;
 
 SECTION_NUMBER 1
  '@WCSA_SYSTEMSCHEM.SCHEMATIC1(SCH_1):INS12208@DI.1N5819.NORMAL(CHIPS)':
@@ -168,7 +168,7 @@ SECTION_NUMBER 1
  SECTION='';
 
 PART_NAME
- D4 '1N5819_DO15_1N4001':;
+ D4 '1N5819_DIOSC190X340X116-2N_1N4001':;
 
 SECTION_NUMBER 1
  '@WCSA_SYSTEMSCHEM.SCHEMATIC1(SCH_1):INS92783@DI.1N5819.NORMAL(CHIPS)':
@@ -178,7 +178,7 @@ SECTION_NUMBER 1
  SECTION='';
 
 PART_NAME
- D5 '1N5819_DO15_1N5819':;
+ D5 '1N5819_DIOSC190X340X116-2N_1N5819':;
 
 SECTION_NUMBER 1
  '@WCSA_SYSTEMSCHEM.SCHEMATIC1(SCH_1):INS100295@DI.1N5819.NORMAL(CHIPS)':
@@ -188,77 +188,77 @@ SECTION_NUMBER 1
  SECTION='';
 
 PART_NAME
- J1 'JUMP2_1_SAMTEC_MTSW-101-08-S-D-315_JUMP2':;
+ J1 'JUMP2_0_SAMTEC_MTSW-101-08-S-D-315_JUMP2':;
 
 SECTION_NUMBER 1
- '@WCSA_SYSTEMSCHEM.SCHEMATIC1(SCH_1):INS11375@CHARGECONTROLLERSCHEM.JUMP2_1.NORMAL(CHIPS)':
- C_PATH='@wcsa_systemschem.schematic1(sch_1):ins11375@chargecontrollerschem.\jump2_1.normal\(chips)',
- P_PATH='@wcsa_systemschem.schematic1(sch_1):page1_ins11375@chargecontrollerschem.\jump2_1.normal\(chips)',
+ '@WCSA_SYSTEMSCHEM.SCHEMATIC1(SCH_1):INS11375@WCSA_SYSTEMSCHEM.JUMP2_0.NORMAL(CHIPS)':
+ C_PATH='@wcsa_systemschem.schematic1(sch_1):ins11375@wcsa_systemschem.\jump2_0.normal\(chips)',
+ P_PATH='@wcsa_systemschem.schematic1(sch_1):page1_ins11375@wcsa_systemschem.\jump2_0.normal\(chips)',
  PRIM_FILE='.\pstchip.dat',
  SECTION='';
 
 PART_NAME
- J2 'JUMP2_1_SAMTEC_MTSW-101-08-S-D-315_JUMP2':;
+ J2 'JUMP2_0_SAMTEC_MTSW-101-08-S-D-315_JUMP2':;
 
 SECTION_NUMBER 1
- '@WCSA_SYSTEMSCHEM.SCHEMATIC1(SCH_1):INS92883@CHARGECONTROLLERSCHEM.JUMP2_1.NORMAL(CHIPS)':
- C_PATH='@wcsa_systemschem.schematic1(sch_1):ins92883@chargecontrollerschem.\jump2_1.normal\(chips)',
- P_PATH='@wcsa_systemschem.schematic1(sch_1):page1_ins92883@chargecontrollerschem.\jump2_1.normal\(chips)',
+ '@WCSA_SYSTEMSCHEM.SCHEMATIC1(SCH_1):INS92883@WCSA_SYSTEMSCHEM.JUMP2_0.NORMAL(CHIPS)':
+ C_PATH='@wcsa_systemschem.schematic1(sch_1):ins92883@wcsa_systemschem.\jump2_0.normal\(chips)',
+ P_PATH='@wcsa_systemschem.schematic1(sch_1):page1_ins92883@wcsa_systemschem.\jump2_0.normal\(chips)',
  PRIM_FILE='.\pstchip.dat',
  SECTION='';
 
 PART_NAME
- J3 'JUMP2_1_SAMTEC_MTSW-101-08-S-D-315_JUMP2':;
+ J3 'SIPSOC-3_1_SAMTEC_TSW-101-24-G-T_SIPSOC-3':;
 
 SECTION_NUMBER 1
- '@WCSA_SYSTEMSCHEM.SCHEMATIC1(SCH_1):INS95241@CHARGECONTROLLERSCHEM.JUMP2_1.NORMAL(CHIPS)':
- C_PATH='@wcsa_systemschem.schematic1(sch_1):ins95241@chargecontrollerschem.\jump2_1.normal\(chips)',
- P_PATH='@wcsa_systemschem.schematic1(sch_1):page1_ins95241@chargecontrollerschem.\jump2_1.normal\(chips)',
+ '@WCSA_SYSTEMSCHEM.SCHEMATIC1(SCH_1):INS109798@WCSA_SYSTEMSCHEM.SIPSOC-3_1.NORMAL(CHIPS)':
+ C_PATH='@wcsa_systemschem.schematic1(sch_1):ins109798@wcsa_systemschem.\sipsoc-3_1.normal\(chips)',
+ P_PATH='@wcsa_systemschem.schematic1(sch_1):page1_ins109798@wcsa_systemschem.\sipsoc-3_1.normal\(chips)',
  PRIM_FILE='.\pstchip.dat',
  SECTION='';
 
 PART_NAME
- J4 'SIPSOC-4_MOLEX_530470410_LIDAR HEADER':;
+ J4 'SIPSOC-4_0_MOLEX_530470410_LIDAR HEADER':;
 
 SECTION_NUMBER 1
- '@WCSA_SYSTEMSCHEM.SCHEMATIC1(SCH_1):INS95879@MECHANICAL.SIPSOC-4.NORMAL(CHIPS)':
- C_PATH='@wcsa_systemschem.schematic1(sch_1):ins95879@mechanical.\sipsoc-4.normal\(chips)',
- P_PATH='@wcsa_systemschem.schematic1(sch_1):page1_ins95879@mechanical.\sipsoc-4.normal\(chips)',
+ '@WCSA_SYSTEMSCHEM.SCHEMATIC1(SCH_1):INS95879@WCSA_SYSTEMSCHEM.SIPSOC-4_0.NORMAL(CHIPS)':
+ C_PATH='@wcsa_systemschem.schematic1(sch_1):ins95879@wcsa_systemschem.\sipsoc-4_0.normal\(chips)',
+ P_PATH='@wcsa_systemschem.schematic1(sch_1):page1_ins95879@wcsa_systemschem.\sipsoc-4_0.normal\(chips)',
  PRIM_FILE='.\pstchip.dat',
  SECTION='';
 
 PART_NAME
- J5 'JUMP2_1_SAMTEC_MTSW-101-08-S-D-315_JUMP2':;
+ J5 'JUMP2_0_SAMTEC_MTSW-101-08-S-D-315_JUMP2':;
 
 SECTION_NUMBER 1
- '@WCSA_SYSTEMSCHEM.SCHEMATIC1(SCH_1):INS99576@CHARGECONTROLLERSCHEM.JUMP2_1.NORMAL(CHIPS)':
- C_PATH='@wcsa_systemschem.schematic1(sch_1):ins99576@chargecontrollerschem.\jump2_1.normal\(chips)',
- P_PATH='@wcsa_systemschem.schematic1(sch_1):page1_ins99576@chargecontrollerschem.\jump2_1.normal\(chips)',
+ '@WCSA_SYSTEMSCHEM.SCHEMATIC1(SCH_1):INS99576@WCSA_SYSTEMSCHEM.JUMP2_0.NORMAL(CHIPS)':
+ C_PATH='@wcsa_systemschem.schematic1(sch_1):ins99576@wcsa_systemschem.\jump2_0.normal\(chips)',
+ P_PATH='@wcsa_systemschem.schematic1(sch_1):page1_ins99576@wcsa_systemschem.\jump2_0.normal\(chips)',
  PRIM_FILE='.\pstchip.dat',
  SECTION='';
 
 PART_NAME
- J6 'SIPSOC-3_SAMTEC_TSW-101-24-G-T_SIPSOC-3':;
+ J6 'SIPSOC-3_1_SAMTEC_TSW-101-24-G-T_SIPSOC-3':;
 
 SECTION_NUMBER 1
- '@WCSA_SYSTEMSCHEM.SCHEMATIC1(SCH_1):INS99652@MECHANICAL.SIPSOC-3.NORMAL(CHIPS)':
- C_PATH='@wcsa_systemschem.schematic1(sch_1):ins99652@mechanical.\sipsoc-3.normal\(chips)',
- P_PATH='@wcsa_systemschem.schematic1(sch_1):page1_ins99652@mechanical.\sipsoc-3.normal\(chips)',
+ '@WCSA_SYSTEMSCHEM.SCHEMATIC1(SCH_1):INS99652@WCSA_SYSTEMSCHEM.SIPSOC-3_1.NORMAL(CHIPS)':
+ C_PATH='@wcsa_systemschem.schematic1(sch_1):ins99652@wcsa_systemschem.\sipsoc-3_1.normal\(chips)',
+ P_PATH='@wcsa_systemschem.schematic1(sch_1):page1_ins99652@wcsa_systemschem.\sipsoc-3_1.normal\(chips)',
  PRIM_FILE='.\pstchip.dat',
  SECTION='';
 
 PART_NAME
- J7 'JUMP2_1_SAMTEC_MTSW-101-08-S-D-315_JUMP2':;
+ J7 'JUMP2_0_SAMTEC_MTSW-101-08-S-D-315_JUMP2':;
 
 SECTION_NUMBER 1
- '@WCSA_SYSTEMSCHEM.SCHEMATIC1(SCH_1):INS102942@CHARGECONTROLLERSCHEM.JUMP2_1.NORMAL(CHIPS)':
- C_PATH='@wcsa_systemschem.schematic1(sch_1):ins102942@chargecontrollerschem.\jump2_1.normal\(chips)',
- P_PATH='@wcsa_systemschem.schematic1(sch_1):page1_ins102942@chargecontrollerschem.\jump2_1.normal\(chips)',
+ '@WCSA_SYSTEMSCHEM.SCHEMATIC1(SCH_1):INS102942@WCSA_SYSTEMSCHEM.JUMP2_0.NORMAL(CHIPS)':
+ C_PATH='@wcsa_systemschem.schematic1(sch_1):ins102942@wcsa_systemschem.\jump2_0.normal\(chips)',
+ P_PATH='@wcsa_systemschem.schematic1(sch_1):page1_ins102942@wcsa_systemschem.\jump2_0.normal\(chips)',
  PRIM_FILE='.\pstchip.dat',
  SECTION='';
 
 PART_NAME
- L3 'L_DISC350X175LS200X100034_170UH':;
+ L3 'L_INDC3216X95N_170UH':;
 
 SECTION_NUMBER 1
  '@WCSA_SYSTEMSCHEM.SCHEMATIC1(SCH_1):INS12096@ANALOG.L.NORMAL(CHIPS)':
@@ -268,12 +268,42 @@ SECTION_NUMBER 1
  SECTION='';
 
 PART_NAME
- L4 'L_DISC350X175LS200X100034_1UH':;
+ L4 'L_INDC3216X95N_1UH':;
 
 SECTION_NUMBER 1
  '@WCSA_SYSTEMSCHEM.SCHEMATIC1(SCH_1):INS103526@ANALOG.L.NORMAL(CHIPS)':
  C_PATH='@wcsa_systemschem.schematic1(sch_1):ins103526@analog.\l.normal\(chips)',
  P_PATH='@wcsa_systemschem.schematic1(sch_1):page1_ins103526@analog.\l.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ Q1 'DIPSOC-3X2_1_ZXM62P02E6TA_DIO_ZXMD63P02X/ZTX':;
+
+SECTION_NUMBER 1
+ '@WCSA_SYSTEMSCHEM.SCHEMATIC1(SCH_1):INS107505@WCSA_SYSTEMSCHEM.DIPSOC-3X2_1.NORMAL(CHIPS)':
+ C_PATH='@wcsa_systemschem.schematic1(sch_1):ins107505@wcsa_systemschem.\dipsoc-3x2_1.normal\(chips)',
+ P_PATH='@wcsa_systemschem.schematic1(sch_1):page1_ins107505@wcsa_systemschem.\dipsoc-3x2_1.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ Q2 'ZXMD63N02X/ZTX_SOT23_2P9X1P3_DIO_ZXMD63N02X/ZTX':;
+
+SECTION_NUMBER 1
+ '@WCSA_SYSTEMSCHEM.SCHEMATIC1(SCH_1):INS89053@ZETEX.ZXMD63N02X/ZTX.NORMAL(CHIPS)':
+ C_PATH='@wcsa_systemschem.schematic1(sch_1):ins89053@zetex.\zxmd63n02x/ztx.normal\(chips)',
+ P_PATH='@wcsa_systemschem.schematic1(sch_1):page1_ins89053@zetex.\zxmd63n02x/ztx.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ Q3 'ZXMD63N02X/ZTX_SOT23_2P9X1P3_DIO_ZXMD63N02X/ZTX':;
+
+SECTION_NUMBER 1
+ '@WCSA_SYSTEMSCHEM.SCHEMATIC1(SCH_1):INS93755@ZETEX.ZXMD63N02X/ZTX.NORMAL(CHIPS)':
+ C_PATH='@wcsa_systemschem.schematic1(sch_1):ins93755@zetex.\zxmd63n02x/ztx.normal\(chips)',
+ P_PATH='@wcsa_systemschem.schematic1(sch_1):page1_ins93755@zetex.\zxmd63n02x/ztx.normal\(chips)',
  PRIM_FILE='.\pstchip.dat',
  SECTION='';
 
@@ -408,12 +438,12 @@ SECTION_NUMBER 1
  SECTION='';
 
 PART_NAME
- SW1 'JUMP2_1_SAMTEC_MTSW-101-08-S-D-315_JUMP2':;
+ SW1 'JUMP2_0_SAMTEC_MTSW-101-08-S-D-315_JUMP2':;
 
 SECTION_NUMBER 1
- '@WCSA_SYSTEMSCHEM.SCHEMATIC1(SCH_1):INS97216@CHARGECONTROLLERSCHEM.JUMP2_1.NORMAL(CHIPS)':
- C_PATH='@wcsa_systemschem.schematic1(sch_1):ins97216@chargecontrollerschem.\jump2_1.normal\(chips)',
- P_PATH='@wcsa_systemschem.schematic1(sch_1):page1_ins97216@chargecontrollerschem.\jump2_1.normal\(chips)',
+ '@WCSA_SYSTEMSCHEM.SCHEMATIC1(SCH_1):INS97216@WCSA_SYSTEMSCHEM.JUMP2_0.NORMAL(CHIPS)':
+ C_PATH='@wcsa_systemschem.schematic1(sch_1):ins97216@wcsa_systemschem.\jump2_0.normal\(chips)',
+ P_PATH='@wcsa_systemschem.schematic1(sch_1):page1_ins97216@wcsa_systemschem.\jump2_0.normal\(chips)',
  PRIM_FILE='.\pstchip.dat',
  SECTION='';
 
@@ -428,7 +458,7 @@ SECTION_NUMBER 1
  SECTION='';
 
 PART_NAME
- U3 'DIPSOC-5X2_2_MCP73833T_MCP7388T':;
+ U3 'DIPSOC-5X2_2_SOP50P490X110-10N_MCP7388T':;
 
 SECTION_NUMBER 1
  '@WCSA_SYSTEMSCHEM.SCHEMATIC1(SCH_1):INS90229@WCSA_SYSTEMSCHEM.DIPSOC-5X2_2.NORMAL(CHIPS)':
@@ -438,42 +468,12 @@ SECTION_NUMBER 1
  SECTION='';
 
 PART_NAME
- U4 'MC3X063A_8_MC3X063A_MC3X063A':;
+ U4 'MC3X063A_8_SOIC127P599X175-8N_MC3X063A':;
 
 SECTION_NUMBER 1
  '@WCSA_SYSTEMSCHEM.SCHEMATIC1(SCH_1):INS12176@CHARGECONTROLLERSCHEM.MC3X063A_8.NORMAL(CHIPS)':
  C_PATH='@wcsa_systemschem.schematic1(sch_1):ins12176@chargecontrollerschem.\mc3x063a_8.normal\(chips)',
  P_PATH='@wcsa_systemschem.schematic1(sch_1):page1_ins12176@chargecontrollerschem.\mc3x063a_8.normal\(chips)',
- PRIM_FILE='.\pstchip.dat',
- SECTION='';
-
-PART_NAME
- U5 'ZXMD63P02X/ZTX_ZXM62P02E6TA_DIO_ZXMD63P02X/ZTX':;
-
-SECTION_NUMBER 1
- '@WCSA_SYSTEMSCHEM.SCHEMATIC1(SCH_1):INS88779@ZETEX.ZXMD63P02X/ZTX.NORMAL(CHIPS)':
- C_PATH='@wcsa_systemschem.schematic1(sch_1):ins88779@zetex.\zxmd63p02x/ztx.normal\(chips)',
- P_PATH='@wcsa_systemschem.schematic1(sch_1):page1_ins88779@zetex.\zxmd63p02x/ztx.normal\(chips)',
- PRIM_FILE='.\pstchip.dat',
- SECTION='';
-
-PART_NAME
- U7 'ZXMD63N02X/ZTX_SOT23_2P9X1P3_DIO_ZXMD63N02X/ZTX':;
-
-SECTION_NUMBER 1
- '@WCSA_SYSTEMSCHEM.SCHEMATIC1(SCH_1):INS89053@ZETEX.ZXMD63N02X/ZTX.NORMAL(CHIPS)':
- C_PATH='@wcsa_systemschem.schematic1(sch_1):ins89053@zetex.\zxmd63n02x/ztx.normal\(chips)',
- P_PATH='@wcsa_systemschem.schematic1(sch_1):page1_ins89053@zetex.\zxmd63n02x/ztx.normal\(chips)',
- PRIM_FILE='.\pstchip.dat',
- SECTION='';
-
-PART_NAME
- U8 'ZXMD63N02X/ZTX_SOT23_2P9X1P3_DIO_ZXMD63N02X/ZTX':;
-
-SECTION_NUMBER 1
- '@WCSA_SYSTEMSCHEM.SCHEMATIC1(SCH_1):INS93755@ZETEX.ZXMD63N02X/ZTX.NORMAL(CHIPS)':
- C_PATH='@wcsa_systemschem.schematic1(sch_1):ins93755@zetex.\zxmd63n02x/ztx.normal\(chips)',
- P_PATH='@wcsa_systemschem.schematic1(sch_1):page1_ins93755@zetex.\zxmd63n02x/ztx.normal\(chips)',
  PRIM_FILE='.\pstchip.dat',
  SECTION='';
 

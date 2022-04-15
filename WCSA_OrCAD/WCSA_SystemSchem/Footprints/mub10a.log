@@ -1,6 +1,6 @@
 (---------------------------------------------------------------------)
 (                                                                     )
-(    Downrev Design                                                   )
+(    CREATE SYMBOL                                                    )
 (                                                                     )
 (    Drawing          : MUB10A.dra                                    )
 (    Software Version : 17.4S013                                      )
@@ -9,6 +9,15 @@
 (---------------------------------------------------------------------)
 
 
+Create Symbol of type: PACKAGE
+    Directory = C:/Users/student/OrCAD_PCB/WCSA_OrCAD/WCSA_SystemSchem/Footprints
+    Name      = mub10a.psm
+    User      = student
+    Machine   = DESKTOP-1414A5L
 
-Changes made to design for 17.2 compatibility.
+
+Create symbol started.
+ 
+
+Create symbol completed.
 
