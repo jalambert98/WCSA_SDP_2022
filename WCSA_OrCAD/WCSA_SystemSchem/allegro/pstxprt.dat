@@ -1,5 +1,5 @@
 FILE_TYPE = EXPANDEDPARTLIST;
-{ Using PSTWRITER 17.4.0 d001Apr-17-2022 at 13:48:21 }
+{ Using PSTWRITER 17.4.0 d001Apr-17-2022 at 14:12:43 }
 DIRECTIVES
  PST_VERSION='PST_HDL_CENTRIC_VERSION_0';
  ROOT_DRAWING='WCSA_SYSTEMSCHEM';
@@ -74,6 +74,16 @@ SECTION_NUMBER 1
  '@WCSA_SYSTEMSCHEM.SCHEMATIC1(SCH_1):INS103646@WCSA_SYSTEMSCHEM.C1206C241MGGACAUTO7210_2.NORMAL(CHIPS)':
  C_PATH='@wcsa_systemschem.schematic1(sch_1):ins103646@wcsa_systemschem.\c1206c241mggacauto7210_2.normal\(chips)',
  P_PATH='@wcsa_systemschem.schematic1(sch_1):page1_ins103646@wcsa_systemschem.\c1206c241mggacauto7210_2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C16 'C1206C241MGGACAUTO7210_2_CAPC3216X110N_100N':;
+
+SECTION_NUMBER 1
+ '@WCSA_SYSTEMSCHEM.SCHEMATIC1(SCH_1):INS117431@WCSA_SYSTEMSCHEM.C1206C241MGGACAUTO7210_2.NORMAL(CHIPS)':
+ C_PATH='@wcsa_systemschem.schematic1(sch_1):ins117431@wcsa_systemschem.\c1206c241mggacauto7210_2.normal\(chips)',
+ P_PATH='@wcsa_systemschem.schematic1(sch_1):page1_ins117431@wcsa_systemschem.\c1206c241mggacauto7210_2.normal\(chips)',
  PRIM_FILE='.\pstchip.dat',
  SECTION='';
 

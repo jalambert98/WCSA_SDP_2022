@@ -106,6 +106,11 @@
       (Sort User)))
   (Folder "Logs")
   (PartMRUSelector
+    (C1206C241MGGACAUTO7210_2
+      (FullPartName "C1206C241MGGACAUTO7210_2.Normal")
+      (LibraryName
+         "C:\USERS\STUDENT\ORCAD_PCB\WCSA_SYSTEMSCHEM\WCSA_SYSTEMSCHEM.DSN")
+      (DeviceIndex "0"))
     (OFFPAGELEFT-R
       (LibraryName "C:\CADENCE\SPB_17.4\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
       (DeviceIndex "0"))
@@ -185,10 +190,14 @@
   (GlobalState
     (FileView
       (Path "Design Resources")
-      (Path "Design Resources" ".\wcsa_systemschem.dsn")
-      (Path "Design Resources" ".\wcsa_systemschem.dsn" "SCHEMATIC1")
+      (Path "Design Resources"
+         "c:\users\student\orcad_pcb\wcsa_orcad\wcsa_systemschem\wcsa_systemschem.dsn")
+      (Path "Design Resources"
+         "c:\users\student\orcad_pcb\wcsa_orcad\wcsa_systemschem\wcsa_systemschem.dsn"
+         "SCHEMATIC1")
       (Path "Outputs")
-      (Select "Design Resources" ".\wcsa_systemschem.dsn"))
+      (Select "Design Resources"
+         "c:\users\student\orcad_pcb\wcsa_orcad\wcsa_systemschem\wcsa_systemschem.dsn"))
     (HierarchyView)
     (Doc
       (Type "COrCapturePMDoc")
@@ -199,7 +208,7 @@
       (Type "COrSchematicDoc")
       (Frame
         (Placement "44 0 1 -1 -1 5 24 5 1034 24 487")
-        (Scroll "0 443")
+        (Scroll "122 232")
         (Zoom "128")
         (Occurrence "/"))
       (Path
