@@ -191,13 +191,10 @@
     (FileView
       (Path "Design Resources")
       (Path "Design Resources"
-         "c:\users\student\orcad_pcb\wcsa_orcad\wcsa_systemschem\wcsa_systemschem.dsn")
-      (Path "Design Resources"
-         "c:\users\student\orcad_pcb\wcsa_orcad\wcsa_systemschem\wcsa_systemschem.dsn"
-         "SCHEMATIC1")
+         "C:\Users\student\OrCAD_PCB\WCSA_OrCAD\WCSA_SystemSchem\wcsa_systemschem.dsn")
       (Path "Outputs")
       (Select "Design Resources"
-         "c:\users\student\orcad_pcb\wcsa_orcad\wcsa_systemschem\wcsa_systemschem.dsn"))
+         "C:\Users\student\OrCAD_PCB\WCSA_OrCAD\WCSA_SystemSchem\wcsa_systemschem.dsn"))
     (HierarchyView)
     (Doc
       (Type "COrCapturePMDoc")
@@ -208,7 +205,7 @@
       (Type "COrSchematicDoc")
       (Frame
         (Placement "44 0 1 -1 -1 5 24 5 1034 24 487")
-        (Scroll "122 232")
+        (Scroll "29 232")
         (Zoom "128")
         (Occurrence "/"))
       (Path
@@ -219,7 +216,7 @@
       (Type "COrSchematicDoc")
       (Frame
         (Placement "44 0 1 -1 -1 5 24 5 1034 24 487")
-        (Scroll "93 244")
+        (Scroll "9 244")
         (Zoom "126")
         (Occurrence "/"))
       (Path
