@@ -98,6 +98,11 @@
   (DefaultLibraryBrowseDirectory "library\PSpice")
   (Folder "Logs")
   (PartMRUSelector
+    (MbreakP3
+      (FullPartName "MbreakP3.Normal")
+      (LibraryName
+         "C:\CADENCE\SPB_17.4\TOOLS\CAPTURE\LIBRARY\PSPICE\BREAKOUT.OLB")
+      (DeviceIndex "0"))
     (Dbreak
       (FullPartName "Dbreak.Normal")
       (LibraryName
@@ -152,10 +157,7 @@
       (Path "Design Resources"
          "c:\users\student\desktop\wcsa_sdp_2022\wcsa_orcad\pspice\powersystem_simulations\powersystem_simulations.dsn"
          "SCHEMATIC1")
-      (Path "Outputs")
-      (Select "Design Resources"
-         "c:\users\student\desktop\wcsa_sdp_2022\wcsa_orcad\pspice\powersystem_simulations\powersystem_simulations.dsn"
-         "SCHEMATIC1" "2 - Power Block Simulation"))
+      (Path "Outputs"))
     (HierarchyView)
     (Doc
       (Type "COrCapturePMDoc")
@@ -166,8 +168,8 @@
       (Type "COrSchematicDoc")
       (Frame
         (Placement "44 0 1 -1 -1 -1 -1 5 1034 24 569")
-        (Scroll "-103 -4")
-        (Zoom "52")
+        (Scroll "15 222")
+        (Zoom "104")
         (Occurrence "/"))
       (Path
          "C:\USERS\STUDENT\DESKTOP\WCSA_SDP_2022\WCSA_ORCAD\PSPICE\POWERSYSTEM_SIMULATIONS\POWERSYSTEM_SIMULATIONS.DSN")
