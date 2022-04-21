@@ -1,7 +1,7 @@
 
-**** 04/13/22 12:45:57 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+**** 04/21/22 02:41:13 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
 
- ** Profile: "SCHEMATIC1-PowerBlock_Sim"  [ c:\users\student\orcad_pcb\wcsa_orcad\powersystem_simulations\powersystem_simulations-psp
+ ** Profile: "SCHEMATIC1-PowerBlock_Sim"  [ C:\Users\student\Desktop\WCSA_SDP_2022\WCSA_OrCAD\PSPICE\PowerSystem_Simulations\powersys
 
 
  ****     CIRCUIT DESCRIPTION
@@ -22,16 +22,18 @@
 .LIB "../../../powersystem_simulations-pspicefiles/schematic1/powerblock_sim/sllm359/mc33063a-q1_pspice_trans/mc33063a-q1_trans.lib"
 + "" 
 * From [PSPICE NETLIST] section of C:\Users\student\AppData\Roaming\SPB_Data\cdssetup\OrCAD_PSpice\17.4.0\PSpice.ini file:
+
+ERROR(ORPSIM-16276): Simulation cannot be completed because library ../../../powersystem_simulations-pspicefiles/schematic1/powerblock_sim/sllm359/mc33063a-q1_pspice_trans/mc33063a-q1_trans.lib 
+is not available.
 .lib "nom.lib" 
 
 *Analysis directives: 
 .TRAN 1e-03 6 0 50m 
 .OPTIONS ADVCONV
-.PROBE N([N87291])
-.PROBE N([N37893])
 .PROBE N([N87447])
+.PROBE N([N37893])
 .PROBE N([N44923])
-.PROBE N([N87729])
+.PROBE N([N87291])
 .INC "..\SCHEMATIC1.net" 
 
 
@@ -54,21 +56,17 @@ L_L4         N37931 N44923  1uH
 R_Rlidar         N44923 0  10 TC=0,0 
 D_D4         N87291 N87283 Dbreak 
 V_V2         N87447 0  
-+PULSE 0 3.7 0.5 500n 500n 0.1 5
++PULSE 0 3.7 0.5 500n 500n 0.25 5
 R_R4         N87291 N37893  100k TC=0,0 
 S_U2         N87291 0 N87619 0 _U2
 .MODEL      _U2 VSWITCH Roff=1000000000 Ron=0.01 VH=0 VT=2VDC TD=0
 R_R2         N87157 N87005  100k TC=0,0 
-S_U4         0 N87283 N87729 0 _U4
-.MODEL      _U4 VSWITCH Roff=100000000 Ron=0.01 VH=0 VT=2VDC TD=0
 C_C2         N87157 N87005  100n  TC=0,0 
 C_C1         N87283 N87157  1u  TC=0,0 
 V_V1         N87005 0 3.7VDC
 X_U5         N37893 N87157 N87005 ZXMD63P02X/ZTX
-V_V8         N87729 0  
-+PULSE 0 3.7 1 500n 500n 2 5
 V_V3         N87619 0  
-+PULSE 3.7 0 0.55 500n 500n 0.5 5
++PULSE 3.7 0 0.625 500n 500n 5 10
 C_C3         N87311 N37893  2.2u  TC=0,0 
 S_U1         N87283 0 N87447 0 _U1
 .MODEL      _U1 VSWITCH Roff=100000000 Ron=0.01 VH=0 VT=2VDC TD=0
@@ -82,417 +80,3 @@ R__UC0001   N37799  0   {1/GMIN}
 **** RESUMING PowerBlock_Sim.cir ****
 .END
 
-**** 04/13/22 12:45:57 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
-
- ** Profile: "SCHEMATIC1-PowerBlock_Sim"  [ c:\users\student\orcad_pcb\wcsa_orcad\powersystem_simulations\powersystem_simulations-psp
-
-
- ****     Diode MODEL PARAMETERS
-
-
-******************************************************************************
-
-
-
-
-               Dbreak          X_U5.D63P02     X_U7.D63N02     D_D1            
-          IS   10.000000E-15    4.000000E-12    4.000000E-12    1.000000E-15 
-           N                    1.04            1.04             .01         
-         IKF                     .044            .082                        
-          RS     .1              .096            .105            .01         
-          TT                                                    1.000000E-12 
-         CJO  100.000000E-15                                                 
-
-
-               X_U6.X_U629.d_d1 
-          IS    1.000000E-15 
-           N     .1          
-          RS     .05         
-          TT   10.000000E-12 
-
-
-               X_U6.X_U634.d_d1 
-          IS    1.000000E-15 
-           N     .1          
-          RS     .05         
-          TT   10.000000E-12 
-
-
-**** 04/13/22 12:45:57 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
-
- ** Profile: "SCHEMATIC1-PowerBlock_Sim"  [ c:\users\student\orcad_pcb\wcsa_orcad\powersystem_simulations\powersystem_simulations-psp
-
-
- ****     BJT MODEL PARAMETERS
-
-
-******************************************************************************
-
-
-
-
-               QbreakN2        QbreakN1        
-               NPN             NPN             
-       LEVEL    1               1            
-          IS  100.000000E-18  100.000000E-18 
-          BF   50              50            
-          NF    1               1            
-          BR    1               1            
-          NR    1               1            
-         ISS    0               0            
-          RE    0                .125        
-          RC    0                .125        
-         CJE    0               0            
-         VJE     .75             .75         
-         CJC    0               0            
-         VJC     .75             .75         
-         MJC     .33             .33         
-        XCJC    1               1            
-         CJS    0               0            
-         VJS     .75             .75         
-          TF                   10.000000E-09 
-          KF    0               0            
-          AF    1               1            
-          CN    2.42            2.42         
-           D     .87             .87         
-
-
-**** 04/13/22 12:45:57 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
-
- ** Profile: "SCHEMATIC1-PowerBlock_Sim"  [ c:\users\student\orcad_pcb\wcsa_orcad\powersystem_simulations\powersystem_simulations-psp
-
-
- ****     MOSFET MODEL PARAMETERS
-
-
-******************************************************************************
-
-
-
-
-               X_U5.M63P02     X_U7.M63N02     
-               PMOS            NMOS            
-       LEVEL    1               1            
-           L  100.000000E-06  100.000000E-06 
-           W  100.000000E-06  100.000000E-06 
-         VTO   -1.37            1.4          
-          KP    8              15            
-       GAMMA    0               0            
-         PHI     .6              .6          
-      LAMBDA    9.000000E-03    8.700000E-03 
-          RD     .04             .02         
-          RS     .08             .04         
-          IS   10.000000E-15   10.000000E-15 
-          JS    0               0            
-          PB     .8              .8          
-        PBSW     .8              .8          
-         CBD  700.000000E-12  600.000000E-12 
-          CJ    0               0            
-        CJSW    0               0            
-        CGSO    0               0            
-        CGDO    0               0            
-        CGBO    0               0            
-         TOX    0               0            
-          XJ    0               0            
-       UCRIT   10.000000E+03   10.000000E+03 
-      DIOMOD    1               1            
-         VFB    0               0            
-        LETA    0               0            
-        WETA    0               0            
-          U0    0               0            
-        TEMP    0               0            
-         VDD    5               5            
-       XPART    0               0            
-
-
-**** 04/13/22 12:45:57 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
-
- ** Profile: "SCHEMATIC1-PowerBlock_Sim"  [ c:\users\student\orcad_pcb\wcsa_orcad\powersystem_simulations\powersystem_simulations-psp
-
-
- ****     Voltage Controlled Switch MODEL PARAMETERS
-
-
-******************************************************************************
-
-
-
-
-               _U2             _U4             _U1             
-         RON     .01             .01             .01         
-        ROFF    1.000000E+09  100.000000E+06  100.000000E+06 
-          VT    2               2               2            
-          VH    0               0               0            
-          TD    0               0               0            
-
-
-**** 04/13/22 12:45:57 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
-
- ** Profile: "SCHEMATIC1-PowerBlock_Sim"  [ c:\users\student\orcad_pcb\wcsa_orcad\powersystem_simulations\powersystem_simulations-psp
-
-
- ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
-
-
-******************************************************************************
-
-
-
- NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
-
-
-(N37799) 371.1E-06 (N37819) 371.1E-06 (N37893) 371.1E-06 (N37931) 5.145E-15     
-
-(N37973) 1.286E-15 (N44823)    2.0105 (N44923) 5.145E-15 (N49005) 371.1E-06     
-
-(N87005)    3.7000 (N87157)    3.6996 (N87283)    3.6993 (N87291) 37.15E-12     
-
-(N87311) 37.15E-12 (N87447)    0.0000 (N87619)    3.7000 (N87729)    0.0000     
-
-(X_U5.2)    3.6996 (X_U7.2) 37.15E-12 (X_U6.CL)    -.0108                       
-
-(X_U6.CT)    2.0105                   (X_U6.CLK)    1.0000                      
-
-(X_U6.NCL) 36.40E-06                  (X_U6.ICHG) 36.40E-06                     
-
-(X_U6.DISCHG)    0.0000               (X_U6.ISENSE) 523.0E-18                   
-
-(X_U6.CII_INT) 1.286E-15              (X_U6.N16735791)    1.0000                
-
-(X_U6.N16737156)    1.0000            (X_U6.N16737225)    0.0000                
-
-(X_U6.N16747431)     .7500            (X_U6.N16747437)    1.2500                
-
-(X_U6.N16747467)    1.0000            (X_U6.N16747655)    3.0000                
-
-(X_U6.N16755723)    0.0000            (X_U6.N16821920)    0.0000                
-
-(X_U6.N16879264) 74.51E-15            (X_U6.N16888275)    0.0000                
-
-(X_U6.N16933723)    1.2500            (X_U6.N16937785)    0.0000                
-
-(X_U6.N16945867)    0.0000            (X_U6.N16946331)    0.0000                
-
-(X_U6.X_U3.Yint)    0.0000            (X_U6.X_U5.Yint)    1.0000                
-
-(X_U6.X_U629.my5)    1.0000           (X_U6.X_U629.qbr)    1.0000               
-
-(X_U6.X_U629.qqq)    -.0100           (X_U6.X_U634.my5)    1.0000               
-
-(X_U6.X_U634.qbr)    1.0000           (X_U6.X_U634.qqq)    -.0100               
-
-(X_U6.X_U629.qint)    -.0100          (X_U6.X_U630.YINT)    0.0000              
-
-(X_U6.X_U634.qint)    -.0100          (X_U6.X_U635.YINT)    0.0000              
-
-(X_U6.X_U637.Yint)    1.0000          (X_U6.X_U629.myvss)    0.0000             
-
-(X_U6.X_U629.qqqd1)    0.0000         (X_U6.X_U634.myvss)    0.0000             
-
-(X_U6.X_U634.qqqd1)    0.0000         (X_U6.X_U629.x3.YINT)    0.0000           
-
-(X_U6.X_U634.x3.YINT)    0.0000       
-
-
-
-
-    VOLTAGE SOURCE CURRENTS
-    NAME         CURRENT
-
-    V_V2         0.000E+00
-    V_V1        -8.141E-08
-    V_V8         0.000E+00
-    V_V3        -3.700E-12
-    X_U6.V_V9   -1.980E-12
-    X_U6.V_V5    0.000E+00
-    X_U6.V_V7    0.000E+00
-    X_U6.V_V8    0.000E+00
-    X_U6.X_U629.v1  -1.011E-12
-    X_U6.X_U629.v2  -5.677E-14
-    X_U6.X_U634.v1  -1.011E-12
-    X_U6.X_U634.v2  -5.677E-14
-
-    TOTAL POWER DISSIPATION   3.01E-07  WATTS
-
-Reducing minimum delta to make the circuit converge.
-Reducing minimum delta to make the circuit converge.
-Reducing minimum delta to make the circuit converge.
-Reducing minimum delta to make the circuit converge.
-Reducing minimum delta to make the circuit converge.
-Reducing minimum delta to make the circuit converge.
-Reducing minimum delta to make the circuit converge.
-
-ERROR(ORPSIM-15138): Convergence problem in Transient Analysis at Time =  .55 .
-         Time step =  194.0E-21, minimum allowable step size =  1.000E-18
-
-  These supply currents failed to converge:
-
-    I(X_U6.X_U629.v1)         =    1.512nA  \    1.029nA
-    I(X_U6.X_U634.v1)         =    2.618nA  \    59.49pA
-
-  These devices failed to converge:
-    D_D5      X_U5.M1   X_U7.M1   
-
-
-
-  Last node voltages tried were:
-
- NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
-
-
-(N37799)    3.1842 (N37819)     .0187 (N37893)    3.4827 (N37931)    5.0295     
-
-(N37973)    1.2574 (N44823)     .9994 (N44923)    4.9555 (N49005)    3.9663     
-
-(N87005)    3.7000 (N87157) 3.559E-06 (N87283) 3.700E-06 (N87291) 455.7E-09     
-
-(N87311)    3.2239 (N87447)    3.7000 (N87619)    2.0000 (N87729)    0.0000     
-
-(X_U5.2) 2.291E-06 (X_U7.2)    3.2239 (X_U6.CL)-192.6E-06                       
-
-(X_U6.CT)     .9994                   (X_U6.CLK)    0.0000                      
-
-(X_U6.NCL) 93.81E-06                  (X_U6.ICHG) 93.81E-06                     
-
-(X_U6.DISCHG)    1.0000               (X_U6.ISENSE)     .2985                   
-
-(X_U6.CII_INT)    1.2574              (X_U6.N16735791)    0.0000                
-
-(X_U6.N16737156) 20.50E-18            (X_U6.N16737225) 20.50E-18                
-
-(X_U6.N16747431)     .7500            (X_U6.N16747437)    1.2500                
-
-(X_U6.N16747467)    0.0000            (X_U6.N16747655)    3.0000                
-
-(X_U6.N16755723)    0.0000            (X_U6.N16821920)    1.0000                
-
-(X_U6.N16879264)    1.0518            (X_U6.N16888275)    1.0000                
-
-(X_U6.N16933723)    1.2500            (X_U6.N16937785)    5.0000                
-
-(X_U6.N16945867)    5.0000            (X_U6.N16946331)    5.0000                
-
-(X_U6.X_U3.Yint)    0.0000            (X_U6.X_U5.Yint)    0.0000                
-
-(X_U6.X_U629.my5)    1.0000           (X_U6.X_U629.qbr)    0.0000               
-
-(X_U6.X_U629.qqq)    1.0358           (X_U6.X_U634.my5)    1.0000               
-
-(X_U6.X_U634.qbr)    0.0000           (X_U6.X_U634.qqq)    1.0284               
-
-(X_U6.X_U629.qint)    1.0358          (X_U6.X_U630.YINT)    0.0000              
-
-(X_U6.X_U634.qint)    1.0284          (X_U6.X_U635.YINT)    1.0000              
-
-(X_U6.X_U637.Yint)    0.0000          (X_U6.X_U629.myvss)    0.0000             
-
-(X_U6.X_U629.qqqd1)    1.0000         (X_U6.X_U634.myvss)    0.0000             
-
-(X_U6.X_U634.qqqd1)    1.0000         (X_U6.X_U629.x3.YINT)    1.0000           
-
-(X_U6.X_U634.x3.YINT)    1.0000       
-
-
-**** Interrupt ****
-**** Param: RELTOL = 0.001
-**** Param: ABSTOL = 1e-12
-**** Param: VNTOL = 1e-06
-**** Param: GMIN = 1e-12
-**** Param: TSTOP = 6
-**** Param: TMAX = 0.05
-**** Param: ITL1 = 150
-**** Param: ITL2 = 20
-**** Param: ITL4 = 100
-**** Param: AutoConverge = 0
-**** Param: AutoConverge.ITL1 = 1000
-**** Param: AutoConverge.ITL2 = 1000
-**** Param: AutoConverge.ITL4 = 1000
-**** Param: AutoConverge.RELTOL = 0.05
-**** Param: AutoConverge.ABSTOL = 0.001
-**** Param: AutoConverge.VNTOL = 0.001
-**** Param: AutoConverge.PIVTOL = 1e-10
-**** Param: ADVCONV = 1
-**** Param: Current_Simulation = 3
-**** Param: METHOD = 0
-**** Param: TRTOL = 7
-**** Param: STEPGMIN = 0
-**** Param: GMINSTEPS = 0
-**** Param: ITL6 = 0
-**** Param: NOSTEPDEP = 0
-**** Param: PTRANSTEP = 0
-**** Param: GMINSRC = 0
-**** Param: PSEUDOTRAN = 0
-**** Param: NOSTEPSRC = 0
-
-ERROR(ORPSIM-15138): Convergence problem in Transient Analysis at Time =  .55 .
-         Time step =  618.5E-21, minimum allowable step size =  1.000E-18
-
-  These supply currents failed to converge:
-
-    I(X_U6.X_U629.v1)         =    1.193nA  \    1.029nA
-    I(X_U6.X_U634.v1)         =   865.81pA  \    59.49pA
-
-  These devices failed to converge:
-    D_D5      X_U5.M1   X_U7.M1   
-
-
-
-  Last node voltages tried were:
-
- NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
-
-
-(N37799)    3.1842 (N37819)     .0187 (N37893)    3.4827 (N37931)    5.0295     
-
-(N37973)    1.2574 (N44823)     .9994 (N44923)    4.9555 (N49005)    3.9663     
-
-(N87005)    3.7000 (N87157) 3.559E-06 (N87283) 3.700E-06 (N87291) 455.7E-09     
-
-(N87311)    3.2239 (N87447)    3.7000 (N87619)    2.0000 (N87729)    0.0000     
-
-(X_U5.2) 2.291E-06 (X_U7.2)    3.2239 (X_U6.CL)-192.6E-06                       
-
-(X_U6.CT)     .9994                   (X_U6.CLK)    0.0000                      
-
-(X_U6.NCL) 93.81E-06                  (X_U6.ICHG) 93.81E-06                     
-
-(X_U6.DISCHG)    1.0000               (X_U6.ISENSE)     .2985                   
-
-(X_U6.CII_INT)    1.2574              (X_U6.N16735791)    0.0000                
-
-(X_U6.N16737156) 20.50E-18            (X_U6.N16737225) 20.50E-18                
-
-(X_U6.N16747431)     .7500            (X_U6.N16747437)    1.2500                
-
-(X_U6.N16747467)    0.0000            (X_U6.N16747655)    3.0000                
-
-(X_U6.N16755723)    0.0000            (X_U6.N16821920)    1.0000                
-
-(X_U6.N16879264)    1.0518            (X_U6.N16888275)    1.0000                
-
-(X_U6.N16933723)    1.2500            (X_U6.N16937785)    5.0000                
-
-(X_U6.N16945867)    5.0000            (X_U6.N16946331)    5.0000                
-
-(X_U6.X_U3.Yint)    0.0000            (X_U6.X_U5.Yint)    0.0000                
-
-(X_U6.X_U629.my5)    1.0000           (X_U6.X_U629.qbr)    0.0000               
-
-(X_U6.X_U629.qqq)    1.0358           (X_U6.X_U634.my5)    1.0000               
-
-(X_U6.X_U634.qbr)    0.0000           (X_U6.X_U634.qqq)    1.0284               
-
-(X_U6.X_U629.qint)    1.0358          (X_U6.X_U630.YINT)    0.0000              
-
-(X_U6.X_U634.qint)    1.0284          (X_U6.X_U635.YINT)    1.0000              
-
-(X_U6.X_U637.Yint)    0.0000          (X_U6.X_U629.myvss)    0.0000             
-
-(X_U6.X_U629.qqqd1)    1.0000         (X_U6.X_U634.myvss)    0.0000             
-
-(X_U6.X_U634.qqqd1)    1.0000         (X_U6.X_U629.x3.YINT)    1.0000           
-
-(X_U6.X_U634.x3.YINT)    1.0000       
-
-
-**** Interrupt ****

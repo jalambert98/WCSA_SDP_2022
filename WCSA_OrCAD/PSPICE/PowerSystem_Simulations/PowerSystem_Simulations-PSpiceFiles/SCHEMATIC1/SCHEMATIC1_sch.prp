@@ -976,7 +976,7 @@
             ("level"	"0")
             ("model_params"
                 ("PW"
-                    ("value"	"0.1")
+                    ("value"	"0.25")
                     ("pspice_param"	"PW")
                 )
                 ("TR"
@@ -1178,49 +1178,6 @@
                 ("MAX_TEMP"	"200.0")
             )
         )
-        ("U4"
-            ("device_name"	"VC_SWITCH")
-            ("pspice_path"	"S_U4")
-            ("level"	"0")
-            ("model_params"
-                ("OFF_RESIST"
-                    ("value"	"100000000")
-                    ("pspice_param"	"OFF_RESIST")
-                )
-                ("HYSTERESIS"
-                    ("value"	"0")
-                    ("pspice_param"	"HYSTERESIS")
-                )
-                ("THRESHOLD"
-                    ("value"	"2VDC")
-                    ("pspice_param"	"THRESHOLD")
-                )
-                ("ON_RESIST"
-                    ("value"	"0.01")
-                    ("pspice_param"	"ON_RESIST")
-                )
-                ("BiasValue Power"
-                    ("value"	"136.8nW")
-                    ("pspice_param"	"BiasValue Power")
-                )
-                ("NC"
-                    ("value"	"")
-                    ("pspice_param"	"NC")
-                )
-                ("PACK_IGNORE"
-                    ("value"	"TRUE")
-                    ("pspice_param"	"PACK_IGNORE")
-                )
-                ("SWITCH_STATE"
-                    ("value"	"ON")
-                    ("pspice_param"	"SWITCH_STATE")
-                )
-                ("DELAY"
-                    ("value"	"0")
-                    ("pspice_param"	"DELAY")
-                )
-            )
-        )
         ("C2"
             ("device_name"	"C")
             ("pspice_path"	"C_C2")
@@ -1393,57 +1350,6 @@
                 )
             )
         )
-        ("V8"
-            ("device_name"	"VPULSE")
-            ("pspice_path"	"V_V8")
-            ("level"	"0")
-            ("model_params"
-                ("PW"
-                    ("value"	"2")
-                    ("pspice_param"	"PW")
-                )
-                ("TR"
-                    ("value"	"500n")
-                    ("pspice_param"	"TR")
-                )
-                ("V1"
-                    ("value"	"0")
-                    ("pspice_param"	"V1")
-                )
-                ("V2"
-                    ("value"	"3.7")
-                    ("pspice_param"	"V2")
-                )
-                ("TD"
-                    ("value"	"1")
-                    ("pspice_param"	"TD")
-                )
-                ("TF"
-                    ("value"	"500n")
-                    ("pspice_param"	"TF")
-                )
-                ("PER"
-                    ("value"	"5")
-                    ("pspice_param"	"PER")
-                )
-                ("BiasValue Power"
-                    ("value"	"0W")
-                    ("pspice_param"	"BiasValue Power")
-                )
-                ("AC"
-                    ("value"	"")
-                    ("pspice_param"	"AC")
-                )
-                ("DC"
-                    ("value"	"")
-                    ("pspice_param"	"DC")
-                )
-                ("PSpice Model Type"
-                    ("value"	"0011")
-                    ("pspice_param"	"PSpice Model Type")
-                )
-            )
-        )
         ("V3"
             ("device_name"	"VPULSE")
             ("pspice_path"	"V_V3")
@@ -1454,7 +1360,7 @@
                     ("pspice_param"	"BiasValue Power")
                 )
                 ("PER"
-                    ("value"	"5")
+                    ("value"	"10")
                     ("pspice_param"	"PER")
                 )
                 ("TF"
@@ -1462,7 +1368,7 @@
                     ("pspice_param"	"TF")
                 )
                 ("TD"
-                    ("value"	"0.55")
+                    ("value"	"0.625")
                     ("pspice_param"	"TD")
                 )
                 ("V2"
@@ -1478,7 +1384,7 @@
                     ("pspice_param"	"TR")
                 )
                 ("PW"
-                    ("value"	"0.5")
+                    ("value"	"5")
                     ("pspice_param"	"PW")
                 )
                 ("AC"

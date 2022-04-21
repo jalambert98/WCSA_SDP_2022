@@ -1,3 +1,3 @@
+ lib=c:\users\student\desktop\wcsa_sdp_2022\wcsa_orcad\pspice\mcu_powerbutton_simulation\mcu_power_button-pspicefiles\mcu_power_button.lib, offset=1340, size=24
  lib=C:\Cadence\SPB_17.4\tools\PSpice\Library\breakout.lib, offset=431, size=44
- lib=C:\Cadence\SPB_17.4\tools\PSpice\Library\zetex.lib, offset=157315, size=370
  lib=C:\Cadence\SPB_17.4\tools\PSpice\Library\zetex.lib, offset=156567, size=372

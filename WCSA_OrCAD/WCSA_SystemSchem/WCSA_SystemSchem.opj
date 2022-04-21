@@ -1,6 +1,6 @@
 (ExpressProject "WCSA_SystemSchem"
   (ProjectVersion "19981106")
-  (SoftwareVersion "17.4-2019 S013 (3906575)  [12/6/2020]-[04/17/22]")
+  (SoftwareVersion "17.4-2019 S013 (3906575)  [12/6/2020]-[04/21/22]")
   (ProjectType "PCB")
   (Folder "Design Resources"
     (Folder "Library")
@@ -190,48 +190,37 @@
   (GlobalState
     (FileView
       (Path "Design Resources")
-      (Path "Design Resources"
-         "C:\Users\student\OrCAD_PCB\WCSA_OrCAD\WCSA_SystemSchem\wcsa_systemschem.dsn")
+      (Path "Design Resources" ".\wcsa_systemschem.dsn")
+      (Path "Design Resources" ".\wcsa_systemschem.dsn" "SCHEMATIC1")
       (Path "Outputs")
-      (Select "Design Resources"
-         "C:\Users\student\OrCAD_PCB\WCSA_OrCAD\WCSA_SystemSchem\wcsa_systemschem.dsn"))
+      (Select "Design Resources" ".\wcsa_systemschem.dsn" "SCHEMATIC1"
+         "2 - MCU Comms"))
     (HierarchyView)
     (Doc
       (Type "COrCapturePMDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 -1 -1 0 200 0 469"))
+        (Placement "44 0 1 -1 -1 -1 -1 0 200 0 551"))
       (Tab 0))
     (Doc
       (Type "COrSchematicDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 5 24 5 1034 24 487")
-        (Scroll "29 232")
-        (Zoom "128")
+        (Placement "44 0 1 -1 -1 -1 -1 5 1034 24 569")
+        (Scroll "-13 70")
+        (Zoom "100")
         (Occurrence "/"))
       (Path
-         "C:\USERS\STUDENT\ORCAD_PCB\WCSA_ORCAD\WCSA_SYSTEMSCHEM\WCSA_SYSTEMSCHEM.DSN")
-      (Schematic "SCHEMATIC1")
-      (Page "2 - MCU Comms"))
-    (Doc
-      (Type "COrSchematicDoc")
-      (Frame
-        (Placement "44 0 1 -1 -1 5 24 5 1034 24 487")
-        (Scroll "9 244")
-        (Zoom "126")
-        (Occurrence "/"))
-      (Path
-         "C:\USERS\STUDENT\ORCAD_PCB\WCSA_ORCAD\WCSA_SYSTEMSCHEM\WCSA_SYSTEMSCHEM.DSN")
+         "C:\USERS\STUDENT\DESKTOP\WCSA_SDP_2022\WCSA_ORCAD\WCSA_SYSTEMSCHEM\WCSA_SYSTEMSCHEM.DSN")
       (Schematic "SCHEMATIC1")
       (Page "3 - Power"))
     (Doc
       (Type "COrSchematicDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 5 24 5 1034 24 487")
-        (Scroll "-13 0")
+        (Placement "44 0 1 -1 -1 -1 -1 5 1034 24 569")
+        (Scroll "-13 150")
         (Zoom "100")
         (Occurrence "/"))
       (Path
-         "C:\USERS\STUDENT\ORCAD_PCB\WCSA_ORCAD\WCSA_SYSTEMSCHEM\WCSA_SYSTEMSCHEM.DSN")
+         "C:\USERS\STUDENT\DESKTOP\WCSA_SDP_2022\WCSA_ORCAD\WCSA_SYSTEMSCHEM\WCSA_SYSTEMSCHEM.DSN")
       (Schematic "SCHEMATIC1")
-      (Page "1 - Revision History")))
+      (Page "2 - MCU Comms")))
   (ISPCBBASICLICENSE "false"))
