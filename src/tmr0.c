@@ -93,26 +93,21 @@ void TMR0_Reload(uint8_t periodVal)
 
 void TMR0_ISR(void)
 {
-    // clear the TMR0 interrupt flag
-    PIR0bits.TMR0IF = 0;
-    
     // callback function - called every 4th pass
-    if (++CountCallBack >= TMR0_INTERRUPT_TICKER_FACTOR)
+    if (CountCallBack >= TMR0_INTERRUPT_TICKER_FACTOR)
     {
         // ticker function call
-        TMR0_CallBack();
+        FRT_IncMicros();
+        FRT_IncMillis();
 
         // reset ticker counter
         CountCallBack = 0;
     }
-}
-
-//------------------------------------------------------------------------------
-
-void TMR0_CallBack(void)
-{
-    FRT_IncMillis();
-    FRT_IncMicros();
+    
+    CountCallBack++;
+    
+    // clear the TMR0 interrupt flag
+    PIR0bits.TMR0IF = 0;
 }
 
 //------------------------------------------------------------------------------

@@ -50,8 +50,8 @@ void EUSART_Initialize(void)
 {
     // GPIO pin config
     TRISBbits.TRISB5 = INPUT;
-    TRISCbits.TRISC5 = OUTPUT;
-    LATCbits.LATC5 = HIGH;
+    TRISCbits.TRISC4 = OUTPUT;
+    LATCbits.LATC4 = HIGH;
     
     // Peripheral Pin Select [PPS] Config
     RXPPS = 0x0D;           //RB5->EUSART:RX; 

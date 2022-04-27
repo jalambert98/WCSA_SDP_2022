@@ -190,22 +190,24 @@
   (GlobalState
     (FileView
       (Path "Design Resources")
-      (Path "Design Resources" ".\wcsa_systemschem.dsn")
-      (Path "Design Resources" ".\wcsa_systemschem.dsn" "SCHEMATIC1")
-      (Path "Outputs")
-      (Select "Design Resources" ".\wcsa_systemschem.dsn" "SCHEMATIC1"
-         "2 - MCU Comms"))
-    (HierarchyView)
+      (Path "Design Resources"
+         "c:\users\student\desktop\wcsa_sdp_2022\wcsa_orcad\wcsa_systemschem\wcsa_systemschem.dsn")
+      (Path "Design Resources"
+         "c:\users\student\desktop\wcsa_sdp_2022\wcsa_orcad\wcsa_systemschem\wcsa_systemschem.dsn"
+         "SCHEMATIC1")
+      (Path "Outputs"))
+    (HierarchyView
+      (Path "SCHEMATIC1"))
     (Doc
       (Type "COrCapturePMDoc")
       (Frame
         (Placement "44 0 1 -1 -1 -1 -1 0 200 0 551"))
-      (Tab 0))
+      (Tab 1))
     (Doc
       (Type "COrSchematicDoc")
       (Frame
         (Placement "44 0 1 -1 -1 -1 -1 5 1034 24 569")
-        (Scroll "291 0")
+        (Scroll "145 224")
         (Zoom "140")
         (Occurrence "/"))
       (Path
@@ -216,8 +218,8 @@
       (Type "COrSchematicDoc")
       (Frame
         (Placement "44 0 1 -1 -1 -1 -1 5 1034 24 569")
-        (Scroll "-13 0")
-        (Zoom "100")
+        (Scroll "-159 -4")
+        (Zoom "70")
         (Occurrence "/"))
       (Path
          "C:\USERS\STUDENT\DESKTOP\WCSA_SDP_2022\WCSA_ORCAD\WCSA_SYSTEMSCHEM\WCSA_SYSTEMSCHEM.DSN")

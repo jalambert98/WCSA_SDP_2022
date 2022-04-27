@@ -10,14 +10,14 @@
 #include "FRT.h"
 
 
-//#define FRT_TEST          // toggle comment to enable/disable test harness
+// #define FRT_TEST          // toggle comment to enable/disable test harness
 
 //==============================================================================
 //---------------------------- STATIC VARIABLES --------------------------------
 //==============================================================================
 
-static unsigned long millis;
-static unsigned long micros;
+static volatile unsigned long millis;
+static volatile unsigned long micros;
 
 //==============================================================================
 //------------------------------ PUBLIC LIBRARY --------------------------------
@@ -30,7 +30,7 @@ unsigned long FRT_GetMillis() {
 //------------------------------------------------------------------------------
 
 unsigned long FRT_GetMicros() {
-    return (micros + (250*TMR0_GetCallBackNum()) + TMR0_ReadTimer());
+    return (micros + (250*(TMR0_GetCallBackNum() - 1)) + TMR0_ReadTimer());
 }
 
 //------------------------------------------------------------------------------
@@ -85,3 +85,50 @@ int main(void) {
 //==============================================================================
 //--------------------------------END OF FILE-----------------------------------
 //==============================================================================
+
+#define DEBUG_FRT_TEST
+
+#ifdef DEBUG_FRT_TEST
+
+#include "eusart.h"
+
+#define PRINT_RATE  50  // 50ms
+
+int main(void) {
+    PIC16_Init();
+    EUSART_Initialize();
+    
+    printf("\n\n// ======================== //\n");
+    printf("TESTING libs on %s at %s\n", __DATE__, __TIME__);
+    printf("// ======================== //\n\n");
+    
+    SET_C0() = OUTPUT;
+    WRITE_C0() = LOW;
+    
+    unsigned long currMilli, currMicro, prevMilli;
+    currMicro = FRT_GetMicros();
+    currMilli = FRT_GetMillis();
+    prevMilli = currMilli;
+    
+    uint8_t callback = 0;
+    
+    while(1) {
+        currMicro = FRT_GetMicros();
+        currMilli = FRT_GetMillis();
+        
+        if((currMilli - prevMilli) >= PRINT_RATE) {
+            callback++;
+            printf("[ms  =  %lu]        [us  =  %lu]\n", currMilli, currMicro);
+            prevMilli = currMilli;
+            
+            if(callback >= 10) {
+                WRITE_C0() ^= 1;
+                callback = 0;
+            }
+        }
+    }
+    while(1);
+    return 0;
+}
+
+#endif
