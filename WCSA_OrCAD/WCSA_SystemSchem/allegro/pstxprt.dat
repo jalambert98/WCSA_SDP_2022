@@ -1,5 +1,5 @@
 FILE_TYPE = EXPANDEDPARTLIST;
-{ Using PSTWRITER 17.4.0 d001Apr-21-2022 at 21:03:11 }
+{ Using PSTWRITER 17.4.0 d001Apr-28-2022 at 12:45:13 }
 DIRECTIVES
  PST_VERSION='PST_HDL_CENTRIC_VERSION_0';
  ROOT_DRAWING='WCSA_SYSTEMSCHEM';
@@ -364,6 +364,26 @@ SECTION_NUMBER 1
  '@WCSA_SYSTEMSCHEM.SCHEMATIC1(SCH_1):INS102483@WCSA_SYSTEMSCHEM.POT_2.NORMAL(CHIPS)':
  C_PATH='@wcsa_systemschem.schematic1(sch_1):ins102483@wcsa_systemschem.\pot_2.normal\(chips)',
  P_PATH='@wcsa_systemschem.schematic1(sch_1):page1_ins102483@wcsa_systemschem.\pot_2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R14 'RC1206JR-0713RL_RESC3116X65N_20K':;
+
+SECTION_NUMBER 1
+ '@WCSA_SYSTEMSCHEM.SCHEMATIC1(SCH_1):INS120118@RC1206JR-0713RL.RC1206JR-0713RL.NORMAL(CHIPS)':
+ C_PATH='@wcsa_systemschem.schematic1(sch_1):ins120118@\rc1206jr-0713rl\.\rc1206jr-0713rl.normal\(chips)',
+ P_PATH='@wcsa_systemschem.schematic1(sch_1):page1_ins120118@\rc1206jr-0713rl\.\rc1206jr-0713rl.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R15 'RC1206JR-0713RL_RESC3116X65N_20K':;
+
+SECTION_NUMBER 1
+ '@WCSA_SYSTEMSCHEM.SCHEMATIC1(SCH_1):INS120144@RC1206JR-0713RL.RC1206JR-0713RL.NORMAL(CHIPS)':
+ C_PATH='@wcsa_systemschem.schematic1(sch_1):ins120144@\rc1206jr-0713rl\.\rc1206jr-0713rl.normal\(chips)',
+ P_PATH='@wcsa_systemschem.schematic1(sch_1):page1_ins120144@\rc1206jr-0713rl\.\rc1206jr-0713rl.normal\(chips)',
  PRIM_FILE='.\pstchip.dat',
  SECTION='';
 

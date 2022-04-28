@@ -1,5 +1,5 @@
 FILE_TYPE=LIBRARY_PARTS;
-{ Using PSTWRITER 17.4.0 d001Apr-21-2022 at 21:03:11}
+{ Using PSTWRITER 17.4.0 d001Apr-28-2022 at 12:45:13}
 primitive 'C1206C241MGGACAUTO7210_2_CAPC3216X110N_100N';
   pin
     '1':
@@ -403,6 +403,21 @@ primitive 'POT_2_TO_-102A2020-S_PHR_T100K';
     PART_NAME='POT_2';
     JEDEC_TYPE='TO_-102A2020-S_PHR';
     VALUE='T100k';
+  end_body;
+end_primitive;
+primitive 'RC1206JR-0713RL_RESC3116X65N_20K';
+  pin
+    '1':
+      PIN_NUMBER='(1)';
+      PINUSE='UNSPEC';
+    '2':
+      PIN_NUMBER='(2)';
+      PINUSE='UNSPEC';
+  end_pin;
+  body
+    PART_NAME='RC1206JR-0713RL';
+    JEDEC_TYPE='RESC3116X65N';
+    VALUE='20k';
   end_body;
 end_primitive;
 primitive 'RC1206JR-0713RL_RESC3116X65N_300K';
