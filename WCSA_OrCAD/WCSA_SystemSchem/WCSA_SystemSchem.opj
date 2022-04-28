@@ -1,6 +1,6 @@
 (ExpressProject "WCSA_SystemSchem"
   (ProjectVersion "19981106")
-  (SoftwareVersion "17.4-2019 S013 (3906575)  [12/6/2020]-[04/21/22]")
+  (SoftwareVersion "17.4-2019 S013 (3906575)  [12/6/2020]-[04/27/22]")
   (ProjectType "PCB")
   (Folder "Design Resources"
     (Folder "Library")
@@ -106,13 +106,13 @@
       (Sort User)))
   (Folder "Logs")
   (PartMRUSelector
+    (OFFPAGELEFT-R
+      (LibraryName "C:\CADENCE\SPB_17.4\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
     (C1206C241MGGACAUTO7210_2
       (FullPartName "C1206C241MGGACAUTO7210_2.Normal")
       (LibraryName
          "C:\USERS\STUDENT\ORCAD_PCB\WCSA_SYSTEMSCHEM\WCSA_SYSTEMSCHEM.DSN")
-      (DeviceIndex "0"))
-    (OFFPAGELEFT-R
-      (LibraryName "C:\CADENCE\SPB_17.4\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
       (DeviceIndex "0"))
     (DIPSOC-3x2
       (FullPartName "DIPSOC-3x2.Normal")
@@ -191,38 +191,26 @@
     (FileView
       (Path "Design Resources")
       (Path "Design Resources"
-         "c:\users\student\desktop\wcsa_sdp_2022\wcsa_orcad\wcsa_systemschem\wcsa_systemschem.dsn")
+         "c:\users\student\orcad_pcb\wcsa_orcad\wcsa_systemschem\wcsa_systemschem.dsn")
       (Path "Design Resources"
-         "c:\users\student\desktop\wcsa_sdp_2022\wcsa_orcad\wcsa_systemschem\wcsa_systemschem.dsn"
+         "c:\users\student\orcad_pcb\wcsa_orcad\wcsa_systemschem\wcsa_systemschem.dsn"
          "SCHEMATIC1")
       (Path "Outputs"))
-    (HierarchyView
-      (Path "SCHEMATIC1"))
+    (HierarchyView)
     (Doc
       (Type "COrCapturePMDoc")
       (Frame
         (Placement "44 0 1 -1 -1 -1 -1 0 200 0 551"))
-      (Tab 1))
+      (Tab 0))
     (Doc
       (Type "COrSchematicDoc")
       (Frame
         (Placement "44 0 1 -1 -1 -1 -1 5 1034 24 569")
-        (Scroll "145 224")
-        (Zoom "140")
+        (Scroll "-13 0")
+        (Zoom "100")
         (Occurrence "/"))
       (Path
-         "C:\USERS\STUDENT\DESKTOP\WCSA_SDP_2022\WCSA_ORCAD\WCSA_SYSTEMSCHEM\WCSA_SYSTEMSCHEM.DSN")
-      (Schematic "SCHEMATIC1")
-      (Page "3 - Power"))
-    (Doc
-      (Type "COrSchematicDoc")
-      (Frame
-        (Placement "44 0 1 -1 -1 -1 -1 5 1034 24 569")
-        (Scroll "-159 -4")
-        (Zoom "70")
-        (Occurrence "/"))
-      (Path
-         "C:\USERS\STUDENT\DESKTOP\WCSA_SDP_2022\WCSA_ORCAD\WCSA_SYSTEMSCHEM\WCSA_SYSTEMSCHEM.DSN")
+         "C:\USERS\STUDENT\ORCAD_PCB\WCSA_ORCAD\WCSA_SYSTEMSCHEM\WCSA_SYSTEMSCHEM.DSN")
       (Schematic "SCHEMATIC1")
       (Page "2 - MCU Comms")))
   (ISPCBBASICLICENSE "false"))
