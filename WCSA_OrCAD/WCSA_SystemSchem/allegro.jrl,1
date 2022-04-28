@@ -1,0 +1,10 @@
+\t (00:00:07) allegro 17.4 S013 Windows SPB 64-bit Edition
+\t (00:00:07)     Journal start - Wed Apr 27 17:31:50 2022
+\t (00:00:07)         Host=DESKTOP-1414A5L User=student Pid=6412 CPUs=8
+\t (00:00:07) CmdLine= c:\cadence\spb_17.4\tools\bin\allegro.exe C:\Users\student\Desktop\WCSA_SDP_2022\WCSA_OrCAD\WCSA_SystemSchem\WCSA_SystemSchem_2-Layer.brd
+\t (00:00:07) 
+   (00:00:07) Loading axlcore.cxt 
+\e (00:00:21) Retrieval of 'Allegro_Venture_PCB_Designer' license failed: ''. Report the licenses in use log via the menu item File->Viewlog: license_use.log
+\i (00:00:31) fillin confirm
+\i (00:00:32) fillin menu_cancel
+\t (00:00:32)     Journal end - Wed Apr 27 17:32:15 2022

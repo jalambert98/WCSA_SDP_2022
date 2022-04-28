@@ -1,0 +1,26 @@
+Licenses in Use Report
+
+--------------------------------------------------------------------
+No license Allegro_Venture_PCB_Designer2 available
+
+--------------------------------------------------------------------
+Consumers of license:  "Allegro_Venture_PCB_Designer"
+    Server:      27000@license.soe.ucsc.edu
+    Available:   300
+    In use:      1
+
+ USER                 SYSTEM               USED  STATUS
+ pmallen              BELSPC0086             1   Checked out
+
+--------------------------------------------------------------------
+Consumers of license:  "PCB_Design_Studio"
+    Server:      27000@license.soe.ucsc.edu
+    Available:   300
+    In use:      4
+
+ USER                 SYSTEM               USED  STATUS
+ rmcedill             BELSPC0114             1   Checked out
+ Steve                DESKTOP-6K8MIF0        1   Checked out
+ pmallen              BELSPC0086             1   Checked out
+ gherr                DESKTOP-1G3AVGI        1   Checked out
+

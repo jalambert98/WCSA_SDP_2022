@@ -1,156 +1,117 @@
-\t (00:00:00) allegro 17.4 S013 Windows SPB 64-bit Edition
-\t (00:00:00)     Journal start - Fri Apr 22 14:16:42 2022
-\t (00:00:00)         Host=DESKTOP-1414A5L User=student Pid=19852 CPUs=8
-\t (00:00:00) CmdLine= c:\cadence\spb_17.4\tools\bin\allegro.exe C:\Users\student\Desktop\WCSA_SDP_2022\WCSA_OrCAD\WCSA_SystemSchem\WCSA_SystemSchem_2-Layer.brd
-\t (00:00:00) 
-   (00:00:00) Loading axlcore.cxt 
-\t (00:00:03) Opening existing design...
-\i (00:00:03) QtSignal SPBFoldDockArea FoldAreaTabWidget currentChanged "WCSA_SystemSchem_2-Layer"
-\d (00:00:03) Design opened: C:/Users/student/Desktop/WCSA_SDP_2022/WCSA_OrCAD/WCSA_SystemSchem/WCSA_SystemSchem_2-Layer.brd
-\i (00:00:03) trapsize 574
-\i (00:00:03) trapsize 605
-\i (00:00:03) trapsize 613
-\i (00:00:04) trapsize 402
-\i (00:00:04) trapsize 419
-\i (00:00:04) trapsize 434
-\i (00:00:04) trapsize 298
-\i (00:00:04) generaledit 
-\i (00:00:09) xNet N99590 
-\i (00:00:09) xname_flush 
-\i (00:00:09) trapsize 40
-\i (00:00:13) zoom out 1 
-\i (00:00:13) setwindow pcb
-\i (00:00:13) zoom out 548.8 232.5
-\i (00:00:13) trapsize 80
-\i (00:01:54) xNet '!' N99590 
-\i (00:01:54) xname_flush '!' 
-\i (00:01:56) xNet N99590 
-\i (00:01:56) xname_flush 
-\i (00:01:56) trapsize 40
-\i (00:02:08) xNet '!' N99590 
-\i (00:02:08) xname_flush '!' 
-\i (00:02:08) xNet N99325 
-\i (00:02:08) xname_flush 
-\i (00:02:08) trapsize 21
-\i (00:02:08) xNet N99325 
-\i (00:02:08) xname_flush 
-\i (00:02:08) trapsize 21
-\i (00:02:11) zoom out 1 
-\i (00:02:11) setwindow pcb
-\i (00:02:11) zoom out -83.5 -233.7
-\i (00:02:11) trapsize 43
-\i (00:08:09) zoom out 1 
-\i (00:08:09) setwindow pcb
-\i (00:08:09) zoom out -225.8 -253.4
-\i (00:08:09) trapsize 85
-\i (00:08:09) zoom out 1 
-\i (00:08:09) setwindow pcb
-\i (00:08:09) zoom out -268.5 -239.7
-\i (00:08:09) trapsize 171
-\i (00:08:09) zoom out 1 
-\i (00:08:09) setwindow pcb
-\i (00:08:09) zoom out -299.1 -232.9
-\i (00:08:09) trapsize 341
-\i (00:08:10) zoom out 1 
-\i (00:08:10) setwindow pcb
-\i (00:08:10) zoom out -3.0 960.5
-\i (00:08:10) trapsize 577
-\i (00:08:10) zoom in 1 
-\i (00:08:10) setwindow pcb
-\i (00:08:10) zoom in 232.0 -1689.6
-\i (00:08:10) trapsize 288
-\i (00:08:10) zoom in 1 
-\i (00:08:10) setwindow pcb
-\i (00:08:10) zoom in -554.9 -1678.1
-\i (00:08:10) trapsize 144
-\i (00:08:11) zoom in 1 
-\i (00:08:11) setwindow pcb
-\i (00:08:11) zoom in -508.7 -1761.7
-\i (00:08:11) trapsize 72
-\i (00:08:36) zoom out 1 
-\i (00:08:36) setwindow pcb
-\i (00:08:36) zoom out 290.0 -2008.2
-\i (00:08:36) trapsize 144
-\i (00:08:37) zoom in 1 
-\i (00:08:37) setwindow pcb
-\i (00:08:37) zoom in -707.6 -1751.6
-\i (00:08:37) trapsize 72
-\i (00:23:26) zoom out 1 
-\i (00:23:26) setwindow pcb
-\i (00:23:26) zoom out -701.8 -1790.5
-\i (00:23:26) trapsize 144
-\i (00:23:26) zoom out 1 
-\i (00:23:26) setwindow pcb
-\i (00:23:26) zoom out -701.9 -1790.5
-\i (00:23:26) trapsize 288
-\i (00:23:27) zoom in 1 
-\i (00:23:27) setwindow pcb
-\i (00:23:27) zoom in -1445.7 -268.2
-\i (00:23:27) trapsize 144
-\i (00:23:27) zoom in 1 
-\i (00:23:27) setwindow pcb
-\i (00:23:27) zoom in -1460.1 -204.7
-\i (00:23:27) trapsize 72
-\i (00:23:28) zoom in 1 
-\i (00:23:28) setwindow pcb
-\i (00:23:28) zoom in -1089.6 -109.6
-\i (00:23:28) trapsize 36
-\i (00:23:28) zoom in 1 
-\i (00:23:28) setwindow pcb
-\i (00:23:28) zoom in -1096.8 -111.8
-\i (00:23:28) trapsize 18
-\i (00:23:30) zoom in 1 
-\i (00:23:30) setwindow pcb
-\i (00:23:30) zoom in -1155.5 -123.6
-\i (00:23:30) trapsize 9
-\i (00:23:31) zoom out 1 
-\i (00:23:31) setwindow pcb
-\i (00:23:31) zoom out -1157.1 -126.6
-\i (00:23:31) trapsize 18
-\i (00:23:34) QtSignal ColorVisibilityPane CVPGlobalVisOff clicked
-\i (00:23:35) QtSignal CVPLayerGrid CVPBoxAllBottom clicked true
-\i (00:23:37) QtSignal CVPLayerGrid CVPBoxAllTop clicked true
-\i (00:23:38) QtSignal CVPLayerGrid CVPBoxAllBottom clicked false
-\i (00:23:49) zoom out 1 
-\i (00:23:49) setwindow pcb
-\i (00:23:49) zoom out -1157.5 -142.2
-\i (00:23:49) trapsize 36
-\i (00:23:49) zoom in 1 
-\i (00:23:49) setwindow pcb
-\i (00:23:49) zoom in -1278.7 -141.4
-\i (00:23:49) trapsize 18
-\i (00:23:53) QtSignal ColorVisibilityPane CVPGlobalVisOn clicked
-\i (00:23:56) QtSignal ColorVisibilityPane CVPGlobalVisRestore clicked
-\i (00:23:57) QtSignal ColorVisibilityPane CVPGlobalVisOn clicked
-\i (00:23:58) QtSignal ColorVisibilityPane CVPGlobalVisRestore clicked
-\i (00:23:58) QtSignal ColorVisibilityPane CVPGlobalVisRestore clicked
-\i (00:23:59) QtSignal ColorVisibilityPane CVPGlobalVisRestore clicked
-\i (00:23:59) QtSignal ColorVisibilityPane CVPGlobalVisOn clicked
-\i (00:24:04) QtSignal ColorVisibilityPane CVPGlobalVisRestore clicked
-\i (00:36:05) zoom out 1 
-\i (00:36:05) setwindow pcb
-\i (00:36:05) zoom out -1138.1 -243.7
-\i (00:36:05) trapsize 36
-\i (00:36:05) zoom out 1 
-\i (00:36:05) setwindow pcb
-\i (00:36:05) zoom out -1149.0 -239.5
-\i (00:36:05) trapsize 72
-\i (00:36:05) zoom out 1 
-\i (00:36:05) setwindow pcb
-\i (00:36:05) zoom out -1161.9 -226.4
-\i (00:36:05) trapsize 144
-\i (00:36:05) zoom out 1 
-\i (00:36:05) setwindow pcb
-\i (00:36:05) zoom out -1164.8 -223.6
-\i (00:36:05) trapsize 288
-\i (00:36:05) zoom out 1 
-\i (00:36:05) setwindow pcb
-\i (00:36:05) zoom out -760.3 877.8
-\i (00:36:05) trapsize 577
-\i (00:36:07) QtSignal ColorVisibilityPane CVPGlobalVisOn clicked
-\i (00:36:08) zoom in 1 
-\i (00:36:08) setwindow pcb
-\i (00:36:08) zoom in -713.7 -2001.0
-\i (00:36:08) trapsize 288
-\i (00:36:09) exit 
-\t (00:36:09)     Journal end - Fri Apr 22 14:52:51 2022
+\t (00:00:02) allegro 17.4 S013 Windows SPB 64-bit Edition
+\t (00:00:02)     Journal start - Wed Apr 27 17:32:19 2022
+\t (00:00:02)         Host=DESKTOP-1414A5L User=student Pid=12844 CPUs=8
+\t (00:00:02) CmdLine= c:\cadence\spb_17.4\tools\bin\allegro.exe C:\Users\student\Desktop\WCSA_SDP_2022\WCSA_OrCAD\WCSA_SystemSchem\WCSA_SystemSchem_2-Layer.brd
+\t (00:00:02) 
+   (00:00:02) Loading axlcore.cxt 
+\t (00:00:06) Opening existing design...
+\i (00:00:06) QtSignal SPBFoldDockArea FoldAreaTabWidget currentChanged "WCSA_SystemSchem_2-Layer"
+\d (00:00:06) Design opened: C:/Users/student/Desktop/WCSA_SDP_2022/WCSA_OrCAD/WCSA_SystemSchem/WCSA_SystemSchem_2-Layer.brd
+\i (00:00:06) trapsize 18
+\i (00:00:06) trapsize 19
+\i (00:00:06) trapsize 13
+\i (00:00:06) trapsize 18
+\i (00:00:06) trapsize 12
+\i (00:00:07) generaledit 
+\i (00:00:08) zoom out 1 
+\i (00:00:08) setwindow pcb
+\i (00:00:08) zoom out 792.2 -691.2
+\i (00:00:08) trapsize 24
+\i (00:00:08) zoom out 1 
+\i (00:00:08) setwindow pcb
+\i (00:00:08) zoom out 783.9 -691.2
+\i (00:00:08) trapsize 48
+\i (00:00:08) zoom out 1 
+\i (00:00:08) setwindow pcb
+\i (00:00:08) zoom out 681.7 -697.0
+\i (00:00:08) trapsize 96
+\i (00:00:08) zoom out 1 
+\i (00:00:08) setwindow pcb
+\i (00:00:08) zoom out 490.7 -806.9
+\i (00:00:08) trapsize 193
+\i (00:00:08) zoom out 1 
+\i (00:00:08) setwindow pcb
+\i (00:00:08) zoom out 483.1 -845.5
+\i (00:00:08) trapsize 386
+\i (00:00:09) zoom out 1 
+\i (00:00:09) setwindow pcb
+\i (00:00:09) zoom out 3582.6 867.6
+\i (00:00:09) trapsize 577
+\i (00:00:09) zoom in 1 
+\i (00:00:09) setwindow pcb
+\i (00:00:09) zoom in -171.6 -2831.4
+\i (00:00:09) trapsize 288
+\i (00:00:09) zoom in 1 
+\i (00:00:09) setwindow pcb
+\i (00:00:09) zoom in -670.3 -2825.6
+\i (00:00:09) trapsize 144
+\i (00:00:10) zoom out 1 
+\i (00:00:10) setwindow pcb
+\i (00:00:10) zoom out -174.3 -2909.2
+\i (00:00:10) trapsize 288
+\i (00:00:11) zoom in 1 
+\i (00:00:11) setwindow pcb
+\i (00:00:11) zoom in -889.4 510.4
+\i (00:00:11) trapsize 144
+\i (00:00:12) zoom in 1 
+\i (00:00:12) setwindow pcb
+\i (00:00:12) zoom in -1324.7 -562.2
+\i (00:00:12) trapsize 72
+\i (00:00:15) zoom out 1 
+\i (00:00:15) setwindow pcb
+\i (00:00:15) zoom out -1000.3 -292.5
+\i (00:00:15) trapsize 144
+\i (00:00:16) zoom in 1 
+\i (00:00:16) setwindow pcb
+\i (00:00:16) zoom in -789.8 -263.8
+\i (00:00:16) trapsize 72
+\i (00:00:16) zoom in 1 
+\i (00:00:16) setwindow pcb
+\i (00:00:16) zoom in -794.1 -258.0
+\i (00:00:16) trapsize 36
+\i (00:00:17) zoom out 1 
+\i (00:00:17) setwindow pcb
+\i (00:00:17) zoom out -982.9 -246.4
+\i (00:00:17) trapsize 72
+\i (00:00:18) zoom out 1 
+\i (00:00:18) setwindow pcb
+\i (00:00:18) zoom out -1004.5 -258.0
+\i (00:00:18) trapsize 144
+\i (00:00:18) zoom out 1 
+\i (00:00:18) setwindow pcb
+\i (00:00:18) zoom out -883.5 -226.2
+\i (00:00:18) trapsize 288
+\i (00:00:26) zoom in 1 
+\i (00:00:26) setwindow pcb
+\i (00:00:26) zoom in 437.2 -526.1
+\i (00:00:26) trapsize 144
+\i (00:00:28) zoom out 1 
+\i (00:00:28) setwindow pcb
+\i (00:00:28) zoom out 739.9 -1396.8
+\i (00:00:28) trapsize 288
+\i (00:00:29) zoom in 1 
+\i (00:00:29) setwindow pcb
+\i (00:00:29) zoom in -574.8 -1212.2
+\i (00:00:29) trapsize 144
+\i (00:00:33) zoom out 1 
+\i (00:00:33) setwindow pcb
+\i (00:00:33) zoom out -96.1 -915.2
+\i (00:00:33) trapsize 288
+\i (00:00:34) zoom in 1 
+\i (00:00:34) setwindow pcb
+\i (00:00:34) zoom in -136.6 -1128.6
+\i (00:00:34) trapsize 144
+\i (00:01:08) zoom out 1 
+\i (00:01:08) setwindow pcb
+\i (00:01:08) zoom out -860.2 -1636.1
+\i (00:01:08) trapsize 288
+\i (00:01:08) zoom in 1 
+\i (00:01:08) setwindow pcb
+\i (00:01:08) zoom in -1500.3 -1630.2
+\i (00:01:08) trapsize 144
+\i (00:01:25) zoom out 1 
+\i (00:01:25) setwindow pcb
+\i (00:01:25) zoom out -231.6 -387.5
+\i (00:01:25) trapsize 288
+\i (00:01:32) exit 
+\t (00:01:32)     Journal end - Wed Apr 27 17:33:49 2022
