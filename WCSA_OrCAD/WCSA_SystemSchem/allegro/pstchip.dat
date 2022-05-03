@@ -1,5 +1,5 @@
 FILE_TYPE=LIBRARY_PARTS;
-{ Using PSTWRITER 17.4.0 d001Apr-28-2022 at 12:45:13}
+{ Using PSTWRITER 17.4.0 d001May-02-2022 at 21:08:42}
 primitive 'C1206C241MGGACAUTO7210_2_CAPC3216X110N_100N';
   pin
     '1':
@@ -103,6 +103,21 @@ primitive 'C1206C241MGGACAUTO7210_2_CAPC3216X110N_330U';
     PART_NAME='C1206C241MGGACAUTO7210_2';
     JEDEC_TYPE='CAPC3216X110N';
     VALUE='330u';
+  end_body;
+end_primitive;
+primitive 'C1206C241MGGACAUTO7210_2_CAPC3216X110N_4.7U';
+  pin
+    '1':
+      PIN_NUMBER='(1)';
+      PINUSE='UNSPEC';
+    '2':
+      PIN_NUMBER='(2)';
+      PINUSE='UNSPEC';
+  end_pin;
+  body
+    PART_NAME='C1206C241MGGACAUTO7210_2';
+    JEDEC_TYPE='CAPC3216X110N';
+    VALUE='4.7u';
   end_body;
 end_primitive;
 primitive '1N5819_DIOSC190X340X116-2N_1N4001';
@@ -630,12 +645,12 @@ primitive 'DIP-20_1_DIP-20-SOCKET_PIC16F18345';
     VALUE='PIC16F18345';
   end_body;
 end_primitive;
-primitive 'DIPSOC-5X2_2_SOP50P490X110-10N_MCP7388T';
+primitive 'DIPSOC-5X2_4_SOP50P490X110-10N_MCP73837';
   pin
-    'VDD1':
+    'VAC':
       PIN_NUMBER='(1)';
       PINUSE='UNSPEC';
-    'VDD2':
+    'VUSB':
       PIN_NUMBER='(2)';
       PINUSE='UNSPEC';
     'STAT1':
@@ -647,26 +662,26 @@ primitive 'DIPSOC-5X2_2_SOP50P490X110-10N_MCP7388T';
     'VSS':
       PIN_NUMBER='(5)';
       PINUSE='UNSPEC';
-    'PROG':
+    'PROG1':
       PIN_NUMBER='(6)';
       PINUSE='UNSPEC';
-    'PG':
+    'PROG2':
       PIN_NUMBER='(7)';
       PINUSE='UNSPEC';
-    'THERM':
+    'PG':
       PIN_NUMBER='(8)';
       PINUSE='UNSPEC';
-    'VBAT1':
+    'THERM':
       PIN_NUMBER='(9)';
       PINUSE='UNSPEC';
-    'VBAT2':
+    'VBAT':
       PIN_NUMBER='(10)';
       PINUSE='UNSPEC';
   end_pin;
   body
-    PART_NAME='DIPSOC-5x2_2';
+    PART_NAME='DIPSOC-5x2_4';
     JEDEC_TYPE='SOP50P490X110-10N';
-    VALUE='MCP7388T';
+    VALUE='MCP73837';
   end_body;
 end_primitive;
 primitive 'MC3X063A_8_SOIC127P599X175-8N_MC3X063A';

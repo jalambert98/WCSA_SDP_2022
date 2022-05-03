@@ -1,6 +1,6 @@
 (ExpressProject "WCSA_SystemSchem"
   (ProjectVersion "19981106")
-  (SoftwareVersion "17.4-2019 S013 (3906575)  [12/6/2020]-[04/28/22]")
+  (SoftwareVersion "17.4-2019 S013 (3906575)  [12/6/2020]-[05/02/22]")
   (ProjectType "PCB")
   (Folder "Design Resources"
     (Folder "Library")
@@ -198,8 +198,7 @@
       (Path "Outputs")
       (Select "Design Resources"
          "c:\users\student\orcad_pcb\wcsa_orcad\wcsa_systemschem\wcsa_systemschem.dsn"))
-    (HierarchyView
-      (Path "SCHEMATIC1"))
+    (HierarchyView)
     (Doc
       (Type "COrCapturePMDoc")
       (Frame
@@ -209,8 +208,8 @@
       (Type "COrSchematicDoc")
       (Frame
         (Placement "44 0 1 -1 -1 -1 -1 5 1034 24 569")
-        (Scroll "-13 197")
-        (Zoom "100")
+        (Scroll "-159 -4")
+        (Zoom "70")
         (Occurrence "/"))
       (Path
          "C:\USERS\STUDENT\ORCAD_PCB\WCSA_ORCAD\WCSA_SYSTEMSCHEM\WCSA_SYSTEMSCHEM.DSN")
@@ -220,8 +219,8 @@
       (Type "COrSchematicDoc")
       (Frame
         (Placement "44 0 1 -1 -1 5 24 5 1034 24 569")
-        (Scroll "-13 70")
-        (Zoom "100")
+        (Scroll "0 572")
+        (Zoom "152")
         (Occurrence "/"))
       (Path
          "C:\USERS\STUDENT\ORCAD_PCB\WCSA_ORCAD\WCSA_SYSTEMSCHEM\WCSA_SYSTEMSCHEM.DSN")
