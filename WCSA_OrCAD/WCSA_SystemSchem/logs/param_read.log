@@ -1,0 +1,63 @@
+(---------------------------------------------------------------------)
+(                                                                     )
+(    Parameter File READ                                              )
+(                                                                     )
+(    Drawing          : WCSA_SystemSchem_4-Layer.brd                  )
+(    Software Version : unreleased                                    )
+(    Date/Time        : Tue May  3 21:37:47 2022                      )
+(                                                                     )
+(---------------------------------------------------------------------)
+
+
+	Paramfile Name : C:/Users/Evan Mayhew/Desktop/Tutorial/Lib/Local/parameter/2_layer_rev1.prm
+	Layout Name   : C:/WCSA_GIT_STUFF/WCSA_SDP_2022/WCSA_OrCAD/WCSA_SystemSchem/WCSA_SystemSchem_4-Layer.brd
+
+Reading...db_common_type:
+Reading...grid_parms_type:
+	WARNING: The value of element <etchcount> is not equal to the number of 
+		   user defined subclass under ETCH class. 
+
+Reading...UnusedPadsSuppressionSettings:
+Reading...art_film_type:
+Reading...art_film_block_type:
+Reading...art_class_type:
+Reading...art_class_type:
+Reading...art_class_type:
+Reading...art_film_type:
+Reading...art_film_block_type:
+Reading...art_class_type:
+Reading...art_class_type:
+Reading...art_class_type:
+Reading...art_film_type:
+Reading...art_film_block_type:
+Reading...art_class_type:
+Reading...art_class_type:
+Reading...art_film_type:
+Reading...art_film_block_type:
+Reading...art_class_type:
+Reading...art_class_type:
+Reading...art_film_type:
+Reading...art_film_block_type:
+Reading...art_class_type:
+Reading...art_film_type:
+Reading...art_film_block_type:
+Reading...art_class_type:
+Reading...art_film_type:
+Reading...art_film_block_type:
+Reading...art_class_type:
+Reading...art_class_type:
+Reading...color_table_table:
+Reading...ColorParmType:
+Reading...netCustomColors:
+Reading...text_size_table:
+Reading...placement_parameter_type:
+Reading...probe_parm_type:
+Reading...dynfill_parm_type:
+Reading...ifp_parm_type:
+Reading...ministat_parm_type:
+Reading...ats_parm_type:
+Reading...drf_parm_type:
+
+
+..... Total number of errors: 0.
+..... Total number of warnings: 1.
