@@ -5,7 +5,7 @@ Y-OFFSET               0.000000
 FEEDRATE               1
 COORDINATES            ABSOLUTE
 OUTPUT-UNITS           ENGLISH
-TOOL-ORDER             INCREASING
+TOOL-ORDER             DECREASING
 REPEAT-CODES           YES
 SUPPRESS-LEAD-ZEROES   NO
 SUPPRESS-TRAIL-ZEROES  YES
@@ -18,7 +18,7 @@ LEADER                 12
 CODE                   ASCII
 SEPARATE               NO
 SEPARATE-ROUTING       NO
-DRILLING               LAYER-PAIR
+DRILLING               BY-LAYER
 BACKDRILL              NO
 CAVITY                 NO
 COUNTER                NO
