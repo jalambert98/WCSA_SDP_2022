@@ -3,9 +3,9 @@ G04 Layout Name:  WCSA_SystemSchem_4-Layer.brd*
 G04 Film Name:    OUTLINE*
 G04 File Format:  Gerber RS274X*
 G04 File Origin:  Cadence Allegro -unreleased*
-G04 Origin Date:  Wed May  4 17:45:03 2022*
+G04 Origin Date:  Wed May  4 22:51:53 2022*
 G04 *
-G04 Layer:  BOARD GEOMETRY/OUTLINE*
+G04 Layer:  BOARD GEOMETRY/DESIGN_OUTLINE*
 G04 *
 G04 Offset:    (0.00 0.00)*
 G04 Mirror:    No*
