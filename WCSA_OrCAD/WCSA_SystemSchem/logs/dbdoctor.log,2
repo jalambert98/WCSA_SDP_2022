@@ -1,0 +1,593 @@
+(---------------------------------------------------------------------)
+(                                                                     )
+(    DBDOCTOR                                                         )
+(                                                                     )
+(    Drawing          : WCSA_SystemSchem_4-Layer.brd                  )
+(    Software Version : 17.4P001                                      )
+(    Date/Time        : Wed May  4 17:42:17 2022                      )
+(                                                                     )
+(---------------------------------------------------------------------)
+
+
+
+WARNING: in PAD STACK padstack name = EX63Y63D43P-3-4
+  WARNING(SPMHDB-46): Illegal null pad.
+  No ANTI pad defined on layer GND.
+  This could result in the wrong clearance on negative layer.
+
+ERROR: in PAD STACK padstack name = EX63Y63D43P-3-4
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer DCV.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = EX63Y63D43P-3-3
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer GND.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = EX63Y63D43P-3-3
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer DCV.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = EX63Y63D43P-3-2
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer GND.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = EX63Y63D43P-3-2
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer DCV.
+  This could result in a short on negative layer.
+
+WARNING: in PAD STACK padstack name = EX63Y63D43P
+  WARNING(SPMHDB-46): Illegal null pad.
+  No ANTI pad defined on layer GND.
+  This could result in the wrong clearance on negative layer.
+
+WARNING: in PAD STACK padstack name = EX63Y63D43P
+  WARNING(SPMHDB-46): Illegal null pad.
+  No ANTI pad defined on layer DCV.
+  This could result in the wrong clearance on negative layer.
+
+ERROR: in PAD STACK padstack name = EX63Y63D43P-2-1
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer GND.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = EX63Y63D43P-2-1
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer DCV.
+  This could result in a short on negative layer.
+
+WARNING: in PAD STACK padstack name = EX63Y63D43P-3-1
+  WARNING(SPMHDB-46): Illegal null pad.
+  No ANTI pad defined on layer GND.
+  This could result in the wrong clearance on negative layer.
+
+ERROR: in PAD STACK padstack name = EX63Y63D43P-3-1
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer DCV.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_Q102_137_M137-7
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer GND.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_Q102_137_M137-7
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer DCV.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N102_137_M137-9
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer GND.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N102_137_M137-9
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer DCV.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = EX63Y63D43P-3
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer GND.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = EX63Y63D43P-3
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer DCV.
+  This could result in a short on negative layer.
+
+WARNING: in PAD STACK padstack name = EX63Y63D43P-2
+  WARNING(SPMHDB-46): Illegal null pad.
+  No ANTI pad defined on layer GND.
+  This could result in the wrong clearance on negative layer.
+
+ERROR: in PAD STACK padstack name = EX63Y63D43P-2
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer DCV.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = EX63Y63D43P-1
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer GND.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = EX63Y63D43P-1
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer DCV.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N102_137_M137-5-1
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer GND.
+  This could result in a short on negative layer.
+
+WARNING: in PAD STACK padstack name = T_N102_137_M137-5-1
+  WARNING(SPMHDB-46): Illegal null pad.
+  No ANTI pad defined on layer DCV.
+  This could result in the wrong clearance on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N102_137_M137-8
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer GND.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N102_137_M137-8
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer DCV.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_Q102_137_M137-6
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer GND.
+  This could result in a short on negative layer.
+
+WARNING: in PAD STACK padstack name = T_Q102_137_M137-6
+  WARNING(SPMHDB-46): Illegal null pad.
+  No ANTI pad defined on layer DCV.
+  This could result in the wrong clearance on negative layer.
+
+WARNING: in PAD STACK padstack name = T_Q50_85_M100-1
+  WARNING(SPMHDB-46): Illegal null pad.
+  No ANTI pad defined on layer GND.
+  This could result in the wrong clearance on negative layer.
+
+ERROR: in PAD STACK padstack name = T_Q50_85_M100-1
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer DCV.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N50_85_M100-3
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer GND.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N50_85_M100-3
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer DCV.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N50_85_M100-2
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer GND.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N50_85_M100-2
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer DCV.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N50_85_M100-1
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer GND.
+  This could result in a short on negative layer.
+
+WARNING: in PAD STACK padstack name = T_N50_85_M100-1
+  WARNING(SPMHDB-46): Illegal null pad.
+  No ANTI pad defined on layer DCV.
+  This could result in the wrong clearance on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N102_137_M137-7
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer GND.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N102_137_M137-7
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer DCV.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N102_137_M137-6
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer GND.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N102_137_M137-6
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer DCV.
+  This could result in a short on negative layer.
+
+WARNING: in PAD STACK padstack name = T_Q102_137_M137-5
+  WARNING(SPMHDB-46): Illegal null pad.
+  No ANTI pad defined on layer GND.
+  This could result in the wrong clearance on negative layer.
+
+ERROR: in PAD STACK padstack name = T_Q102_137_M137-5
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer DCV.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N102_137_M137-5
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer GND.
+  This could result in a short on negative layer.
+
+WARNING: in PAD STACK padstack name = T_N102_137_M137-5
+  WARNING(SPMHDB-46): Illegal null pad.
+  No ANTI pad defined on layer DCV.
+  This could result in the wrong clearance on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N102_137_M137-4
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer GND.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N102_137_M137-4
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer DCV.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_Q102_137_M137-4
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer GND.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_Q102_137_M137-4
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer DCV.
+  This could result in a short on negative layer.
+
+WARNING: in PAD STACK padstack name = T_N100_150_M150-15-4
+  WARNING(SPMHDB-46): Illegal null pad.
+  No ANTI pad defined on layer GND.
+  This could result in the wrong clearance on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N100_150_M150-15-4
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer DCV.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N100_150_M150-6-1
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer GND.
+  This could result in a short on negative layer.
+
+WARNING: in PAD STACK padstack name = T_N100_150_M150-6-1
+  WARNING(SPMHDB-46): Illegal null pad.
+  No ANTI pad defined on layer DCV.
+  This could result in the wrong clearance on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N100_150_M150-15-2-1
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer GND.
+  This could result in a short on negative layer.
+
+WARNING: in PAD STACK padstack name = T_N100_150_M150-15-2-1
+  WARNING(SPMHDB-46): Illegal null pad.
+  No ANTI pad defined on layer DCV.
+  This could result in the wrong clearance on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N100_150_M150-15-3
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer GND.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N100_150_M150-15-3
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer DCV.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N100_150_M150-15-2
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer GND.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N100_150_M150-15-2
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer DCV.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N100_150_M150-15-1
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer GND.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N100_150_M150-15-1
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer DCV.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N100_150_M150-15
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer GND.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N100_150_M150-15
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer DCV.
+  This could result in a short on negative layer.
+
+WARNING: in PAD STACK padstack name = T_N100_150_M150
+  WARNING(SPMHDB-46): Illegal null pad.
+  No ANTI pad defined on layer GND.
+  This could result in the wrong clearance on negative layer.
+
+WARNING: in PAD STACK padstack name = T_N100_150_M150
+  WARNING(SPMHDB-46): Illegal null pad.
+  No ANTI pad defined on layer DCV.
+  This could result in the wrong clearance on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N100_150_M150-14
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer GND.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N100_150_M150-14
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer DCV.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N100_150_M150-13
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer GND.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N100_150_M150-13
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer DCV.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N100_150_M150-12
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer GND.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N100_150_M150-12
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer DCV.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N100_150_M150-11
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer GND.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N100_150_M150-11
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer DCV.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N100_150_M150-10
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer GND.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N100_150_M150-10
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer DCV.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N100_150_M150-9
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer GND.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N100_150_M150-9
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer DCV.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N100_150_M150-8
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer GND.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N100_150_M150-8
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer DCV.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N100_150_M150-7
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer GND.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N100_150_M150-7
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer DCV.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N100_150_M150-6
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer GND.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N100_150_M150-6
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer DCV.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N100_150_M150-5
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer GND.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N100_150_M150-5
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer DCV.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N100_150_M150-4
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer GND.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N100_150_M150-4
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer DCV.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N100_150_M150-3
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer GND.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N100_150_M150-3
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer DCV.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N100_150_M150-2
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer GND.
+  This could result in a short on negative layer.
+
+WARNING: in PAD STACK padstack name = T_N100_150_M150-2
+  WARNING(SPMHDB-46): Illegal null pad.
+  No ANTI pad defined on layer DCV.
+  This could result in the wrong clearance on negative layer.
+
+ERROR: in PAD STACK padstack name = T_Q100_150_M150-1
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer GND.
+  This could result in a short on negative layer.
+
+WARNING: in PAD STACK padstack name = T_Q100_150_M150-1
+  WARNING(SPMHDB-46): Illegal null pad.
+  No ANTI pad defined on layer DCV.
+  This could result in the wrong clearance on negative layer.
+
+WARNING: in PAD STACK padstack name = T_N100_150_M150-1
+  WARNING(SPMHDB-46): Illegal null pad.
+  No ANTI pad defined on layer GND.
+  This could result in the wrong clearance on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N100_150_M150-1
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer DCV.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N102_137_M137-3
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer GND.
+  This could result in a short on negative layer.
+
+WARNING: in PAD STACK padstack name = T_N102_137_M137-3
+  WARNING(SPMHDB-46): Illegal null pad.
+  No ANTI pad defined on layer DCV.
+  This could result in the wrong clearance on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N102_137_M137-2
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer GND.
+  This could result in a short on negative layer.
+
+WARNING: in PAD STACK padstack name = T_N102_137_M137-2
+  WARNING(SPMHDB-46): Illegal null pad.
+  No ANTI pad defined on layer DCV.
+  This could result in the wrong clearance on negative layer.
+
+WARNING: in PAD STACK padstack name = T_N102_137_M137
+  WARNING(SPMHDB-46): Illegal null pad.
+  No ANTI pad defined on layer GND.
+  This could result in the wrong clearance on negative layer.
+
+WARNING: in PAD STACK padstack name = T_N102_137_M137
+  WARNING(SPMHDB-46): Illegal null pad.
+  No ANTI pad defined on layer DCV.
+  This could result in the wrong clearance on negative layer.
+
+WARNING: in PAD STACK padstack name = T_Q102_137_M137-3
+  WARNING(SPMHDB-46): Illegal null pad.
+  No ANTI pad defined on layer GND.
+  This could result in the wrong clearance on negative layer.
+
+ERROR: in PAD STACK padstack name = T_Q102_137_M137-3
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer DCV.
+  This could result in a short on negative layer.
+
+WARNING: in PAD STACK padstack name = T_Q102_137_M137-2
+  WARNING(SPMHDB-46): Illegal null pad.
+  No ANTI pad defined on layer GND.
+  This could result in the wrong clearance on negative layer.
+
+ERROR: in PAD STACK padstack name = T_Q102_137_M137-2
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer DCV.
+  This could result in a short on negative layer.
+
+WARNING: in PAD STACK padstack name = T_Q102_137_M137-1
+  WARNING(SPMHDB-46): Illegal null pad.
+  No ANTI pad defined on layer GND.
+  This could result in the wrong clearance on negative layer.
+
+ERROR: in PAD STACK padstack name = T_Q102_137_M137-1
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer DCV.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N102_137_M137-1
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer GND.
+  This could result in a short on negative layer.
+
+ERROR: in PAD STACK padstack name = T_N102_137_M137-1
+  WARNING(SPMHDB-46): Illegal null pad.
+  No pads defined on layer DCV.
+  This could result in a short on negative layer.
+
+WARNING: in PAD STACK padstack name = T_Q100_150_M150
+  WARNING(SPMHDB-46): Illegal null pad.
+  No ANTI pad defined on layer GND.
+  This could result in the wrong clearance on negative layer.
+
+WARNING: in PAD STACK padstack name = T_Q100_150_M150
+  WARNING(SPMHDB-46): Illegal null pad.
+  No ANTI pad defined on layer DCV.
+  This could result in the wrong clearance on negative layer.
+
+WARNING: in PAD STACK padstack name = T_Q102_137_M137
+  WARNING(SPMHDB-46): Illegal null pad.
+  No ANTI pad defined on layer GND.
+  This could result in the wrong clearance on negative layer.
+
+WARNING: in PAD STACK padstack name = T_Q102_137_M137
+  WARNING(SPMHDB-46): Illegal null pad.
+  No ANTI pad defined on layer DCV.
+  This could result in the wrong clearance on negative layer.
+
+WARNING: in PAD STACK padstack name = T_N50_85_M100
+  WARNING(SPMHDB-46): Illegal null pad.
+  No ANTI pad defined on layer GND.
+  This could result in the wrong clearance on negative layer.
+
+WARNING: in PAD STACK padstack name = T_N50_85_M100
+  WARNING(SPMHDB-46): Illegal null pad.
+  No ANTI pad defined on layer DCV.
+  This could result in the wrong clearance on negative layer.
+
+WARNING: in PAD STACK padstack name = T_Q50_85_M100
+  WARNING(SPMHDB-46): Illegal null pad.
+  No ANTI pad defined on layer GND.
+  This could result in the wrong clearance on negative layer.
+
+WARNING: in PAD STACK padstack name = T_Q50_85_M100
+  WARNING(SPMHDB-46): Illegal null pad.
+  No ANTI pad defined on layer DCV.
+  This could result in the wrong clearance on negative layer.
+
+34 warnings, 82 errors detected, 0 errors could be fixed.
