@@ -1,24 +1,31 @@
+/* 
+ * File:    eusart.c
+ * Author:  Jack Lambert     <joalambe@ucsc.edu>
+ * Project: WCSA_SDP_2022
+ *
+ * NOTE: Generated originally by Microchip Code Configurator (MCC) and then
+ *       further modified by Jack Lambert
+ * 
+ * Created on February 8, 2022, 2:15 PM
+ */
+//------------------------------------------------------------------------------
 
-/**
-  Section: Included Files
-*/
 #include "eusart.h"
 
 // RB5->EUSART:RX; 
 // RC4->EUSART:TX;
-//------------------------------------------------------------------------------
-/**
-  Section: Macro Declarations
-*/
+//==============================================================================
+//-------------------------------- #DEFINES ------------------------------------
+//==============================================================================
 
 #define EUSART_TX_BUFFER_SIZE 8
 #define EUSART_RX_BUFFER_SIZE 8
 
 
-//------------------------------------------------------------------------------
-/**
-  Section: Global Variables
-*/
+//==============================================================================
+//---------------------------- STATIC VARIABLES --------------------------------
+//==============================================================================
+
 volatile uint8_t eusartTxHead = 0;
 volatile uint8_t eusartTxTail = 0;
 volatile uint8_t eusartTxBuffer[EUSART_TX_BUFFER_SIZE];
@@ -32,10 +39,10 @@ volatile uint8_t eusartRxCount;
 volatile eusart_status_t eusartRxLastError;
 
 
-//------------------------------------------------------------------------------
-/**
-  Section: EUSART APIs
-*/
+//==============================================================================
+//------------------------------ PUBLIC LIBRARY --------------------------------
+//==============================================================================
+
 void (*EUSART_TxDefaultInterruptHandler)(void);
 void (*EUSART_RxDefaultInterruptHandler)(void);
 
@@ -290,7 +297,7 @@ void EUSART_SetRxInterruptHandler(void (* interruptHandler)(void)){
     EUSART_RxDefaultInterruptHandler = interruptHandler;
 }
 
-//------------------------------------------------------------------------------
-/**
-  End of File
-*/
+
+//==============================================================================
+//--------------------------------END OF FILE-----------------------------------
+//==============================================================================

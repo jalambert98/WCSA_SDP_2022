@@ -1,5 +1,14 @@
-
-// Configuration bits: selected in the GUI
+/* 
+ * File:    device_config.c
+ * Author:  Jack Lambert     <joalambe@ucsc.edu>
+ * Project: WCSA_SDP_2022
+ *
+ * NOTE: Generated originally by Microchip Code Configurator (MCC) and then
+ *       further modified by Jack Lambert
+ * 
+ * Created on February 8, 2022, 2:15 PM
+ */
+//------------------------------------------------------------------------------
 
 // CONFIG1
 #pragma config FEXTOSC = OFF    // FEXTOSC External Oscillator mode Selection bits->Oscillator not enabled

@@ -1,20 +1,24 @@
-
-/**
-  Section: Included Files
+/* 
+ * File:    pwm5.c
+ * Author:  Jack Lambert     <joalambe@ucsc.edu>
+ * Project: WCSA_SDP_2022
+ *
+ * NOTE: Generated originally by Microchip Code Configurator (MCC) and then
+ *       further modified by Jack Lambert
+ * 
+ * Created on February 8, 2022, 2:15 PM
  */
+//------------------------------------------------------------------------------
 
 #include <xc.h>
 #include "pwm5.h"
 
 // RC1->PWM5:PWM5;
-//------------------------------------------------------------------------------
-
-/**
-  Section: PWM Module APIs
- */
+//==============================================================================
+//------------------------------ PUBLIC LIBRARY --------------------------------
+//==============================================================================
 
 void PWM5_Initialize(void) {
-    // Set the PWM to the options selected in the PIC10 / PIC12 / PIC16 / PIC18 MCUs.
     // PWM5POL active_hi; PWM5EN enabled; 
     PWM5CON = 0x80;
 
@@ -38,7 +42,7 @@ void PWM5_LoadDutyValue(uint16_t dutyValue) {
     PWM5DCL = (dutyValue & 0x0003) << 6;
 }
 
-//------------------------------------------------------------------------------
-/**
- End of File
- */
+
+//==============================================================================
+//--------------------------------END OF FILE-----------------------------------
+//==============================================================================

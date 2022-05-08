@@ -1,31 +1,39 @@
-
-/**
-  Section: Included Files
+/* 
+ * File:    adc.c
+ * Author:  Jack Lambert     <joalambe@ucsc.edu>
+ * Project: WCSA_SDP_2022
+ *
+ * NOTE: Generated originally by Microchip Code Configurator (MCC) and then
+ *       further modified by Jack Lambert
+ * 
+ * Created on May 2, 2022, 3:10 PM
  */
+//------------------------------------------------------------------------------
 
 #include <xc.h>
 #include "adc.h"
 #include "device_config.h"
 
+//==============================================================================
+//-------------------------------- #DEFINES ------------------------------------
+//==============================================================================
+
+#define ACQ_US_DELAY 5
+
 #define ADC_TEST
 
-//------------------------------------------------------------------------------
-/**
-  Section: Macro Declarations
- */
-#define ACQ_US_DELAY 5
+//==============================================================================
+//---------------------------- STATIC VARIABLES --------------------------------
+//==============================================================================
 
 static volatile adc_result_t adcReading;
 
-//------------------------------------------------------------------------------
 
-/**
-  Section: ADC Module APIs
- */
+//==============================================================================
+//------------------------------ PUBLIC LIBRARY --------------------------------
+//==============================================================================
 
 void ADC_Initialize(void) {
-    // set the ADC to the options selected in the User Interface
-
     // ADFM right; ADNREF VSS; ADPREF FVR; ADCS FOSC/64; 
     ADCON1 = 0xE3;
 
@@ -53,6 +61,7 @@ void ADC_Initialize(void) {
 void ADC_SelectChannel(adc_channel_t channel) {
     // select the A/D channel
     ADCON0bits.CHS = channel;
+    
     // Turn on the ADC module
     ADCON0bits.ADON = 1;
 }
@@ -116,6 +125,12 @@ void ADC_ISR(void) {
     PIR1bits.ADIF = 0;
 }
 
+//------------------------------------------------------------------------------
+
+adc_result_t ADC_GetCurrReading(void) {
+    return adcReading;
+}
+
 
 //==============================================================================
 //------------------------- CONDITIONAL TEST HARNESS ---------------------------
@@ -158,7 +173,7 @@ int main(void) {
              */
 
             
-            if (adcReading >= ADC_THRESHOLD) // if pinRA5 reads > 1.6V
+            if (ADC_GetCurrReading() >= ADC_THRESHOLD) // if pinRA5 reads > 1.6V
                 WRITE_C0() = HIGH;
             else
                 WRITE_C0() = LOW;
@@ -173,7 +188,8 @@ int main(void) {
 }
 
 #endif
-//------------------------------------------------------------------------------
-/**
- End of File
- */
+
+
+//==============================================================================
+//--------------------------------END OF FILE-----------------------------------
+//==============================================================================

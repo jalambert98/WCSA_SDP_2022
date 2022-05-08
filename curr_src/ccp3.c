@@ -1,7 +1,14 @@
-
-/**
-  Section: Included Files
-*/
+/* 
+ * File:    ccp3.c
+ * Author:  Jack Lambert     <joalambe@ucsc.edu>
+ * Project: WCSA_SDP_2022
+ *
+ * NOTE: Generated originally by Microchip Code Configurator (MCC) and then
+ *       further modified by Jack Lambert
+ * 
+ * Created on February 8, 2022, 2:15 PM
+ */
+//------------------------------------------------------------------------------
 
 #include <xc.h>
 #include "ccp3.h"
@@ -11,10 +18,10 @@
 
 static void (*CCP3_CallBack)(uint16_t);
 
-//------------------------------------------------------------------------------
-/**
-  Section: Capture Module APIs:
-*/
+
+//==============================================================================
+//------------------------------ PUBLIC LIBRARY --------------------------------
+//==============================================================================
 
 static void CCP3_DefaultCallBack(uint16_t capturedValue)
 {
@@ -27,9 +34,7 @@ static void CCP3_DefaultCallBack(uint16_t capturedValue)
 //------------------------------------------------------------------------------
 
 void CCP3_Initialize(void)
-{
-    // Set the CCP3 to the options selected in the User Interface
-	
+{	
 	// CCP3MODE Falling edge; CCP3EN enabled; CCP3FMT right_aligned; 
 	CCP3CON = 0x84;    
 	

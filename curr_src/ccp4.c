@@ -9,23 +9,17 @@
  * Created on February 8, 2022, 2:15 PM
  */
 //------------------------------------------------------------------------------
-/**
-  Section: Included Files
-*/
 
 #include <xc.h>
 #include "ccp4.h"
 
 // RA4->CCP4:CCP4;
-//------------------------------------------------------------------------------
-/**
-  Section: Compare Module APIs:
-*/
+//==============================================================================
+//------------------------------ PUBLIC LIBRARY --------------------------------
+//==============================================================================
 
 void CCP4_Initialize(void)
 {
-    // Set the CCP4 to the options selected in the User Interface
-	
 	// CCP4MODE Toggle_cleartmr; CCP4OUT 0; CCP4EN enabled; CCP4FMT right_aligned; 
 	CCP4CON = 0x81;    
 	

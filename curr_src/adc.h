@@ -2,9 +2,6 @@
 #ifndef ADC_H
 #define ADC_H
 
-/**
-  Section: Included Files
- */
 #include <xc.h>
 #include <stdint.h>
 #include <stdbool.h>
@@ -214,6 +211,19 @@ void ADC_TemperatureAcquisitionDelay(void);
     None
  */
 void ADC_ISR(void);
+
+//------------------------------------------------------------------------------
+/**
+  @Description
+    Returns value of most recently completed ADC reading/conversion
+
+  @Returns
+    adc_result_t (uint16_t) adcReading
+
+  @Param
+    None
+ */
+adc_result_t ADC_GetCurrReading(void);
 
 //------------------------------------------------------------------------------
 
