@@ -1,126 +1,259 @@
-/**
-  Generated Pin Manager File
-
-  Company:
-    Microchip Technology Inc.
-
-  File Name:
-    pin_manager.c
-
-  Summary:
-    This is the Pin Manager file generated using PIC10 / PIC12 / PIC16 / PIC18 MCUs
-
-  Description:
-    This header file provides implementations for pin APIs for all pins selected in the GUI.
-    Generation Information :
-        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.81.7
-        Device            :  PIC16F18345
-        Driver Version    :  2.11
-    The generated drivers are tested against the following:
-        Compiler          :  XC8 2.31 and above
-        MPLAB             :  MPLAB X 5.45
-
-    Copyright (c) 2013 - 2015 released Microchip Technology Inc.  All rights reserved.
-*/
-
-/*
-    (c) 2018 Microchip Technology Inc. and its subsidiaries. 
-    
-    Subject to your compliance with these terms, you may use Microchip software and any 
-    derivatives exclusively with Microchip products. It is your responsibility to comply with third party 
-    license terms applicable to your use of third party software (including open source software) that 
-    may accompany Microchip software.
-    
-    THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER 
-    EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY 
-    IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS 
-    FOR A PARTICULAR PURPOSE.
-    
-    IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE, 
-    INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND 
-    WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP 
-    HAS BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO 
-    THE FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL 
-    CLAIMS IN ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT 
-    OF FEES, IF ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS 
-    SOFTWARE.
-*/
 
 #include "pin_manager.h"
 
 
+//==============================================================================
+//------------------------------ PUBLIC LIBRARY --------------------------------
+//==============================================================================
 
+uint8_t PIC16_SetPin(PinName_t pin, uint8_t io) {
+    // 
+    switch (io) {
+        case INPUT:
+        case OUTPUT:
+            break;
+        default:
+            return ERROR;
+    }
 
+    switch (pin) {
+        case A5:
+            SET_A5() = io;
+            return SUCCESS;
+        case A4:
+            SET_A4() = io;
+            return SUCCESS;
+        case A3:
+            return ERROR;
+        case C5:
+            SET_C5() = io;
+            return SUCCESS;
+        case C4:
+            SET_C4() = io;
+            return SUCCESS;
+        case C3:
+            SET_C3() = io;
+            return SUCCESS;
+        case C6:
+            SET_C6() = io;
+            return SUCCESS;
+        case C7:
+            SET_C7() = io;
+            return SUCCESS;
+        case B7:
+            SET_B7() = io;
+            return SUCCESS;
+        case A0:
+            SET_A0() = io;
+            return SUCCESS;
+        case A1:
+            SET_A1() = io;
+            return SUCCESS;
+        case A2:
+            SET_A2() = io;
+            return SUCCESS;
+        case C0:
+            SET_C0() = io;
+            return SUCCESS;
+        case C1:
+            SET_C1() = io;
+            return SUCCESS;
+        case C2:
+            SET_C2() = io;
+            return SUCCESS;
+        case B4:
+            SET_B4() = io;
+            return SUCCESS;
+        case B5:
+            SET_B5() = io;
+            return SUCCESS;
+        case B6:
+            SET_B6() = io;
+            return SUCCESS;
+        default:
+            return ERROR;
+    }
+}
 
-void PIN_MANAGER_Initialize(void)
-{
+//------------------------------------------------------------------------------
+
+uint8_t PIC16_ReadPin(PinName_t pin) {
+    switch (pin) {
+        case A5:
+            return READ_A5();
+        case A4:
+            return READ_A4();
+        case A3:
+            return ERROR;
+        case C5:
+            return READ_C5();
+        case C4:
+            return READ_C4();
+        case C3:
+            return READ_C3();
+        case C6:
+            return READ_C6();
+        case C7:
+            return READ_C7();
+        case B7:
+            return READ_B7();
+        case A0:
+            return READ_A0();
+        case A1:
+            return READ_A1();
+        case A2:
+            return READ_A2();
+        case C0:
+            return READ_C0();
+        case C1:
+            return READ_C1();
+        case C2:
+            return READ_C2();
+        case B4:
+            return READ_B4();
+        case B5:
+            return READ_B5();
+        case B6:
+            return READ_B6();
+        default:
+            return ERROR;
+    }
+}
+
+//------------------------------------------------------------------------------
+
+uint8_t PIC16_WritePin(PinName_t pin, uint8_t val) {
+    switch (val) {
+        case HIGH:
+        case LOW:
+            break;
+        default:
+            return ERROR;
+    }
+
+    switch (pin) {
+        case A5:
+            WRITE_A5() = val;
+            return SUCCESS;
+        case A4:
+            WRITE_A4() = val;
+            return SUCCESS;
+        case A3:
+            return ERROR;
+        case C5:
+            WRITE_C5() = val;
+            return SUCCESS;
+        case C4:
+            WRITE_C4() = val;
+            return SUCCESS;
+        case C3:
+            WRITE_C3() = val;
+            return SUCCESS;
+        case C6:
+            WRITE_C6() = val;
+            return SUCCESS;
+        case C7:
+            WRITE_C7() = val;
+            return SUCCESS;
+        case B7:
+            WRITE_B7() = val;
+            return SUCCESS;
+        case A0:
+            WRITE_A0() = val;
+            return SUCCESS;
+        case A1:
+            WRITE_A1() = val;
+            return SUCCESS;
+        case A2:
+            WRITE_A2() = val;
+            return SUCCESS;
+        case C0:
+            WRITE_C0() = val;
+            return SUCCESS;
+        case C1:
+            WRITE_C1() = val;
+            return SUCCESS;
+        case C2:
+            WRITE_C2() = val;
+            return SUCCESS;
+        case B4:
+            WRITE_B4() = val;
+            return SUCCESS;
+        case B5:
+            WRITE_B5() = val;
+            return SUCCESS;
+        case B6:
+            WRITE_B6() = val;
+            return SUCCESS;
+        default:
+            return ERROR;
+    }
+}
+//------------------------------------------------------------------------------
+
+void PIN_MANAGER_Initialize(void) {
     /**
     LATx registers
-    */
+     */
     LATA = 0x00;
     LATB = 0x00;
     LATC = 0x00;
 
     /**
     TRISx registers
-    */
+     */
     TRISA = 0x27;
     TRISB = 0x70;
     TRISC = 0xAD;
 
     /**
     ANSELx registers
-    */
+     */
     ANSELC = 0x00;
     ANSELB = 0x00;
     ANSELA = 0x22;
 
     /**
     WPUx registers
-    */
-    WPUB = 0x10;
+     */
+    WPUB = 0x00;
     WPUA = 0x00;
-    WPUC = 0x04;
+    WPUC = 0x00;
 
     /**
     ODx registers
-    */
+     */
     ODCONA = 0x00;
     ODCONB = 0x00;
     ODCONC = 0x00;
 
     /**
     SLRCONx registers
-    */
+     */
     SLRCONA = 0x37;
     SLRCONB = 0xF0;
     SLRCONC = 0xFF;
 
     /**
     INLVLx registers
-    */
+     */
     INLVLA = 0x3F;
     INLVLB = 0xF0;
     INLVLC = 0xFF;
 
-
-
-
-
-   
-    
-	
-    RXPPS = 0x0D;   //RB5->EUSART:RX;    
-    RA4PPS = 0x0F;   //RA4->CCP4:CCP4;    
-    CCP3PPS = 0x02;   //RA2->CCP3:CCP3;    
-    RC1PPS = 0x02;   //RC1->PWM5:PWM5;    
-    RC4PPS = 0x14;   //RC4->EUSART:TX;    
-}
-  
-void PIN_MANAGER_IOC(void)
-{   
+    RXPPS = 0x0D; //RB5->EUSART:RX;    
+    RA4PPS = 0x0F; //RA4->CCP4:CCP4;    
+    CCP3PPS = 0x02; //RA2->CCP3:CCP3;    
+    RC1PPS = 0x02; //RC1->PWM5:PWM5;    
+    RC4PPS = 0x14; //RC4->EUSART:TX;    
 }
 
+//------------------------------------------------------------------------------
+
+void PIN_MANAGER_IOC(void) {
+}
+
+//------------------------------------------------------------------------------
 /**
  End of File
-*/
+ */

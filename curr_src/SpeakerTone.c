@@ -7,7 +7,7 @@
  */
 //------------------------------------------------------------------------------
 
-#include "PIC16Xpress_DevBoard.h"
+#include "pin_manager.h"
 #include "SpeakerTone.h"
 #include "ccp4.h"
 #include "tmr3.h"

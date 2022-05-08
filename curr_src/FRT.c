@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 
 #include "FRT.h"
-
+#include "tmr1.h"
 
 // #define FRT_TEST          // toggle comment to enable/disable test harness
 
@@ -30,7 +30,7 @@ unsigned long FRT_GetMillis() {
 //------------------------------------------------------------------------------
 
 unsigned long FRT_GetMicros() {
-    return (micros + (250*(TMR0_GetCallBackNum() - 1)) + TMR0_ReadTimer());
+    return (micros + TMR1_ReadTimer());
 }
 
 //------------------------------------------------------------------------------
@@ -91,6 +91,7 @@ int main(void) {
 #ifdef DEBUG_FRT_TEST
 
 #include "eusart.h"
+#include "mcc.h"
 
 #define PRINT_RATE  50  // 50ms
 

@@ -7,7 +7,7 @@
  */
 //------------------------------------------------------------------------------
 
-#include "PIC16Xpress_DevBoard.h"
+#include "pin_manager.h"
 #include "eusart.h"
 
 #ifndef LIDAR_SENSOR_H

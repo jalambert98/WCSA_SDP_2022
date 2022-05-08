@@ -10,7 +10,7 @@
 #include "Lidar_Sensor.h"
 #include "FRT.h"
 #include "eusart.h"
-#include "PIC16Xpress_DevBoard.h"
+#include "pin_manager.h"
 
 // #define LIDAR_SENSOR_TEST
 

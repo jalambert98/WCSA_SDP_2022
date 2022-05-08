@@ -6,7 +6,7 @@
  */
 //------------------------------------------------------------------------------
 
-#include "PIC16Xpress_DevBoard.h"
+#include "pin_manager.h"
 
 #ifndef MOTORCONTROL_H
 #define	MOTORCONTROL_H

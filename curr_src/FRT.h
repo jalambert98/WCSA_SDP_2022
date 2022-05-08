@@ -7,7 +7,7 @@
  */
 //------------------------------------------------------------------------------
 
-#include "PIC16Xpress_DevBoard.h"
+#include "pin_manager.h"
 
 #ifndef FRT_H
 #define	FRT_H

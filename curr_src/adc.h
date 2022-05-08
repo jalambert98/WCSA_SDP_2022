@@ -1,84 +1,36 @@
-/**
-  ADC Generated Driver API Header File
-
-  @Company
-    Microchip Technology Inc.
-
-  @File Name
-    adc.h
-
-  @Summary
-    This is the generated header file for the ADC driver using PIC10 / PIC12 / PIC16 / PIC18 MCUs
-
-  @Description
-    This header file provides APIs for driver for ADC.
-    Generation Information :
-        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.81.7
-        Device            :  PIC16F18345
-        Driver Version    :  2.02
-    The generated drivers are tested against the following:
-        Compiler          :  XC8 2.31 and above
-        MPLAB             :  MPLAB X 5.45
-*/
-
-/*
-    (c) 2018 Microchip Technology Inc. and its subsidiaries. 
-    
-    Subject to your compliance with these terms, you may use Microchip software and any 
-    derivatives exclusively with Microchip products. It is your responsibility to comply with third party 
-    license terms applicable to your use of third party software (including open source software) that 
-    may accompany Microchip software.
-    
-    THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER 
-    EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY 
-    IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS 
-    FOR A PARTICULAR PURPOSE.
-    
-    IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE, 
-    INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND 
-    WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP 
-    HAS BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO 
-    THE FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL 
-    CLAIMS IN ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT 
-    OF FEES, IF ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS 
-    SOFTWARE.
-*/
 
 #ifndef ADC_H
 #define ADC_H
 
 /**
   Section: Included Files
-*/
-
+ */
 #include <xc.h>
 #include <stdint.h>
 #include <stdbool.h>
 
-#ifdef __cplusplus  // Provide C++ Compatibility
-
-    extern "C" {
-
-#endif
-
+//------------------------------------------------------------------------------
 /**
   Section: Data Types Definitions
-*/
-
+ */
+//------------------------------------------------------------------------------
 /**
  *  result size of an A/D conversion
  */
 
 typedef uint16_t adc_result_t;
 
+//------------------------------------------------------------------------------
+
 /**
  *  result type of a Double ADC conversion
  */
-typedef struct
-{
+typedef struct {
     adc_result_t adcResult1;
     adc_result_t adcResult2;
 } adc_sync_double_result_t;
+
+//------------------------------------------------------------------------------
 
 /** ADC Channel Definition
 
@@ -87,24 +39,20 @@ typedef struct
 
  @Description
    This routine defines the channels that are available for the module to use.
-
- Remarks:
-   None
  */
-
-typedef enum
-{
-    vBat =  0x5,
-    channel_AVSS =  0x3C,
-    channel_Temp =  0x3D,
-    channel_DAC1 =  0x3E,
-    channel_FVR =  0x3F
+typedef enum {
+    vBat = 0x5,
+    channel_AVSS = 0x3C,
+    channel_Temp = 0x3D,
+    channel_DAC1 = 0x3E,
+    channel_FVR = 0x3F
 } adc_channel_t;
 
+//------------------------------------------------------------------------------
 /**
   Section: ADC Module APIs
-*/
-
+ */
+//------------------------------------------------------------------------------
 /**
   @Summary
     Initializes the ADC
@@ -122,20 +70,10 @@ typedef enum
 
   @Returns
     None
-
-  @Comment
-    
-
-  @Example
-    <code>
-    uint16_t convertedValue;
-
-    ADC_Initialize();
-    convertedValue = ADC_GetConversionResult();
-    </code>
-*/
+ */
 void ADC_Initialize(void);
 
+//------------------------------------------------------------------------------
 /**
   @Summary
     Allows selection of a channel for conversion
@@ -153,19 +91,10 @@ void ADC_Initialize(void);
   @Param
     Pass in required channel number
     "For available channel refer to enum under adc.h file"
-
-  @Example
-    <code>
-    uint16_t convertedValue;
-
-    ADC_Initialize();
-    ADC_SelectChannel(AN1_Channel);
-    ADC_StartConversion();
-    convertedValue = ADC_GetConversionResult();
-    </code>
-*/
+ */
 void ADC_SelectChannel(adc_channel_t channel);
 
+//------------------------------------------------------------------------------
 /**
   @Summary
     Starts conversion
@@ -181,18 +110,10 @@ void ADC_SelectChannel(adc_channel_t channel);
 
   @Param
     None
-
-  @Example
-    <code>
-    uint16_t convertedValue;
-
-    ADC_Initialize();    
-    ADC_StartConversion();
-    convertedValue = ADC_GetConversionResult();
-    </code>
-*/
+ */
 void ADC_StartConversion(void);
 
+//------------------------------------------------------------------------------
 /**
   @Summary
     Returns true when the conversion is completed otherwise false.
@@ -211,20 +132,10 @@ void ADC_StartConversion(void);
 
   @Param
     None
-
-  @Example
-    <code>
-    uint16_t convertedValue;
-
-    ADC_Initialize();
-    ADC_StartConversion();
-
-    while(!ADC_IsConversionDone());
-    convertedValue = ADC_GetConversionResult();
-    </code>
  */
 bool ADC_IsConversionDone(void);
 
+//------------------------------------------------------------------------------
 /**
   @Summary
     Returns the ADC conversion value.
@@ -243,21 +154,10 @@ bool ADC_IsConversionDone(void);
 
   @Param
     None
-
-  @Example
-    <code>
-    uint16_t convertedValue;
-
-    ADC_Initialize();
-    ADC_StartConversion();
-
-    while(ADC_IsConversionDone());
-
-    convertedValue = ADC_GetConversionResult();
-    </code>
  */
 adc_result_t ADC_GetConversionResult(void);
 
+//------------------------------------------------------------------------------
 /**
   @Summary
     Returns the ADC conversion value
@@ -276,18 +176,10 @@ adc_result_t ADC_GetConversionResult(void);
   @Param
     Pass in required channel number.
     "For available channel refer to enum under adc.h file"
-
-  @Example
-    <code>
-    uint16_t convertedValue;
-
-    ADC_Initialize();
-
-    conversion = ADC_GetConversion(AN1_Channel);
-    </code>
-*/
+ */
 adc_result_t ADC_GetConversion(adc_channel_t channel);
 
+//------------------------------------------------------------------------------
 /**
   @Summary
     Acquisition Delay for temperature sensor
@@ -303,19 +195,10 @@ adc_result_t ADC_GetConversion(adc_channel_t channel);
 
   @Param
     None
-
-  @Example
-    <code>
-    uint16_t convertedValue;
-
-    ADC_Initialize();    
-    ADC_StartConversion();
-    ADC_temperatureAcquisitionDelay();
-    convertedValue = ADC_GetConversionResult();
-    </code>
-*/
+ */
 void ADC_TemperatureAcquisitionDelay(void);
 
+//------------------------------------------------------------------------------
 /**
   @Summary
     Implements ISR
@@ -329,9 +212,10 @@ void ADC_TemperatureAcquisitionDelay(void);
 
   @Param
     None
-*/
+ */
 void ADC_ISR(void);
 
+//------------------------------------------------------------------------------
 /**
   @Summary
     Set Timer Interrupt Handler
@@ -347,9 +231,10 @@ void ADC_ISR(void);
 
   @Returns
     None
-*/
- void ADC_SetInterruptHandler(void (* InterruptHandler)(void));
+ */
+void ADC_SetInterruptHandler(void (* InterruptHandler)(void));
 
+//------------------------------------------------------------------------------
 /**
   @Summary
     Timer Interrupt Handler
@@ -365,9 +250,10 @@ void ADC_ISR(void);
 
   @Returns
     None
-*/
+ */
 extern void (*ADC_InterruptHandler)(void);
 
+//------------------------------------------------------------------------------
 /**
   @Summary
     Default Timer Interrupt Handler
@@ -383,16 +269,13 @@ extern void (*ADC_InterruptHandler)(void);
 
   @Returns
     None
-*/
+ */
 void ADC_DefaultInterruptHandler(void);
-#ifdef __cplusplus  // Provide C++ Compatibility
 
-    }
-
-#endif
+//------------------------------------------------------------------------------
 
 #endif	//ADC_H
+
 /**
  End of File
-*/
-
+ */
