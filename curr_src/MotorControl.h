@@ -6,6 +6,9 @@
  */
 //------------------------------------------------------------------------------
 
+#include <xc.h>
+#include <stdint.h>
+#include <stdbool.h>
 #include "pin_manager.h"
 
 #ifndef MOTORCONTROL_H

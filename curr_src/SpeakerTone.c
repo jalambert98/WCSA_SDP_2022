@@ -7,7 +7,6 @@
  */
 //------------------------------------------------------------------------------
 
-#include "pin_manager.h"
 #include "SpeakerTone.h"
 
 // Speaker Output Pin = [RA4]

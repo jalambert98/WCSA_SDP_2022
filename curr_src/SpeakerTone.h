@@ -10,6 +10,7 @@
 #include <xc.h>
 #include <stdint.h>
 #include <stdbool.h>
+#include "pin_manager.h"
 
 #ifndef SPEAKERTONE_H
 #define	SPEAKERTONE_H

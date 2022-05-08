@@ -9,7 +9,6 @@
 #include <stdbool.h>
 #include <conio.h>
 #include "interrupt_manager.h"
-#include "tmr3.h"
 #include "FRT.h"
 #include "MotorControl.h"
 #include "SpeakerTone.h"
