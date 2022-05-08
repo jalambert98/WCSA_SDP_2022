@@ -10,7 +10,7 @@
 #include "FRT.h"
 #include "mcc.h"
 
-// #define FRT_TEST          // toggle comment to enable/disable test harness
+#define FRT_TEST          // toggle comment to enable/disable test harness
 
 //==============================================================================
 //---------------------------- STATIC VARIABLES --------------------------------
@@ -149,10 +149,16 @@ int main(void) {
     WRITE_C0() = LOW;
     
     while(1) {
-        currMilli = FRT_GetMillis();
+        /*
+         * NOTE:    WDT will force a reset if not cleared 
+         *          within every 2 sec or less
+         */
+        asm("CLRWDT");  // clear watchdog timer at start of each loop
+        
+        currMilli = FRT_GetMillis();    // update free-running timer
         
         // Toggle output pin every 500ms (full cycle every 1s)
-        if((unsigned long)(currMilli - prevMilli) >= 500) {
+        if((currMilli - prevMilli) >= 500) {
             WRITE_C0() ^= 1;
             prevMilli = currMilli;
         }

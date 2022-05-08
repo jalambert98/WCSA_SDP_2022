@@ -287,7 +287,14 @@ int main(void) {
     unsigned long prevMilli = currMilli;
 
     while (1) {
-        currMilli = FRT_GetMillis();
+        /*
+         * NOTE:    WDT will force a reset if not cleared 
+         *          within every 2 sec or less
+         */
+        asm("CLRWDT");  // clear watchdog timer at start of each loop
+        
+        currMilli = FRT_GetMillis();    // update free-running timer
+        
         if ((currMilli - prevMilli) >= SAMPLE_RATE) {
             
             printf("Dist = %u[cm]\n", Lidar_Sensor_GetDistance());
@@ -324,7 +331,14 @@ int main(void) {
     unsigned long prevMicro = currMicro;
 
     while (1) {
-        currMicro = FRT_GetMicros();
+        /*
+         * NOTE:    WDT will force a reset if not cleared 
+         *          within every 2 sec or less
+         */
+        asm("CLRWDT");  // clear watchdog timer at start of each loop
+        
+        currMicro = FRT_GetMicros();    // update free-running timer
+        
         if ((currMicro - prevMicro) >= SAMPLE_RATE) {
             /*
             printf("Dist     = %ucm\n", Lidar_Sensor_GetDistance());

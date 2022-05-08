@@ -6,9 +6,10 @@
  */
 //------------------------------------------------------------------------------
 
+#include <xc.h>
+#include <stdint.h>
 #include "MotorControl.h"
 #include "tmr2.h"
-#include "pwm5.h"
 
 // [PWM5] output --> Pin[RC1]
 //==============================================================================
@@ -70,6 +71,105 @@ uint8_t MotorControl_SetIntensity(uint16_t dutyCycle) {
 
 //------------------------------------------------------------------------------
 
+void TMR2_Initialize(void)
+{
+    // PR2 249; 
+    PR2 = 0xF9;
+
+    // TMR2 0; 
+    TMR2 = 0x00;
+
+    // Clearing IF flag.
+    PIR1bits.TMR2IF = 0;
+
+    // T2CKPS 1:4; T2OUTPS 1:8; TMR2ON on; 
+    T2CON = 0x3D;
+}
+
+//------------------------------------------------------------------------------
+
+void TMR2_StartTimer(void)
+{
+    // Start the Timer by writing to TMRxON bit
+    T2CONbits.TMR2ON = 1;
+}
+
+//------------------------------------------------------------------------------
+
+void TMR2_StopTimer(void)
+{
+    // Stop the Timer by writing to TMRxON bit
+    T2CONbits.TMR2ON = 0;
+}
+
+//------------------------------------------------------------------------------
+
+uint8_t TMR2_ReadTimer(void)
+{
+    uint8_t readVal;
+
+    readVal = TMR2;
+
+    return readVal;
+}
+
+//------------------------------------------------------------------------------
+
+void TMR2_WriteTimer(uint8_t timerVal)
+{
+    // Write to the Timer2 register
+    TMR2 = timerVal;
+}
+
+//------------------------------------------------------------------------------
+
+void TMR2_LoadPeriodRegister(uint8_t periodVal)
+{
+   PR2 = periodVal;
+}
+
+//------------------------------------------------------------------------------
+
+bool TMR2_HasOverflowOccured(void)
+{
+    // check if  overflow has occurred by checking the TMRIF bit
+    bool status = PIR1bits.TMR2IF;
+    if(status)
+    {
+        // Clearing IF flag.
+        PIR1bits.TMR2IF = 0;
+    }
+    return status;
+}
+
+//------------------------------------------------------------------------------
+
+void PWM5_Initialize(void) {
+    // PWM5POL active_hi; PWM5EN enabled; 
+    PWM5CON = 0x80;
+
+    // PWM5DCH 0; 
+    PWM5DCH = 0x00;
+
+    // PWM5DCL 0; 
+    PWM5DCL = 0x00;
+
+    // Select timer
+    PWMTMRSbits.P5TSEL = 1;
+}
+
+//------------------------------------------------------------------------------
+
+void PWM5_LoadDutyValue(uint16_t dutyValue) {
+    // Writing to 8 MSBs of PWM duty cycle in PWMDCH register
+    PWM5DCH = (dutyValue & 0x03FC) >> 2;
+
+    // Writing to 2 LSBs of PWM duty cycle in PWMDCL register
+    PWM5DCL = (dutyValue & 0x0003) << 6;
+}
+
+//------------------------------------------------------------------------------
+
 void MotorControl_On(void) {
     // Enable TMR/PWM
     TMR2_StartTimer();
@@ -91,7 +191,7 @@ void MotorControl_Off(void) {
 //==============================================================================
 
 #ifdef MOTORCONTROL_TEST
-
+#include "mcc.h"
 #include "FRT.h"
 
 #define DC_UPDATE_RATE      25000   // update duty cycle every 25ms (40Hz)
@@ -115,6 +215,12 @@ int main(void) {
     
     // Main loop //
     while(1) {
+        /*
+         * NOTE:    WDT will force a reset if not cleared 
+         *          within every 2 sec or less
+         */
+        asm("CLRWDT");  // clear watchdog timer at start of each loop
+        
         currMicro = FRT_GetMicros();    // update microsecond counter
         
         // This block runs @40Hz

@@ -1,6 +1,7 @@
 
 #ifndef MCC_H
 #define	MCC_H
+
 #include <xc.h>
 #include "device_config.h"
 #include "pin_manager.h"
@@ -10,9 +11,8 @@
 #include "interrupt_manager.h"
 #include "tmr3.h"
 #include "FRT.h"
-#include "tmr2.h"
-#include "pwm5.h"
-#include "ccp4.h"
+#include "MotorControl.h"
+#include "SpeakerTone.h"
 #include "ccp3.h"
 #include "adc.h"
 #include "eusart.h"
