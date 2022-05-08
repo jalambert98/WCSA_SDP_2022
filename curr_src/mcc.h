@@ -9,7 +9,7 @@
 #include <conio.h>
 #include "interrupt_manager.h"
 #include "tmr3.h"
-#include "tmr1.h"
+#include "FRT.h"
 #include "tmr2.h"
 #include "pwm5.h"
 #include "ccp4.h"

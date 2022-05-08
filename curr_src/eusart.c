@@ -4,6 +4,8 @@
 */
 #include "eusart.h"
 
+// RB5->EUSART:RX; 
+// RC4->EUSART:TX;
 //------------------------------------------------------------------------------
 /**
   Section: Macro Declarations

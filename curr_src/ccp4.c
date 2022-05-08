@@ -1,4 +1,14 @@
-
+/* 
+ * File:    ccp4.c
+ * Author:  Jack Lambert     <joalambe@ucsc.edu>
+ * Project: WCSA_SDP_2022
+ *
+ * NOTE: Generated originally by Microchip Code Configurator (MCC) and then
+ *       further modified by Jack Lambert
+ * 
+ * Created on February 8, 2022, 2:15 PM
+ */
+//------------------------------------------------------------------------------
 /**
   Section: Included Files
 */
@@ -6,6 +16,7 @@
 #include <xc.h>
 #include "ccp4.h"
 
+// RA4->CCP4:CCP4;
 //------------------------------------------------------------------------------
 /**
   Section: Compare Module APIs:
@@ -61,8 +72,6 @@ void CCP4_CompareISR(void)
 {
     // Clear the CCP4 interrupt flag
     PIR4bits.CCP4IF = 0;
-    
-    // Add user code here
 }
 
 //------------------------------------------------------------------------------

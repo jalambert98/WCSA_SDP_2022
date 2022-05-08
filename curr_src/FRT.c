@@ -8,9 +8,9 @@
 //------------------------------------------------------------------------------
 
 #include "FRT.h"
-#include "tmr1.h"
+#include "mcc.h"
 
-// #define FRT_TEST          // toggle comment to enable/disable test harness
+#define FRT_TEST          // toggle comment to enable/disable test harness
 
 //==============================================================================
 //---------------------------- STATIC VARIABLES --------------------------------
@@ -19,9 +19,104 @@
 static volatile unsigned long millis;
 static volatile unsigned long micros;
 
+volatile uint16_t timer1ReloadVal;
+
 //==============================================================================
 //------------------------------ PUBLIC LIBRARY --------------------------------
 //==============================================================================
+
+void TMR1_Initialize(void) {
+    //T1GSS T1G_pin; TMR1GE disabled; T1GTM disabled; T1GPOL low; T1GGO_nDONE done; T1GSPM disabled; 
+    T1GCON = 0x00;
+
+    //TMR1H 252; 
+    TMR1H = 0xFC;
+
+    //TMR1L 24; 
+    TMR1L = 0x18;
+
+    // Clearing IF flag before enabling the interrupt.
+    PIR1bits.TMR1IF = 0;
+
+    // Load the TMR value to reload variable
+    timer1ReloadVal = (uint16_t) ((TMR1H << 8) | TMR1L);
+
+    // Enabling TMR1 interrupt.
+    PIE1bits.TMR1IE = 1;
+
+    // T1CKPS 1:8; T1SOSC T1CKI_enabled; T1SYNC do_not_synchronize; TMR1CS FOSC/4; TMR1ON enabled; 
+    T1CON = 0x35;
+}
+
+//------------------------------------------------------------------------------
+
+void TMR1_StartTimer(void) {
+    // Start the Timer by writing to TMRxON bit
+    T1CONbits.TMR1ON = 1;
+}
+
+//------------------------------------------------------------------------------
+
+void TMR1_StopTimer(void) {
+    // Stop the Timer by writing to TMRxON bit
+    T1CONbits.TMR1ON = 0;
+}
+
+//------------------------------------------------------------------------------
+
+uint16_t TMR1_ReadTimer(void) {
+    uint16_t readVal;
+    uint8_t readValHigh;
+    uint8_t readValLow;
+
+
+    readValLow = TMR1L;
+    readValHigh = TMR1H;
+
+    readVal = ((uint16_t) readValHigh << 8) | readValLow;
+
+    return readVal;
+}
+
+//------------------------------------------------------------------------------
+
+void TMR1_WriteTimer(uint16_t timerVal) {
+    if (T1CONbits.T1SYNC == 1) {
+        // Stop the Timer by writing to TMRxON bit
+        T1CONbits.TMR1ON = 0;
+
+        // Write to the Timer1 register
+        TMR1H = (uint8_t) (timerVal >> 8);
+        TMR1L = (uint8_t) timerVal;
+
+        // Start the Timer after writing to the register
+        T1CONbits.TMR1ON = 1;
+    } else {
+        // Write to the Timer1 register
+        TMR1H = (uint8_t) (timerVal >> 8);
+        TMR1L = (uint8_t) timerVal;
+    }
+}
+
+//------------------------------------------------------------------------------
+
+void TMR1_Reload(void) {
+    TMR1_WriteTimer(timer1ReloadVal);
+}
+
+//------------------------------------------------------------------------------
+
+void TMR1_ISR(void) {
+    TMR1_WriteTimer(timer1ReloadVal);
+
+    millis++;
+    micros += 1000;
+    
+    // Clear the TMR1 interrupt flag
+    PIR1bits.TMR1IF = 0;
+}
+
+//------------------------------------------------------------------------------
 
 unsigned long FRT_GetMillis() {
     return millis;
@@ -30,21 +125,7 @@ unsigned long FRT_GetMillis() {
 //------------------------------------------------------------------------------
 
 unsigned long FRT_GetMicros() {
-    return (micros + TMR1_ReadTimer());
-}
-
-//------------------------------------------------------------------------------
-
-void FRT_IncMillis(void) {
-    millis ++;
-    return;
-}
-
-//------------------------------------------------------------------------------
-
-void FRT_IncMicros(void) {
-    micros += 1000;
-    return;
+    return (TMR1_ReadTimer() - timer1ReloadVal + micros);
 }
 
 
@@ -85,51 +166,3 @@ int main(void) {
 //==============================================================================
 //--------------------------------END OF FILE-----------------------------------
 //==============================================================================
-
-#define DEBUG_FRT_TEST
-
-#ifdef DEBUG_FRT_TEST
-
-#include "eusart.h"
-#include "mcc.h"
-
-#define PRINT_RATE  50  // 50ms
-
-int main(void) {
-    PIC16_Init();
-    EUSART_Initialize();
-    
-    printf("\n\n// ======================== //\n");
-    printf("TESTING libs on %s at %s\n", __DATE__, __TIME__);
-    printf("// ======================== //\n\n");
-    
-    SET_C0() = OUTPUT;
-    WRITE_C0() = LOW;
-    
-    unsigned long currMilli, currMicro, prevMilli;
-    currMicro = FRT_GetMicros();
-    currMilli = FRT_GetMillis();
-    prevMilli = currMilli;
-    
-    uint8_t callback = 0;
-    
-    while(1) {
-        currMicro = FRT_GetMicros();
-        currMilli = FRT_GetMillis();
-        
-        if((currMilli - prevMilli) >= PRINT_RATE) {
-            callback++;
-            printf("[ms  =  %lu]        [us  =  %lu]\n", currMilli, currMicro);
-            prevMilli = currMilli;
-            
-            if(callback >= 10) {
-                WRITE_C0() ^= 1;
-                callback = 0;
-            }
-        }
-    }
-    while(1);
-    return 0;
-}
-
-#endif

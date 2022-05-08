@@ -130,7 +130,7 @@ void Lidar_Sensor_RXSM(uint8_t ch) {
 
                 currMsg.temp = ((uint16_t) (currMsg.data[INDEX_TEMP_H] << BYTE_SIZE)
                         + currMsg.data[INDEX_TEMP_L]);
-                currMsg.temp = (currMsg.temp / 8) - 256;
+                currMsg.temp = (currMsg.temp >> 3) - 256;
 
                 // should trigger some kind of "data ready" event here
             }

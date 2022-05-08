@@ -6,6 +6,7 @@
 #include <xc.h>
 #include "ccp3.h"
 
+// RA2->CCP3:CCP3;
 //------------------------------------------------------------------------------
 
 static void (*CCP3_CallBack)(uint16_t);
@@ -17,7 +18,10 @@ static void (*CCP3_CallBack)(uint16_t);
 
 static void CCP3_DefaultCallBack(uint16_t capturedValue)
 {
-    // Add your code here
+    /* ========================================== *
+     * POWER BUTTON SHUTDOWN ROUTINE GOES HERE!!! *
+     * ========================================== */
+    
 }
 
 //------------------------------------------------------------------------------

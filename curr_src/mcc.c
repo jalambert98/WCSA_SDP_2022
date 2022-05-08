@@ -15,6 +15,23 @@
 //------------------------------------------------------------------------------
 
 void PIC16_Init(void) {
+    INTERRUPT_GlobalInterruptDisable();
+    INTERRUPT_PeripheralInterruptDisable();
+    
+    // Manually disable all peripheral interrupts
+    PIE0 = 0x00;
+    PIE1 = 0x00;
+    PIE2 = 0x00;
+    PIE3 = 0x00;
+    PIE4 = 0x00;
+    
+    // Manually clear any existing interrupt flags
+    PIR0 = 0x00;
+    PIR1 = 0x00;
+    PIR2 = 0x00;
+    PIR3 = 0x00;
+    PIR4 = 0x00;
+    
     PMD_Initialize();
     PIN_MANAGER_Initialize();
     OSCILLATOR_Initialize();
@@ -27,6 +44,10 @@ void PIC16_Init(void) {
     TMR2_Initialize();
     TMR1_Initialize();
     EUSART_Initialize();
+    
+    // Enable global + peripheral interrupts
+    INTERRUPT_PeripheralInterruptEnable();
+    INTERRUPT_GlobalInterruptEnable();
 }
 
 //------------------------------------------------------------------------------

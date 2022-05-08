@@ -46,40 +46,142 @@ unsigned long FRT_GetMicros(void);
 
 //------------------------------------------------------------------------------
 /**
- * @funct    FRT_IncMillis()
- * 
- * @param    None
- * 
- * @return   None
- * 
- * @brief    This function should NOT be called within a main() function!
- *           The general purpose ISR (defined within "PIC16Xpress_DevBoard.c")
- *           will automatically call this function every 250us to increment
- *           millis4x. FRT_GetMillis() accounts for this & returns the
- *           actual millisecond value.
- * 
- * @author   Jack Lambert, 2022.01.25
- **/
-void FRT_IncMillis(void);
+  @Summary
+    Initializes the TMR1
+
+  @Description
+    This routine initializes the TMR1.
+    This routine must be called before any other TMR1 routine is called.
+    This routine should only be called once during system initialization.
+
+  @Preconditions
+    None
+
+  @Param
+    None
+
+  @Returns
+    None
+ */
+void TMR1_Initialize(void);
 
 //------------------------------------------------------------------------------
 /**
- * @funct    FRT_IncMillis()
- * 
- * @param    None
- * 
- * @return   None
- * 
- * @brief    This function should NOT be called within a main() function!
- *           The general purpose ISR (defined within "PIC16Xpress_DevBoard.c")
- *           will automatically call this function every 250us to increment
- *           micros1x by 250. FRT_GetMicros() accounts for this & returns 
- *           the sum of micros1x & the current value stored in the TMR0L reg -
- *           which is the actual current FR timer value in microseconds.
- * 
- * @author   Jack Lambert, 2022.01.25
- **/
-void FRT_IncMicros(void);
+  @Summary
+    This function starts the TMR1.
+
+  @Description
+    This function starts the TMR1 operation.
+    This function must be called after the initialization of TMR1.
+
+  @Preconditions
+    Initialize  the TMR1 before calling this function.
+
+  @Param
+    None
+
+  @Returns
+    None
+ */
+void TMR1_StartTimer(void);
+
+//------------------------------------------------------------------------------
+/**
+  @Summary
+    This function stops the TMR1.
+
+  @Description
+    This function stops the TMR1 operation.
+    This function must be called after the start of TMR1.
+
+  @Preconditions
+    Initialize  the TMR1 before calling this function.
+
+  @Param
+    None
+
+  @Returns
+    None
+ */
+void TMR1_StopTimer(void);
+
+//------------------------------------------------------------------------------
+/**
+  @Summary
+    Reads the TMR1 register.
+
+  @Description
+    This function reads the TMR1 register value and return it.
+
+  @Preconditions
+    Initialize  the TMR1 before calling this function.
+
+  @Param
+    None
+
+  @Returns
+    This function returns the current value of TMR1 register.
+ */
+uint16_t TMR1_ReadTimer(void);
+
+//------------------------------------------------------------------------------
+/**
+  @Summary
+    Writes the TMR1 register.
+
+  @Description
+    This function writes the TMR1 register.
+    This function must be called after the initialization of TMR1.
+
+  @Preconditions
+    Initialize  the TMR1 before calling this function.
+
+  @Param
+    timerVal - Value to write into TMR1 register.
+
+  @Returns
+    None
+ */
+void TMR1_WriteTimer(uint16_t timerVal);
+
+//------------------------------------------------------------------------------
+/**
+  @Summary
+    Reload the TMR1 register.
+
+  @Description
+    This function reloads the TMR1 register.
+    This function must be called to write initial value into TMR1 register.
+
+  @Preconditions
+    Initialize  the TMR1 before calling this function.
+
+  @Param
+    None
+
+  @Returns
+    None
+ */
+void TMR1_Reload(void);
+
+//------------------------------------------------------------------------------
+/**
+  @Summary
+    Timer Interrupt Service Routine
+
+  @Description
+    Timer Interrupt Service Routine is called by the Interrupt Manager.
+
+  @Preconditions
+    Initialize  the TMR1 module with interrupt before calling this ISR.
+
+  @Param
+    None
+
+  @Returns
+    None
+ */
+void TMR1_ISR(void);
 
 
 #endif	/* FRT_H */

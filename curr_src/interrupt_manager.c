@@ -32,16 +32,8 @@ void __interrupt() INTERRUPT_InterruptManager (void)
         else if(PIE1bits.ADIE == 1 && PIR1bits.ADIF == 1)
         {
             ADC_ISR();
-        } 
-        else
-        {
-            //Unhandled Interrupt
         }
     }      
-    else
-    {
-        //Unhandled Interrupt
-    }
 }
 
 //------------------------------------------------------------------------------
