@@ -10,7 +10,7 @@
 #include "FRT.h"
 #include "mcc.h"
 
-#define FRT_TEST          // toggle comment to enable/disable test harness
+// #define FRT_TEST          // toggle comment to enable/disable test harness
 
 //==============================================================================
 //---------------------------- STATIC VARIABLES --------------------------------

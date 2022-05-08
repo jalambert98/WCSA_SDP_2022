@@ -7,7 +7,7 @@
 #include "adc.h"
 #include "device_config.h"
 
-// #define ADC_TEST
+#define ADC_TEST
 
 //------------------------------------------------------------------------------
 /**
@@ -40,6 +40,9 @@ void ADC_Initialize(void) {
 
     // ADGO stop; ADON enabled; CHS ANA5; 
     ADCON0 = 0x15;
+    
+    // Enable 2.048V fixed voltage reference as ADC +REF
+    FVRCON = 0x82;
 
     // Enabling ADC interrupt.
     PIE1bits.ADIE = 1;
@@ -72,7 +75,7 @@ bool ADC_IsConversionDone(void) {
 
 adc_result_t ADC_GetConversionResult(void) {
     // Conversion finished, return the result
-    return ((adc_result_t) ((ADRESH << 8) + ADRESL));
+    return ((adc_result_t) ((ADRESH << 8) | ADRESL));
 }
 
 //------------------------------------------------------------------------------
@@ -107,9 +110,10 @@ void ADC_TemperatureAcquisitionDelay(void) {
 //------------------------------------------------------------------------------
 
 void ADC_ISR(void) {
+    adcReading = ADC_GetConversionResult();
+    
     // Clear the ADC interrupt flag
     PIR1bits.ADIF = 0;
-
 }
 
 
@@ -121,29 +125,45 @@ void ADC_ISR(void) {
 #include "mcc.h"
 #include "FRT.h"
 
+#define ADC_THRESHOLD   800     // [800/1023]*2.048V (FVR) = 1.6V threshold
+
 int main(void) {
-    PIC16_Init();
-    ADC_SelectChannel(vBat);
+    PIC16_Init();               // system init
+    ADC_SelectChannel(vBat);    // vBat = ADCH5 = pinRA5
 
-    SET_C0() = OUTPUT;
-    WRITE_C0() = LOW;
+    SET_C0() = OUTPUT;          // debugging output pin to LED
+    WRITE_C0() = LOW;           // begin output LOW
 
-    unsigned long currMilli = FRT_GetMillis();
+    unsigned long currMilli = FRT_GetMillis();  // for FRT timing
     unsigned long prevMilli = currMilli;
 
+    // primary loop behavior
     while (1) {
+        /*
+         * NOTE:    WDT will force a reset if not cleared 
+         *          within every 2 sec or less
+         */
+        asm("CLRWDT");  // clear watchdog timer at start of each loop
+        
+        // update free-running timer
         currMilli = FRT_GetMillis();
 
-        if ((currMilli - prevMilli) >= 100) {
-            ADC_StartConversion();
-            while(!ADC_IsConversionDone());
-            adcReading = ADC_GetConversionResult();
+        // Every 200ms, run this block...
+        if ((currMilli - prevMilli) >= 200) {
+            
+            ADC_StartConversion();  // start new ADC conversion on vBat pin
+            /* 
+             * ADC_ISR will update adcReading static variable
+             * automatically, once the conversion is finished.
+             */
 
-            if ((adcReading & 0x3FF) > 400)
+            
+            if (adcReading >= ADC_THRESHOLD) // if pinRA5 reads > 1.6V
                 WRITE_C0() = HIGH;
             else
                 WRITE_C0() = LOW;
 
+            // update time of last reading
             prevMilli = currMilli;
         }
     }
