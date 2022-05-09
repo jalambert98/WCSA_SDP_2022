@@ -20,15 +20,73 @@
 //-------------------------------- #DEFINES ------------------------------------
 //==============================================================================
 
-#define ACQ_US_DELAY 5
+#define ACQ_US_DELAY        5
+
+#define BUFFER_SIZE         32
+#define BUFFER_SHIFT        5    // 2^5 = 32 = BUFFER_SIZE
 
 #define BATTERYMONITOR_TEST
 
 //==============================================================================
-//---------------------------- STATIC VARIABLES --------------------------------
+//----------------------------- STATICS & ENUMS --------------------------------
 //==============================================================================
 
 static volatile adc_result_t adcReading;
+
+//------------------------------------------------------------------------------
+/*
+ * @struct:     static struct ADCBuffer
+ * 
+ * @vars:       unsigned int  : vals[BUFFER_SIZE]   - Data held within buffer
+ *              unsigned char : tail          - Index where new data is 
+ * @brief:      Circular buffer to hold the last <BUFFER_SIZE> values read by
+ *              the ADC. Used in order to report the average value (digital LPF)
+ * @author:     Jack Lambert <joalambe@ucsc.edu>
+ *              April 1, 2021
+ */
+static struct {
+    unsigned int vals[BUFFER_SIZE];
+    unsigned char tail;
+} ADCBuffer;
+
+
+//==============================================================================
+//------------------------ PRIVATE FUNCTION PROTOTYPES -------------------------
+//==============================================================================
+/*
+ * @funct:  ADCBuffer_Init()
+ * 
+ * @param:  None
+ * @return: None
+ * @brief:  Initializes ADC circular buffer used for digital LPF
+ * @author: Jack Lambert <joalambe@ucsc.edu>
+ *          April 1, 2021
+ */
+void ADCBuffer_Init(void);
+
+//------------------------------------------------------------------------------
+/*
+ * @funct:  ADCBuffer_AddData(newVal)
+ * 
+ * @param:  unsigned int : newVal   -   value to add to circular buffer
+ * @return: None
+ * @brief:  Adds newVal to the tail index of ADC circular buffer
+ * @author: Jack Lambert <joalambe@ucsc.edu>
+ *          April 1, 2021
+ */
+void ADCBuffer_AddData(unsigned int newVal);
+
+//------------------------------------------------------------------------------
+/*
+ * @funct:  unsigned int ADCBuffer_GetFilteredReading()
+ * 
+ * @param:  None
+ * @return: unsigned int    -   Output of LPF (running avg) of vals
+ * @brief:  Returns the current filtered reading of the ADC
+ * @author: Jack Lambert <joalambe@ucsc.edu>
+ *          April 15, 2021
+ */
+unsigned int ADCBuffer_GetFilteredReading(void);
 
 
 //==============================================================================
@@ -46,6 +104,8 @@ void BatteryMonitor_Init(void) {
     ADC_SelectChannel(vBat);    // vBat = ADCH5 = pinRA5
     
     adcReading = 0;   // initialize static var to 0 in-case it is read early
+    
+    ADCBuffer_Init();
     
     /* ============================================================ //
      *      ANY OTHER BATTERY_MONITOR SETUP NEEDS TO GO HERE!!
@@ -145,6 +205,45 @@ adc_result_t ADC_GetCurrReading(void) {
 
 
 //==============================================================================
+//------------------------- PRIVATE FUNCTION LIBRARY ---------------------------
+//==============================================================================
+
+void ADCBuffer_Init(void) {
+    unsigned char i;
+    for (i = 0; i < BUFFER_SIZE; i++)
+        ADCBuffer.vals[i] = 0; // clear buffer data
+
+    ADCBuffer.tail = 0; // reset tail index
+}
+
+//------------------------------------------------------------------------------
+
+void ADCBuffer_AddData(unsigned int newVal) {
+    ADCBuffer.vals[ADCBuffer.tail] = newVal; // add newVal to buffer
+    ADCBuffer.tail = (ADCBuffer.tail + 1) % BUFFER_SIZE; // increment tail
+}
+
+//------------------------------------------------------------------------------
+
+unsigned int ADCBuffer_GetFilteredReading(void) {
+    int sumResult = 0; // Running sum of each currProduct
+    uint8_t iVals = ADCBuffer.tail; // Starting index for vals[] array
+    uint8_t iFilter = 0; // Index for weightsLPF[] array
+
+    do {
+        sumResult += ADCBuffer.vals[iVals];
+        iVals = (iVals + 1) % BUFFER_SIZE; // increment iVals from tail
+        iFilter++; // increment iFilter from 0
+    } while (iFilter < BUFFER_SIZE); // perform for all BUFFER_SIZE vals
+
+    // Shift to "divide" by sum of all filter weights
+    unsigned int filtered = ((uint32_t)sumResult >> BUFFER_SHIFT);
+
+    return filtered;
+}
+
+
+//==============================================================================
 //------------------------- CONDITIONAL TEST HARNESS ---------------------------
 //==============================================================================
 
@@ -169,6 +268,8 @@ int main(void) {
 
     unsigned long currMilli = FRT_GetMillis();  // for FRT timing
     unsigned long prevMilli = currMilli;
+    adc_result_t currReading = 0;
+    adc_result_t filteredReading = 0;
 
     // ----- primary loop behavior ----- //
     while (1) {
@@ -190,7 +291,11 @@ int main(void) {
              * automatically, once the conversion is finished.
              */
 
-            if (ADC_GetCurrReading() > ADC_THRESHOLD) // if pinRA5 reads > 1.6V
+            currReading = ADC_GetCurrReading();
+            ADCBuffer_AddData(currReading);
+            filteredReading = ADCBuffer_GetFilteredReading();
+            
+            if (filteredReading > ADC_THRESHOLD) // if pinRA5 reads > 1.6V
                 WRITE_C0() = HIGH;                        // turn on LED
             else                    // if RA5 <= 1.6V
                 WRITE_C0() = LOW;       // turn off LED
@@ -205,7 +310,6 @@ int main(void) {
 }
 
 #endif
-
 
 //==============================================================================
 //--------------------------------END OF FILE-----------------------------------
