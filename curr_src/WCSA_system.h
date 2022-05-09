@@ -27,6 +27,10 @@
 #include "BatteryMonitor.h"
 #include "eusart.h"
 
+
+#define RESET_WDT()     do {asm("CLRWDT");} while(0)
+
+
 //------------------------------------------------------------------------------
 /**
  * @Param

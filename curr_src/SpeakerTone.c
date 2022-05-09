@@ -288,7 +288,7 @@ int main(void) {
          * NOTE:    WDT will force a reset if not cleared 
          *          within every 2 sec or less
          */
-        asm("CLRWDT");  // clear watchdog timer at start of each loop
+        RESET_WDT();  // reset watchdog timer at start of each loop
         
         currMilli = FRT_GetMillis();    // update free-running timer
         
