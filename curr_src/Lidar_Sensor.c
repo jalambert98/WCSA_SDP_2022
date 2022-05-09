@@ -8,7 +8,6 @@
 //------------------------------------------------------------------------------
 
 #include "Lidar_Sensor.h"
-#include "FRT.h"
 #include "eusart.h"
 #include "pin_manager.h"
 
@@ -261,6 +260,9 @@ void Lidar_Sensor_SaveSettings(void) {
 //------------------------------------------------------------------------------
 
 #ifdef LIDAR_SENSOR_TEST
+
+#include "WCSA_system.h"
+#include "FRT.h"
 
 //===============================//
 // #define LIDAR_AUTO_READ_TEST

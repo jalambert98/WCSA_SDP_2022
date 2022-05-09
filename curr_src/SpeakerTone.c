@@ -78,6 +78,9 @@ uint16_t SpeakerTone_GetFrequency(void) {
 
 void CCP4_Initialize(void)
 {
+    // PPS module to connect CCP4 output to pin RA4
+    RA4PPS = 0x0F; //RA4->CCP4:CCP4;
+    
 	// CCP4MODE Toggle_cleartmr; CCP4OUT 0; CCP4EN enabled; CCP4FMT right_aligned; 
 	CCP4CON = 0x81;    
 	
@@ -255,12 +258,18 @@ void SpeakerTone_On(void) {
 //------------------------- CONDITIONAL TEST HARNESS ---------------------------
 //==============================================================================
 
+/* ---------- TEST HARNESS FOR SPEAKER TONE SUBSYSTEM ---------- */
 #ifdef SPEAKERTONE_TEST
-#include "mcc.h"
+
+#include "WCSA_system.h"
 #include "FRT.h"
 
+
+// ======= DEFINES ======= //
 #define FREQ_CHANGE_RATE    200 // change speakerTone freq every 200ms
 
+
+// ======= MAIN() ======= //
 int main(void) {
     // Init required libraries
     PIC16_Init();

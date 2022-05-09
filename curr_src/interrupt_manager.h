@@ -1,3 +1,14 @@
+/* 
+ * File:    interrupt_manager.h
+ * Author:  Jack Lambert     <joalambe@ucsc.edu>
+ * Project: WCSA_SDP_2022
+ *
+ * NOTE: Generated originally by Microchip Code Configurator (MCC) and then
+ *       further modified by Jack Lambert
+ * 
+ * Created on February 8, 2022, 2:15 PM
+ */
+//------------------------------------------------------------------------------
 
 #ifndef INTERRUPT_MANAGER_H
 #define INTERRUPT_MANAGER_H

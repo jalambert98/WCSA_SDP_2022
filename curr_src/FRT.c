@@ -8,9 +8,8 @@
 //------------------------------------------------------------------------------
 
 #include "FRT.h"
-#include "mcc.h"
 
-#define FRT_TEST          // toggle comment to enable/disable test harness
+// #define FRT_TEST          // toggle comment to enable/disable test harness
 
 //==============================================================================
 //---------------------------- STATIC VARIABLES --------------------------------
@@ -24,6 +23,18 @@ volatile uint16_t timer1ReloadVal;
 //==============================================================================
 //------------------------------ PUBLIC LIBRARY --------------------------------
 //==============================================================================
+
+void FRT_Init(void) {
+    // init FRT time counters to 0
+    millis = 0;
+    micros = 0;
+    
+    /* TMR1 ticks @1MHz (ticks every 1us) and generates
+     * an interrupt every 1000 ticks (every 1ms --> @1kHz) */
+    TMR1_Initialize();
+}
+
+//------------------------------------------------------------------------------
 
 void TMR1_Initialize(void) {
     //T1GSS T1G_pin; TMR1GE disabled; T1GTM disabled; T1GPOL low; T1GGO_nDONE done; T1GSPM disabled; 
@@ -125,7 +136,7 @@ unsigned long FRT_GetMillis() {
 //------------------------------------------------------------------------------
 
 unsigned long FRT_GetMicros() {
-    return (TMR1_ReadTimer() - timer1ReloadVal + micros);
+    return ((TMR1_ReadTimer() - timer1ReloadVal) + micros);
 }
 
 
@@ -134,6 +145,8 @@ unsigned long FRT_GetMicros() {
 //==============================================================================
 
 #ifdef FRT_TEST
+
+#include "WCSA_system.h"
 
 int main(void) {
     /*
@@ -144,6 +157,7 @@ int main(void) {
     
     // Initialize required libraries
     PIC16_Init();
+    FRT_Init();
     
     SET_C0() = OUTPUT;
     WRITE_C0() = LOW;

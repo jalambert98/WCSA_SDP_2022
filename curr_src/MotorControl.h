@@ -21,14 +21,15 @@
 #define PWM5_INITIALIZE_DUTY_VALUE    0
 
 
+// [PWM5] output --> Pin[RC1]
 //==============================================================================
 //------------------------------ PUBLIC LIBRARY --------------------------------
 //==============================================================================
 /**
- * @funct   MotorControl_Init(motorPin)
+ * @funct   MotorControl_Init()
  * @param   None
  * @return  None
- * @brief   Initializes the motor PWM5 system (Pin RB6)
+ * @brief   Initializes the motor PWM5 system (PinRC1)
  * @author  Jack Lambert, 2022.02.07 */
 void MotorControl_Init(void);
 

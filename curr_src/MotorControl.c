@@ -142,6 +142,9 @@ bool TMR2_HasOverflowOccured(void)
 //------------------------------------------------------------------------------
 
 void PWM5_Initialize(void) {
+    // PPS module to connect PWM5 output to pin RC1
+    RC1PPS = 0x02; //RC1->PWM5:PWM5; 
+    
     // PWM5POL active_hi; PWM5EN enabled; 
     PWM5CON = 0x80;
 
@@ -187,12 +190,18 @@ void MotorControl_Off(void) {
 //------------------------- CONDITIONAL TEST HARNESS ---------------------------
 //==============================================================================
 
+/* ---------- TEST HARNESS FOR MOTOR CONTROL SUBSYSTEM ---------- */
 #ifdef MOTORCONTROL_TEST
-#include "mcc.h"
+
+#include "WCSA_system.h"
 #include "FRT.h"
 
+
+// ======= DEFINES ======= //
 #define DC_UPDATE_RATE      25000   // update duty cycle every 25ms (40Hz)
 
+
+// ======= MAIN() ======= //
 int main(void) {
     // Init required libraries
     PIC16_Init();

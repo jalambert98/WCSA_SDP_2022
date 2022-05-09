@@ -16,6 +16,16 @@
 //------------------------------ PUBLIC LIBRARY --------------------------------
 //==============================================================================
 /**
+ * @funct    FRT_Init()
+ * @param    None
+ * @return   None
+ * @brief    Initializes TMR1 as FRT source and sets time-counters to 0.
+ * @author   Jack Lambert, 2022.01.25
+ **/
+void FRT_Init(void);
+
+//------------------------------------------------------------------------------
+/**
  * @funct    FRT_GetMillis()
  * 
  * @param    None

@@ -250,13 +250,7 @@ void PIN_MANAGER_Initialize(void) {
      */
     INLVLA = 0x3F;
     INLVLB = 0xF0;
-    INLVLC = 0xFF;
-
-    RXPPS = 0x0D; //RB5->EUSART:RX;    
-    RA4PPS = 0x0F; //RA4->CCP4:CCP4;    
-    CCP3PPS = 0x02; //RA2->CCP3:CCP3;    
-    RC1PPS = 0x02; //RC1->PWM5:PWM5;    
-    RC4PPS = 0x14; //RC4->EUSART:TX;    
+    INLVLC = 0xFF;    
 }
 
 //------------------------------------------------------------------------------

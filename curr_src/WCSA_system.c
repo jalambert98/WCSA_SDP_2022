@@ -1,16 +1,16 @@
 /* 
- * File:    mcc.c
+ * File:    WCSA_system.c
  * Author:  Jack Lambert     <joalambe@ucsc.edu>
  * Project: WCSA_SDP_2022
  *
- * NOTE: Generated originally by Microchip Code Configurator (MCC) and then
- *       further modified by Jack Lambert
+ * NOTE: Generated originally by Microchip Code Configurator (as "mcc.c") and 
+ *       then further modified by Jack Lambert
  * 
  * Created on January 26, 2022, 8:45 PM
  */
 //------------------------------------------------------------------------------
 
-#include "mcc.h"
+#include "WCSA_system.h"
 
 
 //==============================================================================
@@ -35,18 +35,11 @@ void PIC16_Init(void) {
     PIR3 = 0x00;
     PIR4 = 0x00;
     
-    PMD_Initialize();
-    PIN_MANAGER_Initialize();
-    OSCILLATOR_Initialize();
-    WDT_Initialize();
-    CCP3_Initialize();
-    ADC_Initialize();
-    CCP4_Initialize();
-    TMR3_Initialize();
-    PWM5_Initialize();
-    TMR2_Initialize();
-    TMR1_Initialize();
-    EUSART_Initialize();
+    PMD_Initialize();           // disables unused peripherals
+    PIN_MANAGER_Initialize();   // configures default pin states
+    OSCILLATOR_Initialize();    // configures HFO to [Fosc=32MHz], [Fins=8MHz]
+    WDT_Initialize();           // WDT to force reset of not cleared every 2s
+    EUSART_Initialize();        // eusart overrides stdio [RX=RB5],[TX=RC4]
     
     // Enable global + peripheral interrupts
     INTERRUPT_PeripheralInterruptEnable();

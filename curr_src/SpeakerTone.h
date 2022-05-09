@@ -68,7 +68,7 @@ typedef union CCPR4Reg_tag {
 //------------------------------ PUBLIC LIBRARY --------------------------------
 //==============================================================================
 /**
- * @funct   SpeakerTone_Init(speakerPin)
+ * @funct   SpeakerTone_Init()
  * @param   None
  * @return  None
  * @brief   Initializes the SpeakerTone pin [RA4] to 440Hz (tone disabled)
