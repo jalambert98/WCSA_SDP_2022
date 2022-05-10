@@ -15,8 +15,8 @@
 //---------------------------- STATIC VARIABLES --------------------------------
 //==============================================================================
 
-static volatile unsigned long millis;
-static volatile unsigned long micros;
+static volatile uint16_t millis;
+static volatile uint16_t micros;
 
 volatile uint16_t timer1ReloadVal;
 
@@ -129,13 +129,13 @@ void TMR1_ISR(void) {
 
 //------------------------------------------------------------------------------
 
-unsigned long FRT_GetMillis() {
+uint16_t FRT_GetMillis() {
     return millis;
 }
 
 //------------------------------------------------------------------------------
 
-unsigned long FRT_GetMicros() {
+uint16_t FRT_GetMicros() {
     return ((TMR1_ReadTimer() - timer1ReloadVal) + micros);
 }
 
@@ -152,8 +152,8 @@ int main(void) {
     /*
      * THIS TEST HARNESS FLICKERS pin RC0 @1Hz (flicker LED against stopwatch)
      */
-    unsigned long currMilli = 0;
-    unsigned long prevMilli = 0;
+    uint16_t currMilli = 0;
+    uint16_t prevMilli = 0;
     
     // Initialize required libraries
     PIC16_Init();

@@ -37,7 +37,7 @@ void FRT_Init(void);
  * 
  * @author   Jack Lambert, 2022.01.25
  **/
-unsigned long FRT_GetMillis(void);
+uint16_t FRT_GetMillis(void);
 
 //------------------------------------------------------------------------------
 /**
@@ -52,7 +52,7 @@ unsigned long FRT_GetMillis(void);
  * 
  * @author   Jack Lambert, 2022.01.25
  **/
-unsigned long FRT_GetMicros(void);
+uint16_t FRT_GetMicros(void);
 
 //------------------------------------------------------------------------------
 /**

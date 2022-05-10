@@ -22,8 +22,8 @@
 
 #define ACQ_US_DELAY        5
 
-#define BUFFER_SIZE         32
-#define BUFFER_SHIFT        5    // 2^5 = 32 = BUFFER_SIZE
+#define BUFFER_SIZE         16
+#define BUFFER_SHIFT        4    // 2^4 = 16 = BUFFER_SIZE
 
 #define BATTERYMONITOR_TEST
 
@@ -252,7 +252,7 @@ unsigned int ADCBuffer_GetFilteredReading(void) {
 
 #include "WCSA_system.h"
 #include "FRT.h"
-
+#include "SpeakerTone.h"
 
 // ======= DEFINES ======= //
 #define ADC_THRESHOLD   800     // [800/1023]*2.048V (FVR) = 1.6V threshold
@@ -262,6 +262,7 @@ unsigned int ADCBuffer_GetFilteredReading(void) {
 int main(void) {
     PIC16_Init();               // system init
     BatteryMonitor_Init();      // battery monitor setup
+    SpeakerTone_Init();
 
     SET_C0() = OUTPUT;          // debugging output pin to LED
     WRITE_C0() = LOW;           // begin output LOW
@@ -270,6 +271,7 @@ int main(void) {
     unsigned long prevMilli = currMilli;
     adc_result_t currReading = 0;
     adc_result_t filteredReading = 0;
+    uint8_t batteryLow = 0;
 
     // ----- primary loop behavior ----- //
     while (1) {
@@ -295,11 +297,20 @@ int main(void) {
             ADCBuffer_AddData(currReading);
             filteredReading = ADCBuffer_GetFilteredReading();
             
-            if (filteredReading > ADC_THRESHOLD) // if pinRA5 reads > 1.6V
-                WRITE_C0() = HIGH;                        // turn on LED
-            else                    // if RA5 <= 1.6V
-                WRITE_C0() = LOW;       // turn off LED
-
+            if (filteredReading > ADC_THRESHOLD) { // if pinRA5 reads > 1.6V
+                WRITE_C0() = HIGH;                     // turn on LED
+                if (batteryLow == 1) {
+                    batteryLow = 0;
+                    SpeakerTone_StartupChirp();
+                }
+            }
+            else {                          // if RA5 <= 1.6V
+                if (batteryLow == 0) {
+                    batteryLow = 1;
+                    SpeakerTone_ShutdownChirp();
+                }
+                WRITE_C0() = LOW;               // turn off LED
+            }
             // update time of last reading
             prevMilli = currMilli;
         }
