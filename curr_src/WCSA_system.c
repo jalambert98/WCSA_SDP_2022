@@ -40,7 +40,6 @@ void PIC16_Init(void) {
     OSCILLATOR_Initialize();    // configures HFO to [Fosc=32MHz], [Fins=8MHz]
     WDT_Initialize();           // WDT to force reset of not cleared every 2s
     EUSART_Initialize();        // eusart overrides stdio [RX=RB5],[TX=RC4]
-    FRT_Init();                 // initialize free-running timer
     
     // Enable global + peripheral interrupts
     INTERRUPT_PeripheralInterruptEnable();

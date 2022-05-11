@@ -25,7 +25,7 @@
 #define BUFFER_SIZE         16
 #define BUFFER_SHIFT        4    // 2^4 = 16 = BUFFER_SIZE
 
-#define BATTERYMONITOR_TEST
+// #define BATTERYMONITOR_TEST
 
 //==============================================================================
 //----------------------------- STATICS & ENUMS --------------------------------
@@ -106,10 +106,6 @@ void BatteryMonitor_Init(void) {
     adcReading = 0;   // initialize static var to 0 in-case it is read early
     
     ADCBuffer_Init();
-    
-    /* ============================================================ //
-     *      ANY OTHER BATTERY_MONITOR SETUP NEEDS TO GO HERE!!
-     * ============================================================ */
 }
 
 //------------------------------------------------------------------------------
@@ -226,7 +222,7 @@ void ADCBuffer_AddData(unsigned int newVal) {
 //------------------------------------------------------------------------------
 
 unsigned int ADCBuffer_GetFilteredReading(void) {
-    int sumResult = 0; // Running sum of each currProduct
+    uint32_t sumResult = 0; // Running sum of each currProduct
     uint8_t iVals = ADCBuffer.tail; // Starting index for vals[] array
     uint8_t iFilter = 0; // Index for weightsLPF[] array
 
@@ -237,8 +233,7 @@ unsigned int ADCBuffer_GetFilteredReading(void) {
     } while (iFilter < BUFFER_SIZE); // perform for all BUFFER_SIZE vals
 
     // Shift to "divide" by sum of all filter weights
-    unsigned int filtered = ((uint32_t)sumResult >> BUFFER_SHIFT);
-
+    unsigned int filtered = (sumResult >> BUFFER_SHIFT);
     return filtered;
 }
 
@@ -262,7 +257,12 @@ unsigned int ADCBuffer_GetFilteredReading(void) {
 int main(void) {
     PIC16_Init();               // system init
     BatteryMonitor_Init();      // battery monitor setup
-    SpeakerTone_Init();
+    SpeakerTone_Init();         
+    FRT_Init();                 // global milli/micro-second counter
+    
+    //--- Initial Print Statement ---//
+    printf("//=== BatteryMonitor.c ===//\n");
+    printf("BATTERYMONITOR_TEST - Last compiled on %s at %s\n\n", __DATE__, __TIME__);
 
     SET_C0() = OUTPUT;          // debugging output pin to LED
     WRITE_C0() = LOW;           // begin output LOW

@@ -20,30 +20,6 @@
 
 
 //==============================================================================
-//--------------------------------- TYPEDEFS -----------------------------------
-//==============================================================================
-/**
- @Summary
-   Defines the values to convert from 16bit to two 8 bit and vice versa
-
- @Description
-   This routine used to get two 8 bit values from 16bit also
-   two 8 bit value are combine to get 16bit.
- */
-typedef union CCPR3Reg_tag {
-
-    struct {
-        uint8_t ccpr3l;
-        uint8_t ccpr3h;
-    };
-
-    struct {
-        uint16_t ccpr3_16Bit;
-    };
-} CCP3_PERIOD_REG_T;
-
-
-//==============================================================================
 //------------------------------ PUBLIC LIBRARY --------------------------------
 //==============================================================================
 /**
@@ -92,26 +68,6 @@ void CCP3_Initialize(void);
     None
  */
 void CCP3_CaptureISR(void);
-
-//------------------------------------------------------------------------------
-/**
-  @Summary
-    Setter for CCP3 CallBack function
-
-  @Description
-    Calling this function will set a new custom call back function that will be 
-    called from the Capture ISR.
-
-  @Preconditions
-    Initialize the CCP3 module with interrupt before calling this function.
-
-  @Param
-    A pointer to the new function
-
-  @Returns
-    None
- */
-void CCP3_SetCallBack(void (*customCallBack)(uint16_t));
 
 //------------------------------------------------------------------------------
 

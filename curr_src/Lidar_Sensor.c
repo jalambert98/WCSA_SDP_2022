@@ -281,7 +281,9 @@ void Lidar_Sensor_SaveSettings(void) {
 int main(void) {
     PIC16_Init();
     Lidar_Sensor_Init();
+    FRT_Init();
     
+    //--- Initial Print Statement ---//
     printf("//=== Lidar_Sensor.c ===//\n");
     printf("LIDAR_AUTO_READ_TEST - Last compiled on %s at %s\n\n", __DATE__, __TIME__);
     

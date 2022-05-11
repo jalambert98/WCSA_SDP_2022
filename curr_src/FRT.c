@@ -15,8 +15,8 @@
 //---------------------------- STATIC VARIABLES --------------------------------
 //==============================================================================
 
-static volatile uint16_t millis;
-static volatile uint16_t micros;
+static volatile uint32_t millis;
+static volatile uint32_t micros;
 
 volatile uint16_t timer1ReloadVal;
 
@@ -28,7 +28,7 @@ void FRT_Init(void) {
     // init FRT time counters to 0
     millis = 0;
     micros = 0;
-    
+
     /* TMR1 ticks @1MHz (ticks every 1us) and generates
      * an interrupt every 1000 ticks (every 1ms --> @1kHz) */
     TMR1_Initialize();
@@ -122,20 +122,20 @@ void TMR1_ISR(void) {
 
     millis++;
     micros += 1000;
-    
+
     // Clear the TMR1 interrupt flag
     PIR1bits.TMR1IF = 0;
 }
 
 //------------------------------------------------------------------------------
 
-uint16_t FRT_GetMillis() {
+uint32_t FRT_GetMillis() {
     return millis;
 }
 
 //------------------------------------------------------------------------------
 
-uint16_t FRT_GetMicros() {
+uint32_t FRT_GetMicros() {
     return ((TMR1_ReadTimer() - timer1ReloadVal) + micros);
 }
 
@@ -146,42 +146,93 @@ uint16_t FRT_GetMicros() {
 
 #ifdef FRT_TEST
 
+/*
+ * THIS TEST HARNESS FLICKERS pin RC0 @1Hz (flicker LED against stopwatch)
+ */
+
 #include "WCSA_system.h"
 
+#define FRT_MILLIS_TEST
+//#define FRT_MICROS_TEST
+
+//------------------------------------------------------------------------------
+
+#ifdef FRT_MILLIS_TEST
+
+// ====== MILLIS TEST ====== //
 int main(void) {
-    /*
-     * THIS TEST HARNESS FLICKERS pin RC0 @1Hz (flicker LED against stopwatch)
-     */
-    uint16_t currMilli = 0;
-    uint16_t prevMilli = 0;
-    
+    uint32_t currMilli = 0;
+    uint32_t prevMilli = 0;
+
     // Initialize required libraries
     PIC16_Init();
     FRT_Init();
-    
+
     SET_C0() = OUTPUT;
     WRITE_C0() = LOW;
-    
-    while(1) {
+
+    while (1) {
         /*
          * NOTE:    WDT will force a reset if not cleared 
          *          within every 2 sec or less
          */
-        RESET_WDT();  // reset watchdog timer at start of each loop
-        
-        currMilli = FRT_GetMillis();    // update free-running timer
-        
+        RESET_WDT(); // reset watchdog timer at start of each loop
+
+        currMilli = FRT_GetMillis(); // update free-running timer
+
         // Toggle output pin every 500ms (full cycle every 1s)
-        if((currMilli - prevMilli) >= 500) {
+        if ((currMilli - prevMilli) >= 500) {
             WRITE_C0() ^= 1;
             prevMilli = currMilli;
         }
     }
-    while(1);
+    while (1);
     return 0;
 }
 
-#endif
+#endif  /* FRT_MILLIS_TEST */
+
+
+//------------------------------------------------------------------------------
+
+#ifdef FRT_MICROS_TEST
+
+// ====== MICROS TEST ====== //
+int main(void) {
+    uint32_t currMicro = 0;
+    uint32_t prevMicro = 0;
+
+    // Initialize required libraries
+    PIC16_Init();
+    FRT_Init();
+
+    SET_C0() = OUTPUT;
+    WRITE_C0() = LOW;
+
+    while (1) {
+        /*
+         * NOTE:    WDT will force a reset if not cleared 
+         *          within every 2 sec or less
+         */
+        RESET_WDT(); // reset watchdog timer at start of each loop
+
+        currMicro = FRT_GetMicros(); // update free-running timer
+
+        // Toggle output pin every 500ms (full cycle every 1s)
+        if ((currMicro - prevMicro) >= 500000) {
+            WRITE_C0() ^= 1;
+            prevMicro = currMicro;
+        }
+    }
+    while (1);
+    return 0;
+}
+
+#endif  /* FRT_MICROS_TEST */
+
+//------------------------------------------------------------------------------
+
+#endif  /* FRT_TEST */
 
 //==============================================================================
 //--------------------------------END OF FILE-----------------------------------

@@ -232,7 +232,7 @@ void SpeakerTone_On(void) {
 //------------------------------------------------------------------------------
 
 void SpeakerTone_StartupChirp(void) {
-    uint16_t currMilli, prevMilli;
+    uint32_t currMilli, prevMilli;
     RESET_WDT();
 
     // Play C4 for 200ms
@@ -266,7 +266,7 @@ void SpeakerTone_StartupChirp(void) {
 //------------------------------------------------------------------------------
 
 void SpeakerTone_ShutdownChirp(void) {
-    uint16_t currMilli, prevMilli;
+    uint32_t currMilli, prevMilli;
     RESET_WDT();
 
     // Play C4 for 200ms
@@ -314,6 +314,7 @@ void SpeakerTone_ShutdownChirp(void) {
 int main(void) {
     // Init required libraries
     PIC16_Init();
+    FRT_Init();
     SpeakerTone_Init(); // speakerTone pinRA4
 
     SET_B7() = OUTPUT;

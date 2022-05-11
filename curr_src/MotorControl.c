@@ -205,6 +205,7 @@ void MotorControl_Off(void) {
 int main(void) {
     // Init required libraries
     PIC16_Init();
+    FRT_Init();
     MotorControl_Init();    // motorControl pin[RB6]
     
     printf("//=== MotorControl.c ===//\n");
@@ -249,6 +250,7 @@ int main(void) {
 }
 
 #endif
+
 
 //==============================================================================
 //--------------------------------END OF FILE-----------------------------------

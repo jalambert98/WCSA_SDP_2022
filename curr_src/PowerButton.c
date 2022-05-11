@@ -13,11 +13,22 @@
 
 #include <xc.h>
 #include "PowerButton.h"
+#include "SpeakerTone.h"
+#include "WCSA_system.h"
 
 // RA2->CCP3:CCP3;
-//------------------------------------------------------------------------------
+//==============================================================================
+//-------------------------------- #DEFINES ------------------------------------
+//==============================================================================
 
-static void (*CCP3_CallBack)(uint16_t);
+#define POWERBUTTON_TEST
+
+
+//==============================================================================
+//---------------------------- STATIC VARIABLES --------------------------------
+//==============================================================================
+
+static volatile uint8_t gpioHigh;
 
 
 //==============================================================================
@@ -25,50 +36,42 @@ static void (*CCP3_CallBack)(uint16_t);
 //==============================================================================
 
 void PowerButton_Init(void) {
+    // Pin[RA2] = GPIO pin for Soft-Switching Power Button circuit
+    SET_A2() = INPUT; // configured as input on startup
+    gpioHigh = READ_A2(); // read initial value
+
+    if (gpioHigh == LOW) { // GPIO pin should NOT be LOW on startup
+        printf("ERROR: GPIO pin in 'PowerButton.c' was LOW on startup!\n");
+        while (1); // block CPU instructions until WDT forces reset
+    }
+    // else --> (gpioHigh == HIGH)... so finish Initialization...
+
     /* CCP3 configured to pin RA2 
-     * ISR runs on rising & falling edges */
+     * & ISR runs on FALLING edges */
     CCP3_Initialize();
-    
-    /* ========================================================== //
-     *      ALL OTHER POWER_BUTTON SETUP NEEDS TO GO HERE!!
-     * ========================================================== */
 }
 
 //------------------------------------------------------------------------------
 
-static void CCP3_DefaultCallBack(uint16_t capturedValue)
-{
-    /* ========================================== *
-     * POWER BUTTON SHUTDOWN ROUTINE GOES HERE!!! *
-     * ========================================== */
-    
-}
+void CCP3_Initialize(void) {
+    // CCP3MODE Falling edge; CCP3EN enabled; CCP3FMT right_aligned; 
+    CCP3CON = 0x84;
 
-//------------------------------------------------------------------------------
-
-void CCP3_Initialize(void)
-{	
-	// CCP3MODE Falling edge; CCP3EN enabled; CCP3FMT right_aligned; 
-	CCP3CON = 0x84;    
-	
     // PPS Module to connect pinRA2 to CCP3 input
     CCP3PPS = 0x02; //RA2->CCP3:CCP3;
-    
-	// CCP3CTS0 CCP3 pin; 
-	CCP3CAP = 0x00;    
-	
-	// CCPR3H 0; 
-	CCPR3H = 0x00;    
-	
-	// CCPR3L 0; 
-	CCPR3L = 0x00;    
-    
-    // Set the default call back function for CCP3
-    CCP3_SetCallBack(CCP3_DefaultCallBack);
 
-	// Selecting Timer 1
-	CCPTMRSbits.C3TSEL = 0x1;
-    
+    // CCP3CTS0 CCP3 pin; 
+    CCP3CAP = 0x00;
+
+    // CCPR3H 0; 
+    CCPR3H = 0x00;
+
+    // CCPR3L 0; 
+    CCPR3L = 0x00;
+
+    // Selecting Timer 1
+    CCPTMRSbits.C3TSEL = 0x1;
+
     // Clear the CCP3 interrupt flag
     PIR4bits.CCP3IF = 0;
 
@@ -78,26 +81,59 @@ void CCP3_Initialize(void)
 
 //------------------------------------------------------------------------------
 
-void CCP3_CaptureISR(void)
-{
-    CCP3_PERIOD_REG_T module;
+void CCP3_CaptureISR(void) {
+    /*
+     * NOTE:    This shutdown routine only runs after detecting
+     *          a FALLING EDGE on GPIO pinRA2. 
+     */
 
-    // Clear the CCP3 interrupt flag
-    PIR4bits.CCP3IF = 0;
+    gpioHigh = READ_A2();
+
+    // abort shutdown if RA2 is high before ISR runs
+    if (gpioHigh == HIGH) {
+        return;
+    } 
     
-    // Copy captured value.
-    module.ccpr3l = CCPR3L;
-    module.ccpr3h = CCPR3H;
-    
-    // Return 16bit captured value
-    CCP3_CallBack(module.ccpr3_16Bit);
+    else {
+        SpeakerTone_ShutdownChirp();
+
+        SET_A2() = OUTPUT;
+        WRITE_A2() = LOW;
+
+        // Clear the CCP3 interrupt flag
+        PIR4bits.CCP3IF = 0;
+
+        while (1); // block CPU instruction until system shuts down
+    }
 }
 
-//------------------------------------------------------------------------------
 
-void CCP3_SetCallBack(void (*customCallBack)(uint16_t)){
-    CCP3_CallBack = customCallBack;
+//==============================================================================
+//------------------------- CONDITIONAL TEST HARNESS ---------------------------
+//==============================================================================
+
+/* ---------- TEST HARNESS FOR POWER BUTTON SUBSYSTEM ---------- */
+#ifdef POWERBUTTON_TEST
+
+int main(void) {
+    // --- initialize libraries --- //
+    PIC16_Init();
+    FRT_Init();
+    SpeakerTone_Init();
+    PowerButton_Init();
+
+    // --- primary loop --- //
+    /*
+     *  DO NOTHING, until momentary press detected.
+     *  Then, run shutdown routine.
+     */
+    while (1);
+    return 0;
 }
 
-//------------------------------------------------------------------------------
+#endif  /* POWERBUTTON_TEST */
 
+
+//==============================================================================
+//--------------------------------END OF FILE-----------------------------------
+//==============================================================================
