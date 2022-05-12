@@ -222,7 +222,7 @@ void PIN_MANAGER_Initialize(void) {
      */
     ANSELC = 0x00;
     ANSELB = 0x00;
-    ANSELA = 0x22;
+    ANSELA = 0x20;
 
     /**
     WPUx registers

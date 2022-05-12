@@ -18,7 +18,7 @@
 
 #define HALF_TIMER_FREQ     ((uint32_t)2000000)
 
-// #define SPEAKERTONE_TEST
+#define SPEAKERTONE_TEST
 
 
 //==============================================================================
@@ -35,16 +35,16 @@ volatile uint16_t timer3ReloadVal;
 
 void SpeakerTone_Init(void) {
     // Initialize required libraries
-    TMR3_Initialize();
     CCP4_Initialize();
+    TMR3_Initialize();
 
     // speakerTone pin is OUTPUT (init LOW)
-    PIC16_SetPin(A4, OUTPUT);
-    PIC16_WritePin(A4, LOW);
+    SET_A4() = OUTPUT;
+    WRITE_A4() = LOW;
 
     // spkrSdwn pin low disables amp. high enables amp.
-    PIC16_SetPin(B7, OUTPUT);
-    PIC16_WritePin(B7, LOW);
+    SET_B7() = OUTPUT;
+    WRITE_B7() = LOW;
 
     // Default tone/ocCount pair corresponds to 440Hz
     currFreq = DEFAULT_TONE;
@@ -59,11 +59,13 @@ void SpeakerTone_Init(void) {
 uint8_t SpeakerTone_SetFrequency(uint16_t newFrequency) {
     if ((newFrequency < MIN_FREQ) || (newFrequency > MAX_FREQ)) {
         return ERROR;
-    } else {
+    } else {        
         // Store user-assigned frequency & calculate required ocCount
         currFreq = newFrequency;
         ocCount = (uint16_t) (HALF_TIMER_FREQ / newFrequency);
 
+        TMR3_Reload();
+        
         // Update output compare match value
         CCP4_SetCompareCount(ocCount);
         return SUCCESS;
@@ -79,8 +81,11 @@ uint16_t SpeakerTone_GetFrequency(void) {
 //------------------------------------------------------------------------------
 
 void CCP4_Initialize(void) {
-    // PPS module to connect CCP4 output to pin RA4
-    RA4PPS = 0x0F; //RA4->CCP4:CCP4;
+    TRISAbits.TRISA4 = OUTPUT;
+    LATAbits.LATA4 = LOW;
+    
+    // Peripheral pin select [PPS] module config
+    RA4PPS = 0x0F;          //RA4->CCP4:CCP4; 
 
     // CCP4MODE Toggle_cleartmr; CCP4OUT 0; CCP4EN enabled; CCP4FMT right_aligned; 
     CCP4CON = 0x81;
@@ -145,8 +150,8 @@ void TMR3_Initialize(void) {
     // Load the TMR value to reload variable
     timer3ReloadVal = (uint16_t) ((TMR3H << 8) | TMR3L);
 
-    // T3CKPS 1:2; T3SOSC T3CKI_enabled; T3SYNC do_not_synchronize; TMR3CS FOSC/4; TMR3ON enabled; 
-    T3CON = 0x14;
+    // T3CKPS 1:2; T3SOSC T3CKI_enabled; T3SYNC synchronized; TMR3CS FOSC/4; TMR3ON disabled; 
+    T3CON = 0x10;
 }
 
 //------------------------------------------------------------------------------
@@ -169,7 +174,6 @@ uint16_t TMR3_ReadTimer(void) {
     uint16_t readVal;
     uint8_t readValHigh;
     uint8_t readValLow;
-
 
     readValLow = TMR3L;
     readValHigh = TMR3H;
@@ -195,18 +199,6 @@ void TMR3_Reload(void) {
 
 //------------------------------------------------------------------------------
 
-void TMR3_StartSinglePulseAcquisition(void) {
-    T3GCONbits.T3GGO_nDONE = 1;
-}
-
-//------------------------------------------------------------------------------
-
-uint8_t TMR3_CheckGateValueStatus(void) {
-    return (T3GCONbits.T3GVAL);
-}
-
-//------------------------------------------------------------------------------
-
 bool TMR3_HasOverflowOccured(void) {
     // check if  overflow has occurred by checking the TMRIF bit
     return (PIR3bits.TMR3IF);
@@ -224,38 +216,38 @@ void SpeakerTone_Off(void) {
 //------------------------------------------------------------------------------
 
 void SpeakerTone_On(void) {
-    TMR3_StartTimer(); // resume TMR3 ticks
     PIC16_WritePin(B7, HIGH); // start up amplifier
+    TMR3_StartTimer(); // resume TMR3 ticks
     return;
 }
 
 //------------------------------------------------------------------------------
 
 void SpeakerTone_StartupChirp(void) {
-    uint32_t currMilli, prevMilli;
+    uint32_t curr, prev;
     RESET_WDT();
 
     // Play C4 for 200ms
     SpeakerTone_SetFrequency(TONE_C4);
     SpeakerTone_On();
-    prevMilli = FRT_GetMillis();
+    prev = FRT_GetMillis();
     do {
-        currMilli = FRT_GetMillis();
-    } while (currMilli < (prevMilli + 200));
+        curr = FRT_GetMillis();
+    } while ((curr - prev) < 200);
 
     // Play E4 for 200ms
     SpeakerTone_SetFrequency(TONE_E4);
-    prevMilli = FRT_GetMillis();
+    prev = FRT_GetMillis();
     do {
-        currMilli = FRT_GetMillis();
-    } while (currMilli < (prevMilli + 200));
+        curr = FRT_GetMillis();
+    } while ((curr - prev) < 200);
 
     // Play G4 for 200ms
     SpeakerTone_SetFrequency(TONE_G4);
-    prevMilli = FRT_GetMillis();
+    prev = FRT_GetMillis();
     do {
-        currMilli = FRT_GetMillis();
-    } while (currMilli < (prevMilli + 200));
+        curr = FRT_GetMillis();
+    } while ((curr - prev) < 200);
 
     RESET_WDT();
     
@@ -266,30 +258,30 @@ void SpeakerTone_StartupChirp(void) {
 //------------------------------------------------------------------------------
 
 void SpeakerTone_ShutdownChirp(void) {
-    uint32_t currMilli, prevMilli;
+    uint32_t curr, prev;
     RESET_WDT();
 
     // Play C4 for 200ms
     SpeakerTone_SetFrequency(TONE_G4);
     SpeakerTone_On();
-    prevMilli = FRT_GetMillis();
+    prev = FRT_GetMillis();
     do {
-        currMilli = FRT_GetMillis();
-    } while (currMilli < (prevMilli + 200));
+        curr = FRT_GetMillis();
+    } while ((curr - prev) < 200);
 
     // Play E4 for 200ms
     SpeakerTone_SetFrequency(TONE_E4);
-    prevMilli = FRT_GetMillis();
+    prev = FRT_GetMillis();
     do {
-        currMilli = FRT_GetMillis();
-    } while (currMilli < (prevMilli + 200));
+        curr = FRT_GetMillis();
+    } while ((curr - prev) < 200);
 
     // Play G4 for 200ms
     SpeakerTone_SetFrequency(TONE_C4);
-    prevMilli = FRT_GetMillis();
+    prev = FRT_GetMillis();
     do {
-        currMilli = FRT_GetMillis();
-    } while (currMilli < (prevMilli + 200));
+        curr = FRT_GetMillis();
+    } while ((curr - prev) < 200);
 
     RESET_WDT();
     
@@ -316,17 +308,16 @@ int main(void) {
     PIC16_Init();
     FRT_Init();
     SpeakerTone_Init(); // speakerTone pinRA4
-
-    SET_B7() = OUTPUT;
-    WRITE_B7() = HIGH;
+    CCPTMRS = 0b10010000;
 
     RESET_WDT();
 
     printf("//=== SpeakerTone.c ===//\n");
     printf("SPEAKERTONE_TEST - Last compiled on %s at %s\n", __DATE__, __TIME__);
-    uint16_t currMilli = FRT_GetMillis();
-    uint16_t prevMilli = currMilli;
+    uint32_t currMilli = FRT_GetMillis();
+    uint32_t prevMilli = currMilli;
     uint8_t i = 0;
+    
     while (1) {
         /*
          * NOTE:    WDT will force a reset if not cleared 

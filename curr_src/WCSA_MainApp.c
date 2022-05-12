@@ -42,7 +42,12 @@ int main(void) {
      *          - Gather initial required data
      */
     SpeakerTone_StartupChirp();
+    
+    uint32_t currMilli, prevMilli;
+    currMilli = FRT_GetMillis();
+    prevMilli = currMilli;
      
+    uint8_t upOrDown = 1;
     
     // ========== PRIMARY LOOP =========== //
     /*
@@ -50,6 +55,21 @@ int main(void) {
      *          - Program this bish
      */
     while(1) {
+        RESET_WDT();
+        currMilli = FRT_GetMillis();
+        
+        if((currMilli - prevMilli) >= 2000) {
+            if(upOrDown == 1) {
+                SpeakerTone_StartupChirp();
+                upOrDown = 0;
+            }
+            else if(upOrDown == 0) {
+                SpeakerTone_ShutdownChirp();
+                upOrDown = 1;
+            }
+            
+            prevMilli = currMilli;
+        }
         
     }
     

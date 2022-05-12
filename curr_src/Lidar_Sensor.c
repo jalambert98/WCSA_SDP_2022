@@ -287,8 +287,8 @@ int main(void) {
     printf("//=== Lidar_Sensor.c ===//\n");
     printf("LIDAR_AUTO_READ_TEST - Last compiled on %s at %s\n\n", __DATE__, __TIME__);
     
-    unsigned long currMilli = FRT_GetMillis();
-    unsigned long prevMilli = currMilli;
+    uint32_t currMilli = FRT_GetMillis();
+    uint32_t prevMilli = currMilli;
 
     while (1) {
         /*

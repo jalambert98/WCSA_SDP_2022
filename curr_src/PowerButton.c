@@ -21,7 +21,7 @@
 //-------------------------------- #DEFINES ------------------------------------
 //==============================================================================
 
-#define POWERBUTTON_TEST
+// #define POWERBUTTON_TEST
 
 
 //==============================================================================
@@ -86,7 +86,6 @@ void CCP3_CaptureISR(void) {
      * NOTE:    This shutdown routine only runs after detecting
      *          a FALLING EDGE on GPIO pinRA2. 
      */
-
     gpioHigh = READ_A2();
 
     // abort shutdown if RA2 is high before ISR runs

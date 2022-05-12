@@ -35,7 +35,7 @@ void __interrupt() INTERRUPT_InterruptManager (void)
         else if(PIE4bits.CCP3IE == 1 && PIR4bits.CCP3IF == 1)
         {
             CCP3_CaptureISR();
-        } 
+        }
         else if(PIE4bits.CCP4IE == 1 && PIR4bits.CCP4IF == 1)
         {
             CCP4_CompareISR();

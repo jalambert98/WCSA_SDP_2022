@@ -217,8 +217,8 @@ int main(void) {
     MotorControl_On();
     
     // Init microsecond counters to current time
-    unsigned long currMicro = FRT_GetMicros();
-    unsigned long prevMicro = currMicro;
+    uint32_t currMicro = FRT_GetMicros();
+    uint32_t prevMicro = currMicro;
     
     // Main loop //
     while(1) {

@@ -294,46 +294,6 @@ void TMR3_Reload(void);
 //------------------------------------------------------------------------------
 /**
   @Summary
-    Starts the single pulse acquisition in TMR3 gate operation.
-
-  @Description
-    This function starts the single pulse acquisition in TMR3 gate operation.
-    This function must be used when the TMR3 gate is enabled.
-
-  @Preconditions
-    Initialize  the TMR3 with gate enable before calling this function.
-
-  @Param
-    None
-
-  @Returns
-    None
-*/
-void TMR3_StartSinglePulseAcquisition(void);
-
-//------------------------------------------------------------------------------
-/**
-  @Summary
-    Check the current state of Timer1 gate.
-
-  @Description
-    This function reads the TMR3 gate value and return it.
-    This function must be used when the TMR3 gate is enabled.
-
-  @Preconditions
-    Initialize  the TMR3 with gate enable before calling this function.
-
-  @Param
-    None
-
-  @Returns
-    None
-*/
-uint8_t TMR3_CheckGateValueStatus(void);
-
-//------------------------------------------------------------------------------
-/**
-  @Summary
     Boolean routine to poll or to check for the overflow flag on the fly.
 
   @Description
