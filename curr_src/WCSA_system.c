@@ -74,8 +74,8 @@ void WDT_Initialize(void) {
 //------------------------------------------------------------------------------
 
 void PMD_Initialize(void) {
-    // CLKRMD CLKR disabled; SYSCMD SYSCLK enabled; FVRMD FVR enabled; IOCMD IOC enabled; NVMMD NVM enabled; 
-    PMD0 = 0x03;
+    // CLKRMD CLKR enabled; SYSCMD SYSCLK enabled; FVRMD FVR enabled; IOCMD IOC enabled; NVMMD NVM enabled; 
+    PMD0 = 0x01;
     // TMR0MD TMR0 disabled; TMR1MD TMR1 enabled; TMR4MD TMR4 disabled; TMR5MD TMR5 disabled; TMR2MD TMR2 enabled; TMR3MD TMR3 enabled; NCOMD DDS(NCO) enabled; TMR6MD TMR6 disabled; 
     PMD1 = 0x71;
     // DACMD DAC disabled; CMP1MD CMP1 disabled; ADCMD ADC enabled; CMP2MD CMP2 disabled; 

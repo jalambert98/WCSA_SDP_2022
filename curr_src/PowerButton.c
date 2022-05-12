@@ -40,12 +40,6 @@ void PowerButton_Init(void) {
     SET_A2() = INPUT; // configured as input on startup
     gpioHigh = READ_A2(); // read initial value
 
-    if (gpioHigh == LOW) { // GPIO pin should NOT be LOW on startup
-        printf("ERROR: GPIO pin in 'PowerButton.c' was LOW on startup!\n");
-        while (1); // block CPU instructions until WDT forces reset
-    }
-    // else --> (gpioHigh == HIGH)... so finish Initialization...
-
     /* CCP3 configured to pin RA2 
      * & ISR runs on FALLING edges */
     CCP3_Initialize();
@@ -88,19 +82,19 @@ void CCP3_CaptureISR(void) {
      */
     gpioHigh = READ_A2();
 
+    // Clear the CCP3 interrupt flag
+    PIR4bits.CCP3IF = 0;
+        
     // abort shutdown if RA2 is high before ISR runs
     if (gpioHigh == HIGH) {
         return;
-    } 
+    }
     
     else {
         SpeakerTone_ShutdownChirp();
 
         SET_A2() = OUTPUT;
         WRITE_A2() = LOW;
-
-        // Clear the CCP3 interrupt flag
-        PIR4bits.CCP3IF = 0;
 
         while (1); // block CPU instruction until system shuts down
     }
