@@ -33,6 +33,24 @@ void PowerButton_Init(void);
 
 //------------------------------------------------------------------------------
 /**
+ * @funct   PowerButton_ForceShutdown()
+ * @param   None
+ * @return  None
+ * @brief   Reconfigures RA2 as an OUTPUT, drives RA2 LOW, and then blocks CPU
+ * @author  Jack Lambert, 2022.05.09 */
+void PowerButton_ForceShutdown(void) ;
+
+//------------------------------------------------------------------------------
+/**
+ * @funct   PowerButton_ForceShutdown()
+ * @param   None
+ * @return  None
+ * @brief   TRUE if power button was pressed. FALSE if not.
+ * @author  Jack Lambert, 2022.05.09 */
+uint8_t PowerButton_WasBtnPressed(void);
+
+//------------------------------------------------------------------------------
+/**
   @Summary
     Initializes the CCP3
 

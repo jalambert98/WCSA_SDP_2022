@@ -76,18 +76,6 @@ void ADCBuffer_Init(void);
  */
 void ADCBuffer_AddData(unsigned int newVal);
 
-//------------------------------------------------------------------------------
-/*
- * @funct:  unsigned int ADCBuffer_GetFilteredReading()
- * 
- * @param:  None
- * @return: unsigned int    -   Output of LPF (running avg) of vals
- * @brief:  Returns the current filtered reading of the ADC
- * @author: Jack Lambert <joalambe@ucsc.edu>
- *          April 15, 2021
- */
-unsigned int ADCBuffer_GetFilteredReading(void);
-
 
 //==============================================================================
 //------------------------------ PUBLIC LIBRARY --------------------------------
@@ -188,6 +176,7 @@ adc_result_t ADC_GetConversion(adc_channel_t channel) {
 
 void ADC_ISR(void) {
     adcReading = ADC_GetConversionResult();
+    ADCBuffer_AddData(adcReading);
     
     // Clear the ADC interrupt flag
     PIR1bits.ADIF = 0;
@@ -221,7 +210,7 @@ void ADCBuffer_AddData(unsigned int newVal) {
 
 //------------------------------------------------------------------------------
 
-unsigned int ADCBuffer_GetFilteredReading(void) {
+uint16_t ADCBuffer_GetFilteredReading(void) {
     uint32_t sumResult = 0; // Running sum of each currProduct
     uint8_t iVals = ADCBuffer.tail; // Starting index for vals[] array
     uint8_t iFilter = 0; // Index for weightsLPF[] array
@@ -233,7 +222,7 @@ unsigned int ADCBuffer_GetFilteredReading(void) {
     } while (iFilter < BUFFER_SIZE); // perform for all BUFFER_SIZE vals
 
     // Shift to "divide" by sum of all filter weights
-    unsigned int filtered = (sumResult >> BUFFER_SHIFT);
+    uint16_t filtered = (sumResult >> BUFFER_SHIFT);
     return filtered;
 }
 
@@ -272,6 +261,7 @@ int main(void) {
     adc_result_t currReading = 0;
     adc_result_t filteredReading = 0;
     uint8_t batteryLow = 0;
+    
 
     // ----- primary loop behavior ----- //
     while (1) {
@@ -294,7 +284,6 @@ int main(void) {
              */
 
             currReading = ADC_GetCurrReading();
-            ADCBuffer_AddData(currReading);
             filteredReading = ADCBuffer_GetFilteredReading();
             
             if (filteredReading > ADC_THRESHOLD) { // if pinRA5 reads > 1.6V

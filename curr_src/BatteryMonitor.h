@@ -223,6 +223,18 @@ void ADC_ISR(void);
 adc_result_t ADC_GetCurrReading(void);
 
 //------------------------------------------------------------------------------
+/*
+ * @funct:  unsigned int ADCBuffer_GetFilteredReading()
+ * 
+ * @param:  None
+ * @return: uint16_t    -   Output of LPF (running avg) of vals
+ * @brief:  Returns the current filtered reading of the ADC
+ * @author: Jack Lambert <joalambe@ucsc.edu>
+ *          April 15, 2021
+ */
+uint16_t ADCBuffer_GetFilteredReading(void);
+
+//------------------------------------------------------------------------------
 
 #endif	/* BATTERYMONITOR_H */
 

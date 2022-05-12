@@ -66,7 +66,7 @@ uint8_t SpeakerTone_SetFrequency(uint16_t newFrequency) {
         
         // Update output compare match value
         CCP4_SetCompareCount(ocCount);
-        TMR3_Reload();
+        //TMR3_Reload();
         return SUCCESS;
     }
 }
@@ -245,30 +245,20 @@ void SpeakerTone_On(void) {
 //------------------------------------------------------------------------------
 
 void SpeakerTone_StartupChirp(void) {
-    uint32_t curr, prev;
     RESET_WDT();
 
     // Play C4 for 200ms
-    prev = FRT_GetMillis();
     SpeakerTone_SetFrequency(TONE_C4);
     SpeakerTone_On();
-    do {
-        curr = FRT_GetMillis();
-    } while ((curr - prev) < 200);
+    __delay_ms(200);
 
     // Play E4 for 200ms
-    prev = FRT_GetMillis();
     SpeakerTone_SetFrequency(TONE_E4);
-    do {
-        curr = FRT_GetMillis();
-    } while ((curr - prev) < 200);
+    __delay_ms(200);
 
     // Play G4 for 200ms
-    prev = FRT_GetMillis();
     SpeakerTone_SetFrequency(TONE_G4);
-    do {
-        curr = FRT_GetMillis();
-    } while ((curr - prev) < 200);
+    __delay_ms(200);
 
     RESET_WDT();
     
@@ -279,30 +269,20 @@ void SpeakerTone_StartupChirp(void) {
 //------------------------------------------------------------------------------
 
 void SpeakerTone_ShutdownChirp(void) {
-    uint32_t curr, prev;
     RESET_WDT();
 
     // Play C4 for 200ms
     SpeakerTone_SetFrequency(TONE_G4);
     SpeakerTone_On();
-    prev = FRT_GetMillis();
-    do {
-        curr = FRT_GetMillis();
-    } while ((curr - prev) < 200);
+    __delay_ms(200);
 
     // Play E4 for 200ms
     SpeakerTone_SetFrequency(TONE_E4);
-    prev = FRT_GetMillis();
-    do {
-        curr = FRT_GetMillis();
-    } while ((curr - prev) < 200);
+    __delay_ms(200);
 
     // Play G4 for 200ms
     SpeakerTone_SetFrequency(TONE_C4);
-    prev = FRT_GetMillis();
-    do {
-        curr = FRT_GetMillis();
-    } while ((curr - prev) < 200);
+    __delay_ms(200);
 
     RESET_WDT();
     

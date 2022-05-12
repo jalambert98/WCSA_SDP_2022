@@ -28,7 +28,7 @@
 //---------------------------- STATIC VARIABLES --------------------------------
 //==============================================================================
 
-static volatile uint8_t gpioHigh;
+static volatile uint8_t gpioFlag;
 
 
 //==============================================================================
@@ -38,11 +38,33 @@ static volatile uint8_t gpioHigh;
 void PowerButton_Init(void) {
     // Pin[RA2] = GPIO pin for Soft-Switching Power Button circuit
     SET_A2() = INPUT; // configured as input on startup
-    gpioHigh = READ_A2(); // read initial value
+    gpioFlag = LOW;
 
     /* CCP3 configured to pin RA2 
      * & ISR runs on FALLING edges */
     CCP3_Initialize();
+}
+
+//------------------------------------------------------------------------------
+
+void PowerButton_ForceShutdown(void) {
+    // Drive GPIO pin LOW in FET latching circuit
+    gpioFlag = HIGH;
+    SET_A2() = OUTPUT;
+    WRITE_A2() = LOW;
+    
+    WRITE_C0() = LOW;   // general debug LED
+    
+    // block further CPU instruction
+    while(1) {
+        RESET_WDT();
+    }
+}
+
+//------------------------------------------------------------------------------
+
+uint8_t PowerButton_WasBtnPressed(void) {
+    return gpioFlag;
 }
 
 //------------------------------------------------------------------------------
@@ -80,24 +102,18 @@ void CCP3_CaptureISR(void) {
      * NOTE:    This shutdown routine only runs after detecting
      *          a FALLING EDGE on GPIO pinRA2. 
      */
-    gpioHigh = READ_A2();
+    uint8_t stillHigh = READ_A2();
 
     // Clear the CCP3 interrupt flag
     PIR4bits.CCP3IF = 0;
         
     // abort shutdown if RA2 is high before ISR runs
-    if (gpioHigh == HIGH) {
+    if (stillHigh == LOW) {
         return;
     }
-    
     else {
-        SpeakerTone_ShutdownChirp();
-
-        SET_A2() = OUTPUT;
-        WRITE_A2() = LOW;
-
-        while (1); // block CPU instruction until system shuts down
-    }
+        gpioFlag = HIGH;
+    } 
 }
 
 

@@ -28,13 +28,13 @@ void __interrupt() INTERRUPT_InterruptManager (void)
         {
             EUSART_RxDefaultInterruptHandler();
         }
-        else if(PIE4bits.CCP4IE == 1 && PIR4bits.CCP4IF == 1)
-        {
-            CCP4_CompareISR();
-        } 
         else if(PIE1bits.TXIE == 1 && PIR1bits.TXIF == 1)
         {
             EUSART_TxDefaultInterruptHandler();
+        } 
+        else if(PIE4bits.CCP4IE == 1 && PIR4bits.CCP4IF == 1)
+        {
+            CCP4_CompareISR();
         } 
         else if(PIE4bits.CCP3IE == 1 && PIR4bits.CCP3IF == 1)
         {
