@@ -8,8 +8,6 @@
 //------------------------------------------------------------------------------
 
 #include "SpeakerTone.h"
-#include "WCSA_system.h"
-#include "FRT.h"
 
 // Speaker Output Pin = [RA4]
 //==============================================================================
@@ -18,7 +16,7 @@
 
 #define HALF_TIMER_PERIOD       ((uint32_t)4000000)
 
-// #define SPEAKERTONE_TEST
+#define SPEAKERTONE_TEST
 
 
 //==============================================================================
@@ -59,11 +57,11 @@ void SpeakerTone_Init(void) {
 uint8_t SpeakerTone_SetFrequency(uint16_t newFrequency) {
     if ((newFrequency < MIN_FREQ) || (newFrequency > MAX_FREQ)) {
         return ERROR;
-    } else {        
+    } else {
         // Store user-assigned frequency & calculate required ocCount
         currFreq = newFrequency;
         ocCount = (uint16_t) (HALF_TIMER_PERIOD / newFrequency);
-        
+
         // Update output compare match value
         CCP4_SetCompareCount(ocCount);
         //TMR3_Reload();
@@ -79,25 +77,25 @@ uint16_t SpeakerTone_GetFrequency(void) {
 
 //------------------------------------------------------------------------------
 
-void CCP4_Initialize(void) {    
+void CCP4_Initialize(void) {
     TRISAbits.TRISA4 = OUTPUT;
     LATAbits.LATA4 = LOW;
-    
-    // Peripheral pin select [PPS] module config
-    RA4PPS = 0x0F;          //RA4->CCP4:CCP4; 
-    
-	// CCP4MODE Toggle_cleartmr; CCP4OUT 0; CCP4EN enabled; CCP4FMT right_aligned; 
-	CCP4CON = 0x81;    
-	
-	// CCPR4H 0; 
-	CCPR4H = 0x00;    
-	
-	// CCPR4L 0; 
-	CCPR4L = 0x00;    
 
-	// Selecting Timer 3
-	CCPTMRSbits.C4TSEL = 0x2;
-    
+    // Peripheral pin select [PPS] module config
+    RA4PPS = 0x0F; //RA4->CCP4:CCP4; 
+
+    // CCP4MODE Toggle_cleartmr; CCP4OUT 0; CCP4EN enabled; CCP4FMT right_aligned; 
+    CCP4CON = 0x81;
+
+    // CCPR4H 0; 
+    CCPR4H = 0x00;
+
+    // CCPR4L 0; 
+    CCPR4L = 0x00;
+
+    // Selecting Timer 3
+    CCPTMRSbits.C4TSEL = 0x2;
+
     // Clear the CCP4 interrupt flag
     PIR4bits.CCP4IF = 0;
 
@@ -133,8 +131,7 @@ void CCP4_CompareISR(void) {
 
 //------------------------------------------------------------------------------
 
-void TMR3_Initialize(void)
-{
+void TMR3_Initialize(void) {
     //T3GSS T3G_pin; TMR3GE disabled; T3GTM disabled; T3GPOL low; T3GGO_nDONE done; T3GSPM disabled; 
     T3GCON = 0x00;
 
@@ -146,9 +143,9 @@ void TMR3_Initialize(void)
 
     // Clearing IF flag.
     PIR3bits.TMR3IF = 0;
-	
+
     // Load the TMR value to reload variable
-    timer3ReloadVal=(uint16_t)((TMR3H << 8) | TMR3L);
+    timer3ReloadVal = (uint16_t) ((TMR3H << 8) | TMR3L);
 
     // T3CKPS 1:1; T3SOSC T3CKI_enabled; T3SYNC synchronize; TMR3CS FOSC/4; TMR3ON disabled; 
     T3CON = 0x00;
@@ -156,65 +153,57 @@ void TMR3_Initialize(void)
 
 //------------------------------------------------------------------------------
 
-void TMR3_StartTimer(void)
-{
+void TMR3_StartTimer(void) {
     // Start the Timer by writing to TMRxON bit
     T3CONbits.TMR3ON = 1;
 }
 
 //------------------------------------------------------------------------------
 
-void TMR3_StopTimer(void)
-{
+void TMR3_StopTimer(void) {
     // Stop the Timer by writing to TMRxON bit
     T3CONbits.TMR3ON = 0;
 }
 
 //------------------------------------------------------------------------------
 
-uint16_t TMR3_ReadTimer(void)
-{
+uint16_t TMR3_ReadTimer(void) {
     uint16_t readVal;
     uint8_t readValHigh;
     uint8_t readValLow;
-    
-	
+
+
     readValLow = TMR3L;
     readValHigh = TMR3H;
-    
-    readVal = ((uint16_t)readValHigh << 8) | readValLow;
+
+    readVal = ((uint16_t) readValHigh << 8) | readValLow;
 
     return readVal;
 }
 
 //------------------------------------------------------------------------------
 
-void TMR3_WriteTimer(uint16_t timerVal)
-{
-    if (T3CONbits.T3SYNC == 1)
-    {
+void TMR3_WriteTimer(uint16_t timerVal) {
+    if (T3CONbits.T3SYNC == 1) {
         // Stop the Timer by writing to TMRxON bit
         T3CONbits.TMR3ON = 0;
 
         // Write to the Timer3 register
-        TMR3H = (uint8_t)(timerVal >> 8);
-        TMR3L = (uint8_t)timerVal;
+        TMR3H = (uint8_t) (timerVal >> 8);
+        TMR3L = (uint8_t) timerVal;
 
         // Start the Timer after writing to the register
-        T3CONbits.TMR3ON =1;
-    }
-    else
-    {
+        T3CONbits.TMR3ON = 1;
+    } else {
         // Write to the Timer3 register
-        TMR3H = (uint8_t)(timerVal >> 8);
-        TMR3L = (uint8_t)timerVal;
+        TMR3H = (uint8_t) (timerVal >> 8);
+        TMR3L = (uint8_t) timerVal;
     }
 }
 
 //------------------------------------------------------------------------------
 
-void TMR3_Reload(void)
-{
+void TMR3_Reload(void) {
     TMR3_WriteTimer(timer3ReloadVal);
 }
 
@@ -261,7 +250,7 @@ void SpeakerTone_StartupChirp(void) {
     __delay_ms(200);
 
     RESET_WDT();
-    
+
     // Turn off amplifier
     SpeakerTone_Off();
 }
@@ -285,9 +274,113 @@ void SpeakerTone_ShutdownChirp(void) {
     __delay_ms(200);
 
     RESET_WDT();
-    
+
     // Turn off amplifier
     SpeakerTone_Off();
+}
+
+//------------------------------------------------------------------------------
+
+void SpeakerTone_LowBatteryChirp(void) {
+    RESET_WDT();
+
+    // Play G4 for 100ms
+    SpeakerTone_SetFrequency(TONE_G4);
+    SpeakerTone_On();
+    __delay_ms(100);
+
+    // Play C5 for 100ms
+    SpeakerTone_SetFrequency(TONE_C5);
+    __delay_ms(100);
+
+    // Play G4 for 100ms
+    SpeakerTone_SetFrequency(TONE_G4);
+    __delay_ms(100);
+
+    // Play C5 for 100ms
+    SpeakerTone_SetFrequency(TONE_C5);
+    __delay_ms(100);
+
+    RESET_WDT();
+
+    // Turn off amplifier
+    SpeakerTone_Off();
+}
+
+//------------------------------------------------------------------------------
+
+/*
+ * NOTE:    These sound kinda stupid tbh. We should probably change these.
+ */
+void SpeakerTone_ChargingChirp(batLvl_t batChg) {
+    RESET_WDT();
+
+    // Play C4 for 200ms
+    SpeakerTone_SetFrequency(TONE_C4);
+    SpeakerTone_On();
+    __delay_ms(200);
+
+    switch (batChg) {
+        case BAT_EMPTY:
+            SpeakerTone_Off();
+            break;
+
+        case BAT25:
+            // Play G4 for 200ms
+            SpeakerTone_SetFrequency(TONE_G4);
+            __delay_ms(200);
+            
+            SpeakerTone_Off();
+            break;
+            
+        case BAT50:
+            // Play G4 for 100ms
+            SpeakerTone_SetFrequency(TONE_G4);
+            __delay_ms(100);
+            
+            // Play A4 for 100ms
+            SpeakerTone_SetFrequency(TONE_A4);
+            __delay_ms(100);
+            
+            SpeakerTone_Off();
+            break;
+            
+        case BAT75:
+            // Play G4 for 100ms
+            SpeakerTone_SetFrequency(TONE_G4);
+            __delay_ms(100);
+            
+            // Play A4 for 100ms
+            SpeakerTone_SetFrequency(TONE_A4);
+            __delay_ms(100);
+            
+            // Play B4 for 100ms
+            SpeakerTone_SetFrequency(TONE_B4);
+            __delay_ms(100);
+            
+            SpeakerTone_Off();
+            break;
+
+        case BAT_FULL:
+            // Play G4 for 100ms
+            SpeakerTone_SetFrequency(TONE_G4);
+            __delay_ms(100);
+            
+            // Play A4 for 100ms
+            SpeakerTone_SetFrequency(TONE_A4);
+            __delay_ms(100);
+            
+            // Play B4 for 100ms
+            SpeakerTone_SetFrequency(TONE_B4);
+            __delay_ms(100);
+            
+            // Play C5 for 100ms
+            SpeakerTone_SetFrequency(TONE_C5);
+            __delay_ms(100);
+            
+            SpeakerTone_Off();
+            break;
+    }
 }
 
 
@@ -317,7 +410,7 @@ int main(void) {
     uint32_t currMilli = FRT_GetMillis();
     uint32_t prevMilli = currMilli;
     uint8_t i = 0;
-    
+
     while (1) {
         /*
          * NOTE:    WDT will force a reset if not cleared 
@@ -326,14 +419,41 @@ int main(void) {
         RESET_WDT(); // reset watchdog timer at start of each loop
 
         currMilli = FRT_GetMillis(); // update free-running timer
-        
+
         if ((currMilli - prevMilli) >= CHIRP_RATE) {
-            if (i == 0) {
-                SpeakerTone_StartupChirp();
-                i = 1;
-            } else if (i == 1) {
-                SpeakerTone_ShutdownChirp();
-                i = 0;
+            switch (i) {
+                case 0:
+                    SpeakerTone_StartupChirp();
+                    i++;
+                    break;
+                case 1:
+                    SpeakerTone_ShutdownChirp();
+                    i++;
+                    break;
+                case 2:
+                    SpeakerTone_LowBatteryChirp();
+                    i++;
+                    break;
+                case 3:
+                    SpeakerTone_ChargingChirp(BAT_EMPTY);
+                    i++;
+                    break;  
+                case 4:
+                    SpeakerTone_ChargingChirp(BAT25);
+                    i++;
+                    break;     
+                case 5:
+                    SpeakerTone_ChargingChirp(BAT50);
+                    i++;
+                    break;     
+                case 6:
+                    SpeakerTone_ChargingChirp(BAT75);
+                    i++;
+                    break;  
+                case 7:
+                    SpeakerTone_ChargingChirp(BAT_FULL);
+                    i = 0;
+                    break;
             }
 
             prevMilli = currMilli;
