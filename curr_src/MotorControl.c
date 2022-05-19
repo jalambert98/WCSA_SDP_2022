@@ -34,7 +34,7 @@ static uint16_t dutyCycle10bit;
 //==============================================================================
 
 void MotorControl_Init(void) {  
-    // Initialize required libraries
+    // Initialize required libraries    
     TMR2_Initialize();
     PWM5_Initialize();
     
@@ -48,7 +48,6 @@ void MotorControl_Init(void) {
 //------------------------------------------------------------------------------
 
 uint8_t MotorControl_SetIntensity(uint16_t dutyCycle) {
-    
     // As long as dutyCycle is within [0, 1000]...
     if (dutyCycle <= MAX_DC_PERMILLI) {
         
@@ -198,7 +197,7 @@ void MotorControl_Off(void) {
 
 
 // ======= DEFINES ======= //
-#define DC_UPDATE_RATE      25000   // update duty cycle every 25ms (40Hz)
+#define DC_UPDATE_RATE      50000   // update duty cycle every 25ms (40Hz)
 
 
 // ======= MAIN() ======= //

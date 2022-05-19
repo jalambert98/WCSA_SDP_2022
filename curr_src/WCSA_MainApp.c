@@ -13,6 +13,7 @@
 //-------------------------------- #DEFINES ------------------------------------
 //==============================================================================
 
+static uint16_t distance;
 
 
 //==============================================================================
@@ -27,18 +28,16 @@
 int main(void) {
     // ====== INITIALIZE LIBRARIES ====== //
     // First, initialize libraries for startup chirp & battery level check
-    PIC16_Init(); // PMD, Osc, PinManager, WDT, & 
-
-    /* DEBUG LED */
-    SET_C0() = OUTPUT;
-    WRITE_C0() = HIGH;
-
+    PIC16_Init(); // PMD, Osc, PinManager, & WDT
     FRT_Init(); // global milli/micro-second counters
     BatteryMonitor_Init(); // ADC, ADCBuffer, BatteryMonitor
     SpeakerTone_Init(); // TMR3, CCP4(OC), SpeakerTone
 
     // --- Play Startup Chirp --- //
     SpeakerTone_StartupChirp();
+    
+    printf("// ======= WCSA_MainApp.c ======= //\n");
+    printf("Last compiled on %s at %s\n\n", __DATE__, __TIME__);
 
     // --- Check battery level --- //
     ADC_StartConversion();
@@ -72,7 +71,9 @@ int main(void) {
     PowerButton_Init(); // soft-switching power button routines
     MotorControl_Init(); // TMR2, PWM5, MotorControl
     Lidar_Sensor_Init(); // eusart(already initialized), Lidar_Sensor
-
+    Lidar_Sensor_SetFrameRate(0);
+    Lidar_Sensor_SetOutput_mm();
+    Lidar_Sensor_Trig();
 
     // ========= REMAINING SETUP ========= //
     /*
@@ -81,6 +82,7 @@ int main(void) {
      */
 
     i = 0;
+    distance = 0;
 
     // ========== PRIMARY LOOP =========== //
     /*
@@ -91,11 +93,24 @@ int main(void) {
         RESET_WDT();
         currMilli = FRT_GetMillis();
 
-        if ((currMilli - prevMilli) >= 200) {
-            ADC_StartConversion(); // start new ADC reading
-
-            if (i == 15) { // 200ms * 15 = 3sec
-                // check gpioFlag
+        if ((currMilli - prevMilli) >= 100) {
+            distance = Lidar_Sensor_GetDistance();
+            printf("%dmm\n", distance);
+            
+            if (distance < 1000) {
+                MotorControl_SetIntensity(900);
+                MotorControl_On();
+            }
+            else {
+                MotorControl_Off();
+            }
+            
+            
+            Lidar_Sensor_Trig();
+            
+            if (i == 20) {
+                ADC_StartConversion();
+                
                 if (PowerButton_WasBtnPressed()) {
                     SpeakerTone_ShutdownChirp();
                     PowerButton_ForceShutdown();
@@ -104,14 +119,10 @@ int main(void) {
                     SpeakerTone_ShutdownChirp();
                     PowerButton_ForceShutdown();
                 } 
-                else {
-                    // play startup chirp sound
-                    SpeakerTone_StartupChirp();
-
-                    i = 0;
-                }  
-            }  
-            else { i++; }
+                i = 0;
+            }
+            else {i++;}
+            
             prevMilli = currMilli;
         }
     }

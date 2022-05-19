@@ -53,8 +53,6 @@ void PowerButton_ForceShutdown(void) {
     SET_A2() = OUTPUT;
     WRITE_A2() = LOW;
     
-    WRITE_C0() = LOW;   // general debug LED
-    
     // block further CPU instruction
     while(1) {
         RESET_WDT();

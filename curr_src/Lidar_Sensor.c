@@ -11,7 +11,7 @@
 #include "eusart.h"
 #include "pin_manager.h"
 
-// #define LIDAR_SENSOR_TEST
+#define LIDAR_SENSOR_TEST
 
 
 //------------------------------------------------------------------------------
@@ -265,9 +265,9 @@ void Lidar_Sensor_SaveSettings(void) {
 #include "FRT.h"
 
 //===============================//
-// #define LIDAR_AUTO_READ_TEST
+//#define LIDAR_AUTO_READ_TEST
 #define LIDAR_MANUAL_READ_TEST
-// #define LIDAR_TX_UPDATE
+//#define LIDAR_TX_UPDATE
 //===============================//
 
 #ifdef LIDAR_AUTO_READ_TEST
@@ -301,11 +301,11 @@ int main(void) {
         
         if ((currMilli - prevMilli) >= SAMPLE_RATE) {
             
-            printf("Dist = %u[cm]\n", Lidar_Sensor_GetDistance());
-            printf("Strength = %u\n", Lidar_Sensor_GetStrength());
-            printf("Temp = %u[degC]\n\n", Lidar_Sensor_GetTemp());
+            //printf("Dist = %u[cm]\n", Lidar_Sensor_GetDistance());
+            //printf("Strength = %u\n", Lidar_Sensor_GetStrength());
+            //printf("Temp = %u[degC]\n\n", Lidar_Sensor_GetTemp());
             
-            //printf("%u\n", Lidar_Sensor_GetDistance());
+            printf("%u\n", Lidar_Sensor_GetDistance());
         }
     }
 
@@ -325,21 +325,23 @@ int main(void) {
  */
 int main(void) {
     PIC16_Init();
+    FRT_Init();
     Lidar_Sensor_Init();
     
-    printf("//=== Lidar_Sensor.c ===//\n");
+    printf("\n//=== Lidar_Sensor.c ===//\n");
     printf("LIDAR_MANUAL_READ_TEST - Last compiled on %s at %s\n\n", __DATE__, __TIME__);
     
     Lidar_Sensor_Trig();
     unsigned long currMicro = FRT_GetMicros();
     unsigned long prevMicro = currMicro;
+    uint16_t dist = 0;
 
     while (1) {
         /*
          * NOTE:    WDT will force a reset if not cleared 
          *          within every 2 sec or less
          */
-        asm("CLRWDT");  // clear watchdog timer at start of each loop
+        RESET_WDT();
         
         currMicro = FRT_GetMicros();    // update free-running timer
         
@@ -350,7 +352,9 @@ int main(void) {
             printf("Temp     = %u\n\n", Lidar_Sensor_GetTemp());
              */
             
-            printf("%u\n", Lidar_Sensor_GetDistance());
+            RESET_WDT();
+            dist = Lidar_Sensor_GetDistance();
+            printf("READING: %u\n", dist);
             
             Lidar_Sensor_Trig();
             prevMicro = currMicro;

@@ -1,91 +1,132 @@
-\t (00:00:18) allegro 17.4 P001 Windows SPB 64-bit Edition
-\t (00:00:18)     Journal start - Thu May  5 10:18:15 2022
-\t (00:00:18)         Host=EVAN-PC User=Evan Mayhew Pid=9620 CPUs=4
-\t (00:00:18) CmdLine= c:\cadence\spb_17.4\tools\bin\allegro.exe C:\WCSA_GIT_STUFF\WCSA_SDP_2022\WCSA_OrCAD\WCSA_SystemSchem\WCSA_SystemSchem_4-Layer.brd
-\t (00:00:18) 
-   (00:00:18) Loading axlcore.cxt 
-\t (00:00:19) Opening existing design...
-\i (00:00:19) QtSignal SPBFoldDockArea FoldAreaTabWidget currentChanged WCSA_SystemSchem_4-Layer
-\d (00:00:19) Design opened: C:/WCSA_GIT_STUFF/WCSA_SDP_2022/WCSA_OrCAD/WCSA_SystemSchem/WCSA_SystemSchem_4-Layer.brd
-\i (00:00:20) trapsize 2939
-\i (00:00:20) trapsize 3070
-\i (00:00:20) trapsize 2939
-\i (00:00:21) trapsize 2939
-\i (00:00:21) trapsize 1857
-\i (00:00:22) generaledit 
-\i (00:00:32) shape change type 
-\i (00:00:50) zoom in 0.100000 
-\i (00:00:50) setwindow pcb
-\i (00:00:50) zoom in -1306.12 309.02 0.1
-\i (00:00:50) trapsize 1688
-\i (00:00:50) zoom in 0.100000 
-\i (00:00:50) setwindow pcb
-\i (00:00:50) zoom in -1302.74 305.65 0.1
-\i (00:00:50) trapsize 1535
-\i (00:00:50) zoom in 0.100000 
-\i (00:00:50) setwindow pcb
-\i (00:00:50) zoom in -1299.66 305.65 0.1
-\i (00:00:50) trapsize 1395
-\i (00:00:50) zoom in 0.100000 
-\i (00:00:50) setwindow pcb
-\i (00:00:50) zoom in -1294.08 305.66 0.1
-\i (00:00:50) trapsize 1269
-\i (00:00:52) prepopup -847.53 424.91
-\i (00:00:53) pick grid -1042.89 427.45
-\t (00:00:53) last pick:  -1043.00 427.00
-\i (00:00:53) prepopup -733.36 414.77
-\i (00:00:54) cancel 
-\i (00:00:54) generaledit 
-\i (00:00:58) pick grid -910.96 452.82
-\t (00:00:58) last pick:  -911.00 453.00
-\i (00:00:59) pick grid -1273.78 465.51
-\t (00:00:59) last pick:  -1274.00 466.00
-\i (00:00:59) prepopup -1063.19 762.36
-\i (00:01:00) pick grid -1159.60 780.12
-\t (00:01:00) last pick:  -1160.00 780.00
-\i (00:01:04) shape edit boundary 
-\i (00:01:05) pick grid -867.83 440.14
-\t (00:01:05) last pick:  -868.00 440.00
-\t (00:01:05) Pick the edit starting point on the shape boundary.
-\i (00:01:21) setwindow form.mini
-\i (00:01:21) FORM mini subclass DCV 
-\i (00:01:23) setwindow pcb
-\i (00:01:23) prepopup 1364.89 625.35
-\i (00:01:25) done 
-\i (00:01:26) generaledit 
-\i (00:01:28) prepopup 898.05 714.15
-\i (00:01:29) pick grid 1184.75 881.61
-\t (00:01:29) last pick:  1185.00 882.00
-\i (00:01:32) QtSignal ColorVisibilityPane CVPViewDropdown CurrentIndexChanged "Film: DCV"
-\i (00:01:32) QtSignal ColorVisibilityPane CVPViewDropdown activated "Film: DCV"
-\i (00:01:34) pick grid -812.01 214.33
-\t (00:01:34) last pick:  -812.00 214.00
-\i (00:01:36) QtSignal ColorVisibilityPane CVPViewDropdown CurrentIndexChanged "Film: GND"
-\i (00:01:36) QtSignal ColorVisibilityPane CVPViewDropdown activated "Film: GND"
-\i (00:01:41) shape edit boundary 
-\i (00:01:41) prepopup -794.25 678.63
-\i (00:01:41) pick grid -794.25 681.17
-\t (00:01:41) last pick:  -794.00 681.00
-\t (00:01:41) Pick the edit starting point on the shape boundary.
-\i (00:01:43) setwindow form.mini
-\i (00:01:43) FORM mini subclass DCV 
-\i (00:01:44) FORM mini subcolor 1 
-\i (00:01:44) FORM mini subcolor 0 
-\i (00:01:45) FORM mini subcolor 1 
-\i (00:01:45) FORM mini subcolor 0 
-\i (00:01:46) FORM mini subclass GND 
-\i (00:01:47) setwindow pcb
-\i (00:01:47) pick grid 639.26 668.48
-\t (00:01:47) last pick:  639.00 668.00
-\w (00:01:47) WARNING(SPMHGE-615): Nothing found ... pick selected shape boundary.
-\i (00:01:51) QtSignal ColorVisibilityPane CVPViewDropdown activated "Film: GND"
-\i (00:01:52) pick grid -1154.53 559.39
-\t (00:01:52) last pick:  -1155.00 559.00
-\w (00:01:52) WARNING(SPMHGE-615): Nothing found ... pick selected shape boundary.
-\i (00:02:00) pick grid -1050.51 389.39
-\t (00:02:00) last pick:  -1051.00 389.00
-\w (00:02:00) WARNING(SPMHGE-615): Nothing found ... pick selected shape boundary.
-\i (00:02:00) exit 
-\e (00:02:00) Do you want to save the changes you made to WCSA_SystemSchem_4-Layer.brd?
-\i (00:02:01) fillin no 
-\t (00:02:05)     Journal end - Thu May  5 10:20:01 2022
+\t (00:00:02) allegro 17.4 S013 Windows SPB 64-bit Edition
+\t (00:00:02)     Journal start - Wed May 18 20:20:46 2022
+\t (00:00:02)         Host=KENANS-PC User=kenan Pid=9960 CPUs=8
+\t (00:00:02) CmdLine= c:\cadence\spb_17.4\tools\bin\allegro.exe C:\Users\kenan\Desktop\WSCA\WCSA_SDP_2022\WCSA_OrCAD\WCSA_SystemSchem\WCSA_SystemSchem_4-Layer.brd
+\t (00:00:02) 
+   (00:00:02) Loading axlcore.cxt 
+\t (00:00:05) Opening existing design...
+\i (00:00:05) QtSignal SPBFoldDockArea FoldAreaTabWidget currentChanged "WCSA_SystemSchem_4-Layer"
+\d (00:00:05) Design opened: C:/Users/kenan/Desktop/WSCA/WCSA_SDP_2022/WCSA_OrCAD/WCSA_SystemSchem/WCSA_SystemSchem_4-Layer.brd
+\i (00:00:05) trapsize 1113
+\i (00:00:05) trapsize 1149
+\i (00:00:05) trapsize 1156
+\i (00:00:05) trapsize 919
+\i (00:00:05) trapsize 919
+\i (00:00:05) trapsize 622
+\i (00:00:06) placementedit 
+\i (00:00:07) zoom out 0.100000 
+\i (00:00:07) setwindow pcb
+\i (00:00:07) zoom out -1111.75 152.87 0.1
+\i (00:00:07) trapsize 684
+\i (00:00:08) zoom out 0.100000 
+\i (00:00:08) setwindow pcb
+\i (00:00:08) zoom out 962.06 560.79 0.1
+\i (00:00:08) trapsize 753
+\i (00:00:08) zoom in 0.100000 
+\i (00:00:08) setwindow pcb
+\i (00:00:08) zoom in 579.61 892.06 0.1
+\i (00:00:08) trapsize 684
+\i (00:00:08) zoom in 0.100000 
+\i (00:00:08) setwindow pcb
+\i (00:00:08) zoom in 579.61 892.06 0.1
+\i (00:00:08) trapsize 622
+\i (00:00:08) zoom in 0.100000 
+\i (00:00:08) setwindow pcb
+\i (00:00:08) zoom in 579.61 892.07 0.1
+\i (00:00:08) trapsize 566
+\i (00:00:09) zoom in 0.100000 
+\i (00:00:09) setwindow pcb
+\i (00:00:09) zoom in 609.02 866.05 0.1
+\i (00:00:09) trapsize 514
+\i (00:00:09) zoom in 0.100000 
+\i (00:00:09) setwindow pcb
+\i (00:00:09) zoom in 609.03 866.05 0.1
+\i (00:00:09) trapsize 467
+\i (00:00:09) zoom in 0.100000 
+\i (00:00:09) setwindow pcb
+\i (00:00:09) zoom in 609.03 866.05 0.1
+\i (00:00:09) trapsize 425
+\i (00:00:09) zoom in 0.100000 
+\i (00:00:09) setwindow pcb
+\i (00:00:09) zoom in 609.03 866.05 0.1
+\i (00:00:09) trapsize 386
+\i (00:00:09) zoom out 0.100000 
+\i (00:00:09) setwindow pcb
+\i (00:00:09) zoom out 609.04 866.06 0.1
+\i (00:00:09) trapsize 425
+\i (00:00:09) zoom in 0.100000 
+\i (00:00:09) setwindow pcb
+\i (00:00:09) zoom in 609.03 866.06 0.1
+\i (00:00:09) trapsize 386
+\i (00:00:09) zoom in 0.100000 
+\i (00:00:09) setwindow pcb
+\i (00:00:09) zoom in 609.04 866.06 0.1
+\i (00:00:09) trapsize 351
+\i (00:00:09) zoom in 0.100000 
+\i (00:00:09) setwindow pcb
+\i (00:00:09) zoom in 609.05 866.07 0.1
+\i (00:00:09) trapsize 319
+\i (00:00:09) zoom in 0.100000 
+\i (00:00:09) setwindow pcb
+\i (00:00:09) zoom in 609.05 866.07 0.1
+\i (00:00:09) trapsize 290
+\i (00:00:09) zoom in 0.100000 
+\i (00:00:09) setwindow pcb
+\i (00:00:09) zoom in 609.05 866.08 0.1
+\i (00:00:09) trapsize 264
+\i (00:00:09) zoom in 0.100000 
+\i (00:00:09) setwindow pcb
+\i (00:00:09) zoom in 609.05 866.09 0.1
+\i (00:00:09) trapsize 240
+\i (00:00:10) zoom in 0.100000 
+\i (00:00:10) setwindow pcb
+\i (00:00:10) zoom in 609.05 866.10 0.1
+\i (00:00:10) trapsize 218
+\i (00:00:10) zoom in 0.100000 
+\i (00:00:10) setwindow pcb
+\i (00:00:10) zoom in 609.05 866.10 0.1
+\i (00:00:10) trapsize 198
+\i (00:00:10) zoom in 0.100000 
+\i (00:00:10) setwindow pcb
+\i (00:00:10) zoom in 609.04 866.10 0.1
+\i (00:00:10) trapsize 180
+\i (00:00:10) zoom in 0.100000 
+\i (00:00:10) setwindow pcb
+\i (00:00:10) zoom in 609.04 866.12 0.1
+\i (00:00:10) trapsize 164
+\i (00:00:10) zoom in 0.100000 
+\i (00:00:10) setwindow pcb
+\i (00:00:10) zoom in 609.04 866.13 0.1
+\i (00:00:10) trapsize 149
+\i (00:00:10) zoom in 0.100000 
+\i (00:00:10) setwindow pcb
+\i (00:00:10) zoom in 609.04 866.13 0.1
+\i (00:00:10) trapsize 135
+\i (00:00:11) zoom out 0.100000 
+\i (00:00:11) setwindow pcb
+\i (00:00:11) zoom out 609.05 866.14 0.1
+\i (00:00:11) trapsize 149
+\i (00:00:11) zoom out 0.100000 
+\i (00:00:11) setwindow pcb
+\i (00:00:11) zoom out 609.04 866.14 0.1
+\i (00:00:11) trapsize 164
+\i (00:00:11) zoom out 0.100000 
+\i (00:00:11) setwindow pcb
+\i (00:00:11) zoom out 609.04 866.15 0.1
+\i (00:00:11) trapsize 180
+\i (00:00:11) zoom out 0.100000 
+\i (00:00:11) setwindow pcb
+\i (00:00:11) zoom out 609.04 866.15 0.1
+\i (00:00:11) trapsize 198
+\i (00:00:11) zoom out 0.100000 
+\i (00:00:11) setwindow pcb
+\i (00:00:11) zoom out 609.04 866.14 0.1
+\i (00:00:11) trapsize 218
+\i (00:00:11) zoom out 0.100000 
+\i (00:00:11) setwindow pcb
+\i (00:00:11) zoom out 609.05 866.14 0.1
+\i (00:00:11) trapsize 240
+\i (00:43:48) exit 
+\e (00:43:48) Do you want to save the changes you made to WCSA_SystemSchem_4-Layer.brd?
+\i (00:43:49) fillin no 
+\t (00:43:49)     Journal end - Wed May 18 21:04:34 2022
