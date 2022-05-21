@@ -222,7 +222,7 @@ uint16_t ADCBuffer_GetFilteredReading(void) {
     } while (iFilter < BUFFER_SIZE); // perform for all BUFFER_SIZE vals
 
     // Shift to "divide" by sum of all filter weights
-    uint16_t filtered = (sumResult >> BUFFER_SHIFT);
+    uint16_t filtered = (uint16_t)(sumResult >> BUFFER_SHIFT);
     return filtered;
 }
 

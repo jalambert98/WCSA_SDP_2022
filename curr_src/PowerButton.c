@@ -52,9 +52,9 @@ void PowerButton_ForceShutdown(void) {
     gpioFlag = HIGH;
     SET_A2() = OUTPUT;
     WRITE_A2() = LOW;
-    
+
     // block further CPU instruction
-    while(1) {
+    while (1) {
         RESET_WDT();
     }
 }
@@ -100,18 +100,11 @@ void CCP3_CaptureISR(void) {
      * NOTE:    This shutdown routine only runs after detecting
      *          a FALLING EDGE on GPIO pinRA2. 
      */
-    uint8_t stillHigh = READ_A2();
 
     // Clear the CCP3 interrupt flag
     PIR4bits.CCP3IF = 0;
-        
-    // abort shutdown if RA2 is high before ISR runs
-    if (stillHigh == LOW) {
-        return;
-    }
-    else {
-        gpioFlag = HIGH;
-    } 
+
+    gpioFlag = HIGH;
 }
 
 

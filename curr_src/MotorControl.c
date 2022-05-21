@@ -19,7 +19,7 @@
 #define HALF_DC_PERMILLI    500     // 50.0% = half duty cycle
 #define HALF_DC_10BIT       512     // (512/1023) = half duty cycle
 
-// #define MOTORCONTROL_TEST
+//#define MOTORCONTROL_TEST
 
 //==============================================================================
 //---------------------------- STATIC VARIABLES --------------------------------
@@ -34,6 +34,9 @@ static uint16_t dutyCycle10bit;
 //==============================================================================
 
 void MotorControl_Init(void) {  
+    SET_C1() = OUTPUT;
+    WRITE_C1() = LOW;
+    
     // Initialize required libraries    
     TMR2_Initialize();
     PWM5_Initialize();
@@ -172,6 +175,7 @@ void PWM5_LoadDutyValue(uint16_t dutyValue) {
 void MotorControl_On(void) {
     // Enable TMR/PWM
     TMR2_StartTimer();
+    PWM5CONbits.PWM5EN = 1;
     return;
 }
 
@@ -181,6 +185,8 @@ void MotorControl_Off(void) {
     // Disable & reset TMR/PWM
     TMR2_StopTimer();
     TMR2_WriteTimer(0x00);  // clear TMR2 ticks after stopping motor pulse
+    PWM5CONbits.PWM5EN = 0;
+    WRITE_C1() = LOW;
     return;
 }
 
@@ -195,9 +201,14 @@ void MotorControl_Off(void) {
 #include "WCSA_system.h"
 #include "FRT.h"
 
+//#define OG
+#define NEW
+
+
+#ifdef OG
 
 // ======= DEFINES ======= //
-#define DC_UPDATE_RATE      50000   // update duty cycle every 25ms (40Hz)
+#define DC_UPDATE_RATE      50000   // update duty cycle every 50ms (20Hz)
 
 
 // ======= MAIN() ======= //
@@ -247,6 +258,43 @@ int main(void) {
     while(1);
     return 0;
 }
+#endif
+
+#ifdef NEW
+int main(void) {
+    PIC16_Init();
+    FRT_Init();
+    MotorControl_Init();
+    RESET_WDT();
+    
+    uint16_t duty = 500;
+    uint32_t currMilli, prevMilli;
+    currMilli = FRT_GetMillis();
+    prevMilli = currMilli;
+    uint8_t onOff = 0;
+    
+    while(1) {
+        RESET_WDT();
+        currMilli = FRT_GetMillis();
+        
+        if((currMilli - prevMilli) >= 500) {
+            if (onOff == 0) {
+                MotorControl_SetIntensity(duty);
+                MotorControl_On();
+                onOff = 1;
+            }
+            else if (onOff == 1) {
+                MotorControl_SetIntensity(0);
+                MotorControl_Off();
+                onOff = 0;
+            }
+            prevMilli = currMilli;
+        }
+    }
+    while(1);
+    return 0;
+}
+#endif
 
 #endif
 

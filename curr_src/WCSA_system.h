@@ -26,6 +26,7 @@
 #include "PowerButton.h"
 #include "BatteryMonitor.h"
 #include "eusart.h"
+#include "Lidar_Sensor.h"
 
 
 #define RESET_WDT()     do {asm("CLRWDT");} while(0)

@@ -11,17 +11,26 @@
 #include "eusart.h"
 #include "pin_manager.h"
 
-#define LIDAR_SENSOR_TEST
+
+//==============================================================================
+//-------------------------------- #DEFINES ------------------------------------
+//==============================================================================
+
+// #define LIDAR_SENSOR_TEST
 
 
-//------------------------------------------------------------------------------
+//==============================================================================
+//---------------------------- STATIC VARIABLES --------------------------------
+//==============================================================================
 
-static Lidar_MsgRX_t currMsg;
-static Lidar_StateRX_t currState;
-static uint8_t msgIndex;
+static volatile Lidar_MsgRX_t currMsg;
+static volatile Lidar_StateRX_t currState;
+static volatile uint8_t msgIndex;
 
 
-//------------------------------------------------------------------------------
+//==============================================================================
+//------------------------------ PUBLIC LIBRARY --------------------------------
+//==============================================================================
 
 void Lidar_Sensor_Init(void) {
     // Set RX State Machine to IDLE state
@@ -354,7 +363,7 @@ int main(void) {
             
             RESET_WDT();
             dist = Lidar_Sensor_GetDistance();
-            printf("READING: %u\n", dist);
+            printf("\nREADING: %u\n", dist);
             
             Lidar_Sensor_Trig();
             prevMicro = currMicro;
