@@ -30,12 +30,17 @@
 #define PWR_BTN_GPIO_PIN    A2
 
 // ======= THRESHOLD VALS ======= //
-#define WARNING_DISTANCE    1000
-#define LOW_BAT_THRESHOLD   800     // 800 on ADC --> ~= 1.6V
+#define WARNING_DISTANCE        1000
 
-#define ADC_READ_RATE       25      // 25ms --> 40Hz
-#define LIDAR_READ_RATE     2       // 10ms --> 100Hz
-#define PWR_BTN_POLL_RATE
+#define BAT_EMPTY_THRESHOLD     800     // 800 on ADC --> ~= 1.6V
+#define BAT_25_THRESHOLD    
+#define BAT_50_THRESHOLD
+#define BAT_75_THRESHOLD
+#define BAT_FULL_THRESHOLD  
+
+#define ADC_READ_RATE           25      // 25ms --> 40Hz
+#define LIDAR_READ_RATE         10      // 10ms --> 100Hz
+#define PWR_BTN_POLL_RATE       
 
 
 //==============================================================================
@@ -48,26 +53,34 @@
  *                                        (2) PowerBtn pressed (GPIO falls LOW)
  */
 int main(void) {
+    
     // ====== INITIALIZE LIBRARIES ====== //
     // First, initialize libraries for startup chirp & battery level check
-    PIC16_Init(); // PMD, Osc, PinManager, & WDT
-    FRT_Init(); // global milli/micro-second counters
-    BatteryMonitor_Init(); // ADC, ADCBuffer, BatteryMonitor
-    SpeakerTone_Init(); // TMR3, CCP4(OC), SpeakerTone
+    PIC16_Init();               // PMD, Osc, PinManager, & WDT
+    FRT_Init();                 // global milli/micro-second counters
+    BatteryMonitor_Init();      // ADC, ADCBuffer, BatteryMonitor
+    SpeakerTone_Init();         // TMR3, CCP4(OC), SpeakerTone
 
+    // --- Function variables --- //
+    uint16_t distance = 2500;       // initialize to safe distance
+    uint16_t motorDC = 0;           // initialize motor OFF
+    uint16_t batLvl = 1000;         // initialize bat near full charge
+    uint32_t currMilli, prevMilli;  // global counter variables
+    uint8_t i = 0;                  // loop counter / iterator
+    
+    
+    // ======= STARTUP ROUTINE ======= //
     // --- Play Startup Chirp --- //
     SpeakerTone_StartupChirp();
 
+    // --- Debug print statement via UART pin --- //
     printf("// ======= WCSA_MainApp.c ======= //\n");
     printf("Last compiled on %s at %s\n\n", __DATE__, __TIME__);
 
     // --- Check battery level --- //
-    ADC_StartConversion();
+    ADC_StartConversion();  // send initial ADC conversion request
 
-    uint16_t distance = 2500;
-    uint16_t motorDC = 0;
-    uint32_t currMilli, prevMilli;
-    uint8_t i = 0;
+    // update timer variables
     currMilli = FRT_GetMillis();
     prevMilli = currMilli;
 
@@ -77,57 +90,56 @@ int main(void) {
         currMilli = FRT_GetMillis();
 
         if ((currMilli - prevMilli) >= ADC_READ_RATE) {
-            ADC_StartConversion();
+            ADC_StartConversion();  // request new ADC conversion every 25ms
             prevMilli = currMilli;
             i++;
         }
-    } while (i < 20);
+    } while (i < 20);   // ...until 20 readings have been taken
 
     // Force shutdown if filtered reading < 1.6V
-    if (ADCBuffer_GetFilteredReading() < LOW_BAT_THRESHOLD) {
-        SpeakerTone_ShutdownChirp(); // play shutdown chirp
-        PowerButton_ForceShutdown(); // drives RA2 LOW & blocks CPU
+    if (ADCBuffer_GetFilteredReading() < BAT_EMPTY_THRESHOLD) {
+        SpeakerTone_ShutdownChirp();    // play shutdown chirp
+        PowerButton_ForceShutdown();    // drives RA2 LOW & blocks CPU
     }
     /* Otherwise, battery is not critically low!
      * So, finish startup routine. */
 
     // --- Initialize Remaining Libraries --- //
-    PowerButton_Init(); // soft-switching power button routines
-    MotorControl_Init(); // TMR2, PWM5, MotorControl
-    Lidar_Sensor_Init(); // eusart(already initialized), Lidar_Sensor
-    Lidar_Sensor_Trig();
+    PowerButton_Init();     // soft-switching power button routines
+    MotorControl_Init();    // TMR2, PWM5, MotorControl
+    Lidar_Sensor_Init();    // eusart(already initialized), Lidar_Sensor
+    Lidar_Sensor_Trig();    // send initial trig message, so reading is ready
 
+    
     // ========= REMAINING SETUP ========= //
     i = 0;
     distance = 0;
     currMilli = FRT_GetMillis();
     prevMilli = currMilli;
 
+    
     while (1) {
         RESET_WDT();
         currMilli = FRT_GetMillis();
 
         // ------- 100Hz Block ------- //
         if ((currMilli - prevMilli) >= LIDAR_READ_RATE) {
-            distance = Lidar_Sensor_GetDistance(); //get current Lidar reading
-            Lidar_Sensor_Trig(); //TRIG new Lidar reading
+            distance = Lidar_Sensor_GetDistance();  // get last Lidar reading
+            Lidar_Sensor_Trig();                    // TRIG new Lidar reading
 
             // If measured distance < 1m
             if (distance < WARNING_DISTANCE) {
-                if (distance != 0) {
-                    motorDC = 500;
-                    printf("\nWARNING: %umm\n", distance);
-                } else {
-                    motorDC = 0;
-                }
-            } else {
+                motorDC = (WARNING_DISTANCE - distance);
+            } 
+            else {
                 motorDC = 0;
             }
 
             MotorControl_SetIntensity(motorDC);
             if (motorDC == 0) {
                 MotorControl_Off();
-            } else {
+            }
+            else {
                 MotorControl_On();
             }
             
@@ -139,7 +151,7 @@ int main(void) {
                     SpeakerTone_ShutdownChirp();
                     PowerButton_ForceShutdown();
                 } 
-                else if (ADCBuffer_GetFilteredReading() < LOW_BAT_THRESHOLD) {
+                else if (ADCBuffer_GetFilteredReading() < BAT_EMPTY_THRESHOLD) {
                     SpeakerTone_ShutdownChirp();
                     PowerButton_ForceShutdown();
                 }
