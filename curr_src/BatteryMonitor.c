@@ -22,8 +22,8 @@
 
 #define ACQ_US_DELAY        5
 
-#define BUFFER_SIZE         16
-#define BUFFER_SHIFT        4    // 2^4 = 16 = BUFFER_SIZE
+#define BUFFER_SIZE         64
+#define BUFFER_SHIFT        6    // 2^6 = 64 = BUFFER_SIZE
 
 // #define BATTERYMONITOR_TEST
 

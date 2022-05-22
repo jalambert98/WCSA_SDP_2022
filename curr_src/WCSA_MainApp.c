@@ -33,15 +33,32 @@
 #define WARNING_DISTANCE        1000
 
 #define BAT_EMPTY_THRESHOLD     800     // 800 on ADC --> ~= 1.6V
-#define BAT_25_THRESHOLD    
-#define BAT_50_THRESHOLD
-#define BAT_75_THRESHOLD
-#define BAT_FULL_THRESHOLD  
+#define BAT_25_THRESHOLD        850
+#define BAT_50_THRESHOLD        900
+#define BAT_75_THRESHOLD        950
+#define BAT_FULL_THRESHOLD      1000
+
+#define LOW_BAT_WARNING_RATE    (uint32_t)(300000)  //[300,000ms --> 5min]
 
 #define ADC_READ_RATE           25      // 25ms --> 40Hz
 #define LIDAR_READ_RATE         10      // 10ms --> 100Hz
-#define PWR_BTN_POLL_RATE       
+#define LOOP_COUNTER_THRESHOLD  20       
 
+//------------------------------------------------------------------------------
+
+batLvl_t GetBatState(uint16_t batLvl);
+batLvl_t GetBatState(uint16_t batLvl) {
+    if (batLvl > BAT_FULL_THRESHOLD)
+        return BAT_FULL;
+    else if (batLvl > BAT_75_THRESHOLD)
+        return BAT_75;
+    else if (batLvl > BAT_50_THRESHOLD)
+        return BAT_50;
+    else if (batLvl > BAT_25_THRESHOLD)
+        return BAT_25;
+    else
+        return BAT_EMPTY;
+}
 
 //==============================================================================
 //---------------------------- MAIN APPLICATION --------------------------------
@@ -62,11 +79,14 @@ int main(void) {
     SpeakerTone_Init();         // TMR3, CCP4(OC), SpeakerTone
 
     // --- Function variables --- //
-    uint16_t distance = 2500;       // initialize to safe distance
-    uint16_t motorDC = 0;           // initialize motor OFF
-    uint16_t batLvl = 1000;         // initialize bat near full charge
-    uint32_t currMilli, prevMilli;  // global counter variables
-    uint8_t i = 0;                  // loop counter / iterator
+    uint16_t distance = 2500;           // initialize to safe distance
+    uint16_t motorDC = 0;               // initialize motor OFF
+    uint16_t batLvl = 1000;             // initialize batLvl near full charge
+    batLvl_t batStateCurr = BAT_FULL;   // initialize batState to FULL
+    batLvl_t batStatePrev = BAT_FULL;
+    uint32_t currMilli, prevMilli;      // global counter variables
+    uint32_t prevWarningMilli;          // time of last low battery warning
+    uint8_t i = 0;                      // loop counter / iterator
     
     
     // ======= STARTUP ROUTINE ======= //
@@ -83,8 +103,9 @@ int main(void) {
     // update timer variables
     currMilli = FRT_GetMillis();
     prevMilli = currMilli;
+    prevWarningMilli = currMilli;
 
-    // Read ADC every 25ms (@40Hz) for 500ms --> 20 readings (16val buffer)
+    // Read ADC every 10ms (@100Hz) for 750ms --> 75 readings (64val buffer)
     do {
         RESET_WDT();
         currMilli = FRT_GetMillis();
@@ -94,10 +115,14 @@ int main(void) {
             prevMilli = currMilli;
             i++;
         }
-    } while (i < 20);   // ...until 20 readings have been taken
+    } while (i < 75);   // ...until 75 readings have been taken
 
     // Force shutdown if filtered reading < 1.6V
-    if (ADCBuffer_GetFilteredReading() < BAT_EMPTY_THRESHOLD) {
+    batLvl = ADCBuffer_GetFilteredReading();
+    batStatePrev = batStateCurr;
+    batStateCurr = GetBatState(batLvl);
+    
+    if (batStateCurr == BAT_EMPTY) {
         SpeakerTone_ShutdownChirp();    // play shutdown chirp
         PowerButton_ForceShutdown();    // drives RA2 LOW & blocks CPU
     }
@@ -117,43 +142,93 @@ int main(void) {
     currMilli = FRT_GetMillis();
     prevMilli = currMilli;
 
-    
+    // ======= PRIMARY LOOP ======= //
     while (1) {
         RESET_WDT();
         currMilli = FRT_GetMillis();
 
-        // ------- 100Hz Block ------- //
+        // ======= 100Hz Block ======= //
+        // --- LiDAR Reading Update --- //
         if ((currMilli - prevMilli) >= LIDAR_READ_RATE) {
             distance = Lidar_Sensor_GetDistance();  // get last Lidar reading
             Lidar_Sensor_Trig();                    // TRIG new Lidar reading
 
-            // If measured distance < 1m
+            // --- Motor Intensity Update based on distance --- //
+            // If measured distance < 1m...
+            // ... calculate motor intensity based on measured distance
             if (distance < WARNING_DISTANCE) {
                 motorDC = (WARNING_DISTANCE - distance);
             } 
-            else {
+            else {  // set vibration intensity = 0 if beyond warning distance
                 motorDC = 0;
             }
 
-            MotorControl_SetIntensity(motorDC);
-            if (motorDC == 0) {
+            // Update motor intensity to new value
+            MotorControl_SetIntensity(motorDC); 
+            
+            if (motorDC == 0) { // if intensity == 0, disable motor peripherals
                 MotorControl_Off();
             }
-            else {
+            else {              // if intensity != 0, enable motor peripherals
                 MotorControl_On();
             }
             
-            // ------- 5Hz Block ------- //
-            if (i == 20) {
-                ADC_StartConversion();
+            // ======= 5Hz Block ======= //
+            // Every 20 LiDAR readings... (100Hz / 20 = 5Hz)
+            if (i == LOOP_COUNTER_THRESHOLD) {
+                batLvl = ADCBuffer_GetFilteredReading(); // get current batLvl
+                batStatePrev = batStateCurr;         // update batState
+                batStateCurr = GetBatState(batLvl);  // determine new batState
+                ADC_StartConversion();  // Update batLvl with new ADC reading 
 
+                
+                // --- Check for SHUTDOWN conditions --- //
+                // If user has pressed power button while system ON...
                 if (PowerButton_WasBtnPressed()) {
-                    SpeakerTone_ShutdownChirp();
-                    PowerButton_ForceShutdown();
+                    SpeakerTone_ShutdownChirp();    // play shutdown chirp
+                    PowerButton_ForceShutdown();    // force shutdown
                 } 
-                else if (ADCBuffer_GetFilteredReading() < BAT_EMPTY_THRESHOLD) {
-                    SpeakerTone_ShutdownChirp();
-                    PowerButton_ForceShutdown();
+                // If battery is below BAT_EMPTY_THRESHOLD (3.2V)...
+                else if (batStateCurr == BAT_EMPTY) {
+                    SpeakerTone_ShutdownChirp();    // play shutdown chirp
+                    PowerButton_ForceShutdown();    // force shutdown
+                }
+                
+                // --- Check for WARNING conditions --- //
+                // If battery is below BAT_25_THRESHOLD (x.yV)...
+                else if (batStateCurr == BAT_25) {
+                    // If battery just changed to BAT_25 state...
+                    if (batStateCurr != batStatePrev) {
+                        SpeakerTone_LowBatteryChirp();
+                        prevWarningMilli = currMilli;
+                    }
+                    
+                    // Play lowBat warning chirp if over 10min since last played
+                    if ((currMilli - prevWarningMilli) > LOW_BAT_WARNING_RATE) {
+                        SpeakerTone_LowBatteryChirp();
+                        prevWarningMilli = currMilli;
+                    }
+                }
+                // If battery is below BAT_50_THRESHOLD (x.yV)...
+                else if (batStateCurr == BAT_50) {
+                    // If battery just changed to BAT_50 state...
+                    if (batStateCurr != batStatePrev) {
+                        SpeakerTone_ChargingChirp(BAT_50);  // play BAT_50 chirp
+                    }
+                }
+                // If battery is below BAT_75_THRESHOLD (x.yV)...
+                else if (batStateCurr == BAT_75) {
+                    // If battery just changed to BAT_75 state...
+                    if (batStateCurr != batStatePrev) {
+                        SpeakerTone_ChargingChirp(BAT_75);  // play BAT_75 chirp
+                    }
+                }
+                // If battery is below BAT_FULL_THRESHOLD (x.yV)...
+                else if (batStateCurr == BAT_FULL) {
+                    // If battery just changed to BAT_FULL state...
+                    if (batStateCurr != batStatePrev) {
+                        SpeakerTone_ChargingChirp(BAT_FULL); // play BAT_FULL chirp
+                    }
                 }
                 i = 0;
             } else {

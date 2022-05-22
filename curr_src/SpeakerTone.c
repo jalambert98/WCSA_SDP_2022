@@ -325,7 +325,7 @@ void SpeakerTone_ChargingChirp(batLvl_t batChg) {
             SpeakerTone_Off();
             break;
 
-        case BAT25:
+        case BAT_25:
             // Play G4 for 200ms
             SpeakerTone_SetFrequency(TONE_G4);
             __delay_ms(200);
@@ -333,30 +333,30 @@ void SpeakerTone_ChargingChirp(batLvl_t batChg) {
             SpeakerTone_Off();
             break;
             
-        case BAT50:
+        case BAT_50:
             // Play G4 for 100ms
             SpeakerTone_SetFrequency(TONE_G4);
-            __delay_ms(100);
+            __delay_ms(200);
             
             // Play A4 for 100ms
             SpeakerTone_SetFrequency(TONE_A4);
-            __delay_ms(100);
+            __delay_ms(200);
             
             SpeakerTone_Off();
             break;
             
-        case BAT75:
+        case BAT_75:
             // Play G4 for 100ms
             SpeakerTone_SetFrequency(TONE_G4);
-            __delay_ms(100);
+            __delay_ms(200);
             
             // Play A4 for 100ms
             SpeakerTone_SetFrequency(TONE_A4);
-            __delay_ms(100);
+            __delay_ms(200);
             
             // Play B4 for 100ms
             SpeakerTone_SetFrequency(TONE_B4);
-            __delay_ms(100);
+            __delay_ms(200);
             
             SpeakerTone_Off();
             break;
@@ -364,19 +364,19 @@ void SpeakerTone_ChargingChirp(batLvl_t batChg) {
         case BAT_FULL:
             // Play G4 for 100ms
             SpeakerTone_SetFrequency(TONE_G4);
-            __delay_ms(100);
+            __delay_ms(200);
             
             // Play A4 for 100ms
             SpeakerTone_SetFrequency(TONE_A4);
-            __delay_ms(100);
+            __delay_ms(200);
             
             // Play B4 for 100ms
             SpeakerTone_SetFrequency(TONE_B4);
-            __delay_ms(100);
+            __delay_ms(200);
             
             // Play C5 for 100ms
             SpeakerTone_SetFrequency(TONE_C5);
-            __delay_ms(100);
+            __delay_ms(200);
             
             SpeakerTone_Off();
             break;

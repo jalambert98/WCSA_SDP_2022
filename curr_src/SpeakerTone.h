@@ -68,9 +68,9 @@ typedef union CCPR4Reg_tag {
 
 typedef enum {
     BAT_EMPTY,
-    BAT25,
-    BAT50,
-    BAT75,
+    BAT_25,
+    BAT_50,
+    BAT_75,
     BAT_FULL
 } batLvl_t;
 
