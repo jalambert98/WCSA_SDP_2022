@@ -10,8 +10,9 @@
 #include <xc.h>
 #include <stdint.h>
 #include <stdbool.h>
-#include "pin_manager.h"
 #include "WCSA_system.h"
+#include "BatteryMonitor.h"
+#include "device_config.h"
 
 #ifndef SPEAKERTONE_H
 #define	SPEAKERTONE_H
@@ -63,16 +64,6 @@ typedef union CCPR4Reg_tag {
         uint16_t ccpr4_16Bit;
     };
 } CCP4_PERIOD_REG_T;
-
-//------------------------------------------------------------------------------
-
-typedef enum {
-    BAT_EMPTY,
-    BAT_25,
-    BAT_50,
-    BAT_75,
-    BAT_FULL
-} batLvl_t;
 
 
 //==============================================================================

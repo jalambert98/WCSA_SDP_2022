@@ -188,6 +188,21 @@ adc_result_t ADC_GetCurrReading(void) {
     return adcReading;
 }
 
+//------------------------------------------------------------------------------
+
+batLvl_t GetBatState(uint16_t batLvl) {
+    if (batLvl > BAT_FULL_THRESHOLD)
+        return BAT_FULL;
+    else if (batLvl > BAT_75_THRESHOLD)
+        return BAT_75;
+    else if (batLvl > BAT_50_THRESHOLD)
+        return BAT_50;
+    else if (batLvl > BAT_25_THRESHOLD)
+        return BAT_25;
+    else
+        return BAT_EMPTY;
+}
+
 
 //==============================================================================
 //------------------------- PRIVATE FUNCTION LIBRARY ---------------------------

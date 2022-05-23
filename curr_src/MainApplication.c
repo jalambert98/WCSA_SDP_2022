@@ -7,7 +7,7 @@
 //------------------------------------------------------------------------------
 
 #include "WCSA_system.h"
-#include "Lidar_Sensor.h"
+
 
 //==============================================================================
 //-------------------------------- #DEFINES ------------------------------------
@@ -32,34 +32,13 @@
 // ======= THRESHOLD VALS ======= //
 #define WARNING_DISTANCE        1000
 
-#define BAT_EMPTY_THRESHOLD     800     // 800 on ADC --> ~= 1.6V
-#define BAT_25_THRESHOLD        850
-#define BAT_50_THRESHOLD        900
-#define BAT_75_THRESHOLD        950
-#define BAT_FULL_THRESHOLD      1000
+#define LOW_BAT_WARNING_RATE    (uint32_t)(300000)  // [300,000 ms --> 5 min]
 
-#define LOW_BAT_WARNING_RATE    (uint32_t)(300000)  //[300,000ms --> 5min]
+#define ADC_READ_RATE           10      // 10ms --> 100Hz (startup)
+#define LIDAR_READ_RATE         10      // 10ms --> 100Hz (main loop)
 
-#define ADC_READ_RATE           10      // 25ms --> 40Hz
-#define LIDAR_READ_RATE         10      // 10ms --> 100Hz
-#define LOOP_COUNTER_THRESHOLD  20       
-
-
-//------------------------------------------------------------------------------
-
-batLvl_t GetBatState(uint16_t batLvl);
-batLvl_t GetBatState(uint16_t batLvl) {
-    if (batLvl > BAT_FULL_THRESHOLD)
-        return BAT_FULL;
-    else if (batLvl > BAT_75_THRESHOLD)
-        return BAT_75;
-    else if (batLvl > BAT_50_THRESHOLD)
-        return BAT_50;
-    else if (batLvl > BAT_25_THRESHOLD)
-        return BAT_25;
-    else
-        return BAT_EMPTY;
-}
+// check power conditions every 20 lidar readings
+#define LOOP_COUNTER_THRESHOLD  20      
 
 
 //==============================================================================
@@ -114,7 +93,7 @@ int main(void) {
         }
     } while (i < 75);   // ...until 75 readings have been taken
 
-    // Force shutdown if filtered reading < 1.6V
+    // --- Force shutdown if filtered reading < 1.6V --- //
     batLvl = ADCBuffer_GetFilteredReading();
     batStatePrev = batStateCurr;
     batStateCurr = GetBatState(batLvl);
@@ -126,23 +105,26 @@ int main(void) {
     /* Otherwise, battery is not critically low!
      * So, finish startup routine. */
 
+    
+    // ========= REMAINING SETUP ========= //
     // --- Initialize Remaining Libraries --- //
     PowerButton_Init();     // soft-switching power button routines
     MotorControl_Init();    // TMR2, PWM5, MotorControl
     Lidar_Sensor_Init();    // eusart(already initialized), Lidar_Sensor
     Lidar_Sensor_Trig();    // send initial trig message, so reading is ready
-
     
-    // ========= REMAINING SETUP ========= //
+    // main function variable assignments
     i = 0;
     distance = 0;
     currMilli = FRT_GetMillis();
     prevMilli = currMilli;
 
-    // ======= PRIMARY LOOP ======= //
+    
+    // ============ PRIMARY LOOP ============ //
     while (1) {
-        RESET_WDT();
-        currMilli = FRT_GetMillis();
+        // === "Constant-Update" Block === //
+        RESET_WDT();                    // clear watchdog timer
+        currMilli = FRT_GetMillis();    // update current millisecond counter
 
         // ======= 100Hz Block ======= //
         // --- LiDAR Reading Update --- //
@@ -174,12 +156,12 @@ int main(void) {
             // Every 20 LiDAR readings... (100Hz / 20 = 5Hz)
             if (i == LOOP_COUNTER_THRESHOLD) {
                 batLvl = ADCBuffer_GetFilteredReading(); // get current batLvl
-                batStatePrev = batStateCurr;         // update batState
+                batStatePrev = batStateCurr;         // update batStatePrev
                 batStateCurr = GetBatState(batLvl);  // determine new batState
                 ADC_StartConversion();  // Update batLvl with new ADC reading 
 
                 
-                // --- Check for SHUTDOWN conditions --- //
+                // ----- Check for SHUTDOWN conditions ----- //
                 // If user has pressed power button while system ON...
                 if (PowerButton_WasBtnPressed()) {
                     SpeakerTone_ShutdownChirp();    // play shutdown chirp
@@ -191,7 +173,8 @@ int main(void) {
                     PowerButton_ForceShutdown();    // force shutdown
                 }
                 
-                // --- Check for WARNING conditions --- //
+                
+                // ----- Check for WARNING conditions ----- //
                 // If battery is below BAT_25_THRESHOLD (x.yV)...
                 else if (batStateCurr == BAT_25) {
                     // If battery just changed to BAT_25 state...
@@ -239,3 +222,7 @@ int main(void) {
     while (1);
     return 0;
 }
+
+//==============================================================================
+//--------------------------------END OF FILE-----------------------------------
+//==============================================================================
