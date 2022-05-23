@@ -40,9 +40,10 @@
 
 #define LOW_BAT_WARNING_RATE    (uint32_t)(300000)  //[300,000ms --> 5min]
 
-#define ADC_READ_RATE           25      // 25ms --> 40Hz
+#define ADC_READ_RATE           10      // 25ms --> 40Hz
 #define LIDAR_READ_RATE         10      // 10ms --> 100Hz
 #define LOOP_COUNTER_THRESHOLD  20       
+
 
 //------------------------------------------------------------------------------
 
@@ -60,15 +61,11 @@ batLvl_t GetBatState(uint16_t batLvl) {
         return BAT_EMPTY;
 }
 
+
 //==============================================================================
 //---------------------------- MAIN APPLICATION --------------------------------
 //==============================================================================
 
-/*
- * NOTE:    Current main() function demonstrates the two possible 
- *          'forced shutdown' conditions: (1) ADC reads vBat < 1.6V
- *                                        (2) PowerBtn pressed (GPIO falls LOW)
- */
 int main(void) {
     
     // ====== INITIALIZE LIBRARIES ====== //
@@ -111,7 +108,7 @@ int main(void) {
         currMilli = FRT_GetMillis();
 
         if ((currMilli - prevMilli) >= ADC_READ_RATE) {
-            ADC_StartConversion();  // request new ADC conversion every 25ms
+            ADC_StartConversion();  // request new ADC conversion every 10ms
             prevMilli = currMilli;
             i++;
         }

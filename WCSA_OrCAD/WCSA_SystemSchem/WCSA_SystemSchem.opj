@@ -1,6 +1,6 @@
 (ExpressProject "WCSA_SystemSchem"
   (ProjectVersion "19981106")
-  (SoftwareVersion "17.4-2019 S013 (3906575)  [12/6/2020]-[05/03/22]")
+  (SoftwareVersion "17.4-2019 S013 (3906575)  [12/6/2020]-[05/22/22]")
   (ProjectType "PCB")
   (Folder "Design Resources"
     (Folder "Library")
@@ -186,41 +186,47 @@
       (LibraryName "C:\CADENCE\SPB_17.4\TOOLS\CAPTURE\LIBRARY\DISCRETE.OLB")
       (DeviceIndex "0")))
   (LastUsedLibraryBrowseDirectory "C:\Cadence\SPB_17.4\tools\capture\library")
-  (MPSSessionName "kenan")
+  (MPSSessionName "student")
   (GlobalState
     (FileView
       (Path "Design Resources")
-      (Path "Design Resources" ".\wcsa_systemschem.dsn")
-      (Path "Design Resources" ".\wcsa_systemschem.dsn" "SCHEMATIC1")
+      (Path "Design Resources"
+         "c:\users\student\orcad_pcb\wcsa_orcad\wcsa_systemschem\wcsa_systemschem.dsn")
+      (Path "Design Resources"
+         "c:\users\student\orcad_pcb\wcsa_orcad\wcsa_systemschem\wcsa_systemschem.dsn"
+         "SCHEMATIC1")
       (Path "Outputs")
-      (Select "Design Resources" ".\wcsa_systemschem.dsn" "SCHEMATIC1"
-         "2 - MCU Comms"))
-    (HierarchyView)
+      (Select "Design Resources"
+         "c:\users\student\orcad_pcb\wcsa_orcad\wcsa_systemschem\wcsa_systemschem.dsn"
+         "SCHEMATIC1" "3 - Power"))
+    (HierarchyView
+      (Path "SCHEMATIC1")
+      (Select "SCHEMATIC1" "R14 (100K)"))
     (Doc
       (Type "COrCapturePMDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 -1 -1 0 200 0 469"))
-      (Tab 0))
+        (Placement "44 0 1 -1 -1 -1 -1 0 200 0 551"))
+      (Tab 1))
     (Doc
       (Type "COrSchematicDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 -1 -1 5 1034 24 487")
-        (Scroll "1284 982")
-        (Zoom "236")
+        (Placement "44 0 1 -1 -1 5 24 5 1034 24 569")
+        (Scroll "0 85")
+        (Zoom "140")
         (Occurrence "/"))
       (Path
-         "C:\USERS\KENAN\DESKTOP\WSCA\WCSA_SDP_2022\WCSA_ORCAD\WCSA_SYSTEMSCHEM\WCSA_SYSTEMSCHEM.DSN")
+         "C:\USERS\STUDENT\ORCAD_PCB\WCSA_ORCAD\WCSA_SYSTEMSCHEM\WCSA_SYSTEMSCHEM.DSN")
       (Schematic "SCHEMATIC1")
       (Page "2 - MCU Comms"))
     (Doc
       (Type "COrSchematicDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 -1 -1 5 1034 24 487")
-        (Scroll "-13 0")
-        (Zoom "100")
+        (Placement "44 0 1 -1 -1 5 24 5 1034 24 569")
+        (Scroll "-159 -4")
+        (Zoom "70")
         (Occurrence "/"))
       (Path
-         "C:\USERS\KENAN\DESKTOP\WSCA\WCSA_SDP_2022\WCSA_ORCAD\WCSA_SYSTEMSCHEM\WCSA_SYSTEMSCHEM.DSN")
+         "C:\USERS\STUDENT\ORCAD_PCB\WCSA_ORCAD\WCSA_SYSTEMSCHEM\WCSA_SYSTEMSCHEM.DSN")
       (Schematic "SCHEMATIC1")
       (Page "3 - Power")))
   (ISPCBBASICLICENSE "false"))
