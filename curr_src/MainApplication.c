@@ -44,7 +44,12 @@
 //==============================================================================
 //---------------------------- MAIN APPLICATION --------------------------------
 //==============================================================================
-
+/*
+ * TODO:
+ *      - Add charging state implementation for PMIC stat pins
+ *          * batState chirp when charger plugged in
+ *          * chirp when fully charged (if system is ON)
+ */
 int main(void) {
     
     // ====== INITIALIZE LIBRARIES ====== //
@@ -95,8 +100,8 @@ int main(void) {
 
     // --- Force shutdown if filtered reading < 1.6V --- //
     batLvl = ADCBuffer_GetFilteredReading();
-    batStatePrev = batStateCurr;
     batStateCurr = GetBatState(batLvl);
+    batStatePrev = batStateCurr;
     
     if (batStateCurr == BAT_EMPTY) {
         SpeakerTone_ShutdownChirp();    // play shutdown chirp
@@ -167,7 +172,7 @@ int main(void) {
                     SpeakerTone_ShutdownChirp();    // play shutdown chirp
                     PowerButton_ForceShutdown();    // force shutdown
                 } 
-                // If battery is below BAT_EMPTY_THRESHOLD (3.2V)...
+                // If battery is below BAT_EMPTY_THRESHOLD (~3.2V)...
                 else if (batStateCurr == BAT_EMPTY) {
                     SpeakerTone_ShutdownChirp();    // play shutdown chirp
                     PowerButton_ForceShutdown();    // force shutdown
@@ -175,45 +180,45 @@ int main(void) {
                 
                 
                 // ----- Check for WARNING conditions ----- //
-                // If battery is below BAT_25_THRESHOLD (x.yV)...
+                // If battery is below BAT_25_THRESHOLD (~3.5V)...
                 else if (batStateCurr == BAT_25) {
-                    // If battery just changed to BAT_25 state...
-                    if (batStateCurr != batStatePrev) {
-                        SpeakerTone_LowBatteryChirp();
-                        prevWarningMilli = currMilli;
-                    }
-                    
                     // Play lowBat warning chirp if over 10min since last played
                     if ((currMilli - prevWarningMilli) > LOW_BAT_WARNING_RATE) {
                         SpeakerTone_LowBatteryChirp();
                         prevWarningMilli = currMilli;
                     }
                 }
-                // If battery is below BAT_50_THRESHOLD (x.yV)...
-                else if (batStateCurr == BAT_50) {
-                    // If battery just changed to BAT_50 state...
-                    if (batStateCurr != batStatePrev) {
-                        SpeakerTone_ChargingChirp(BAT_50);  // play BAT_50 chirp
+                
+                // If battery level state has recently changed...
+                else if (batStateCurr != batStatePrev) {
+                    
+                    // ...play corresponding batLvl chirp
+                    switch (batStateCurr) {
+                        case BAT_25:    // (< 25%) --> LowBatteryChirp 
+                            SpeakerTone_LowBatteryChirp();
+                            
+                            // update last warning time
+                            prevWarningMilli = currMilli;
+                            break;
+                            
+                        case BAT_50:    // (< 50%) --> BAT_50 chirp
+                            SpeakerTone_ChargingChirp(BAT_50);
+                            break;
+                            
+                        case BAT_75:    // (< 75%) --> BAT_75 chirp
+                            SpeakerTone_ChargingChirp(BAT_75);
+                            break;
+                            
+                        case BAT_FULL:  // (> 90%) --> BAT_FULL chirp
+                            SpeakerTone_ChargingChirp(BAT_FULL);
+                            break;
                     }
                 }
-                // If battery is below BAT_75_THRESHOLD (x.yV)...
-                else if (batStateCurr == BAT_75) {
-                    // If battery just changed to BAT_75 state...
-                    if (batStateCurr != batStatePrev) {
-                        SpeakerTone_ChargingChirp(BAT_75);  // play BAT_75 chirp
-                    }
-                }
-                // If battery is below BAT_FULL_THRESHOLD (x.yV)...
-                else if (batStateCurr == BAT_FULL) {
-                    // If battery just changed to BAT_FULL state...
-                    if (batStateCurr != batStatePrev) {
-                        SpeakerTone_ChargingChirp(BAT_FULL); // play BAT_FULL chirp
-                    }
-                }
-                i = 0;
-            } else {
-                i++;
-            }
+                
+                i = 0; 
+                
+            } 
+            else { i++; }
 
             prevMilli = currMilli;
         }

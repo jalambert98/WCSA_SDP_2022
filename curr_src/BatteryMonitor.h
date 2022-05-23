@@ -17,7 +17,6 @@
 #include <xc.h>
 #include <stdint.h>
 #include <stdbool.h>
-#include "BatteryMonitor.h"
 #include "device_config.h"
 
 
