@@ -16,6 +16,9 @@
 
 #define HALF_TIMER_PERIOD       ((uint32_t)4000000)
 
+#define NOTE_MED_DURATION       200     // 200ms --> [1/8th notes (~150bpm)]
+#define NOTE_SHORT_DURATION     100     // 100ms --> [1/16th notes]
+#define NOTE_SUPERFAST          50      // 50ms  --> [1/32nd notes]
 // #define SPEAKERTONE_TEST
 
 
@@ -234,153 +237,156 @@ void SpeakerTone_On(void) {
 //------------------------------------------------------------------------------
 
 void SpeakerTone_StartupChirp(void) {
+    // Ascending Cmaj triad (1/8th notes)
     RESET_WDT();
-
-    // Play C4 for 200ms
-    SpeakerTone_SetFrequency(TONE_C4);
+    SpeakerTone_SetFrequency(TONE_C4);  // C
     SpeakerTone_On();
-    __delay_ms(200);
-
-    // Play E4 for 200ms
-    SpeakerTone_SetFrequency(TONE_E4);
-    __delay_ms(200);
-
-    // Play G4 for 200ms
-    SpeakerTone_SetFrequency(TONE_G4);
-    __delay_ms(200);
+    __delay_ms(NOTE_MED_DURATION);
+    SpeakerTone_SetFrequency(TONE_E4);  // E
+    __delay_ms(NOTE_MED_DURATION);
+    SpeakerTone_SetFrequency(TONE_G4);  // G
+    __delay_ms(NOTE_MED_DURATION);
 
     RESET_WDT();
-
-    // Turn off amplifier
-    SpeakerTone_Off();
+    SpeakerTone_Off();  // Turn off amplifier
 }
 
 //------------------------------------------------------------------------------
 
 void SpeakerTone_ShutdownChirp(void) {
+    // Descending Cmaj triad (1/8th notes)
     RESET_WDT();
-
-    // Play C4 for 200ms
-    SpeakerTone_SetFrequency(TONE_G4);
+    SpeakerTone_SetFrequency(TONE_G4);  // G
     SpeakerTone_On();
-    __delay_ms(200);
-
-    // Play E4 for 200ms
-    SpeakerTone_SetFrequency(TONE_E4);
-    __delay_ms(200);
-
-    // Play G4 for 200ms
-    SpeakerTone_SetFrequency(TONE_C4);
-    __delay_ms(200);
+    __delay_ms(NOTE_MED_DURATION);
+    SpeakerTone_SetFrequency(TONE_E4);  // E      
+    __delay_ms(NOTE_MED_DURATION);
+    SpeakerTone_SetFrequency(TONE_C4);  // C
+    __delay_ms(NOTE_MED_DURATION);
 
     RESET_WDT();
-
-    // Turn off amplifier
-    SpeakerTone_Off();
+    SpeakerTone_Off();  // Turn off amplifier
 }
 
 //------------------------------------------------------------------------------
 
 void SpeakerTone_LowBatteryChirp(void) {
+    // Alternating G4-->C5 (played 2x) --> quick 4x (1/16th) notes
     RESET_WDT();
-
-    // Play G4 for 100ms
-    SpeakerTone_SetFrequency(TONE_G4);
+    SpeakerTone_SetFrequency(TONE_G4);  // G
     SpeakerTone_On();
-    __delay_ms(100);
-
-    // Play C5 for 100ms
-    SpeakerTone_SetFrequency(TONE_C5);
-    __delay_ms(100);
-
-    // Play G4 for 100ms
-    SpeakerTone_SetFrequency(TONE_G4);
-    __delay_ms(100);
-
-    // Play C5 for 100ms
-    SpeakerTone_SetFrequency(TONE_C5);
-    __delay_ms(100);
+    __delay_ms(NOTE_SHORT_DURATION);
+    SpeakerTone_SetFrequency(TONE_C5);  // C
+    __delay_ms(NOTE_SHORT_DURATION);
+    SpeakerTone_SetFrequency(TONE_G4);  // G
+    __delay_ms(NOTE_SHORT_DURATION);
+    SpeakerTone_SetFrequency(TONE_C5);  // C
+    __delay_ms(NOTE_SHORT_DURATION);
 
     RESET_WDT();
+    SpeakerTone_Off();  // Turn off amplifier
+}
 
-    // Turn off amplifier
+//------------------------------------------------------------------------------
+
+void SpeakerTone_BatLvlChirp(batLvl_t batChg) {
+    RESET_WDT();
+
+    // Play C4 for 200ms
+    SpeakerTone_SetFrequency(TONE_C4);  // same first note for all batLvl chirps
+    SpeakerTone_On();   // turn on speaker
+    __delay_ms(NOTE_MED_DURATION);
+
+    switch (batChg) {
+        case BAT_EMPTY:     // 1 note only (probably will never happen)
+            break;          // automatic shutdown gets priority
+            
+        case BAT_25:        // 2 notes (C,G) if vBat enters BAT_25
+            // Add 2nd note if vBat > 25%
+            SpeakerTone_SetFrequency(TONE_G4);
+            __delay_ms(NOTE_MED_DURATION);
+            break;   
+            
+        case BAT_50:        // 3 notes (C,G,A) if vBat enters BAT_50
+            // Add 2nd-3rd notes if vBat > 50%
+            SpeakerTone_SetFrequency(TONE_G4);
+            __delay_ms(NOTE_MED_DURATION);
+            SpeakerTone_SetFrequency(TONE_A4);
+            __delay_ms(NOTE_MED_DURATION);
+            break;  
+            
+        case BAT_75:        // 4 notes (C,G,A,B) if vBat enters BAT_75
+            // Add 2nd-4th notes if vBat > 75%
+            SpeakerTone_SetFrequency(TONE_G4);
+            __delay_ms(NOTE_MED_DURATION);
+            SpeakerTone_SetFrequency(TONE_A4);
+            __delay_ms(NOTE_MED_DURATION);
+            SpeakerTone_SetFrequency(TONE_B4);
+            __delay_ms(NOTE_MED_DURATION);   
+            break;
+
+        case BAT_FULL:      // 5 notes (C,G,A,B,C) if vBat enters BAT_FULL
+            // Add 2nd-5th notes if vBat is basically full ( > ~90%)
+            SpeakerTone_SetFrequency(TONE_G4);
+            __delay_ms(NOTE_MED_DURATION);
+            SpeakerTone_SetFrequency(TONE_A4);
+            __delay_ms(NOTE_MED_DURATION);
+            SpeakerTone_SetFrequency(TONE_B4);
+            __delay_ms(NOTE_MED_DURATION);
+            SpeakerTone_SetFrequency(TONE_C5);
+            __delay_ms(NOTE_MED_DURATION);
+            SpeakerTone_Off();      
+            break;
+    }
+    
+    RESET_WDT();
+    SpeakerTone_Off();      // turn off speaker
+}
+
+//------------------------------------------------------------------------------
+
+void SpeakerTone_NowChargingChirp(void) {
+    // Super fast ascending arpeggio 2x (5x note runs)
+    RESET_WDT();
+
+    // First run
+    SpeakerTone_SetFrequency(TONE_C4);
+    SpeakerTone_On();
+    __delay_ms(NOTE_SUPERFAST);
+    SpeakerTone_SetFrequency(TONE_E4);
+    __delay_ms(NOTE_SUPERFAST);
+    SpeakerTone_SetFrequency(TONE_G4);
+    __delay_ms(NOTE_SUPERFAST);
+    SpeakerTone_SetFrequency(TONE_B4);
+    __delay_ms(NOTE_SUPERFAST);
+    SpeakerTone_SetFrequency(TONE_C5);
+    __delay_ms(NOTE_SUPERFAST);
+    
+    // (1/16th) note rest between (1/32nd) note runs
+    SpeakerTone_Off();
+    __delay_ms(NOTE_SHORT_DURATION);
+    
+    // Second run
+    SpeakerTone_SetFrequency(TONE_C4);
+    SpeakerTone_On();
+    __delay_ms(NOTE_SUPERFAST);
+    SpeakerTone_SetFrequency(TONE_E4);
+    __delay_ms(NOTE_SUPERFAST);
+    SpeakerTone_SetFrequency(TONE_G4);
+    __delay_ms(NOTE_SUPERFAST);
+    SpeakerTone_SetFrequency(TONE_B4);
+    __delay_ms(NOTE_SUPERFAST);
+    SpeakerTone_SetFrequency(TONE_C5);
+    __delay_ms(NOTE_SUPERFAST);
+    
+    RESET_WDT();
     SpeakerTone_Off();
 }
 
 //------------------------------------------------------------------------------
 
-/*
- * NOTE:    These sound kinda stupid tbh. We should probably change these.
- */
-void SpeakerTone_ChargingChirp(batLvl_t batChg) {
-    RESET_WDT();
-
-    // Play C4 for 200ms
-    SpeakerTone_SetFrequency(TONE_C4);
-    SpeakerTone_On();
-    __delay_ms(200);
-
-    switch (batChg) {
-        case BAT_EMPTY:
-            SpeakerTone_Off();
-            break;
-
-        case BAT_25:
-            // Play G4 for 200ms
-            SpeakerTone_SetFrequency(TONE_G4);
-            __delay_ms(200);
-            
-            SpeakerTone_Off();
-            break;
-            
-        case BAT_50:
-            // Play G4 for 100ms
-            SpeakerTone_SetFrequency(TONE_G4);
-            __delay_ms(200);
-            
-            // Play A4 for 100ms
-            SpeakerTone_SetFrequency(TONE_A4);
-            __delay_ms(200);
-            
-            SpeakerTone_Off();
-            break;
-            
-        case BAT_75:
-            // Play G4 for 100ms
-            SpeakerTone_SetFrequency(TONE_G4);
-            __delay_ms(200);
-            
-            // Play A4 for 100ms
-            SpeakerTone_SetFrequency(TONE_A4);
-            __delay_ms(200);
-            
-            // Play B4 for 100ms
-            SpeakerTone_SetFrequency(TONE_B4);
-            __delay_ms(200);
-            
-            SpeakerTone_Off();
-            break;
-
-        case BAT_FULL:
-            // Play G4 for 100ms
-            SpeakerTone_SetFrequency(TONE_G4);
-            __delay_ms(200);
-            
-            // Play A4 for 100ms
-            SpeakerTone_SetFrequency(TONE_A4);
-            __delay_ms(200);
-            
-            // Play B4 for 100ms
-            SpeakerTone_SetFrequency(TONE_B4);
-            __delay_ms(200);
-            
-            // Play C5 for 100ms
-            SpeakerTone_SetFrequency(TONE_C5);
-            __delay_ms(200);
-            
-            SpeakerTone_Off();
-            break;
-    }
+void SpeakerTone_ChargeCompleteChirp(void) {
+    SpeakerTone_BatLvlChirp(BAT_FULL);
 }
 
 
@@ -435,23 +441,23 @@ int main(void) {
                     i++;
                     break;
                 case 3:
-                    SpeakerTone_ChargingChirp(BAT_EMPTY);
+                    SpeakerTone_BatLvlChirp(BAT_EMPTY);
                     i++;
                     break;  
                 case 4:
-                    SpeakerTone_ChargingChirp(BAT25);
+                    SpeakerTone_BatLvlChirp(BAT25);
                     i++;
                     break;     
                 case 5:
-                    SpeakerTone_ChargingChirp(BAT50);
+                    SpeakerTone_BatLvlChirp(BAT50);
                     i++;
                     break;     
                 case 6:
-                    SpeakerTone_ChargingChirp(BAT75);
+                    SpeakerTone_BatLvlChirp(BAT75);
                     i++;
                     break;  
                 case 7:
-                    SpeakerTone_ChargingChirp(BAT_FULL);
+                    SpeakerTone_BatLvlChirp(BAT_FULL);
                     i = 0;
                     break;
             }

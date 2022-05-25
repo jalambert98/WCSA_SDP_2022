@@ -230,6 +230,14 @@ void PIN_MANAGER_Initialize(void) {
     WPUB = 0x00;
     WPUA = 0x00;
     WPUC = 0x00;
+    
+    /* 
+     * PMIC status pins
+     */
+    STAT1_SetInput();
+    STAT2_SetInput();
+    STAT1_SetPullup();
+    STAT2_SetPullup();
 
     /**
     ODx registers

@@ -18,6 +18,12 @@
 //-------------------------------- #DEFINES ------------------------------------
 //==============================================================================
 
+#define MAX_DC_PERMILLI     1000    // 100.0% duty cycle --> ALWAYS ON
+#define MAX_DC_10BIT        1023    // (1023/1023) ticks high --> ALWAYS ON
+
+#define HALF_DC_PERMILLI    500     // 50.0% = half duty cycle
+#define HALF_DC_10BIT       512     // (512/1023) = half duty cycle
+
 #define PWM5_INITIALIZE_DUTY_VALUE    0
 
 

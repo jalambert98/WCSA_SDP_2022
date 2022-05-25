@@ -23,12 +23,16 @@
 //==============================================================================
 //-------------------------------- #DEFINES ------------------------------------
 //==============================================================================
+// ADC readings corresponding to various battery states
+#define BAT_CRITICALLY_LOW      750     // ADC 750 --> ~1.5V --> (vBat ~ 3.0V)
+#define BAT_EMPTY_THRESHOLD     800     // ADC 800 --> ~1.6V --> (vBat ~ 3.2V)
+#define BAT_25_THRESHOLD        850     // ADC 850 --> ~1.7V --> (vBat ~ 3.4V)
+#define BAT_50_THRESHOLD        900     // ADC 900 --> ~1.8V --> (vBat ~ 3.6V)
+#define BAT_75_THRESHOLD        950     // ADC 950 --> ~1.9V --> (vBat ~ 3.8V)
+#define BAT_FULL_THRESHOLD      1000    // ADC 1k  --> ~2.0V --> (vBat ~ 4.0V)
 
-#define BAT_EMPTY_THRESHOLD     800     // 800 on ADC --> ~= 1.6V
-#define BAT_25_THRESHOLD        850
-#define BAT_50_THRESHOLD        900
-#define BAT_75_THRESHOLD        950
-#define BAT_FULL_THRESHOLD      1000
+// PMIC status pins with values ranging [0, 3] <-- STAT1 / STAT2
+#define PMIC_STATUS_MASK()      (uint8_t)(0x00 | (PORTBbits.RB4 << 1) | (PORTCbits.RC2))
 
 
 // ADC(vBat) == pin[RA5]
@@ -43,6 +47,15 @@ typedef enum {
     BAT_75,
     BAT_FULL
 } batLvl_t;
+
+//------------------------------------------------------------------------------
+
+typedef enum {
+    SYSTEST = 0,
+    NOW_CHARGING = 1,
+    CHARGE_COMPLETE = 2,
+    NOT_CHARGING = 3
+} pmicState_t;
 
 //------------------------------------------------------------------------------
 
@@ -80,10 +93,13 @@ typedef enum {
 //==============================================================================
 /**
  * @funct   BatteryMonitor_Init()
+ * 
  * @param   None
  * @return  None
+ * 
  * @brief   Initializes the vBat ADC pin [RA5] and sets up the BatteryMonitor
- * @author  Jack Lambert, 2022.02.07 */
+ * @author  Jack Lambert, 2022.02.07 
+ */
 void BatteryMonitor_Init(void);
 
 //------------------------------------------------------------------------------
@@ -249,6 +265,7 @@ adc_result_t ADC_GetCurrReading(void);
  * 
  * @param:  None
  * @return: uint16_t    -   Output of LPF (running avg) of vals
+ * 
  * @brief:  Returns the current filtered reading of the ADC
  * @author: Jack Lambert <joalambe@ucsc.edu>
  *          April 15, 2021
@@ -256,7 +273,17 @@ adc_result_t ADC_GetCurrReading(void);
 uint16_t ADCBuffer_GetFilteredReading(void);
 
 //------------------------------------------------------------------------------
-
+/*
+ * @funct:  batLvl_t GetBatState(batLvl)
+ * 
+ * @param:  uint16_t :  batLvl   : (vBat / 2) reading from ADC
+ * @return: batLvl_t :  batState : enum value [BAT_EMPTY, BAT_25, ..., BAT_FULL]
+ * 
+ * @brief:  Interprets the ADC reading for BatteryMonitor & characterizes the
+ *          battery level into 1 of 6 possible enum states [def: batLvl_t]
+ * @author: Jack Lambert <joalambe@ucsc.edu>
+ *          May 15, 2021
+ */
 batLvl_t GetBatState(uint16_t batLvl);
 
 //------------------------------------------------------------------------------

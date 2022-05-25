@@ -12,7 +12,11 @@
 //==============================================================================
 //-------------------------------- #DEFINES ------------------------------------
 //==============================================================================
-// ======= PIN FUNCTIONS ======= //
+// ======= PIN FUNCTIONS + QUICK REFERENCE ======= //
+/* 
+ * All values [xy] correspond to PIC16F pin [Rxy]
+ *  (e.g. MOTOR_PIN is pin RC1 on MCU)
+ */ 
 #define LIDAR_TX_PIN        C4
 #define LIDAR_RX_PIN        B5
 
@@ -24,12 +28,12 @@
 
 #define PMIC_STAT1_PIN      B4
 #define PMIC_STAT2_PIN      C2
-
 #define BAT_ADC_PIN         A5
 
 #define PWR_BTN_GPIO_PIN    A2
 
-// ======= THRESHOLD VALS ======= //
+
+// ============== THRESHOLD VALUES ============== //
 #define WARNING_DISTANCE        1000
 
 #define LOW_BAT_WARNING_RATE    (uint32_t)(300000)  // [300,000 ms --> 5 min]
@@ -38,18 +42,13 @@
 #define LIDAR_READ_RATE         10      // 10ms --> 100Hz (main loop)
 
 // check power conditions every 20 lidar readings
-#define LOOP_COUNTER_THRESHOLD  20      
+#define LOOP_COUNTER_THRESHOLD  20
 
 
 //==============================================================================
 //---------------------------- MAIN APPLICATION --------------------------------
 //==============================================================================
-/*
- * TODO:
- *      - Add charging state implementation for PMIC stat pins
- *          * batState chirp when charger plugged in
- *          * chirp when fully charged (if system is ON)
- */
+
 int main(void) {
     
     // ====== INITIALIZE LIBRARIES ====== //
@@ -63,11 +62,16 @@ int main(void) {
     uint16_t distance = 2500;           // initialize to safe distance
     uint16_t motorDC = 0;               // initialize motor OFF
     uint16_t batLvl = 1000;             // initialize batLvl near full charge
+    
     batLvl_t batStateCurr = BAT_FULL;   // initialize batState to FULL
-    batLvl_t batStatePrev = BAT_FULL;
+    batLvl_t batStatePrev = BAT_FULL;   // curr = prev = FULL
+    
+    pmicState_t chgStatCurr = NOT_CHARGING;     // initialize PMIC to IDLE
+    pmicState_t chgStatPrev = NOT_CHARGING;     // curr = prev = IDLE
+    
     uint32_t currMilli, prevMilli;      // global counter variables
     uint32_t prevWarningMilli;          // time of last low battery warning
-    uint8_t i = 0;                      // loop counter / iterator
+    uint8_t i = 0;                      // outer loop counter / iterator
     
     
     // ======= STARTUP ROUTINE ======= //
@@ -131,7 +135,7 @@ int main(void) {
         RESET_WDT();                    // clear watchdog timer
         currMilli = FRT_GetMillis();    // update current millisecond counter
 
-        // ======= 100Hz Block ======= //
+        // ========== 100Hz Block ========== //
         // --- LiDAR Reading Update --- //
         if ((currMilli - prevMilli) >= LIDAR_READ_RATE) {
             distance = Lidar_Sensor_GetDistance();  // get last Lidar reading
@@ -157,14 +161,18 @@ int main(void) {
                 MotorControl_On();
             }
             
-            // ======= 5Hz Block ======= //
+            // ========== 5Hz Block ========== //
             // Every 20 LiDAR readings... (100Hz / 20 = 5Hz)
             if (i == LOOP_COUNTER_THRESHOLD) {
+                // ----- UPDATE power variables ----- //
                 batLvl = ADCBuffer_GetFilteredReading(); // get current batLvl
                 batStatePrev = batStateCurr;         // update batStatePrev
-                batStateCurr = GetBatState(batLvl);  // determine new batState
+                batStateCurr = GetBatState(batLvl);  // Curr from filtered val
+                batLvl = ADC_GetCurrReading();  // reuse batLvl for raw reading
                 ADC_StartConversion();  // Update batLvl with new ADC reading 
-
+                chgStatPrev = chgStatCurr;
+                chgStatCurr = PMIC_STATUS_MASK();
+                
                 
                 // ----- Check for SHUTDOWN conditions ----- //
                 // If user has pressed power button while system ON...
@@ -172,10 +180,34 @@ int main(void) {
                     SpeakerTone_ShutdownChirp();    // play shutdown chirp
                     PowerButton_ForceShutdown();    // force shutdown
                 } 
-                // If battery is below BAT_EMPTY_THRESHOLD (~3.2V)...
+                // If INSTANTANEOUS vBat reading EVER dips below ~3.0V...
+                else if (batLvl < BAT_CRITICALLY_LOW) {
+                    SpeakerTone_ShutdownChirp();    // play shutdown chirp
+                    PowerButton_ForceShutdown();    // force shutdown
+                }
+                // If filtered vBat avg is below BAT_EMPTY_THRESHOLD (~3.2V)...
                 else if (batStateCurr == BAT_EMPTY) {
                     SpeakerTone_ShutdownChirp();    // play shutdown chirp
                     PowerButton_ForceShutdown();    // force shutdown
+                }
+                
+                
+                // ----- Check for PMIC CHARGING conditions ----- //
+                // If charging status has changed...
+                if (chgStatCurr != chgStatPrev) {
+                    switch (chgStatCurr) {
+                        // if battery just finished charging
+                        case CHARGE_COMPLETE:
+                            SpeakerTone_ChargeCompleteChirp();
+                            break;
+                        // if charger was just plugged in or removed...
+                        case NOW_CHARGING:
+                        case NOT_CHARGING:
+                            SpeakerTone_NowChargingChirp();
+                            break;
+                        default:    // otherwise
+                            break;  // do nothing
+                    }
                 }
                 
                 
@@ -188,36 +220,29 @@ int main(void) {
                         prevWarningMilli = currMilli;
                     }
                 }
-                
                 // If battery level state has recently changed...
                 else if (batStateCurr != batStatePrev) {
-                    
                     // ...play corresponding batLvl chirp
                     switch (batStateCurr) {
                         case BAT_25:    // (< 25%) --> LowBatteryChirp 
-                            SpeakerTone_LowBatteryChirp();
-                            
+                            SpeakerTone_LowBatteryChirp(); 
                             // update last warning time
                             prevWarningMilli = currMilli;
                             break;
                             
-                        case BAT_50:    // (< 50%) --> BAT_50 chirp
-                            SpeakerTone_ChargingChirp(BAT_50);
-                            break;
-                            
+                        case BAT_50:    // (< 50%) --> BAT_50 chirp 
                         case BAT_75:    // (< 75%) --> BAT_75 chirp
-                            SpeakerTone_ChargingChirp(BAT_75);
-                            break;
-                            
-                        case BAT_FULL:  // (> 90%) --> BAT_FULL chirp
-                            SpeakerTone_ChargingChirp(BAT_FULL);
-                            break;
+                            SpeakerTone_BatLvlChirp(batStateCurr);
+                            break;    
+                        default:
+                            break;  // shouldn't ever happen b/c auto-shutdown
                     }
                 }
                 
-                i = 0; 
+                i = 0;          // reset outer loop counter
                 
             } 
+            // Increment outer loop counter @100Hz
             else { i++; }
 
             prevMilli = currMilli;
