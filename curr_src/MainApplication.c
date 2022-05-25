@@ -200,10 +200,13 @@ int main(void) {
                         case CHARGE_COMPLETE:
                             SpeakerTone_ChargeCompleteChirp();
                             break;
-                        // if charger was just plugged in or removed...
+                        // if charger was just plugged in
                         case NOW_CHARGING:
+                            SpeakerTone_NowChargingChirp(TRUE);
+                            break;
+                        // if charger was just removed
                         case NOT_CHARGING:
-                            SpeakerTone_NowChargingChirp();
+                            SpeakerTone_NowChargingChirp(FALSE);
                             break;
                         default:    // otherwise
                             break;  // do nothing

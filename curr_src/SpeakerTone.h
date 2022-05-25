@@ -331,7 +331,7 @@ void SpeakerTone_BatLvlChirp(batLvl_t batChg);
 
 //------------------------------------------------------------------------------
 
-void SpeakerTone_NowChargingChirp(void);
+void SpeakerTone_NowChargingChirp(uint8_t chgEn);
 
 //------------------------------------------------------------------------------
 

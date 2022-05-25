@@ -345,39 +345,72 @@ void SpeakerTone_BatLvlChirp(batLvl_t batChg) {
 
 //------------------------------------------------------------------------------
 
-void SpeakerTone_NowChargingChirp(void) {
+void SpeakerTone_NowChargingChirp(uint8_t chgEn) {
     // Super fast ascending arpeggio 2x (5x note runs)
     RESET_WDT();
 
-    // First run
-    SpeakerTone_SetFrequency(TONE_C4);
-    SpeakerTone_On();
-    __delay_ms(NOTE_SUPERFAST);
-    SpeakerTone_SetFrequency(TONE_E4);
-    __delay_ms(NOTE_SUPERFAST);
-    SpeakerTone_SetFrequency(TONE_G4);
-    __delay_ms(NOTE_SUPERFAST);
-    SpeakerTone_SetFrequency(TONE_B4);
-    __delay_ms(NOTE_SUPERFAST);
-    SpeakerTone_SetFrequency(TONE_C5);
-    __delay_ms(NOTE_SUPERFAST);
-    
-    // (1/16th) note rest between (1/32nd) note runs
-    SpeakerTone_Off();
-    __delay_ms(NOTE_SHORT_DURATION);
-    
-    // Second run
-    SpeakerTone_SetFrequency(TONE_C4);
-    SpeakerTone_On();
-    __delay_ms(NOTE_SUPERFAST);
-    SpeakerTone_SetFrequency(TONE_E4);
-    __delay_ms(NOTE_SUPERFAST);
-    SpeakerTone_SetFrequency(TONE_G4);
-    __delay_ms(NOTE_SUPERFAST);
-    SpeakerTone_SetFrequency(TONE_B4);
-    __delay_ms(NOTE_SUPERFAST);
-    SpeakerTone_SetFrequency(TONE_C5);
-    __delay_ms(NOTE_SUPERFAST);
+    if (chgEn == TRUE) {
+        // First run
+        SpeakerTone_SetFrequency(TONE_C4);
+        SpeakerTone_On();
+        __delay_ms(NOTE_SUPERFAST);
+        SpeakerTone_SetFrequency(TONE_E4);
+        __delay_ms(NOTE_SUPERFAST);
+        SpeakerTone_SetFrequency(TONE_G4);
+        __delay_ms(NOTE_SUPERFAST);
+        SpeakerTone_SetFrequency(TONE_B4);
+        __delay_ms(NOTE_SUPERFAST);
+        SpeakerTone_SetFrequency(TONE_C5);
+        __delay_ms(NOTE_SUPERFAST);
+
+        // (1/16th) note rest between (1/32nd) note runs
+        SpeakerTone_Off();
+        __delay_ms(NOTE_SHORT_DURATION);
+
+        // Second run
+        SpeakerTone_SetFrequency(TONE_C4);
+        SpeakerTone_On();
+        __delay_ms(NOTE_SUPERFAST);
+        SpeakerTone_SetFrequency(TONE_E4);
+        __delay_ms(NOTE_SUPERFAST);
+        SpeakerTone_SetFrequency(TONE_G4);
+        __delay_ms(NOTE_SUPERFAST);
+        SpeakerTone_SetFrequency(TONE_B4);
+        __delay_ms(NOTE_SUPERFAST);
+        SpeakerTone_SetFrequency(TONE_C5);
+        __delay_ms(NOTE_SUPERFAST);
+    }
+    else {
+        // First run
+        SpeakerTone_SetFrequency(TONE_C5);
+        SpeakerTone_On();
+        __delay_ms(NOTE_SUPERFAST);
+        SpeakerTone_SetFrequency(TONE_B4);
+        __delay_ms(NOTE_SUPERFAST);
+        SpeakerTone_SetFrequency(TONE_G4);
+        __delay_ms(NOTE_SUPERFAST);
+        SpeakerTone_SetFrequency(TONE_E4);
+        __delay_ms(NOTE_SUPERFAST);
+        SpeakerTone_SetFrequency(TONE_C4);
+        __delay_ms(NOTE_SUPERFAST);
+
+        // (1/16th) note rest between (1/32nd) note runs
+        SpeakerTone_Off();
+        __delay_ms(NOTE_SHORT_DURATION);
+
+        // Second run
+        SpeakerTone_SetFrequency(TONE_C5);
+        SpeakerTone_On();
+        __delay_ms(NOTE_SUPERFAST);
+        SpeakerTone_SetFrequency(TONE_B4);
+        __delay_ms(NOTE_SUPERFAST);
+        SpeakerTone_SetFrequency(TONE_G4);
+        __delay_ms(NOTE_SUPERFAST);
+        SpeakerTone_SetFrequency(TONE_E4);
+        __delay_ms(NOTE_SUPERFAST);
+        SpeakerTone_SetFrequency(TONE_C4);
+        __delay_ms(NOTE_SUPERFAST);
+    }
     
     RESET_WDT();
     SpeakerTone_Off();
