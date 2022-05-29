@@ -218,17 +218,17 @@ int main(void) {
                 
                 
                 // ----- Check for BAT STATE WARNING conditions ----- //
+                // Only play one of these warnings every 5 min...
                 if ((currMilli - prevWarningMilli) > LOW_BAT_WARNING_RATE) {
-                    // If battery is below BAT_25_THRESHOLD (~3.5V)...
+                    
+                    // --- If battery is within BAT_25 range... ---//
                     if (batStateCurr == BAT_25) {
-                        // Play lowBat warning chirp if over 10min since last played
-                        if ((currMilli - prevWarningMilli) > LOW_BAT_WARNING_RATE) {
-                            SpeakerTone_LowBatteryChirp();
-                            prevWarningMilli = currMilli;
-                        }
+                        // Play lowBat warning chirp if over 5min since last played
+                        SpeakerTone_LowBatteryChirp();
+                        prevWarningMilli = currMilli;
                     }
 
-                    // If battery level state has recently changed...
+                    // --- If batLvl state has recently changed... ---//
                     else if (batStateCurr != batStatePrev) {
                         // ...play corresponding batLvl chirp
                         switch (batStateCurr) {
@@ -239,11 +239,17 @@ int main(void) {
                                 break;
 
                             case BAT_50:    // (< 50%) --> BAT_50 chirp 
+                                if (batStatePrev != BAT_75)
+                                    break;
                             case BAT_75:    // (< 75%) --> BAT_75 chirp
+                                if (batStatePrev != BAT_FULL)
+                                    break;
+                                
+                                // Play BatLvlChirp if batState drops
                                 SpeakerTone_BatLvlChirp(batStateCurr);
-                                break;    
+                                prevWarningMilli = currMilli;   
                             default:
-                                break;  // shouldn't ever happen b/c auto-shutdown
+                                break;
                         }
                     }
                     i = 0;          // reset outer loop counter
