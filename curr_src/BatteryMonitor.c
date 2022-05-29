@@ -137,39 +137,9 @@ void ADC_StartConversion(void) {
 
 //------------------------------------------------------------------------------
 
-bool ADC_IsConversionDone(void) {
-    // Start the conversion
-    return ((bool) (!ADCON0bits.ADGO));
-}
-
-//------------------------------------------------------------------------------
-
 adc_result_t ADC_GetConversionResult(void) {
     // Conversion finished, return the result
     return ((adc_result_t) ((ADRESH << 8) | ADRESL));
-}
-
-//------------------------------------------------------------------------------
-
-adc_result_t ADC_GetConversion(adc_channel_t channel) {
-    // select the A/D channel
-    ADCON0bits.CHS = channel;
-
-    // Turn on the ADC module
-    ADCON0bits.ADON = 1;
-
-    // Acquisition time delay
-    __delay_us(ACQ_US_DELAY);
-
-    // Start the conversion
-    ADCON0bits.ADGO = 1;
-
-    // Wait for the conversion to finish
-    while (ADCON0bits.ADGO) {
-    }
-
-    // Conversion finished, return the result
-    return ((adc_result_t) ((ADRESH << 8) + ADRESL));
 }
 
 //------------------------------------------------------------------------------
@@ -197,7 +167,7 @@ batLvl_t GetBatState(uint16_t batLvl) {
         return BAT_75;
     else if (batLvl > BAT_50_THRESHOLD)
         return BAT_50;
-    else if (batLvl > BAT_25_THRESHOLD)
+    else if (batLvl > BAT_EMPTY_THRESHOLD)
         return BAT_25;
     else
         return BAT_EMPTY;

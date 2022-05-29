@@ -166,28 +166,6 @@ void ADC_StartConversion(void);
 //------------------------------------------------------------------------------
 /**
   @Summary
-    Returns true when the conversion is completed otherwise false.
-
-  @Description
-    This routine is used to determine if conversion is completed.
-    When conversion is complete routine returns true. It returns false otherwise.
-
-  @Preconditions
-    ADC_Initialize() and ADC_StartConversion(void)
-    function should have been called before calling this function.
-
-  @Returns
-    true  - If conversion is complete
-    false - If conversion is not completed
-
-  @Param
-    None
- */
-bool ADC_IsConversionDone(void);
-
-//------------------------------------------------------------------------------
-/**
-  @Summary
     Returns the ADC conversion value.
 
   @Description
@@ -206,28 +184,6 @@ bool ADC_IsConversionDone(void);
     None
  */
 adc_result_t ADC_GetConversionResult(void);
-
-//------------------------------------------------------------------------------
-/**
-  @Summary
-    Returns the ADC conversion value
-    also allows selection of a channel for conversion.
-
-  @Description
-    This routine is used to select desired channel for conversion
-    and to get the analog to digital converted value.
-
-  @Preconditions
-    ADC_Initialize() function should have been called before calling this function.
-
-  @Returns
-    Returns the converted value.
-
-  @Param
-    Pass in required channel number.
-    "For available channel refer to enum under adc.h file"
- */
-adc_result_t ADC_GetConversion(adc_channel_t channel);
 
 //------------------------------------------------------------------------------
 /**

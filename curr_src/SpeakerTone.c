@@ -74,12 +74,6 @@ uint8_t SpeakerTone_SetFrequency(uint16_t newFrequency) {
 
 //------------------------------------------------------------------------------
 
-uint16_t SpeakerTone_GetFrequency(void) {
-    return currFreq; // return frequency last assigned by user (440Hz if N/A)
-}
-
-//------------------------------------------------------------------------------
-
 void CCP4_Initialize(void) {
     TRISAbits.TRISA4 = OUTPUT;
     LATAbits.LATA4 = LOW;
@@ -116,13 +110,6 @@ void CCP4_SetCompareCount(uint16_t compareCount) {
 
     CCPR4L = module.ccpr4l;
     CCPR4H = module.ccpr4h;
-}
-
-//------------------------------------------------------------------------------
-
-bool CCP4_OutputStatusGet(void) {
-    // Returns the output status
-    return (CCP4CONbits.CCP4OUT);
 }
 
 //------------------------------------------------------------------------------
@@ -170,22 +157,6 @@ void TMR3_StopTimer(void) {
 
 //------------------------------------------------------------------------------
 
-uint16_t TMR3_ReadTimer(void) {
-    uint16_t readVal;
-    uint8_t readValHigh;
-    uint8_t readValLow;
-
-
-    readValLow = TMR3L;
-    readValHigh = TMR3H;
-
-    readVal = ((uint16_t) readValHigh << 8) | readValLow;
-
-    return readVal;
-}
-
-//------------------------------------------------------------------------------
-
 void TMR3_WriteTimer(uint16_t timerVal) {
     if (T3CONbits.T3SYNC == 1) {
         // Stop the Timer by writing to TMRxON bit
@@ -208,13 +179,6 @@ void TMR3_WriteTimer(uint16_t timerVal) {
 
 void TMR3_Reload(void) {
     TMR3_WriteTimer(timer3ReloadVal);
-}
-
-//------------------------------------------------------------------------------
-
-bool TMR3_HasOverflowOccured(void) {
-    // check if  overflow has occurred by checking the TMRIF bit
-    return (PIR3bits.TMR3IF);
 }
 
 //------------------------------------------------------------------------------

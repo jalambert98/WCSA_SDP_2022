@@ -136,13 +136,14 @@ int main(void) {
         currMilli = FRT_GetMillis();    // update current millisecond counter
 
         // ========== 100Hz Block ========== //
-        // --- LiDAR Reading Update --- //
+        // --- Update current LiDAR Reading --- //
         if ((currMilli - prevMilli) >= LIDAR_READ_RATE) {
             distance = Lidar_Sensor_GetDistance();  // get last Lidar reading
             Lidar_Sensor_Trig();                    // TRIG new Lidar reading
 
+            
             // --- Motor Intensity Update based on distance --- //
-            // If measured distance < 1m...
+            // If measured distance < WARNING_DISTANCE (1m)...
             // ... calculate motor intensity based on measured distance
             if (distance < WARNING_DISTANCE) {
                 motorDC = (WARNING_DISTANCE - distance);
@@ -160,6 +161,7 @@ int main(void) {
             else {              // if intensity != 0, enable motor peripherals
                 MotorControl_On();
             }
+            
             
             // ========== 5Hz Block ========== //
             // Every 20 LiDAR readings... (100Hz / 20 = 5Hz)
@@ -196,15 +198,16 @@ int main(void) {
                 // If charging status has changed...
                 if (chgStatCurr != chgStatPrev) {
                     switch (chgStatCurr) {
-                        // if battery just finished charging
+                        // if battery just finished charging...
                         case CHARGE_COMPLETE:
+                            // Play "charge complete" chirp
                             SpeakerTone_ChargeCompleteChirp();
                             break;
-                        // if charger was just plugged in
+                        // if charger was just plugged in...
                         case NOW_CHARGING:
                             SpeakerTone_NowChargingChirp(TRUE);
                             break;
-                        // if charger was just removed
+                        // if charger was just removed...
                         case NOT_CHARGING:
                             SpeakerTone_NowChargingChirp(FALSE);
                             break;
@@ -214,36 +217,37 @@ int main(void) {
                 }
                 
                 
-                // ----- Check for WARNING conditions ----- //
-                // If battery is below BAT_25_THRESHOLD (~3.5V)...
-                else if (batStateCurr == BAT_25) {
-                    // Play lowBat warning chirp if over 10min since last played
-                    if ((currMilli - prevWarningMilli) > LOW_BAT_WARNING_RATE) {
-                        SpeakerTone_LowBatteryChirp();
-                        prevWarningMilli = currMilli;
-                    }
-                }
-                // If battery level state has recently changed...
-                else if (batStateCurr != batStatePrev) {
-                    // ...play corresponding batLvl chirp
-                    switch (batStateCurr) {
-                        case BAT_25:    // (< 25%) --> LowBatteryChirp 
-                            SpeakerTone_LowBatteryChirp(); 
-                            // update last warning time
+                // ----- Check for BAT STATE WARNING conditions ----- //
+                if ((currMilli - prevWarningMilli) > LOW_BAT_WARNING_RATE) {
+                    // If battery is below BAT_25_THRESHOLD (~3.5V)...
+                    if (batStateCurr == BAT_25) {
+                        // Play lowBat warning chirp if over 10min since last played
+                        if ((currMilli - prevWarningMilli) > LOW_BAT_WARNING_RATE) {
+                            SpeakerTone_LowBatteryChirp();
                             prevWarningMilli = currMilli;
-                            break;
-                            
-                        case BAT_50:    // (< 50%) --> BAT_50 chirp 
-                        case BAT_75:    // (< 75%) --> BAT_75 chirp
-                            SpeakerTone_BatLvlChirp(batStateCurr);
-                            break;    
-                        default:
-                            break;  // shouldn't ever happen b/c auto-shutdown
+                        }
                     }
+
+                    // If battery level state has recently changed...
+                    else if (batStateCurr != batStatePrev) {
+                        // ...play corresponding batLvl chirp
+                        switch (batStateCurr) {
+                            case BAT_25:    // (< 25%) --> LowBatteryChirp 
+                                SpeakerTone_LowBatteryChirp(); 
+                                // update last warning time
+                                prevWarningMilli = currMilli;
+                                break;
+
+                            case BAT_50:    // (< 50%) --> BAT_50 chirp 
+                            case BAT_75:    // (< 75%) --> BAT_75 chirp
+                                SpeakerTone_BatLvlChirp(batStateCurr);
+                                break;    
+                            default:
+                                break;  // shouldn't ever happen b/c auto-shutdown
+                        }
+                    }
+                    i = 0;          // reset outer loop counter
                 }
-                
-                i = 0;          // reset outer loop counter
-                
             } 
             // Increment outer loop counter @100Hz
             else { i++; }

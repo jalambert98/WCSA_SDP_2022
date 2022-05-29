@@ -94,15 +94,6 @@ uint8_t SpeakerTone_SetFrequency(uint16_t newFrequency);
 
 //------------------------------------------------------------------------------
 /**
- * @funct   SpeakerTone_GetFrequency(void)
- * 
- * @brief   Returns the frequency of the system [in Hz].
- * @author  Jack Lambert, 2022.02.07 
- */
-uint16_t SpeakerTone_GetFrequency(void);
-
-//------------------------------------------------------------------------------
-/**
   @Description
     This routine initializes the CCP4 peripheral
     This routine must be called before any other CCP4 routine is called.
@@ -133,23 +124,6 @@ void CCP4_Initialize(void);
     None
  */
 void CCP4_SetCompareCount(uint16_t compareCount);
-
-//------------------------------------------------------------------------------
-/**
-  @Description
-    This routine returns the compare output status.
-
-  @Preconditions
-    CCP4_Initialize() function should have been
-    called before calling this function.
-
-  @Param
-    None
-  @Returns
-    true : output high
-    false: output low
- */
-bool CCP4_OutputStatusGet(void);
 
 //------------------------------------------------------------------------------
 /**
@@ -216,21 +190,6 @@ void TMR3_StopTimer(void);
 //------------------------------------------------------------------------------
 /**
   @Description
-    This function reads the TMR3 register value and return it.
-
-  @Preconditions
-    Initialize  the TMR3 before calling this function.
-
-  @Param
-    None
-  @Returns
-    This function returns the current value of TMR3 register.
-*/
-uint16_t TMR3_ReadTimer(void);
-
-//------------------------------------------------------------------------------
-/**
-  @Description
     This function writes the TMR3 register.
     This function must be called after the initialization of TMR3.
 
@@ -259,23 +218,6 @@ void TMR3_WriteTimer(uint16_t timerVal);
     None
 */
 void TMR3_Reload(void);
-
-//------------------------------------------------------------------------------
-/**
-  @Description
-    This function is called to check for the timer overflow flag.
-    This function is usd in timer polling method.
-
-  @Preconditions
-    Initialize  the TMR3 module before calling this routine.
-
-  @Param
-    None
-  @Returns
-    true - timer overflow has occured.
-    false - timer overflow has not occured.
-*/
-bool TMR3_HasOverflowOccured(void);
 
 //------------------------------------------------------------------------------
 /**

@@ -105,33 +105,6 @@ void EUSART_Initialize(void)
 
 //------------------------------------------------------------------------------
 
-bool EUSART_is_tx_ready(void)
-{
-    return (eusartTxBufferRemaining ? true : false);
-}
-
-//------------------------------------------------------------------------------
-
-bool EUSART_is_rx_ready(void)
-{
-    return (eusartRxCount ? true : false);
-}
-
-//------------------------------------------------------------------------------
-
-bool EUSART_is_tx_done(void)
-{
-    return TX1STAbits.TRMT;
-}
-
-//------------------------------------------------------------------------------
-
-eusart_status_t EUSART_get_last_status(void){
-    return eusartRxLastError;
-}
-
-//------------------------------------------------------------------------------
-
 uint8_t EUSART_Read(void)
 {
     uint8_t readValue  = 0;
@@ -177,13 +150,6 @@ void EUSART_Write(uint8_t txData)
         eusartTxBufferRemaining--;
     }
     PIE1bits.TXIE = 1;
-}
-
-//------------------------------------------------------------------------------
-
-char getch(void)
-{
-    return EUSART_Read();
 }
 
 //------------------------------------------------------------------------------
