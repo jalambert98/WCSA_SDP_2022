@@ -53,7 +53,7 @@ int main(void) {
     
     // ====== INITIALIZE LIBRARIES ====== //
     // First, initialize libraries for startup chirp & battery level check
-    PIC16_Init();               // PMD, Osc, PinManager, & WDT
+    PIC16_Init();               // PMD, Osc, PinManager, WDT, & eusart
     FRT_Init();                 // global milli/micro-second counters
     BatteryMonitor_Init();      // ADC, ADCBuffer, BatteryMonitor
     SpeakerTone_Init();         // TMR3, CCP4(OC), SpeakerTone
