@@ -35,6 +35,7 @@
 
 // ============== THRESHOLD VALUES ============== //
 #define WARNING_DISTANCE        1000
+#define MIN_VALID_DISTANCE      90
 
 #define LOW_BAT_WARNING_RATE    (uint32_t)(300000)  // [300,000 ms --> 5 min]
 
@@ -141,15 +142,26 @@ int main(void) {
             distance = Lidar_Sensor_GetDistance();  // get last Lidar reading
             Lidar_Sensor_Trig();                    // TRIG new Lidar reading
 
+            // --- First, verify that LiDAR distance is valid ---//
+            if ((distance < MIN_VALID_DISTANCE) || (distance == 0xFFFF))
+                motorDC = 0;    // motor off if invalid reading
             
-            // --- Motor Intensity Update based on distance --- //
-            // If measured distance < WARNING_DISTANCE (1m)...
-            // ... calculate motor intensity based on measured distance
-            if (distance < WARNING_DISTANCE) {
-                motorDC = (WARNING_DISTANCE - distance);
-            } 
-            else {  // set vibration intensity = 0 if beyond warning distance
-                motorDC = 0;
+            // ============================================================== //
+            /*                                                                *
+             * TODO: Check 'Strength' reading here to verify valid LiDAR read *
+             *                                                                */
+            // ============================================================== //
+            
+            else {
+                // --- Motor Intensity Update based on distance --- //
+                // If measured distance < WARNING_DISTANCE (1m)...
+                // ... calculate motor intensity based on measured distance
+                if (distance < WARNING_DISTANCE) {
+                    motorDC = (WARNING_DISTANCE - distance);
+                } 
+                else {  // set vibration intensity = 0 if beyond warning distance
+                    motorDC = 0;
+                }
             }
 
             // Update motor intensity to new value
@@ -252,13 +264,15 @@ int main(void) {
                                 break;
                         }
                     }
-                    i = 0;          // reset outer loop counter
                 }
+                
+                // ----- Update Loop Counter & FR timer --- //
+                // Reset loop counter every 200ms [@5Hz]
+                i = 0;
             } 
-            // Increment outer loop counter @100Hz
+            // Increment loop counter every 10ms [@100Hz]
             else { i++; }
-
-            prevMilli = currMilli;
+            prevMilli = currMilli;  // update prevMilli every 10ms [@100Hz]
         }
     }
 
