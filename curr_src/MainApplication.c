@@ -150,7 +150,7 @@ int main(void) {
                 // If measured distance < WARNING_DISTANCE (1m)...
                 // ... calculate motor intensity based on measured distance
                 if (distance < WARNING_DISTANCE) {
-                    motorDC = (uint16_t)((uint32_t)((WARNING_DISTANCE-distance)*MAX_DC_PERMILLI)/WARNING_DISTANCE);
+                    motorDC = ((WARNING_DISTANCE - distance + MIN_VALID_DISTANCE) << 1) / 3;
                 } 
                 else {  // set vibration intensity = 0 if beyond warning distance
                     motorDC = 0;
