@@ -14,6 +14,7 @@
 #include <xc.h>
 #include "PowerButton.h"
 #include "SpeakerTone.h"
+#include "MotorControl.h"
 #include "WCSA_system.h"
 
 // RA2->CCP3:CCP3;
@@ -53,6 +54,9 @@ void PowerButton_ForceShutdown(void) {
     SET_A2() = OUTPUT;
     WRITE_A2() = LOW;
 
+    MotorControl_Off();
+    SpeakerTone_Off();
+    
     // block further CPU instruction
     while (1) {
         RESET_WDT();
@@ -98,7 +102,7 @@ void CCP3_Initialize(void) {
 void CCP3_CaptureISR(void) {
     /*
      * NOTE:    This shutdown routine only runs after detecting
-     *          a FALLING EDGE on GPIO pinRA2. 
+     *          a FALLING EDGE on GPIO pinRA2 (PwrBtn pressed)
      */
 
     // Clear the CCP3 interrupt flag

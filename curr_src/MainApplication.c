@@ -143,21 +143,14 @@ int main(void) {
             Lidar_Sensor_Trig();                    // TRIG new Lidar reading
 
             // --- First, verify that LiDAR distance is valid ---//
-            if ((distance < MIN_VALID_DISTANCE) || (distance == 0xFFFF))
-                motorDC = 0;    // motor off if invalid reading
-            
-            // ============================================================== //
-            /*                                                                *
-             * TODO: Check 'Strength' reading here to verify valid LiDAR read *
-             *                                                                */
-            // ============================================================== //
-            
+            if (distance < MIN_VALID_DISTANCE)
+                motorDC = 0;    // motor off if invalid reading  
             else {
                 // --- Motor Intensity Update based on distance --- //
                 // If measured distance < WARNING_DISTANCE (1m)...
                 // ... calculate motor intensity based on measured distance
                 if (distance < WARNING_DISTANCE) {
-                    motorDC = (WARNING_DISTANCE - distance);
+                    motorDC = (uint16_t)((uint32_t)((WARNING_DISTANCE+MIN_VALID_DISTANCE-distance)*MAX_DC_PERMILLI)/WARNING_DISTANCE);
                 } 
                 else {  // set vibration intensity = 0 if beyond warning distance
                     motorDC = 0;
