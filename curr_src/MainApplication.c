@@ -34,7 +34,7 @@
 
 
 // ============== THRESHOLD VALUES ============== //
-#define WARNING_DISTANCE        1000
+#define WARNING_DISTANCE        1500
 #define MIN_VALID_DISTANCE      90
 
 #define LOW_BAT_WARNING_RATE    (uint32_t)(300000)  // [300,000 ms --> 5 min]
@@ -150,7 +150,7 @@ int main(void) {
                 // If measured distance < WARNING_DISTANCE (1m)...
                 // ... calculate motor intensity based on measured distance
                 if (distance < WARNING_DISTANCE) {
-                    motorDC = (uint16_t)((uint32_t)((WARNING_DISTANCE+MIN_VALID_DISTANCE-distance)*MAX_DC_PERMILLI)/WARNING_DISTANCE);
+                    motorDC = (uint16_t)((uint32_t)((WARNING_DISTANCE-distance)*MAX_DC_PERMILLI)/WARNING_DISTANCE);
                 } 
                 else {  // set vibration intensity = 0 if beyond warning distance
                     motorDC = 0;
