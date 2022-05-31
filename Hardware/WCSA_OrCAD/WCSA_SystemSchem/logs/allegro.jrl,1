@@ -1,0 +1,17 @@
+\t (00:00:17) allegro 17.4 S013 Windows SPB 64-bit Edition
+\t (00:00:17)     Journal start - Wed May 18 20:20:36 2022
+\t (00:00:17)         Host=KENANS-PC User=kenan Pid=32048 CPUs=8
+\t (00:00:17) CmdLine= c:\cadence\spb_17.4\tools\bin\allegro.exe C:\Users\kenan\Desktop\WSCA\WCSA_SDP_2022\WCSA_OrCAD\WCSA_SystemSchem\WCSA_SystemSchem_4-Layer.brd
+\t (00:00:17) 
+   (00:00:17) Loading axlcore.cxt 
+\t (00:00:20) Opening existing design...
+\i (00:00:20) QtSignal SPBFoldDockArea FoldAreaTabWidget currentChanged "WCSA_SystemSchem_4-Layer"
+\d (00:00:20) Design opened: C:/Users/kenan/Desktop/WSCA/WCSA_SDP_2022/WCSA_OrCAD/WCSA_SystemSchem/WCSA_SystemSchem_4-Layer.brd
+\i (00:00:21) trapsize 1113
+\i (00:00:21) trapsize 1149
+\i (00:00:21) trapsize 1156
+\i (00:00:21) trapsize 919
+\i (00:00:21) trapsize 919
+\i (00:00:21) trapsize 622
+\i (00:00:22) exit 
+\t (00:00:22)     Journal end - Wed May 18 20:20:41 2022

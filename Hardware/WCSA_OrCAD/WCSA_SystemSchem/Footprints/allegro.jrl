@@ -1,0 +1,32 @@
+\t (00:00:00) allegro 17.4 S013 Windows SPB 64-bit Edition
+\t (00:00:00)     Journal start - Sun Apr 17 14:01:02 2022
+\t (00:00:00)         Host=DESKTOP-1414A5L User=student Pid=19112 CPUs=8
+\t (00:00:00) CmdLine= c:\cadence\spb_17.4\tools\bin\allegro.exe C:\Users\student\OrCAD_PCB\WCSA_OrCAD\WCSA_SystemSchem\Footprints\TO_-102A2020-S_PHR.dra
+\t (00:00:00) 
+   (00:00:00) Loading axlcore.cxt 
+\t (00:00:00) Opening existing design...
+\i (00:00:00) QtSignal SPBFoldDockArea FoldAreaTabWidget currentChanged "TO_-102A2020-S_PHR"
+\d (00:00:00) Design opened: C:/Users/student/OrCAD_PCB/WCSA_OrCAD/WCSA_SystemSchem/Footprints/TO_-102A2020-S_PHR.dra
+\i (00:00:00) trapsize 5416
+\i (00:00:00) trapsize 5703
+\i (00:00:00) trapsize 5416
+\i (00:00:00) trapsize 9161
+\i (00:00:00) trapsize 9160
+\i (00:00:01) trapsize 4468
+\i (00:00:01) generaledit 
+\i (00:00:16) create symbol 
+\i (00:00:19) fillin "TO_-102A2020-S_PHR.psm"
+\t (00:00:19) Creating package symbol 'C:/Users/student/OrCAD_PCB/WCSA_OrCAD/WCSA_SystemSchem/Footprints/TO_-102A2020-S_PHR.psm'.
+\t (00:00:19) Starting Create symbol...
+\i (00:00:19) generaledit 
+\i (00:00:21) create device 
+\i (00:00:25) setwindow form.crdevice
+\i (00:00:25) FORM crdevice dtype DISCRETE 
+   (00:00:25) Loading cmds.cxt 
+\i (00:00:26) FORM crdevice done  
+\t (00:00:26) Device file "TO_-102A2020-S_PHR.txt" created.
+
+\i (00:00:26) setwindow pcb
+\i (00:00:26) generaledit 
+\i (00:00:30) exit 
+\t (00:00:30)     Journal end - Sun Apr 17 14:01:32 2022

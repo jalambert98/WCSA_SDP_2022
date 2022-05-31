@@ -1,0 +1,65 @@
+(ExpressProject "MC33063A-Q1_TRANS"
+  (ProjectVersion "19981106")
+  (ProjectType "Analog or A/D Mixed Mode")
+  (Folder "Design Resources"
+    (Folder "Library"
+      (File ".\mc33063a-q1d_trans.olb"
+        (Type "Schematic Library")))
+    (NoModify)
+    (File ".\MC33063A-Q1_trans.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x")
+    (RootChangedForceReNetlist "x")
+    (PSPICE_Regenerate_Netlist_Flag "FALSE"))
+  (Folder "Outputs")
+  (Folder "PSpice Resources"
+    (Folder "Simulation Profiles"
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\mc33063a-q1_trans-pspicefiles\boost_startup\trans.sim"
+        (DisplayName "Boost_Startup-trans")
+        (Type "PSpice Profile"))
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\mc33063a-q1_trans-pspicefiles\boost_load_transient\trans.sim"
+        (DisplayName "Boost_Load_Transient-trans")
+        (Type "PSpice Profile"))
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\mc33063a-q1_trans-pspicefiles\buck_startup\trans.sim"
+        (DisplayName "Buck_Startup-trans")
+        (Type "PSpice Profile"))
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\mc33063a-q1_trans-pspicefiles\ibb_startup\trans.sim"
+        (DisplayName "IBB_Startup-trans")
+        (Type "PSpice Profile"))
+      (ActiveProfile ".\mc33063a-q1_trans-pspicefiles\boost_startup\trans.sim"))
+    (Folder "Model Libraries"
+      (Sort User)
+      (File ".\MC33063A-Q1_trans.lib"
+        (Type "PSpiceLibrary")))
+    (Folder "Stimulus Files"
+      (Sort User))
+    (Folder "Include Files"
+      (Sort User)))
+  (DefaultLibraryBrowseDirectory "library\PSpice")
+  (GlobalState
+    (FileView
+      (Path "Outputs"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -4 -23 0 253 0 386"))
+      (Tab 0)))
+  (MPSSessionName "x0241588")
+  (PartMRUSelector
+    (MC33063A-Q1D_TRANS
+      (FullPartName "MC33063A-Q1D_TRANS.Normal")
+      (LibraryName
+         "C:\ELABTRANS_WS\ELABTRANS_DS\PART_NUMBERS\MC33063A-Q1\ACTIVE_WORK_SANKALP\EXPERIMENTS\RELEASE_PROJECT_29MAY2017\MC33063A-Q1D_TRANS.OLB")
+      (DeviceIndex "0"))
+    (VDC
+      (FullPartName "VDC.Normal")
+      (LibraryName
+         "C:\CADENCE\SPB_16.2\TOOLS\CAPTURE\LIBRARY\PSPICE\SOURCE.OLB")
+      (DeviceIndex "0")))
+  (ISPCBBASICLICENSE "false"))

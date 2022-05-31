@@ -1,0 +1,209 @@
+
+**** 04/21/22 07:37:00 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-MCU_Power_Button"  [ c:\users\student\desktop\wcsa_sdp_2022\wcsa_orcad\pspice\mcu_powerbutton_simulation\mcu
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "MCU_Power_Button.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+.LIB "../../../mcu_power_button-pspicefiles/mcu_power_button.lib" 
+* From [PSPICE NETLIST] section of C:\Users\student\AppData\Roaming\SPB_Data\cdssetup\OrCAD_PSpice\17.4.0\PSpice.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 60 0 1m 
+.OPTIONS ADVCONV
+.PROBE64 V(*) I(*) W(*) D(*) NOISE(*) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source MCU_POWER_BUTTON
+C_C3         N84009 N83805  2.2u  TC=0,0 
+C_C1         N83981 N83931  1u  TC=0,0 
+R_R4         N83989 N83805  100k TC=0,0 
+S_U1         N83981 0 N84131 0 _U1
+.MODEL      _U1 VSWITCH Roff=100000000 Ron=0.01 VH=0 VT=2VDC TD=0
+S_U2         N83989 0 N84303 0 _U2
+.MODEL      _U2 VSWITCH Roff=1000000000 Ron=0.01 VH=0 VT=2VDC TD=0
+V_V1         N83757 0 3.7VDC
+R_R3         N84009 N83989  300k TC=0,0 
+V_V3         N84303 0  
++PULSE 3.7 0 5.25 0 0 10 20
+R_R2         N83931 N83757  100k TC=0,0 
+C_C2         N83931 N83757  100n  TC=0,0 
+R_R1         N83981 N83757  10k TC=0,0 
+V_V2         N84131 0  
++PULSE 0 3.7 5 0 0 0.5 10
+D_D4         N83989 N83981 Dbreak 
+C_C4         0 N83805  100n  TC=0,0 
+X_Q2         N83931 N84009 0 ZXMD63N02X/ZTX
+R_R5         0 N83805  10 TC=0,0 
+M_Q1         N83805 N83931 N83757 N83757 MbreakP           
+
+**** RESUMING MCU_Power_Button.cir ****
+.END
+
+WARNING(ORPSIM-15223): Library file c:\users\student\desktop\wcsa_sdp_2022\wcsa_orcad\pspice\mcu_powerbutton_simulation\mcu_power_button-pspicefiles\mcu_power_button.lib has changed since index file mcu_power_button.ind was created.
+
+WARNING(ORPSIM-15227): The timestamp changed from Tue Apr 12 16:10:45 2022 to Thu Apr 21 02:01:11 2022.
+
+INFO(ORPSIM-15422): Making new index file mcu_power_button.ind for library file mcu_power_button.lib.
+
+Index has 2 entries from 1 file(s).
+
+**** 04/21/22 07:37:00 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-MCU_Power_Button"  [ c:\users\student\desktop\wcsa_sdp_2022\wcsa_orcad\pspice\mcu_powerbutton_simulation\mcu
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               Dbreak          X_Q2.D63N02     
+          IS   10.000000E-15    4.000000E-12 
+           N                    1.04         
+         IKF                     .082        
+          RS     .1              .105        
+         CJO  100.000000E-15                 
+
+
+**** 04/21/22 07:37:00 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-MCU_Power_Button"  [ c:\users\student\desktop\wcsa_sdp_2022\wcsa_orcad\pspice\mcu_powerbutton_simulation\mcu
+
+
+ ****     MOSFET MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               MbreakP         X_Q2.M63N02     
+               PMOS            NMOS            
+       LEVEL    1               1            
+           L  100.000000E-06  100.000000E-06 
+           W  100.000000E-06  100.000000E-06 
+         VTO    0               1.4          
+          KP   20.000000E-06   15            
+       GAMMA    0               0            
+         PHI     .6              .6          
+      LAMBDA    0               8.700000E-03 
+          RD                     .02         
+          RS                     .04         
+          IS   10.000000E-15   10.000000E-15 
+          JS    0               0            
+          PB     .8              .8          
+        PBSW     .8              .8          
+         CBD                  600.000000E-12 
+          CJ    0               0            
+        CJSW    0               0            
+        CGSO    0               0            
+        CGDO    0               0            
+        CGBO    0               0            
+         TOX    0               0            
+          XJ    0               0            
+       UCRIT   10.000000E+03   10.000000E+03 
+      DIOMOD    1               1            
+         VFB    0               0            
+        LETA    0               0            
+        WETA    0               0            
+          U0    0               0            
+        TEMP    0               0            
+         VDD    5               5            
+       XPART    0               0            
+
+
+**** 04/21/22 07:37:00 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-MCU_Power_Button"  [ c:\users\student\desktop\wcsa_sdp_2022\wcsa_orcad\pspice\mcu_powerbutton_simulation\mcu
+
+
+ ****     Voltage Controlled Switch MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               _U1             _U2             
+         RON     .01             .01         
+        ROFF  100.000000E+06    1.000000E+09 
+          VT    2               2            
+          VH    0               0            
+          TD    0               0            
+
+
+**** 04/21/22 07:37:00 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-MCU_Power_Button"  [ c:\users\student\desktop\wcsa_sdp_2022\wcsa_orcad\pspice\mcu_powerbutton_simulation\mcu
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(N83757)    3.7000 (N83805) 50.87E-12 (N83931)    3.6996 (N83981)    3.6996     
+
+(N83989) 37.10E-15 (N84009) 37.10E-15 (N84131)    0.0000 (N84303)    3.7000     
+
+(X_Q2.2) 37.10E-15 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1        -4.072E-08
+    V_V3        -3.700E-12
+    V_V2         0.000E+00
+
+    TOTAL POWER DISSIPATION   1.51E-07  WATTS
+
+
+**** Interrupt ****
+
+          JOB ABORTED
+
+**** 04/21/22 07:37:00 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-MCU_Power_Button"  [ c:\users\student\desktop\wcsa_sdp_2022\wcsa_orcad\pspice\mcu_powerbutton_simulation\mcu
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =        6.02
+

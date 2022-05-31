@@ -1,0 +1,23 @@
+(---------------------------------------------------------------------)
+(                                                                     )
+(    CREATE SYMBOL                                                    )
+(                                                                     )
+(    Drawing          : SAMTEC_TSW-101-24-G-T.dra                     )
+(    Software Version : 17.4S013                                      )
+(    Date/Time        : Thu Apr 14 10:14:50 2022                      )
+(                                                                     )
+(---------------------------------------------------------------------)
+
+
+Create Symbol of type: PACKAGE
+    Directory = C:/Users/student/OrCAD_PCB/WCSA_OrCAD/WCSA_SystemSchem/Footprints
+    Name      = samtec_tsw-101-24-g-t.psm
+    User      = student
+    Machine   = DESKTOP-1414A5L
+
+
+Create symbol started.
+ 
+
+Create symbol completed.
+
