@@ -17,7 +17,7 @@ Jack Lambert, Kenan Gedik, and Evan Mayhew
 * **Charge Controller**: *Microchip MCP73837* - Single Cell Li+Poly Battery Charge Management IC
 * **Voltage Regulator**:	*Texas Instruments MC34063A* - Buck-Boost Switching Regulator
 * **Power-Button**: Momentary Pushbutton - SPST (Normally Open)
-*  **Charging Jack**: Coaxial *"Barrel Jack"* DC Power Connector
+*  **Charging Connector**: Coaxial *"Barrel Jack"* DC Power Connector
 
 Schematic / wiring diagram PDFs may be found in the directory:
 * `"/Hardware/WCSA_OrCAD/Schematic PDFs/"`
