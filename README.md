@@ -1,11 +1,11 @@
 # White Cane Sensor Attachment
-This project was completed in Spring, 2022 for the UCSC Senior Engineering Design Project course sequence: [ECE129].
+This project was completed in Spring, 2022 for the UCSC Engineering Senior Design Project: [ECE129].
 
 Engineering Team consists of:
 Jack Lambert, Kenan Gedik, and Evan Mayhew
 
-**TODO**:
-* Add design brief / project background
+* **TODO**:
+	* Add design brief / project background
 
 # Required Hardware for Project
 * **MCU**:		*Microchip PIC16F18345* - Microcontroller
@@ -19,9 +19,13 @@ Jack Lambert, Kenan Gedik, and Evan Mayhew
 * **Power-Button**: Momentary Pushbutton - SPST (Normally Open)
 *  **Charging Jack**: Coaxial *"Barrel Jack"* DC Power Connector
 
+Schematic / wiring diagram PDFs may be found in the directory:
+* `"/Hardware/WCSA_OrCAD/Schematic PDFs/"`
+
+
 # Directory Locations
 * The ***complete list of source files*** may be found in the directory:
-	* `"/Current Software Release/curr_src"`
+	* `"/Current Software Release/curr_src/"`
 
 
 * A ***pre-built hex file*** (ready to flash onto MCU) may be found in:
@@ -39,5 +43,3 @@ Jack Lambert, Kenan Gedik, and Evan Mayhew
 		* `"/Hardware/WCSA_OrCAD/WCSA_SystemSchem/"`
 	*  Mechanical Housing project files (configured with *SolidWorks*) may be found in the directory:
 		* `"/Hardware/SolidWorks_Assembly/"`
-
-# *** NOT DONE YET ***
