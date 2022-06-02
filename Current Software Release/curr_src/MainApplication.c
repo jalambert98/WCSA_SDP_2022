@@ -34,9 +34,12 @@
 
 
 // ============== THRESHOLD VALUES ============== //
-#define WARNING_DISTANCE        1500
-#define MIN_VALID_DISTANCE      30
-#define MOTOR_DC_FROM_DIST(d)   (((WARNING_DISTANCE+MIN_VALID_DISTANCE-d)<<1)/3)
+#define WARNING_DISTANCE        1750    // increasing from 0% DC < 1.75m
+#define MIN_VALID_DISTANCE      10      // ignore readings < 10mm
+#define MIN_VIBRATION_TIME      200     // always vibrate for at least 200ms
+
+// [20% - 99.75%] motor intensity --> [2m - 10mm] distance readings
+#define MOTOR_DC_FROM_DIST(d)   ((((WARNING_DISTANCE - d) << 1) / 5) + 200)
 
 #define LOW_BAT_WARNING_RATE    (uint32_t)(300000)  // [300,000 ms --> 5 min]
 
@@ -74,6 +77,7 @@ int main(void) {
     
     uint32_t currMilli, prevMilli;        // global counter variables
     uint32_t prevWarningMilli;            // time of last low battery warning
+    uint32_t prevMotorMilli;
     uint8_t i = 0;                        // outer loop counter / iterator
     
     
@@ -92,6 +96,7 @@ int main(void) {
     currMilli = FRT_GetMillis();
     prevMilli = currMilli;
     prevWarningMilli = currMilli;
+    prevMotorMilli = currMilli;
 
     // Read ADC every 10ms (@100Hz) for 750ms --> 75 readings (64val buffer)
     do {
@@ -146,16 +151,24 @@ int main(void) {
             Lidar_Sensor_Trig();                    // TRIG new Lidar reading
 
             // --- First, verify that LiDAR distance is valid ---//
-            if (distance < MIN_VALID_DISTANCE)
-                motorDC = 0;    // motor off if invalid reading  
+            if (distance < MIN_VALID_DISTANCE) {
+                if ((currMilli - prevMotorMilli) > MIN_VIBRATION_TIME) {
+                    motorDC = 0;    // motor off if invalid reading
+                }
+            }
             else {
                 // --- Motor Intensity Update based on distance --- //
                 // If measured distance < WARNING_DISTANCE (1m)...
-                // ... calculate motor intensity based on measured distance
                 if (distance < WARNING_DISTANCE) {
+                    if (motorDC == 0) {
+                        // store time that motor was turned on
+                        prevMotorMilli = currMilli;
+                    }
+                    // ... calculate motor intensity based on measured distance
                     motorDC = MOTOR_DC_FROM_DIST(distance);
                 } 
-                else {  // set vibration intensity = 0 if beyond warning distance
+                else if ((currMilli - prevMotorMilli) > MIN_VIBRATION_TIME) {  
+                    // set vibration intensity = 0 if beyond warning distance
                     motorDC = 0;
                 }
             }
@@ -247,15 +260,12 @@ int main(void) {
                                 break;
 
                             case BAT_50:    // (< 50%) --> BAT_50 chirp 
-                                if (batStatePrev != BAT_75)
-                                    break;
-                            case BAT_75:    // (< 75%) --> BAT_75 chirp
-                                if (batStatePrev != BAT_FULL)
-                                    break;
-                                
+                            case BAT_75:    // (< 75%) --> BAT_75 chirp                               
                                 // Play BatLvlChirp if batState drops
                                 SpeakerTone_BatLvlChirp(batStateCurr);
-                                prevWarningMilli = currMilli;   
+                                prevWarningMilli = currMilli; 
+                                break;
+                                
                             default:
                                 break;
                         }

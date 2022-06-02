@@ -19,6 +19,7 @@
 #define NOTE_MED_DURATION       200     // 200ms --> [1/8th notes (~150bpm)]
 #define NOTE_SHORT_DURATION     100     // 100ms --> [1/16th notes]
 #define NOTE_SUPERFAST          50      // 50ms  --> [1/32nd notes]
+
 // #define SPEAKERTONE_TEST
 
 
@@ -395,7 +396,7 @@ void SpeakerTone_ChargeCompleteChirp(void) {
 #ifdef SPEAKERTONE_TEST
 
 // ======= DEFINES ======= //
-#define CHIRP_RATE    5000 // play chirp sequence every 5s
+#define CHIRP_RATE    3000 // play chirp sequence every 5s
 
 
 // ======= MAIN() ======= //
@@ -436,25 +437,25 @@ int main(void) {
                 case 2:
                     SpeakerTone_LowBatteryChirp();
                     i++;
-                    break;
+                    break;     
                 case 3:
-                    SpeakerTone_BatLvlChirp(BAT_EMPTY);
+                    SpeakerTone_BatLvlChirp(BAT_50);
                     i++;
-                    break;  
+                    break;     
                 case 4:
-                    SpeakerTone_BatLvlChirp(BAT25);
-                    i++;
-                    break;     
-                case 5:
-                    SpeakerTone_BatLvlChirp(BAT50);
-                    i++;
-                    break;     
-                case 6:
-                    SpeakerTone_BatLvlChirp(BAT75);
+                    SpeakerTone_BatLvlChirp(BAT_75);
                     i++;
                     break;  
-                case 7:
+                case 5:
                     SpeakerTone_BatLvlChirp(BAT_FULL);
+                    i++;
+                    break;
+                case 6:
+                    SpeakerTone_NowChargingChirp(TRUE);
+                    i++;
+                    break;
+                case 7:
+                    SpeakerTone_NowChargingChirp(FALSE);
                     i = 0;
                     break;
             }
