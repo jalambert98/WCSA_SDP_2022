@@ -54,6 +54,7 @@ void PowerButton_ForceShutdown(void) {
     SET_A2() = OUTPUT;
     WRITE_A2() = LOW;
 
+    // shutdown motor + speaker peripherals
     MotorControl_Off();
     SpeakerTone_Off();
     
@@ -107,7 +108,8 @@ void CCP3_CaptureISR(void) {
 
     // Clear the CCP3 interrupt flag
     PIR4bits.CCP3IF = 0;
-
+    
+    // flag set HIGH indicates shutdown requested (polled in main)
     gpioFlag = HIGH;
 }
 
@@ -131,7 +133,12 @@ int main(void) {
      *  DO NOTHING, until momentary press detected.
      *  Then, run shutdown routine.
      */
-    while (1);
+    while (1) {
+        if (PowerButton_WasBtnPressed())
+            PowerButton_ForceShutdown();
+        else
+            RESET_WDT();
+    }
     return 0;
 }
 
