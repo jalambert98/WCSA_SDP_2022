@@ -4,8 +4,14 @@ This project was completed in Spring, 2022 for the UCSC Engineering Senior Desig
 Engineering Team consists of:
 Jack Lambert, Kenan Gedik, and Evan Mayhew
 
-* **TODO**:
-	* Add design brief / project background
+Further details discussed in the [Final Report](https://docs.google.com/document/d/1Efdpn37GAvf8zooDdBLJ60yIhcKpRv2C2m5_8_7ayGk/edit?usp=sharing).
+
+
+
+### Summary:
+The system design of a cane-attachment for overhang-detection seeks to address the problem of visually impaired cane users experiencing head-level injuries due to the traditional cane’s inability to detect objects above the waist-level. The final system design features a modular, 4.5 ounce, $100 attachment that is capable of consistent overhang detection up to the full height of the user. The system’s battery life lasts for approximately 6 hours of continuous use, and is easily rechargeable through a standard 5VDC wall adapter.
+
+
 
 # Required Hardware for Project
 * **MCU**:		*Microchip PIC16F18345* - Microcontroller
@@ -31,7 +37,7 @@ Schematic / wiring diagram PDFs may be found in the directory:
 * A ***pre-built hex file*** (ready to flash onto MCU) may be found in:
 	* `"/Current Software Release/prebuilt_hex/SDP_FinalProject.X.production.hex"`
 
-* ***Previous / abandoned versions of project source files*** (for different MCU and/or distance sensors) may be found in the directories:
+* ***Archived versions of past source files*** (for different MCU and/or distance sensors) may be found in the directories:
 	* `"/Old Versions/PIC16F/"` 
 	* `"/Old Versions/AVR ProMicro/"`
 
