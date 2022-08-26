@@ -9,7 +9,7 @@ Further details discussed in the [Final Report](https://docs.google.com/document
 
 
 ### Summary:
-The system design of a cane-attachment for overhang-detection seeks to address the problem of visually impaired cane users experiencing head-level injuries due to the traditional cane’s inability to detect objects above the waist-level. The final system design features a modular, 4.5 ounce, $100 attachment that is capable of consistent overhang detection up to the full height of the user. The system’s battery life lasts for approximately 6 hours of continuous use, and is easily rechargeable through a standard 5VDC wall adapter.
+The system design of a cane-attachment for overhang-detection seeks to address the problem of visually impaired cane users experiencing head-level injuries due to the traditional cane’s inability to detect objects above the waist-level. The final system design features a modular, 4.5 ounce, $100 attachment that easily attaches to a standard straight or folding cane. The system functions by translating distance readings from a LiDAR sensor into intuitive haptic feedback that can be felt by the user through the handle of their cane. The system’s battery life lasts for approximately 6 hours of continuous use, and is easily rechargeable through a standard 5VDC wall adapter.
 
 
 
