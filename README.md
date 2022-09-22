@@ -1,5 +1,5 @@
 # White Cane Sensor Attachment
-This project was completed in Spring, 2022 for the UCSC Engineering Senior Design Project: [ECE129].
+This project was completed in Spring, 2022 for the year-long UCSC Electrical & Computer Engineering Senior Design Project sequence: [ECE129].
 
 Engineering Team consists of:
 Jack Lambert, Kenan Gedik, and Evan Mayhew
